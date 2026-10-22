@@ -63,6 +63,17 @@ sentences only look like amounts ("A tablespoon cookie scoop works well
 here."), which makes them useful negative cases, and sentences that write
 an amount in a form the pattern didn't cover may be missing.
 
+## Rare units
+
+`rare-units/<site>.json` holds lines that use units the random sample
+lacked: cl, pullo / plo and maustemitta. For each Finnish site, the same
+seeded sample was continued for another 200 recipe pages (1,400 in all), and
+only lines with one of those units after a number were kept, 13 lines from 11
+recipes. Abbreviated "mm" (maustemitta) appeared in none of them. Lines are
+verbatim, like the rest of the corpus; "1 plo (0" is cut short in the site's
+own data. Being a targeted selection, these lines don't count towards the
+statistics of the random sample.
+
 ## Rules
 
 - Keep every line exactly as published. Tests that need clean input

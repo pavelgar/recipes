@@ -1,0 +1,21 @@
+{
+  "site": "kotikokki.net",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.kotikokki.net/kumppanit/bonne/reseptit/nayta/884433/Omena-inkiv%C3%A4%C3%A4rimuuli/",
+      "name": "Omena-inkiväärimuuli",
+      "ingredients": ["8cl Bonne Omenasosetta"]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/870756/Limoncello%20spritz%20a%27la%20Taskari%2025.7.2022/",
+      "name": "Limoncello spritz a&#039;la Taskari 25.7.2022",
+      "ingredients": [
+        "2cl limoncello-likööriä",
+        "n.4-6cl kuohuviiniä/proseccoa"
+      ]
+    }
+  ]
+}

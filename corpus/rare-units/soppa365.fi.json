@@ -1,0 +1,18 @@
+{
+  "site": "soppa365.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-arjen-nopeat-padat-ja-laatikot/siiderinen-broileripata",
+      "name": "Siiderinen broileripata",
+      "ingredients": ["1 plo (0"]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis/hedelma-kvinoapaistos",
+      "name": "Hedelmä-kvinoapaistos",
+      "ingredients": ["1 maustemitta sahramia"]
+    }
+  ]
+}

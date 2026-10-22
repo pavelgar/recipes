@@ -1,0 +1,13 @@
+{
+  "site": "arla.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.arla.fi/reseptit/lattea-ja-laakerinlehtea/",
+      "name": "Lattea ja laakerinlehteä",
+      "ingredients": ["3 cl espressoa"]
+    }
+  ]
+}

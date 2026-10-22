@@ -1,0 +1,23 @@
+{
+  "site": "meillakotona.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.meillakotona.fi/reseptit/jabun-pasta-arrabbiata",
+      "name": "Jabun arrabbiata – katso ohje!  | Maku",
+      "ingredients": ["12 cl valkoviiniä"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/kuohuva-glogidrinkki",
+      "name": "Glögispritzer – katso resepti! | Kotivinkki",
+      "ingredients": ["1 plo kuivaa kuohuviiniä"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/vesimelonislush-varma-hellepaivan-viilentaja",
+      "name": "Vesimelonislush  | Maku",
+      "ingredients": ["2 cl giniä per annos"]
+    }
+  ]
+}
