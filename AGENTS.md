@@ -2,6 +2,10 @@
 
 Read [DESIGN.md](DESIGN.md) before planning or changing features, screens, visual design, the data model, or deployment. It holds what is decided, the build order, and the working rules for this project.
 
+## Stale docs
+
+When a doc in this repo no longer matches the code or the outside world, update it in the same change and point out the update in your reply. If you can't tell whether the doc or the code is wrong, ask.
+
 <!-- intent-skills:start -->
 
 ## Skill Loading

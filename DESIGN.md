@@ -66,8 +66,9 @@
 
 - Typed by hand, imported from a website, or photographed from a cookbook.
 - Website import reads schema.org/Recipe data in both JSON-LD and microdata
-  form. Six of the seven major Finnish recipe sites checked publish it;
-  Arla.fi uses microdata.
+  form. All seven Finnish sites in the test corpus (Arla, Kotikokki,
+  Kotiliesi, Meillä kotona, Soppa365, Valio, Yhteishyvä) publish JSON-LD.
+  Microdata support stays for sites that use it.
 - Photo import sends the photo directly to a vision-capable AI model, with no
   separate OCR step.
 - Imported and photographed recipes open in the editor for review before
@@ -100,6 +101,8 @@
   indicates whether the app recognised its amount and unit. Lines it can't
   recognise are fine: they are saved and shown exactly as written, without
   conversion.
+- Ingredient lines aren't split into ingredient name and notes ("finely
+  chopped"). That waits until tag suggestions need ingredient names.
 - Ingredients and steps can be grouped into optional sections ("For the
   sauce"). Recipes without sections must look and work just as well.
 - Recipes are in English and Finnish to begin with.
@@ -124,6 +127,7 @@
   recipes. Australian tablespoons convert by volume (1 tbsp ≈ 4 tl).
 - Volumes stay volumes and weights stay weights (cups ↔ dl, grams ↔ ounces).
   No converting between volume and weight.
+- Lengths convert too (cm ↔ inches), in ingredient lines and steps.
 - Metric keeps decilitres: cups convert to dl. Converted volumes stay in dl
   even below half a decilitre; they are not switched to spoons.
 - Both ways of writing decilitres are supported: decimals (1,5 dl) and
@@ -139,7 +143,10 @@
 - Text that already gives both systems, like "425 °F (220 °C)", is left as
   written.
 - Package units (1 prk) are never converted, but scale with servings. A size
-  given in the line, as in "1 prk (400 g)", converts.
+  given in the line, as in "1 prk (400 g)", converts. It counts as the total
+  for the line and scales with it ("2 prk (800 g)"), unless the line marks
+  it as per package: "2 pkt (à 170 g)", "2 x 150g", "1 (14 ounce) can".
+  Lengths are always per item ("2 (9 inch) pie crusts").
 - The recipe as originally written is one tap away.
 - Interpretation must handle Finnish conventions: decimal commas (1,5 dl),
   units such as dl, rkl, tl and mm (maustemitta, 1 ml), and package
