@@ -30,6 +30,10 @@
   Caddy and your own domain.
 - Test environment: a home server running Podman, Caddy with my own domain
   and a Let's Encrypt certificate, and Tailscale.
+- The image is based on Node 24 LTS, and the app runs on Node. Bun, copied
+  from the official Bun image, is used only at build time: installing
+  packages and other build steps.
+- The database is SQLite, accessed through libsql.
 
 ### Backups and export
 

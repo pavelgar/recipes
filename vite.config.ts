@@ -18,7 +18,7 @@ const config = defineConfig({
       outdir: './src/paraglide',
       strategy: ['cookie', 'baseLocale'],
     }),
-    nitro(),
+    nitro({ plugins: ['./src/nitro/check-env.ts'] }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
