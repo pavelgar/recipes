@@ -1,62 +1,113 @@
+import { isBareIn, spacedInchesHold } from '@/lib/quantities/ambiguity'
 import {
+  atNumberBoundary,
   makeRange,
   readNumber,
+  readNumberWord,
   readRangeSeparator,
 } from '@/lib/quantities/numbers'
-import { isMeasure, readUnit } from '@/lib/quantities/units'
-import type { Language, Value } from '@/lib/quantities/numbers'
-import type { Unit, UnitContext } from '@/lib/quantities/units'
+import { endOf, HYPHEN, matchAt, SPACE } from '@/lib/quantities/text'
+import { readUnit, unitById } from '@/lib/quantities/units'
+import type { Language, NumberForm, Value } from '@/lib/quantities/numbers'
+import type { Unit, UnitMatch } from '@/lib/quantities/units'
 
 export type Span = readonly [start: number, end: number]
 
+// One number as written in the text.
+export type WrittenNumber = {
+  readonly value: number
+  readonly at: Span
+  readonly form: NumberForm
+}
+
+// What the text says about an amount, and where. To scale an amount and
+// keep the writer's style, replace the numbers and leave the rest; to
+// convert it, replace everything from the first number to the unit.
 export type Amount = {
   readonly value: Value
   readonly unit: Unit | null
   readonly approximate: boolean
-  // Everything the amount covers in the text, from the first number to the
-  // unit.
+  // From the first number to the unit. When the amount takes its unit from
+  // the amount after it ("2 + 1 rkl"), only the number, and unitAt points
+  // past it.
   readonly at: Span
-  // The number, or both numbers of a range. When a range writes its unit
-  // twice ("198g to 255g"), the first unit falls inside.
-  readonly valueAt: Span
+  // One number, or both ends of a range. "1lb 5oz" is one number in pounds
+  // whose unit covers "lb 5oz".
+  readonly numbers: ReadonlyArray<WrittenNumber>
+  // The unit as written. When a range writes it twice ("198g to 255g"), the
+  // second.
   readonly unitAt: Span | null
-  // The same amount written in another unit right after it: "125g/4½oz",
-  // "1 cup (240 ml)".
-  readonly alt: Amount | null
 }
 
-export type ReadOptions = {
-  readonly language: Language
-  readonly context: UnitContext
-  // Step text joins numbers and units with hyphens: "9-inch pan".
-  readonly hyphens: boolean
-}
+export type ReadOptions = { readonly language: Language }
 
+// An amount read at a position, before anything is known about its role.
 export type QuantityMatch = {
   readonly value: Value
   readonly unit: Unit | null
   readonly start: number
   readonly end: number
-  readonly valueEnd: number
+  readonly numbers: ReadonlyArray<WrittenNumber>
   readonly unitAt: Span | null
+  // A word between the number and the unit makes it so: "2 scant cups".
+  readonly approximate?: boolean
 }
 
-const SPACE = /[ \t\u00a0\u2009\u202f]*/y
+const SPACES = new RegExp(`${SPACE}*`, 'y')
+const NUMBER_HYPHEN = new RegExp(HYPHEN, 'y')
 
-function after(re: RegExp, text: string, pos: number): number | null {
-  re.lastIndex = pos
-  const m = re.exec(text)
-  return m ? pos + m[0].length : null
+const written = (n: {
+  value: number
+  start: number
+  end: number
+  form: NumberForm
+}): WrittenNumber => ({ value: n.value, at: [n.start, n.end], form: n.form })
+
+// Words between a number and a spoon, cup or handful: "1/4 rounded
+// teaspoon", "2 scant cups", "1 large tbsp". All but "level" make the amount
+// approximate.
+const MODIFIER = new RegExp(
+  String.raw`${SPACE}+(?:(level|tasai\p{L}*)|heaped|heaping|scant|rounded|generous|good|large|small|big|kukkura\p{L}*)(?![\p{L}])`,
+  'iuy',
+)
+
+type ModifiedUnit = UnitMatch & { readonly approximate: boolean }
+
+// Reads a unit after a word such as "heaped" at pos.
+function readModifiedUnit(
+  text: string,
+  pos: number,
+  opts: ReadOptions,
+): ModifiedUnit | null {
+  const m = matchAt(MODIFIER, text, pos)
+  if (!m) return null
+  const unit = readUnitAfter(text, pos + m[0].length, opts)
+  if (unit?.unit.kind !== 'volume' && unit?.unit.kind !== 'pinch') return null
+  return { ...unit, approximate: m.at(1) === undefined }
 }
 
-export function readUnitAfter(text: string, pos: number, opts: ReadOptions) {
-  let p = after(SPACE, text, pos) ?? pos
+function readUnitOrModified(
+  text: string,
+  pos: number,
+  opts: ReadOptions,
+): (UnitMatch & { readonly approximate?: boolean }) | null {
+  return readUnitAfter(text, pos, opts) ?? readModifiedUnit(text, pos, opts)
+}
+
+export function readUnitAfter(
+  text: string,
+  pos: number,
+  opts: ReadOptions,
+): UnitMatch | null {
+  let p = endOf(SPACES, text, pos) ?? pos
   const spaced = p > pos
-  if (opts.hyphens && text[p] === '-') p++
-  const match = readUnit(text, p, opts.context)
+  // "9-inch pan", "14-ounce can"
+  p = endOf(NUMBER_HYPHEN, text, p) ?? p
+  const match = readUnit(text, p, opts.language)
   if (!match) return null
-  // Inch marks only count glued to the number: 1/3" wide.
-  if (match.unit.id === 'in' && spaced && /["″”]/.test(text[p])) return null
+  if (match.unit.id === 'in' && spaced && !spacedInchesHold(text, match)) {
+    return null
+  }
   return match
 }
 
@@ -70,14 +121,14 @@ export function readQuantity(
 ): QuantityMatch | null {
   const first = readNumber(text, pos, opts.language)
   if (!first) return null
-  const firstUnit = readUnitAfter(text, first.end, opts)
+  const firstUnit = readUnitOrModified(text, first.end, opts)
   const firstEnd = firstUnit?.end ?? first.end
 
   const separatorEnd = readRangeSeparator(text, firstEnd)
   if (separatorEnd !== null) {
     const second = readNumber(text, separatorEnd, opts.language)
     if (second) {
-      const secondUnit = readUnitAfter(text, second.end, opts)
+      const secondUnit = readUnitOrModified(text, second.end, opts)
       const range = makeRange(first.value, second.value)
       const unitsAgree = !firstUnit || secondUnit?.unit.id === firstUnit.unit.id
       if (range && unitsAgree) {
@@ -87,19 +138,20 @@ export function readQuantity(
           unit: unit?.unit ?? null,
           start: pos,
           end: secondUnit?.end ?? second.end,
-          valueEnd: second.end,
+          numbers: [written(first), written(second)],
           unitAt: unit ? [unit.start, unit.end] : null,
+          approximate: unit?.approximate,
         }
       }
     }
   }
 
-  if (!firstUnit && text[after(SPACE, text, first.end) ?? first.end] === '%') {
+  if (!firstUnit && text[endOf(SPACES, text, first.end) ?? first.end] === '%') {
     return null
   }
   // "1lb 5oz" reads as 1 5/16 lb.
   if (firstUnit?.unit.id === 'lb') {
-    const ouncesAt = after(SPACE, text, firstUnit.end) ?? firstUnit.end
+    const ouncesAt = endOf(SPACES, text, firstUnit.end) ?? firstUnit.end
     const ounces =
       ouncesAt > firstUnit.end
         ? readNumber(text, ouncesAt, opts.language)
@@ -111,7 +163,7 @@ export function readQuantity(
         unit: firstUnit.unit,
         start: pos,
         end: ouncesUnit.end,
-        valueEnd: first.end,
+        numbers: [written(first)],
         unitAt: [firstUnit.start, ouncesUnit.end],
       }
     }
@@ -121,47 +173,73 @@ export function readQuantity(
     unit: firstUnit?.unit ?? null,
     start: pos,
     end: firstEnd,
-    valueEnd: first.end,
+    numbers: [written(first)],
     unitAt: firstUnit ? [firstUnit.start, firstUnit.end] : null,
+    approximate: firstUnit?.approximate,
   }
 }
 
-export function toAmount(
-  q: QuantityMatch,
-  approximate: boolean,
-  alt: Amount | null = null,
-): Amount {
+// Finnish unit words that mean one of themselves: "litra maitoa",
+// "teelusikallinen suolaa".
+const ONE_OF =
+  /(?:litra|desilitra|kilo|teelusikallinen|ruokalusikallinen|maustemitallinen)(?![\p{L}\d])/iuy
+
+export type WordQuantityMatch = QuantityMatch & {
+  // Written with "a" or "an", which only count as one before a unit.
+  readonly article: boolean
+  // No space or hyphen between the word and the unit.
+  readonly glued: boolean
+}
+
+// Reads an amount written in words: "kaksi desilitraa", "one and a half
+// cups", "a pinch", "teelusikallinen".
+export function readWordQuantity(
+  text: string,
+  pos: number,
+  opts: ReadOptions,
+): WordQuantityMatch | null {
+  const word = readNumberWord(text, pos, opts.language)
+  if (word) {
+    const found = readUnitAfter(text, word.end, opts)
+    // After a number word, "in" is the preposition: "two in the drumsticks".
+    const unit = found && !isBareIn(text, found) ? found : null
+    return {
+      value: word.value,
+      unit: unit?.unit ?? null,
+      start: pos,
+      end: unit?.end ?? word.end,
+      numbers: [written(word)],
+      unitAt: unit ? [unit.start, unit.end] : null,
+      article: word.article,
+      glued: unit?.start === word.end,
+    }
+  }
+  if (opts.language !== 'fi' || !atNumberBoundary(text, pos)) return null
+  const end = endOf(ONE_OF, text, pos)
+  const unit = end === null ? null : readUnitAfter(text, pos, opts)
+  if (end === null || !unit) return null
+  return {
+    value: 1,
+    unit: unit.unit,
+    start: pos,
+    end,
+    // The word is both the number and the unit.
+    numbers: [{ value: 1, at: [pos, end], form: 'word' }],
+    unitAt: [pos, end],
+    article: false,
+    glued: false,
+  }
+}
+
+export function toAmount(q: QuantityMatch, approximate: boolean): Amount {
   return {
     value: q.value,
     unit: q.unit,
-    approximate,
+    approximate: approximate || q.approximate === true,
     at: [q.start, q.end],
-    valueAt: [q.start, q.valueEnd],
+    numbers: q.numbers,
     unitAt: q.unitAt,
-    alt,
   }
 }
 
-const SLASH = /\s*\/\s*/y
-
-// Reads what follows a slash after an amount: "/4½oz", "/ 2 sticks".
-export function readSlashed(
-  text: string,
-  pos: number,
-  opts: ReadOptions,
-): QuantityMatch | null {
-  const p = after(SLASH, text, pos)
-  return p === null ? null : readQuantity(text, p, opts)
-}
-
-// Reads "/4½oz" after an amount: the same amount in another measure.
-export function readSlashAlt(
-  text: string,
-  pos: number,
-  unit: Unit | null,
-  opts: ReadOptions,
-): Amount | null {
-  const q = readSlashed(text, pos, opts)
-  if (!q || !isMeasure(q.unit) || q.unit?.id === unit?.id) return null
-  return toAmount(q, false)
-}
+export const MAUSTEMITTA = unitById('maustemitta')

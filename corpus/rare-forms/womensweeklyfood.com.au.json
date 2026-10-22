@@ -1,0 +1,86 @@
+{
+  "site": "womensweeklyfood.com.au",
+  "country": "AU",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/jack-in-the-box-8149/",
+      "name": "Jack in the box birthday cake",
+      "ingredients": ["1 x 470g (15-ounce) packet butter cake mix"]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/jam-tarts-12450/",
+      "name": "Jam tarts",
+      "ingredients": [
+        "1/4 cup (40g) icing sugar, plus 1 tablespoon extra, for dusting"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/nutty-chocolate-and-coffee-ice-cream-cake-6839/",
+      "name": "Nutty chocolate and coffee ice-cream cake",
+      "sentences": [
+        "Return two portions to freezer; put one in medium bowl and stand at room temperature until softened."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dessert/crepes-with-strawberries-and-cream-8102/",
+      "name": "Crêpes with strawberries and cream",
+      "sentences": [
+        "Repeat with remaining butter and batter to make 16 in total."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/chicken-with-broccolini-and-asparagus-29579/",
+      "name": "Miso chicken with broccolini and asparagus",
+      "ingredients": ["4 120 gram chicken breast supremes"]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/slow-cooked-bolognese-31722/",
+      "name": "Slow-cooked bolognese",
+      "ingredients": [
+        "100 grams (3-ounce) block parmesan, rind removed and reserved"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/sweet-curried-sausages-17996/",
+      "name": "Sweet curried sausages",
+      "ingredients": [
+        "1 400 gram can tomatoes",
+        "1 275 millilitre can coconut milk",
+        "1 400 gram can chickpeas, drained, rinsed"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/verjuice-chicken-and-leek-stew-32374/",
+      "name": "Verjuice chicken and leek stew",
+      "ingredients": [
+        "¼ cup fresh tarragon leaves, plus 2 stems extra, to serve"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/drinks/venice-dusk-8518/",
+      "name": "Venice dusk",
+      "ingredients": [
+        "1 kilogram (2-pound) piece seedless watermelon ice cubes, to serve"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/lunch/kimchi-2-ways-32185/",
+      "name": "Kimchi 2 ways",
+      "ingredients": [
+        "4 green onions (scallions), cut into 10cm (4-inch) lengths"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/quick-and-easy/squid-with-garlic-7043/",
+      "name": "Squid with garlic",
+      "ingredients": ["4 100g pieces baby squid"]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/vegetarian/potato-samosas-15152/",
+      "name": "Potato samosas",
+      "ingredients": ["1/4 teaspoon each coriander seeds and cumin seeds"]
+    }
+  ]
+}

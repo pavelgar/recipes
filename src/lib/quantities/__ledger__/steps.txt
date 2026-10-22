@@ -1,0 +1,1256 @@
+# Every corpus step sentence as scanStep reads it, one entry per
+# distinct sentence and site.
+# Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
+# and how to update it.
+#
+# 553 entries: 116 checked, of which 0 wrong; 437 unchecked.
+
+## arla.fi (fi, metric): 17 sentences, 17 entries; 15 with quantities
+
+? "Lisää lopuksi sinappi ja puoli purkkia crème fraichea."
+✓ "Esilämmitä uuni 200 °C tai 180 °C kiertoilmalle."
+  200 °C  [200 °C]
+  180 °C  [180 °C]
+? "Kypsennä 180 °C:ssa 25–30 minuuttia ja käännä ne kypsennyksen puolivälissä."
+  180 °C  [180 °C]
+✓ "Aseta uuni kuumenemaan 225 °C tai 200 °C kiertoilmalla."
+  225 °C  [225 °C]
+  200 °C  [200 °C]
+✓ "Kuumenna uuni 175 °C:een."
+  175 °C  [175 °C]
+✓ "Lado lihapullat leivinpaperin päälle uunipellille ja paista kypsiksi uunissa 200°C:ssa n. 20 minuuttia."
+  200 °C  [200°C]
+? "Aseta kulho vesihauteen päälle ja vatkaa voimakkaasti, kunnes seos sakenee ja saavuttaa 60 °C:n lämpötilan."
+  60 °C  [60 °C]
+? "Sulata 50 g voita pannulla ja voitele parsat huolellisesti."
+  50 g  [50 g]
+? "Kuumenna uuni 225 °C:een."
+  225 °C  [225 °C]
+? "Aloita kolmen suklaan juustokakun valmistus vuoraamalla irtopohjaisen piirakkavuoan (halkaisija 23 cm) pohja ja reunat leivinpaperilla."
+  23 cm  [23 cm]
+? "Sekoita liivatelehtiseokseen 6-7 lusikallista täytemassaa ja kaada seos lopun täyteen joukkoon."
+✓ "Kuumenna uuni 200 ℃:seen."
+  200 °C  [200 ℃]
+? "Vuoraa piirakkavuoka (halk. noin 24 cm) leivinpaperilla tai voitele se kevyesti."
+  ~24 cm  [24 cm]
+✓ "Aloita valmistamaan munakoisotahna lämmittämällä uuni  200°C asteeseen."
+  200 °C  [200°C]
+? "Sekoita taatelit sauvasekoittimella ja lisää samalla 0.5dl Arla Protein Kaakaojuomaa ja ripaus suolaa."
+  0.5 dl  [0.5dl]
+? "Kuumenna uuni 175°C."
+  175 °C  [175°C]
+? "Voitele ja jauhota irtopohja kakkuvuoka jonka halkaisija on noin 24 cm."
+  ~24 cm  [24 cm]
+
+## bbcgoodfood.com (en, british): 54 sentences, 52 entries; 46 with quantities
+
+✓ "Wrap two in cling film and freeze for another time."
+? "Rub a little extra oil over 5 or 6 sage leaves, place them on top of the lasagne and return to the oven for another 15-20 mins until golden and bubbling."
+? "Repeat 3 or 4 times until it becomes solid."
+? "Heat the butter in a small frying pan over a low heat with the thyme and ½ tsp freshly ground black pepper until the butter begins to foam."
+  0.5 tsp  [½ tsp]
+? "Heat the oven to 170C/150C fan/gas 3½."
+  170 °C  [170C]
+  150 °C  [150C]
+✓ "Whisk the egg yolks in a large bowl with 20g of the sugar, the flour, oil, milk, baking powder and vanilla extract until just combined, being careful not to overmix."
+  20 g  [20g]
+? "Generously oil a 20cm angel food cake tin, or a 22-23cm bundt or ring tin."
+  20 cm  [20cm]
+  22-23 cm  [22-23cm]
+? "Sieve the flour and ¼ tsp fine salt into a mixing bowl, then add the cooled melted ghee."
+  0.25 tsp  [¼ tsp]
+? "Divide and shape the dough into 17-18 balls about 20g each and roughly 3cm in diameter."
+  ~20 g  [20g]
+  3 cm  [3cm]
+? "Roll out each ball on a lightly oiled surface to a circle about 10cm in diameter (the pastry will be thinner if the balls are rolled out individually)."
+  ~10 cm  [10cm]
+? "Heat the oil in a wok or karahi over a medium heat to 130°C or until a cube of bread dropped in browns in 1 min."
+  130 °C  [130°C]
+? "Put the eggs in a single layer in a pan and add enough water to cover them by 2cm."
+  2 cm  [2cm]
+✓ "Put the different food colourings into separate bowls or containers that will hold the eggs, using 1 tsp food colouring per bowl, plus 700ml water and 1 tbsp of the vinegar each."
+  1 tsp  [1 tsp]
+  700 ml  [700ml]
+  1 tbsp  [1 tbsp]
+? "Add the mayonnaise, adding a little more if you need to in order to create a slightly stiff paste, then mix in 3 tbsp of the chopped pepper and the tarragon, if using."
+  3 tbsp  [3 tbsp]
+? "Heat oven to 160C/140C fan/gas 3."
+  160 °C  [160C]
+  140 °C  [140C]
+✓ "Grease and line the base and sides of 3 x 20cm cake tins with baking parchment."
+  20 cm  [20cm]
+? "Season the turkey all over, including under the skin, with 1-2 tbsp flaky sea salt."
+  1-2 tbsp  [1-2 tbsp]
+? "Heat the oven to 200C/180C fan/gas 6."
+  200 °C  [200C]
+  180 °C  [180C]
+? "Perfection is when the thickest part of the breast is about 65C and the thickest part of the thigh is 75C."
+  ~65 °C  [65C]
+  75 °C  [75C]
+? "With the motor still running, add the sugar 1 tbsp at a time, allowing it to be incorporated before adding the next."
+  1 tbsp  [1 tbsp]
+? "Pour the milk and 200ml water into a wide pan or medium frying pan and heat until steaming, but not boiling."
+  200 ml  [200ml]
+? "To make the caramel, heat the sugar, 1 tbsp water and pinch of salt in a small pan and cook on a medium heat until you get a lightly golden caramel, about 10 mins."
+  1 tbsp  [1 tbsp]
+? "Heat oven to 200C/180C fan/gas 6."
+  200 °C  [200C]
+  180 °C  [180C]
+? "Heat 1 tbsp oil in a large pan."
+  1 tbsp  [1 tbsp]
+? "Add the onions with a pinch of salt, and cook until translucent, around 3-4 mins."
+? "Stir in the beans, cumin, chilli powder, oregano, some seasoning and 100ml water."
+  100 ml  [100ml]
+? "Line 4 small pudding-shaped moulds (200ml capacity) with cling film, smoothing it over to fit snugly, leaving an overhang around the edge."
+  200 ml  [200ml]
+? "Squeeze 3 tbsp of juice and put it in a pan with the rum and sugar."
+  3 tbsp  [3 tbsp]
+? "Measure off 4 tbsp of the fruit and its syrup, and set aside in a rigid freezer container (freeze for up to a month)."
+  4 tbsp  [4 tbsp]
+? "Melt the white chocolate and, using a teaspoon, drizzle 4 star shapes over the pencil outlines."
+? "Heat oven to 220C/200C fan/gas 7."
+  220 °C  [220C]
+  200 °C  [200C]
+? "Pour in the milk and stir in 100g of the cheese, stirring until melted."
+  100 g  [100g]
+? "Heat the oven to 180C/160C fan/gas 4."
+  180 °C  [180C]
+  160 °C  [160C]
+? "Oil and line a 20cm round springform, deep tin so that the parchment comes 5cm above the rim."
+  20 cm  [20cm]
+  5 cm  [5cm]
+? "For the streusel, mix together the flour, sugar, cinnamon and a pinch of salt in a large bowl."
+? "Slice the bottom 2cm of the asparagus spears into thin rounds and set aside in a bowl with the lemon juice."
+  2 cm  [2cm]
+✓ "Add the asparagus to the tray and toss in 1 tbsp of the olive oil, season and grill for 10-15 mins, turning halfway through, until the potatoes are crisp and the asparagus is cooked through and a little charred."
+  1 tbsp  [1 tbsp]
+? "Heat the oven to 200C/ fan 180/gas 6."
+  200 °C  [200C]
+? "Drizzle over 2 tbsp olive oil and shake the tin to coat the potatoes."
+  2 tbsp  [2 tbsp]
+? "Oil and line the base and sides of a 23cm springform cake tin."
+  23 cm  [23cm]
+? "Beat the egg yolks and 50g of the caster sugar in another bowl until pale and thickened, around 5 mins."
+  50 g  [50g]
+✓ "Gently fold the whisked yolk mixture into the chocolate mixture along with the chopped hazelnuts and a pinch of sea salt."
+? "If not freezing the cake, heat the oven to 180C/160C fan/gas 4 and bake for 35-45 mins."
+  180 °C  [180C]
+  160 °C  [160C]
+? "Line a 20cm square baking tin with baking parchment and set aside."
+  20 cm  [20cm]
+? "Reduce the oven to 180C/160C fan/gas 4."
+  180 °C  [180C]
+  160 °C  [160C]
+? "Tip the sweet potato mix into a bowl and combine with all the remaining ingredients, except the almonds and 50g of the dark chocolate."
+  50 g  [50g]
+? "Heat the oven to 170C/150C fan/gas 3 and line the base of a deep 20cm cake tin with baking parchment or a reusable baking liner, then butter the sides of the tin."
+  170 °C  [170C]
+  150 °C  [150C]
+  20 cm  [20cm]
+? "Combine the onion, vinegar, sugar and a pinch of salt in a small non-reactive bowl and set aside."
+? "Stir through the soy, fish sauce, brown sugar, lime juice and 1 tbsp water."
+  1 tbsp  [1 tbsp]
+✓ "Heat the oven to 110C/ 100C fan/gas ¼."
+  110 °C  [110C]
+  100 °C  [100C]
+✓ "Now turn the speed up and start to add 115g caster sugar, a dessertspoonful at a time."
+  115 g  [115g]
+? "Sift one third of the 115g icing sugar over the mixture, then gently fold it in with a big metal spoon or rubber spatula."
+  115 g  [115g]
+
+## bettycrocker.com (en, us): 4 sentences, 4 entries; 2 with quantities
+
+✓ "Grease bottom and sides of square pan, 8x8x2 or 9x9x2 inches, with shortening."
+  8x8x2 in  [8x8x2]
+  9x9x2 in  [9x9x2 inches]
+? "Press uncut end of fruit snack or 3 or 4 pieces of licorice into frosted cookie next to candy."
+? "Fry sufganiyot, 4 or 5 at a time, in hot oil about 2 to 3 minutes on each side or until browned and cooked through to the center."
+? "Preheat oven to 425°F (or 400°F for dark or nonstick pan)."
+  425 °F  [425°F]
+  400 °F  [400°F]
+
+## kingarthurbaking.com (en, us): 106 sentences, 97 entries; 85 with quantities
+
+✓ "Rotate the dough 90° (a quarter turn), then repeat the rolling and folding process."
+? "Carefully tilt each one in its well, to prevent them from steaming as they cool."
+? "Rotate the dish 90°(a quarter turn) and repeat."
+? "Transfer the dough to an oiled or floured surface and fold and press it over onto itself, turning it 90° (a quarter turn) between each motion, about five to six times."
+? "Reduce the heat to medium and slip 2 or 3 bagels into the water."
+✓ "In cooler months (when your indoor temperature is about 65°F), use 100°F to 110°F water."
+  ~65 °F  [65°F]
+  100-110 °F  [100°F to 110°F]
+? "Rotate the container 90° (a quarter turn) and repeat."
+? "Return the oil to 250°F and repeat with the remaining balls."
+  250 °F  [250°F]
+? "Place 10 coils around the outside of the pan, a ring of five more inside those coils, and the last one in the center."
+? "Reduce the oven temperature to 325°F and continue baking for 10 or 15 minutes more."
+  325 °F  [325°F]
+✓ "Turn the folded dough 90° and roll into a 6\" x 14\" rectangle."
+  6x14 in  [6" x 14"]
+✓ "Fold the dough into thirds like a business letter, then turn it 90°."
+? "Preheat the oven to 375°F with a rack in the top third."
+  375 °F  [375°F]
+? "Spoon the batter into the lightly greased doughnut pans, filling the wells to about 1/4\" shy of the rim."
+  ~0.25 in  [1/4"]
+? "For cinnamon doughnuts, shake warm doughnuts in a plastic bag with about 1/4 (50g) to 1/3 cup (68g) cinnamon sugar."
+  50 g  [50g]
+  0.333 cup = 68 g  [1/3 cup] [68g]
+? "For sugar-coated doughnuts, shake doughnuts in a plastic bag with about 1/2 cup (57g) non-melting topping sugar (for best results), or confectioners' sugar."
+  ~0.5 cup = 57 g  [1/2 cup] [57g]
+? "Make a well in the pancake mix and pour in about half the liquid mixture (about 270g)."
+  ~270 g  [270g]
+? "To cook the crêpes: Heat a pan until it's medium-hot; a crêpe pan or 10\" skillet works well here."
+  10 in  [10"]
+? "Pour a scant 1/3 cup of batter into the bottom of the pan."
+  ~0.333 cup  [1/3 cup]
+? "To fill the crêpes: Spread a heaping 2 tablespoons (42g) compote on each crêpe, fold in half, then fold in half again to make a triangle."
+  ~2 tbsp = 42 g  [2 tablespoons] [42g]
+? "To make the starter: Weigh your flour for the starter; or measure it by gently spooning it into a cup, then sweeping off any excess."
+? "Transfer the dough to a greased or floured work surface and divide it into 10 pieces (about 89g each)."
+  ~89 g  [89g]
+? "To finish the chilindrinas: Divide the topping into 10 portions (about 33g each)."
+  ~33 g  [33g]
+? "Flatten each portion into a 3\" to 4\" disk by placing portions between two pieces of parchment or wax paper, and rolling with a rolling pin or flattening with your hands."
+  3-4 in  [3" to 4"]
+? "While the chilindrinas are rising, preheat the oven to 350°F with a rack in the center."
+  350 °F  [350°F]
+✓ "Preheat the oven to 375°F."
+  375 °F  [375°F]
+? "If you're going to add chips, nuts, or dried fruit, beat in the 2 tablespoons milk; if you're going to bake plain cookies without add-ins, omit the milk."
+  2 tbsp  [2 tablespoons]
+? "Drop the cookies by the traditional \"tablespoonful\" (actually about 4 measuring teaspoons) onto the prepared baking sheets, spacing them about 2\" apart."
+  ~2 in  [2"]
+✓ "A tablespoon cookie scoop works well here."
+✓ "Roll it into a 12\" x 16\" rectangle, fold in three (like a business letter), flip the dough over and give it a 90°; turn, and repeat the rolling and folding process."
+  12x16 in  [12" x 16"]
+? "Preheat the oven to 400°F."
+  400 °F  [400°F]
+✓ "Sprinkle both sides of the dough with the cinnamon sugar, and roll it into a 12\" x 16\" rectangle, sprinkling with additional sugar as needed to keep the dough from sticking."
+  12x16 in  [12" x 16"]
+? "Slice the dough into 48 pieces, each 1/3\" wide."
+  0.333 in  [1/3"]
+? "Preheat the oven to 350°F."
+  350 °F  [350°F]
+? "Scoop the dough with a tablespoon scoop and roll into 1\" balls."
+  1 in  [1"]
+? "Roll the balls in sugar and place on the baking sheets, leaving 1 1/2\" of space between them."
+  1.5 in  [1 1/2"]
+? "Preheat the oven to 375°F with a rack in the upper third."
+  375 °F  [375°F]
+? "Line a 9\" square pan with parchment and lightly grease."
+  9 in  [9"]
+? "To make the shortcake: Weigh your flour; or measure it by gently spooning it into a cup, then sweeping off any excess."
+? "To the well, add 2/3 cup (152g) of the cream, the sour cream, melted butter, and vanilla."
+  0.667 cup = 152 g  [2/3 cup] [152g]
+? "Gently dab the surface of the dough with the remaining 1 1/2 tablespoons (21g) heavy cream; sprinkle the coarse sparkling sugar evenly on top."
+  1.5 tbsp = 21 g  [1 1/2 tablespoons] [21g]
+? "Quarter any small strawberries and slice any large ones into 1/2\"-thick pieces."
+  0.5 in  [1/2"]
+✓ "Preheat the oven to 400°F with a rack in the center."
+  400 °F  [400°F]
+? "Pat the dough into a smooth 7\" disk about 1\" thick."
+  7 in  [7"]
+  ~1 in  [1"]
+? "To prepare the pan: Melt 4 tablespoons (57g) of butter in the bottom of an 8\" square or 9\" round pan; set the pan aside while you make the batter."
+  4 tbsp = 57 g  [4 tablespoons] [57g]
+  8 in  [8"]
+  9 in  [9"]
+✓ "Weigh your flour; or measure it by gently spooning it into a cup, then sweeping off any excess."
+✓ "Grease an 8 1/2\" by 4 1/2\" loaf pan; or a 9\" x 4\" x 4\" gluten-free loaf pan, which will give you a taller, more shapely loaf."
+  8.5x4.5 in  [8 1/2" by 4 1/2"]
+  9x4x4 in  [9" x 4" x 4"]
+? "Cover with greased plastic wrap, and set in a warm place to rise until the loaf barely crowns above the rim of the 8 1/2\" x 4 1/2\" pan; or until it comes to within about an inch of the rim of the 9\" pan."
+  8.5x4.5 in  [8 1/2" x 4 1/2"]
+  ~1 in  [an inch]
+  9 in  [9"]
+? "Toward the end of the rising time, preheat the oven to 350°F."
+  350 °F  [350°F]
+? "Preheat the oven to 425°F."
+  425 °F  [425°F]
+? "If it's smooth, shiny, and has a pudding-like consistency (e.g., if you were to drop a tablespoonful onto a baking sheet, it would be fairly smooth, but would hold its shape nicely and not spread), then don't add the remaining egg."
+? "Using a tablespoon cookie scoop or a spoon, drop large chestnut-sized (1 1/4\") balls of dough the baking sheets, leaving about an inch between them."
+  1.25 in  [1 1/4"]
+? "To reheat, cover with aluminum foil and bake in a preheated 350°F oven for 8 to 10 minutes."
+  350 °F  [350°F]
+? "Preheat the oven to 325°F."
+  325 °F  [325°F]
+? "Lightly grease a 10” (12-cup) tube pan or 12-cup Bundt pan."
+  10 in = 12 cup  [10”] [12-cup]
+  12 cup  [12-cup]
+? "To make the dough: Weigh your flour; or measure it by gently spooning it into a cup, then sweeping off any excess."
+✓ "Place a rack in the center of your oven and preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside."
+  500-550 °F  [500°F to 550°F]
+  550 °F  [550°F]
+? "The position of the rack is important, particularly if you're using parchment paper — too close to the broiler (you need at least 8\" clearance) and the top of your pizza (and any visible edges of parchment) will burn before the bottom has had time to bake through."
+  8 in  [8"]
+? "To shape the dough: Divide the dough in half (about 200g per piece)."
+  ~200 g  [200g]
+? "Again, using care to not touch the outermost edge of the crust, lift the pizza from the work surface and use your knuckles to gently stretch the dough into a 10\" to 12\" circle."
+  10-12 in  [10" to 12"]
+? "To be safe we recommend trimming the paper flush with the dough, especially if your parchment's heat rating is below 500°F, as many are."
+  500 °F  [500°F]
+? "Slices can be reheated in a 300°F oven for 5 to 10 minutes or until warm."
+  300 °F  [300°F]
+✓ "If you're using active dry yeast, dissolve it, with a pinch of sugar, in 2 tablespoons of the lukewarm water."
+  2 tbsp  [2 tablespoons]
+? "This recipe will make one of the following choices:Two 1/2\"-thick 14\" round pizzas (pictured);Two 3/4\"-thick 12\" round pizzas;One 3/4\" to 1\"-thick 13\" x 18\" rectangular (Sicilian-style) pizza (pictured);One 1 1/2\"-thick 9\" x 13\" rectangular pizza;One 1\"-thick 14\" round pizza."
+  0.5 in  [1/2"]
+  14 in  [14"]
+  0.75 in  [3/4"]
+  12 in  [12"]
+  0.75-1 in  [3/4" to 1"]
+  13x18 in  [13" x 18"]
+  1.5 in  [1 1/2"]
+  9x13 in  [9" x 13"]
+  1 in  [1"]
+  14 in  [14"]
+? "Towards the end of the rising time, preheat the oven to 450°F."
+  450 °F  [450°F]
+? "When ready to serve, top and bake in a preheated 450°F oven, adding a couple of minutes to the baking times noted above."
+  450 °F  [450°F]
+? "To make the waffles: Weigh your masa harina; or measure it by gently spooning into a cup, then sweeping off any excess."
+? "Without stirring the batter down, portion it into your iron using about 3/4 cup for a Belgian-style waffle or about 1/2 cup for a thinner “standard” waffle."
+  ~0.75 cup  [3/4 cup]
+  ~0.5 cup  [1/2 cup]
+? "Or keep waffles warm in a 200°F oven while you cook the entire batch."
+  200 °F  [200°F]
+✓ "If the dough seems dry or stiff, add additional milk 1 teaspoon at a time until the dough comes together; it won't look smooth at this point."
+  1 tsp  [1 teaspoon]
+? "Preheat the oven to 375°F with a rack in center."
+  375 °F  [375°F]
+? "Divide the dough into 12 pieces (about 66g each)."
+  ~66 g  [66g]
+? "Cover the shaped buns and let them rise in a warm (90°F) spot for 30 to 35 minutes, until puffy."
+  90 °F  [90°F]
+? "Note that if your milk was cooler than 120°F to 130°F and/or if the rising environment is on the cool side, the proof time will be slightly longer."
+  120-130 °F  [120°F to 130°F]
+? "Using scissors or a sharp, serrated knife, cut a slit in the tops of the rolls about 1/4\" to 1/2\" deep, if desired."
+  ~0.25-0.5 in  [1/4" to 1/2"]
+? "The internal temperature should be at least 190°F when measured with a digital thermometer."
+  190 °F  [190°F]
+✓ "Reheat rolls wrapped in aluminum foil in a preheated 350°F oven for 5 minutes, or until heated through."
+  350 °F  [350°F]
+? "You should have a scant 1/2 cup (85g) of brown butter."
+  ~0.5 cup = 85 g  [1/2 cup] [85g]
+? "Switch to a spatula and add 1 cup (170g) of chopped dark and 1 cup (170g) of chopped milk chocolate, mixing to fully combine."
+  1 cup = 170 g  [1 cup] [170g]
+  1 cup = 170 g  [1 cup] [170g]
+? "The remaining 1/4 cup (43g) of each chocolate will be used for topping the cookies."
+  0.25 cup = 43 g  [1/4 cup] [43g]
+? "Scoop the dough onto a parchment-lined baking sheet into heaping 2 tablespoon portions (57g, 2 ounces); a heaping jumbo cookie scoop is about right."
+  ~2 tbsp  [2 tablespoon]
+  57 g  [57g]
+  2 oz  [2 ounces]
+? "Preheat the oven to 350°F with two racks in the middle third of the oven."
+  350 °F  [350°F]
+? "Arrange the cookies on parchment-lined baking sheets, spacing them 3\" apart, with no more than 6 cookies per tray."
+  3 in  [3"]
+? "To shape the bread: Gently deflate and transfer the dough to a lightly floured surface and divide it into four equal pieces (about 200g each)."
+  ~200 g  [200g]
+? "Press the dough pieces to flatten, then use a rolling pin to roll into each piece into a roughly 5\" x 8\" rectangle with one of the short sides closest to you."
+  5x8 in  [5" x 8"]
+? "Once all the pieces are shaped, place them seam-side down into a greased 9\" x 4\" Extra-Tall Loaf Pan and cover with plastic wrap or a reusable bowl cover."
+  9x4 in  [9" x 4"]
+? "Toward the end of the rise, preheat the oven to 375°F with a rack in the center position."
+  375 °F  [375°F]
+✓ "The loaf's internal temperature should be at least 205°F when measured with a digital thermometer."
+  205 °F  [205°F]
+? "Scoop the filling by the heaping tablespoonful (a tablespoon cookie scoop works well here) into 12 balls, and place them on a parchment-lined baking sheet."
+? "Meanwhile, preheat the oven to 425°F, and prepare the water bath by heating the water, malt, and sugar to a very gentle boil in a large, wide-diameter pan."
+  425 °F  [425°F]
+✓ "Add 1/2 cup (60g) of all-purpose flour and let sit for 10 minutes to give the yeast a chance to get going."
+  0.5 cup = 60 g  [1/2 cup] [60g]
+? "Add the remaining 5 1/2 cups (660g) flour, 1 cup (120g) at a time, until the dough has formed a shaggy mass."
+  5.5 cup = 660 g  [5 1/2 cups] [660g]
+  1 cup = 120 g  [1 cup] [120g]
+? "Put the dough into a bowl and drizzle with a tablespoon of oil; turn the dough to coat it with the oil."
+  1 tbsp  [a tablespoon]
+? "Preheat the oven to 350°F; the loaves will burn if the oven is too hot."
+  350 °F  [350°F]
+? "Sprinkle flour on top of the loaves, and use a serrated knife to slash a cross in the top of each loaf about 1\" deep."
+  ~1 in  [1"]
+? "Bake the loaves for 35-45 minutes, until they are well browned and sound hollow when thumped on the bottom; their internal temperature will measure 190°F on an instant-read thermometer."
+  190 °F  [190°F]
+✓ "Heat a 10\" pan with heatproof handle over medium-low heat (an omelet pan or cast iron skillet works well)."
+  10 in  [10"]
+
+## kotikokki.net (fi, metric): 29 sentences, 28 entries; 27 with quantities
+
+✓ "(7) Paista 25-30 min kiertoilma 110 C (tai 110 C normaali) uunissa."
+  110 °C  [110 C]
+  110 °C  [110 C]
+✓ "Paista kakkua 175 - 200 asteessa n 25.40 min uunistasi riippuen."
+  175-200 °C  [175 - 200 asteessa]
+✓ "Paista 225 asteessa 45 minuuttia."
+  225 °C  [225 asteessa]
+? "Kaaviloin taikina ohueksi levyksi ja ota muotilla (halk. n. 4 cm) pyöreitä kakkuja, paista 200 asteessa n. 5 min."
+  ~4 cm  [4 cm]
+  200 °C  [200 asteessa]
+? "Erota n. 1/2 rkl ja värjää se kaakaojauheella."
+  ~0.5 tbsp  [1/2 rkl]
+? "Koristele näin valmiiksi 3-4 kpl kerralla ettei valkoinen kuorrutus ehdi kovettua."
+✓ "Minun salaattisoosini on 3 rkl rypäleöljyä,1 rkl sitruunamehua,1 tl Dijon-sinappia ja suolaa."
+  3 tbsp  [3 rkl]
+  1 tbsp  [1 rkl]
+  1 tsp  [1 tl]
+? "sekoita 1 muna ja 2 dl ruokakermaa keskenään, ja kaada se kana-paprika-juusto seoksen päälle."
+  2 dl  [2 dl]
+✓ "Laita taikina uuniin ja paista 200 C n. 30 min"
+  200 °C  [200 C]
+✓ "220° 30-45min"
+  220 ?°C  [220°]
+✓ "Laita uuni lämpenemään 200°C:n ja vuoraa samalla irtopohjavuoan pohja leivinpaperilla."
+  200 °C  [200°C]
+? "En löytänyt Prismasta kullan väristä sokerimassaa mutta löysin kullan väristä geeliä (syötävää siis) joten otin sitä, itselläni oli valkoista sokerimassaa pari pakettia kotona ja erilaisia värejä, käytin persikkaväriä jolla sain miedon oranssin aikaiseksi."
+? "Täyte: keitä puuroriisi 3 1/2 desiä 6 desissä vettä kypsäksi."
+  3.5 dl  [3 1/2 desiä]
+? "Kuulota toinen pieneksi silputtu sipuli mieluiten kasarissa, lisää 5 desiä vettä ja kiehauta, liota kasvisliemikuutio sekaan + muut mausteet, laita soijarouhe kiehuvaan veteen ja anna turvota n. 2minuuttia."
+  5 dl  [5 desiä]
+? "Kauli n. 6cm levyiksi, taikinan paksuus pitäisi olla n. 0,5 cm, kun se on kaulittu."
+  ~6 cm  [6cm]
+  ~0.5 cm  [0,5 cm]
+✓ "Painele tiiviisti haarukalla reunat umpeen ja uppopaista 180° öljyssä kattilassa molemmin puolin."
+  180 ?°C  [180°]
+✓ "Pistä uuniin 180 asteeseen n 30 - 45 min."
+  180 °C  [180 asteeseen]
+? "Laita kattilaan(min.3L) n. litra vettä.Lisää kasvisliemikuutio ja mustapippurit.Jätä kiehumaan hiljalleen."
+  3 l  [3L]
+  ~1 l  [litra]
+? "Lämmitä paistoöljy 160 asteeseen ja uppopaista palloja 5 minuuttia.Näin pysyy keltuainen vielä löysänä."
+  160 °C  [160 asteeseen]
+✓ "Suolaa saa olla reilusti (1 rkl), samoin öljyä."
+  1 tbsp  [1 rkl]
+? "Aseta uuni 80 asteeseen.Laita kana ritilän päälle,alle vielä korkeareunainen pelti,jolle nesteet voivat tippua."
+  80 °C  [80 asteeseen]
+? "Kana valmistuu noin 3,5 tunnissa,sisälämpötilaan 60-65 asteeseen."
+  60-65 °C  [60-65 asteeseen]
+? "Nyt voit laittaa uunin 240 asteeseen ja paistaa kanaan ruskean,rapean pinnan."
+  240 °C  [240 asteeseen]
+? "Sisälämpötila nousee noin 70 asteeseen,kana on kypsä."
+  ~70 °C  [70 asteeseen]
+? "Lämmitä uuni 200 asteeseen."
+  200 °C  [200 asteeseen]
+? "Vaikka voi ja suklaa sisältävätkin suolaa, pieni ekstra tuskin haittaisi (ripaus). 0,5 tl jauhettua kardemummaa olisi todennäköisesti loistava lisäys taikinaan."
+  0.5 tsp  [0,5 tl]
+? "Sitruunamehua voi laittaa aavistuksen enemmän, maksimi 100 ml."
+  100 ml  [100 ml]
+? "Paista uunissa 70 min 200 Astetta"
+  200 °C  [200 Astetta]
+
+## kotiliesi.fi (fi, metric): 23 sentences, 23 entries; 22 with quantities
+
+? "Nosta teelusikallinen sinapinsiemeniä, puoli teelusikallista korianterin siemeniä ja puoli teelusikallista jauhettua juustokuminaa kuivalle pannulle ja paahda, kunnes mausteet alkavat tuoksua."
+  1 tsp  [teelusikallinen]
+  0.5 tsp  [puoli teelusikallista]
+  0.5 tsp  [puoli teelusikallista]
+✓ "Nosta pataan kaikki leikkeet ja ripottele pinnalle puolitoista teelusikallista suolaa, kaksi teelusikallista kuivattua rosmariinia ja puoli teelusikallista rouhittua mustapippuria."
+  1.5 tsp  [puolitoista teelusikallista]
+  2 tsp  [kaksi teelusikallista]
+  0.5 tsp  [puoli teelusikallista]
+✓ "Sekoita kolme ja puoli desilitraa vehnäjauhoja ja puolitoista teelusikallista leivinjauhetta yhteen."
+  3.5 dl  [kolme ja puoli desilitraa]
+  1.5 tsp  [puolitoista teelusikallista]
+✓ "Sekoita keskenään viisi desilitraa vehnäjauhoja, kaksi teelusikallista leivinjauhetta, kaksi teelusikallista jauhettua kanelia, yksi teelusikallinen jauhettua inkivääriä, yksi teelusikallista jauhettua maustepippuria, puoli teelusikallista jauhettua neilikkaa ja puoli teelusikallista suolaa."
+  5 dl  [viisi desilitraa]
+  2 tsp  [kaksi teelusikallista]
+  2 tsp  [kaksi teelusikallista]
+  1 tsp  [yksi teelusikallinen]
+  1 tsp  [yksi teelusikallista]
+  0.5 tsp  [puoli teelusikallista]
+  0.5 tsp  [puoli teelusikallista]
+? "Sekoita joukkoon yksi desilitra ranskankermaa ja puoli desiä ruohosipulia silputtuna."
+  1 dl  [yksi desilitra]
+  0.5 dl  [puoli desiä]
+✓ "Kypsennä uunin grillivastuksen alla noin 15 minuuttia välillä kääntäen tai 200-asteisessa uunissa noin 20 minuuttia."
+  200 °C  [200-asteisessa]
+? "Kuumenna uuni 225-asteeseen."
+  225 °C  [225-asteeseen]
+? "Kaada taikinapellille ja kyp- sennä225- asteisessa uunissa noin 10 minuuttia."
+? "Leikkaa torttulevystä kaksi pienen kakkuvuoan pohjan kokoista pyöreää levyä (halkaisija 20 cm)."
+  20 cm  [20 cm]
+? "Kuori ja viipaloi 800 grammaa perunoita, neljä valkosipulinkynttä ja yksi sipuli."
+  800 g  [800 grammaa]
+? "Kiehauta kaksi desilitraa kasvislientä."
+  2 dl  [kaksi desilitraa]
+✓ "Lisää kaksi desilitraa kuohukermaa, teelusikallinen suolaa sekä puoli teelusikallista mustapippuria."
+  2 dl  [kaksi desilitraa]
+  1 tsp  [teelusikallinen]
+  0.5 tsp  [puoli teelusikallista]
+? "Paista 225 asteessa 30 minuuttia."
+  225 °C  [225 asteessa]
+✓ "Leikkaa pintaan molemmin puolin 4–5 noin 1⁄2 cm:n syvyistä viiltoa."
+  ~0.5 cm  [1⁄2 cm]
+? "Soseuta maustetahnan ainekset eli kaksi valkosipulinkynttä, yksi salottisipuli, puoli desilitraa oliiviöljyä, ruukku persiljaa, oksa rosmariinia, teelusikallinen paprikajauhetta, teelusikallinen korianteria, teelusikallinen juustokuminaa ja teelusikallinen suolaa sauvasekoittimella."
+  0.5 dl  [puoli desilitraa]
+  1 tsp  [teelusikallinen]
+  1 tsp  [teelusikallinen]
+  1 tsp  [teelusikallinen]
+  1 tsp  [teelusikallinen]
+? "Ota perunavuoka uunista ja laske uunin lämpötila 175 asteeseen."
+  175 °C  [175 asteeseen]
+✓ "Sivele kalan pintaan kaksi ruokalusikallista oliiviöljyä."
+  2 tbsp  [kaksi ruokalusikallista]
+? "Paista marenkeja 95-asteisessa uunissa noin 2 tuntia."
+  95 °C  [95-asteisessa]
+? "Paista 175-asteisen uunin keskitasossa noin 10 minuuttia."
+  175 °C  [175-asteisen]
+? "Kypsennä uunissa 200 asteessa noin 25 minuuttia."
+  200 °C  [200 asteessa]
+? "Kypsennä  seitipaloja 200 asteessa uunin keskitasolla noin 25–30 minuuttia."
+  200 °C  [200 asteessa]
+? "Levitä taikina uunivuokaan (30 x 35 cm) leivinpaperin päälle."
+  30x35 cm  [30 x 35 cm]
+✓ "Paista 175 asteessa uunin keskitasolla noin 25 minuuttia."
+  175 °C  [175 asteessa]
+
+## meillakotona.fi (fi, metric): 35 sentences, 35 entries; 34 with quantities
+
+✓ "Keitä raparperinpalat ja puoli desiä\r vettä kattilassa, kunnes raparperit hiukan\r pehmenevät."
+  0.5 dl  [puoli desiä]
+? "Lusikoi taikina kertakäyttöiseen pursotinpussiin ja leikkaa pussin päähän noin 1,5 sentin aukko."
+  ~1.5 cm  [1,5 sentin]
+? "Paista 200 asteessa 13–15 minuuttia."
+  200 °C  [200 asteessa]
+✓ "Valmista samalla tavalla toiset 12 kappaletta donitseja."
+? "Kypsennä airfryerissa 175–180 asteessa 10–15 minuuttia, laitteen koosta riippuen tarvittaessa kahdessa erässä, kunnes viipaleet ovat rapeita."
+  175-180 °C  [175–180 asteessa]
+? "Lisää pataan vesi, kerma ja mausteet ja sekoita.Siirrä pata 225-asteisen uunin alaosaan ja kypsennä 15 minuuttia."
+  225 °C  [225-asteisen]
+? "Laske uunin lämpö 175 asteeseen ja jatka kypsennystä vielä noin 45 minuuttia."
+  175 °C  [175 asteeseen]
+✓ "Paista sipuleita 180-asteisessa uunissa 10 minuuttia."
+  180 °C  [180-asteisessa]
+? "Viillä terävällä veitsellä noin 2 cm:n levyinen reunus taikinan ympäri."
+  ~2 cm  [2 cm]
+? "Pingota leivinpaperi irtopohjavuoan (ø 22 cm) pohjalle."
+  22 cm  [22 cm]
+✓ "Levitä taikina leivinpaperilla vuoratulle uunipellille (35 cm x 40 cm)."
+  35x40 cm  [35 cm x 40 cm]
+? "Paista 200-asteisessa noin 10 minuuttia"
+  200 °C  [200-asteisessa]
+✓ "Kauli sulaneet taikinalevyt noin 12 × 24 cm kokoisiksi levyiksi."
+  ~12x24 cm  [12 × 24 cm]
+? "Paista 225 asteessa noin 12–14 minuuttia."
+  225 °C  [225 asteessa]
+? "Kuumenna öljy padassa tai paksupohjaisessa kattilassa 170-asteiseksi."
+  170 °C  [170-asteiseksi]
+? "Säädä sirkulaattoriin tavoitelämpötilaksi 80 astetta ja kypsennä 1,5 tuntia."
+  80 °C  [80 astetta]
+? "Kaada taikina leivinpaperien päälle ja paista 200-asteisessa uunissa 8–10 minuuttia.Ripottele kääretorttupohjan päälle sokeria ja kumoa se voipaperin päälle."
+  200 °C  [200-asteisessa]
+? "Paista kakkua 175-asteisen uunin alatasolla noin tunti."
+  175 °C  [175-asteisen]
+? "Yksi kahvikupillinen on 1,5 dl.Pohjalainen kakkuresepti kulkee Vesa Hännisen suvussa."
+  1.5 dl  [1,5 dl]
+? "15 x 23 cm."
+  15x23 cm  [15 x 23 cm]
+? "Kauli taikina 35 × 50 sentin levyksi."
+  35x50 cm  [35 × 50 sentin]
+? "Paista uunissa 175 asteessa 30–40 minuuttia."
+  175 °C  [175 asteessa]
+? "Kaada taikina leivinpaperin päälle pellille (noin 35 × 42 cm) ja levitä tasaiseksi."
+  ~35x42 cm  [35 × 42 cm]
+? "Paista 225-asteisen uunin keskitasolla 6–8 minuuttia, kunnes pinta on kauniin ruskea."
+  225 °C  [225-asteisen]
+? "Jos käytät kalaa, poista siitä tarvittaessa ruodot ja leikkaa sekin noin 2 × 10 cm:n paloiksi."
+  ~2x10 cm  [2 × 10 cm]
+? "Pingota irtopohjavuoan (ø 20–22 cm) pohjalle leivinpaperi."
+  20-22 cm  [20–22 cm]
+? "Mausta sitruunanmehulla.Kuumenna kattilassa ½ dl kuohuviiniä ja lisää puristellut liivatelehdet."
+  0.5 dl  [½ dl]
+? "Painele taikina piirakkavuoan (ø 24 cm) pohjalle ja reunoille."
+  24 cm  [24 cm]
+? "Paista pohjaa 175-asteisen uunin keskitasolla 15 minuuttia."
+  175 °C  [175-asteisen]
+? "Levitä kirsikkahilloa reilu kerros (noin 2 dl) esipaistetulle pohjalle."
+  ~2 dl  [2 dl]
+? "Paista piirakkaa vielä 40 minuuttia 175-asteisen uunin keskitasolla."
+  175 °C  [175-asteisen]
+✓ "Voit korvata itse keitetyn marmeladin halutessasi yhdellä purkillisella (280 g) rommi-kirsikkamarmeladia (Pirkka)."
+  280 g  [280 g]
+? "Kypsennä 225-asteisen uunin keskitasolla noin 8 minuuttia."
+  225 °C  [225-asteisen]
+? "Pane uuni kuumenemaan 225 asteeseen."
+  225 °C  [225 asteeseen]
+✓ "Paahda uunissa 200 asteessa noin 15 minuuttia."
+  200 °C  [200 asteessa]
+
+## tasteofhome.com (en, us): 48 sentences, 48 entries; 45 with quantities
+
+? "Cook until a thermometer reads at least 145°, 5-6 minutes, turning once."
+  145 ?°F  [145°]
+? "Pat or roll dough to 1/2-in. thickness; cut with a floured 2-1/2-in. biscuit cutter."
+  0.5 in  [1/2-in]
+  2.5 in  [2-1/2-in]
+? "In batches, place in a single layer 1 in. apart on a greased tray in air-fryer basket."
+  1 in  [1 in]
+? "Cook until meat reaches desired doneness (for medium-rare, a thermometer should read 135°; medium, 140°; medium-well, 145°), 4-5 minutes, turning occasionally and basting frequently, using 1/2 cup of reserved marinade."
+  135 ?°F  [135°]
+  140 ?°F  [140°]
+  145 ?°F  [145°]
+  0.5 cup  [1/2 cup]
+? "Cut with a 2-1/2-in. floured biscuit cutter."
+  2.5 in  [2-1/2-in]
+✓ "Place 1 in. apart on an ungreased baking sheet."
+  1 in  [1 in]
+? "In a large skillet, cook eggplant in batches in 1/2 in. hot oil until golden brown on each side; drain."
+  0.5 in  [1/2 in]
+? "Top with broccoli to within 1/2 in. of edges."
+  0.5 in  [1/2 in]
+? "Bake, uncovered, at 350° for 1-1/4 hours or until meat is no longer pink and a thermometer reads 160°; drain."
+  350 ?°F  [350°]
+  160 ?°F  [160°]
+? "Stretch dough to 22 in. and curve to form canes."
+  22 in  [22 in]
+✓ "Shape dough into 1-in. balls; place 2 in. apart on ungreased baking sheets."
+  1 in  [1-in]
+  2 in  [2 in]
+? "In a large saucepan, cook zucchini in 1/2 in. of water."
+  0.5 in  [1/2 in]
+? "Layer with chiles and 1-1/2 cups cheese."
+  1.5 cup  [1-1/2 cups]
+? "Cook, covered, on low until a thermometer inserted in chicken reads 165°, 3-1/2-4 hours."
+  165 ?°F  [165°]
+✓ "Editor's Tip: If you like to cook with precise measurements, half of the whipped cream should measure 1-1/4 cups."
+  1.25 cup  [1-1/4 cups]
+? "The heavy cream doubles in volume when beaten, creating 2-1/2 cups total of whipped cream."
+  2.5 cup  [2-1/2 cups]
+? "In a large bowl, cream shortening and 1-1/2 cups sugar until light and fluffy."
+  1.5 cup  [1-1/2 cups]
+? "Place 2 in. apart on ungreased baking sheets."
+  2 in  [2 in]
+? "Place in a large saucepan; add water to cover by 2 in."
+  2 in  [2 in]
+? "Return beans to saucepan; add water to cover by 2 in."
+  2 in  [2 in]
+? "Spread half the chicken mixture evenly over the Doritos, then sprinkle 1-1/2 cups of the shredded cheddar cheese evenly over the chicken."
+  1.5 cup  [1-1/2 cups]
+? "Place rolls 2 in. apart on a greased baking sheet."
+  2 in  [2 in]
+? "Cut with a floured 2-1/2-inch biscuit cutter."
+  2.5 in  [2-1/2-inch]
+? "Peel the grapefruit and cut into sections (about 2-1/2 cups)."
+  ~2.5 cup  [2-1/2 cups]
+✓ "Place butter and onion on a double thickness of heavy-duty foil (about 34 in. x 18 in.)."
+  ~34x18 in  [34 in. x 18 in]
+? "Securely wrap a double thickness of heavy-duty foil (about 18 in. square) around and under a greased 9-in. springform pan."
+  ~18 in  [18 in]
+  9 in  [9-in]
+✓ "Press onto bottom and 1-1/2 in. up sides of prepared pan."
+  1.5 in  [1-1/2 in]
+? "Place springform pan in a larger baking pan; add 1 in. hot water to larger pan."
+  1 in  [1 in]
+? "Bake until center is just set and top appears dull, 1-1/2 to 1-3/4 hours."
+? "In a large saucepan, bring 1 in. water to a boil."
+  1 in  [1 in]
+✓ "Place each burrito on a microwave-safe plate, then microwave on high for 2 minutes to 2 minutes and 15 seconds, or until a thermometer reads 165°F, turning the burrito once during reheating."
+  165 °F  [165°F]
+? "Trim crust to 1/2 in. beyond rim of plate; flute edge."
+  0.5 in  [1/2 in]
+? "Place pie filling in a 1-1/2-qt. slow cooker."
+  1.5 quart  [1-1/2-qt]
+? "Stir in wine, 1-1/2 cups broth, salt, thyme, pepper and carrot mixture; bring to a boil."
+  1.5 cup  [1-1/2 cups]
+? "In a large bowl, mix sugar, yeast, salt, pepper and 2-1/2 cups flour."
+  2.5 cup  [2-1/2 cups]
+? "Spread over cake to within 1/2 in. of edges."
+  0.5 in  [1/2 in]
+? "Place sweet potatoes and 2-1/3 cups orange juice in a large saucepan or Dutch oven."
+  2.333 cup  [2-1/3 cups]
+? "Reduce heat; simmer, uncovered, 2 to 2-1/2 hours or until thickened, stirring occasionally."
+? "Measure the juice; add water if needed to equal 1-1/2 cups."
+  1.5 cup  [1-1/2 cups]
+? "Place a 2-1/2-inch round cutter on top of the dough in the center of the circle (do not press down)."
+  2.5 in  [2-1/2-inch]
+✓ "Add 1-1/2 cups broth to pressure cooker."
+  1.5 cup  [1-1/2 cups]
+? "Place 1-3/4 cups pecans and salt in a food processor; pulse until pecans are finely ground."
+  1.75 cup  [1-3/4 cups]
+? "Spoon onto a double thickness of greased heavy-duty foil (about 18 in. square)."
+  ~18 in  [18 in]
+✓ "Broil 3-4 in. from heat until cheese is melted, 1-2 minutes."
+  3-4 in  [3-4 in]
+? "Cover; bake until tender, 1-1/2 to 2 hours, uncovering during the last 20-30 minutes of baking to let skin crisp."
+? "Bake until a thermometer inserted into the chicken reads 165°, about 15 minutes, turning halfway through the cooking time."
+  165 ?°F  [165°]
+? "Broil 3-4 in. from heat until eggs are completely set, 1-2 minutes."
+  3-4 in  [3-4 in]
+? "Shape into 1-1/2-in. balls."
+  1.5 in  [1-1/2-in]
+
+## womensweeklyfood.com.au (en, australian): 42 sentences, 41 entries; 40 with quantities
+
+? "Return two portions to freezer; put one in medium bowl and stand at room temperature until softened."
+✓ "Repeat with remaining butter and batter to make 16 in total."
+? "Make **dulce de leche**: Preheat oven to 220°C."
+  220 °C  [220°C]
+? "Pour condensed milk into a 1.5-litre (6-cup) ceramic ovenproof dish."
+  1.5 l = 6 cup  [1.5-litre] [6-cup]
+✓ "Preheat oven to 120°C."
+  120 °C  [120°C]
+? "Mark two 12.5cm x 30cm rectangles on paper; turn, marked-side down, on trays."
+  12.5x30 cm  [12.5cm x 30cm]
+? "Preheat oven to 180°C (160°C fan-forced)."
+  180 °C  [180°C]
+  160 °C  [160°C]
+? "Lightly oil four shallow 2-cup (500ml) ovenproof dishes."
+  2 cup = 500 ml  [2-cup] [500ml]
+? "Blend cornflour with ½ cup of the milk in a small jug."
+  0.5 cup  [½ cup]
+✓ "Spoon ⅓ cup of meat sauce between dishes; top each with a pasta sheet, trimming to fit."
+  0.333 cup  [⅓ cup]
+? "Grease 10 holes of a 12-hole (⅓ cup/80ml) muffin pan."
+  0.333 cup = 80 ml  [⅓ cup] [80ml]
+? "Grease 20cm x 30cm (8-inch x 12-inch) rectangular pan, line base and long sides with baking paper, extending paper 5cm (2 inches) over sides."
+  20x30 cm = 8x12 in  [20cm x 30cm] [8-inch x 12-inch]
+  5 cm = 2 in  [5cm] [2 inches]
+✓ "Process 200g (6½ ounces) of the biscuits until fine, chop remaining biscuits coarsely."
+  200 g = 6.5 oz  [200g] [6½ ounces]
+✓ "Reserve 40 whole choc-malt balls, coarsely chop 1 cup of the remaining balls."
+  1 cup  [1 cup]
+? "Preheat oven to slow, 150ºC."
+  150 °C  [150ºC]
+? "Gradually add sugar, one tablespoon at a time, beating until sugar dissolves and foam is stiff, thick and glossy."
+  1 tbsp  [one tablespoon]
+? "Spoon mixture onto tray to form a 20cm round, with a slight recess in the middle."
+  20 cm  [20cm]
+✓ "Reduce oven to very slow, 120ºC, and bake a further 45 minutes."
+  120 °C  [120ºC]
+? "Preheat oven to 180°C."
+  180 °C  [180°C]
+✓ "Line 6-hole (¾-cup/180ml) texas muffin pan with paper cases."
+  0.75 cup = 180 ml  [¾-cup] [180ml]
+? "Drop ⅓ cup of the mixture into each paper case; bake about 25 minutes."
+  0.333 cup  [⅓ cup]
+? "Spoon mixture into piping bag fitted with 1cm (½ inch) plain tube."
+  1 cm = 0.5 in  [1cm] [½ inch]
+? "Pipe 4cm (1½ inch) rounds about 2.5cm (1 inch) apart onto trays."
+  4 cm = 1.5 in  [4cm] [1½ inch]
+  ~2.5 cm = 1 in  [2.5cm] [1 inch]
+? "Meanwhile, preheat oven to 150°C/300°F."
+  150 °C both  [150°C]
+  300 °F both  [300°F]
+✓ "Preheat the oven to moderate, 180°C (160°C fan-forced)."
+  180 °C  [180°C]
+  160 °C  [160°C]
+✓ "Grease a deep 19cm-square cake pan, line base and two opposite sides with baking paper."
+  19 cm  [19cm]
+? "Bake uncovered, in oven heated to 190°C/375°F, turning occasionally, for about 40 minutes or until vegetables are tender and golden brown."
+  190 °C both  [190°C]
+  375 °F both  [375°F]
+✓ "Put half the potato cubes in a heavy-based, buttered, 2-litre casserole dish."
+  2 l  [2-litre]
+? "Preheat oven to 180°C fan forced."
+  180 °C  [180°C]
+? "Heat oil in a large frying pan over a medium-high heat, then drop in 1 tablespoon butter."
+  1 tbsp  [1 tablespoon]
+? "Cut into 2cm pieces."
+  2 cm  [2cm]
+? "Roll each half of dough into an oval about 35cm long."
+  ~35 cm  [35cm]
+? "Heat 1 tablespoon of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden."
+  1 tbsp  [1 tablespoon]
+? "Heat 1 tablespoon of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through."
+  1 tbsp  [1 tablespoon]
+? "Cut trout into 1cm (½-inch) slices."
+  1 cm = 0.5 in  [1cm] [½-inch]
+✓ "Transfer into a 1.5 litre ovenproof dish."
+  1.5 l  [1.5 litre]
+? "Preheat oven to 220°C/425°F."
+  220 °C both  [220°C]
+  425 °F both  [425°F]
+? "Tie pork with kitchen string at 2cm intervals; place pork on a wire rack in a large shallow baking dish."
+  2 cm  [2cm]
+? "Reduce oven temperature to 200°C/400°F."
+  200 °C both  [200°C]
+  400 °F both  [400°F]
+? "Roast, uncovered, in a 200°C/400°F oven, with the pork, for 25 minutes or until vegetables soften."
+  200 °C both  [200°C]
+  400 °F both  [400°F]
+? "Add the chicken mixture, whole spices, salt, coconut cream and ¾ cup (180ml) water and mix well."
+  0.75 cup = 180 ml  [¾ cup] [180ml]
+
+## allrecipes.com (en, us): 43 sentences, 38 entries; 42 with quantities
+
+? "When ready to bake, preheat the oven to 375 degrees F (190 degrees C)."
+  375 °F both  [375 degrees F]
+  190 °C both  [190 degrees C]
+✓ "Roll dough with a floured rolling pin to a thickness of 1/8 inch."
+  0.125 in  [1/8 inch]
+? "Place cookies 1 inch apart on prepared baking sheets."
+  1 in  [1 inch]
+? "Place a slice of toast on a plate; ladle 1/2 cup sauce over top."
+  0.5 cup  [1/2 cup]
+✓ "Preheat oven to 350 degrees F (175 degrees C)."
+  350 °F both  [350 degrees F]
+  175 °C both  [175 degrees C]
+? "Form into large balls about 2 inches in diameter and place them in a 9x13 inch baking dish."
+  ~2 in  [2 inches]
+  9x13 in  [9x13 inch]
+✓ "Bake at 350 degrees for 1 hour or until internal meat temperature reaches 160 degrees F (73 degrees C)."
+  350 ?°F  [350 degrees]
+  160 °F both  [160 degrees F]
+  73 °C both  [73 degrees C]
+? "Preheat the oven to 350 degrees F (175 degrees C)."
+  350 °F both  [350 degrees F]
+  175 °C both  [175 degrees C]
+? "Grease and flour a 9x13 inch pan."
+  9x13 in  [9x13 inch]
+? "In a saucepan, melt 1 cup of butter."
+  1 cup  [1 cup]
+? "Stir in 1 cup water and 4 tablespoons cocoa powder."
+  1 cup  [1 cup]
+  4 tbsp  [4 tablespoons]
+? "In a medium bowl, dissolve the baking soda in 1/2 cup of buttermilk."
+  0.5 cup  [1/2 cup]
+? "For the icing: In a large saucepan, melt 1/2 cup butter with 4 tablespoons cocoa."
+  0.5 cup  [1/2 cup]
+  4 tbsp  [4 tablespoons]
+? "Stir in 1/3 cup buttermilk, and heat until almost boiling."
+  0.333 cup  [1/3 cup]
+? "Mix green olives, black olives, 1/2 teaspoon oregano, and oil together in a small bowl."
+  0.5 tsp  [1/2 teaspoon]
+✓ "Combine cream cheese with 1 pinch each of oregano and garlic salt in a medium bowl; beat with an electric mixer until smooth."
+? "When ready to serve, remove the foil and slice each roll at a 45-degree angle into ten 1-inch pieces."
+  1 in  [1-inch]
+? "Preheat the oven to 200 degrees F (95 degrees C)."
+  200 °F both  [200 degrees F]
+  95 °C both  [95 degrees C]
+✓ "Let cook, stirring occasionally, until the sauce reduces to about 2/3 cup, 5 to 8 minutes."
+  ~0.667 cup  [2/3 cup]
+✓ "Cooked squash should equal 2 cups."
+  2 cup  [2 cups]
+? "Lightly grease a 3-quart casserole dish."
+  3 quart  [3-quart]
+? "Stir in shrimp and 1 teaspoon salt, reduce heat to a simmer, and cook until shrimp are opaque and bright pink, about 3 minutes."
+  1 tsp  [1 teaspoon]
+✓ "Melt 2 tablespoons butter in a saucepan over medium heat; stir in flour to make a paste."
+  2 tbsp  [2 tablespoons]
+? "Pack relish into hot, sterilized jars, filling to within 1/4 inch of the top."
+  0.25 in  [1/4 inch]
+✓ "Stir sugar and 1/2 cup water together in a saucepan over medium heat until sugar has dissolved and mixture comes to a boil."
+  0.5 cup  [1/2 cup]
+? "Beat in confectioners' sugar, 1 cup at a time, until filling is thick and fluffy."
+  1 cup  [1 cup]
+? "Mix in water, 1 tablespoon at a time, if filling is too thick."
+  1 tbsp  [1 tablespoon]
+? "Pour 1/2 cup water into the slow cooker, then add ribs."
+  0.5 cup  [1/2 cup]
+? "When the ribs are almost finished, preheat the oven to 375 degrees F (190 degrees C)."
+  375 °F both  [375 degrees F]
+  190 °C both  [190 degrees C]
+? "Preheat the oven to 325 degrees F (165 degrees C)."
+  325 °F both  [325 degrees F]
+  165 °C both  [165 degrees C]
+? "Mix cream cheese, Havarti cheese, Parmesan cheese, 2 tablespoons basil, lemon zest, and garlic together in a bowl."
+  2 tbsp  [2 tablespoons]
+? "Cover the visible portion of the 'tree' with 1/4 cup basil and parsley."
+  0.25 cup  [1/4 cup]
+? "Cut tubers into 1-inch pieces."
+  1 in  [1-inch]
+? "Gradually whisk 4 cups of milk into the flour mixture, and bring to a simmer over medium heat."
+  4 cup  [4 cups]
+? "Grease and flour a 10-inch Bundt or tube pan."
+  10 in  [10-inch]
+✓ "Stir condensed soup, cottage cheese, sour cream, cream cheese, Creole seasoning, 1/2 teaspoon garlic powder, and onion powder together in a medium bowl until well blended and smooth."
+  0.5 tsp  [1/2 teaspoon]
+? "Combine crushed crackers, melted butter, and remaining 1/2 teaspoon garlic powder in another medium bowl; mix well."
+  0.5 tsp  [1/2 teaspoon]
+✓ "Spoon chicken mixture evenly into an 11x7-inch or 9-inch square baking dish."
+  11x7 in  [11x7-inch]
+  9 in  [9-inch]
+
+## bbc.co.uk (en, british): 35 sentences, 32 entries; 32 with quantities
+
+✓ "Preheat the oven to 190C/170C Fan/Gas 5 and grease a 26cm/10in spring-from cake tin."
+  190 °C  [190C]
+  170 °C  [170C]
+  26 cm = 10 in  [26cm] [10in]
+? "Preheat the oven to 200C/400F/Gas 6."
+  200 °C both  [200C]
+  400 °F both  [400F]
+? "Preheat the oven to 180C/160C Fan/Gas 4."
+  180 °C  [180C]
+  160 °C  [160C]
+? "Grease a 20cm/8in square cake tin with butter, then line the base and sides with baking paper."
+  20 cm = 8 in  [20cm] [8in]
+✓ "Use a tablespoon or so of the sauce to coat the turkey, then place this on top."
+  1 tbsp  [a tablespoon]
+? "Grease an ovenproof dish (about 23x28cm/9x11in) with butter."
+  ~23x28 cm = 9x11 in  [23x28cm] [9x11in]
+✓ "Put the chicken in a bowl with one tablespoon each of the soy sauce, Shaoxing rice wine and sesame oil."
+  1 tbsp  [one tablespoon]
+✓ "Add one tablespoon of the vegetable oil, and when it is hot and slightly smoking, add the chicken and stir fry for 2-3 minutes, or until nearly cooked through."
+  1 tbsp  [one tablespoon]
+? "Add the remaining two tablespoons of Shaoxing rice wine, one tablespoon of the soy, all the sugar and chicken stock and bring to the boil."
+  2 tbsp  [two tablespoons]
+  1 tbsp  [one tablespoon]
+✓ "Finish with a third of the spring onion and a tablespoon of coriander and stir through."
+  1 tbsp  [a tablespoon]
+? "Set aside and heat another wok until hot, add one tablespoon of vegetable oil, half the remaining ginger, garlic and chilli mix and half the remaining spring onion and stir fry for one minute."
+  1 tbsp  [one tablespoon]
+✓ "Add the bok choi and 75ml/3fl oz of water and stir fry until the bok choi is tender and the liquid evaporated."
+  75 ml = 3 fl-oz  [75ml] [3fl oz]
+? "Add one tablespoon of coriander and half the remaining spring onion and stir fry for one minute then put onto the serving plate."
+  1 tbsp  [one tablespoon]
+? "For the chicken nuggets, heat the oil in a deep-fat fryer to 180C/350F."
+  180 °C both  [180C]
+  350 °F both  [350F]
+? "Preheat the oven to 180C/350F/Gas 4 and line a 30x20cm/12x8in tin with baking parchment."
+  180 °C both  [180C]
+  350 °F both  [350F]
+  30x20 cm = 12x8 in  [30x20cm] [12x8in]
+✓ "Add the trout and poach gently at 50C for 10–15 minutes, take the fish to 48 degrees and allow to rest for at least 5 minutes before serving."
+  50 °C  [50C]
+  48 ?°C  [48 degrees]
+? "To make the crisp Belgian endive, whisk 50ml/2fl oz reserved poaching oil with the sweet muscatel vinegar, crème fraîche and mustard to make a dressing."
+  50 ml = 2 fl-oz  [50ml] [2fl oz]
+? "Preheat the oven to 200C/180C Fan/Gas 6, or the air fryer to 180C."
+  200 °C  [200C]
+  180 °C  [180C]
+  180 °C  [180C]
+? "Add the onion to the pan with a pinch of salt and fry for 5–7 minutes, until very soft."
+✓ "Preheat the oven to 180C/350F/Gas 4."
+  180 °C both  [180C]
+  350 °F both  [350F]
+? "Grease and line a 20x30cm/8x12in rectangular cake tin with baking parchment."
+  20x30 cm = 8x12 in  [20x30cm] [8x12in]
+? "Pre-heat the oven to 180C/350F/gas 4."
+  180 °C both  [180C]
+  350 °F both  [350F]
+? "Preheat the oven to 210C/190C Fan/Gas 6."
+  210 °C  [210C]
+  190 °C  [190C]
+? "To make the flatbreads, pour 300ml/½ pint of warm water into a large mixing bowl, then sprinkle in the yeast and sugar."
+  300 ml = 0.5 pint  [300ml] [½ pint]
+? "Pour about 1 tablespoon of olive oil into a medium-sized bowl and rub it in with your hands."
+  ~1 tbsp  [1 tablespoon]
+✓ "Tear off handfuls of dough about the size of a tangerine, or 100g/3½oz. Take one and flatten it with your hands to create a vaguely circular shape about 2mm/1/16in thick."
+  100 g = 3.5 oz  [100g] [3½oz]
+  ~2 mm = 0.063 in  [2mm] [1/16in]
+? "Add 1 teaspoon of salt and give it a good mix, then leave to sit for a bit."
+  1 tsp  [1 teaspoon]
+? "Add a pinch of salt and massage in with your hands for a few minutes to soften the cabbage."
+? "Heat 2 tablespoons of the oil in a wok and fry the chillies, peppercorns and celery for 2–3 minutes, then remove from the pan and drain on kitchen paper."
+  2 tbsp  [2 tablespoons]
+? "Heat 2 teaspoons of the oil in a large, non-stick frying pan over a medium heat."
+  2 tsp  [2 teaspoons]
+? "Add the chopped tomatoes, chipotle paste, beans and 600ml/20fl oz cold water to the saucepan."
+  600 ml = 20 fl-oz  [600ml] [20fl oz]
+✓ "Make two equally deep slashes in the thighs and two in the drumsticks as well."
+
+## recipetineats.com (en, australian): 75 sentences, 75 entries; 68 with quantities
+
+? "Preheat oven to 180C/350F."
+  180 °C both  [180C]
+  350 °F both  [350F]
+? "Melt 1 tbsp / 20g butter in ovenproof pot (preferably with a lid) over medium high heat."
+  1 tbsp = 20 g  [1 tbsp] [20g]
+✓ "Garnish with crispy sage, 1 or 2 teaspoons of brown butter and parmesan cheese."
+  1-2 tsp  [1 or 2 teaspoons]
+? "Toss beef in skillet with 1 cup braising liquid (aka Consomme)."
+  1 cup  [1 cup]
+✓ "Heat 1 tsp Birria oil over low heat, wipe pan with tortilla, remove, repeat x2 with 1/2 tsp oil each."
+  1 tsp  [1 tsp]
+  0.5 tsp  [1/2 tsp]
+? "Roughly chop into 1 - 1.5cm / 1/4\" pieces."
+  1-1.5 cm = 0.25 in  [1 - 1.5cm] [1/4"]
+? "Reserve 1/2 cup of chilli-simmering water."
+  0.5 cup  [1/2 cup]
+? "Birria Adobo (paste) - Place cooked chillies, reserved 1/2 cup chilli water and remaining Adobo ingredients in a tall jug large enough to fit the head of a stick blender."
+  0.5 cup  [1/2 cup]
+? "Sear beef - Heat the oil in a large heavy based pot over high heat (I use my 24cm / 9.6\" dutch oven)."
+  24 cm = 9.6 in  [24cm] [9.6"]
+✓ "Add the 1/2 teaspoon of salt and toss meat to distribute."
+  0.5 tsp  [1/2 teaspoon]
+? "Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally 6 tbsp+) and place in a separate bowl (this is the \"Birria Oil\")."
+  6 tbsp  [6 tbsp]
+? "Soak beef - Pour 1 cup of the braising liquid (\"Birria Consommé\") into a large non-stick pan over medium-high heat."
+  1 cup  [1 cup]
+? "Red tortillas - Heat 1 teaspoon Birria Oil in the same non-stick pan over medium-low heat."
+  1 tsp  [1 teaspoon]
+? "Repeat twice more, heating 1/2 teaspoon Birria Oil for each tortilla."
+  0.5 tsp  [1/2 teaspoon]
+? "Beef: Place in a bowl and add 1 1/2 tbsp Sauce."
+  1.5 tbsp  [1 1/2 tbsp]
+? "Drizzle 1 tbsp of sake onto each fish."
+  1 tbsp  [1 tbsp]
+? "Bake at 180C/350F for 15 minutes."
+  180 °C both  [180C]
+  350 °F both  [350F]
+? "Preheat oven to 180C°/350°F (160°C fan)."
+  180 °C  [180C]
+  350 °F both  [350°F]
+  160 °C both  [160°C]
+? "Grease a 23 x 33cm / 9 x 13\" metal cake pan with butter."
+  23x33 cm = 9x13 in  [23 x 33cm] [9 x 13"]
+? "(You could also use a stick blender, but a stand mixer will not work)"
+? "Spread on a shallow bowl-plate / regular plate so it's around 1.5cm / 0.6\" thick."
+  ~1.5 cm = 0.6 in  [1.5cm] [0.6"]
+? "Preheat oven to 200F/100C (for keeping fritters warm)."
+  200 °F both  [200F]
+  100 °C both  [100C]
+? "Heat 2 tbsp oil in a non stick pan over medium high heat (or medium if stove is strong)."
+  2 tbsp  [2 tbsp]
+? "Drop 1/4 cup batter in the pan (ice cream scoop is perfect)."
+  0.25 cup  [1/4 cup]
+✓ "Flatten lightly with spatula to about 1cm / 4/5\" thick."
+  ~1 cm = 0.8 in  [1cm] [4/5"]
+? "Infuse milk: Place milk, vanilla seeds, used beans and 50g (1/4 cup) sugar in a large saucepan over medium high heat."
+  50 g = 0.25 cup  [50g] [1/4 cup]
+? "Cut three 25 x 5.5cm  (2.15 x 10″) wide strips on the other sheet of puff pastry."
+  25x5.5 cm = 2.15x10 in  [25 x 5.5cm] [2.15 x 10″]
+? "Line pan: Butter and line the sides of a 20cm/8\" springform pan with a 5.5cm / 2.2\" strip of baking paper."
+  20 cm = 8 in  [20cm] [8"]
+  5.5 cm = 2.2 in  [5.5cm] [2.2"]
+? "Working quickly, when sides have JUST thawed enough to bend, line sides of cake pan with puff pastry, overlapping by 1cm / 0.4\", using water to seal - just press down for now (will seal properly later)."
+  1 cm = 0.4 in  [1cm] [0.4"]
+? "Seal pastry: Use the back of a teaspoon to press base into the corner."
+? "Preheat oven to 220°C/430°F (200°C fan) for 30 minutes."
+  220 °C both  [220°C]
+  430 °F both  [430°F]
+  200 °C both  [200°C]
+? "Crumple 2 x 60cm / 2 feet long sheets of baking paper (Note 7) then fit into crust arranged in X."
+  60 cm  [60cm]
+? "Fill with baking beads 1cm / 0.4\" below rim (Note 8)."
+  1 cm = 0.4 in  [1cm] [0.4"]
+? "Turn oven down to 200°C/390°F (180°C fan)."
+  200 °C both  [200°C]
+  390 °F both  [390°F]
+  180 °C both  [180°C]
+? "Whisk to loosen, scrape into crust - fill to 1cm/0.4\" below rim."
+  1 cm = 0.4 in  [1cm] [0.4"]
+✓ "Bake 65 minutes, rotating tray 180° at 45 minutes."
+✓ "Preheat oven to 200°C / 390°F (180°C fan-forced)."
+  200 °C both  [200°C]
+  390 °F both  [390°F]
+  180 °C both  [180°C]
+? "Carve / cut each potato into cylinders ~ 6cm/ 2\" diameter, 7 cm height."
+  ~6 cm = 2 in  [6cm] [2"]
+  7 cm  [7 cm]
+? "Then cut in half so you have 8 short cylinders 3.5 cm / 1.4\" tall."
+  3.5 cm = 1.4 in  [3.5 cm] [1.4"]
+? "Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 1 tbsp oil over medium high heat."
+  1 tbsp  [1 tbsp]
+✓ "Once carved into a tall cylinder 6cm/ 2\" diameter, at least 7cm/3\" height, so we can cut into 3.5 cm / 1.4\" tall pieces."
+  6 cm = 2 in  [6cm] [2"]
+  7 cm = 3 in  [7cm] [3"]
+  3.5 cm = 1.4 in  [3.5 cm] [1.4"]
+? "Easy - Use 6cm/ 2\" (or as close as possible) wide cutters to press rounds out!"
+  6 cm = 2 in  [6cm] [2"]
+? "Doesn't matter! - Just cut potatoes into 3.5cm / 1.4\" thick slices!"
+  3.5 cm = 1.4 in  [3.5cm] [1.4"]
+? "Preheat oven to 180°C / 350°F (160°C fan-forced)."
+  180 °C both  [180°C]
+  350 °F both  [350°F]
+  160 °C both  [160°C]
+✓ "Line the base of a 23 x 33cm / 13 x 9\" pan with paper (Note 5)"
+  23x33 cm = 13x9 in  [23 x 33cm] [13 x 9"]
+? "Spread base and lid with the 1/3 cup mustard."
+  0.333 cup  [1/3 cup]
+? "Preheat oven to 190°C/375°F (170°C fan)."
+  190 °C both  [190°C]
+  375 °F both  [375°F]
+  170 °C both  [170°C]
+? "Form 2.5cm/1\" balls: Scoop up about 1 tablespoon of the mixture and shape into a rough ball (2.5cm/1\" ball)."
+  2.5 cm = 1 in  [2.5cm] [1"]
+  ~1 tbsp  [1 tablespoon]
+  2.5 cm = 1 in  [2.5cm] [1"]
+? "Bake 13 minutes: Place on prepared tray 2.5cm / 1\" apart."
+  2.5 cm = 1 in  [2.5cm] [1"]
+? "Heat 1 1/2 tbsp olive oil in a large pot over medium high heat."
+  1.5 tbsp  [1 1/2 tbsp]
+? "Preheat oven to 180°F/350°F (160°C fan)."
+  180 °F both  [180°F]
+  350 °F both  [350°F]
+  160 °C both  [160°C]
+? "Add apricots, put the lid back on and cook for another 1 hour, checking halfway to ensure the sauce hasn't reduced all the way (if you're concerned, add 1/2 cup water)."
+  0.5 cup  [1/2 cup]
+? "Preheat oven to 220°C/425°F (200°C fan-forced)."
+  220 °C both  [220°C]
+  425 °F both  [425°F]
+  200 °C both  [200°C]
+? "Cut into 3cm / 1.2\" squares."
+  3 cm = 1.2 in  [3cm] [1.2"]
+? "Dressing - Shake the dressing ingredients in a jar until well combined."
+? "Preheat oven to 150C/300F."
+  150 °C both  [150C]
+  300 °F both  [300F]
+? "Set aside 1 1/2 tbsp of the Spice Mix for later (to pan fry the lamb)."
+  1.5 tbsp  [1 1/2 tbsp]
+? "Heat 1 tbsp of oil in a heavy based pan over high heat."
+  1 tbsp  [1 tbsp]
+? "Add some lamb (don't crowd the pan) and drizzle over about 3 tbsp of the pan juices."
+  ~3 tbsp  [3 tbsp]
+? "Just before they're done, add the garlic and a pinch of salt and pepper."
+? "Cook in a lightly buttered non-stick pan, swirling ¼ cup batter to cover the surface."
+  0.25 cup  [¼ cup]
+✓ "Heat a 24cm / 9.5\" non-stick crêpe pan over medium-high heat (medium if your stove runs hot)."
+  24 cm = 9.5 in  [24cm] [9.5"]
+? "Melt about 1/2 tsp butter, then wipe it off with a paper towel, you want just a little of butter left, no visible pools."
+  ~0.5 tsp  [1/2 tsp]
+? "Pour the batter - Using a ladle, scoop up ¼ cup of batter, lift the pan off the heat, ladle most of the batter into the centre, and immediately swirl the pan so the batter coats the surface in a thin, even layer."
+  0.25 cup  [¼ cup]
+✓ "Preheat oven to 220C / 430F (standard oven) or 200C / 390F (fan forced / convection)."
+  220 °C both  [220C]
+  430 °F both  [430F]
+  200 °C both  [200C]
+  390 °F both  [390F]
+✓ "Remove tray from oven, flick to broiler/grill on high (shelf about 20cm/8\" from heat source)."
+  ~20 cm = 8 in  [20cm] [8"]
+? "Preheat grill/broiler to medium high with shelf about 25cm/10\" from heat source."
+  ~25 cm = 10 in  [25cm] [10"]
+? "Spread with butter, then 1 tbsp Russian Dressing on each piece."
+  1 tbsp  [1 tbsp]
+✓ "Chicken Marinade: Transfer 1/4 cup of Yoghurt Ranch Dressing into a bowl with the chicken."
+  0.25 cup  [1/4 cup]
+? "Scatter over grapefruit, onion (not the liquid), top with a handful of snow pea sprouts, sprinkle over parmesan."
+? "Preheat oven to 220C/430F (standard) or 200C/390F (fan / convection)."
+  220 °C both  [220C]
+  430 °F both  [430F]
+  200 °C both  [200C]
+  390 °F both  [390F]
+? "Scoop up 1 slightly heaped tablespoon and roll into a ball (about 3cm / 1.25\" diameter)."
+  ~3 cm = 1.25 in  [3cm] [1.25"]
+? "Slice the white part only into 0.5cm / 1/4\" slices, thick enough to pick off later if any stick to the wings."
+  0.5 cm = 0.25 in  [0.5cm] [1/4"]
+? "Preheat oven to 180C/350F and put the rack in the top part of the oven."
+  180 °C both  [180C]
+  350 °F both  [350F]
+? "Place Dressing ingredients in a jar and shake well to combine."
+
+## soppa365.fi (fi, metric): 19 sentences, 18 entries; 19 with quantities
+
+? "Kun mittari osoittaa 58 astetta, liha on medium."
+  58 °C  [58 astetta]
+? "Survo puolukoita kevyesti kattilan pohjalla; jätä 1/2 dl puolukoita annosten koristeeksi."
+  0.5 dl  [1/2 dl]
+✓ "Laita uuni kuumenemaan 200 asteeseen."
+  200 °C  [200 asteeseen]
+? "Kuumenna uuni 200 asteeseen."
+  200 °C  [200 asteeseen]
+? "Kuumenna uuni 225 asteeseen."
+  225 °C  [225 asteeseen]
+? "Kaada pieni kattila vajaa puolilleen öljyä ja laita öljy kuumenemaan 160 asteeseen eli niin lämpimäksi, että sipsit ruskistuvat parissa minuutissa."
+  160 °C  [160 asteeseen]
+? "Taputtele taikina voideltuun piirasvuokaan (ø 24 cm) ja pistele pohjaa haarukalla."
+  24 cm  [24 cm]
+? "Esikypsennä 225-asteisessa uunissa 10 minuuttia."
+  225 °C  [225-asteisessa]
+? "Kypsennä 200 asteessa 25–35 minuuttia, kunnes pinta on kullanruskea."
+  200 °C  [200 asteessa]
+? "Laita uuni kuumenemaan 225 asteeseen."
+  225 °C  [225 asteeseen]
+? "Kauli taikina jauhotetulla alustalla tasai­seksi levyksi (Ø n. 30 cm)."
+  ~30 cm  [30 cm]
+? "Pingota leivin­paperi irtopohjavuoan pohjalle (Ø 24 cm)."
+  24 cm  [24 cm]
+? "Nosta taikina vuokaan kaulimen avulla ja siisti taikinan reunat veitsellä 3–4 cm:n kor­keudelle."
+  3-4 cm  [3–4 cm]
+? "Paista 180-asteisessa uunissa 40–50 minuuttia."
+  180 °C  [180-asteisessa]
+? "Ota pastavedestä 1½ desiä vettä talteen ennen kuin valutat pastan."
+  1.5 dl  [1½ desiä]
+? "Pane uuni lämpiämään 225 asteeseen."
+  225 °C  [225 asteeseen]
+? "Jaa taikina 3 osaan ja kauli jauhotetulla pöydällä pyöreiksi pohjiksi (halkaisija 25 cm)."
+  25 cm  [25 cm]
+? "Levitä pohjille tasainen kerros ricottaa niin, että 2 cm reunoista jää ilman juustoa."
+  2 cm  [2 cm]
+
+## valio.fi (fi, metric): 19 sentences, 19 entries; 19 with quantities
+
+? "Levitä irtopohjavuoan (ø 20 cm) pohjalle ja reunoille leivinpaperi."
+  20 cm  [20 cm]
+? "Kaada taikina vuokaan leivinpaperin päälle ja paista 200-asteisessa uunissa 1 h 15 min. tai kunnes kakun pinta on tummanruskea."
+  200 °C  [200-asteisessa]
+✓ "Kaada taikina voideltuun, suorakaiteen muotoiseen 1,5 litran vetoiseen leipävuokaan."
+  1.5 l  [1,5 litran]
+? "Paista 175 asteessa uunin alatasolla n. 40 min tai kunnes kypsä."
+  175 °C  [175 asteessa]
+? "Jos haluat tehdä tavallisen kesäkurpitsaleivän gluteenittoman sijasta, käytä gluteenittoman jauhoseoksen tilalla 5 dl vehnäjauhoja ja 2,5 dl sämpyläjauhoja."
+  5 dl  [5 dl]
+  2.5 dl  [2,5 dl]
+? "Paista uunin keskiosassa 150 asteessa 35 min."
+  150 °C  [150 asteessa]
+? "Kauli kumpikin taikinapala pyöreiksi levyiksi (Ø 35 cm)."
+  35 cm  [35 cm]
+? "Paista uunin keskiosassa 225 asteessa n. 10 min tai kunnes kypsiä."
+  225 °C  [225 asteessa]
+? "Voit valmistaa nyytit myös uunissa 225 asteessa."
+  225 °C  [225 asteessa]
+? "Paista 225 asteessa uunin keskiosassa 10 - 15 min."
+  225 °C  [225 asteessa]
+✓ "Laita uuni kuumenemaan 200 asteeseen."
+  200 °C  [200 asteeseen]
+? "Levitä torttupohjalle ensin suklaa-pähkinälevite, sitten kirsikkarahka (ja paloitellut kirsikat) jättäen n. 2 cm toisesta reunasta ilman täytettä."
+  ~2 cm  [2 cm]
+? "Paista uunin keskiosassa 200 asteessa 25 min."
+  200 °C  [200 asteessa]
+? "Kaada taikina leivinpaperilla vuorattuun uunivuokaan (20 x 30 cm)."
+  20x30 cm  [20 x 30 cm]
+? "Paista 200-asteisessa uunissa 20 minuuttia."
+  200 °C  [200-asteisessa]
+? "Lämmitä maito 42-asteiseksi."
+  42 °C  [42-asteiseksi]
+? "Painele taikina ohueksi (1- 1 ½ cm) levyksi leivinpaperilla vuoratulle pellille."
+  1-1.5 cm  [1- 1 ½ cm]
+? "Paista uunin keskiosassa 200 asteessa n. 15 min."
+  200 °C  [200 asteessa]
+? "Paista uunin keskiosassa 225 asteessa 20 - 25 min."
+  225 °C  [225 asteessa]
+
+## yhteishyva.fi (fi, metric): 26 sentences, 26 entries; 26 with quantities
+
+? "Purista limen mehu (6 rkl)."
+  6 tbsp  [6 rkl]
+? "Grillaa pihvejä noin 2 minuuttia molemmin puolin  tai paista öljyssä pannulla noin 3 minuuttia molemmin puolin, kunnes sisälämpötila on 55 astetta."
+  55 °C  [55 astetta]
+? "Kaada seos voideltuun laakeaan uunivuokaan (vetoisuus noin 3 l)."
+  ~3 l  [3 l]
+✓ "Paista 175 asteisessa uunissa 30 minuuttia."
+  175 °C  [175 asteisessa]
+? "Painele taikina voidellun piirakkavuoan (halkaisija 24 cm) pohjalle ja reunoille."
+  24 cm  [24 cm]
+? "Paista pohjaa 175-asteisessa uunissa noin 15 minuuttia."
+  175 °C  [175-asteisessa]
+? "Kuumenna öljy (0,5 dl) pannulla."
+  0.5 dl  [0,5 dl]
+? "Aloita kimchin valmistaminen puolittamalla kiinankaali ja leikkaamalla se sitten 2-3 cm kokoisiksi paloiksi."
+  2-3 cm  [2-3 cm]
+? "Sekoita paloihin merisuola ja n. 2 rkl sokerista."
+  ~2 tbsp  [2 rkl]
+? "Peitä koko komeus marengilla ja paista 200-asteisessa uunissa grillivastusten alla 2-3 minuuttia niin, että marenki saa väriä."
+  200 °C  [200-asteisessa]
+? "Kiehauta kattilassa noin 2 dl vettä."
+  ~2 dl  [2 dl]
+✓ "Grillaa broileria, kunnes sisälämpö on 75 astetta paksuimmasta kohdasta."
+  75 °C  [75 astetta]
+? "Kuumenna uuni 180 asteeseen."
+  180 °C  [180 asteeseen]
+? "Laita ne kattilaan ja lisää 3 dl vettä."
+  3 dl  [3 dl]
+? "Painele taikina irtopohjavuoan pohjalle ja reunoille (Ø 20 cm)."
+  20 cm  [20 cm]
+✓ "Laske uunin lämpötila sitten 150 asteeseen."
+  150 °C  [150 asteeseen]
+? "Purista limen mehu (2 rkl) ja hienonna basilika."
+  2 tbsp  [2 rkl]
+? "Kuumenna uuni 190 asteeseen."
+  190 °C  [190 asteeseen]
+? "Kuumenna uuni 200 asteeseen."
+  200 °C  [200 asteeseen]
+? "Paahda luumuja 180°C uunissa noin 25 minuuttia."
+  180 °C  [180°C]
+? "Lämmitä grilli 180°C."
+  180 °C  [180°C]
+? "Voitele noin 20 cm halkaisijaltaan oleva uunivuoka huolellisesti ja kaada taikina vuokaan."
+  ~20 cm  [20 cm]
+? "Paista 225-asteisessa uunissa 30 minuuttia."
+  225 °C  [225-asteisessa]
+? "Pese, kuori ja leikkaa perunat noin 2 cm x 2 cm kuutioiksi."
+  ~2x2 cm  [2 cm x 2 cm]
+? "Paista 200-asteisessa uunissa noin 30 minuuttia."
+  200 °C  [200-asteisessa]
+✓ "Levitä kasvikset leivinpaperille pellille ja paista kiertoilmalla 225-asteisessa uunissa noin 8 minuuttia."
+  225 °C  [225-asteisessa]

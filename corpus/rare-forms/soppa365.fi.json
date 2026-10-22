@@ -1,0 +1,40 @@
+{
+  "site": "soppa365.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/porkkana-tyrnijaatelo-ja-tyrnikastike",
+      "name": "Porkkana-tyrnijäätelö ja tyrnikastike",
+      "ingredients": ["1 tähtianis (tai 1 rkl anislikööriä)"]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-aamiaiset-gluteeniton/australialainen-makea-kiivimunakas",
+      "name": "Australialainen makea kiivimunakas",
+      "ingredients": [
+        "1 vaniljatanko tai 1 tl vaniljatahnaa tai vaniljauutetta"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-alkuruuat-valipalat-lisukkeet/burrata-sienibruschettat",
+      "name": "Burrata-sienibruschettat",
+      "ingredients": ["1 +1 rkl rypsiöljyä"]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-padat-ja-laatikot/helppo-kaali-pastagratiini",
+      "name": "Helppo kaali-pastagratiini",
+      "ingredients": ["keittämiseen 3 l vettä ja 2 tl suolaa"]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-pizzat-ja-piirakat-suolainen-leivonta/liekkipiiras-siitakesienista",
+      "name": "Liekkipiiras siitakesienistä",
+      "ingredients": ["1+1 rkl oliiviöljyä"]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha-pastat-ja-risotot/possuragu",
+      "name": "Possuragù",
+      "ingredients": ["1 + 1 tl suolaa"]
+    }
+  ]
+}

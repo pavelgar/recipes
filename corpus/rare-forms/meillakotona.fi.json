@@ -1,0 +1,52 @@
+{
+  "site": "meillakotona.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.meillakotona.fi/reseptit/italialainen-graavilohi",
+      "name": "Italialainen graavilohi - katso resepti! | Kotivinkki",
+      "ingredients": ["2 + 1 rkl ruohosipulia hienonnettuna"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/karamellisoidut-perunat",
+      "name": "Karamellisoidut perunat  – katso ohje!  | Maku",
+      "ingredients": ["2 rkl + 50 g voita"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/korvasieni-raparperirisotto",
+      "name": "Korvasieni-raparperirisotto – katso resepti! | Maku",
+      "ingredients": ["2 + 1 rkl oliiviöljyä"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/mansikka-tahinikakku",
+      "name": "Mansikka-tahinikakku – katso resepti | Kotivinkki",
+      "ingredients": ["1 l + 3 dl mansikoita pieninä kuutioina"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/munakoiso-jauhelihavartaat",
+      "name": "Munakoiso-jauhelihavartaat – katso ohje! | Kotivinkki",
+      "ingredients": ["1 + 1 tl suolaa"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/punajuuri-lihapyorykat-ja-lanttumuusi",
+      "name": "Punajuuri-lihapyörykät ja lanttumuusi – resepti | Maku",
+      "ingredients": [
+        "(2 tl  kuivattua timjamia tai 2 rkl tuoretta timjamia hienonnettuna)"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/raparperidonitsit",
+      "name": "Raparperidonitsit – katso resepti! | Kotivinkki",
+      "sentences": [
+        "Keitä raparperinpalat ja puoli desiä\r vettä kattilassa, kunnes raparperit hiukan\r pehmenevät."
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/schiacciata-leipa",
+      "name": "Schiacciata-leipä – katso resepti! | Kotivinkki",
+      "ingredients": ["2 rkl + 3 rkl oliiviöljyä"]
+    }
+  ]
+}

@@ -1,0 +1,873 @@
+{
+  "site": "tasteofhome.com",
+  "country": "US",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.tasteofhome.com/recipes/air-fryer-breaded-pork-chops/",
+      "name": "Air-Fryer Breaded Pork Chops",
+      "ingredients": ["8 thin boneless pork loin chops (2 ounces each)"],
+      "sentences": [
+        "Cook until a thermometer reads at least 145°, 5-6 minutes, turning once."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/air-fryer-french-fries/",
+      "name": "Air-Fryer French Fries",
+      "ingredients": ["3 medium potatoes, cut into 1/2-inch strips"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/air-fryer-pumpkin-biscuits-with-spiced-apple-butter/",
+      "name": "Air-Fryer Pumpkin Biscuits with Spiced Apple Butter",
+      "ingredients": ["2-1/2 teaspoons baking powder"],
+      "sentences": [
+        "Pat or roll dough to 1/2-in. thickness; cut with a floured 2-1/2-in. biscuit cutter.",
+        "In batches, place in a single layer 1 in. apart on a greased tray in air-fryer basket."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/air-fryer-spicy-ginger-beef-skewers/",
+      "name": "Air-Fryer Spicy Ginger Beef Skewers",
+      "ingredients": [
+        "1 beef flank steak (1-1/2 pounds)",
+        "2 teaspoons Sriracha chili sauce or 1 teaspoon hot pepper sauce"
+      ],
+      "sentences": [
+        "Cook until meat reaches desired doneness (for medium-rare, a thermometer should read 135°; medium, 140°; medium-well, 145°), 4-5 minutes, turning occasionally and basting frequently, using 1/2 cup of reserved marinade."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/amaretto-cake-with-buttercream-frosting/",
+      "name": "Amaretto Cake",
+      "ingredients": [
+        "3-1/2 cups all-purpose flour",
+        "1-1/3 cups butter, softened",
+        "7-1/2 to 8 cups confectioners' sugar"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/apple-tea-2/",
+      "name": "Apple Tea",
+      "ingredients": ["1-in. piece fresh gingerroot, peeled"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/baked-beef-tacos/",
+      "name": "Baked Beef Tacos",
+      "ingredients": [
+        "1-1/2 pounds ground beef",
+        "2 cans (10 ounces each) diced tomatoes and green chiles, divided"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/baked-cod-with-mushrooms/",
+      "name": "Baked Cod with Mushrooms",
+      "ingredients": ["2 cod fillets (4 ounces each)"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/baking-powder-biscuits/",
+      "name": "Baking Powder Biscuits",
+      "sentences": [
+        "Cut with a 2-1/2-in. floured biscuit cutter.",
+        "Place 1 in. apart on an ungreased baking sheet."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/banana-orange-bars/",
+      "name": "Banana Bars with Orange Frosting",
+      "ingredients": ["1-2/3 cups sugar", "4-1/2 cups confectioners' sugar"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/barley-salad/",
+      "name": "Barley Salad",
+      "ingredients": ["1-1/2 cups chopped cucumber"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/beefy-eggplant-parmigiana/",
+      "name": "Beefy Eggplant Parmigiana",
+      "ingredients": [
+        "1 can (14-1/2 ounces) Italian stewed tomatoes",
+        "1-1/4 teaspoons salt, divided",
+        "1-1/2 cups all-purpose flour",
+        "2 medium eggplants, peeled and cut into 1/2-inch slices"
+      ],
+      "sentences": [
+        "In a large skillet, cook eggplant in batches in 1/2 in. hot oil until golden brown on each side; drain."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/black-beans-and-rice-2/",
+      "name": "Black Beans and Rice",
+      "ingredients": [
+        "1-1/2 teaspoons ground cumin",
+        "2 cans (15 ounces each) black beans, rinsed and drained"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/blueberry-bread/",
+      "name": "Blueberry Bread",
+      "ingredients": ["2 cups plus 2 tablespoons all-purpose flour, divided"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/broccoli-and-apple-salad/",
+      "name": "Broccoli Apple Salad",
+      "ingredients": [
+        "3 tablespoons each golden raisins, dried cranberries and chopped dates"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/broccoli-meat-roll/",
+      "name": "Broccoli Meat Roll",
+      "ingredients": [
+        "1-1/2 teaspoons salt, divided",
+        "1 package (2-1/2 ounces) thinly sliced deli ham"
+      ],
+      "sentences": [
+        "Top with broccoli to within 1/2 in. of edges.",
+        "Bake, uncovered, at 350&deg; for 1-1/4 hours or until meat is no longer pink and a thermometer reads 160&deg;; drain."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/buddy-the-elf-bark/",
+      "name": "Buddy the Elf Bark",
+      "ingredients": ["1 package (11-1/2 ounces) milk chocolate chips"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/buffalo-chicken-pizza/",
+      "name": "Buffalo Chicken Pizza",
+      "ingredients": [
+        "1-1/2 cups shredded cheddar cheese",
+        "1-1/2 cups part-skim shredded mozzarella cheese",
+        "1/2 teaspoon each garlic salt, pepper and chili powder"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/candy-cane-coffee-cakes/",
+      "name": "Candy Cane Coffee Cakes",
+      "ingredients": [
+        "2 packages (1/4 ounce each) active dry yeast",
+        "1/2 cup warm water (110&deg; to 115&deg;)",
+        "5-1/4 to 6 cups all-purpose flour",
+        "1-1/2 cups (12 ounces) finely chopped dried apricots",
+        "1-1/2 cups finely chopped well-drained maraschino cherries"
+      ],
+      "sentences": ["Stretch dough to 22 in. and curve to form canes."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/caramel-whiskey-cookies/",
+      "name": "Caramel Whiskey Cookies",
+      "ingredients": ["2-1/2 cups all-purpose flour"],
+      "sentences": [
+        "Shape dough into 1-in. balls; place 2 in. apart on ungreased baking sheets."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/carrie-s-cincinnati-chili/",
+      "name": "Carrie&#8217;s Cincinnati Chili",
+      "ingredients": [
+        "1-1/2 pounds ground beef",
+        "1 can (14-1/2 ounces) whole tomatoes, crushed"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/cheesy-ranch-spinach-puffs/",
+      "name": "Cheesy Ranch Spinach Puffs",
+      "ingredients": ["1 package (8-1/2 ounces) corn bread/muffin mix"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/cheesy-zucchini-rice-casserole/",
+      "name": "Cheesy Zucchini Rice Casserole",
+      "ingredients": ["3 medium zucchini, cut into 1/8-inch slices"],
+      "sentences": [
+        "In a large saucepan, cook zucchini in 1/2 in. of water.",
+        "Layer with chiles and 1-1/2 cups cheese."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/chicken-and-lentil-chili/",
+      "name": "Chicken and Lentil Chili",
+      "ingredients": [
+        "2 boneless skinless chicken breast halves (6 ounces each)",
+        "1 can (14-1/2 ounces) reduced-sodium chicken broth",
+        "1 can (4 to 4-1/2 ounces) chopped green chiles",
+        "1-1/2 teaspoons chili powder"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/chicken-cornbread-casserole/",
+      "name": "Chicken Cornbread Casserole",
+      "ingredients": [
+        "1 can (10-3/4 ounces) condensed cream of chicken soup, undiluted",
+        "1 can (10-3/4 ounces) condensed cream of mushroom soup, undiluted"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/chicken-tomatillo-soup/",
+      "name": "Chicken Tomatillo Soup",
+      "sentences": [
+        "Cook, covered, on low until a thermometer inserted in chicken reads 165°, 3-1/2-4 hours."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/chocolate-peanut-butter-mousse-cheesecake/",
+      "name": "No-Bake Peanut Butter Cheesecake",
+      "ingredients": [
+        "1-1/4 cups heavy whipping cream",
+        "1-1/4 cups confectioners' sugar",
+        "1 milk chocolate candy bar (3-1/2 ounces), chopped"
+      ],
+      "sentences": [
+        "Editor's Tip: If you like to cook with precise measurements, half of the whipped cream should measure 1-1/4 cups.",
+        "The heavy cream doubles in volume when beaten, creating 2-1/2 cups total of whipped cream."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/cinnamon-sugar-crackle-cookies/",
+      "name": "Cinnamon Sugar Crackle Cookies",
+      "ingredients": [
+        "1-3/4 cups sugar, divided",
+        "2-3/4 cups all-purpose flour"
+      ],
+      "sentences": [
+        "In a large bowl, cream shortening and 1-1/2 cups sugar until light and fluffy.",
+        "Place 2 in. apart on ungreased baking sheets."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/corn-and-chicken-dinner/",
+      "name": "Corn and Chicken Dinner",
+      "ingredients": ["2 medium zucchini, sliced into 1/2-inch pieces"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/country-cassoulet/",
+      "name": "Country Cassoulet",
+      "ingredients": [
+        "1-1/2 pounds boneless pork, cut into 1-inch cubes",
+        "1 pound boneless lamb, cut into 1-inch cubes",
+        "1-1/2 cups chopped onion",
+        "2-1/2 cups chicken broth"
+      ],
+      "sentences": [
+        "Place in a large saucepan; add water to cover by 2 in.",
+        "Return beans to saucepan; add water to cover by 2 in."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/country-pumpkin-muffins/",
+      "name": "Pumpkin Muffins",
+      "ingredients": [
+        "1-1/2 cups canned pumpkin",
+        "1-1/2 teaspoons baking powder",
+        "1-1/2 cups raisins"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/cranberry-cornbread/",
+      "name": "Cranberry Cornbread",
+      "ingredients": ["1-1/2 cups all-purpose flour", "1-1/2 cups buttermilk"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/cranberry-gorgonzola-stuffed-chicken/",
+      "name": "Cranberry-Gorgonzola Stuffed Chicken",
+      "ingredients": [
+        "6 boneless skinless chicken breast halves (6 ounces each)"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/crispy-oven-fried-oysters/",
+      "name": "Baked Oysters",
+      "ingredients": [
+        "1 pint shucked oysters or 2 cans (8 ounces each) whole oysters, drained"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/crunchy-apple-mixed-greens-salad/",
+      "name": "Crunchy Apple Mixed Greens Salad",
+      "ingredients": [
+        "2 packages (5 ounces each) spring mix salad greens",
+        "1-1/2 cups honey-roasted peanuts",
+        "1-1/4 teaspoons dried minced onion"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/crunchy-apple-side-salad/",
+      "name": "Crunchy Apple Side Salad",
+      "ingredients": ["1/4 teaspoon plus 1/8 teaspoon ground cinnamon, divided"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/curried-quinoa-salad/",
+      "name": "Curried Quinoa Salad",
+      "ingredients": [
+        "1 can (14-1/2 ounces) vegetable or chicken broth",
+        "1-1/2 cups grape tomatoes, halved"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/date-caramel/",
+      "name": "Date Caramel",
+      "ingredients": ["20 pitted dates (about 4-1/2 ounces)"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/doritos-chicken-casserole/",
+      "name": "Doritos Chicken Casserole",
+      "ingredients": [
+        "1 can (10-1/2 ounces) condensed cream of chicken soup, undiluted",
+        "1 can (8-3/4 ounces) whole kernel corn, drained",
+        "1 package (9-1/4 ounces) Doritos nacho chips, crushed, divided"
+      ],
+      "sentences": [
+        "Spread half the chicken mixture evenly over the Doritos, then sprinkle 1-1/2 cups of the shredded cheddar cheese evenly over the chicken."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/easy-shrimp-ramen/",
+      "name": "Easy Shrimp Ramen",
+      "ingredients": ["2 packages (3 ounces each) ramen noodles (any flavor)"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/elegant-orange-blossom-cheesecake/",
+      "name": "Orange Cheesecake",
+      "ingredients": [
+        "2 teaspoons plus 2 tablespoons grated orange zest, divided",
+        "1-1/2 cups orange juice",
+        "4 packages (8 ounces each) cream cheese, softened",
+        "1-1/2 cups sugar"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/festive-tossed-salad-with-feta/",
+      "name": "Festive Tossed Salad with Feta",
+      "ingredients": ["2 packages (10 ounces each) Italian-blend salad greens"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/garlic-knotted-rolls/",
+      "name": "Garlic Knotted Rolls",
+      "ingredients": ["1-1/2 teaspoons dried minced onion"],
+      "sentences": ["Place rolls 2 in. apart on a greased baking sheet."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/gluten-free-biscuits/",
+      "name": "Gluten-Free Biscuits",
+      "ingredients": [
+        "2-1/4 cups gluten-free all-purpose baking flour (without xanthan gum)",
+        "2-1/2 teaspoons baking powder"
+      ],
+      "sentences": ["Cut with a floured 2-1/2-inch biscuit cutter."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/grapefruit-pie/",
+      "name": "Grapefruit Pie",
+      "sentences": [
+        "Peel the grapefruit and cut into sections (about 2-1/2 cups)."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/halibut-with-cream-sauce/",
+      "name": "Halibut with Cream Sauce",
+      "ingredients": ["1-1/2 pounds halibut or salmon steaks"],
+      "sentences": [
+        "Place butter and onion on a double thickness of heavy-duty foil (about 34 in. x 18 in.)."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/ham-and-leek-pies/",
+      "name": "Ham and Leek Pies",
+      "ingredients": [
+        "1-1/4 cups 2% milk",
+        "1-1/4 cups vegetable broth",
+        "1-3/4 cups cubed fully cooked ham"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/honey-pear-cheesecake/",
+      "name": "Honey Pear Cheesecake",
+      "ingredients": [
+        "1-1/2 cups crushed gingersnap cookies (about 30)",
+        "3 packages (8 ounces each) cream cheese, softened",
+        "3 peeled and chopped medium pears (about 1-1/2 cups), divided"
+      ],
+      "sentences": [
+        "Securely wrap a double thickness of heavy-duty foil (about 18 in. square) around and under a greased 9-in. springform pan.",
+        "Press onto bottom and 1-1/2 in. up sides of prepared pan.",
+        "Place springform pan in a larger baking pan; add 1 in. hot water to larger pan.",
+        "Bake until center is just set and top appears dull, 1-1/2 to 1-3/4 hours."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/hot-apple-pineapple-cider/",
+      "name": "Hot Apple Pineapple Cider",
+      "ingredients": [
+        "1 medium navel orange, cut into 1/2-inch slices",
+        "2-1/4 cups unsweetened pineapple juice"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/israeli-pepper-tomato-salad/",
+      "name": "Israeli Salad",
+      "ingredients": [
+        "1 each medium green, sweet red and yellow peppers, chopped",
+        "2 tablespoons each minced fresh cilantro, parsley, dill and mint"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/java-roast-beef/",
+      "name": "Java Roast Beef",
+      "ingredients": [
+        "1-1/2 teaspoons salt",
+        "1 boneless beef chuck roast (3 to 3-1/2 pounds)",
+        "1-1/2 cups strong brewed coffee"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/kale-with-bacon/",
+      "name": "Kale with Bacon",
+      "sentences": ["In a large saucepan, bring 1 in. water to a boil."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/lemon-chiffon-cake/",
+      "name": "Lemon Chiffon Cake",
+      "ingredients": ["1-1/2 cups sugar", "4-1/2 teaspoons grated lemon zest"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/machaca-beef-dip-sandwiches/",
+      "name": "Machaca Beef Dip Sandwiches",
+      "ingredients": ["1 can (14-1/2 ounces) reduced-sodium beef broth"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/make-ahead-breakfast-burritos/",
+      "name": "Freezer Breakfast Burritos",
+      "ingredients": ["1-1/2 cups frozen cubed hash brown potatoes"],
+      "sentences": [
+        "Place each burrito on a microwave-safe plate, then microwave on high for 2 minutes to 2 minutes and 15 seconds, or until a thermometer reads 165°F, turning the burrito once during reheating."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/marinated-thanksgiving-turkey/",
+      "name": "How to Grill a Turkey",
+      "ingredients": [
+        "1-1/2 cups chicken broth",
+        "1-1/2 teaspoons ground ginger"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/mexican-pot-roast-filling/",
+      "name": "Mexican Pot Roast Filling",
+      "ingredients": ["1-1/2 teaspoons chili powder"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/michigan-cherry-pie/",
+      "name": "Michigan Cherry Pie",
+      "ingredients": ["1-1/4 cups dried cherries"],
+      "sentences": ["Trim crust to 1/2 in. beyond rim of plate; flute edge."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/mini-pumpkin-cheesecake/",
+      "name": "Mini Pumpkin Cheesecake",
+      "ingredients": ["1-1/2 teaspoons pumpkin pie spice"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/minister-s-delight/",
+      "name": "Minister's Delight",
+      "sentences": ["Place pie filling in a 1-1/2-qt. slow cooker."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/mom-s-favorite-white-cake/",
+      "name": "Mom's Favorite White Cake",
+      "ingredients": [
+        "1 cup plus 2 tablespoons cake flour",
+        "1-1/2 teaspoons baking powder"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/mushroom-bean-bourguignon/",
+      "name": "Mushroom-Bean Bourguignon",
+      "ingredients": [
+        "5 medium carrots, cut into 1-inch pieces",
+        "8 large portobello mushrooms, cut into 1-inch pieces",
+        "1 teaspoon minced fresh thyme or 1/2 teaspoon dried thyme",
+        "2 cans (15-1/2 ounces each) navy beans, rinsed and drained"
+      ],
+      "sentences": [
+        "Stir in wine, 1-1/2 cups broth, salt, thyme, pepper and carrot mixture; bring to a boil."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/no-knead-casserole-bread/",
+      "name": "No-Knead Casserole Bread",
+      "ingredients": [
+        "2 packages (1/4 ounce each) quick-rise yeast",
+        "1-1/2 teaspoons salt",
+        "5-1/2 cups all-purpose flour",
+        "3/4 cup plus 2 tablespoons shredded cheddar cheese, divided"
+      ],
+      "sentences": [
+        "In a large bowl, mix sugar, yeast, salt, pepper and 2-1/2 cups flour."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/old-fashioned-rhubarb-cake/",
+      "name": "Old-Fashioned Rhubarb Cake",
+      "ingredients": ["1-1/4 cups sugar, divided", "1-1/2 cups whole milk"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/orange-cream-pops/",
+      "name": "Orange Cream Pops",
+      "ingredients": [
+        "10 freezer pop molds or 10 paper cups (3 ounces each) and wooden pop sticks"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/orange-ricotta-cake-roll/",
+      "name": "Orange Ricotta Cake Roll",
+      "sentences": ["Spread over cake to within 1/2 in. of edges."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/orange-spice-carrots/",
+      "name": "Orange Spice Carrots",
+      "ingredients": [
+        "2 pounds medium carrots or baby carrots, cut into 1-inch pieces"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/orange-whipped-sweet-potatoes/",
+      "name": "Orange Whipped Sweet Potatoes",
+      "ingredients": ["2-2/3 cups orange juice, divided"],
+      "sentences": [
+        "Place sweet potatoes and 2-1/3 cups orange juice in a large saucepan or Dutch oven."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/peach-chili-sauce/",
+      "name": "Peach Chili Sauce",
+      "ingredients": [
+        "3 medium peaches (about 1-1/2 pounds)",
+        "2 medium green peppers, chopped (about 1-1/2 cups)"
+      ],
+      "sentences": [
+        "Reduce heat; simmer, uncovered, 2 to 2-1/2 hours or until thickened, stirring occasionally."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/peaches-and-cream-whiskey-loaf/",
+      "name": "Peach Bread",
+      "ingredients": [
+        "1-1/2 cups all-purpose flour",
+        "1-1/4 teaspoons baking soda"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pear-lime-gelatin/",
+      "name": "Pear Lime Gelatin",
+      "sentences": [
+        "Measure the juice; add water if needed to equal 1-1/2 cups."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/peppered-cornbread/",
+      "name": "Peppered Cornbread",
+      "ingredients": [
+        "1-1/2 cups cornmeal",
+        "2-1/4 teaspoons baking powder",
+        "1 can (8-1/4 ounces) cream-style corn"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pesto-star-bread/",
+      "name": "Pesto Bread",
+      "ingredients": [
+        "1/4 cup warm water (110&deg; to 115&deg;)",
+        "3/4 cup warm 2% milk (110&deg; to 115&deg;)",
+        "3-1/4 to 3-3/4 cups all-purpose flour"
+      ],
+      "sentences": [
+        "Place a 2-1/2-inch round cutter on top of the dough in the center of the circle (do not press down)."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pineapple-pecan-cheese-spread/",
+      "name": "Pineapple-Pecan Cheese Spread",
+      "ingredients": [
+        "2 packages (8 ounces each) cream cheese, softened",
+        "1-1/2 cups shredded cheddar cheese"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pork-broccoli-stir-fry/",
+      "name": "Pork Broccoli Stir-Fry",
+      "ingredients": ["1-1/2 cups sliced fresh broccoli florets"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pressure-cooker-beef-and-farro-stew/",
+      "name": "Pressure-Cooker Beef and Farro Stew",
+      "ingredients": [
+        "1 boneless beef chuck roast (about 2 pounds), cut into 1-inch pieces",
+        "1-1/2 teaspoons salt",
+        "6 large carrots, cut into 1/2-inch pieces",
+        "4 large Yukon Gold potatoes, peeled and cut into 1-inch pieces"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pressure-cooker-cajun-chicken-alfredo/",
+      "name": "Pressure-Cooker Cajun Chicken Alfredo",
+      "ingredients": [
+        "2 boneless skinless chicken breasts (6 ounces each), cubed"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pressure-cooker-chicken-thighs-in-wine-sauce/",
+      "name": "Pressure-Cooker Chicken Thighs in Wine Sauce",
+      "ingredients": [
+        "6 bone-in chicken thighs, skin removed (about 2-1/4 pounds)"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pressure-cooker-pork-chops/",
+      "name": "Pressure-Cooker Pork Chops",
+      "ingredients": [
+        "4 boneless pork loin chops (4 ounces each)",
+        "1 can (14-1/2 ounces) chicken broth, divided"
+      ],
+      "sentences": ["Add 1-1/2 cups broth to pressure cooker."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/pumpkin-custard/",
+      "name": "Pumpkin Custard",
+      "ingredients": ["1-1/2 teaspoons pumpkin pie spice"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/ramen-chicken-stir-fry/",
+      "name": "Ramen Chicken Stir Fry",
+      "ingredients": [
+        "1-1/2 cups water",
+        "2 packages (3 ounces each) chicken ramen noodles"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/red-potatoes-with-beans/",
+      "name": "Red Potatoes with Beans",
+      "ingredients": ["1-1/3 pounds fresh green beans, trimmed"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/roast-beef-with-chive-roasted-potatoes/",
+      "name": "Roast Beef with Chive Roasted Potatoes",
+      "ingredients": ["2 pounds red potatoes, cut into 1-inch cubes"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/roasted-fall-vegetables/",
+      "name": "Roasted Fall Vegetables",
+      "ingredients": [
+        "1 large acorn squash, peeled and cut into 1-1/2-inch cubes",
+        "1 large rutabaga, peeled and cut into 1-inch cubes",
+        "1 medium pie pumpkin or butternut squash, peeled and cut into 1-inch cubes",
+        "3 large carrots, peeled and cut into 1-1/2-inch pieces",
+        "1 medium parsnip, peeled and cut into 1-inch cubes"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/salted-butterscotch-pecan-no-bakes/",
+      "name": "Salted Butterscotch &#038; Pecan No-Bakes",
+      "ingredients": [
+        "1-3/4 cups pecans, toasted",
+        "1-1/2 teaspoons kosher salt",
+        "1-1/2 cups unsweetened finely shredded coconut"
+      ],
+      "sentences": [
+        "Place 1-3/4 cups pecans and salt in a food processor; pulse until pecans are finely ground."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/sangria-gelatin-ring/",
+      "name": "Sangria Gelatin Ring",
+      "ingredients": [
+        "1-1/2 cups boiling white wine or white grape juice",
+        "2 packages (3 ounces each) lemon gelatin"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/savory-grilled-potatoes/",
+      "name": "Savory Grilled Potatoes",
+      "ingredients": ["2 medium baking potatoes, cut into 1/4-inch slices"],
+      "sentences": [
+        "Spoon onto a double thickness of greased heavy-duty foil (about 18 in. square)."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/savory-orange-dressing/",
+      "name": "Savory Orange Dressing",
+      "ingredients": ["2-1/2 cups boiling water"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/secret-kiss-cupcakes/",
+      "name": "Secret Kiss Cupcakes",
+      "ingredients": ["3-1/3 cups all-purpose flour"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/simple-italian-salad/",
+      "name": "Simple Italian Salad",
+      "ingredients": ["1 can (2-1/4 ounces) sliced ripe olives, drained"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/skillet-herb-bread/",
+      "name": "Skillet Herb Bread",
+      "ingredients": [
+        "1-1/2 cups all-purpose flour",
+        "1-1/2 teaspoons salt",
+        "1-1/2 cups yellow cornmeal",
+        "1-1/2 cups chopped celery",
+        "1-1/2 cups fat-free milk"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/slow-cooker-country-captain-chicken/",
+      "name": "Country Captain Chicken",
+      "ingredients": ["1 can (14-1/2 ounces) diced tomatoes, undrained"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/slow-cooker-creamy-cauliflower-soup/",
+      "name": "Slow-Cooker Creamy Cauliflower Soup",
+      "ingredients": [
+        "1-3/4 pounds Yukon Gold potatoes (about 4 medium), peeled and cut into 1-inch cubes",
+        "1 medium head cauliflower (about 1-1/2 pounds), cut into 1-inch pieces",
+        "1-1/2 teaspoons salt",
+        "1-1/2 teaspoons adobo seasoning"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/slow-cooker-french-dip-sandwiches/",
+      "name": "Slow-Cooker French Dip Sandwiches",
+      "ingredients": [
+        "1-1/2 teaspoons onion powder",
+        "1-1/2 teaspoons garlic powder"
+      ],
+      "sentences": [
+        "Broil 3-4 in. from heat until cheese is melted, 1-2 minutes."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/slow-cooker-pork-pozole/",
+      "name": "Slow-Cooker Pork Pozole",
+      "ingredients": [
+        "1 can (15-1/2 ounces) hominy, rinsed and drained",
+        "1 can (14-1/2 ounces) diced tomatoes, undrained",
+        "1 can (14-1/2 ounces) diced tomatoes with mild green chiles, undrained"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/slow-cooker-sausage-waffle-bake/",
+      "name": "Slow-Cooker Sausage &#038; Waffle Bake",
+      "ingredients": ["1-1/4 cups half-and-half cream"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/southwestern-turkey-bake/",
+      "name": "Southwestern Turkey Bake",
+      "ingredients": [
+        "2 cans (10-3/4 ounces each) condensed cream of chicken soup, undiluted",
+        "1 package (9-3/4 ounces) nacho-flavored tortilla chips, crushed"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/spinach-and-feta-stuffed-chicken/",
+      "name": "Spinach and Feta Stuffed Chicken",
+      "ingredients": ["1-1/2 teaspoons cider vinegar"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/steaks-with-crab-sauce/",
+      "name": "Steaks with Crab Sauce",
+      "ingredients": ["4 boneless beef top loin steaks (8 ounces each)"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/stuffed-walleye/",
+      "name": "Stuffed Walleye",
+      "ingredients": [
+        "1 can (6 ounces) crabmeat, drained, flaked and cartilage removed or 1 cup imitation crabmeat, flaked",
+        "1-1/2 cups boiling water",
+        "4 walleye fillets (about 8 ounces each)"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/succotash/",
+      "name": "Succotash",
+      "ingredients": [
+        "1 smoked ham hock (about 1-1/2 pounds)",
+        "1-1/2 cups frozen lima beans, thawed",
+        "1 package (10 ounces) crowder peas, thawed, or 1 can (15-1/2 ounces) black-eyed peas, drained",
+        "1-1/2 teaspoons salt",
+        "1-1/2 teaspoons dried basil"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/sweet-potato-and-turkey-couscous/",
+      "name": "Sweet Potato and Turkey Couscous",
+      "ingredients": [
+        "1 pound sweet potatoes (about 2 medium), peeled and cut into 3/4-inch cubes",
+        "2 cans (14-1/2 ounces each) chicken broth"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/teriyaki-pineapple-drumsticks/",
+      "name": "Teriyaki Pineapple Drumsticks",
+      "ingredients": ["1-1/2 teaspoons paprika", "1-1/2 teaspoons pepper"],
+      "sentences": [
+        "Cover; bake until tender, 1-1/2 to 2 hours, uncovering during the last 20-30 minutes of baking to let skin crisp."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/tex-mex-chicken-strips/",
+      "name": "Tex-Mex Chicken Strips",
+      "sentences": [
+        "Bake until a thermometer inserted into the chicken reads 165°, about 15 minutes, turning halfway through the cooking time."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/tiramisu-parfaits/",
+      "name": "Tiramisu Parfaits",
+      "ingredients": [
+        "4-1/2 teaspoons instant coffee granules",
+        "2 packages (1 ounce each) sugar-free instant vanilla pudding mix"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/triple-nut-candy/",
+      "name": "Triple-Nut Candy",
+      "ingredients": ["1-1/2 cups sugar"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/turkey-scallopini-with-marsala-sauce/",
+      "name": "Turkey Scallopini with Marsala Sauce",
+      "ingredients": ["1-1/2 cups Marsala wine"]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/veggie-frittata/",
+      "name": "Veggie Frittata",
+      "sentences": [
+        "Broil 3-4 in. from heat until eggs are completely set, 1-2 minutes."
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/venison-meatballs/",
+      "name": "Venison Meatballs",
+      "sentences": ["Shape into 1-1/2-in. balls."]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/white-bean-arugula-salad/",
+      "name": "White Bean Arugula Salad",
+      "ingredients": [
+        "1 teaspoon minced fresh rosemary or 1/4 teaspoon dried rosemary, crushed",
+        "2 cans (15 ounces each) cannellini beans, rinsed and drained"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/white-cheddar-scalloped-potatoes/",
+      "name": "White Cheddar Scalloped Potatoes",
+      "ingredients": [
+        "1 can (10-3/4 ounces) condensed cream of mushroom soup, undiluted",
+        "3-1/2 cups cubed fully cooked ham"
+      ]
+    },
+    {
+      "url": "https://www.tasteofhome.com/recipes/white-chocolate-pound-cake/",
+      "name": "White Chocolate Pound Cake",
+      "ingredients": ["2 cups plus 2 tablespoons sugar, divided"]
+    }
+  ]
+}

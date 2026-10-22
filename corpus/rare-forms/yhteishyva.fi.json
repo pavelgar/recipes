@@ -1,0 +1,23 @@
+{
+  "site": "yhteishyva.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://yhteishyva.fi/reseptit/fazerina-juustokakku/39kuWAamTSUIIlCHmHRaif",
+      "name": "Fazerina-juustokakku",
+      "ingredients": ["242 g (2 levyä, à 121 g) Fazerina-suklaata"]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/jaasilakat/recipe-3513",
+      "name": "Jääsilakat",
+      "ingredients": ["1 kg Tuoreita silakoita tai 600 g silakkafileitä"]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kasvisruokailijan-makaronilaatikko/recipe-2923",
+      "name": "Kasvisruokailijan makaronilaatikko",
+      "ingredients": ["Juustoraastetta tai 2 rkl korppujauhoja"]
+    }
+  ]
+}

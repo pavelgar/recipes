@@ -1,23 +1,35 @@
 import type { Language } from '@/lib/quantities/numbers'
-import type { MeasuringSystem } from '@/lib/quantities/steps'
+import type { MeasuringSystem } from '@/lib/quantities/scan'
 
 // Reads the real recipe data in corpus/ (see corpus/README.md) for tests.
 
 type Country = 'FI' | 'US' | 'GB' | 'AU'
 
+// rare-forms recipes may have only ingredients or only sentences.
 type CorpusFile<T extends string> = {
   site: string
   country: Country
   language: Language
-  recipes: Array<{ url: string } & Record<T, Array<string>>>
+  recipes: Array<{ url: string } & Partial<Record<T, Array<string>>>>
 }
 
 const ingredientFiles = import.meta.glob<CorpusFile<'ingredients'>>(
-  ['/corpus/ingredients/*.json', '/corpus/rare-units/*.json'],
+  [
+    '/corpus/ingredients/*.json',
+    '/corpus/rare-units/*.json',
+    '/corpus/rare-forms/*.json',
+  ],
   { eager: true, import: 'default' },
 )
 const stepFiles = import.meta.glob<CorpusFile<'sentences'>>(
-  '/corpus/steps/*.json',
+  ['/corpus/steps/*.json', '/corpus/rare-forms/*.json'],
+  { eager: true, import: 'default' },
+)
+
+// The held-out sample (corpus/held-out/) is read only by held-out.test.ts,
+// which runs on request. Don't use it while writing rules.
+const heldOutFiles = import.meta.glob<CorpusFile<'ingredients' | 'sentences'>>(
+  '/corpus/held-out/*.json',
   { eager: true, import: 'default' },
 )
 
@@ -67,7 +79,7 @@ function lines<T extends string>(
 ): Array<CorpusLine> {
   return Object.values(files).flatMap((file) =>
     file.recipes.flatMap((recipe) =>
-      recipe[field].map((raw) => ({
+      (recipe[field] ?? []).map((raw) => ({
         site: file.site,
         language: file.language,
         system: SYSTEMS[file.country],
@@ -79,6 +91,8 @@ function lines<T extends string>(
 
 export const ingredientLines = lines(ingredientFiles, 'ingredients')
 export const stepSentences = lines(stepFiles, 'sentences')
+export const heldOutIngredientLines = lines(heldOutFiles, 'ingredients')
+export const heldOutStepSentences = lines(heldOutFiles, 'sentences')
 
 export function inCorpus(corpus: Array<CorpusLine>, text: string): boolean {
   return corpus.some((line) => line.text === text)

@@ -1,0 +1,2072 @@
+# Every held-out ingredient line as parseIngredient reads it, one entry
+# per distinct line and site.
+# Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
+# and how to update it.
+#
+# 1017 entries: 200 checked, of which 2 wrong; 817 unchecked.
+
+## arla.fi (fi, metric): 99 lines, 90 entries; 66 measured, 19 counted, 14 no-amount, 0 unrecognised
+
+? "7½ dl keskitäyteläistä punaviiniä"
+  measured 7.5 dl  [7½ dl]
+? "1½ dl fariinisokeria"
+  measured 1.5 dl  [1½ dl]
+? "3 vanijatangot"
+  counted 3  [3]
+? "6 tlk säilykeaprikooseja (à 420 g)"
+  counted 6 tlk | each 420 g  [6 tlk] [420 g]
+? "5 prk Arla® Lempi Crème Fraîche 28 %"
+  counted 5 prk  [5 prk]
+? "1 dl tomusokeria"
+  measured 1 dl  [1 dl]
+? "500 g naudan sisäfileet"
+  measured 500 g  [500 g]
+? "Arla® Meijerivoita"
+  no-amount
+? "hienoa suolaa"
+  no-amount
+✓ "mustapippurit"
+  no-amount
+? "100 g Arla® Meijerivoita huoneenlämpöisenä"
+  measured 100 g  [100 g]
+? "1 valkosipulinkynsi puserrettu"
+  counted 1  [1]
+? "1 sitruunankuori"
+  counted 1  [1]
+? "1 dl tuoretta lehtipersiljaa silputtuna"
+  measured 1 dl  [1 dl]
+? "4 porkkanat"
+  counted 4  [4]
+? "1 punasipuli"
+  counted 1  [1]
+? "200 g papuja"
+  measured 200 g  [200 g]
+? "2 rkl pinjansiemeniä"
+  measured 2 tbsp  [2 rkl]
+? "1 ruukku romainesalaatti"
+  counted 1 rku  [1 ruukku]
+? "1 ruukku tuore basilika"
+  counted 1 rku  [1 ruukku]
+✓ "3 rkl oliiviöljyä"
+  measured 3 tbsp  [3 rkl]
+✓ "2 rkl punaviinietikkaa"
+  measured 2 tbsp  [2 rkl]
+✓ "85 g hienoa sokeri"
+  measured 85 g  [85 g]
+✓ "¾ kuppi vesi"
+  measured 0.75 cup  [¾ kuppi]
+? "1 dl kylmää ja vahvaa kahvi"
+  measured 1 dl  [1 dl]
+? "8 dl Arla® Kevytmaitoa"
+  measured 8 dl  [8 dl]
+? "1 kg valkoista parsaa"
+  measured 1 kg  [1 kg]
+? "vettä"
+  no-amount
+? "1 tl suolaa"
+  measured 1 tsp  [1 tl]
+? "½ sitruuna, mehuksi puristettuna"
+  counted 0.5  [½]
+? "persiljaa"
+  no-amount
+✓ "1 sitruuna, viipaloituna ja neljäsosiksi leikattuna"
+  counted 1  [1]
+✓ "n. 3 dl (180g) vehnäjauhoja"
+  measured ~3 dl = 180 g  [3 dl] [180g]
+✓ "2 rkl sokeria"
+  measured 2 tbsp  [2 rkl]
+✓ "125 g kylmää Arla® Meijerivoita"
+  measured 125 g  [125 g]
+? "1 kananmunan keltuainen"
+  counted 1  [1]
+? "250 g kuorittua hokkaido-kurpitsoja kuutioina"
+  measured 250 g  [250 g]
+✓ "2 kananmunat"
+  counted 2  [2]
+? "2 dl sokeria"
+  measured 2 dl  [2 dl]
+? "1 tl kanelia"
+  measured 1 tsp  [1 tl]
+✓ "1 tl piparkakkumaustetta"
+  measured 1 tsp  [1 tl]
+✓ "2 rkl vehnäjauhoa"
+  measured 2 tbsp  [2 rkl]
+? "2 dl Arla® Kuohukerma"
+  measured 2 dl  [2 dl]
+✓ "10 g Arla® Meijerivoita"
+  measured 10 g  [10 g]
+✓ "75 g kurpitsansiemeniä"
+  measured 75 g  [75 g]
+? "1 dl kuohukermaa"
+  measured 1 dl  [1 dl]
+? "25 g hienonnettuja kurpitsansiemeniä"
+  measured 25 g  [25 g]
+? "1 dl mangoa kuutioina"
+  measured 1 dl  [1 dl]
+? "4 kuivattuja aprikooseja"
+  counted 4  [4]
+? "1 dl Arla® Lempi Kreikkalainen jogurtti, 1 kg"
+  measured 1 dl | more fixed 1 kg  [1 dl] [1 kg]
+? "½ dl Arla® Luomu rasvatonta maitoa"
+  measured 0.5 dl  [½ dl]
+? "2 dl kuohukermaa"
+  measured 2 dl  [2 dl]
+✗ "200 g Arla® Lempi Rahka Vanilja 200g, laktoositon"
+  measured 200 g | more 200 g  [200 g] [200g]
+  want: measured 200 g | more fixed 200 g  [200 g] [200g]
+? "½ dl sokerit"
+  measured 0.5 dl  [½ dl]
+? "2 tl vaniljasokeria"
+  measured 2 tsp  [2 tl]
+✓ "n. 200 g suklaacookieita"
+  measured ~200 g  [200 g]
+? "½ dl jogurttikuorrutetut rusinat"
+  measured 0.5 dl  [½ dl]
+? "½ appelsiini"
+  counted 0.5  [½]
+? "600 g kesäkurpitsaa keltaista ja vihreää"
+  measured 600 g  [600 g]
+? "1 keltasipuli"
+  counted 1  [1]
+? "6 dl Arla® Täysmaito"
+  measured 6 dl  [6 dl]
+? "2 kasvisfondia"
+  counted 2  [2]
+? "1 dl hienonnettua ruohosipulia"
+  measured 1 dl  [1 dl]
+? "suolaa ja valkopippuri"
+  no-amount
+? "1½ dl kuohukermaa"
+  measured 1.5 dl  [1½ dl]
+? "2 rkl raastettua piparjuurta"
+  measured 2 tbsp  [2 rkl]
+? "1½ dl sokeria"
+  measured 1.5 dl  [1½ dl]
+? "5 kanamunan keltuaiset"
+  counted 5  [5]
+? "4 rkl Arla® Kevytmaitoa"
+  measured 4 tbsp  [4 rkl]
+? "2 dl vehnäjauhoa"
+  measured 2 dl  [2 dl]
+? "2 tl leivinjauhetta"
+  measured 2 tsp  [2 tl]
+? "5 kananmunan valkuaiset"
+  counted 5  [5]
+? "2½ dl sokeria"
+  measured 2.5 dl  [2½ dl]
+? "50 g mantelilastuja"
+  measured 50 g  [50 g]
+? "3 dl kuohukermaa"
+  measured 3 dl  [3 dl]
+? "2 dl lemon curdia eli sitruunatahnaa"
+  measured 2 dl  [2 dl]
+? "150 g vadelmia"
+  measured 150 g  [150 g]
+? "1½ dl hillosokeria"
+  measured 1.5 dl  [1½ dl]
+✓ "3 dl Arla® Kuohukerma 35% laktoositon"
+  measured 3 dl  [3 dl]
+✓ "½ dl Arla® Kevytmaitoa"
+  measured 0.5 dl  [½ dl]
+✓ "45 g tomusokeria"
+  measured 45 g  [45 g]
+? "½ dl vaaleaa siirappia"
+  measured 0.5 dl  [½ dl]
+? "suolaa"
+  no-amount
+? "auutama tippa mustaa elintarvikeväriä (valinnainen)"
+  no-amount
+? "40 g lakritsi"
+  measured 40 g  [40 g]
+✓ "120 g jauhoja"
+  measured 120 g  [120 g]
+? "2 rkl leivinjauhetta"
+  measured 2 tbsp  [2 rkl]
+? "1½ dl vettä"
+  measured 1.5 dl  [1½ dl]
+? "25 g Arla® Meijerivoita"
+  measured 25 g  [25 g]
+? "2 dl Arla® Kuohukerma 35% laktoositon"
+  measured 2 dl  [2 dl]
+
+## bbcgoodfood.com (en, british): 108 lines, 106 entries; 69 measured, 24 counted, 14 no-amount, 1 unrecognised
+
+? "600g small new potatoes"
+  measured 600 g  [600g]
+? "2 red peppers cut into chunky pieces"
+  counted 2  [2]
+? "1 tbsp red wine vinegar"
+  measured 1 tbsp  [1 tbsp]
+? "drizzle of extra virgin olive oil"
+  no-amount
+? "4 large pieces tilapia or cod"
+  counted 4  [4]
+? "green salad to serve"
+  no-amount
+? "6 hot pickled peppers (I used Peppadew)"
+  counted 6  [6]
+? "1 tsp chilli flakes"
+  measured 1 tsp  [1 tsp]
+✓ "2 garlic cloves"
+  counted 2  [2]
+? "juice and zest 1 lemon"
+  unrecognised
+? "2 tbsp extra virgin olive oil"
+  measured 2 tbsp  [2 tbsp]
+? "1 tbsp smoked paprika"
+  measured 1 tbsp  [1 tbsp]
+? "3 small leeks"
+  counted 3  [3]
+? "180g quinoa"
+  measured 180 g  [180g]
+? "4 baby aubergines each cut into 4 slices"
+  counted 4  [4]
+? "6 tbsp good-quality olive oil"
+  measured 6 tbsp  [6 tbsp]
+? "2 tbsp cider vinegar"
+  measured 2 tbsp  [2 tbsp]
+? "3 tbsp chopped dill"
+  measured 3 tbsp  [3 tbsp]
+? "½ small pack mint chopped"
+  counted 0.5  [½]
+? "60g semi-dried tomatoes roughly chopped"
+  measured 60 g  [60g]
+? "2 tbsp hazelnuts toasted and crushed"
+  measured 2 tbsp  [2 tbsp]
+? "150g pack soft herby goat's cheese crumbled"
+  measured 150 g  [150g]
+? "1 tbsp olive oil"
+  measured 1 tbsp  [1 tbsp]
+? "1 small  onion finely chopped"
+  counted 1  [1]
+? "3 tbsp  tomato purée"
+  measured 3 tbsp  [3 tbsp]
+✓ "400g can  chickpeas drained"
+  measured 400 g  [400g]
+? "750ml vegetable stock"
+  measured 750 ml  [750ml]
+? "700g leftover coconut, curry leaf & turmeric saucy lentils (see step 1)"
+  measured 700 g  [700g]
+? "150g small  pasta (we used macaroni)"
+  measured 150 g  [150g]
+? "150g kale"
+  measured 150 g  [150g]
+? "flatbreads to serve"
+  no-amount
+? "3 tbsp olive oil plus more for the tin"
+  measured 3 tbsp  [3 tbsp]
+✓ "1 small aubergine cut into 3cm chunks (250g)"
+  counted 1 | more fixed 3 cm | more 250 g  [1] [3cm] [250g]
+? "500g ripe tomatoes of all different shapes, colours and sizes, some cut into wedges, some halved across the middle (reserving all the juices and seeds)"
+  measured 500 g  [500g]
+? "pinch sugar"
+  no-amount
+? "2 tsp red wine vinegar"
+  measured 2 tsp  [2 tsp]
+? "2 thyme sprigs, leaves picked, plus more to serve"
+  counted 2  [2]
+? "½ tsp coriander seeds"
+  measured 0.5 tsp  [½ tsp]
+? "½ tsp chilli flakes"
+  measured 0.5 tsp  [½ tsp]
+? "150g sourdough torn into chunks"
+  measured 150 g  [150g]
+? "2 shallots peeled and sliced lengthways"
+  counted 2  [2]
+? "2 tbsp kalamata olives pitted and torn in half"
+  measured 2 tbsp  [2 tbsp]
+? "4 eggs"
+  counted 4  [4]
+? "125g ricotta"
+  measured 125 g  [125g]
+? "10g parmesan or vegetarian alternative, grated"
+  measured 10 g  [10g]
+? "1 ball of mozzarella torn into chunks"
+  counted 1  [1]
+? "handful of watercress lightly dressed in vinaigrette, to serve (optional)"
+  no-amount
+? "200g pineapple peeled, cored and cut into chunks"
+  measured 200 g  [200g]
+? "a few  mint leaves"
+  no-amount
+✓ "50g baby spinach leaves"
+  measured 50 g  [50g]
+? "25g oats"
+  measured 25 g  [25g]
+? "2 tbsp linseed"
+  measured 2 tbsp  [2 tbsp]
+? "handful unsalted, unroasted cashew nuts"
+  no-amount
+? "fresh  lime juice to taste"
+  no-amount
+? "4 tbsp olive oil"
+  measured 4 tbsp  [4 tbsp]
+? "6 good-quality sausages meat squeezed from the skins and rolled into cherry-tomato-sized balls"
+  counted 6  [6]
+? "small head of broccoli (about 400g), cut into small florets"
+  measured ~400 g  [400g]
+✓ "250g (small punnet) cherry tomatoes halved"
+  measured 250 g  [250g]
+✓ "200g frozen peas"
+  measured 200 g  [200g]
+? "400g mascarpone"
+  measured 400 g  [400g]
+? "150g tub fresh pesto"
+  measured 150 g  [150g]
+✓ "large bunch basil chopped"
+  no-amount
+? "12 lasagne sheets"
+  counted 12  [12]
+✓ "50ml milk"
+  measured 50 ml  [50ml]
+? "100g grated mozzarella"
+  measured 100 g  [100g]
+? "3 tbsp grated parmesan"
+  measured 3 tbsp  [3 tbsp]
+✓ "20g pine nuts"
+  measured 20 g  [20g]
+? "1 lemon"
+  counted 1  [1]
+✓ "50ml cold-pressed olive oil"
+  measured 50 ml  [50ml]
+? "100g rocket leaves"
+  measured 100 g  [100g]
+? "4 skin-on chicken breasts"
+  counted 4  [4]
+? "1 red onion finely sliced"
+  counted 1  [1]
+? "2 garlic cloves finely chopped"
+  counted 2  [2]
+✓ "1 tsp sumac"
+  measured 1 tsp  [1 tsp]
+? "1 tsp ground turmeric"
+  measured 1 tsp  [1 tsp]
+✓ "500ml low-salt chicken stock"
+  measured 500 ml  [500ml]
+✓ "500g cooked lentils tomato flavoured if you can get them"
+  measured 500 g  [500g]
+? "125g kale finely chopped"
+  measured 125 g  [125g]
+? "1 lemon half sliced and half juiced"
+  counted 1  [1]
+? "50g green olives pitted and roughly chopped"
+  measured 50 g  [50g]
+? "small handful of parsley finely chopped, to serve"
+  no-amount
+? "500g butternut squash peeled and cut into 1cm dice"
+  measured 500 g | more fixed 1 cm  [500g] [1cm]
+? "2 tbsp olive oil"
+  measured 2 tbsp  [2 tbsp]
+? "small bunch sage leaves finely chopped"
+  no-amount
+? "2 shallots finely chopped"
+  counted 2  [2]
+? "500g closed cup mushrooms chopped"
+  measured 500 g  [500g]
+? "3 garlic cloves crushed"
+  counted 3  [3]
+? "150ml double cream"
+  measured 150 ml  [150ml]
+? "200g fresh breadcrumbs"
+  measured 200 g  [200g]
+? "½ tsp ground mace"
+  measured 0.5 tsp  [½ tsp]
+✓ "150g cooked chestnuts chopped"
+  measured 150 g  [150g]
+? "whole nutmeg for grating"
+  no-amount
+? "500g block puff pastry"
+  measured 500 g  [500g]
+? "plain flour to dust"
+  no-amount
+? "6-8 cooked beetroot (similar sized- about 400g)"
+  counted 6-8 | more ~400 g  [6-8] [400g]
+? "1 egg beaten, to glaze"
+  counted 1  [1]
+✓ "1 tbsp sesame seeds or poppy seeds, to decorate"
+  measured 1 tbsp  [1 tbsp]
+? "100g plain flour"
+  measured 100 g  [100g]
+? "50g rolled oats"
+  measured 50 g  [50g]
+? "100g butter cut into cubes"
+  measured 100 g  [100g]
+? "50g golden caster sugar"
+  measured 50 g  [50g]
+? "400g strawberry hulled and halved if large"
+  measured 400 g  [400g]
+✓ "100g golden caster sugar"
+  measured 100 g  [100g]
+? "1 ½ tbsp cornflour"
+  measured 1.5 tbsp  [1 ½ tbsp]
+? "500g mixed berry and currants, such as raspberries, blackberries, blueberries, redcurrants or blackcurrants"
+  measured 500 g  [500g]
+✓ "ice cream or custard, to serve"
+  no-amount
+
+## bettycrocker.com (en, us): 88 lines, 84 entries; 48 measured, 33 counted, 7 no-amount, 0 unrecognised
+
+? "1 cup uncooked regular long-grain white rice"
+  measured 1 cup  [1 cup]
+? "2 cups water"
+  measured 2 cup  [2 cups]
+✓ "1/4 cup chopped fresh parsley"
+  measured 0.25 cup  [1/4 cup]
+? "4 medium green onions, chopped (1/4 cup)"
+  counted 4 | total 0.25 cup  [4] [1/4 cup]
+? "1 small red bell pepper, chopped (1/2 cup)"
+  counted 1 | total 0.5 cup  [1] [1/2 cup]
+? "1 can (14 oz) artichoke hearts, drained, cut into fourths"
+  counted 1 can | total 14 oz  [1 can] [14 oz]
+? "1/4 cup vegetable oil"
+  measured 0.25 cup  [1/4 cup]
+? "1 tablespoon grated lemon peel"
+  measured 1 tbsp  [1 tablespoon]
+? "3 tablespoons fresh lemon juice"
+  measured 3 tbsp  [3 tablespoons]
+? "1/2 teaspoon salt"
+  measured 0.5 tsp  [1/2 teaspoon]
+✓ "1/4 teaspoon pepper"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "1 clove garlic, finely chopped"
+  counted 1 clove  [1 clove]
+? "2 cups shredded sharp Cheddar cheese (8 oz)"
+  measured 2 cup = 8 oz  [2 cups] [8 oz]
+✓ "1 package (8 oz) cream cheese, softened"
+  counted 1 package | total 8 oz  [1 package] [8 oz]
+? "1 container (8 oz) sour cream"
+  counted 1 container | total 8 oz  [1 container] [8 oz]
+? "2 tablespoons ranch dip mix (from 1-oz package)"
+  measured 2 tbsp | more fixed 1 oz  [2 tablespoons] [1-oz]
+? "1 cup chopped cooked chicken"
+  measured 1 cup  [1 cup]
+? "1/2 cup barbecue sauce"
+  measured 0.5 cup  [1/2 cup]
+? "3 green onions, thinly sliced, green and white parts separated"
+  counted 3  [3]
+? "1/2 cup chopped cooked bacon"
+  measured 0.5 cup  [1/2 cup]
+? " Crackers, as desired"
+  no-amount
+? "2 boxes Betty Crocker™ Super Moist™ Butter Recipe Yellow Cake Mix"
+  counted 2 box  [2 boxes]
+? "6 eggs"
+  counted 6  [6]
+? "2/3 cup butter, softened"
+  measured 0.667 cup  [2/3 cup]
+? "2 tubs (12 oz) Betty Crocker™ Whipped Butter Cream Frosting"
+  counted 2 tub | total 12 oz  [2 tubs] [12 oz]
+? "1 bag (14 to 16 oz) white candy melts"
+  counted 1 bag | total 14-16 oz  [1 bag] [14 to 16 oz]
+? "1 bag (14 to 16 oz) orange candy melts"
+  counted 1 bag | total 14-16 oz  [1 bag] [14 to 16 oz]
+? "32 paper lollipop sticks"
+  counted 32  [32]
+? "1 large block white plastic foam"
+  counted 1  [1]
+✓ "1 bag (14 to 16 oz) blue candy melts"
+  counted 1 bag | total 14-16 oz  [1 bag] [14 to 16 oz]
+? "6 to 8 assorted fresh flowers*"
+  counted 6-8  [6 to 8]
+? "6 to 8 drinking straws or paper lollipop sticks"
+  counted 6-8  [6 to 8]
+? "4 boneless skinless chicken breast halves (1 1/4 pounds)"
+  counted 4 | total 1.25 lb  [4] [1 1/4 pounds]
+? "1/4 teaspoon salt"
+  measured 0.25 tsp  [1/4 teaspoon]
+✓ "3 ounces Cheddar cheese"
+  measured 3 oz  [3 ounces]
+? "1 tablespoon butter or margarine, melted"
+  measured 1 tbsp  [1 tablespoon]
+✓ "1/4 cup salsa"
+  measured 0.25 cup  [1/4 cup]
+? " Chopped fresh cilantro, if desired"
+  no-amount
+? "1 1/4 cups butter, slightly softened"
+  measured 1.25 cup  [1 1/4 cups]
+? "1/4 cup shortening"
+  measured 0.25 cup  [1/4 cup]
+? "1 1/4 cups granulated sugar"
+  measured 1.25 cup  [1 1/4 cups]
+? "1 1/4 cups packed brown sugar"
+  measured 1.25 cup  [1 1/4 cups]
+? "1 tablespoon vanilla"
+  measured 1 tbsp  [1 tablespoon]
+? "2 large eggs"
+  counted 2  [2]
+✓ "4 1/4 cups Gold Medal™ All Purpose Flour"
+  measured 4.25 cup  [4 1/4 cups]
+✓ "2 teaspoons baking soda"
+  measured 2 tsp  [2 teaspoons]
+? "1 bag (12 oz) semisweet chocolate chips (2 cups)"
+  counted 1 bag | total 12 oz | more 2 cup  [1 bag] [12 oz] [2 cups]
+? "2 cups M&M'S® milk chocolate candies (about 14 oz)"
+  measured 2 cup = ~14 oz  [2 cups] [14 oz]
+? "1 box Betty Crocker™ Super Moist™ Devil’s Food Cake Mix"
+  counted 1 box  [1 box]
+✓ " Water, vegetable oil and eggs called for on cake mix box"
+  no-amount
+✓ "1 tub (16 oz) Betty Crocker™ Rich & Creamy Vanilla Frosting"
+  counted 1 tub | total 16 oz  [1 tub] [16 oz]
+? " Betty Crocker™ Red and Green Cookie Icings"
+  no-amount
+? " Betty Crocker™ Writing Gel (assorted colors)"
+  no-amount
+? "1 pouch (17.5 oz) Betty Crocker™ Sugar Cookie Mix"
+  counted 1 | total 17.5 oz  [1] [17.5 oz]
+? " Flour, butter and egg called for on cookie mix pouch for cutout cookies"
+  no-amount
+✓ "2 teaspoons grated lemon zest"
+  measured 2 tsp  [2 teaspoons]
+? "2 tablespoons coarse sparkling white sugar"
+  measured 2 tbsp  [2 tablespoons]
+? "1/3 cup lemon curd"
+  measured 0.333 cup  [1/3 cup]
+? "1 box Betty Crocker™ Fudge Brownie Mix"
+  counted 1 box  [1 box]
+? " Water, vegetable oil and eggs called for on brownie mix box"
+  no-amount
+? "2 teaspoons ground ginger"
+  measured 2 tsp  [2 teaspoons]
+✓ "1 1/2 teaspoons ground cinnamon"
+  measured 1.5 tsp  [1 1/2 teaspoons]
+? "1 pouch (7 oz) Betty Crocker™ Decorating Cookie Icing white icing"
+  counted 1 | total 7 oz  [1] [7 oz]
+✓ "24 M&M's® minis milk chocolate candies or red cinnamon candies"
+  counted 24  [24]
+✓ "3/4 cup Bisquick™ Gluten Free pancake & baking mix"
+  measured 0.75 cup  [3/4 cup]
+? "1/2 cup grated gluten-free Parmesan cheese"
+  measured 0.5 cup  [1/2 cup]
+✓ "1 teaspoon paprika"
+  measured 1 tsp  [1 teaspoon]
+? "1/2 teaspoon salt or garlic salt"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "3 boneless skinless chicken breasts (1 lb), cut crosswise into 1/2-inch strips"
+  counted 3 | total 1 lb | more fixed 0.5 in  [3] [1 lb] [1/2-inch]
+✓ "2 eggs, slightly beaten"
+  counted 2  [2]
+✓ "3 tablespoons butter or margarine, melted"
+  measured 3 tbsp  [3 tablespoons]
+? "1 lb bulk Italian pork sausage"
+  measured 1 lb  [1 lb]
+? "1 medium onion, chopped (1/2 cup)"
+  counted 1 | total 0.5 cup  [1] [1/2 cup]
+? "1 clove garlic, crushed"
+  counted 1 clove  [1 clove]
+✓ "3 tablespoons chopped fresh parsley"
+  measured 3 tbsp  [3 tablespoons]
+? "1 tablespoon chopped fresh basil leaves or 1 teaspoon dried basil leaves"
+  measured 1 tbsp | more 1 tsp  [1 tablespoon] [1 teaspoon]
+? "1 teaspoon sugar"
+  measured 1 tsp  [1 teaspoon]
+? "2 cups Muir Glen™ organic diced tomatoes (from 28-oz can), undrained"
+  measured 2 cup | more fixed 28 oz  [2 cups] [28-oz]
+? "1 can (15 oz) Muir Glen™ organic tomato sauce"
+  counted 1 can | total 15 oz  [1 can] [15 oz]
+? "12 uncooked lasagna noodles  (12 oz)"
+  counted 12 | total 12 oz  [12] [12 oz]
+✓ "1 container (15 oz) ricotta cheese or small-curd cottage cheese (2 cups)"
+  counted 1 container | total 15 oz | more 2 cup  [1 container] [15 oz] [2 cups]
+✓ "1/4 cup grated Parmesan cheese"
+  measured 0.25 cup  [1/4 cup]
+? "1 tablespoon chopped fresh oregano leaves or 1 1/2 teaspoons dried oregano leaves"
+  measured 1 tbsp | more 1.5 tsp  [1 tablespoon] [1 1/2 teaspoons]
+✓ "2 cups shredded mozzarella cheese (8 oz)"
+  measured 2 cup = 8 oz  [2 cups] [8 oz]
+
+## kingarthurbaking.com (en, us): 143 lines, 129 entries; 132 measured, 7 counted, 3 no-amount, 1 unrecognised
+
+? "2 cups (397g) granulated sugar"
+  measured 2 cup = 397 g  [2 cups] [397g]
+✓ "1/2 cup (113g) water"
+  measured 0.5 cup = 113 g  [1/2 cup] [113g]
+? "1/2 teaspoon table salt"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "3/4 to 1 cup (170g to 227g) heavy cream"
+  measured 0.75-1 cup = 170-227 g  [3/4 to 1 cup] [170g to 227g]
+? "1 tablespoon (14g) butter"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+? "1 cup (113g) walnuts, coarsely chopped"
+  measured 1 cup = 113 g  [1 cup] [113g]
+✓ "1 tablespoon (14g) light brown sugar or dark brown sugar, packed"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+✓ "1 tablespoon (21g) boiled cider or maple syrup"
+  measured 1 tbsp = 21 g  [1 tablespoon] [21g]
+? "1/4 teaspoon table salt"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "pinch of cayenne pepper, optional"
+  no-amount
+? "2 cups (227g) King Arthur Unbleached Self-Rising Flour"
+  measured 2 cup = 227 g  [2 cups] [227g]
+✓ "1/4 cup (53g) light brown sugar or dark brown sugar, packed"
+  measured 0.25 cup = 53 g  [1/4 cup] [53g]
+✓ "6 tablespoons (85g) unsalted butter, cold"
+  measured 6 tbsp = 85 g  [6 tablespoons] [85g]
+? "2 tablespoons (43g) boiled cider or 2 tablespoons (36g) apple juice concentrate"
+  measured 2 tbsp = 43 g | more 2 tbsp = 36 g  [2 tablespoons] [43g] [2 tablespoons] [36g]
+? "1/3 to 1/2 cup (74g to 113g) milk"
+  measured 0.333-0.5 cup = 74-113 g  [1/3 to 1/2 cup] [74g to 113g]
+? "2 cups (227g) peeled, sliced cooking apples (Granny Smiths, Braeburn, Galas)"
+  measured 2 cup = 227 g  [2 cups] [227g]
+? "2 tablespoons (25g) granulated sugar"
+  measured 2 tbsp = 25 g  [2 tablespoons] [25g]
+? "1/2 teaspoon ground cinnamon"
+  measured 0.5 tsp  [1/2 teaspoon]
+✓ "1/4 teaspoon ground allspice"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "1/8 teaspoon each ginger and nutmeg"
+  measured 0.125 tsp  [1/8 teaspoon]
+? "1 tablespoon caramel sauce, from above"
+  measured 1 tbsp  [1 tablespoon]
+? "1 teaspoon boiled cider"
+  measured 1 tsp  [1 teaspoon]
+✓ "2 cups (240g) King Arthur Gluten-Free Measure for Measure Flour"
+  measured 2 cup = 240 g  [2 cups] [240g]
+✓ "3/4 teaspoon table salt"
+  measured 0.75 tsp  [3/4 teaspoon]
+? "1 1/2 teaspoons baking powder"
+  measured 1.5 tsp  [1 1/2 teaspoons]
+? "1/2 teaspoon baking soda"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "3/4 cup plus 2 tablespoons (198g) water"
+  measured 0.75 cup | more 2 tbsp | more 198 g  [3/4 cup] [2 tablespoons] [198g]
+? "1/2 cup (99g) vegetable oil"
+  measured 0.5 cup = 99 g  [1/2 cup] [99g]
+✓ "1 large egg"
+  counted 1  [1]
+? "3/4 cup (149g) granulated sugar"
+  measured 0.75 cup = 149 g  [3/4 cup] [149g]
+? "4 1/2 teaspoons (21g) cider vinegar or white vinegar"
+  measured 4.5 tsp = 21 g  [4 1/2 teaspoons] [21g]
+? "1 tablespoon (14g) King Arthur Pure Vanilla Extract"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+? "1/2 teaspoon almond extract"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "4 tablespoons (57g) butter or vegan butter, at room temperature"
+  measured 4 tbsp = 57 g  [4 tablespoons] [57g]
+? "2 1/2 cups (283g) confectioners' sugar, sifted if lumpy"
+  measured 2.5 cup = 283 g  [2 1/2 cups] [283g]
+? "1/8 teaspoon table salt"
+  measured 0.125 tsp  [1/8 teaspoon]
+? "1/2 teaspoon King Arthur Pure Vanilla Extract"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "2 tablespoons (28g) water"
+  measured 2 tbsp = 28 g  [2 tablespoons] [28g]
+? "1 cup (227g) lukewarm water"
+  measured 1 cup = 227 g  [1 cup] [227g]
+✓ "4 tablespoons (57g) softened or sliced butter"
+  measured 4 tbsp = 57 g  [4 tablespoons] [57g]
+? "1 1/2 cups (180g) King Arthur Unbleached Bread Flour"
+  measured 1.5 cup = 180 g  [1 1/2 cups] [180g]
+? "1 1/2 cups (170g) King Arthur Golden Wheat Flour"
+  measured 1.5 cup = 170 g  [1 1/2 cups] [170g]
+? "1 tablespoon (14g) granulated sugar"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+✓ "1/4 cup (28g) King Arthur Baker's Special Dry Milk or nonfat dry milk"
+  measured 0.25 cup = 28 g  [1/4 cup] [28g]
+✓ "1/3 cup (39g) King Arthur Better Cheddar Cheese Powder, optional for enhanced cheese flavor"
+  measured 0.333 cup = 39 g  [1/3 cup] [39g]
+? "4 teaspoons King Arthur Pizza Dough Flavor, optional for enhanced flavor"
+  measured 4 tsp  [4 teaspoons]
+? "1 1/4 teaspoons (8g) table salt"
+  measured 1.25 tsp = 8 g  [1 1/4 teaspoons] [8g]
+? "3/4 teaspoon onion powder, optional for enhanced flavor"
+  measured 0.75 tsp  [3/4 teaspoon]
+? "2 1/2 teaspoons instant yeast"
+  measured 2.5 tsp  [2 1/2 teaspoons]
+✓ "1 1/3 cups (152g) shredded cheese: pizza blend, mozzarella, cheddar, or the cheese of your choice"
+  measured 1.333 cup = 152 g  [1 1/3 cups] [152g]
+? "2 1 /2 tablespoons (35g) melted butter"
+  unrecognised
+? "1 large head (38g) garlic, about 6 to 7 cloves, intact"
+  counted 1 | total 38 g | more ~6-7 clove  [1] [38g] [6 to 7 cloves]
+? "1 generous tablespoon (15g) olive oil"
+  measured ~1 tbsp = 15 g  [1 generous tablespoon] [15g]
+? "3 tablespoons (43g) water"
+  measured 3 tbsp = 43 g  [3 tablespoons] [43g]
+? "2 1/2 cups plus 1 tablespoon (300g) King Arthur ‘00’ Pizza Flour*"
+  measured 2.5 cup | more 1 tbsp | more 300 g  [2 1/2 cups] [1 tablespoon] [300g]
+✓ "3/4 cup plus 2 teaspoons (180g) water, lukewarm"
+  measured 0.75 cup | more 2 tsp | more 180 g  [3/4 cup] [2 teaspoons] [180g]
+✓ "1 1/2 teaspoons instant yeast or active dry yeast"
+  measured 1.5 tsp  [1 1/2 teaspoons]
+? "1 teaspoon (6g) table salt"
+  measured 1 tsp = 6 g  [1 teaspoon] [6g]
+? "all the roasted garlic paste (above)"
+  no-amount
+? "1 teaspoon olive oil, for brushing on the dough"
+  measured 1 tsp  [1 teaspoon]
+? "2/3 cup (75g) mozzarella cheese, grated, low-moisture preferred"
+  measured 0.667 cup = 75 g  [2/3 cup] [75g]
+? "1/4 cup (25g) Parmesan cheese, grated"
+  measured 0.25 cup = 25 g  [1/4 cup] [25g]
+? "2 tablespoons (10g) King Arthur Pizza Seasoning*"
+  measured 2 tbsp = 10 g  [2 tablespoons] [10g]
+? "2 tablespoons (20g) King Arthur Semolina Flour or yellow cornmeal"
+  measured 2 tbsp = 20 g  [2 tablespoons] [20g]
+? "2 teaspoons garlic, finely minced (about 2 cloves)"
+  measured 2 tsp | same ~2 clove  [2 teaspoons] [2 cloves]
+? "1/3 cup (67g) olive oil"
+  measured 0.333 cup = 67 g  [1/3 cup] [67g]
+? "2 tablespoons (13g) Parmesan cheese, grated"
+  measured 2 tbsp = 13 g  [2 tablespoons] [13g]
+? "1/4 cup (13g) parsley or basil, finely minced"
+  measured 0.25 cup = 13 g  [1/4 cup] [13g]
+? "1 cup (113g) King Arthur Golden Wheat Flour"
+  measured 1 cup = 113 g  [1 cup] [113g]
+? "1/2 cup (113g) cool water"
+  measured 0.5 cup = 113 g  [1/2 cup] [113g]
+? "1/8 teaspoon instant yeast"
+  measured 0.125 tsp  [1/8 teaspoon]
+? "all of the preferment"
+  no-amount
+? "2 cups (240g) King Arthur Unbleached All-Purpose Flour"
+  measured 2 cup = 240 g  [2 cups] [240g]
+? "3 tablespoons (32g) potato flour or 1/3 cup (32g) dried potato flakes (instant mashed potatoes)"
+  measured 3 tbsp = 32 g | more 0.333 cup = 32 g  [3 tablespoons] [32g] [1/3 cup] [32g]
+✓ "3 tablespoons (50g) light brown sugar or dark brown sugar, packed"
+  measured 3 tbsp = 50 g  [3 tablespoons] [50g]
+? "2 1/4 teaspoons instant yeast"
+  measured 2.25 tsp  [2 1/4 teaspoons]
+? "4 tablespoons (57g) butter, softened"
+  measured 4 tbsp = 57 g  [4 tablespoons] [57g]
+? "1/2 cup (113g) milk, lukewarm"
+  measured 0.5 cup = 113 g  [1/2 cup] [113g]
+? "1 cup (170g) golden raisins, dark raisins, or a combination; or currants"
+  measured 1 cup = 170 g  [1 cup] [170g]
+? "1/4 teaspoon ground cinnamon"
+  measured 0.25 tsp  [1/4 teaspoon]
+✓ "1 tablespoon (7g) confectioners' sugar"
+  measured 1 tbsp = 7 g  [1 tablespoon] [7g]
+✓ "1 tablespoon (14g) cold water"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+? "2 cups (454g) thoroughly mashed banana, about 4 or 5 medium bananas"
+  measured 2 cup = 454 g  [2 cups] [454g]
+✓ "1 cup (213g) light brown sugar or dark brown sugar, firmly packed"
+  measured 1 cup = 213 g  [1 cup] [213g]
+? "2 large eggs"
+  counted 2  [2]
+? "1 teaspoon King Arthur Pure Vanilla Extract"
+  measured 1 tsp  [1 teaspoon]
+? "1 cup (120g) King Arthur Organic All-Purpose Flour"
+  measured 1 cup = 120 g  [1 cup] [120g]
+? "1 teaspoon baking soda"
+  measured 1 tsp  [1 teaspoon]
+? "1/2 teaspoon baking powder"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "1 teaspoon ground cinnamon"
+  measured 1 tsp  [1 teaspoon]
+? "1/2 cup (57g) chopped walnuts, toasted if desired; optional*"
+  measured 0.5 cup = 57 g  [1/2 cup] [57g]
+? "1 tablespoon (13g) granulated sugar"
+  measured 1 tbsp = 13 g  [1 tablespoon] [13g]
+? "1/3 cup (40g) King Arthur Unbleached All-Purpose Flour"
+  measured 0.333 cup = 40 g  [1/3 cup] [40g]
+✓ "1/4 cup plus 2 tablespoons (85g) milk, whole preferred"
+  measured 0.25 cup | more 2 tbsp | more 85 g  [1/4 cup] [2 tablespoons] [85g]
+? "2 2/3 cups (320g) King Arthur Unbleached All-Purpose Flour"
+  measured 2.667 cup = 320 g  [2 2/3 cups] [320g]
+✓ "3/4 cup (170g) milk, cold; whole preferred"
+  measured 0.75 cup = 170 g  [3/4 cup] [170g]
+? "1/3 cup (75g) sourdough starter, unfed/discard"
+  measured 0.333 cup = 75 g  [1/3 cup] [75g]
+? "1/4 cup (50g) granulated sugar"
+  measured 0.25 cup = 50 g  [1/4 cup] [50g]
+? "1 1/8 teaspoons instant yeast"
+  measured 1.125 tsp  [1 1/8 teaspoons]
+✓ "1 1/8 teaspoons table salt"
+  measured 1.125 tsp  [1 1/8 teaspoons]
+? "4 tablespoons (57g) unsalted butter, softened"
+  measured 4 tbsp = 57 g  [4 tablespoons] [57g]
+? "6 cups (1188g) vegetable oil, for frying"
+  measured 6 cup = 1188 g  [6 cups] [1188g]
+✓ "2 2/3 cups (301g) confectioners' sugar, sifted"
+  measured 2.667 cup = 301 g  [2 2/3 cups] [301g]
+? "1/3 cup (76g) milk, whole preferred"
+  measured 0.333 cup = 76 g  [1/3 cup] [76g]
+? "one batch Classic Single Pie Crust, prepared"
+  counted 1  [one]
+✓ "1 cup (198g) granulated sugar"
+  measured 1 cup = 198 g  [1 cup] [198g]
+✓ "1 tablespoon (11g) Instant Clearjel, optional; for improved thickening"
+  measured 1 tbsp = 11 g  [1 tablespoon] [11g]
+? "6 cups (999g) strawberries, washed, trimmed of their leaves, and sliced"
+  measured 6 cup = 999 g  [6 cups] [999g]
+? "6 tablespoons (42g) King Arthur Unbleached All-Purpose Flour"
+  measured 6 tbsp = 42 g  [6 tablespoons] [42g]
+? "1 tablespoon (14g) unsalted butter"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+? "1 tablespoon (14g) lemon juice, fresh preferred"
+  measured 1 tbsp = 14 g  [1 tablespoon] [14g]
+? "3 large egg yolks, (reserve the whites for the topping)"
+  counted 3  [3]
+? "2 tablespoons (28g) heavy cream"
+  measured 2 tbsp = 28 g  [2 tablespoons] [28g]
+? "3 large egg whites, (reserved from filling)"
+  counted 3  [3]
+? "1/4 teaspoon cream of tartar"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "1/3 cup (74g) water"
+  measured 0.333 cup = 74 g  [1/3 cup] [74g]
+? "1 tablespoon (7g) cornstarch"
+  measured 1 tbsp = 7 g  [1 tablespoon] [7g]
+? "1 1/4 cups (283g) water"
+  measured 1.25 cup = 283 g  [1 1/4 cups] [283g]
+? "1 1/2 teaspoons (9g) table salt"
+  measured 1.5 tsp = 9 g  [1 1/2 teaspoons] [9g]
+? "1 1/2 tablespoons (21g) butter"
+  measured 1.5 tbsp = 21 g  [1 1/2 tablespoons] [21g]
+? "1 1/2 tablespoons King Arthur Baker's Special Dry Milk or nonfat dry milk"
+  measured 1.5 tbsp  [1 1/2 tablespoons]
+? "3 3/4 cups (450g) King Arthur Unbleached All-Purpose Flour"
+  measured 3.75 cup = 450 g  [3 3/4 cups] [450g]
+? "1 1/2 teaspoons instant yeast"
+  measured 1.5 tsp  [1 1/2 teaspoons]
+✓ "3 cups (340g) King Arthur Golden Wheat Flour"
+  measured 3 cup = 340 g  [3 cups] [340g]
+? "2 teaspoons instant yeast"
+  measured 2 tsp  [2 teaspoons]
+? "2 tablespoons (43g) honey"
+  measured 2 tbsp = 43 g  [2 tablespoons] [43g]
+? "2 tablespoons (28g) orange juice, lukewarm"
+  measured 2 tbsp = 28 g  [2 tablespoons] [28g]
+? "2 tablespoons (25g) olive oil"
+  measured 2 tbsp = 25 g  [2 tablespoons] [25g]
+✓ "3/4 cup to 7/8 cup (170g to 198g) lukewarm water"
+  measured 0.75-0.875 cup = 170-198 g  [3/4 cup to 7/8 cup] [170g to 198g]
+
+## kotikokki.net (fi, metric): 91 lines, 89 entries; 31 measured, 23 counted, 37 no-amount, 0 unrecognised
+
+? "1 ½kg lampaanviulu"
+  measured 1.5 kg  [1 ½kg]
+? "kourallinen kuivattua minttua"
+  no-amount
+? "Oreganoa"
+  no-amount
+✓ "suolaa, mustapippuria"
+  no-amount
+? "fetaperunat:"
+  no-amount
+✓ "perunoita"
+  no-amount
+? "1pkt fetaa"
+  counted 1 pkt  [1pkt]
+✓ "1 Sipuli"
+  counted 1  [1]
+✓ "valkosipulinkynsiä"
+  no-amount
+? "mustapippuria"
+  no-amount
+? "1½ dl Flora makukerma tomaatti-ricotta"
+  measured 1.5 dl  [1½ dl]
+? "1½ dl Kermaa"
+  measured 1.5 dl  [1½ dl]
+? "(suolaa)"
+  no-amount
+✓ "lisäksi minttuhyytelöä"
+  no-amount
+? "2kiekkoa naudan potkaa"
+  counted 2  [2]
+? "2 sipulia"
+  counted 2  [2]
+? "2 valkosipulinkynttä"
+  counted 2  [2]
+? "1 kasvisliemikuutio"
+  counted 1  [1]
+? "1 ½dl punaviiniä"
+  measured 1.5 dl  [1 ½dl]
+? "tomaattipyrettä putkilosta kunnon pröjäys"
+  no-amount
+? "vettä"
+  no-amount
+✓ "Suola, mustapippuri"
+  no-amount
+? "2  laakerinlehteä"
+  counted 2  [2]
+? "kokonaisia maustepippureita"
+  no-amount
+? "200g kuivattuja aprikooseja"
+  measured 200 g  [200g]
+? "4dl vettä"
+  measured 4 dl  [4dl]
+? "1dl ruokosokeria"
+  measured 1 dl  [1dl]
+✓ "2rkl vaaleaa siirappia"
+  measured 2 tbsp  [2rkl]
+? "0,5dl mantelilikööriä"
+  measured 0.5 dl  [0,5dl]
+? "6dl vahvaa kasvislientä     ( kanalientä )"
+  measured 6 dl  [6dl]
+? "1 porkkana"
+  counted 1  [1]
+? "2 maa-artisokkaa"
+  counted 2  [2]
+? "pala juuriselleriä"
+  no-amount
+? "1/2 kesäkurpitsaa"
+  counted 0.5  [1/2]
+? "2 tomaattia kaltattuna, pilkottuna"
+  counted 2  [2]
+? "2 retiisiä"
+  counted 2  [2]
+? "pala paprikaa"
+  no-amount
+? "2  rkl basilikaa ja kirveliä tuoreena"
+  measured 2 tbsp  [2  rkl]
+? "1  rkl ruohosipulia"
+  measured 1 tbsp  [1  rkl]
+? "1  rkl timjamia tuoreena"
+  measured 1 tbsp  [1  rkl]
+? "suolaa, pippuria"
+  no-amount
+? "2  liivatelehteä"
+  counted 2  [2]
+? "Sellerikerma:"
+  no-amount
+? "1/2  juuriselleriä"
+  counted 0.5  [1/2]
+? "1   Sipuli"
+  counted 1  [1]
+? "1  valkosipulin kynsi"
+  counted 1  [1]
+? "2  dl kasvislientä  ( kanalientä )"
+  measured 2 dl  [2  dl]
+✓ "2  dl Kermaa"
+  measured 2 dl  [2  dl]
+? "1rkl  voita"
+  measured 1 tbsp  [1rkl]
+✓ "3 kananmunaa"
+  counted 3  [3]
+✓ "2dl tummaa ruokokidesokeria"
+  measured 2 dl  [2dl]
+? "100g voita tai margariinia"
+  measured 100 g  [100g]
+? "1dl vettä"
+  measured 1 dl  [1dl]
+? "2,5dl vehnäjauhoja"
+  measured 2.5 dl  [2,5dl]
+? "1rkl kanelia"
+  measured 1 tbsp  [1rkl]
+? "2tl leivinjauhetta"
+  measured 2 tsp  [2tl]
+? "säilykepäärynöitä"
+  no-amount
+✓ "aprikooseja, kuivattuja"
+  no-amount
+✓ "Ruokosiirappia aprikooseille"
+  no-amount
+? "rommia"
+  no-amount
+✓ "kakun kuorrutus:"
+  no-amount
+? "100 g taloussuklaata"
+  measured 100 g  [100 g]
+? "rommia, tujaus"
+  no-amount
+? "2 rkl Kermaa"
+  measured 2 tbsp  [2 rkl]
+✓ "1 rkl voita"
+  measured 1 tbsp  [1 rkl]
+? "koristeeksi nonparelleja"
+  no-amount
+? "400g jauhelihaa"
+  measured 400 g  [400g]
+? "1pss taco-mausteseosta"
+  counted 1 pss  [1pss]
+? "paprikajauhetta, pippuria"
+  no-amount
+? "Kasviksia; salaatti, tomaatti, kurkku, sipuli jne"
+  no-amount
+✓ "kastikkeita; esim. valkosipuli- ja kebabkastiketta"
+  no-amount
+? "1pakkaus taco-kuoria"
+  counted 1 pkt  [1pakkaus]
+? "1kpl granaattiomena"
+  counted 1 kpl  [1kpl]
+✓ "parisiivua Ananasta"
+  no-amount
+? "Parisiivua Vesimelonia"
+  no-amount
+? "2dl Kookosvettä"
+  measured 2 dl  [2dl]
+? "5kpl tuoretta taatelia"
+  counted 5 kpl  [5kpl]
+? "1kpl kananmuna per henkilö"
+  counted 1 kpl  [1kpl]
+? "suolaa"
+  no-amount
+? "pankojauhoja"
+  no-amount
+? "öljyä"
+  no-amount
+? "siivu maalaisleipää"
+  no-amount
+? "kurkkua, salaatinlehti, pihvitomaatti, majoneesia,grillatun broilerin rintafilettä siivuina. tilliä, suolaa ja pippuria"
+  no-amount
+? "400gr kuorittua,putsattua myskikurpitsaa"
+  measured 400 g  [400gr]
+? "40gr parmesaani raastetta"
+  measured 40 g  [40gr]
+? "1kpl kananmuna"
+  counted 1 kpl  [1kpl]
+✓ "2rkl mantelijauhoja"
+  measured 2 tbsp  [2rkl]
+? "2rkl psylliumia/jauhoja"
+  measured 2 tbsp  [2rkl]
+? "suolaa,mausteita oman maun mukaan"
+  no-amount
+
+## soppa365.fi (fi, metric): 100 lines, 99 entries; 56 measured, 32 counted, 12 no-amount, 0 unrecognised
+
+? "2 dl (sulatettuja) marjoja (esim. mustikoita"
+  measured 2 dl  [2 dl]
+? "tyrniä tai vadelmaa)"
+  no-amount
+? "5 dl (kahviin sopivaa) kaura- tai mantelimaitoa"
+  measured 5 dl  [5 dl]
+? "1/2 tl jauhettua kardemummaa"
+  measured 0.5 tsp  [1/2 tl]
+? "1/4 tl jauhettua inkivääriä"
+  measured 0.25 tsp  [1/4 tl]
+? "1 tl vaniljasokeria"
+  measured 1 tsp  [1 tl]
+? "2 tl vaahterasiirappia"
+  measured 2 tsp  [2 tl]
+? "kanelia"
+  no-amount
+? "4 porkkanaa"
+  counted 4  [4]
+? "1 appelsiini"
+  counted 1  [1]
+? "4 mansikkaa"
+  counted 4  [4]
+? "jäitä"
+  no-amount
+? "600 g lohifilettä"
+  measured 600 g  [600 g]
+✓ "2 rkl seesaminsiemeniä"
+  measured 2 tbsp  [2 rkl]
+? "1 pieni kiinankaali"
+  counted 1  [1]
+? "1½ rkl öljyä"
+  measured 1.5 tbsp  [1½ rkl]
+? "2 rkl japanilaista soijakastiketta"
+  measured 2 tbsp  [2 rkl]
+✓ "1 rkl miriniä eli makeaa riisiviinietikkaa"
+  measured 1 tbsp  [1 rkl]
+? "8 kpl isoja herkkusieniä"
+  counted 8 kpl  [8 kpl]
+? "1"
+  counted 1  [1]
+? "5 dl keitettyjä punajuuria (kuutioina tässä)"
+  measured 5 dl  [5 dl]
+? "1/2 sipuli"
+  counted 0.5  [1/2]
+? "1 omena"
+  counted 1  [1]
+? "8 rkl Aurajuustomurua"
+  measured 8 tbsp  [8 rkl]
+? "5 dl Creme Fraichea"
+  measured 5 dl  [5 dl]
+✓ "1 kananmuna"
+  counted 1  [1]
+? "Ripaus mustapippuria"
+  no-amount
+? "1/2 tl timjamia"
+  measured 0.5 tsp  [1/2 tl]
+? "1/2 tl oreganoa"
+  measured 0.5 tsp  [1/2 tl]
+? "8 rkl Emmental juustoraastetta"
+  measured 8 tbsp  [8 rkl]
+? "3 keskikokoista kesäkurpitsaa"
+  counted 3  [3]
+✓ "öljyä ja ripaus suolaa"
+  no-amount
+✓ "2 pkt (noin 300 g) halloumi-tyyppistä juustoa (esimerkiksi Juustoportin Halla)"
+  counted 2 pkt | total ~300 g  [2 pkt] [300 g]
+? "1 sipuli"
+  counted 1  [1]
+? "2 valkosipulinkynttä"
+  counted 2  [2]
+? "2 mietoa chiliä"
+  counted 2  [2]
+? "1 pieni prk (35 g) pikkukapriksia"
+  counted 1 | total 35 g  [1] [35 g]
+? "¾ dl oliiviöljyä"
+  measured 0.75 dl  [¾ dl]
+? "1 ison sitruunan mehu ja kuoriraaste"
+  counted 1  [1]
+? "2 rkl vettä"
+  measured 2 tbsp  [2 rkl]
+? "noin ½ tl suolaa"
+  measured ~0.5 tsp  [½ tl]
+? "1 l kookosmaitoa"
+  measured 1 l  [1 l]
+? "1 1/2 dl puuroriisiä"
+  measured 1.5 dl  [1 1/2 dl]
+? "2 kg porkkanoita"
+  measured 2 kg  [2 kg]
+✓ "2 kananmunaa tai 2 rkl maissitärkkelystä"
+  counted 2 | more 2 tbsp  [2] [2 rkl]
+? "2 tl suolaa"
+  measured 2 tsp  [2 tl]
+? "1/2 tl valkopippuria myllystä"
+  measured 0.5 tsp  [1/2 tl]
+? "korppujauhoja tai kookoslastuja"
+  no-amount
+✓ "voita tai kookosöljyä"
+  no-amount
+? "1 pkt maustamatonta tofua"
+  counted 1 pkt  [1 pkt]
+? "1 iso sipuli"
+  counted 1  [1]
+? "2 dl kuskusia"
+  measured 2 dl  [2 dl]
+? "1 pieni paprika"
+  counted 1  [1]
+? "½ tlk ananasta"
+  counted 0.5 tlk  [½ tlk]
+? "1-2 dl aurinkokuivattuja tomaattikuutioita"
+  measured 1-2 dl  [1-2 dl]
+? "oliiviöljyä"
+  no-amount
+? "suolaa"
+  no-amount
+? "pippuria"
+  no-amount
+? "paprikajauhetta"
+  no-amount
+? "250 g voita"
+  measured 250 g  [250 g]
+? "4 kananmunaa"
+  counted 4  [4]
+✓ "3 dl sokeria"
+  measured 3 dl  [3 dl]
+? "4 3/4 dl vehnäjauhoja"
+  measured 4.75 dl  [4 3/4 dl]
+? "5 rkl tummaa kaakaojauhetta"
+  measured 5 tbsp  [5 rkl]
+? "3 tl leivinjauhetta"
+  measured 3 tsp  [3 tl]
+✓ "1/4 tl suolaa"
+  measured 0.25 tsp  [1/4 tl]
+? "3/4 dl täysmaitoa"
+  measured 0.75 dl  [3/4 dl]
+? "5 rkl vahvaa espressoa"
+  measured 5 tbsp  [5 rkl]
+? "50 g voita"
+  measured 50 g  [50 g]
+✓ "500 g tomusokeria"
+  measured 500 g  [500 g]
+? "1 1/2 rkl tummaa kaakaojauhetta"
+  measured 1.5 tbsp  [1 1/2 rkl]
+? "ripaus merisuolaa"
+  no-amount
+? "4 viipaletta (à 150 g) porsaan ulkofileetä"
+  counted 4 viipale | each 150 g  [4 viipaletta] [150 g]
+? "1 tl suolaa"
+  measured 1 tsp  [1 tl]
+? "½ tl rouhittua mustapippuria"
+  measured 0.5 tsp  [½ tl]
+✓ "1 dl vehnäjauhoja"
+  measured 1 dl  [1 dl]
+? "2 kananmunaa"
+  counted 2  [2]
+? "2 dl korppujauhoja"
+  measured 2 dl  [2 dl]
+? "4 ananasrengasta"
+  counted 4  [4]
+✓ "2 rkl voita ja 2 rkl rypsiöljyä"
+  measured 2 tbsp | more 2 tbsp  [2 rkl] [2 rkl]
+✓ "100 g pehmeää voita"
+  measured 100 g  [100 g]
+? "1 valkosipulikynsi"
+  counted 1  [1]
+✓ "2 rkl (suolatonta) grillimaustetta"
+  measured 2 tbsp  [2 rkl]
+✓ "noin ¼ tl suolaa"
+  measured ~0.25 tsp  [¼ tl]
+? "15 g hiivaa"
+  measured 15 g  [15 g]
+? "3 dl kädenlämpöistä vettä"
+  measured 3 dl  [3 dl]
+? "½ tl suolaa"
+  measured 0.5 tsp  [½ tl]
+? "1 tl sokeria"
+  measured 1 tsp  [1 tl]
+✓ "1 rkl öljyä"
+  measured 1 tbsp  [1 rkl]
+? "n. 7 dl vehnäjauhoja"
+  measured ~7 dl  [7 dl]
+✓ "200 g halloumijuustoa"
+  measured 200 g  [200 g]
+? "100 g emmentaljuustoraastetta"
+  measured 100 g  [100 g]
+✓ "2 dl turkkilaista jugurttia"
+  measured 2 dl  [2 dl]
+? "1 muna"
+  counted 1  [1]
+? "1 valkosipulinkynsi"
+  counted 1  [1]
+✓ "1 ruukku lehtipersiljaa"
+  counted 1 rku  [1 ruukku]
+? "4 munaa"
+  counted 4  [4]
+? "½–1 tl chilihiutaleita"
+  measured 0.5-1 tsp  [½–1 tl]
+? "2–3 oksaa lehtipersiljaa"
+  counted 2-3 oksa  [2–3 oksaa]
+
+## tasteofhome.com (en, us): 100 lines, 97 entries; 72 measured, 22 counted, 6 no-amount, 0 unrecognised
+
+? "3-1/2 cups water"
+  measured 3.5 cup  [3-1/2 cups]
+? "1 package (3 ounces) soy sauce ramen noodles"
+  counted 1 package | total 3 oz  [1 package] [3 ounces]
+? "1 cup cooked shrimp (41-50 per pound), peeled and deveined"
+  measured 1 cup  [1 cup]
+✓ "1/2 cup chopped green onions"
+  measured 0.5 cup  [1/2 cup]
+✓ "1 medium carrot, julienned"
+  counted 1  [1]
+? "2 tablespoons soy sauce"
+  measured 2 tbsp  [2 tablespoons]
+✓ "4 ounces sliced almonds (about 1 cup)"
+  measured 4 oz = ~1 cup  [4 ounces] [1 cup]
+? "1 package (8 ounces) cream cheese, softened"
+  counted 1 package | total 8 oz  [1 package] [8 ounces]
+? "2 ounces crumbled blue cheese, room temperature"
+  measured 2 oz  [2 ounces]
+? "2 tablespoons minced fresh parsley"
+  measured 2 tbsp  [2 tablespoons]
+? "2 tablespoons heavy whipping cream, room temperature"
+  measured 2 tbsp  [2 tablespoons]
+? "Appetizer skewers or toothpicks"
+  no-amount
+? "1 to 1-1/4 pounds seedless red or green grapes, rinsed and patted dry"
+  measured 1-1.25 lb  [1 to 1-1/4 pounds]
+✓ "1 package (8.8 ounces) Biscoff cookies or similar speculoos cookies"
+  counted 1 package | total 8.8 oz  [1 package] [8.8 ounces]
+? "3 tablespoons hot water"
+  measured 3 tbsp  [3 tablespoons]
+? "3 tablespoons golden syrup or light corn syrup"
+  measured 3 tbsp  [3 tablespoons]
+? "2 tablespoons coconut oil, melted"
+  measured 2 tbsp  [2 tablespoons]
+✓ "1 teaspoon vanilla extract"
+  measured 1 tsp  [1 teaspoon]
+? "1/4 teaspoon ground cinnamon"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "1/8 teaspoon salt"
+  measured 0.125 tsp  [1/8 teaspoon]
+? "1 carton (8 ounces) spreadable strawberry cream cheese"
+  counted 1 carton | total 8 oz  [1 carton] [8 ounces]
+✓ "2 tablespoons strawberry preserves"
+  measured 2 tbsp  [2 tablespoons]
+✓ "1 carton (8 ounces) frozen whipped topping, thawed"
+  counted 1 carton | total 8 oz  [1 carton] [8 ounces]
+? "1 jar (7 ounces) marshmallow creme"
+  counted 1 jar | total 7 oz  [1 jar] [7 ounces]
+? "Assorted fresh fruit"
+  no-amount
+? "3 cups all-purpose flour"
+  measured 3 cup  [3 cups]
+✓ "3 tablespoons sugar"
+  measured 3 tbsp  [3 tablespoons]
+? "1 tablespoon baking powder"
+  measured 1 tbsp  [1 tablespoon]
+? "3 teaspoons caraway seeds"
+  measured 3 tsp  [3 teaspoons]
+? "1/2 teaspoon salt"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "1/2 teaspoon ground nutmeg"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "1/2 teaspoon dried thyme"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "1 large egg, room temperature"
+  counted 1  [1]
+? "1 cup fat-free milk"
+  measured 1 cup  [1 cup]
+✓ "1/3 cup canola oil"
+  measured 0.333 cup  [1/3 cup]
+? "1 tablespoon olive oil"
+  measured 1 tbsp  [1 tablespoon]
+? "8 ounces lean ground beef (90% lean)"
+  measured 8 oz  [8 ounces]
+? "1/4 cup finely chopped onion"
+  measured 0.25 cup  [1/4 cup]
+? "2 garlic cloves, minced"
+  counted 2  [2]
+? "1 can (8 ounces) tomato sauce"
+  counted 1 can | total 8 oz  [1 can] [8 ounces]
+? "1 teaspoon minced fresh rosemary or 1/4 teaspoon dried rosemary, crushed"
+  measured 1 tsp | more 0.25 tsp  [1 teaspoon] [1/4 teaspoon]
+? "2 whole wheat pita breads (6 inches), cut in half horizontally"
+  counted 2 | each 6 in  [2] [6 inches]
+? "1 medium tomato, seeded and chopped"
+  counted 1  [1]
+✓ "1/2 cup fresh baby spinach, thinly sliced"
+  measured 0.5 cup  [1/2 cup]
+? "12 Greek pitted olives, thinly sliced"
+  counted 12  [12]
+? "1/2 cup shredded part-skim mozzarella cheese"
+  measured 0.5 cup  [1/2 cup]
+? "1/4 cup crumbled feta cheese"
+  measured 0.25 cup  [1/4 cup]
+✓ "2 large eggs, lightly beaten"
+  counted 2  [2]
+? "3 cups 2% milk"
+  measured 3 cup  [3 cups]
+? "3/4 cup packed brown sugar"
+  measured 0.75 cup  [3/4 cup]
+? "1/4 cup canola oil"
+  measured 0.25 cup  [1/4 cup]
+✓ "1-1/2 teaspoons ground cinnamon"
+  measured 1.5 tsp  [1-1/2 teaspoons]
+? "1 teaspoon salt"
+  measured 1 tsp  [1 teaspoon]
+? "2 cups old-fashioned oats"
+  measured 2 cup  [2 cups]
+? "1/4 cup dried blueberries"
+  measured 0.25 cup  [1/4 cup]
+? "1/4 cup dried cherries"
+  measured 0.25 cup  [1/4 cup]
+? "1/4 cup sliced almonds"
+  measured 0.25 cup  [1/4 cup]
+? "2 packages (1/4 ounce each) active dry yeast"
+  counted 2 package | each 0.25 oz  [2 packages] [1/4 ounce]
+? "1/2 cup warm 2% milk (110° to 115°)"
+  measured 0.5 cup | more fixed 110-115 ?°F  [1/2 cup] [110° to 115°]
+? "6 cups all-purpose flour"
+  measured 6 cup  [6 cups]
+✓ "1/3 cup sugar"
+  measured 0.333 cup  [1/3 cup]
+✓ "2 teaspoons salt"
+  measured 2 tsp  [2 teaspoons]
+? "1 cup cold butter, cubed"
+  measured 1 cup  [1 cup]
+? "1-1/2 cups warm half-and-half cream (70° to 80°)"
+  measured 1.5 cup | more fixed 70-80 ?°F  [1-1/2 cups] [70° to 80°]
+? "6 large egg yolks, room temperature"
+  counted 6  [6]
+✓ "1 can (21 ounces) cherry pie filling"
+  counted 1 can | total 21 oz  [1 can] [21 ounces]
+✓ "ICING:"
+  no-amount
+? "3 cups confectioners' sugar"
+  measured 3 cup  [3 cups]
+? "2 tablespoons butter, softened"
+  measured 2 tbsp  [2 tablespoons]
+? "1/4 teaspoon vanilla extract"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "Dash salt"
+  no-amount
+? "4 to 5 tablespoons half-and-half cream"
+  measured 4-5 tbsp  [4 to 5 tablespoons]
+? "2 cups butter, softened"
+  measured 2 cup  [2 cups]
+✓ "1/2 cup sugar"
+  measured 0.5 cup  [1/2 cup]
+✓ "1/2 cup packed brown sugar"
+  measured 0.5 cup  [1/2 cup]
+? "2 teaspoons vanilla extract"
+  measured 2 tsp  [2 teaspoons]
+? "4 cups all-purpose flour"
+  measured 4 cup  [4 cups]
+? "72 pecan halves, toasted"
+  counted 72  [72]
+? "CARAMEL GLAZE:"
+  no-amount
+? "3 tablespoons 2% milk"
+  measured 3 tbsp  [3 tablespoons]
+? "2 tablespoons butter"
+  measured 2 tbsp  [2 tablespoons]
+? "1-1/2 cups confectioners' sugar"
+  measured 1.5 cup  [1-1/2 cups]
+? "1 tablespoon brandy"
+  measured 1 tbsp  [1 tablespoon]
+? "1/2 cup sour cream"
+  measured 0.5 cup  [1/2 cup]
+? "1/4 cup fresh basil leaves"
+  measured 0.25 cup  [1/4 cup]
+? "1/4 cup oil-packed sun-dried tomatoes"
+  measured 0.25 cup  [1/4 cup]
+? "1/4 cup reduced-fat mayonnaise"
+  measured 0.25 cup  [1/4 cup]
+? "1/4 cup 2% milk"
+  measured 0.25 cup  [1/4 cup]
+? "2 garlic cloves"
+  counted 2  [2]
+✓ "1/2 teaspoon Louisiana-style hot sauce"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "1/4 teaspoon salt"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "1/4 teaspoon pepper"
+  measured 0.25 tsp  [1/4 teaspoon]
+? "SKEWERS:"
+  no-amount
+? "1 package (9 ounces) refrigerated spinach tortellini"
+  counted 1 package | total 9 oz  [1 package] [9 ounces]
+? "2 tablespoons olive oil"
+  measured 2 tbsp  [2 tablespoons]
+✓ "1 pound peeled and deveined cooked shrimp (31-40 per pound)"
+  measured 1 lb  [1 pound]
+? "32 frilled toothpicks"
+  counted 32  [32]
+
+## valio.fi (fi, metric): 106 lines, 101 entries; 62 measured, 42 counted, 2 no-amount, 0 unrecognised
+
+? "3 dl Valio Gefilus® Kefir juomaa maustamaton"
+  measured 3 dl  [3 dl]
+? "2 dl tattarijauhoja"
+  measured 2 dl  [2 dl]
+? "1½ dl vehnäjauhoja"
+  measured 1.5 dl  [1½ dl]
+? "1 tl suolaa"
+  measured 1 tsp  [1 tl]
+✓ "2 kananmunaa eroteltuina"
+  counted 2  [2]
+? "1 dl olutta tai vichyä"
+  measured 1 dl  [1 dl]
+? "100 g Valio voita"
+  measured 100 g  [100 g]
+? "150 g suolasieniä"
+  measured 150 g  [150 g]
+? "1 pieni sipuli"
+  counted 1  [1]
+? "1 prk (150 g) Valio Keittiön crème fraîchea"
+  counted 1 prk | total 150 g  [1 prk] [150 g]
+? "0 kg mustapippuria myllystä"
+  measured 0 kg  [0 kg]
+? "100 g kirjolohen mätiä"
+  measured 100 g  [100 g]
+? "1 punasipuli"
+  counted 1  [1]
+✓ "1 prk (120 g) Valio Keittiön smetanaa"
+  counted 1 prk | total 120 g  [1 prk] [120 g]
+? "150 g kylmäsavulohta"
+  measured 150 g  [150 g]
+? "3 kananmunaa"
+  counted 3  [3]
+? "3 dl tummaa sokeria, esim. fariini- tai ruokokidesokeri"
+  measured 3 dl  [3 dl]
+? "5 dl vehnäjauhoja"
+  measured 5 dl  [5 dl]
+? "2 tl leivinjauhetta"
+  measured 2 tsp  [2 tl]
+? "2 tl kanelia"
+  measured 2 tsp  [2 tl]
+✓ "2 tl vaniljasokeria"
+  measured 2 tsp  [2 tl]
+? "½ dl keltaisia rusinoita"
+  measured 0.5 dl  [½ dl]
+? "300 g porkkanoita raasteena"
+  measured 300 g  [300 g]
+✗ "1 pieni tlk ananasmurskaa"
+  counted 1  [1]
+  want: counted 1 tlk  [1 pieni tlk]
+? "½ dl hassel- tai saksanpähkinärouhetta"
+  measured 0.5 dl  [½ dl]
+? "1½ dl (150 g) Valio voita"
+  measured 1.5 dl = 150 g  [1½ dl] [150 g]
+? "1 rasia (200 g) Valio Viola® vanilja tuorejuustoa"
+  counted 1 rs | total 200 g  [1 rasia] [200 g]
+? "1 prk (200 g) Valio Keittiön maustettua rahkaa sitruuna tai vanilja"
+  counted 1 prk | total 200 g  [1 prk] [200 g]
+✓ "1½ dl tomusokeria"
+  measured 1.5 dl  [1½ dl]
+? "¼ dl Valio kevytmaitoa"
+  measured 0.25 dl  [¼ dl]
+? "12 (75 g) lakritsitoffeekaramelleja, esim. Lakritsi Alku"
+  counted 12 | total 75 g  [12] [75 g]
+? "1 rkl (15 g) Valio voita"
+  measured 1 tbsp = 15 g  [1 rkl] [15 g]
+? "½ dl öljyä"
+  measured 0.5 dl  [½ dl]
+✓ "1 pkt (250 g) Valio Gold&Green® härkäpapumurskaa texmex"
+  counted 1 pkt | total 250 g  [1 pkt] [250 g]
+? "150 g kirsikkatomaatteja"
+  measured 150 g  [150 g]
+✓ "1 pieni kurkku"
+  counted 1  [1]
+? "1 suippopaprika"
+  counted 1  [1]
+? "½ punasipuli"
+  counted 0.5  [½]
+✓ "60 g Valio Salaneuvos® Cheddar juustoa"
+  measured 60 g  [60 g]
+✓ "0 kg nachoja"
+  measured 0 kg  [0 kg]
+? "300 g salaattisekoitusta"
+  measured 300 g  [300 g]
+? "0 kg limetin lohkoja"
+  measured 0 kg  [0 kg]
+? "0 kg tuoretta korianteria"
+  measured 0 kg  [0 kg]
+? "1 prk (200 g) Valio kermaviilidippiä Ranch"
+  counted 1 prk | total 200 g  [1 prk] [200 g]
+? "4 paahtoleipää, esim. ruistoast"
+  counted 4  [4]
+✓ "3 rkl amerikkalaista kurkkusalaattia"
+  measured 3 tbsp  [3 rkl]
+? "750 g ohutta viipaletta tomaattia"
+  measured 750 g  [750 g]
+? "50 g kinkkuviipaletta"
+  measured 50 g  [50 g]
+? "1 dl (50 g) kinkkusuikaleita"
+  measured 1 dl = 50 g  [1 dl] [50 g]
+✓ "2 Valio Polar® viipaletta"
+  counted 2  [2]
+? "500 g voitaikinalevyjä"
+  measured 500 g  [500 g]
+? "1 rasia (200 g) Valio Viola® aurinkokuivattu tomaatti tuorejuustoa"
+  counted 1 rs | total 200 g  [1 rasia] [200 g]
+? "150 g tuoretta, vihreää parsaa"
+  measured 150 g  [150 g]
+? "5 nakkeja"
+  counted 5  [5]
+? "1 kananmuna"
+  counted 1  [1]
+? "ripaus unikonsiemeniä"
+  no-amount
+? "0 kg tuoretta rosmariinia"
+  measured 0 kg  [0 kg]
+? "1 pkt (500 g) valmiita peruna-gnoccheja"
+  counted 1 pkt | total 500 g  [1 pkt] [500 g]
+? "100 g tuoreita herkkusieniä lohkoina"
+  measured 100 g  [100 g]
+? "75 g pakastepinaattia"
+  measured 75 g  [75 g]
+? "1 valkosipulinkynsi hienonnettuna"
+  counted 1  [1]
+✓ "½ sitruunan kuori raastettuna"
+  counted 0.5  [½]
+? "ripaus suolaa"
+  no-amount
+? "½ pussia (à 130 g) Valio Mustaleima™ raastetta"
+  counted 0.5 pss | each 130 g  [½ pussia] [130 g]
+? "1 prk (2 dl) Valio ruokakermaa"
+  counted 1 prk | total 2 dl  [1 prk] [2 dl]
+? "6 dl vettä"
+  measured 6 dl  [6 dl]
+? "1 kasvisliemikuutio"
+  counted 1  [1]
+? "3 isoa (n. 600 g) hapahkoa omenaa"
+  counted 3 | total ~600 g  [3] [600 g]
+✓ "1 iso (150 g) punainen paprika"
+  counted 1 | total 150 g  [1] [150 g]
+? "2 dl Valio Keittiön ruokakermaa 15 %"
+  measured 2 dl  [2 dl]
+? "½ pussia (à 150 g) Valio AURA® murua"
+  counted 0.5 pss | each 150 g  [½ pussia] [150 g]
+? "0 kg suolaa"
+  measured 0 kg  [0 kg]
+? "13 dl vettä"
+  measured 13 dl  [13 dl]
+? "1 kalaliemikuutio"
+  counted 1  [1]
+? "1 tlk (70 g) tomaattipyreetä"
+  counted 1 tlk | total 70 g  [1 tlk] [70 g]
+? "5 maustepippuria"
+  counted 5  [5]
+? "2 laakerinlehteä"
+  counted 2  [2]
+? "2 sipulia"
+  counted 2  [2]
+? "2 porkkanaa"
+  counted 2  [2]
+? "4 perunaa"
+  counted 4  [4]
+? "200 g kylmäsavulohta"
+  measured 200 g  [200 g]
+? "2 suolakurkkua"
+  counted 2  [2]
+? "½ dl kapriksia tai mustia oliiveja"
+  measured 0.5 dl  [½ dl]
+? "2 rkl sitruunamehua"
+  measured 2 tbsp  [2 rkl]
+✓ "½ tl suolaa"
+  measured 0.5 tsp  [½ tl]
+? "1 dl tilliä"
+  measured 1 dl  [1 dl]
+? "4 dl Valio Luomu™ kevytmaitoa"
+  measured 4 dl  [4 dl]
+? "½ dl sokeria"
+  measured 0.5 dl  [½ dl]
+✓ "2 rkl perunajauhoja"
+  measured 2 tbsp  [2 rkl]
+? "2½ dl Valio Hedelmätarha® luomupuolukkamehua"
+  measured 2.5 dl  [2½ dl]
+? "2 rkl sokeria"
+  measured 2 tbsp  [2 rkl]
+? "1½ rkl perunajauhoja"
+  measured 1.5 tbsp  [1½ rkl]
+? "2½ dl Valio Hedelmätarha® luomumustikkamehua"
+  measured 2.5 dl  [2½ dl]
+? "100 g tuoreita karpaloita"
+  measured 100 g  [100 g]
+? "1 valkuainen"
+  counted 1  [1]
+✓ "1 dl tomusokeria"
+  measured 1 dl  [1 dl]
+? "1-2  (270 g) isoa sipulia"
+  counted 1-2 | total 270 g  [1-2] [270 g]
+✓ "1 rkl Valio Oivariini® juoksevaa"
+  measured 1 tbsp  [1 rkl]
+? "1 dl vettä"
+  measured 1 dl  [1 dl]
+? "1 puolikas liha-juuresliemikuutiota"
+  counted 1  [1]
+✓ "1 prk (2,5 dl) Valio ruokakermaa Kolme sipulia"
+  counted 1 prk | total 2.5 dl  [1 prk] [2,5 dl]
+
+## womensweeklyfood.com.au (en, australian): 125 lines, 125 entries; 97 measured, 22 counted, 6 no-amount, 0 unrecognised
+
+? "1 cup (150g) self-raising flour"
+  measured 1 cup = 150 g  [1 cup] [150g]
+? "1/2 cup (75g) plain flour"
+  measured 0.5 cup = 75 g  [1/2 cup] [75g]
+✓ "1/3 cup (35g) cocoa powder"
+  measured 0.333 cup = 35 g  [1/3 cup] [35g]
+? "3/4 cup (165g) caster sugar"
+  measured 0.75 cup = 165 g  [3/4 cup] [165g]
+? "185 gram softened butter"
+  measured 185 g  [185 gram]
+? "3 eggs"
+  counted 3  [3]
+✓ "1/2 cup (125ml) milk"
+  measured 0.5 cup = 125 ml  [1/2 cup] [125ml]
+? "Butter cream"
+  no-amount
+? "125 gram butter, softened"
+  measured 125 g  [125 gram]
+? "1 1/2 cup (240g) icing sugar"
+  measured 1.5 cup = 240 g  [1 1/2 cup] [240g]
+✓ "2 tablespoon milk"
+  measured 2 tbsp  [2 tablespoon]
+? "peppermint essence"
+  no-amount
+? "green food colouring"
+  no-amount
+? "1 flake bar"
+  counted 1  [1]
+? "100 gram milk chocolate melts, melted"
+  measured 100 g  [100 gram]
+? "1 cup (150g) raisins"
+  measured 1 cup = 150 g  [1 cup] [150g]
+✓ "1 cup (140g) seeded dates"
+  measured 1 cup = 140 g  [1 cup] [140g]
+✓ "1 cup (200g) dried figs"
+  measured 1 cup = 200 g  [1 cup] [200g]
+? "1/4 cup (50g) red glacé cherries"
+  measured 0.25 cup = 50 g  [1/4 cup] [50g]
+? "1/2 cup (125g) chopped glacé fruit (such as pineapple, apricot, peach)"
+  measured 0.5 cup = 125 g  [1/2 cup] [125g]
+? "2 cup (320g) sultanas"
+  measured 2 cup = 320 g  [2 cup] [320g]
+? "1 cup (160g) dried currants"
+  measured 1 cup = 160 g  [1 cup] [160g]
+? "3/4 cup (180ml) brandy"
+  measured 0.75 cup = 180 ml  [3/4 cup] [180ml]
+? "250 gram butter"
+  measured 250 g  [250 gram]
+? "4 eggs"
+  counted 4  [4]
+✓ "1 cup (220g) firmly packed dark brown sugar"
+  measured 1 cup = 220 g  [1 cup] [220g]
+? "1/4 cup (85g) orange marmalade"
+  measured 0.25 cup = 85 g  [1/4 cup] [85g]
+? "1 3/4 cup (260g) plain (all-purpose) flour"
+  measured 1.75 cup = 260 g  [1 3/4 cup] [260g]
+? "1/2 cup (75g) self-raising flour"
+  measured 0.5 cup = 75 g  [1/2 cup] [75g]
+? "1 1/2 teaspoon ground cinnamon"
+  measured 1.5 tsp  [1 1/2 teaspoon]
+? "1 teaspoon mixed spice red glacé cherries, to decorate"
+  measured 1 tsp  [1 teaspoon]
+? "Lemon icing"
+  no-amount
+✓ "3 cup (480g) pure icing (confectioners') sugar"
+  measured 3 cup = 480 g  [3 cup] [480g]
+? "1 tablespoon lemon juice"
+  measured 1 tbsp  [1 tablespoon]
+? "1/4 cup (60ml) water (approximate)"
+  measured 0.25 cup = 60 ml  [1/4 cup] [60ml]
+✓ "4 pears (920g), peeled, halved, cored"
+  counted 4 | total 920 g  [4] [920g]
+? "1 litre (4 cups) water"
+  measured 1 l = 4 cup  [1 litre] [4 cups]
+✓ "1 cinnamon stick"
+  counted 1  [1]
+? "1 vanilla bean, halved lengthways"
+  counted 1  [1]
+✓ "1/2 cup (110g) white sugar"
+  measured 0.5 cup = 110 g  [1/2 cup] [110g]
+? "200 gram dark eating chocolate, chopped coarsely"
+  measured 200 g  [200 gram]
+? "1/2 cup (125ml) cream"
+  measured 0.5 cup = 125 ml  [1/2 cup] [125ml]
+? "3/4 cup (150g) brown long-grain rice"
+  measured 0.75 cup = 150 g  [3/4 cup] [150g]
+? "3/4 cup (150g) green split peas"
+  measured 0.75 cup = 150 g  [3/4 cup] [150g]
+? "150 gram (4½ ounces) snow peas, sliced thinly"
+  measured 150 g = 4.5 oz  [150 gram] [4½ ounces]
+? "2 small_piece (180g) zucchini, sliced thinly"
+  counted 2 | total 180 g  [2] [180g]
+? "1 medium_piece (200g) red capsicum (bell pepper), chopped finely"
+  counted 1 | total 200 g  [1] [200g]
+✓ "80 gram (2½ ounces) baby spinach leaves, shredded coarsely"
+  measured 80 g = 2.5 oz  [80 gram] [2½ ounces]
+✓ "1/3 cup (80ml) strained freshly squeezed orange juice"
+  measured 0.333 cup = 80 ml  [1/3 cup] [80ml]
+? "1 small_piece clove garlic, crushed"
+  counted 1  [1]
+? "2 teaspoon sesame oil"
+  measured 2 tsp  [2 teaspoon]
+✓ "1 cup (200g) freekah"
+  measured 1 cup = 200 g  [1 cup] [200g]
+? "2 ½ cups (625ml) water"
+  measured 2.5 cup = 625 ml  [2 ½ cups] [625ml]
+? "¼ cup (60ml) extra virgin olive oil"
+  measured 0.25 cup = 60 ml  [¼ cup] [60ml]
+? "2 tablespoons lemon juice"
+  measured 2 tbsp  [2 tablespoons]
+? "¼ cup chopped parsley"
+  measured 0.25 cup  [¼ cup]
+? "2 tablespoons honey"
+  measured 2 tbsp  [2 tablespoons]
+? "1 cup (100g) toasted walnuts"
+  measured 1 cup = 100 g  [1 cup] [100g]
+? "1.5kg Kent pumpkin, cut into 7cm chunks"
+  measured 1.5 kg | more fixed 7 cm  [1.5kg] [7cm]
+? "1 large red capsicum (350g), sliced thickly"
+  counted 1 | total 350 g  [1] [350g]
+? "1 large red onion (300g), cut into wedges"
+  counted 1 | total 300 g  [1] [300g]
+? "2 tablespoons extra virgin olive oil"
+  measured 2 tbsp  [2 tablespoons]
+✓ "labneh, micro herbs for serving"
+  no-amount
+? "LEBANESE SPICE MIX"
+  no-amount
+✓ "1 teaspoon sweet paprika"
+  measured 1 tsp  [1 teaspoon]
+? "1 teaspoon ground cumin"
+  measured 1 tsp  [1 teaspoon]
+? "1 teaspoon ground coriander"
+  measured 1 tsp  [1 teaspoon]
+✓ "1 teaspoon ground cardamom"
+  measured 1 tsp  [1 teaspoon]
+? "½ teaspoon ground cinnamon"
+  measured 0.5 tsp  [½ teaspoon]
+✓ "½ teaspoon ground nutmeg"
+  measured 0.5 tsp  [½ teaspoon]
+? "500 gram uncooked medium king prawns (shrimp)"
+  measured 500 g  [500 gram]
+? "2 tablespoon olive oil"
+  measured 2 tbsp  [2 tablespoon]
+? "600 gram chicken thigh fillets, chopped coarsely"
+  measured 600 g  [600 gram]
+✓ "1 medium brown onion (150g), chopped finely"
+  counted 1 | total 150 g  [1] [150g]
+? "3 clove garlic, sliced thinly"
+  counted 3 clove  [3 clove]
+? "1/2 teaspoon dried chilli flakes"
+  measured 0.5 tsp  [1/2 teaspoon]
+? "1 teaspoon smoked paprika"
+  measured 1 tsp  [1 teaspoon]
+? "1 1/2 cup (300g) white medium-grain rice"
+  measured 1.5 cup = 300 g  [1 1/2 cup] [300g]
+? "800 gram canned diced tomatoes"
+  measured 800 g  [800 gram]
+? "2 1/2 cup (625ml) chicken stock"
+  measured 2.5 cup = 625 ml  [2 1/2 cup] [625ml]
+? "500 gram baby clams"
+  measured 500 g  [500 gram]
+? "1/4 cup coarsely chopped fresh flat-leaf parsley"
+  measured 0.25 cup  [1/4 cup]
+? "1 medium lemon (140g), cut into wedges"
+  counted 1 | total 140 g  [1] [140g]
+? "1 (150g) medium red onion, thinly sliced"
+  counted 1 | total 150 g  [1] [150g]
+? "1/4 cup red wine vinegar"
+  measured 0.25 cup  [1/4 cup]
+? "425 gram can tuna in oil"
+  measured 425 g  [425 gram]
+? "420 gram can cannellini beans, rinsed, drained"
+  measured 420 g  [420 gram]
+? "2 tablespoon baby capers, rinsed, drained"
+  measured 2 tbsp  [2 tablespoon]
+? "2 (200g) medium tomatoes, seeded, finely chopped"
+  counted 2 | total 200 g  [2] [200g]
+? "100 gram baby rocket leaves"
+  measured 100 g  [100 gram]
+✓ "1/4 cup baby basil leaves"
+  measured 0.25 cup  [1/4 cup]
+? "250 gram ricciolini pasta (or other short pasta)"
+  measured 250 g  [250 gram]
+✓ "1 tablespoon olive oil"
+  measured 1 tbsp  [1 tablespoon]
+? "1 small brown onion (80g), sliced thinly"
+  counted 1 | total 80 g  [1] [80g]
+? "1 teaspoon crushed garlic"
+  measured 1 tsp  [1 teaspoon]
+? "2 teaspoon sweet paprika"
+  measured 2 tsp  [2 teaspoon]
+? "600 gram veal steaks, sliced thinly"
+  measured 600 g  [600 gram]
+? "100 gram cup mushrooms, sliced thickly"
+  measured 100 g  [100 gram]
+? "100 gram button mushrooms, sliced thickly"
+  measured 100 g  [100 gram]
+? "1/4 cup (60ml) red wine"
+  measured 0.25 cup = 60 ml  [1/4 cup] [60ml]
+✓ "1 tablespoon tomato paste"
+  measured 1 tbsp  [1 tablespoon]
+? "1/2 cup (120g) sour cream"
+  measured 0.5 cup = 120 g  [1/2 cup] [120g]
+? "1/2 cup (125ml) beef stock"
+  measured 0.5 cup = 125 ml  [1/2 cup] [125ml]
+? "2 teaspoon cornflour"
+  measured 2 tsp  [2 teaspoon]
+? "1 tablespoon chopped fresh sage"
+  measured 1 tbsp  [1 tablespoon]
+✓ "30 gram butter"
+  measured 30 g  [30 gram]
+? "50 gram baby spinach leaves"
+  measured 50 g  [50 gram]
+? "2 litre (8 cups) water"
+  measured 2 l = 8 cup  [2 litre] [8 cups]
+? "1 litre (4 cups) beef stock"
+  measured 1 l = 4 cup  [1 litre] [4 cups]
+? "1 kilogram chuck steak"
+  measured 1 kg  [1 kilogram]
+? "2 whole star anise"
+  counted 2  [2]
+? "8 centimetre piece fresh ginger, grated"
+  measured 8 cm  [8 centimetre]
+? "1/3 cup (80 millilitres) japanese soy sauce"
+  measured 0.333 cup = 80 ml  [1/3 cup] [80 millilitres]
+✓ "200 gram bean thread noodles"
+  measured 200 g  [200 gram]
+✓ "1 1/2 cup (120 grams) bean sprouts"
+  measured 1.5 cup = 120 g  [1 1/2 cup] [120 grams]
+? "1/3 cup loosely packed fresh mint leaves"
+  measured 0.333 cup  [1/3 cup]
+? "1/4 cup loosely packed fresh coriander leaves"
+  measured 0.25 cup  [1/4 cup]
+? "4 green onions, thinly sliced"
+  counted 4  [4]
+✓ "2 fresh long red chillies, thinly sliced"
+  counted 2  [2]
+? "1/4 cup (60 millilitres) fish sauce"
+  measured 0.25 cup = 60 ml  [1/4 cup] [60 millilitres]
+? "1 medium lemon, cut into six wedges"
+  counted 1  [1]
+✓ "12 large passionfruit"
+  counted 12  [12]
+? "6 cup (1.5 litres) water"
+  measured 6 cup = 1.5 l  [6 cup] [1.5 litres]
+? "1/3 cup (80ml) lemon juice"
+  measured 0.333 cup = 80 ml  [1/3 cup] [80ml]
+? "3 cups (660g) white (granulated) sugar (approx)"
+  measured 3 cup = 660 g  [3 cups] [660g]
+
+## yhteishyva.fi (fi, metric): 105 lines, 97 entries; 71 measured, 24 counted, 10 no-amount, 0 unrecognised
+
+? "400 g Broilerinleikkeitä"
+  measured 400 g  [400 g]
+? "1 kpl Pieni sipuli"
+  counted 1 kpl  [1 kpl]
+✓ "1 kpl Valkosipulinkynsi"
+  counted 1 kpl  [1 kpl]
+? "1 kpl (400 g) kookosmaitoa"
+  counted 1 kpl | total 400 g  [1 kpl] [400 g]
+✓ "2 rkl Punaista currytahnaa"
+  measured 2 tbsp  [2 rkl]
+✓ "1 dl Maapähkinälevitettä"
+  measured 1 dl  [1 dl]
+? "1 - 2 rkl Soijakastike"
+  measured 1-2 tbsp  [1 - 2 rkl]
+? "Hienonnettua basilikaa"
+  no-amount
+? "2 dl Riisiä (esim. basmatiriisiä)"
+  measured 2 dl  [2 dl]
+? "600 g porsaan sisäfilee"
+  measured 600 g  [600 g]
+? "1 rkl rypsiöljyä"
+  measured 1 tbsp  [1 rkl]
+? "1 rkl fariinisokeria"
+  measured 1 tbsp  [1 rkl]
+? "1 rkl paprikajauhetta"
+  measured 1 tbsp  [1 rkl]
+? "2 tl sinappijauhetta"
+  measured 2 tsp  [2 tl]
+✓ "1 tl sitruunapippuria"
+  measured 1 tsp  [1 tl]
+? "1/2 tl suolaa"
+  measured 0.5 tsp  [1/2 tl]
+? "500 g rypäleitä"
+  measured 500 g  [500 g]
+? "1 kpl punasipuli"
+  counted 1 kpl  [1 kpl]
+? "1 kpl valkosipulinkynsi"
+  counted 1 kpl  [1 kpl]
+? "1/2 dl säilykejalopenoja"
+  measured 0.5 dl  [1/2 dl]
+✓ "1 kpl ruukku korianteria"
+  counted 1 kpl  [1 kpl]
+? "1/2 tl juustokuminaa"
+  measured 0.5 tsp  [1/2 tl]
+? "1/2 tl sokeria"
+  measured 0.5 tsp  [1/2 tl]
+✓ "200 g tummaa suklaata"
+  measured 200 g  [200 g]
+? "200 g voita"
+  measured 200 g  [200 g]
+? "2 1/2 dl fariinisokeria"
+  measured 2.5 dl  [2 1/2 dl]
+✓ "5 kpl huoneenlämpöistä kananmunaa"
+  counted 5 kpl  [5 kpl]
+? "1 ¾ dl vehnäjauhoja"
+  measured 1.75 dl  [1 ¾ dl]
+✓ "¾ dl tummaa kaakaojauhetta"
+  measured 0.75 dl  [¾ dl]
+? "1 tl piparimaustetta"
+  measured 1 tsp  [1 tl]
+? "Koristeluun pitkänomaisia suklaakeksejä tai piparminttutikkuja, sokerikuorrutetta, koristerakeita"
+  no-amount
+? "600 g silakkafileitä"
+  measured 600 g  [600 g]
+? "1/2 tl mustapippuria rouhittuna"
+  measured 0.5 tsp  [1/2 tl]
+? "75 g (1/2 ps) cheddarjuustoraastetta"
+  measured 75 g | same 0.5 pss  [75 g] [1/2 ps]
+? "1 kpl ruukku tilliä"
+  counted 1 kpl  [1 kpl]
+? "2 kpl Punaista paprikaa"
+  counted 2 kpl  [2 kpl]
+? "2 kpl Keltaista paprikaa"
+  counted 2 kpl  [2 kpl]
+? "1 kpl Vihreä paprika"
+  counted 1 kpl  [1 kpl]
+? "300 g Kylmäsavulohta viipaleina"
+  measured 300 g  [300 g]
+? "1 kpl Punasipuli"
+  counted 1 kpl  [1 kpl]
+? "1/2 kpl Ruukku basilikaa"
+  counted 0.5 kpl  [1/2 kpl]
+? "1 rkl Kapriksia"
+  measured 1 tbsp  [1 rkl]
+? "1 rkl Pinjansiemeniä"
+  measured 1 tbsp  [1 rkl]
+? "200 g Maustamatonta (kevyt) tuorejuustoa"
+  measured 200 g  [200 g]
+? "800 g (1 kpl) myskikurpitsaa"
+  measured 800 g | same 1 kpl  [800 g] [1 kpl]
+? "2 kpl porkkanaa"
+  counted 2 kpl  [2 kpl]
+? "300 g juuripersiljaa"
+  measured 300 g  [300 g]
+✓ "2 rkl rypsiöljyä"
+  measured 2 tbsp  [2 rkl]
+? "1 tl suolaa"
+  measured 1 tsp  [1 tl]
+? "1/2 tl rouhittua mustapippuria"
+  measured 0.5 tsp  [1/2 tl]
+? "1 tl yrttimaustetta"
+  measured 1 tsp  [1 tl]
+? "400 g tofua"
+  measured 400 g  [400 g]
+✓ "180 g (1 ps) salaattisekoitusta"
+  measured 180 g | same 1 pss  [180 g] [1 ps]
+✓ "4 rkl kurpitsansiemeniä"
+  measured 4 tbsp  [4 rkl]
+? "3 rkl rypsiöljyä"
+  measured 3 tbsp  [3 rkl]
+? "1 rkl viinietikkaa"
+  measured 1 tbsp  [1 rkl]
+? "1 tl sinappia"
+  measured 1 tsp  [1 tl]
+? "1/4 tl rouhittua mustapippuria"
+  measured 0.25 tsp  [1/4 tl]
+? "1/4 tl sokeria"
+  measured 0.25 tsp  [1/4 tl]
+? "2 dl Vettä"
+  measured 2 dl  [2 dl]
+? "1 dl Maitoa"
+  measured 1 dl  [1 dl]
+? "2 tl Kuivahiivaa"
+  measured 2 tsp  [2 tl]
+? "2 tl Suolaa"
+  measured 2 tsp  [2 tl]
+? "2 rkl Sokeria"
+  measured 2 tbsp  [2 rkl]
+? "6 dl Vehnäjauhoja"
+  measured 6 dl  [6 dl]
+? "1 kpl Kananmuna"
+  counted 1 kpl  [1 kpl]
+? "50 g Sulatettua voita"
+  measured 50 g  [50 g]
+? "2 rkl Seesaminsiemeniä"
+  measured 2 tbsp  [2 rkl]
+? "Voita"
+  no-amount
+? "200 g Maustamatonta tuorejuustoa"
+  measured 200 g  [200 g]
+? "200 g Kylmäsavulohiviipaleita"
+  measured 200 g  [200 g]
+? "1 kpl Salaattia"
+  counted 1 kpl  [1 kpl]
+? "1 kpl Ruukku tilliä"
+  counted 1 kpl  [1 kpl]
+? "Cocktailtikkuja"
+  no-amount
+? "800 g Naudan sisäpaistia"
+  measured 800 g  [800 g]
+? "1 rkl Öljyä"
+  measured 1 tbsp  [1 rkl]
+? "1 kpl Murskattu valkosipulinkynsi"
+  counted 1 kpl  [1 kpl]
+? "Suolaa"
+  no-amount
+? "Mustapippurirouhetta"
+  no-amount
+? "2 kpl Oksaa tuoretta tai 1 tl kuivattua timjamia"
+  counted 2 kpl | more 1 tsp  [2 kpl] [1 tl]
+? "Paahdettua kuivattua sipulia"
+  no-amount
+? "Kapriksia"
+  no-amount
+? "4 kpl bagelia"
+  counted 4 kpl  [4 kpl]
+? "300 g pastramisiivuja"
+  measured 300 g  [300 g]
+✓ "100 g Appenzeller-juustoa"
+  measured 100 g  [100 g]
+? "2 kpl maustekurkkua"
+  counted 2 kpl  [2 kpl]
+? "French's Classic Yellow -sinappia"
+  no-amount
+? "majoneesia"
+  no-amount
+? "1 dl vettä"
+  measured 1 dl  [1 dl]
+✓ "63 g (1 pss) sipulikeittoaineksia"
+  measured 63 g | same 1 pss  [63 g] [1 pss]
+? "1 tl jauhelihamaustetta, ei lisättyä suolaa"
+  measured 1 tsp  [1 tl]
+✓ "1 tl valkosipulimurskaa"
+  measured 1 tsp  [1 tl]
+? "2 kpl kananmunaa"
+  counted 2 kpl  [2 kpl]
+? "400 g sika-nautajauhelihaa"
+  measured 400 g  [400 g]
+✓ "800 g perunoita (jauhoinen lajike)"
+  measured 800 g  [800 g]
+? "1 1/2 - 2 dl maitoa"
+  measured 1.5-2 dl  [1 1/2 - 2 dl]
+? "30 g voita"
+  measured 30 g  [30 g]

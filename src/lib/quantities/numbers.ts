@@ -1,9 +1,21 @@
+import {
+  DASH,
+  FRACTION_SLASH,
+  HYPHEN,
+  matchAt,
+  SPACE,
+} from '@/lib/quantities/text'
+
 export type Language = 'fi' | 'en'
 
 export type Range = { readonly min: number; readonly max: number }
 
 // A single amount, or a range such as 2–3 or ½ to 1.
 export type Value = number | Range
+
+// How a number was written, so a scaled amount can be written the same way:
+// "2", "1,5" or "1.5", "½" or "1 1/2", "kaksi" or "one".
+export type NumberForm = 'integer' | 'decimal' | 'fraction' | 'word'
 
 const FRACTIONS: Record<string, number> = {
   '½': 1 / 2,
@@ -25,26 +37,34 @@ const FRACTIONS: Record<string, number> = {
 
 export const FRACTION_CHARS = Object.keys(FRACTIONS).join('')
 
-const SPACE = String.raw`[ \t\u00a0\u2009\u202f]`
+// Where a number may start: a digit or a fraction character.
+export const NUMBER_START = new RegExp(`[\\d${FRACTION_CHARS}]`)
+
 const MIXED_FRACTION = new RegExp(
   String.raw`(\d+)${SPACE}*([${FRACTION_CHARS}])`,
   'y',
 )
 const MIXED_SLASH = new RegExp(
-  String.raw`(\d+)${SPACE}+(\d+)[/⁄](\d+)(?![\d/⁄])`,
+  String.raw`(\d+)${SPACE}+(\d+)${FRACTION_SLASH}(\d+)(?![\d/⁄])`,
   'y',
 )
-const SLASH = /(\d+)[/⁄](\d+)(?![\d/⁄])/y
+// "1-1/2 cups": a mixed number, since a range can't run from 1 down to ½.
+const HYPHEN_MIXED = new RegExp(
+  String.raw`(\d+)${HYPHEN}(\d+)${FRACTION_SLASH}(\d+)(?![\d/⁄])`,
+  'y',
+)
+const SLASH = new RegExp(String.raw`(\d+)${FRACTION_SLASH}(\d+)(?![\d/⁄])`, 'y')
 const THOUSANDS = /(\d{1,3}(?:,\d{3})+)(?![\d,])/y
-const DECIMAL = /\d+(?:[.,]\d+)?/y
+// No leading zeros, so the "000" of "1 000 g" isn't read as nothing.
+const DECIMAL = /(?:0|[1-9]\d*)(?:[.,]\d+)?(?!\d)/y
 const LEADING_POINT = /\.(\d+)/y
 const FRACTION = new RegExp(`[${FRACTION_CHARS}]`, 'y')
 
-export type NumberMatch = { value: number; start: number; end: number }
-
-function exec(re: RegExp, text: string, pos: number) {
-  re.lastIndex = pos
-  return re.exec(text)
+export type NumberMatch = {
+  readonly value: number
+  readonly start: number
+  readonly end: number
+  readonly form: NumberForm
 }
 
 // Whether a number may start at pos: not inside a word or another number.
@@ -57,74 +77,95 @@ export function atNumberBoundary(text: string, pos: number): boolean {
   return !(/[.,/⁄]/.test(before) && pos >= 2 && /\d/.test(text[pos - 2]))
 }
 
-// Reads one number at pos: 2, 1,5, 1.5, ½, 1/2, 1½, 1 ½, 1 1/2, .25 and, in
-// English, 1,000.
+// Whether a numerator and denominator make a fraction below one.
+const isProper = (numerator: string, denominator: string) =>
+  Number(denominator) !== 0 && Number(numerator) < Number(denominator)
+
+// Reads one number at pos: 2, 1,5, 1.5, ½, 1/2, 1½, 1 ½, 1 1/2, 1-1/2, .25,
+// "1 and 1/2", "2 and a half" and, in English, 1,000.
 export function readNumber(
   text: string,
   pos: number,
   language: Language,
 ): NumberMatch | null {
-  let m = exec(MIXED_FRACTION, text, pos)
-  if (m) {
-    return {
-      value: Number(m[1]) + FRACTIONS[m[2]],
-      start: pos,
-      end: pos + m[0].length,
-    }
+  const at = (value: number, length: number, form: NumberForm) => ({
+    value,
+    start: pos,
+    end: pos + length,
+    form,
+  })
+  let m = matchAt(MIXED_FRACTION, text, pos)
+  if (m) return at(Number(m[1]) + FRACTIONS[m[2]], m[0].length, 'fraction')
+  m = matchAt(MIXED_SLASH, text, pos) ?? matchAt(HYPHEN_MIXED, text, pos)
+  if (m && isProper(m[2], m[3])) {
+    const value = Number(m[1]) + Number(m[2]) / Number(m[3])
+    return at(value, m[0].length, 'fraction')
   }
-  m = exec(MIXED_SLASH, text, pos)
-  if (m && Number(m[3]) !== 0 && Number(m[2]) < Number(m[3])) {
-    return {
-      value: Number(m[1]) + Number(m[2]) / Number(m[3]),
-      start: pos,
-      end: pos + m[0].length,
-    }
-  }
-  m = exec(SLASH, text, pos)
+  m = matchAt(SLASH, text, pos)
   if (m && Number(m[2]) !== 0) {
-    return {
-      value: Number(m[1]) / Number(m[2]),
-      start: pos,
-      end: pos + m[0].length,
-    }
+    return at(Number(m[1]) / Number(m[2]), m[0].length, 'fraction')
   }
   if (language === 'en') {
-    m = exec(THOUSANDS, text, pos)
-    if (m) {
-      return {
-        value: Number(m[1].replace(/,/g, '')),
-        start: pos,
-        end: pos + m[0].length,
-      }
-    }
+    m = matchAt(THOUSANDS, text, pos)
+    if (m) return at(Number(m[1].replace(/,/g, '')), m[0].length, 'integer')
   }
-  m = exec(DECIMAL, text, pos)
+  m = matchAt(DECIMAL, text, pos)
   if (m) {
-    return {
-      value: Number(m[0].replace(',', '.')),
-      start: pos,
-      end: pos + m[0].length,
-    }
+    const value = Number(m[0].replace(',', '.'))
+    const end = pos + m[0].length
+    if (!Number.isInteger(value)) return at(value, m[0].length, 'decimal')
+    const half = readAndFraction(text, end, language)
+    return half
+      ? at(value + half.value, half.end - pos, 'fraction')
+      : at(value, m[0].length, /[.,]/.test(m[0]) ? 'decimal' : 'integer')
   }
-  m = exec(LEADING_POINT, text, pos)
-  if (m) {
-    return { value: Number(`0.${m[1]}`), start: pos, end: pos + m[0].length }
-  }
-  m = exec(FRACTION, text, pos)
-  if (m) {
-    return { value: FRACTIONS[m[0]], start: pos, end: pos + 1 }
-  }
+  m = matchAt(LEADING_POINT, text, pos)
+  if (m) return at(Number(`0.${m[1]}`), m[0].length, 'decimal')
+  m = matchAt(FRACTION, text, pos)
+  if (m) return at(FRACTIONS[m[0]], 1, 'fraction')
   return null
 }
 
+const AND_FRACTION: Record<Language, RegExp> = {
+  en: new RegExp(
+    String.raw`${SPACE}+and${SPACE}+(?:a${SPACE}+half|(\d+)${FRACTION_SLASH}(\d+)|([${FRACTION_CHARS}]))(?![\p{L}\d/⁄])`,
+    'iuy',
+  ),
+  fi: new RegExp(String.raw`${SPACE}+ja${SPACE}+puoli(?![\p{L}\d])`, 'iuy'),
+}
+
+// Reads the fraction that follows a whole number in words: "1 and 1/2",
+// "one and a half", "kaksi ja puoli".
+function readAndFraction(
+  text: string,
+  pos: number,
+  language: Language,
+): { value: number; end: number } | null {
+  const m = matchAt(AND_FRACTION[language], text, pos)
+  if (!m) return null
+  const end = pos + m[0].length
+  // Groups that didn't take part in the match are undefined.
+  const numerator = m.at(1)
+  const denominator = m.at(2)
+  const fraction = m.at(3)
+  if (numerator !== undefined && denominator !== undefined) {
+    return isProper(numerator, denominator)
+      ? { value: Number(numerator) / Number(denominator), end }
+      : null
+  }
+  return { value: fraction === undefined ? 0.5 : FRACTIONS[fraction], end }
+}
+
+// A dash, or "to", "or" or "tai", which may follow a hyphen left hanging
+// from the first number: "7- or 8-oz".
 const RANGE_SEPARATOR = new RegExp(
-  String.raw`${SPACE}*(?:-|–|—|to(?=${SPACE}))${SPACE}*`,
+  String.raw`${SPACE}*(?:(?:${DASH}${SPACE}*)?(?:to|or|tai)(?=${SPACE})|${DASH})${SPACE}*`,
   'iy',
 )
 
-// Reads the separator of a range (-, –, — or "to") at pos, returning its end.
+// Reads the separator of a range at pos, returning its end.
 export function readRangeSeparator(text: string, pos: number): number | null {
-  const m = exec(RANGE_SEPARATOR, text, pos)
+  const m = matchAt(RANGE_SEPARATOR, text, pos)
   return m ? pos + m[0].length : null
 }
 
@@ -184,7 +225,7 @@ function wordRegExp(words: Array<string>) {
 
 export type NumberWordMatch = NumberMatch & {
   // "a" and "an" only count as one when a unit follows.
-  article: boolean
+  readonly article: boolean
 }
 
 export function readNumberWord(
@@ -193,15 +234,25 @@ export function readNumberWord(
   language: Language,
 ): NumberWordMatch | null {
   if (!atNumberBoundary(text, pos)) return null
-  const m = exec(NUMBER_WORD[language], text, pos)
+  const m = matchAt(NUMBER_WORD[language], text, pos)
   if (!m) return null
   const word = m[0].toLowerCase().replace(/\s+/g, ' ')
-  return {
-    value: NUMBER_WORDS[language][word],
-    start: pos,
-    end: pos + m[0].length,
-    article: word === 'a' || word === 'an',
-  }
+  const value = NUMBER_WORDS[language][word]
+  const article = word === 'a' || word === 'an'
+  const end = pos + m[0].length
+  const half =
+    Number.isInteger(value) && !article
+      ? readAndFraction(text, end, language)
+      : null
+  return half
+    ? {
+        value: value + half.value,
+        start: pos,
+        end: half.end,
+        form: 'word',
+        article,
+      }
+    : { value, start: pos, end, form: 'word', article }
 }
 
 // Words that make an amount approximate. They stay in the text as written.
@@ -210,13 +261,18 @@ const APPROXIMATELY = new RegExp(
   'iuy',
 )
 
+// Reads a word that makes the amount after it approximate, returning where
+// the amount starts.
 export function readApproximately(text: string, pos: number): number | null {
   if (text[pos] !== '~' && !atNumberBoundary(text, pos)) return null
-  const m = exec(APPROXIMATELY, text, pos)
+  const m = matchAt(APPROXIMATELY, text, pos)
   return m ? pos + m[0].length : null
 }
 
-export function skipSpace(text: string, pos: number): number {
-  while (pos < text.length && /\s/.test(text[pos])) pos++
-  return pos
+// Whether an approximate word sits right before pos: "about 400g", "n. 5dl".
+export function approximateBefore(text: string, pos: number): boolean {
+  for (let start = Math.max(0, pos - 16); start < pos; start++) {
+    if (readApproximately(text, start) === pos) return true
+  }
+  return false
 }

@@ -1,0 +1,90 @@
+{
+  "site": "bbcgoodfood.com",
+  "country": "GB",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/asparagus-pea-ricotta-flatbreads",
+      "name": "Asparagus, pea & ricotta flatbreads",
+      "sentences": ["Wrap two in cling film and freeze for another time."]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/baked-mushrooms-ricotta-pesto",
+      "name": "Baked mushrooms with ricotta & pesto",
+      "ingredients": [
+        "1 rounded tbsp pesto and 2 tbsp chopped fresh parsley, preferably flatleaf, to serve"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/banana-tahini-porridge",
+      "name": "Banana & tahini porridge",
+      "ingredients": ["150ml milk of your choice, plus 1 tbsp"]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/bbq-pulled-pork-sandwich",
+      "name": "BBQ pulled pork sandwich",
+      "ingredients": ["1 tbsp each mustard powder and  smoked paprika"]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/better-baked-beans-spicy-wedges",
+      "name": "Better-than-baked beans with spicy wedges",
+      "ingredients": ["2 baking potatoes each cut into 8 wedges"]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/brandy-snaps",
+      "name": "Brandy snaps",
+      "ingredients": ["half a lemon zest and 1 tsp juice"]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/caramelised-squash-spinach-lasagne",
+      "name": "Butternut squash lasagne",
+      "sentences": [
+        "Rub a little extra oil over 5 or 6 sage leaves, place them on top of the lasagne and return to the oven for another 15-20 mins until golden and bubbling."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/chorizo-purple-sprouting-broccoli-carbonara",
+      "name": "Chorizo & purple sprouting broccoli carbonara",
+      "ingredients": [
+        "3 large eggs plus 2 egg yolks (freeze the whites for another recipe)"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/creme-fraiche-ice-cream",
+      "name": "Crème fraîche ice cream",
+      "sentences": ["Repeat 3 or 4 times until it becomes solid."]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/gt-meringue-tart",
+      "name": "G&T meringue tart",
+      "ingredients": ["2 eggs plus 2 yolks"]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/korean-chilli-sesame-honey-chicken",
+      "name": "Korean chilli, sesame & honey chicken",
+      "ingredients": [
+        "4 tbsp Korean chilli paste (gochujang) or use a mixture of 3 tbsp ketchup and 1 tbsp sriracha chilli sauce"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/slow-cooked-vine-tomatoes-with-garlic",
+      "name": "Slow-cooked vine tomatoes with garlic",
+      "ingredients": [
+        "1 or 2 small garlic bulbs cut in half to expose the flesh"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/vietnamese-chicken-salad",
+      "name": "Vietnamese chicken salad",
+      "ingredients": [
+        "1 ½ tbsp each fish sauce, low-sodium soy sauce and  sesame oil"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/yakitori-chicken",
+      "name": "Yakitori chicken",
+      "ingredients": ["4 spring onions each cut into three"]
+    }
+  ]
+}

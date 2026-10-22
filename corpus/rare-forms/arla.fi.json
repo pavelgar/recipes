@@ -1,0 +1,40 @@
+{
+  "site": "arla.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.arla.fi/reseptit/aurinkokakku/",
+      "name": "Aurinkokakku",
+      "ingredients": ["1 appelsiinin raastettu kuori tai 2 tl vaniljasokeria"]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kasvis-bouillabaisse/",
+      "name": "Kasvis-bouillabaisse",
+      "ingredients": ["3 tlk tomaattimurskaa, à 400 g"]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lammaspata-karitsasta/",
+      "name": "Karitsapata",
+      "sentences": ["Lisää lopuksi sinappi ja puoli purkkia crème fraichea."]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/mozzarellakana/",
+      "name": "Mozzarellakana",
+      "sentences": ["Esilämmitä uuni 200 °C tai 180 °C kiertoilmalle."]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/porsaan-ribsit-airfryerissa/",
+      "name": "Porsaan ribsit airfryerissa",
+      "sentences": [
+        "Kypsennä 180 °C:ssa 25–30 minuuttia ja käännä ne kypsennyksen puolivälissä."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/uunissa-paistetut-kanan-siivet/",
+      "name": "Uunissa paistetut kanan siivet",
+      "sentences": ["Aseta uuni kuumenemaan 225 °C tai 200 °C kiertoilmalla."]
+    }
+  ]
+}

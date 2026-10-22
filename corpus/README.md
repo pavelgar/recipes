@@ -74,6 +74,135 @@ verbatim, like the rest of the corpus; "1 plo (0" is cut short in the site's
 own data. Being a targeted selection, these lines don't count towards the
 statistics of the random sample.
 
+## Rare forms
+
+`rare-forms/<site>.json` holds ingredient lines and step sentences that
+write amounts in forms the random sample had few or none of:
+
+- mixed numbers with a hyphen ("1-1/2 cups") and amounts in words ("kolme
+  ja puoli desilitraa")
+- package sizes marked "each" or joined with a hyphen ("2 cans (14-1/2
+  ounces each)", "one 14-ounce can", "(8 oz.)")
+- a second amount joined by "plus", "+", "or" or "tai" ("1 cup plus 2
+  tablespoons", "2 + 1 rkl"), and temperatures in ingredient lines
+- "2 in." meaning inches and "two in" not meaning them, turns of 90°, and
+  temperatures joined by "or" or "tai"
+
+| Site                    | Country | Pages | Recipes | Lines | Sentences |
+| ----------------------- | ------- | ----- | ------- | ----- | --------- |
+| arla.fi                 | FI      | 150   | 6       | 2     | 4         |
+| kotikokki.net           | FI      | 161   | 3       | 2     | 1         |
+| kotiliesi.fi            | FI      | 190   | 9       | 6     | 5         |
+| meillakotona.fi         | FI      | 150   | 8       | 7     | 1         |
+| soppa365.fi             | FI      | 190   | 6       | 6     | 0         |
+| valio.fi                | FI      | 190   | 2       | 2     | 0         |
+| yhteishyva.fi           | FI      | 190   | 3       | 3     | 0         |
+| bettycrocker.com        | US      | 148   | 59      | 84    | 4         |
+| kingarthurbaking.com    | US      | 145   | 64      | 81    | 12        |
+| tasteofhome.com         | US      | 150   | 112     | 200   | 48        |
+| bbcgoodfood.com         | GB      | 60    | 14      | 11    | 3         |
+| womensweeklyfood.com.au | AU      | 100   | 12      | 12    | 2         |
+
+Pages counts the pages with Recipe data. Each recipe has its `url`, `name`
+and whichever of `ingredients` and `sentences` matched, verbatim like the
+rest of the corpus. tasteofhome.com and bettycrocker.com are new to the
+corpus, chosen for their house style ("1-1/2 cups", "(14-1/2 ounces each)").
+The other sites are from the random sample, with a fresh seeded sample
+(seed 20261022) that skips pages already in the corpus. For large sites the
+URLs came from a seeded subset of their sitemap files. For valio.fi,
+soppa365.fi, yhteishyva.fi and kotiliesi.fi, 40 of the pages are ice cream
+and frozen dessert recipes, picked by URL to look for temperatures below
+zero.
+
+Looked for but found on no page: temperatures below zero, thousands written
+with a space ("1 000 g"), sizes written "9-by-13", and English amounts such
+as "one and a half cups".
+
+Step text was cut into sentences at line breaks and after a full stop,
+question mark or exclamation mark followed by a capital letter or a digit.
+Being a targeted selection, these lines don't count towards the statistics
+of the random sample either.
+
+## Held-out sample
+
+`held-out/<site>.json` holds 10 recipes per site that no parser rule was
+written against. It measures how the parser does on text it hasn't seen,
+which the files above can't: every rule was written while looking at them.
+The normal test run doesn't read it.
+
+| Site                    | Country | Recipes | Lines | Sentences |
+| ----------------------- | ------- | ------- | ----- | --------- |
+| arla.fi                 | FI      | 10      | 99    | 16        |
+| kotikokki.net           | FI      | 10      | 91    | 11        |
+| soppa365.fi             | FI      | 10      | 100   | 16        |
+| valio.fi                | FI      | 10      | 106   | 8         |
+| yhteishyva.fi           | FI      | 10      | 105   | 23        |
+| kingarthurbaking.com    | US      | 10      | 143   | 101       |
+| tasteofhome.com         | US      | 10      | 100   | 36        |
+| bettycrocker.com        | US      | 10      | 88    | 69        |
+| bbcgoodfood.com         | GB      | 10      | 108   | 51        |
+| womensweeklyfood.com.au | AU      | 10      | 125   | 28        |
+
+Each recipe has its `url`, `name`, `yield` (as published, or null),
+`format`, `ingredients` and `sentences`, verbatim like the rest of the
+corpus. Unlike the step files, `sentences` keeps every step sentence with a
+digit, a fraction character or a degree sign, not only those that looked
+like amounts, so it includes times and counts. It is an empty list for
+recipes with none.
+
+### How to use it
+
+1. Don't look at its readings while writing or changing rules.
+2. At a milestone, run `HELD_OUT=1 UPDATE_LEDGER=1 bun run test held-out`.
+   This writes the readings to the ledgers
+   `src/lib/quantities/__ledger__/held-out-*.txt`.
+3. Check a random sample of entries, marking each ✓ or ✗ as described in
+   `src/test/ledger.ts`. The share marked ✗ is the error rate.
+4. Once errors found this way are fixed, the sample is no longer unseen.
+   Move it into the development corpus, and collect a new held-out sample
+   with a new seed.
+
+The first check, on 22 October 2026, used a random sample (seed 20261023)
+of 200 of the 1,017 ingredient entries and 80 of the 347 step entries. Three
+ingredient readings were wrong:
+
+- "¾ kuppi vesi": "kuppi" (cup) was missing from the unit list. This is
+  fixed, so the ledger now shows the entry as checked.
+- "200 g Arla® Lempi Rahka Vanilja 200g, laktoositon": the package size in
+  the product name scales, because it doesn't end the line.
+- "1 pieni tlk ananasmurskaa": the adjective "pieni" hides the package unit.
+  This doesn't change what scales.
+
+One step reading was wrong: "Itse tykkään kun mittari näyttää 70." is a
+temperature that only the word "mittari" (thermometer) gives away.
+
+### How it was collected
+
+On 22 October 2026, with the same rules as the rest of the corpus:
+
+- robots.txt and crawl delays were obeyed, with an identifying user agent
+  and at least 1.5 seconds between requests to a site.
+- Recipe URLs came from each site's recipe sitemaps. For sites with more
+  than five, five sitemaps were picked with seed 20261023.
+- URLs already anywhere in the corpus were removed. The rest were sorted,
+  shuffled with seed 20261023, and fetched in that order until 10 pages had
+  Recipe data with ingredients.
+- Sentences were cut the same way as for the rare forms.
+
+Notes on individual sites:
+
+- Skipped: kotiliesi.fi and meillakotona.fi. Their robots.txt now
+  disallows Claude's crawlers, which it didn't when the files above were
+  collected.
+- bbcgoodfood.com's robots.txt carries `Content-signal: ai-train=no`. This
+  collection isn't training, so the site was kept.
+- arla.fi took 40 page fetches, because the first extractor missed its
+  JSON-LD.
+- soppa365.fi took 11, because one page had a Recipe without ingredients.
+- One womensweeklyfood.com.au recipe publishes its ingredients as an
+  object keyed by number. They were kept in order.
+- One kotikokki.net page is `json-ld (repaired)`, as described above.
+
 ## Rules
 
 - Keep every line exactly as published. Tests that need clean input
@@ -95,4 +224,15 @@ soppa365.fi recipes publish no steps in their Recipe data.
 
 Left out: seriouseats.com (refused requests), taste.com.au and
 bestrecipes.com.au (disallowed by robots.txt), and k-ruoka.fi (blocks
-requests not made by a browser).
+requests not made by a browser). Since then, kotiliesi.fi and
+meillakotona.fi have also come to disallow Claude's crawlers in their
+robots.txt. Their lines here were collected before that, so don't collect
+more from them.
+
+The rare forms were collected later the same day in the same way, also
+following each site's crawl delay (12 seconds for bbcgoodfood.com, 5 for
+womensweeklyfood.com.au, hence their fewer pages). It skipped
+allrecipes.com, recipetineats.com and bbc.co.uk from the random sample, and
+the new candidates food.com, simplyrecipes.com, bonappetit.com and
+epicurious.com, because their robots.txt disallow AI agents such as Claude,
+which did the collecting.

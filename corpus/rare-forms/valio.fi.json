@@ -1,0 +1,18 @@
+{
+  "site": "valio.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.valio.fi/reseptit/curry-linssikeitto/",
+      "name": "Curry-linssikeitto",
+      "ingredients": ["2 + 3 dl vettä"]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/proteiinijaatelo/",
+      "name": "Proteiinijäätelö",
+      "ingredients": ["1+2 rkl lemon curdia"]
+    }
+  ]
+}

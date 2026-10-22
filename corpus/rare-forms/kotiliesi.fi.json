@@ -1,0 +1,71 @@
+{
+  "site": "kotiliesi.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://kotiliesi.fi/resepti/broileripata/",
+      "name": "Broileripata",
+      "sentences": [
+        "Nosta teelusikallinen sinapinsiemeniä, puoli teelusikallista korianterin siemeniä ja puoli teelusikallista jauhettua juustokuminaa kuivalle pannulle ja paahda, kunnes mausteet alkavat tuoksua.",
+        "Nosta pataan kaikki leikkeet ja ripottele pinnalle puolitoista teelusikallista suolaa, kaksi teelusikallista kuivattua rosmariinia ja puoli teelusikallista rouhittua mustapippuria."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/daim-piparit/",
+      "name": "Daim-piparit",
+      "ingredients": ["1 dl kauraleseitä tai 1,5 dl kaurahiutaleita"]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/jaateloleipa/",
+      "name": "Jäätelöleipä – kolmen raaka-aineen somehitti",
+      "sentences": [
+        "Sekoita kolme ja puoli desilitraa vehnäjauhoja ja puolitoista teelusikallista leivinjauhetta yhteen."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/mansikkasorbetti/",
+      "name": "Mansikkasorbetti",
+      "ingredients": [
+        "noin 3/4 l tuoreita tai n. 200 g pakastettuja, osittain sulaneita mansikoita"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/omenakuivakakku/",
+      "name": "Omenakuivakakku",
+      "sentences": [
+        "Sekoita keskenään viisi desilitraa vehnäjauhoja, kaksi teelusikallista leivinjauhetta, kaksi teelusikallista jauhettua kanelia, yksi teelusikallinen jauhettua inkivääriä, yksi teelusikallista jauhettua maustepippuria, puoli teelusikallista jauhettua neilikkaa ja puoli teelusikallista suolaa."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/seljankukkajuoma/",
+      "name": "Seljankukkajuoma",
+      "ingredients": [
+        "1/2 dl seljankukkamehua tai 2 tl seljankukkamehutiivistettä"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/siikamousse/",
+      "name": "Siikamousse",
+      "sentences": [
+        "Sekoita joukkoon yksi desilitra ranskankermaa ja puoli desiä ruohosipulia silputtuna."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/taytetty-foccaccialeipa/",
+      "name": "Täytetty foccaccialeipä",
+      "ingredients": [
+        "kourallinen  tuoretta persiljaa tai 1 tl kuivattua timjamia"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/tom-yam-katkarapukeitto/",
+      "name": "Tom Yam -katkarapukeitto",
+      "ingredients": [
+        "40 g galangal-juurta tai 2 rkl galangal-murskaa tölkistä",
+        "2 rkl Tom Yam-tahnaa tai 1 rkl punaista currytahnaa"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "site": "kotikokki.net",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/264446/Punaviinikastike/",
+      "name": "Punaviinikastike",
+      "ingredients": ["1kynsi valkosipulia tai 2 tl valkosipulirouhetta"]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/264850/Mantelipalot%20%28Manteli%20Marenki%20Keksi%29/",
+      "name": "Mantelipalot (Manteli Marenki Keksi)",
+      "sentences": [
+        "(7) Paista 25-30 min kiertoilma 110 C (tai 110 C normaali) uunissa."
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/468841/Poro%20T%C3%A4ynn%C3%A4%20Karjalan%20Piirakat/",
+      "name": "Poro Täynnä Karjalan Piirakat",
+      "ingredients": ["150g musta leima raastettu (120 + 30)"]
+    }
+  ]
+}

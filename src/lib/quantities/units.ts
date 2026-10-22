@@ -1,11 +1,16 @@
+import { mayPrecedeHyphen } from '@/lib/quantities/ambiguity'
+import { HYPHEN, INCH_MARK, matchAt } from '@/lib/quantities/text'
+import type { Language } from '@/lib/quantities/numbers'
+
 export type UnitKind =
   'volume' | 'weight' | 'length' | 'package' | 'count' | 'pinch'
 
 // Every spelling the parser accepts, Finnish and English together, since a
-// recipe may mix units. Finnish forms cover the nominative (1 purkki), the
-// partitive used after other numbers (2 purkkia) and the genitive (1,5 litran
-// vuoka). "mm" is missing on purpose: what it means depends on where it is
-// written, see readUnit.
+// recipe may mix units. Matched in any case. Finnish forms cover the
+// nominative (1 purkki), the partitive used after other numbers (2 purkkia)
+// and the genitive (1,5 litran vuoka). "mm" is read as millimetres here; as
+// the first amount of a Finnish ingredient line it is maustemitta instead,
+// see isMaustemitta.
 // prettier-ignore
 export const UNITS = [
   // Volume
@@ -13,29 +18,29 @@ export const UNITS = [
   { id: 'cl', kind: 'volume', forms: ['cl', 'senttilitra', 'senttilitraa', 'senttilitran', 'centilitre', 'centilitres', 'centiliter', 'centiliters'] },
   { id: 'dl', kind: 'volume', forms: ['dl', 'desilitra', 'desilitraa', 'desilitran', 'desi', 'desiä', 'decilitre', 'decilitres', 'deciliter', 'deciliters'] },
   { id: 'l', kind: 'volume', forms: ['l', 'ltr', 'litra', 'litraa', 'litran', 'litre', 'litres', 'liter', 'liters'] },
-  { id: 'tsp', kind: 'volume', forms: ['tl', 'teelusikallinen', 'teelusikallista', 'teelusikallisen', 'tsp', 'tsps', 'teaspoon', 'teaspoons'] },
-  { id: 'tbsp', kind: 'volume', forms: ['rkl', 'rk', 'ruokalusikallinen', 'ruokalusikallista', 'ruokalusikallisen', 'tbsp', 'tbsps', 'tbs', 'tablespoon', 'tablespoons'] },
+  { id: 'tsp', kind: 'volume', forms: ['tl', 'teelusikallinen', 'teelusikallista', 'teelusikallisen', 'teelusikka', 'teelusikkaa', 'tsp', 'tsps', 'teaspoon', 'teaspoons'] },
+  { id: 'tbsp', kind: 'volume', forms: ['rkl', 'rk', 'ruokalusikallinen', 'ruokalusikallista', 'ruokalusikallisen', 'ruokalusikka', 'ruokalusikkaa', 'tbsp', 'tbsps', 'tbs', 'tablespoon', 'tablespoons'] },
   { id: 'maustemitta', kind: 'volume', forms: ['maustemitta', 'maustemittaa', 'maustemitallinen', 'maustemitallista'] },
-  { id: 'cup', kind: 'volume', forms: ['cup', 'cups'] },
-  { id: 'fl-oz', kind: 'volume', forms: ['fl oz', 'fl. oz', 'fl.oz', 'fluid ounce', 'fluid ounces'] },
-  { id: 'pint', kind: 'volume', forms: ['pint', 'pints', 'pt'] },
+  { id: 'cup', kind: 'volume', forms: ['kuppi', 'kuppia', 'kupin', 'kupillinen', 'kupillista', 'kupillisen', 'cup', 'cups'] },
+  { id: 'fl-oz', kind: 'volume', forms: ['nesteunssi', 'nesteunssia', 'fl oz', 'fl. oz', 'fl.oz', 'fluid ounce', 'fluid ounces'] },
+  { id: 'pint', kind: 'volume', forms: ['pintti', 'pinttiä', 'pint', 'pints', 'pt'] },
   { id: 'quart', kind: 'volume', forms: ['quart', 'quarts', 'qt'] },
-  { id: 'gallon', kind: 'volume', forms: ['gallon', 'gallons'] },
+  { id: 'gallon', kind: 'volume', forms: ['gallona', 'gallonaa', 'gallon', 'gallons'] },
   // Weight
   { id: 'g', kind: 'weight', forms: ['g', 'gr', 'gramma', 'grammaa', 'gramman', 'gram', 'grams', 'gramme', 'grammes'] },
   { id: 'kg', kind: 'weight', forms: ['kg', 'kilo', 'kiloa', 'kilon', 'kilos', 'kilogramma', 'kilogrammaa', 'kilogram', 'kilograms'] },
-  { id: 'oz', kind: 'weight', forms: ['oz', 'ounce', 'ounces'] },
-  { id: 'lb', kind: 'weight', forms: ['lb', 'lbs', 'pound', 'pounds'] },
+  { id: 'oz', kind: 'weight', forms: ['unssi', 'unssia', 'unssin', 'oz', 'ounce', 'ounces'] },
+  { id: 'lb', kind: 'weight', forms: ['pauna', 'paunaa', 'paunan', 'lb', 'lbs', 'pound', 'pounds'] },
   // Length
-  { id: 'mm', kind: 'length', forms: ['millimetri', 'millimetriä', 'millimetrin', 'millimetre', 'millimetres', 'millimeter', 'millimeters'] },
+  { id: 'mm', kind: 'length', forms: ['mm', 'millimetri', 'millimetriä', 'millimetrin', 'millimetre', 'millimetres', 'millimeter', 'millimeters'] },
   { id: 'cm', kind: 'length', forms: ['cm', 'sentti', 'senttiä', 'sentin', 'senttimetri', 'senttimetriä', 'senttimetrin', 'centimetre', 'centimetres', 'centimeter', 'centimeters'] },
-  { id: 'in', kind: 'length', forms: ['in', 'inch', 'inches'] },
+  { id: 'in', kind: 'length', forms: ['tuuma', 'tuumaa', 'tuuman', 'in', 'inch', 'inches'] },
   // Packages
   { id: 'prk', kind: 'package', forms: ['prk', 'purkki', 'purkkia', 'purkin'] },
   { id: 'pss', kind: 'package', forms: ['pss', 'ps', 'pussi', 'pussia', 'pussin'] },
   { id: 'pkt', kind: 'package', forms: ['pkt', 'paketti', 'pakettia', 'paketin', 'pakkaus', 'pakkausta', 'pakkauksen'] },
   { id: 'rs', kind: 'package', forms: ['rs', 'rasia', 'rasiaa', 'rasian'] },
-  { id: 'tlk', kind: 'package', forms: ['tlk', 'tölkki', 'tölkkiä', 'tölkin'] },
+  { id: 'tlk', kind: 'package', forms: ['tlk', 'tölkki', 'tölkkiä', 'tölkin', 'tölkillinen', 'tölkillistä'] },
   { id: 'plo', kind: 'package', forms: ['plo', 'pullo', 'pulloa', 'pullon'] },
   { id: 'rku', kind: 'package', forms: ['rku', 'ruukku', 'ruukkua', 'ruukun'] },
   { id: 'can', kind: 'package', forms: ['can', 'cans', 'tin', 'tins'] },
@@ -61,7 +66,7 @@ export const UNITS = [
   { id: 'slice', kind: 'count', forms: ['slice', 'slices'] },
   { id: 'bunch', kind: 'count', forms: ['bunch', 'bunches'] },
   { id: 'sprig', kind: 'count', forms: ['sprig', 'sprigs'] },
-  { id: 'head', kind: 'count', forms: ['head', 'heads'] },
+  { id: 'head', kind: 'count', forms: ['pää', 'päätä', 'head', 'heads'] },
   { id: 'stalk', kind: 'count', forms: ['stalk', 'stalks'] },
   { id: 'rib', kind: 'count', forms: ['rib', 'ribs'] },
   { id: 'ear', kind: 'count', forms: ['ear', 'ears'] },
@@ -90,11 +95,14 @@ export type UnitId = (typeof UNITS)[number]['id']
 
 export type Unit = { readonly id: UnitId; readonly kind: UnitKind }
 
-export type UnitContext =
-  // A Finnish ingredient line, where "mm" is maustemitta (1 ml).
-  | 'fi-ingredient'
-  // Anywhere else, where "mm" is millimetres.
-  | 'other'
+// Single letters that US recipes use for spoons and cups, matched only in
+// this case and only in English: "1 T butter", "2 t salt", "1 c flour".
+const LETTER_UNITS: Record<string, UnitId> = {
+  T: 'tbsp',
+  t: 'tsp',
+  c: 'cup',
+  C: 'cup',
+}
 
 export function isMeasure(unit: Unit | null): boolean {
   return (
@@ -103,57 +111,58 @@ export function isMeasure(unit: Unit | null): boolean {
   )
 }
 
+const byId = new Map<UnitId, Unit>()
 const byForm = new Map<string, Unit>()
 for (const { id, kind, forms } of UNITS) {
+  byId.set(id, { id, kind })
   for (const form of forms) byForm.set(form, { id, kind })
+}
+
+export function unitById(id: UnitId): Unit {
+  const unit = byId.get(id)
+  if (!unit) throw new Error(`Unknown unit ${id}`)
+  return unit
 }
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 // Longest forms first, so "tbsp" wins over "tbs" and "fl oz" over "fl".
-const wordPattern = [...byForm.keys(), 'mm']
+const wordPattern = [...byForm.keys()]
   .sort((a, b) => b.length - a.length)
-  .map((form) => escape(form).replace(/ /g, '\\s*'))
+  .map((form) => escape(form).replace(/ /g, '\\s+'))
   .join('|')
 
 // A unit word ends where the word ends.
 const UNIT_WORD = new RegExp(String.raw`(?:${wordPattern})(?![\p{L}\d])`, 'iuy')
+const LETTER_UNIT = new RegExp(
+  String.raw`[${Object.keys(LETTER_UNITS).join('')}](?![\p{L}\d])`,
+  'uy',
+)
+const INCH_MARK_AT = new RegExp(INCH_MARK, 'y')
+const HYPHEN_WORD = new RegExp(String.raw`${HYPHEN}\p{L}`, 'uy')
 
-// "2 in-season peaches" and "2 L-kokoista kananmunaa" aren't inches and
-// litres, while "19cm-square" is centimetres.
-const NOT_BEFORE_HYPHEN = new Set(['in', 'l'])
-
-// Inch marks only count glued to the number: 1/3" wide.
-const INCH_MARK = /["″”]/y
-
-export type UnitMatch = { unit: Unit; start: number; end: number }
+export type UnitMatch = {
+  readonly unit: Unit
+  readonly start: number
+  readonly end: number
+}
 
 export function readUnit(
   text: string,
   pos: number,
-  context: UnitContext,
+  language: Language,
 ): UnitMatch | null {
-  INCH_MARK.lastIndex = pos
-  if (INCH_MARK.test(text)) {
-    return { unit: { id: 'in', kind: 'length' }, start: pos, end: pos + 1 }
+  if (matchAt(INCH_MARK_AT, text, pos)) {
+    return { unit: unitById('in'), start: pos, end: pos + 1 }
   }
-  UNIT_WORD.lastIndex = pos
-  const m = UNIT_WORD.exec(text)
+  const m =
+    matchAt(UNIT_WORD, text, pos) ??
+    (language === 'en' ? matchAt(LETTER_UNIT, text, pos) : null)
   if (!m) return null
-  const next = text.slice(pos + m[0].length, pos + m[0].length + 2)
-  if (NOT_BEFORE_HYPHEN.has(m[0].toLowerCase()) && /^-\p{L}/u.test(next)) {
-    return null
-  }
-  const word = m[0]
-    .toLowerCase()
-    .replace(/\s+/g, ' ')
-    .replace('fl. oz', 'fl oz')
-  const unit: Unit | undefined =
-    word === 'mm'
-      ? context === 'fi-ingredient'
-        ? { id: 'maustemitta', kind: 'volume' }
-        : { id: 'mm', kind: 'length' }
-      : byForm.get(word === 'fl.oz' ? 'fl oz' : word)
-  if (!unit) return null
-  return { unit, start: pos, end: pos + m[0].length }
+  const end = pos + m[0].length
+  if (!mayPrecedeHyphen(m[0]) && matchAt(HYPHEN_WORD, text, end)) return null
+  const unit =
+    byForm.get(m[0].toLowerCase().replace(/\s+/g, ' ')) ??
+    (m[0] in LETTER_UNITS ? unitById(LETTER_UNITS[m[0]]) : undefined)
+  return unit ? { unit, start: pos, end } : null
 }

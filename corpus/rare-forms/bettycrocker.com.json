@@ -1,0 +1,410 @@
+{
+  "site": "bettycrocker.com",
+  "country": "US",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.bettycrocker.com/recipes/18-layer-red-velvet-cake/bdf43344-2c07-44ee-beaf-508bee980892",
+      "name": "18 Layer Red Velvet Cake",
+      "ingredients": ["2 1/2 cups marshmallow creme (from two 7-oz jars)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/almond-cheesecake/1f5dad66-36fa-40fd-b3d8-b640b5e371db",
+      "name": "Almond Cheesecake",
+      "ingredients": ["3 packages (8 oz each) cream cheese, softened"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/beef-pesto-panini/50481f23-2c85-4be9-8dae-0a35f1b324ae",
+      "name": "Beef-Pesto Panini",
+      "ingredients": ["4 slices (1 oz each) mozzarella cheese"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/biscuit-topped-beef-and-corn-casserole/02a0d38f-511c-4479-b9d2-752e87d9c7dc",
+      "name": "Biscuit-Topped Beef and Corn Casserole",
+      "ingredients": ["1 1/2 teaspoons minced garlic (from 4.5-oz jar)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/cheese-fondue/b63e7bd8-6f46-4daf-bcb0-e67a6388a1bb",
+      "name": "Cheese Fondue",
+      "ingredients": ["1 loaf (1 lb) French bread, cut into 1-inch pieces"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/cheesy-bacon-brussels-sprouts/b756f49b-d2e9-4dea-a8b8-69b4597f5687",
+      "name": "Cheesy Bacon Brussels Sprouts",
+      "ingredients": ["6 slices bacon, cut into 1-inch pieces"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/cheesy-ham-and-pretzel-roll-casserole/6ca0b5d2-e25c-4aa0-8d2b-d7d6a9edc578",
+      "name": "Cheesy Ham and Pretzel Roll Casserole",
+      "ingredients": ["1 lb pretzel rolls, cut into 3/4-inch pieces (8 cups)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/cheesy-stuffed-meatloaf/b1dabc99-aac5-49c2-b989-55b28da4d167",
+      "name": "Cheesy Stuffed Meatloaf",
+      "ingredients": [
+        "2 tablespoons chopped fresh or 2 teaspoons dried basil leaves",
+        "8 oz mozzarella cheese, cut into 1/2-inch cubes",
+        "2 tablespoons chopped fresh or 2 teaspoons dried basil leaves"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/cherries-jubilee-cheesecake-bars/33fae248-a159-4422-97c4-dd01f27a9500",
+      "name": "Cherries Jubilee Cheesecake Bars",
+      "ingredients": ["2 packages (8 oz each) cream cheese, softened"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/chicken-and-noodles-skillet/90914533-3a5f-4cd1-a590-2b874e8e3b5c",
+      "name": "Chicken and Noodles Skillet",
+      "ingredients": [
+        "1 cup Frozen Broccoli Cuts (from 1-lb bag)",
+        "1 3/4 cups Progresso™ chicken broth (from 32-oz carton)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/chicken-cordon-bleu-rice-casserole/1120e407-9c89-46df-9690-e4ce69b0cb21",
+      "name": "Chicken Cordon Bleu Rice Casserole",
+      "ingredients": ["1 cup Progresso™ chicken broth (from 32-oz carton)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/classic-chicken-panini/66e095b2-65c8-4270-a479-41fb775ff020",
+      "name": "Classic Chicken Panini",
+      "ingredients": [
+        "4 boneless skinless chicken breasts (4 oz each)",
+        "4 slices (3/4 oz each) fat-free mozzarella cheese product"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/corn-flake-crusted-fish-fillets-with-dilled-tartar-sauce/afc37f32-f799-4911-b9f4-bfed6cc29c6b",
+      "name": "Corn Flake-Crusted Fish Fillets with Dilled Tartar Sauce",
+      "ingredients": ["4 cod fillets (4 to 6 oz each)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/cream-cheese-french-toast-bake-with-strawberry-topping/aad6050f-a198-4265-a3a5-67aa14ec3842",
+      "name": "Cream Cheese French Toast Bake with Strawberry Topping",
+      "ingredients": [
+        "1 loaf (1 lb) French bread (about 18 inches long), cut into 24 (3/4-inch-thick) slices"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/creamy-chicken-and-rigatoni/4fac5024-ffd2-4389-92e1-1a8a0f35d8ed",
+      "name": "Creamy Chicken and Rigatoni",
+      "ingredients": [
+        "1 pound boneless, skinless chicken breast halves, cut into 1-inch pieces",
+        "2 cans (14 1/2 ounces each) Muir Glen™ organic diced tomatoes, well drained"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/creamy-wild-rice-soup/1ca76b2d-c859-4083-bfdd-9f4549267675",
+      "name": "Creamy Wild Rice Soup",
+      "ingredients": [
+        "1 pouch (from 10-ounce package) frozen cooked wild rice (1 1/4 cups)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/dalmatian-dog-cake/a9140e00-8180-46e9-96de-0266b51c573e",
+      "name": "Dalmatian Dog Cake",
+      "ingredients": [
+        "1 roll Betty Crocker™ Fruit by the Foot™ strawberry chewy fruit snack (from 4.5-oz box)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/death-by-chocolate-mini-cheesecake-pies/b87bfea2-17fd-49ca-90a6-4e5dfc41f474",
+      "name": "Death By Chocolate Mini Cheesecake Pies",
+      "ingredients": ["2 packages (8 oz each) cream cheese, softened"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/easy-apple-pie-cookie-cups/2b2b7594-c7e1-4bb3-8e47-08a2e792797b",
+      "name": "Easy Apple Pie Cookie Cups",
+      "ingredients": [
+        "1 1/2 cups apple pie filling with more fruit (from 21-oz can)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/easy-mediterranean-chicken/fd047324-6fe0-4ba8-823c-bf7031c5b66a",
+      "name": "Easy Mediterranean Chicken",
+      "ingredients": [
+        "4 boneless skinless chicken breasts (5 oz each)",
+        "1/4 cup plus 2 tablespoons chopped fresh basil leaves"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/easy-turkey-brownies/6cf8eb18-9fce-42dd-a009-4ff9090ba672",
+      "name": "Easy Turkey Brownies",
+      "ingredients": [
+        "16 mini dark chocolate-covered peppermint patties (from 8-oz bag)",
+        "32 Betty Crocker™ Candy Shop candy eyeballs (from 0.88-oz package)",
+        "16 orange M&M's® minis chocolate candies (from 10.80-oz bag)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/french-onion-scalloped-potatoes/feb10deb-fbfe-4076-8e28-45df9766cdab",
+      "name": "French Onion Scalloped Potatoes",
+      "ingredients": ["2 boxes (4.7 oz each) Betty Crocker™ scalloped potatoes"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/frosted-bonbons-cookie-exchange-quantity/5d74fa9f-1093-45cd-8a85-b0020cfe3cbf",
+      "name": "Frosted Bonbons (Cookie Exchange Quantity)",
+      "ingredients": ["1 package (7- or 8-oz size) almond paste"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/frozen-foolish-royal-mess/07ba8214-112b-49f9-8643-4447660894df",
+      "name": "Frozen Foolish Royal Mess",
+      "ingredients": ["6 (2-inch) white meringue cookies, coarsely chopped"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/ginger-carrot-cake/a193e75b-c161-4f59-abc4-c455bcce0664",
+      "name": "Ginger Carrot Cake",
+      "sentences": [
+        "Grease bottom and sides of square pan, 8x8x2 or 9x9x2 inches, with shortening."
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/glazed-roast-turkey-with-cranberry-stuffing/1c0ea391-c29c-4038-b022-aa060829373b",
+      "name": "Glazed Roast Turkey with Cranberry Stuffing",
+      "ingredients": [
+        "1 tablespoon chopped fresh or 1 teaspoon dried thyme leaves"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/gluten-free-marshmallow-mummies/ac74062a-615e-4c11-8fb2-8151104c1ef2",
+      "name": "Gluten-Free Marshmallow Mummies",
+      "ingredients": [
+        "4 rolls Fruit Roll-Ups™ chewy fruit snack (any favorite flavor; from 4.5-oz box)",
+        " Black decorating gel (from 0.68-oz tube)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/gold-medal-classic-white-bread/20967ff8-467c-4445-99b4-b3a97a554dd2",
+      "name": "Gold Medal™ Classic White Bread",
+      "ingredients": ["2 1/4 cups very warm water (120° to 130°F)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/grasshopper-pie/2b52373b-030f-45b5-9304-d8fdd42161c5",
+      "name": "Grasshopper Pie",
+      "ingredients": ["32 large marshmallows (from 10-oz bag)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/grilled-peach-and-mustard-glazed-pork-tenderloin/30581893-5cc6-43e6-901c-71d803e561ae",
+      "name": "Grilled Peach- and Mustard-Glazed Pork Tenderloin",
+      "ingredients": ["2 pork tenderloins (about 3/4 lb each)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/ham-and-cheese-green-bean-casserole/f445d8be-eb66-4120-b9e4-e6c36c2064c9",
+      "name": "Ham and Cheese Green Bean Casserole",
+      "ingredients": [
+        "2 lb fresh green beans, trimmed and cut into 1 1/2-inch lengths",
+        "1 cup Progresso™ chicken broth (from 32-oz carton)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/hamburger-stroganoff-casserole/73116ce3-6bbb-40cd-a682-9578ce7c9868",
+      "name": "Hamburger Stroganoff Casserole",
+      "ingredients": [
+        "2 (1.0 to 1.3-oz.) pkg. beef or pork gravy mix",
+        "1 (8 oz.) container sour cream"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/herb-scented-roast-turkey-with-cornbread-stuffing/a1dc129a-586e-433b-8cc1-d1149239ee3d",
+      "name": "Herb-Scented Roast Turkey with Cornbread Stuffing",
+      "ingredients": [
+        "9 cups 1/2-inch cubes cornbread or soft bread",
+        "1 1/2 teaspoons chopped fresh or 1/2 teaspoon dried sage leaves, crumbled",
+        "1 1/2 teaspoons chopped fresh or 1/2 teaspoon dried thyme leaves",
+        "1 tablespoon chopped fresh or 2 teaspoons dried rosemary leaves, crumbled",
+        "1 tablespoon chopped fresh or 2 teaspoons dried sage leaves, crumbled"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/impossibly-easy-peach-and-raspberry-pie/cfa1abff-fcff-4b32-a5df-ef31de55a86b",
+      "name": "Impossibly Easy Peach and Raspberry Pie",
+      "ingredients": [
+        "1 bag (12 oz) frozen sliced peaches, thawed, patted dry and cut into 3/4-inch pieces"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/italian-sausage-and-pepper-stew/5095ced4-22c5-4462-b108-084fd8511213",
+      "name": "Italian Sausage and Pepper Stew",
+      "ingredients": [
+        "1 package (19.5 oz) Italian turkey sausage (sweet or hot), casings removed, links cut into 2-inch pieces"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/lemon-cake-with-raspberry-mousse/b98c43d4-90d9-4329-9009-de6e62a34fd5",
+      "name": "Lemon Cake with Raspberry Mousse",
+      "ingredients": ["2 cups raspberry pie filling (from 21-oz can)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/meatball-lasagna/0e613c15-7ce9-451d-8411-492f80d47fdb",
+      "name": "Meatball Lasagna",
+      "ingredients": [
+        "1 box (12 oz) frozen Italian-style meatballs, thawed, each cut in half",
+        "1 1/2 cups frozen bell pepper and onion stir-fry (from 1-lb bag), thawed, drained"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/melted-snowman-sugar-cookies/91c4a274-78a1-4cba-b890-52563d6cd670",
+      "name": "Melted Snowman Sugar Cookies",
+      "ingredients": [
+        "1 pouch each Betty Crocker™ Cookie Icing in white, red, blue, and green"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/mini-cupcake-mortarboards/39862c7c-eb34-41d4-bafd-692c1b57c8c8",
+      "name": "Mini Cupcake Mortarboards",
+      "ingredients": [
+        "60 Lorna Doone™ shortbread cookies (from two 10-oz packages)"
+      ],
+      "sentences": [
+        "Press uncut end of fruit snack or 3 or 4 pieces of licorice into frosted cookie next to candy."
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/pork-medallions-with-cherry-sauce/1a2de3dd-2393-4f1d-abf1-181e6c188f16",
+      "name": "Pork Medallions with Cherry Sauce",
+      "ingredients": [
+        "1 pork tenderloin (1 to 1 1/4 lb), cut into 1/2-inch slices"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/pumpkin-cookies-with-browned-butter-frosting/f93eba9b-f074-42c3-8bef-6a74d3cab699",
+      "name": "Pumpkin Cookies with Browned Butter Frosting",
+      "ingredients": ["1/2 cup (from 15-oz can) pumpkin (not pumpkin pie mix)"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/pumpkin-pie-lush/b8362a2d-7bf9-48ff-8208-c966dcf7fd06",
+      "name": "Pumpkin Pie Lush",
+      "ingredients": [
+        "2 boxes (4-serving size each) Jell-O™ vanilla-flavor instant pudding & pie filling mix",
+        "1/2 cup plus 2 tablespoons caramel sauce"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/pumpkin-pudding-dump-cake/6ba421f8-43a0-4c08-87c3-4c248b3ea23f",
+      "name": "Pumpkin Pudding Dump Cake",
+      "ingredients": [
+        "1 1/2 cups milk or 1 can (12 oz) evaporated milk",
+        "1/2 cup pumpkin (not pumpkin pie mix), from 15-oz can"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/roasted-baby-carrots/21254998-e58e-4d8b-b9a5-9b121dd6ed21",
+      "name": "Roasted Baby Carrots",
+      "ingredients": [
+        "1 tablespoon chopped fresh or 1 teaspoon dried thyme leaves",
+        "1 bag (16 ounces) plus 1 bag (8 ounces) baby-cut carrots (9 cups)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/roasted-sweet-potato-pie/4959c210-9a87-4bab-ae07-57b1a0667bc1",
+      "name": "Roasted Sweet Potato Pie",
+      "ingredients": ["2 tablespoons bourbon or 1 teaspoon vanilla"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/salsa-chicken-fiesta-lighter-recipe/59d6286f-3d79-4117-b125-d3d71fe87566",
+      "name": "Salsa Chicken Fiesta (lighter recipe)",
+      "ingredients": [
+        "3 boneless skinless chicken breasts, cut into 1/2-inch pieces"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/salt-pepper-dinner-rolls/8c5fdef7-e66e-4b70-9f18-bcb76cfc4ad7",
+      "name": "Salt & Pepper Dinner Rolls",
+      "ingredients": ["1 cup + 1 Tbsp. milk"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/sausage-and-cranberry-baked-stuffing/e35c08c5-f66e-40eb-905f-c1c8913e6e74",
+      "name": "Sausage and Cranberry Baked Stuffing",
+      "ingredients": [
+        "8 cups lightly packed 3/4-inch cubes French bread",
+        "1 cup Progresso™ chicken broth (from 32-oz carton)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/sheet-pan-teriyaki-pork-and-vegetables/099b7a7d-42d6-4231-91a7-759cf3872ca7",
+      "name": "Sheet-Pan Teriyaki Pork and Vegetables",
+      "ingredients": [
+        "2 cups Progresso™ chicken broth (from 32-oz carton)",
+        "1/4 cup Annie’s™ Naturals organic Asian sesame dressing (from 8-oz bottle)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/slow-cooker-cordon-bleu-chicken-rolls/0cc9a9e8-0373-4c54-b469-d0e32c26899f",
+      "name": "Slow-Cooker Cordon Bleu Chicken Rolls",
+      "ingredients": [
+        "6 boneless skinless chicken breasts (about 5 oz each)",
+        "3 thin slices (3/4 oz each) deli ham, cut in half",
+        "3 slices (1 oz each) Swiss cheese, cut in half"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/slow-cooker-pineapple-orange-glazed-ham/ab9dabf9-59ac-4cac-9859-a26e45315b42",
+      "name": "Slow-Cooker Pineapple-Orange Glazed Ham",
+      "ingredients": [
+        "1 (3-lb.) boneless cooked ham",
+        "1 (8-oz.) can crushed pineapple in unsweetened juice"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/smoked-sausage-baked-beans-crowd-size/fd30d35a-c59e-409d-9081-23820524ce62",
+      "name": "Smoked Sausage Baked Beans (Crowd Size)",
+      "ingredients": ["2 cans (55 ounces each) baked beans"]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/steak-salad-with-creamy-dressing/b3dc6334-c7f4-4567-a072-4cd9d9a7284b",
+      "name": "Steak Salad with Creamy Dressing",
+      "ingredients": [
+        "2 beef tenderloin steaks, about 3/4 to 1 inch thick (6 oz each), trimmed of fat"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/steamed-chinese-vegetables-with-brown-rice/9fef2471-faf9-4673-a589-1089b069214e",
+      "name": "Steamed Chinese Vegetables with Brown Rice",
+      "ingredients": [
+        "1 Japanese or regular eggplant, 1 1/2 pounds, cut into 2x1/2-inch strips (3 cups)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/sufganiyot-with-dulce-de-leche-whipped-cream-filling-and-chocolate-drizzle/0cb10ed8-1ff6-43a4-abc2-93359ced2898",
+      "name": "Sufganiyot with Dulce de Leche Whipped Cream Filling and Chocolate Drizzle",
+      "ingredients": [
+        "1/2 cup warm water (105°F to 115°F)",
+        "1 cup warm milk (105°F to 115°F)"
+      ],
+      "sentences": [
+        "Fry sufganiyot, 4 or 5 at a time, in hot oil about 2 to 3 minutes on each side or until browned and cooked through to the center."
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/sunflower-cake/87bacae4-1cbe-4ea4-9532-ae048cda0d14",
+      "name": "Sunflower Cake",
+      "ingredients": [
+        "1 tube Betty Crocker™ yellow classic gel food color (from 2.7-oz box)"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/sweet-and-sour-chicken/1f3cac47-3387-4927-9d05-329f6a5470c1",
+      "name": "Sweet and Sour Chicken",
+      "ingredients": [
+        "1/2 large green bell pepper, cut into 3/4-inch pieces",
+        "1/2 large red bell pepper, cut into 3/4-inch pieces"
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/wild-blueberry-muffin-tops/1c69b518-94d6-404b-bd25-692c87f6b351",
+      "name": "Wild Blueberry Muffin Tops",
+      "sentences": [
+        "Preheat oven to 425°F (or 400°F for dark or nonstick pan)."
+      ]
+    },
+    {
+      "url": "https://www.bettycrocker.com/recipes/zucchini-ricotta-pasta-skillet-cooking-for-2/4b061f2c-5311-42e7-ba33-d2dda24ac59c",
+      "name": "Zucchini Ricotta Pasta Skillet (Cooking for 2)",
+      "ingredients": [
+        "1 1/2 cups 1/4-inch slices zucchini and/or summer squash",
+        "1 3/4 cups Progresso chicken broth (from 32-oz carton)"
+      ]
+    }
+  ]
+}

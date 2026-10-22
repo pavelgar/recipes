@@ -138,8 +138,9 @@
   same recognition feedback as ingredient lines.
 - Amounts inside steps don't scale with servings. When servings differ from
   the original, step amounts are subtly marked as referring to the original.
-- In step text, "mm" means millimetres. It means maustemitta only in
-  ingredient lines.
+- "mm" means maustemitta only as the first amount of a Finnish ingredient
+  line. In step text and later in an ingredient line ("cut into 5 mm
+  slices") it means millimetres.
 - Text that already gives both systems, like "425 °F (220 °C)", is left as
   written.
 - Package units (1 prk) are never converted, but scale with servings. A size
@@ -147,6 +148,21 @@
   for the line and scales with it ("2 prk (800 g)"), unless the line marks
   it as per package: "2 pkt (à 170 g)", "2 x 150g", "1 (14 ounce) can".
   Lengths are always per item ("2 (9 inch) pie crusts").
+- Every amount in an ingredient line is recognised, not only the first.
+  Alternatives and additions ("4 rkl tuoretta tai 2 tl kuivattua", "1 cup
+  plus 2 tbsp") scale and convert like the first. Lengths, temperatures and
+  the size of one piece ("185 g each", "from a 15-oz can", the package size
+  in a product name such as "… Smetana 150 g") convert but don't scale.
+- The amount doesn't have to start the line: in "Juustoraastetta tai 2 rkl
+  korppujauhoja" and "zest of 1 lemon" the first amount that scales is the
+  line's amount.
+- A count further along the line scales when it says how much of the
+  ingredient to use: in parentheses ("(about 4 medium)", "((2 to 3
+  limes))"), with a package or count unit ("(2 rs, à 200 g)"), or after
+  "of" ("the white of 1 egg"). Counts of pieces to cut into ("cut into 8
+  wedges"), what one package holds ("1 pkt (4 x 100 g)"), rates ("8-15
+  rapua ruokailijaa kohti"), times, servings ("valmis 8-10hlö") and note
+  references stay as written.
 - The recipe as originally written is one tap away.
 - Interpretation must handle Finnish conventions: decimal commas (1,5 dl),
   units such as dl, rkl, tl and mm (maustemitta, 1 ml), and package
