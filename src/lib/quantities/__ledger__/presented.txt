@@ -2422,9 +2422,7 @@
 ? "2 cups (454g) heavy cream"
   ×1.5: 3 cups (681g) heavy cream
 ? "one 14-ounce can (397g) sweetened condensed milk"
-  metric: one 400 g can (397g) sweetened condensed milk
-  us: one 14-ounce can (14 oz) sweetened condensed milk
-  ×1.5: 1½ 400 g cans (595g) sweetened condensed milk
+  ×1.5: 1½ 14-ounce cans (595g) sweetened condensed milk
 ✓ "1 tablespoon (14g) vanilla bean paste"
   ×1.5: 1½ tablespoons (21g) vanilla bean paste
 ? "2 cups (about 150g) diced yellow cake, such Classic Birthday Cake, Back-to-Basics Yellow Cake, or Classic Yellow Cake*"
@@ -2803,9 +2801,7 @@
 ? "1/4 cup (46g) potato flour or 3/4 cup (46g) dried potato flakes (instant mashed potatoes)"
   ×1.5: ⅓ cup + ½ tbsp (69g) potato flour or 1 cup + 2 tbsp (69g) dried potato flakes (instant mashed potatoes)
 ? "one 8-ounce package (227g) cream cheese, at room temperature"
-  metric: one 225 g package (227g) cream cheese, at room temperature
-  us: one 8-ounce package (8 oz) cream cheese, at room temperature
-  ×1.5: 1½ 225 g packages (340g) cream cheese, at room temperature
+  ×1.5: 1½ 8-ounce packages (340g) cream cheese, at room temperature
 ? "3/4 cup (170g) buttermilk, or 1/2 cup (113g) plain yogurt thinned with 1/4 cup (57g) milk"
   ×1.5: 1 cup + 2 tbsp (255g) buttermilk, or 3/4 cup (170g) plain yogurt thinned with ⅓ cup + ½ tbsp (85g) milk
 ? "12 tablespoons (170g) unsalted butter, softened (about 70°F)"
@@ -2834,7 +2830,6 @@
 ? "1 batch Pâte à Choux"
   ×1.5: 1½ batch Pâte à Choux
 ? "half an 8-ounce package (113g) cream cheese"
-  us: half an 8-ounce package (4 oz) cream cheese
   ×1.5: ¾ 8-ounce package (170g) cream cheese
 ? "12 tablespoons (170g) unsalted butter, at room temperature, at least 65°F"
   metric: 12 tablespoons (170g) unsalted butter, at room temperature, at least 18°C
@@ -2854,18 +2849,13 @@
 ? "1/3 cup plus 2 tablespoons (90g) vegetable oil"
   ×1.5: 1/2 cup plus 3 tablespoons (135g) vegetable oil
 ? "two 8-ounce packages (452g) cream cheese, at room temperature"
-  metric: two 225 g packages (452g) cream cheese, at room temperature
-  us: two 8-ounce packages (16 oz) cream cheese, at room temperature
-  ×1.5: three 225 g packages (678g) cream cheese, at room temperature
+  ×1.5: three 8-ounce packages (678g) cream cheese, at room temperature
 ? "two 8-ounce packages (454g) cream cheese, at room temperature"
-  metric: two 225 g packages (454g) cream cheese, at room temperature
-  us: two 8-ounce packages (16 oz) cream cheese, at room temperature
-  ×1.5: three 225 g packages (681g) cream cheese, at room temperature
+  ×1.5: three 8-ounce packages (681g) cream cheese, at room temperature
 ? "1 3/4 cups (398g) water or milk, hot (115°F to 120°F)"
   metric: 1 3/4 cups (398g) water or milk, hot (46–49°C)
   ×1.5: 2 2/3 cups (597g) water or milk, hot (46–49°C)
 ? "half an 8-ounce package (113g) cream cheese, softened*"
-  us: half an 8-ounce package (4 oz) cream cheese, softened*
   ×1.5: ¾ 8-ounce package (170g) cream cheese, softened*
 ? "3/4 cup (170g) water, lukewarm (100°F)"
   metric: 3/4 cup (170g) water, lukewarm (38°C)
@@ -2932,15 +2922,11 @@
 ? "1 tablespoon plus 1 teaspoon King Arthur Pizza Dough Flavor*"
   ×1.5: 1½ tablespoons plus 1½ teaspoons King Arthur Pizza Dough Flavor*
 ? "one 8-ounce package (227g) cream cheese, cold"
-  metric: one 225 g package (227g) cream cheese, cold
-  us: one 8-ounce package (8 oz) cream cheese, cold
-  ×1.5: 1½ 225 g packages (340g) cream cheese, cold
+  ×1.5: 1½ 8-ounce packages (340g) cream cheese, cold
 ? "1/4 cup plus 3 tablespoons (147g) honey"
   ×1.5: ⅓ cup + ½ tbsp plus 4½ tablespoons (220g) honey
 ? "one 12-ounce can (340g) sweetened red bean paste*"
-  metric: one 340 g can (340g) sweetened red bean paste*
-  us: one 12-ounce can (12 oz) sweetened red bean paste*
-  ×1.5: 1½ 340 g cans (510g) sweetened red bean paste*
+  ×1.5: 1½ 12-ounce cans (510g) sweetened red bean paste*
 ? "1 cup (227g) apple cider or apple juice, or substitute 1/4 cup (57g) boiled cider plus 3/4 cup (170g) water"
   ×1.5: 1½ cups (340g) apple cider or apple juice, or substitute ⅓ cup + ½ tbsp (85g) boiled cider plus 1 cup + 2 tbsp (255g) water
 ? "1 tablespoon plus 1 teaspoon (17g) granulated sugar"
@@ -2976,11 +2962,8 @@
   metric: 3 tablespoons plus 1.2 dl (61g) old-fashioned rolled oats, divided*
   ×1.5: 4½ tablespoons plus 1.8 dl (90g) old-fashioned rolled oats, divided*
 ? "one 8-ounce package (227g) cream cheese, room temperature"
-  metric: one 225 g package (227g) cream cheese, room temperature
-  us: one 8-ounce package (8 oz) cream cheese, room temperature
-  ×1.5: 1½ 225 g packages (340g) cream cheese, room temperature
+  ×1.5: 1½ 8-ounce packages (340g) cream cheese, room temperature
 ? "half an 8-ounce package (113g) cream cheese, room temperature"
-  us: half an 8-ounce package (4 oz) cream cheese, room temperature
   ×1.5: ¾ 8-ounce package (170g) cream cheese, room temperature
 ? "step: In cooler months (when your indoor temperature is about 65°F), use 100°F to 110°F water."
   metric: In cooler months (when your indoor temperature is about 18°C), use 38–43°C water.
@@ -3528,7 +3511,7 @@
 ? "step: Laita uuni lämpenemään 200°C:n ja vuoraa samalla irtopohjavuoan pohja leivinpaperilla."
   us: Laita uuni lämpenemään 400 °F:n ja vuoraa samalla irtopohjavuoan pohja leivinpaperilla.
 ? "step: Täyte: keitä puuroriisi 3 1/2 desiä 6 desissä vettä kypsäksi."
-  us: Täyte: keitä puuroriisi 1½ kuppia 6 desissä vettä kypsäksi.
+  us: Täyte: keitä puuroriisi 1½ kuppia 2½ kupissa vettä kypsäksi.
 ? "step: Kuulota toinen pieneksi silputtu sipuli mieluiten kasarissa, lisää 5 desiä vettä ja kiehauta, liota kasvisliemikuutio sekaan + muut mausteet, laita soijarouhe kiehuvaan veteen ja anna turvota n. 2minuuttia."
   us: Kuulota toinen pieneksi silputtu sipuli mieluiten kasarissa, lisää 2 kuppia vettä ja kiehauta, liota kasvisliemikuutio sekaan + muut mausteet, laita soijarouhe kiehuvaan veteen ja anna turvota n. 2minuuttia.
 ? "step: Kauli n. 6cm levyiksi, taikinan paksuus pitäisi olla n. 0,5 cm, kun se on kaulittu."
@@ -4061,7 +4044,7 @@
 ? "step: Paista 225 asteessa 30 minuuttia."
   us: Paista 425 °F 30 minuuttia.
 ? "step: Leikkaa pintaan molemmin puolin 4–5 noin 1⁄2 cm:n syvyistä viiltoa."
-  us: Leikkaa pintaan molemmin puolin 4–5 noin ¼ tuumaa:n syvyistä viiltoa.
+  us: Leikkaa pintaan molemmin puolin 4–5 noin ¼ tuuman syvyistä viiltoa.
 ? "step: Soseuta maustetahnan ainekset eli kaksi valkosipulinkynttä, yksi salottisipuli, puoli desilitraa oliiviöljyä, ruukku persiljaa, oksa rosmariinia, teelusikallinen paprikajauhetta, teelusikallinen korianteria, teelusikallinen juustokuminaa ja teelusikallinen suolaa sauvasekoittimella."
   us: Soseuta maustetahnan ainekset eli kaksi valkosipulinkynttä, yksi salottisipuli, 3½ rkl oliiviöljyä, ruukku persiljaa, oksa rosmariinia, teelusikallinen paprikajauhetta, teelusikallinen korianteria, teelusikallinen juustokuminaa ja teelusikallinen suolaa sauvasekoittimella.
 ? "step: Ota perunavuoka uunista ja laske uunin lämpötila 175 asteeseen."
@@ -4704,7 +4687,7 @@
 ? "step: Keitä raparperinpalat ja puoli desiä\r vettä kattilassa, kunnes raparperit hiukan\r pehmenevät."
   us: Keitä raparperinpalat ja 3½ rkl vettä kattilassa, kunnes raparperit hiukan pehmenevät.
 ? "step: Lusikoi taikina kertakäyttöiseen pursotinpussiin ja leikkaa pussin päähän noin 1,5 sentin aukko."
-  us: Lusikoi taikina kertakäyttöiseen pursotinpussiin ja leikkaa pussin päähän noin ½ tuumaa aukko.
+  us: Lusikoi taikina kertakäyttöiseen pursotinpussiin ja leikkaa pussin päähän noin ½ tuuman aukko.
 ? "step: Paista 200 asteessa 13–15 minuuttia."
   us: Paista 400 °F 13–15 minuuttia.
 ? "step: Kypsennä airfryerissa 175–180 asteessa 10–15 minuuttia, laitteen koosta riippuen tarvittaessa kahdessa erässä, kunnes viipaleet ovat rapeita."
@@ -4716,7 +4699,7 @@
 ? "step: Paista sipuleita 180-asteisessa uunissa 10 minuuttia."
   us: Paista sipuleita 350 °F uunissa 10 minuuttia.
 ? "step: Viillä terävällä veitsellä noin 2 cm:n levyinen reunus taikinan ympäri."
-  us: Viillä terävällä veitsellä noin ¾ tuumaa:n levyinen reunus taikinan ympäri.
+  us: Viillä terävällä veitsellä noin ¾ tuuman levyinen reunus taikinan ympäri.
 ? "step: Pingota leivinpaperi irtopohjavuoan (ø 22 cm) pohjalle."
   us: Pingota leivinpaperi irtopohjavuoan (ø 8½ tuumaa) pohjalle.
 ? "step: Levitä taikina leivinpaperilla vuoratulle uunipellille (35 cm x 40 cm)."
@@ -4740,7 +4723,7 @@
 ? "step: 15 x 23 cm."
   us: 6 × 9 tuumaa.
 ? "step: Kauli taikina 35 × 50 sentin levyksi."
-  us: Kauli taikina 14 × 19½ tuumaa levyksi.
+  us: Kauli taikina 14 × 19½ tuuman levyksi.
 ? "step: Paista uunissa 175 asteessa 30–40 minuuttia."
   us: Paista uunissa 350 °F 30–40 minuuttia.
 ? "step: Kaada taikina leivinpaperin päälle pellille (noin 35 × 42 cm) ja levitä tasaiseksi."
@@ -4748,7 +4731,7 @@
 ? "step: Paista 225-asteisen uunin keskitasolla 6–8 minuuttia, kunnes pinta on kauniin ruskea."
   us: Paista 425 °F uunin keskitasolla 6–8 minuuttia, kunnes pinta on kauniin ruskea.
 ? "step: Jos käytät kalaa, poista siitä tarvittaessa ruodot ja leikkaa sekin noin 2 × 10 cm:n paloiksi."
-  us: Jos käytät kalaa, poista siitä tarvittaessa ruodot ja leikkaa sekin noin ¾ × 4 tuumaa:n paloiksi.
+  us: Jos käytät kalaa, poista siitä tarvittaessa ruodot ja leikkaa sekin noin ¾ × 4 tuuman paloiksi.
 ? "step: Pingota irtopohjavuoan (ø 20–22 cm) pohjalle leivinpaperi."
   us: Pingota irtopohjavuoan (ø 8–8½ tuumaa) pohjalle leivinpaperi.
 ? "step: Mausta sitruunanmehulla.Kuumenna kattilassa ½ dl kuohuviiniä ja lisää puristellut liivatelehdet."
@@ -5981,7 +5964,7 @@
 ? "1 pieni salottisipuli"
   ×1.5: 1½ pieni salottisipuli
 ? "5 cm:n pala inkivääriä"
-  us: 2 tuumaa:n pala inkivääriä
+  us: 2 tuuman pala inkivääriä
   ×1.5: 7,5 cm:n pala inkivääriä
 ? "3 rkl (tummaa) misotahnaa"
   ×1.5: 4½ rkl (tummaa) misotahnaa
@@ -6383,7 +6366,7 @@
 ? "step: Pingota leivin­paperi irtopohjavuoan pohjalle (Ø 24 cm)."
   us: Pingota leivin­paperi irtopohjavuoan pohjalle (Ø 9½ tuumaa).
 ? "step: Nosta taikina vuokaan kaulimen avulla ja siisti taikinan reunat veitsellä 3–4 cm:n kor­keudelle."
-  us: Nosta taikina vuokaan kaulimen avulla ja siisti taikinan reunat veitsellä 1⅛–1½ tuumaa:n kor­keudelle.
+  us: Nosta taikina vuokaan kaulimen avulla ja siisti taikinan reunat veitsellä 1⅛–1½ tuuman kor­keudelle.
 ? "step: Paista 180-asteisessa uunissa 40–50 minuuttia."
   us: Paista 350 °F uunissa 40–50 minuuttia.
 ? "step: Ota pastavedestä 1½ desiä vettä talteen ennen kuin valutat pastan."
@@ -6960,7 +6943,7 @@
 ? "step: Kaada taikina vuokaan leivinpaperin päälle ja paista 200-asteisessa uunissa 1 h 15 min. tai kunnes kakun pinta on tummanruskea."
   us: Kaada taikina vuokaan leivinpaperin päälle ja paista 400 °F uunissa 1 h 15 min. tai kunnes kakun pinta on tummanruskea.
 ? "step: Kaada taikina voideltuun, suorakaiteen muotoiseen 1,5 litran vetoiseen leipävuokaan."
-  us: Kaada taikina voideltuun, suorakaiteen muotoiseen 6⅓ kuppia vetoiseen leipävuokaan.
+  us: Kaada taikina voideltuun, suorakaiteen muotoiseen 6⅓ kupin vetoiseen leipävuokaan.
 ? "step: Paista 175 asteessa uunin alatasolla n. 40 min tai kunnes kypsä."
   us: Paista 350 °F uunin alatasolla n. 40 min tai kunnes kypsä.
 ? "step: Jos haluat tehdä tavallisen kesäkurpitsaleivän gluteenittoman sijasta, käytä gluteenittoman jauhoseoksen tilalla 5 dl vehnäjauhoja ja 2,5 dl sämpyläjauhoja."

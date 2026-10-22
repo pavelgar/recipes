@@ -8,8 +8,15 @@ import type { Unit, UnitId } from '@/lib/quantities/units'
 // US measures.
 export type DisplaySystem = 'metric' | 'us'
 
-// What a measure is counted in: millilitres, grams or millimetres.
-export type Dimension = 'volume' | 'weight' | 'length'
+// US measures in millilitres, grams and millimetres. Ounces, pounds and
+// inches are the same everywhere.
+export const US_TSP = 4.92892
+export const US_TBSP = 14.7868
+export const US_CUP = 236.588
+export const US_QUART = 946.353
+export const OUNCE = 28.3495
+export const POUND = 453.592
+export const INCH = 25.4
 
 type Size = number | Readonly<Record<MeasuringSystem, number>>
 
@@ -30,20 +37,20 @@ const SIZES: Partial<Record<UnitId, Size>> = {
   dl: 100,
   l: 1000,
   maustemitta: 1,
-  tsp: imperial(4.92892, 5),
-  tbsp: { us: 14.7868, british: 15, australian: 20, metric: 15 },
-  cup: imperial(236.588, 250),
+  tsp: imperial(US_TSP, 5),
+  tbsp: { us: US_TBSP, british: 15, australian: 20, metric: 15 },
+  cup: imperial(US_CUP, 250),
   'fl-oz': imperial(29.5735, 28.4131),
   pint: imperial(473.176, 568.261),
-  quart: imperial(946.353, 1136.52),
+  quart: imperial(US_QUART, 1136.52),
   gallon: imperial(3785.41, 4546.09),
   g: 1,
   kg: 1000,
-  oz: 28.3495,
-  lb: 453.592,
+  oz: OUNCE,
+  lb: POUND,
   mm: 1,
   cm: 10,
-  in: 25.4,
+  in: INCH,
 }
 
 // The size of one unit in millilitres, grams or millimetres, as the recipe's
@@ -52,14 +59,6 @@ export function sizeOf(unit: Unit, system: MeasuringSystem): number | null {
   const size = SIZES[unit.id]
   if (size === undefined) return null
   return typeof size === 'number' ? size : size[system]
-}
-
-export function dimensionOf(unit: Unit): Dimension | null {
-  return unit.kind === 'volume' ||
-    unit.kind === 'weight' ||
-    unit.kind === 'length'
-    ? unit.kind
-    : null
 }
 
 const METRIC = new Set<UnitId>([

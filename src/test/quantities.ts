@@ -1,3 +1,4 @@
+import { unitOf } from '@/lib/quantities/scan'
 import { isMeasure } from '@/lib/quantities/units'
 import type { ParsedIngredient } from '@/lib/quantities/ingredient'
 import type { LineQuantity } from '@/lib/quantities/line'
@@ -36,9 +37,6 @@ export function describeQuantity(q: Quantity): string {
     }
   }
 }
-
-const unitOf = (q: Quantity) =>
-  q.type === 'amount' || q.type === 'dimensions' ? q.unit : null
 
 // Whether q restates its owner in another measure: "4½oz" in "125g/4½oz".
 function isRestated(list: ReadonlyArray<LineQuantity>, q: LineQuantity) {

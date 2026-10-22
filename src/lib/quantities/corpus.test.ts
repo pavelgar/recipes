@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { parseIngredient } from '@/lib/quantities/ingredient'
 import { scanStep } from '@/lib/quantities/steps'
+import { canonical } from '@/lib/quantities/text'
 import { readUnit } from '@/lib/quantities/units'
 import { ingredientLines, stepSentences } from '@/test/corpus'
 import { describeIngredient, describeStep } from '@/test/quantities'
@@ -24,7 +25,8 @@ function checkShape(line: CorpusLine, list: ReadonlyArray<LineQuantity>) {
     // Links point back, so a list can be read in one pass.
     if (q.of !== null) expect(q.of, where).toBeLessThan(i)
     if (q.type !== 'temperature' && q.unitAt && q.unit) {
-      const written = readUnit(line.text, q.unitAt[0], line.language)
+      const text = canonical(line.text)
+      const written = readUnit(text, q.unitAt[0], line.language)
       // "mm" reads as millimetres and becomes maustemitta in its line.
       if (q.unit.id !== 'maustemitta') {
         expect(written?.unit.id, where).toBe(q.unit.id)
@@ -65,29 +67,51 @@ describe('readings stay the same', () => {
   const ingredientReading = (line: CorpusLine, text: string) =>
     describeIngredient(parseIngredient(text, line))
 
+  const stepReading = (line: CorpusLine, text: string) =>
+    describeStep(text, scanStep(text, line))
+
   it('with no-break or thin spaces for spaces', () => {
-    for (const line of ingredientLines) {
-      for (const space of [' ', ' ']) {
+    for (const space of ['\u00a0', '\u2009', '\u202f']) {
+      // Some lines already hold such spaces, so both readings are compared
+      // with plain ones.
+      const plain = (reading: string) => reading.replaceAll(space, ' ')
+      for (const line of ingredientLines) {
         const text = line.text.replace(/ /g, space)
-        expect(
-          ingredientReading(line, text).replaceAll(space, ' '),
-          line.text,
-        ).toBe(ingredientReading(line, line.text))
+        expect(plain(ingredientReading(line, text)), line.text).toBe(
+          plain(ingredientReading(line, line.text)),
+        )
+      }
+      for (const sentence of stepSentences) {
+        const text = sentence.text.replace(/ /g, space)
+        expect(stepReading(sentence, text).map(plain), sentence.text).toEqual(
+          stepReading(sentence, sentence.text).map(plain),
+        )
       }
     }
   })
 
   it('with an en dash, em dash or minus sign for the hyphen of a range', () => {
-    for (const line of ingredientLines) {
-      if (!/\d ?- ?\d/.test(line.text)) continue
+    const ranged = (text: string) =>
       // A hyphen before a fraction makes a mixed number: "1-1/2".
-      if (/\d-\d+\/\d/.test(line.text)) continue
-      for (const dash of ['–', '—', '−']) {
-        const text = line.text.replace(/(\d ?)-( ?\d)/g, `$1${dash}$2`)
+      /\d ?- ?\d/.test(text) && !/\d-\d+\/\d/.test(text)
+    for (const dash of ['–', '—', '−']) {
+      const dashed = (text: string) =>
+        text.replace(/(\d ?)-( ?\d)/g, `$1${dash}$2`)
+      for (const line of ingredientLines) {
+        if (!ranged(line.text)) continue
         expect(
-          ingredientReading(line, text).replaceAll(dash, '-'),
+          ingredientReading(line, dashed(line.text)).replaceAll(dash, '-'),
           line.text,
         ).toBe(ingredientReading(line, line.text))
+      }
+      for (const sentence of stepSentences) {
+        if (!ranged(sentence.text)) continue
+        expect(
+          stepReading(sentence, dashed(sentence.text)).map((r) =>
+            r.replaceAll(dash, '-'),
+          ),
+          sentence.text,
+        ).toEqual(stepReading(sentence, sentence.text))
       }
     }
   })

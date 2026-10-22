@@ -1,16 +1,24 @@
 import { describe, expect, it } from 'vitest'
 import { parseIngredient } from '@/lib/quantities/ingredient'
 import { CONVERSION_LIMIT } from '@/lib/quantities/kitchen'
-import { sizeOf } from '@/lib/quantities/measures'
+import { readsAsWritten, sizeOf } from '@/lib/quantities/measures'
+import { readNumber, readNumberWord } from '@/lib/quantities/numbers'
 import { presentIngredient, presentStep } from '@/lib/quantities/present'
+import { readQuantity, readWordQuantity } from '@/lib/quantities/quantity'
 import { scan } from '@/lib/quantities/scan'
 import { scanStep } from '@/lib/quantities/steps'
+import { isMeasure } from '@/lib/quantities/units'
 import { ingredientLines, inCorpus, stepSentences } from '@/test/corpus'
 import { assertLedger } from '@/test/ledger'
 import { presentedLedger } from '@/test/ledgers'
 import type { LineQuantity } from '@/lib/quantities/line'
 import type { DisplaySystem } from '@/lib/quantities/measures'
-import type { PresentOptions, Presented } from '@/lib/quantities/present'
+import type { Value } from '@/lib/quantities/numbers'
+import type {
+  PresentOptions,
+  Presented,
+  Segment,
+} from '@/lib/quantities/present'
 import type { MeasuringSystem, Quantity } from '@/lib/quantities/scan'
 import type { CorpusLine } from '@/test/corpus'
 
@@ -82,6 +90,26 @@ const CASES: Record<
       'us',
       'Lisää ¾ kuppia + 1½ rkl kuohukermaa, teelusikallinen suolaa sekä puoli teelusikallista mustapippuria.',
     ],
+  ],
+  // A converted Finnish unit takes the case the recipe wrote its amount
+  // in, after an abbreviation too.
+  'Finnish units keep their case': [
+    [
+      'Täyte: keitä puuroriisi 3 1/2 desiä 6 desissä vettä kypsäksi.',
+      'us',
+      'Täyte: keitä puuroriisi 1½ kuppia 2½ kupissa vettä kypsäksi.',
+    ],
+    [
+      'Kaada taikina voideltuun, suorakaiteen muotoiseen 1,5 litran vetoiseen leipävuokaan.',
+      'us',
+      'Kaada taikina voideltuun, suorakaiteen muotoiseen 6⅓ kupin vetoiseen leipävuokaan.',
+    ],
+    [
+      'Viillä terävällä veitsellä noin 2 cm:n levyinen reunus taikinan ympäri.',
+      'us',
+      'Viillä terävällä veitsellä noin ¾ tuuman levyinen reunus taikinan ympäri.',
+    ],
+    ['5 cm:n pala inkivääriä', 'us', '2 tuuman pala inkivääriä'],
   ],
   'Australian tablespoons become teaspoons': [
     ['1 tablespoon lime juice', 'metric', '4 tsp lime juice'],
@@ -173,7 +201,7 @@ const CASES: Record<
     [
       'two 8-ounce packages (452g) cream cheese, at room temperature',
       'metric ×1.5',
-      'three 225 g packages (678g) cream cheese, at room temperature',
+      'three 8-ounce packages (678g) cream cheese, at room temperature',
     ],
     [
       '600g/1lb 5oz raw jumbo prawns, peeled and deveined (defrosted if frozen)',
@@ -308,40 +336,102 @@ describe('presenting', () => {
 // --- Properties over the whole corpus ---
 
 const DISPLAYS: ReadonlyArray<DisplaySystem> = ['metric', 'us']
-const FACTORS = [1, 1.5]
+const FACTORS = [1, 0.5, 1.5, 2, 3]
 
-function eachPresentation(
-  check: (
-    line: CorpusLine,
-    list: ReadonlyArray<LineQuantity>,
-    shown: Presented,
-    opts: PresentOptions,
-  ) => void,
-) {
-  for (const line of corpus) {
+// How far a scaled amount may be from the exact one: a fraction to the
+// nearest ¼, ⅓ or ½, or grams to the nearest 5, and below that the
+// smallest fraction a cook writes.
+const SCALED_SLACK = 0.13
+const SMALLEST_STEP = 1 / 8
+// Text that only joins two quantities, without words: "/", ", ", "(".
+const JOINED = /^[\s,/()]*$/
+
+type Presentation = {
+  readonly line: CorpusLine
+  readonly step: boolean
+  readonly list: ReadonlyArray<LineQuantity>
+  readonly shown: Presented
+  readonly opts: PresentOptions
+}
+
+function presentAs(
+  text: string,
+  line: CorpusLine,
+  step: boolean,
+  opts: PresentOptions,
+): Presented {
+  return step
+    ? presentStep(text, scanStep(text, line), opts)
+    : presentIngredient(parseIngredient(text, line), opts)
+}
+
+// Every corpus line on both displays, ingredient lines at several
+// servings. Made once, for all the properties below.
+let presentations: Array<Presentation> | null = null
+
+function eachPresentation(check: (p: Presentation) => void) {
+  presentations ??= corpus.flatMap((line) => {
     const step = isStep(line.text)
     const list = step
       ? scanStep(line.text, line)
       : parseIngredient(line.text, line).quantities
-    for (const display of DISPLAYS) {
-      for (const factor of step ? [1] : FACTORS) {
+    return DISPLAYS.flatMap((display) =>
+      (step ? [1] : FACTORS).map((factor) => {
         const opts = {
           language: line.language,
           system: line.system,
           display,
           factor,
         }
-        check(line, list, presentLine(line, opts), opts)
-      }
-    }
-  }
+        return {
+          line,
+          step,
+          list,
+          shown: presentAs(line.text, line, step, opts),
+          opts,
+        }
+      }),
+    )
+  })
+  presentations.forEach(check)
 }
+
+// Lines a property below still fails on, each with the reason. A property
+// fails when a line not listed here breaks it, and also when a listed line
+// no longer does, so that the list stays true.
+const KNOWN: Record<string, Record<string, string>> = {
+  'repeated beside it': {
+    'Scoop the dough onto a parchment-lined baking sheet into heaping 2 tablespoon portions (57g, 2 ounces); a heaping jumbo cookie scoop is about right.':
+      'A comma inside parentheses does not link an amount to the same amount in another unit, as a slash does.',
+  },
+}
+
+// Keeps the first way a line breaks a property.
+function record(broken: Map<string, string>, text: string, how: string) {
+  if (!broken.has(text)) broken.set(text, how)
+}
+
+function expectOnlyKnown(property: string, broken: Map<string, string>) {
+  const known = KNOWN[property] ?? {}
+  const unexpected = [...broken]
+    .filter(([text]) => !(text in known))
+    .map(([text, how]) => `${JSON.stringify(text)}\n  ${how}`)
+  const fixed = Object.keys(known).filter((text) => !broken.has(text))
+  expect(unexpected.join('\n'), `${property}: new failures`).toBe('')
+  expect(fixed.join('\n'), `${property}: passes now, remove from KNOWN`).toBe(
+    '',
+  )
+}
+
+// The system a display's own units are read in.
+const shownSystem = (opts: PresentOptions): MeasuringSystem =>
+  opts.display === 'us' ? 'us' : 'metric'
+
+const top = (v: Value) => (typeof v === 'number' ? v : v.max)
 
 // A quantity's size in millilitres, grams, millimetres or degrees Celsius,
 // for comparing an amount with its conversion.
 function sizeIn(q: Quantity, system: MeasuringSystem): [string, number] | null {
-  const top = (v: number | { max: number }) =>
-    typeof v === 'number' ? v : v.max
   if (q.type === 'temperature') {
     const v = top(q.value)
     return ['°', q.scale === 'C' ? v : ((v - 32) * 5) / 9]
@@ -353,9 +443,69 @@ function sizeIn(q: Quantity, system: MeasuringSystem): [string, number] | null {
   return [unit.kind, value * size]
 }
 
+// Whether a quantity is a measure or temperature that the display reads
+// as written.
+function readsInDisplay(q: Quantity, opts: PresentOptions): boolean {
+  if (q.type === 'temperature')
+    return q.scale === (opts.display === 'us' ? 'F' : 'C')
+  return (
+    isMeasure(q.unit) &&
+    q.unit !== null &&
+    readsAsWritten(q.unit, opts.system, opts.display)
+  )
+}
+
+// Which quantities are written together, as a group number for each: an
+// amount, the same amount in another unit, its sizes and its total, linked
+// directly or through each other.
+function groupsOf(list: ReadonlyArray<LineQuantity>): Array<number> {
+  const group = list.map((_, i) => i)
+  const find = (i: number): number =>
+    group[i] === i ? i : (group[i] = find(group[i]))
+  list.forEach((q, i) => {
+    if (q.of !== null) group[find(i)] = find(q.of)
+  })
+  return list.map((_, i) => find(i))
+}
+
+// The top of what a scaled amount shows, in the amount's own unit. An
+// amount written anew is read whole ("⅓ cup + 1 tbsp"); otherwise each of
+// its numbers is read where the original number was.
+function scaledTop(
+  line: CorpusLine,
+  q: LineQuantity & { readonly type: 'amount' },
+  segments: ReadonlyArray<Segment & { readonly kind: 'quantity' }>,
+): number | null {
+  const opts = { language: line.language }
+  const whole = segments.find(
+    (s) => s.original === line.text.slice(q.at[0], q.at[1]),
+  )
+  if (whole) {
+    let sum = 0
+    for (const part of whole.text.split(' + ')) {
+      const read =
+        readQuantity(part, 0, opts) ?? readWordQuantity(part, 0, opts)
+      if (!read) return null
+      const from = read.unit && sizeOf(read.unit, line.system)
+      const to = q.unit && sizeOf(q.unit, line.system)
+      sum += top(read.value) * (from && to ? from / to : 1)
+    }
+    return sum
+  }
+  const last = q.numbers[q.numbers.length - 1]
+  const shown = segments.find(
+    (s) => s.original === line.text.slice(last.at[0], last.at[1]),
+  )
+  if (!shown) return null
+  const read =
+    readNumber(shown.text, 0, line.language) ??
+    readNumberWord(shown.text, 0, line.language)
+  return read?.value ?? null
+}
+
 describe('every presentation', () => {
   it('is made of the original text and the quantities shown', () => {
-    eachPresentation((line, _, shown) => {
+    eachPresentation(({ line, shown }) => {
       const original = shown.segments
         .map((s) => (s.kind === 'text' ? s.text : s.original))
         .join('')
@@ -365,7 +515,7 @@ describe('every presentation', () => {
   })
 
   it('leaves the text alone when nothing converts or scales', () => {
-    eachPresentation((line, _, shown) => {
+    eachPresentation(({ line, shown }) => {
       const changed = shown.segments.some(
         (s) => s.kind === 'quantity' && (s.converted || s.scaled),
       )
@@ -376,21 +526,19 @@ describe('every presentation', () => {
   // What a conversion writes, the parser reads back as about the same
   // amount in the display's units.
   it('reads back as the amount it converted', () => {
-    eachPresentation((line, list, shown, opts) => {
-      const shownSystem: MeasuringSystem =
-        opts.display === 'us' ? 'us' : 'metric'
+    eachPresentation(({ line, list, shown, opts }) => {
       for (const s of shown.segments) {
         if (s.kind !== 'quantity' || !s.converted) continue
         const q = list[s.index]
         const before = sizeIn(q, line.system)
         if (!before) continue
         const factor = q.scales ? (opts.factor ?? 1) : 1
-        const read = scan(s.text, 0, {
+        const { reads } = scan(s.text, 0, {
           language: line.language,
-          system: shownSystem,
+          system: shownSystem(opts),
         })
-        const sizes = read.flatMap((r) => {
-          const size = sizeIn(r, shownSystem)
+        const sizes = reads.flatMap((r) => {
+          const size = sizeIn(r, shownSystem(opts))
           return size ? [size] : []
         })
         const where = `${line.text} → ${s.text}`
@@ -405,5 +553,91 @@ describe('every presentation', () => {
         expect(Math.abs(after - expected), where).toBeLessThanOrEqual(slack)
       }
     })
+  })
+
+  // A scaled amount reads back as the amount times the factor, give or
+  // take the rounding to fractions a cook writes.
+  it('reads back as the amount it scaled', () => {
+    const broken = new Map<string, string>()
+    eachPresentation(({ line, list, shown, opts }) => {
+      const factor = opts.factor ?? 1
+      list.forEach((q, i) => {
+        if (q.type !== 'amount' || !q.scales || factor === 1) return
+        const segments = shown.segments.filter(
+          (s): s is Segment & { kind: 'quantity' } =>
+            s.kind === 'quantity' && s.index === i,
+        )
+        if (segments.some((s) => s.converted)) return
+        if (!segments.some((s) => s.scaled)) return
+        const expected = top(q.value) * factor
+        const got = scaledTop(line, q, segments)
+        const off = got === null ? Infinity : Math.abs(got - expected)
+        if (off > SCALED_SLACK * expected && off > SMALLEST_STEP) {
+          record(broken, line.text, `×${factor}: ${shown.text}`)
+        }
+      })
+    })
+    expectOnlyKnown('scaled', broken)
+  })
+
+  // What a device shows is already in its own units, so showing that text
+  // again changes nothing.
+  it('shows its own text unchanged', () => {
+    const broken = new Map<string, string>()
+    eachPresentation(({ line, step, shown, opts }) => {
+      if (opts.factor !== 1) return
+      const system = shownSystem(opts)
+      const again = presentAs(shown.text, { ...line, system }, step, {
+        ...opts,
+        system,
+      })
+      if (again.text !== shown.text) {
+        record(broken, line.text, `${shown.text}\n  → ${again.text}`)
+      }
+    })
+    expectOnlyKnown('fixed point', broken)
+  })
+
+  // DESIGN.md: text that already gives the display's units stays as
+  // written, together with everything written with it.
+  it('converts nothing written with an amount in the display units', () => {
+    const broken = new Map<string, string>()
+    eachPresentation(({ line, list, shown, opts }) => {
+      const group = groupsOf(list)
+      for (const s of shown.segments) {
+        if (s.kind !== 'quantity' || !s.converted) continue
+        const given = list.some(
+          (q, j) => group[j] === group[s.index] && readsInDisplay(q, opts),
+        )
+        if (given) record(broken, line.text, `${opts.display}: ${shown.text}`)
+      }
+    })
+    expectOnlyKnown('given in the display units', broken)
+  })
+
+  // "(57g, 2 ounces)" on a US device must not become "(2 oz, 2 ounces)",
+  // even when nothing links the two.
+  it('never repeats an amount written beside it in the display units', () => {
+    const broken = new Map<string, string>()
+    eachPresentation(({ line, list, shown, opts }) => {
+      for (const s of shown.segments) {
+        if (s.kind !== 'quantity' || !s.converted) continue
+        const q = list[s.index]
+        const size = sizeIn(q, line.system)
+        if (!size) continue
+        list.forEach((other, j) => {
+          if (j === s.index || !readsInDisplay(other, opts)) return
+          const otherSize = sizeIn(other, line.system)
+          if (otherSize?.[0] !== size[0]) return
+          const [a, b] = q.at[0] < other.at[0] ? [q, other] : [other, q]
+          if (!JOINED.test(line.text.slice(a.at[1], b.at[0]))) return
+          const larger = Math.max(size[1], otherSize[1])
+          if (Math.abs(size[1] - otherSize[1]) <= 0.1 * larger) {
+            record(broken, line.text, `${opts.display}: ${shown.text}`)
+          }
+        })
+      }
+    })
+    expectOnlyKnown('repeated beside it', broken)
   })
 })

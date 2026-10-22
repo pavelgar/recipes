@@ -1,24 +1,34 @@
-// Characters that sites use interchangeably, kept in one place so every
-// reader accepts the same ones.
+// Characters that sites use interchangeably. The readers work on a
+// canonical copy of the text, in which each is replaced by one character,
+// so every rule accepts the same ones. Each replacement is one character
+// for one, so a position in the copy is the same position in the original,
+// which is what the presenter shows.
+const CANONICAL: ReadonlyArray<readonly [RegExp, string]> = [
+  // Tabs and the no-break, thin and other spaces some sites use.
+  [/[\t\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000]/g, ' '],
+  // Hyphen, non-breaking hyphen and minus sign, which join a number to a
+  // word or a whole number to a fraction: "9‑inch", "1−1/2".
+  [/[\u2010\u2011\u2212]/g, '-'],
+  // The fraction slash: "1⁄2".
+  [/\u2044/g, '/'],
+  // Inch marks: 2″, 2”.
+  [/[\u2033\u201d]/g, '"'],
+  // The ordinal and ring look-alikes of the degree sign: 180º, 180˚.
+  [/[\u00ba\u02da]/g, '°'],
+]
 
-// Spaces that may sit inside an amount, including the no-break and thin
-// spaces some sites use.
-export const SPACE = String.raw`[ \t\u00a0\u2009\u202f]`
-// Hyphens that join a number to a word or a whole number to a fraction:
-// "9-inch", "1-1/2". Hyphen-minus, hyphen, non-breaking hyphen.
-export const HYPHEN = String.raw`[\-\u2010\u2011]`
-// Dashes between the numbers of a range: the hyphens, en dash, em dash and
-// minus sign.
-export const DASH = String.raw`[\-\u2010\u2011\u2013\u2014\u2212]`
+export function canonical(text: string): string {
+  return CANONICAL.reduce((s, [re, to]) => s.replace(re, to), text)
+}
+
+// Dashes between the numbers of a range: hyphen, en dash, em dash. En and
+// em dashes stay apart from hyphens, since they don't join words.
+export const DASH = String.raw`[\-\u2013\u2014]`
 // Signs written before a temperature below zero: "-18 °C", "–18 asteeseen".
-export const MINUS = String.raw`[\-\u2212\u2013]`
-// The slash of a fraction: "1/2", "1⁄2".
-export const FRACTION_SLASH = String.raw`[/\u2044]`
-// Inch marks: 2", 2″, 2”.
-export const INCH_MARK = String.raw`["\u2033\u201d]`
-// Degree signs, including the ordinal and ring look-alikes: °, º, ˚.
-export const DEGREE = String.raw`[°º˚]`
-// The times sign of a size or a pack: "2 x 150g", "5 × 65 g".
+export const MINUS = String.raw`[\-\u2013]`
+// The times sign of a size or a pack: "2 x 150g", "5 × 65 g". "×" stays
+// itself, because "x" is a letter, and a number glued to a letter isn't
+// read: "2×150g".
 export const TIMES = String.raw`[x×]`
 
 // Runs a sticky regular expression at pos.

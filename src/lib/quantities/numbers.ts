@@ -1,10 +1,4 @@
-import {
-  DASH,
-  FRACTION_SLASH,
-  HYPHEN,
-  matchAt,
-  SPACE,
-} from '@/lib/quantities/text'
+import { DASH, matchAt } from '@/lib/quantities/text'
 
 export type Language = 'fi' | 'en'
 
@@ -40,20 +34,11 @@ export const FRACTION_CHARS = Object.keys(FRACTIONS).join('')
 // Where a number may start: a digit or a fraction character.
 export const NUMBER_START = new RegExp(`[\\d${FRACTION_CHARS}]`)
 
-const MIXED_FRACTION = new RegExp(
-  String.raw`(\d+)${SPACE}*([${FRACTION_CHARS}])`,
-  'y',
-)
-const MIXED_SLASH = new RegExp(
-  String.raw`(\d+)${SPACE}+(\d+)${FRACTION_SLASH}(\d+)(?![\d/⁄])`,
-  'y',
-)
+const MIXED_FRACTION = new RegExp(String.raw`(\d+) *([${FRACTION_CHARS}])`, 'y')
+const MIXED_SLASH = new RegExp(String.raw`(\d+) +(\d+)/(\d+)(?![\d/])`, 'y')
 // "1-1/2 cups": a mixed number, since a range can't run from 1 down to ½.
-const HYPHEN_MIXED = new RegExp(
-  String.raw`(\d+)${HYPHEN}(\d+)${FRACTION_SLASH}(\d+)(?![\d/⁄])`,
-  'y',
-)
-const SLASH = new RegExp(String.raw`(\d+)${FRACTION_SLASH}(\d+)(?![\d/⁄])`, 'y')
+const HYPHEN_MIXED = new RegExp(String.raw`(\d+)-(\d+)/(\d+)(?![\d/])`, 'y')
+const SLASH = /(\d+)\/(\d+)(?![\d/])/y
 const THOUSANDS = /(\d{1,3}(?:,\d{3})+)(?![\d,])/y
 // No leading zeros, so the "000" of "1 000 g" isn't read as nothing.
 const DECIMAL = /(?:0|[1-9]\d*)(?:[.,]\d+)?(?!\d)/y
@@ -74,7 +59,7 @@ export function atNumberBoundary(text: string, pos: number): boolean {
   if (/[\p{L}\d]/u.test(before)) return false
   // "öljyä,1 rkl" and "180C/350F" start a number, the 5 in "1,5" and the 2
   // in "1/2" don't.
-  return !(/[.,/⁄]/.test(before) && pos >= 2 && /\d/.test(text[pos - 2]))
+  return !(/[.,/]/.test(before) && pos >= 2 && /\d/.test(text[pos - 2]))
 }
 
 // Whether a numerator and denominator make a fraction below one.
@@ -129,10 +114,10 @@ export function readNumber(
 
 const AND_FRACTION: Record<Language, RegExp> = {
   en: new RegExp(
-    String.raw`${SPACE}+and${SPACE}+(?:a${SPACE}+half|(\d+)${FRACTION_SLASH}(\d+)|([${FRACTION_CHARS}]))(?![\p{L}\d/⁄])`,
+    String.raw` +and +(?:a +half|(\d+)/(\d+)|([${FRACTION_CHARS}]))(?![\p{L}\d/])`,
     'iuy',
   ),
-  fi: new RegExp(String.raw`${SPACE}+ja${SPACE}+puoli(?![\p{L}\d])`, 'iuy'),
+  fi: / +ja +puoli(?![\p{L}\d])/iuy,
 }
 
 // Reads the fraction that follows a whole number in words: "1 and 1/2",
@@ -160,7 +145,7 @@ function readAndFraction(
 // A dash, or "to", "or" or "tai", which may follow a hyphen left hanging
 // from the first number: "7- or 8-oz".
 const RANGE_SEPARATOR = new RegExp(
-  String.raw`${SPACE}*(?:(?:${DASH}${SPACE}*)?(?:to|or|tai)(?=${SPACE})|${DASH})${SPACE}*`,
+  String.raw` *(?:(?:${DASH} *)?(?:to|or|tai)(?= )|${DASH}) *`,
   'iy',
 )
 
@@ -219,7 +204,7 @@ const NUMBER_WORD: Record<Language, RegExp> = {
 function wordRegExp(words: Array<string>) {
   const alternatives = [...words]
     .sort((a, b) => b.length - a.length)
-    .map((w) => w.replace(/ /g, `${SPACE}+`))
+    .map((w) => w.replace(/ /g, ' +'))
     .join('|')
   return new RegExp(String.raw`(?:${alternatives})(?![\p{L}\d])`, 'iuy')
 }
@@ -258,7 +243,7 @@ export function readNumberWord(
 
 // Words that make an amount approximate. They stay in the text as written.
 const APPROXIMATELY = new RegExp(
-  String.raw`(?:n\.|n(?=${SPACE}+[\d${FRACTION_CHARS}])|noin|vajaat?|reilut?|runsaat|runsas|ca\.|about|approx\.?|approximately|around|scant|heaped|heaping|generous|~)(?![\p{L}])${SPACE}*`,
+  String.raw`(?:n\.|n(?= +[\d${FRACTION_CHARS}])|noin|vajaat?|reilut?|runsaat|runsas|ca\.|about|approx\.?|approximately|around|scant|heaped|heaping|generous|~)(?![\p{L}]) *`,
   'iuy',
 )
 

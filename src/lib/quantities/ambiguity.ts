@@ -1,4 +1,4 @@
-import { endOf, INCH_MARK, SPACE, textBefore } from '@/lib/quantities/text'
+import { endOf, textBefore } from '@/lib/quantities/text'
 import type { Language } from '@/lib/quantities/numbers'
 import type { UnitMatch } from '@/lib/quantities/units'
 
@@ -16,13 +16,11 @@ export function mayPrecedeHyphen(word: string): boolean {
   return !NOT_BEFORE_HYPHEN.has(word.toLowerCase())
 }
 
-const INCH_MARK_START = new RegExp(`^${INCH_MARK}`)
-
 // What makes a bare "in" inches: a full stop or other punctuation, the end
 // of the text, "x" or "by", or a word for a size or a shape ("2 in. apart",
 // "2 in pieces", "a 9 in square pan"). "Put 2 in the pan" isn't inches.
 const INCHES_FOLLOW = new RegExp(
-  String.raw`${SPACE}*(?:[.,;:)/]|$|[x×](?![\p{L}]))|${SPACE}+(?:by|apart|across|thick|thickness|thin|wide|long|deep|high|tall|diameter|square|round|pieces?|cubes?|chunks?|slices?|strips?|rounds?|squares?|lengths?|circles?|rectangles?|pans?|tins?|dish|dishes|skillets?|rings?|cutters?|ramekins?|moulds?|molds?|loaf|cakes?|pies?|tarts?|springform|baking)(?![\p{L}])`,
+  String.raw` *(?:[.,;:)/]|$|[x×](?![\p{L}]))| +(?:by|apart|across|thick|thickness|thin|wide|long|deep|high|tall|diameter|square|round|pieces?|cubes?|chunks?|slices?|strips?|rounds?|squares?|lengths?|circles?|rectangles?|pans?|tins?|dish|dishes|skillets?|rings?|cutters?|ramekins?|moulds?|molds?|loaf|cakes?|pies?|tarts?|springform|baking)(?![\p{L}])`,
   'iuy',
 )
 
@@ -35,7 +33,7 @@ export function isBareIn(text: string, unit: UnitMatch): boolean {
 // and a bare "in" only before a size word: "Shape dough into 1-in. balls;
 // place 2 in. apart" but not "Wrap two in cling film".
 export function spacedInchesHold(text: string, unit: UnitMatch): boolean {
-  if (INCH_MARK_START.test(text.slice(unit.start, unit.end))) return false
+  if (text[unit.start] === '"') return false
   return !isBareIn(text, unit) || endOf(INCHES_FOLLOW, text, unit.end) !== null
 }
 

@@ -5,11 +5,14 @@ import {
   readNumberWord,
 } from '@/lib/quantities/numbers'
 import { readQuantity } from '@/lib/quantities/quantity'
+import { canonical } from '@/lib/quantities/text'
 import { describeValue } from '@/test/quantities'
 import type { Language } from '@/lib/quantities/numbers'
 
 // Notation tests: the shortest text that shows each way of writing a
-// number. Whole recipe lines are tested against the corpus elsewhere.
+// number. Whole recipe lines are tested against the corpus elsewhere. The
+// readers work on canonical text, as parseIngredient and scanStep give it
+// to them.
 
 describe('readNumber', () => {
   it.each([
@@ -27,7 +30,7 @@ describe('readNumber', () => {
     ['1‑1/2', 1.5, 'fraction'],
     ['.25', 0.25, 'decimal'],
   ])('%s', (text, value, form) => {
-    const match = readNumber(text, 0, 'fi')
+    const match = readNumber(canonical(text), 0, 'fi')
     expect(match && describeValue(match.value)).toBe(String(value))
     expect(match?.form).toBe(form)
     expect(match?.end).toBe(text.length)
@@ -62,7 +65,7 @@ describe('readNumber', () => {
 
 describe('readQuantity', () => {
   const read = (text: string, language: Language = 'en') => {
-    const q = readQuantity(text, 0, { language })
+    const q = readQuantity(canonical(text), 0, { language })
     return (
       q &&
       `${describeValue(q.value)} ${q.unit?.id ?? '-'} ${text.slice(q.start, q.end)}`

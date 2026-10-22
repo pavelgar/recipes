@@ -1,5 +1,5 @@
 import { isMaustemitta } from '@/lib/quantities/ambiguity'
-import { keepPlaced, quantityOf } from '@/lib/quantities/line'
+import { afterPlus, keepPlaced, quantityOf } from '@/lib/quantities/line'
 import { FRACTION_CHARS, readApproximately } from '@/lib/quantities/numbers'
 import {
   MAUSTEMITTA,
@@ -16,10 +16,12 @@ import {
   readSlashAlt,
   readSlashed,
   scan,
+  TIMES_SIGN,
+  unitOf,
 } from '@/lib/quantities/scan'
 import {
+  canonical,
   endOf,
-  HYPHEN,
   skipSpace,
   TIMES,
   textBefore,
@@ -32,6 +34,7 @@ import type {
   Span,
 } from '@/lib/quantities/quantity'
 import type {
+  Distractor,
   Link,
   MeasuringSystem,
   Quantity,
@@ -66,7 +69,6 @@ export type IngredientOptions = {
 
 // --- Pass 1: the amount at the start of the line ---
 
-const TIMES_SIGN = new RegExp(String.raw`\s*${TIMES}\s*`, 'y')
 // After an amount without a unit, a second amount the parser shouldn't
 // guess at: "4 x 3cm / 1 x 2"", "2 + 2 eggs".
 const JOINED = new RegExp(
@@ -264,16 +266,22 @@ function readLeading(
 // --- Pass 2: what each quantity means for the line ---
 
 const STRAY_NUMBER = new RegExp(`[\\d${FRACTION_CHARS}]`)
-// "(Note 4)", "(Note 1 & 3)", "Step 2": references, not amounts.
-const NOTE_REF = /\b(?:notes?|steps?)\s*\d+(?:\s*(?:&|and|ja|,)\s*\d+)*/gi
 
-// Whether text has a number that isn't a percentage or a note reference.
-function hasStrayNumber(text: string): boolean {
-  const rest = text.replace(NOTE_REF, '').replace(/\d+(?:[.,]\d+)?\s*%/g, '')
-  return STRAY_NUMBER.test(rest)
+// Whether text from start to end has a number outside the spans the
+// parser understood: its quantities, or the times, percentages, servings
+// and note references the scan found (see Distractor in scan.ts).
+function hasStrayNumber(
+  text: string,
+  start: number,
+  end: number,
+  understood: ReadonlyArray<Span>,
+): boolean {
+  for (let i = start; i < end; i++) {
+    if (!STRAY_NUMBER.test(text[i])) continue
+    if (!understood.some(([s, e]) => i >= s && i < e)) return true
+  }
+  return false
 }
-
-const unitOf = (q: Quantity) => (q.type === 'amount' ? q.unit : null)
 
 // The role of a size in parentheses next to a package, a count or a plain
 // number: "(à 170 g)" each, "(400 g)" total, "(1 prk)" the same, and
@@ -318,11 +326,10 @@ function isAlt(r: Read, owner: Read): boolean {
 const ALTERNATIVE_BEFORE =
   /(?:\b(?:or|tai|plus)|\+)\s*(?:about|noin|n\.|~)?\s*$/i
 const PLUS_AFTER = /\s*\+\s*\d/y
-const PLUS_BEFORE = /(?:\bplus|\+)\s*$/i
 
 // Words after a measure that make it the size of one piece or package:
 // "185g/6oz each", "(7- or 8-oz size)".
-const EACH_AFTER = /\s*(?:each|size)\b/iy
+const EACH_OR_SIZE_AFTER = /\s*(?:each|size)\b/iy
 // "à 200 g", and the package an amount is taken from: "(from 15-oz can)",
 // "(from two 10-oz packages)".
 const EACH_BEFORE =
@@ -338,7 +345,7 @@ const PRODUCT_NAME = /[®™].*\p{L}\S*\s+$/u
 // line ("… Smetana laktoositon 150 g"). Lengths never do.
 function measureScales(text: string, q: Quantity, end: number): boolean {
   if (q.type !== 'amount' || q.unit?.kind === 'length') return false
-  if (endOf(EACH_AFTER, text, end) !== null) return false
+  if (endOf(EACH_OR_SIZE_AFTER, text, end) !== null) return false
   if (EACH_BEFORE.test(textBefore(text, q.at[0]))) return false
   const productSize =
     text.slice(end).trim() === '' && PRODUCT_NAME.test(text.slice(0, q.at[0]))
@@ -357,10 +364,9 @@ function measureScales(text: string, q: Quantity, end: number): boolean {
 // - pieces to cut into: "cut into 8 wedges", "sliced lengthways into 3"
 // - what one package holds: "1 pkt (4 x 100 g)", "repeat x2"
 // - a rate: "(n. 8-15 rapua ruokailijaa kohti)", "2 per person"
-// - a time: "for 30–40 minutes"
-// - who a product is for: "valmis 8-10hlö", "(4-serving size each)"
-// - a note reference: "(Note 1 & 3)"
 // - half of a pair the parser can't read: "(380/230 g)", net and drained
+// Times, servings and note references ("for 30–40 minutes", "valmis
+// 8-10hlö", "(Note 1 & 3)") aren't read as amounts at all.
 const INTO_BEFORE = /\b(?:into|in)\s*$/i
 const TIMES_AROUND = new RegExp(String.raw`(?<![\p{L}])${TIMES}\s*$`, 'u')
 const TIMES_AFTER = new RegExp(
@@ -368,15 +374,10 @@ const TIMES_AFTER = new RegExp(
   'y',
 )
 const RATE_AFTER = /[^,;()]*?\b(?:kohti|per)\b/iy
-const TIME_AFTER =
-  /\s*(?:min(?:s|uut\p{L}*)?|minutes?|h|hrs?|hours?|tunti\p{L}*|tunni\p{L}*|sec(?:onds?)?|sekunti\p{L}*|days?|päivä\p{L}*|vrk|weeks?|viikko\p{L}*|nights?|yö\p{L}*)(?![\p{L}])/iuy
-const SERVINGS_AFTER =
-  /\s*(?:hlö|henkilö\p{L}*|annos\p{L}*|ruokailija\p{L}*|servings?|portions?|people|persons?)(?![\p{L}])/iuy
-// A number glued to a word that isn't a unit: "8-10hlö", "4-serving".
-const GLUED_WORD = new RegExp(String.raw`${HYPHEN}?\p{L}`, 'uy')
+// A number glued to a word that isn't a unit: "2-layer".
+const GLUED_WORD = /-?\p{L}/uy
 const OF_BEFORE = /\bof\s*$/i
 const SLASH_NUMBER_AFTER = /\/\s*\d/y
-const NOTE_BEFORE = /\b(?:notes?|steps?)\s*(?:\d+\s*(?:&|and|ja|,)\s*)*$/i
 
 // How deep in parentheses each position of text is, so that "is this
 // count in parentheses" is a lookup.
@@ -406,11 +407,8 @@ function countKept(text: string, r: Read, depths: Uint16Array): boolean {
   if (
     INTO_BEFORE.test(before) ||
     TIMES_AROUND.test(before) ||
-    NOTE_BEFORE.test(before) ||
     endOf(TIMES_AFTER, text, end) !== null ||
     endOf(RATE_AFTER, text, end) !== null ||
-    endOf(TIME_AFTER, text, end) !== null ||
-    endOf(SERVINGS_AFTER, text, end) !== null ||
     endOf(SLASH_NUMBER_AFTER, text, end) !== null ||
     (!r.unit && endOf(GLUED_WORD, text, end) !== null)
   ) {
@@ -444,7 +442,7 @@ function plusTotalOf(
 ): number | null {
   if (r.link?.by !== 'paren') return null
   const owner = r.link.to
-  if (!PLUS_BEFORE.test(textBefore(text, reads[owner].at[0]))) return null
+  if (!afterPlus(text, reads[owner].at[0])) return null
   let x = owner - 1
   while (x >= 0 && (placed[x]?.role === 'same' || !placed[x])) x--
   if (x < 0) return null
@@ -463,6 +461,7 @@ function lineParen(
   reads: ReadonlyArray<Read>,
   from: number,
   after: number,
+  understood: ReadonlyArray<Span>,
 ): number | null {
   let best: number | null = null
   for (let i = from; i < reads.length; i++) {
@@ -475,7 +474,7 @@ function lineParen(
   }
   if (best === null) return null
   const paren = reads[best].paren
-  if (!paren || hasStrayNumber(text.slice(after, paren[0]))) return null
+  if (!paren || hasStrayNumber(text, after, paren[0], understood)) return null
   return best
 }
 
@@ -487,12 +486,13 @@ function laterMain(
   text: string,
   reads: ReadonlyArray<Read>,
   depths: Uint16Array,
+  understood: ReadonlyArray<Span>,
 ): number | null {
   for (let i = 0; i < reads.length; i++) {
     const r = reads[i]
     if (r.type !== 'amount' || r.link) continue
     if (!kept(text, r, depths) || !laterScales(text, r, r.at[1])) continue
-    return hasStrayNumber(text.slice(0, r.at[0])) ? null : i
+    return hasStrayNumber(text, 0, r.at[0], understood) ? null : i
   }
   return null
 }
@@ -501,8 +501,10 @@ function relate(
   text: string,
   reads: ReadonlyArray<Read>,
   leading: Leading | null,
+  distractors: ReadonlyArray<Distractor>,
   opts: IngredientOptions,
 ): ParsedIngredient {
+  const understood = distractors.map((d) => d.at)
   const placed: Array<Placed | null> = reads.map(() => null)
   const leadingCount = leading?.reads.length ?? 0
   const depths = parenDepths(text)
@@ -517,7 +519,7 @@ function relate(
       placed[i] = { read: r, role: linkedRole(r, reads[to]), of: to }
     }
   } else {
-    main = laterMain(text, reads, depths)
+    main = laterMain(text, reads, depths, understood)
     if (main !== null) {
       placed[main] = { read: reads[main], role: 'main', of: null }
     }
@@ -536,7 +538,7 @@ function relate(
         !isAlt(r, reads[main]),
     )
     const after = leading?.end ?? reads[main].at[1]
-    const p = lineParen(text, reads, main + 1, after)
+    const p = lineParen(text, reads, main + 1, after, understood)
     const right = p !== null && reads[p].paren?.[0] === skipSpace(text, after)
     const onlySizes = extras.every((r) => r.link?.by === 'size')
     if (p !== null && (extras.length === 0 || (onlySizes && right))) {
@@ -576,7 +578,13 @@ function relate(
   }
 
   if (main === null) {
-    return hasStrayNumber(text) && !coveredByReads(text, placed)
+    // "4 x 3cm / 1 x 2" piece of ginger" has sizes but no amount.
+    const placedAt = placed.flatMap((p) => (p ? [p.read.at] : []))
+    const stray = hasStrayNumber(text, 0, text.length, [
+      ...understood,
+      ...placedAt,
+    ])
+    return stray
       ? { text, result: 'unrecognised', quantities: [] }
       : { text, result: 'no-amount', quantities: finish(text, placed, opts) }
   }
@@ -585,21 +593,6 @@ function relate(
     result: resultOf(reads[main]),
     quantities: finish(text, placed, opts),
   }
-}
-
-// Whether every number in the text is part of a placed quantity: "4 x 3cm /
-// 1 x 2" piece of ginger" has sizes but no amount.
-function coveredByReads(
-  text: string,
-  placed: ReadonlyArray<Placed | null>,
-): boolean {
-  let rest = text
-  for (const p of placed) {
-    if (!p) continue
-    const [start, end] = p.read.at
-    rest = rest.slice(0, start) + ' '.repeat(end - start) + rest.slice(end)
-  }
-  return !hasStrayNumber(rest)
 }
 
 function resultOf(main: Read): IngredientResult {
@@ -645,21 +638,23 @@ export function parseIngredient(
   text: string,
   opts: IngredientOptions,
 ): ParsedIngredient {
+  // The line is read in its canonical form, whose spans are the line's.
+  const seen = canonical(text)
   const read: ReadOptions = { language: opts.language }
-  let start = skipSpace(text, 0)
+  let start = skipSpace(seen, 0)
   // Optional ingredients come wrapped in parentheses: "(3-4 cl konjakkia)".
-  if (text[start] === '(' && text.trimEnd().endsWith(')')) {
-    start = skipSpace(text, start + 1)
+  if (seen[start] === '(' && seen.trimEnd().endsWith(')')) {
+    start = skipSpace(seen, start + 1)
   }
   // A line that starts with a size has no amount to scale: "4 x 3cm / 1 x
   // 2" piece of ginger".
-  const leading = readSize(text, start, opts)
+  const leading = readSize(seen, start, opts)
     ? null
-    : readLeading(text, start, read)
+    : readLeading(seen, start, read)
   if (leading === 'unrecognised') {
     return { text, result: 'unrecognised', quantities: [] }
   }
   const reads = leading ? [...leading.reads] : []
-  scan(text, leading?.end ?? 0, opts, reads)
-  return relate(text, reads, leading, opts)
+  const { distractors } = scan(seen, leading?.end ?? 0, opts, reads)
+  return { ...relate(seen, reads, leading, distractors, opts), text }
 }

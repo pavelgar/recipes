@@ -166,7 +166,9 @@
     sahramia" on a US device.
 - Converted text follows the recipe's language: decimal comma and Finnish
   unit words ("⅓ kuppia", "7 unssia") in a Finnish recipe, decimal point
-  and English ones in an English recipe.
+  and English ones in an English recipe. A Finnish unit takes the case the
+  recipe wrote the amount in: "6 desissä vettä" → "2½ kupissa vettä", "2
+  cm:n levyinen" → "¾ tuuman levyinen".
 - Scaled amounts keep the way they were written: decimals stay decimals,
   fractions stay fractions ("1-1/2" → "3"), number words stay words ("yksi
   paketti" → "kaksi pakettia"). Unit words agree with the new number ("1

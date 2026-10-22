@@ -1,5 +1,7 @@
+import { abbreviationEnding, inflect } from '@/lib/quantities/finnish'
 import { maxOf } from '@/lib/quantities/kitchen'
-import { UNIT_WORDS } from '@/lib/quantities/units'
+import { finnishWordOf, UNIT_WORDS } from '@/lib/quantities/units'
+import type { Case } from '@/lib/quantities/finnish'
 import type { KitchenUnit, Measure } from '@/lib/quantities/kitchen'
 import type { Language, Value } from '@/lib/quantities/numbers'
 
@@ -109,60 +111,74 @@ export function takesSingular(value: Value, language: Language): boolean {
   return language === 'fi' ? typeof value === 'number' && close(n, 1) : n <= 1
 }
 
-// Unit words for converted amounts, singular and plural.
-const LABELS: Record<
-  Language,
-  Record<KitchenUnit, readonly [string, string]>
-> = {
-  en: {
-    ml: ['ml', 'ml'],
-    dl: ['dl', 'dl'],
-    l: ['l', 'l'],
-    g: ['g', 'g'],
-    kg: ['kg', 'kg'],
-    mm: ['mm', 'mm'],
-    cm: ['cm', 'cm'],
-    tsp: ['tsp', 'tsp'],
-    tbsp: ['tbsp', 'tbsp'],
-    cup: ['cup', 'cups'],
-    quart: ['quart', 'quarts'],
-    oz: ['oz', 'oz'],
-    lb: ['lb', 'lb'],
-    in: ['in', 'in'],
-  },
-  fi: {
-    ml: ['ml', 'ml'],
-    dl: ['dl', 'dl'],
-    l: ['l', 'l'],
-    g: ['g', 'g'],
-    kg: ['kg', 'kg'],
-    mm: ['mm', 'mm'],
-    cm: ['cm', 'cm'],
-    tsp: ['tl', 'tl'],
-    tbsp: ['rkl', 'rkl'],
-    cup: ['kuppi', 'kuppia'],
-    quart: ['neljännesgallona', 'neljännesgallonaa'],
-    oz: ['unssi', 'unssia'],
-    lb: ['pauna', 'paunaa'],
-    in: ['tuuma', 'tuumaa'],
-  },
+// English unit words for converted amounts, singular and plural.
+const ENGLISH_LABELS: Record<KitchenUnit, readonly [string, string]> = {
+  ml: ['ml', 'ml'],
+  dl: ['dl', 'dl'],
+  l: ['l', 'l'],
+  g: ['g', 'g'],
+  kg: ['kg', 'kg'],
+  mm: ['mm', 'mm'],
+  cm: ['cm', 'cm'],
+  tsp: ['tsp', 'tsp'],
+  tbsp: ['tbsp', 'tbsp'],
+  cup: ['cup', 'cups'],
+  quart: ['quart', 'quarts'],
+  oz: ['oz', 'oz'],
+  lb: ['lb', 'lb'],
+  in: ['in', 'in'],
 }
 
+// Finnish abbreviations for converted amounts. The other units are written
+// as their Finnish word: "⅓ kuppia", "7 unssia".
+const FINNISH_ABBREVIATIONS: Partial<Record<KitchenUnit, string>> = {
+  ml: 'ml',
+  dl: 'dl',
+  l: 'l',
+  g: 'g',
+  kg: 'kg',
+  mm: 'mm',
+  cm: 'cm',
+  tsp: 'tl',
+  tbsp: 'rkl',
+}
+
+// The unit word after a converted value. A Finnish one takes the case the
+// recipe wrote its amount in, or else agrees with the value: "2½ kupissa",
+// "¾ tuuman", "2 cm:n", "1 kuppi", "⅓ kuppia".
 export function unitLabel(
   unit: KitchenUnit,
   value: Value,
   language: Language,
+  form: Case | null = null,
 ): string {
-  const [singular, plural] = LABELS[language][unit]
-  return takesSingular(value, language) ? singular : plural
+  if (language === 'en') {
+    const [singular, plural] = ENGLISH_LABELS[unit]
+    return takesSingular(value, language) ? singular : plural
+  }
+  const word = finnishWordOf(unit)
+  if (!word) throw new Error(`No Finnish word for ${unit}`)
+  const abbreviation = FINNISH_ABBREVIATIONS[unit]
+  if (abbreviation) {
+    const ending = form ? abbreviationEnding(word, form) : ''
+    return ending ? `${abbreviation}:${ending}` : abbreviation
+  }
+  const agreeing = takesSingular(value, language) ? 'nominative' : 'partitive'
+  const inflected =
+    form === null || form === 'nominative' || form === 'partitive'
+  return inflect(word, inflected ? agreeing : form)
 }
 
 // "2,4 dl", "⅓ cup + 1½ tbsp", "⅓ kuppia + 1½ rkl".
-export function formatMeasure(measure: Measure, language: Language): string {
+export function formatMeasure(
+  measure: Measure,
+  language: Language,
+  form: Case | null = null,
+): string {
   return measure
     .map(
       ({ value, unit }) =>
-        `${formatValue(value, STYLES[unit], language)} ${unitLabel(unit, value, language)}`,
+        `${formatValue(value, STYLES[unit], language)} ${unitLabel(unit, value, language, form)}`,
     )
     .join(' + ')
 }
@@ -182,11 +198,12 @@ export function formatDimensions(
   values: ReadonlyArray<Value>,
   unit: 'mm' | 'cm' | 'in',
   language: Language,
+  form: Case | null = null,
 ): string {
   const style = STYLES[unit]
   const numbers = values.map((v) => formatValue(v, style, language))
   const last = values[values.length - 1]
-  return `${numbers.join(' × ')} ${unitLabel(unit, last, language)}`
+  return `${numbers.join(' × ')} ${unitLabel(unit, last, language, form)}`
 }
 
 // The form of a written unit word that agrees with a new value, keeping

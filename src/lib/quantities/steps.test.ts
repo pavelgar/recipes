@@ -193,6 +193,11 @@ const CASES: Record<
       'Put half the potato cubes in a heavy-based, buttered, 2-litre casserole dish.',
       ['2 l  [2-litre]'],
     ],
+    // In any case a measure is written in: "6 desissä" is "in 6 dl".
+    [
+      'Täyte: keitä puuroriisi 3 1/2 desiä 6 desissä vettä kypsäksi.',
+      ['3.5 dl  [3 1/2 desiä]', '6 dl  [6 desissä]'],
+    ],
     [
       'Minun salaattisoosini on 3 rkl rypäleöljyä,1 rkl sitruunamehua,1 tl Dijon-sinappia ja suolaa.',
       ['3 tbsp  [3 rkl]', '1 tbsp  [1 rkl]', '1 tsp  [1 tl]'],

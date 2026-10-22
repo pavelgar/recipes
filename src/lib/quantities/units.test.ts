@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { readQuantity } from '@/lib/quantities/quantity'
-import { readUnit, UNITS } from '@/lib/quantities/units'
+import { formsOf, readUnit, UNITS } from '@/lib/quantities/units'
 
 describe('readUnit', () => {
   it('reads every form in any case', () => {
-    for (const { id, forms } of UNITS) {
-      for (const form of forms) {
+    for (const { id } of UNITS) {
+      for (const form of formsOf(id)) {
         for (const written of [form, form.toUpperCase()]) {
           expect(readUnit(written, 0, 'fi')?.unit.id, written).toBe(id)
         }

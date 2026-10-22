@@ -6,7 +6,7 @@ import {
   readNumberWord,
   readRangeSeparator,
 } from '@/lib/quantities/numbers'
-import { endOf, HYPHEN, matchAt, SPACE } from '@/lib/quantities/text'
+import { endOf, matchAt } from '@/lib/quantities/text'
 import { readUnit, unitById } from '@/lib/quantities/units'
 import type { Language, NumberForm, Value } from '@/lib/quantities/numbers'
 import type { Unit, UnitMatch } from '@/lib/quantities/units'
@@ -53,10 +53,11 @@ export type QuantityMatch = {
   readonly approximate?: boolean
 }
 
-const SPACES = new RegExp(`${SPACE}*`, 'y')
-const NUMBER_HYPHEN = new RegExp(HYPHEN, 'y')
+const SPACES = / */y
+const NUMBER_HYPHEN = /-/y
 
-const written = (n: {
+// A number read, as the quantities record it.
+export const written = (n: {
   value: number
   start: number
   end: number
@@ -67,7 +68,7 @@ const written = (n: {
 // teaspoon", "2 scant cups", "1 large tbsp". All but "level" make the amount
 // approximate.
 const MODIFIER = new RegExp(
-  String.raw`${SPACE}+(?:(level|tasai\p{L}*)|heaped|heaping|scant|rounded|generous|good|large|small|big|kukkura\p{L}*)(?![\p{L}])`,
+  String.raw` +(?:(level|tasai\p{L}*)|heaped|heaping|scant|rounded|generous|good|large|small|big|kukkura\p{L}*)(?![\p{L}])`,
   'iuy',
 )
 

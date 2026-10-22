@@ -18,9 +18,9 @@ import {
   readUnitAfter,
   readWordQuantity,
   toAmount,
+  written,
 } from '@/lib/quantities/quantity'
 import {
-  DEGREE,
   endOf,
   matchAt,
   MINUS,
@@ -120,18 +120,20 @@ const read = (
   ...extra,
 })
 
+// The unit of an amount or a size.
+export function unitOf(q: Quantity): Unit | null {
+  return q.type === 'temperature' ? null : q.unit
+}
+
 export function amountOf(q: QuantityMatch, approximate = false): Quantity {
   return { type: 'amount', ...toAmount(q, approximate) }
 }
 
 // --- Temperatures ---
 
-const DEGREE_SIGN = new RegExp(
-  String.raw`[ \u00a0]?${DEGREE}(?:[ \u00a0]?([CF])(?![\p{L}]))?`,
-  'uy',
-)
-const DEGREE_CHAR = /[ \u00a0]?([℃℉])/y
-const SCALE_LETTER = /[ \u00a0]?([CF])(?![\p{L}\d])/uy
+const DEGREE_SIGN = new RegExp(String.raw` ?°(?: ?([CF])(?![\p{L}]))?`, 'uy')
+const DEGREE_CHAR = / ?([℃℉])/y
+const SCALE_LETTER = / ?([CF])(?![\p{L}\d])/uy
 const DEGREES =
   /\s*degrees?(?![\p{L}])(?:\s+(F|C|Fahrenheit|Celsius)(?![\p{L}]))?/iuy
 const ASTE = /\s*-?\s*aste\p{L}*/iuy
@@ -169,13 +171,6 @@ function readScale(text: string, pos: number, value: number): Scale | null {
 // A minus sign before a temperature: "-18 °C", "pakastimeen –18 asteeseen".
 // After another number it's a range instead: "5 -18".
 const MINUS_BEFORE = new RegExp(String.raw`(?:^|[^\d\s])\s*${MINUS}$`)
-
-const written = (n: {
-  value: number
-  start: number
-  end: number
-  form: WrittenNumber['form']
-}): WrittenNumber => ({ value: n.value, at: [n.start, n.end], form: n.form })
 
 function readTemperature(
   text: string,
@@ -352,8 +347,8 @@ export function readSlashAlt(
 const EACH_MARK = /[àá](?=\s)\s*/y
 const TOTAL_MARK = /(?:yht\.|yhteensä|total)\s*/iy
 // "(14-1/2 ounces each)", "(55g/2oz each in shell)"
-const EACH_AFTER = /\s*each\b[^()]*/iy
-const TIMES_SIGN = new RegExp(String.raw`\s*${TIMES}\s*`, 'y')
+const EACH_IN_PAREN = /\s*each\b[^()]*/iy
+export const TIMES_SIGN = new RegExp(String.raw`\s*${TIMES}\s*`, 'y')
 
 // An amount that fills a pair of parentheses on its own.
 export type ParenSize = {
@@ -397,7 +392,7 @@ export function readParenSize(
   let close = skipSpace(text, alt ? alt.end : q.end)
   // "(8 oz.)"
   if (text[close] === '.') close = skipSpace(text, close + 1)
-  const eachAfter = endOf(EACH_AFTER, text, close)
+  const eachAfter = endOf(EACH_IN_PAREN, text, close)
   if (eachAfter !== null) {
     mark = 'each'
     close = eachAfter
@@ -428,6 +423,51 @@ export function parenReads(
   ]
 }
 
+// --- Numbers that aren't quantities ---
+
+// Numbers the scan reads only so that nothing takes them for an amount:
+// times ("for 30–40 minutes"), percentages ("Milbona 0,9%"), who a product
+// is for ("valmis 8-10hlö", "(4-serving size each)") and references to
+// notes and steps ("(Note 1 & 3)").
+export type Distractor = {
+  readonly type: 'duration' | 'percentage' | 'servings' | 'reference'
+  readonly at: Span
+}
+
+const PERCENT = / *%/y
+const DURATION =
+  /-? *(?:min(?:s|uut\p{L}*)?|minutes?|h|hrs?|hours?|tunti\p{L}*|tunni\p{L}*|sec(?:onds?)?|sekunti\p{L}*|days?|päivä\p{L}*|vrk|weeks?|viikko\p{L}*|nights?|yö\p{L}*)(?![\p{L}])/iuy
+const SERVINGS =
+  /-? *(?:hlö|henkilö\p{L}*|annos\p{L}*|ruokailija\p{L}*|servings?|portions?|people|persons?)(?![\p{L}])/iuy
+const REFERENCE = /(?:notes?|steps?) *\d+(?: *(?:&|and|ja|,) *\d+)*/iy
+
+const AFTER_NUMBER = [
+  ['percentage', PERCENT],
+  ['duration', DURATION],
+  ['servings', SERVINGS],
+] as const
+
+// Reads a number, or both ends of a range, that is a percentage, a time or
+// a number of servings.
+function readDistractor(
+  text: string,
+  pos: number,
+  opts: ReadOptions,
+): Distractor | null {
+  const first = readNumber(text, pos, opts.language)
+  if (!first) return null
+  const separatorEnd = readRangeSeparator(text, first.end)
+  const second =
+    separatorEnd === null ? null : readNumber(text, separatorEnd, opts.language)
+  const end =
+    second && makeRange(first.value, second.value) ? second.end : first.end
+  for (const [type, after] of AFTER_NUMBER) {
+    const afterEnd = endOf(after, text, end)
+    if (afterEnd !== null) return { type, at: [pos, afterEnd] }
+  }
+  return null
+}
+
 // --- The scan ---
 
 const PAREN_OPEN = /\s*\(\s*/y
@@ -446,14 +486,22 @@ function findParenSizes(
   return found
 }
 
+export type Scanned = {
+  readonly reads: Array<Read>
+  readonly distractors: Array<Distractor>
+}
+
 // Finds the temperatures, sizes, amounts and bare counts in text from pos
-// on, appending them to reads. Indices in links are positions in reads.
+// on, appending them to reads, and the numbers that are none of these.
+// Indices in links are positions in reads. The text is canonical, see
+// text.ts.
 export function scan(
   text: string,
   pos: number,
   opts: ScanOptions,
   reads: Array<Read> = [],
-): Array<Read> {
+): Scanned {
+  const distractors: Array<Distractor> = []
   const parens = findParenSizes(text, pos, opts)
   const inParen = (start: number) => {
     const paren = parens.get(start)
@@ -486,6 +534,12 @@ export function scan(
         }
         continue
       }
+      const distractor = readDistractor(text, i, opts)
+      if (distractor) {
+        distractors.push(distractor)
+        i = distractor.at[1]
+        continue
+      }
       const q = readQuantity(text, i, opts)
       if (q) {
         const index = reads.length
@@ -511,6 +565,12 @@ export function scan(
       continue
     }
     if (/\p{L}/u.test(text[i]) && !/\p{L}/u.test(text[i - 1] ?? '')) {
+      const reference = endOf(REFERENCE, text, i)
+      if (reference !== null) {
+        distractors.push({ type: 'reference', at: [i, reference] })
+        i = reference
+        continue
+      }
       const amount = readWordAmount(text, i, opts)
       if (amount) {
         reads.push(read(amountOf(amount, approximateBefore(text, i))))
@@ -520,7 +580,7 @@ export function scan(
     }
     i++
   }
-  return reads
+  return { reads, distractors }
 }
 
 // Reads the same amount written again in another measure right after q:

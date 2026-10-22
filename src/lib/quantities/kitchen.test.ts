@@ -10,12 +10,12 @@ import {
   usVolume,
   usWeight,
 } from '@/lib/quantities/kitchen'
+import { US_CUP } from '@/lib/quantities/measures'
 import type { Value } from '@/lib/quantities/numbers'
 
 // The rounding rules, value by value. Whole recipe lines are tested in
 // present.test.ts.
 
-const US_CUP = 236.588
 const metric = (ml: Value) => formatMeasure(metricVolume(ml), 'fi')
 const us = (ml: Value) => formatMeasure(usVolume(ml, true), 'en')
 

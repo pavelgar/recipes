@@ -1,3 +1,4 @@
+import { textBefore } from '@/lib/quantities/text'
 import type { Quantity, Read } from '@/lib/quantities/scan'
 
 // What a quantity means in an ingredient line or step: pass 2's answer.
@@ -72,4 +73,13 @@ export function keepPlaced(
     out.push(build(p, of, i, out))
   })
   return out
+}
+
+const PLUS_BEFORE = /(?:\bplus|\+)\s*$/i
+
+// Whether "plus" or "+" comes right before pos. What follows it is added to
+// the amount before, so an amount in parentheses after it is the total of
+// both, not the same amount again: "1 cup plus 2 tablespoons (134g)".
+export function afterPlus(text: string, pos: number): boolean {
+  return PLUS_BEFORE.test(textBefore(text, pos))
 }

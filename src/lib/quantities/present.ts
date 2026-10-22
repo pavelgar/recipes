@@ -1,3 +1,4 @@
+import { caseOfEnding } from '@/lib/quantities/finnish'
 import {
   agreeingWord,
   formatDecimal,
@@ -31,12 +32,15 @@ import {
 } from '@/lib/quantities/kitchen'
 import {
   AUSTRALIAN_TABLESPOON_IN_TEASPOONS,
-  dimensionOf,
   isAustralianTablespoon,
   readsAsWritten,
   scaleOf,
   sizeOf,
 } from '@/lib/quantities/measures'
+import { unitOf } from '@/lib/quantities/scan'
+import { canonical, matchAt } from '@/lib/quantities/text'
+import { caseOfUnitWord, dimensionOf, isMeasure } from '@/lib/quantities/units'
+import type { Case } from '@/lib/quantities/finnish'
 import type { ParsedIngredient } from '@/lib/quantities/ingredient'
 import type { Measure } from '@/lib/quantities/kitchen'
 import type { LineQuantity } from '@/lib/quantities/line'
@@ -110,17 +114,13 @@ const within = (inner: Span, outer: Span) =>
 
 // --- Which quantities convert ---
 
-function unitOf(q: Quantity): Unit | null {
-  return q.type === 'temperature' ? null : q.unit
-}
-
 // Whether a quantity already reads in the display system.
 function readsInDisplay(q: Quantity, opts: PresentOptions): boolean {
   if (q.type === 'temperature') return q.scale === scaleOf(opts.display)
   const unit = unitOf(q)
   return (
     unit !== null &&
-    dimensionOf(unit) !== null &&
+    isMeasure(unit) &&
     readsAsWritten(unit, opts.system, opts.display)
   )
 }
@@ -129,18 +129,19 @@ function readsInDisplay(q: Quantity, opts: PresentOptions): boolean {
 // system.
 function needsConversion(q: Quantity, opts: PresentOptions): boolean {
   if (q.type === 'temperature') return !q.bothGiven && !readsInDisplay(q, opts)
-  const unit = unitOf(q)
-  return unit !== null && dimensionOf(unit) !== null && !readsInDisplay(q, opts)
+  return isMeasure(unitOf(q)) && !readsInDisplay(q, opts)
 }
 
-// The quantity a "same" or "total" belongs to, followed to the top: in
-// "125g/4½oz" the ounces' root is the grams, and in "1 cup plus 2
-// tablespoons (134g)" the grams' root is the cup.
+// The quantity a "same", "each" or "total" belongs to, followed to the
+// top: in "125g/4½oz" the ounces' root is the grams, in "1 cup plus 2
+// tablespoons (134g)" the grams' root is the cup, and in "one 8-ounce
+// package (227g)" both sizes' root is the package, so the grams keep the
+// ounces as written on a metric device.
 function rootOf(list: ReadonlyArray<LineQuantity>, i: number): number {
   let root = i
   for (;;) {
-    const { role, of } = list[root]
-    if ((role !== 'same' && role !== 'total') || of === null) return root
+    const { of } = list[root]
+    if (of === null) return root
     root = of
   }
 }
@@ -162,8 +163,7 @@ function convertingRoots(
 ): Set<number> {
   const readable = new Set<number>()
   list.forEach((q, i) => {
-    const measure =
-      q.type !== 'amount' || (q.unit !== null && dimensionOf(q.unit) !== null)
+    const measure = q.type !== 'amount' || isMeasure(q.unit)
     if (measure && readsInDisplay(q, opts)) readable.add(rootOf(list, i))
   })
   const roots = new Set<number>()
@@ -181,12 +181,13 @@ function convertAmount(
   value: Value,
   unit: Unit,
   opts: PresentOptions,
+  form: Case | null,
 ): string | null {
   if (isAustralianTablespoon(unit, opts.system)) {
     const tsp = mapValue(value, (n) =>
       nearestFraction(n * AUSTRALIAN_TABLESPOON_IN_TEASPOONS, TEASPOON),
     )
-    return formatMeasure([{ unit: 'tsp', value: tsp }], opts.language)
+    return formatMeasure([{ unit: 'tsp', value: tsp }], opts.language, form)
   }
   const size = sizeOf(unit, opts.system)
   const dimension = dimensionOf(unit)
@@ -209,13 +210,14 @@ function convertAmount(
   const exact = maxOf(base)
   const shown = measureSize(measure, !metric)
   if (Math.abs(shown - exact) > CONVERSION_LIMIT * exact) return null
-  return formatMeasure(measure, opts.language)
+  return formatMeasure(measure, opts.language, form)
 }
 
 function convert(
   q: Quantity,
   value: Value,
   opts: PresentOptions,
+  form: Case | null,
 ): string | null {
   switch (q.type) {
     case 'temperature': {
@@ -228,14 +230,41 @@ function convert(
       if (size === null) return null
       const mm = q.values.map((v) => v * size)
       if (opts.display === 'us') {
-        return formatDimensions(usLengths(mm), 'in', opts.language)
+        return formatDimensions(usLengths(mm), 'in', opts.language, form)
       }
       const { values, unit } = metricLengths(mm)
-      return formatDimensions(values, unit, opts.language)
+      return formatDimensions(values, unit, opts.language, form)
     }
     case 'amount':
-      return q.unit ? convertAmount(value, q.unit, opts) : null
+      return q.unit ? convertAmount(value, q.unit, opts, form) : null
   }
+}
+
+// After an abbreviation, the ending of its case: "2 cm:n", "5 dl:ssa".
+const CASE_ENDING = /:(\p{L}+)/uy
+
+// The Finnish case a conversion is written in, and where the text it
+// replaces ends: the case of the unit word ("6 desissä vettä" → "2½
+// kupissa vettä"), or that of the ending after an abbreviation, which the
+// conversion rewrites ("2 cm:n levyinen" → "¾ tuuman levyinen").
+// Temperatures keep theirs as written: "180 °C:ssa" → "350 °F:ssa".
+function writtenCase(
+  text: string,
+  q: Quantity,
+  language: Language,
+): { readonly form: Case | null; readonly end: number } {
+  const end = q.at[1]
+  const unitAt = q.type === 'temperature' ? null : q.unitAt
+  if (language !== 'fi' || !unitAt || unitAt[1] !== end) {
+    return { form: null, end }
+  }
+  const fromWord = caseOfUnitWord(text.slice(unitAt[0], unitAt[1]))
+  if (fromWord) return { form: fromWord, end }
+  const m = matchAt(CASE_ENDING, text, end)
+  const fromEnding = m ? caseOfEnding(m[1]) : null
+  return m && fromEnding
+    ? { form: fromEnding, end: end + m[0].length }
+    : { form: null, end }
 }
 
 // --- Scaling in place ---
@@ -264,8 +293,9 @@ const DECIMAL_UNITS = new Set(['cl', 'dl', 'l', 'kg', 'cm'])
 const WHOLE_UNITS = new Set(['g', 'ml', 'mm'])
 
 // The writer's way with fractions: "1½", "1 ½", "1 1/2" or "1-1/2".
-function fractionStyleOf(original: string) {
-  const slash = /[/⁄]/.test(original)
+function fractionStyleOf(written: string) {
+  const original = canonical(written)
+  const slash = original.includes('/')
   const joiner = slash
     ? /\d-\d/.test(original)
       ? '-'
@@ -430,8 +460,10 @@ function conversionEdit(
   index: number,
   scaled: boolean,
   language: Language,
+  replacedEnd: number,
 ): Edit {
-  let [start, end] = q.at
+  let start = q.at[0]
+  let end = replacedEnd
   let replacement = converted
   if (ABBREVIATION_STOP.test(text.slice(end, end + 3))) end++
   const article =
@@ -494,10 +526,19 @@ function present(
           measuredOf(other) === measuredOf(q),
       )
     if (roots.has(root) && needsConversion(q, opts) && !nested && !repeat) {
-      const converted = convert(q, value, opts)
+      const written = writtenCase(text, q, opts.language)
+      const converted = convert(q, value, opts, written.form)
       if (converted !== null) {
         edits.push(
-          conversionEdit(text, q, converted, i, scaling, opts.language),
+          conversionEdit(
+            text,
+            q,
+            converted,
+            i,
+            scaling,
+            opts.language,
+            written.end,
+          ),
         )
         return
       }

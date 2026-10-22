@@ -1,15 +1,11 @@
-import { keepPlaced, quantityOf } from '@/lib/quantities/line'
+import { afterPlus, keepPlaced, quantityOf } from '@/lib/quantities/line'
 import { scan } from '@/lib/quantities/scan'
 import { isMeasure } from '@/lib/quantities/units'
-import { textBefore } from '@/lib/quantities/text'
+import { canonical } from '@/lib/quantities/text'
 import type { LineQuantity, Placed } from '@/lib/quantities/line'
 import type { Read, ScanOptions } from '@/lib/quantities/scan'
 
 export type StepOptions = ScanOptions
-
-// What follows "plus" is added to the amount before it, so an amount in
-// parentheses after it is the total, not the same amount again.
-const PLUS_BEFORE = /(?:\bplus|\+)\s*$/i
 
 // What converts in a step: temperatures, sizes and amounts with a measure.
 // Package and count units, bare numbers and times are left alone.
@@ -54,16 +50,20 @@ function markBothGiven(
 // Finds the temperatures, sizes and measured amounts in a step. A quantity
 // written again in another unit ("26cm/10in", "200g (6½ ounces)") is the
 // same as the one before it. Nothing in a step scales with servings.
-export function scanStep(text: string, opts: StepOptions): Array<LineQuantity> {
-  const reads = scan(text, 0, opts)
+export function scanStep(
+  written: string,
+  opts: StepOptions,
+): Array<LineQuantity> {
+  // The step is read in its canonical form, whose spans are the step's.
+  const text = canonical(written)
+  // Times, percentages and the like are left as written.
+  const { reads } = scan(text, 0, opts)
   const placed: Array<Placed | null> = reads.map((r) => {
     if (!converts(r)) return null
     const owner = r.link ? reads[r.link.to] : null
-    const afterPlus =
-      r.link?.by === 'paren' &&
-      owner !== null &&
-      PLUS_BEFORE.test(textBefore(text, owner.at[0]))
-    return r.link && !afterPlus
+    const plusTotal =
+      r.link?.by === 'paren' && owner !== null && afterPlus(text, owner.at[0])
+    return r.link && !plusTotal
       ? { read: r, role: 'same', of: r.link.to }
       : { read: r, role: 'other', of: null }
   })

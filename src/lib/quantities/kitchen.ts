@@ -1,3 +1,12 @@
+import {
+  INCH,
+  OUNCE,
+  POUND,
+  US_CUP,
+  US_QUART,
+  US_TBSP,
+  US_TSP,
+} from '@/lib/quantities/measures'
 import type { Value } from '@/lib/quantities/numbers'
 
 // Kitchen measures: which unit a cook would write an exact amount in, and
@@ -24,14 +33,6 @@ export type Part = { readonly value: Value; readonly unit: KitchenUnit }
 
 // One part, or a cup measure with tablespoons added: "⅓ cup + 1½ tbsp".
 export type Measure = ReadonlyArray<Part>
-
-export const US_TSP = 4.92892
-export const US_TBSP = 14.7868
-export const US_CUP = 236.588
-const US_QUART = 946.353
-const OUNCE = 28.3495
-const POUND = 453.592
-const INCH = 25.4
 
 // Fractions a cook writes, by measure. Each list starts at zero.
 export const SIMPLE = [0, 1 / 4, 1 / 3, 1 / 2, 2 / 3, 3 / 4]

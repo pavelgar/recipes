@@ -2673,7 +2673,7 @@
 ? "half an 8-ounce package (113g) cream cheese, room temperature"
   counted 0.5 package | each 8 oz | total 113 g  [half an 8-ounce package] [8-ounce] [113g]
 
-## kotikokki.net (fi, metric): 246 lines, 239 entries; 116 measured, 45 counted, 82 no-amount, 3 unrecognised
+## kotikokki.net (fi, metric): 246 lines, 239 entries; 116 measured, 45 counted, 83 no-amount, 2 unrecognised
 
 ? "5dl Bonne Mangososetta"
   measured 5 dl  [5dl]
@@ -2884,7 +2884,7 @@
 ? "valkoista sokerimassaa"
   no-amount
 ✓ "kakkupohja, valmis 8-10hlö (Rainbow)"
-  unrecognised
+  no-amount
 ? "vattuhilloa"
   no-amount
 ? "kermavaahtoa"

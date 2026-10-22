@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { parseIngredient } from '@/lib/quantities/ingredient'
 import { readNumber } from '@/lib/quantities/numbers'
+import { scan } from '@/lib/quantities/scan'
+import { canonical } from '@/lib/quantities/text'
 import { inCorpus, ingredientLines } from '@/test/corpus'
 import { assertLedger } from '@/test/ledger'
 import { ingredientLedger } from '@/test/ledgers'
@@ -406,10 +408,11 @@ const CASES: Record<string, Array<[line: string, expected: string]>> = {
     ['a few tarragon sprigs finely chopped (optional)', 'no-amount'],
     ['Pinch of salt', 'no-amount'],
     ['Salt & pepper', 'no-amount'],
+    // Who a product is for isn't an amount of it.
+    ['kakkupohja, valmis 8-10hlö (Rainbow)', 'no-amount'],
   ],
   unrecognised: [
     ['Fetaa 1', 'unrecognised'],
-    ['kakkupohja, valmis 8-10hlö (Rainbow)', 'unrecognised'],
     ['jaa valmistaikina 2 astiaan ja lisää', 'unrecognised'],
   ],
 }
@@ -498,14 +501,38 @@ describe('parseIngredient', () => {
     ).toEqual(['main', 'same of 0', 'other', 'same of 2'])
   })
 
+  it('reads times, percentages, servings and note references as no amount', () => {
+    const distractors = (line: string) => {
+      const text = canonical(line)
+      return scan(text, 0, optionsOf(line)).distractors.map(
+        (d) => `${d.type} ${text.slice(d.at[0], d.at[1])}`,
+      )
+    }
+    expect(
+      distractors(
+        '300g/10½oz white basmati rice, soaked in cold water for 30–40 minutes',
+      ),
+    ).toEqual(['duration 30–40 minutes'])
+    expect(distractors('250g.prk rahkajogurttia (Milbona 0,9%)')).toEqual([
+      'percentage 0,9%',
+    ])
+    expect(distractors('kakkupohja, valmis 8-10hlö (Rainbow)')).toEqual([
+      'servings 8-10hlö',
+    ])
+    expect(
+      distractors(
+        '800g / 24 oz (2 cans) white beans (like cannellini, navy/haricot, butter beans) (, drained (Note 1 & 3))',
+      ),
+    ).toEqual(['reference Note 1 & 3'])
+  })
+
   it('keeps every number span readable as its value', () => {
     for (const line of ingredientLines) {
       for (const q of parseIngredient(line.text, line).quantities) {
         for (const n of q.numbers) {
           if (n.form === 'word') continue
-          expect(readNumber(line.text, n.at[0], line.language)?.value).toBe(
-            n.value,
-          )
+          const text = canonical(line.text)
+          expect(readNumber(text, n.at[0], line.language)?.value).toBe(n.value)
         }
       }
     }
