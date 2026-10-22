@@ -12,3 +12,9 @@ Before editing files for a substantial task:
 - Multiple matches: prefer the most specific local skill for the package or concern you are changing; load additional skills only when the task spans multiple packages or concerns.
 
 <!-- intent-skills:end -->
+
+## Commands
+
+- Run Intent as `bun run intent list` and `bun run intent load <package>#<skill>`, in place of the `bunx … intent` commands above and the `Load:` lines that `intent list` prints. Those resolve to a stale `intent` binary shipped by `@tanstack/devtools` and crash ([TanStack/devtools#525](https://github.com/TanStack/devtools/issues/525)); drop this line once that issue is fixed.
+- Run tests with `bun run test`. Plain `bun test` starts Bun's built-in runner, not Vitest.
+- `bun run typecheck` needs the generated `src/paraglide/`. On a fresh checkout, run `bun run build` or `bun run dev` first.

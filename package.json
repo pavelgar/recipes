@@ -21,7 +21,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:pull": "drizzle-kit pull",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "intent": "node node_modules/@tanstack/intent/dist/cli.mjs"
   },
   "dependencies": {
     "@libsql/client": "^0.18.0",
