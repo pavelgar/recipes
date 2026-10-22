@@ -56,6 +56,8 @@
   @orama/stemmers and the Vercel AI SDK.
 - Write our own ingredient parser, Finnish unit list, unit conversion and
   number formatting, and website recipe extractor.
+- Use es-toolkit for common utilities and pluralize to generate English
+  unit plurals from singular spellings.
 - Learn from existing projects (Mealie, Tandoor, RecipeSage, Norish,
   Cooklang, parse-ingredient, ingredient-parser), but don't copy their code.
   Write our own implementations, inspired by theirs.

@@ -1,5 +1,7 @@
+import pluralize from 'pluralize'
 import { abbreviationEnding, inflect } from '@/lib/quantities/finnish'
 import { maxOf } from '@/lib/quantities/kitchen'
+import { FRACTIONS, NUMBER_WORDS } from '@/lib/quantities/numbers'
 import { finnishWordOf, UNIT_WORDS } from '@/lib/quantities/units'
 import type { Case } from '@/lib/quantities/finnish'
 import type { KitchenUnit, Measure } from '@/lib/quantities/kitchen'
@@ -8,17 +10,9 @@ import type { Language, Value } from '@/lib/quantities/numbers'
 // Writes numbers and units the way the recipe's language does: "0,8 dl"
 // and "⅓ kuppia" in Finnish, "0.8 dl" and "⅓ cup" in English.
 
-const GLYPHS: ReadonlyArray<readonly [number, string]> = [
-  [1 / 8, '⅛'],
-  [1 / 4, '¼'],
-  [1 / 3, '⅓'],
-  [3 / 8, '⅜'],
-  [1 / 2, '½'],
-  [5 / 8, '⅝'],
-  [2 / 3, '⅔'],
-  [3 / 4, '¾'],
-  [7 / 8, '⅞'],
-]
+const GLYPHS = Object.entries(FRACTIONS).filter(([, [, denominator]]) =>
+  [2, 3, 4, 8].includes(denominator),
+)
 
 const close = (a: number, b: number) => Math.abs(a - b) < 1e-6
 
@@ -30,24 +24,12 @@ export function formatFraction(
   const whole = Math.floor(n + 1e-9)
   const part = n - whole
   if (close(part, 0)) return String(whole)
-  const glyph = GLYPHS.find(([value]) => close(value, part))
-  if (!glyph) return formatDecimal(n, 'en', 2)
-  if (style.slash) {
-    const [numerator, denominator] = slashOf(glyph[0])
-    const fraction = `${numerator}/${denominator}`
-    return whole ? `${whole}${style.joiner ?? ' '}${fraction}` : fraction
-  }
-  return whole ? `${whole}${style.joiner ?? ''}${glyph[1]}` : glyph[1]
-}
-
-function slashOf(value: number): [number, number] {
-  for (const denominator of [2, 3, 4, 8]) {
-    const numerator = value * denominator
-    if (close(numerator, Math.round(numerator))) {
-      return [Math.round(numerator), denominator]
-    }
-  }
-  return [Math.round(value * 8), 8]
+  const match = GLYPHS.find(([, [num, den]]) => close(num / den, part))
+  if (!match) return formatDecimal(n, 'en', 2)
+  const [glyph, [numerator, denominator]] = match
+  const fraction = style.slash ? `${numerator}/${denominator}` : glyph
+  const joiner = style.joiner ?? (style.slash ? ' ' : '')
+  return whole ? `${whole}${joiner}${fraction}` : fraction
 }
 
 // "2,4" in Finnish, "2.4" in English, with at most `decimals` decimals.
@@ -111,24 +93,6 @@ export function takesSingular(value: Value, language: Language): boolean {
   return language === 'fi' ? typeof value === 'number' && close(n, 1) : n <= 1
 }
 
-// English unit words for converted amounts, singular and plural.
-const ENGLISH_LABELS: Record<KitchenUnit, readonly [string, string]> = {
-  ml: ['ml', 'ml'],
-  dl: ['dl', 'dl'],
-  l: ['l', 'l'],
-  g: ['g', 'g'],
-  kg: ['kg', 'kg'],
-  mm: ['mm', 'mm'],
-  cm: ['cm', 'cm'],
-  tsp: ['tsp', 'tsp'],
-  tbsp: ['tbsp', 'tbsp'],
-  cup: ['cup', 'cups'],
-  quart: ['quart', 'quarts'],
-  oz: ['oz', 'oz'],
-  lb: ['lb', 'lb'],
-  in: ['in', 'in'],
-}
-
 // Finnish abbreviations for converted amounts. The other units are written
 // as their Finnish word: "⅓ kuppia", "7 unssia".
 const FINNISH_ABBREVIATIONS: Partial<Record<KitchenUnit, string>> = {
@@ -153,8 +117,9 @@ export function unitLabel(
   form: Case | null = null,
 ): string {
   if (language === 'en') {
-    const [singular, plural] = ENGLISH_LABELS[unit]
-    return takesSingular(value, language) ? singular : plural
+    return unit === 'cup' || unit === 'quart'
+      ? pluralize(unit, takesSingular(value, language) ? 1 : 2)
+      : unit
   }
   const word = finnishWordOf(unit)
   if (!word) throw new Error(`No Finnish word for ${unit}`)
@@ -227,37 +192,6 @@ export function agreeingWord(
   return null
 }
 
-const NUMBER_WORDS: Record<Language, ReadonlyArray<string>> = {
-  en: [
-    'zero',
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-    'six',
-    'seven',
-    'eight',
-    'nine',
-    'ten',
-    'eleven',
-    'twelve',
-  ],
-  fi: [
-    'nolla',
-    'yksi',
-    'kaksi',
-    'kolme',
-    'neljä',
-    'viisi',
-    'kuusi',
-    'seitsemän',
-    'kahdeksan',
-    'yhdeksän',
-    'kymmenen',
-  ],
-}
-
 // A whole number in words, keeping the original's capital: "two",
 // "Kolme". Null above the words the parser reads.
 export function numberWord(
@@ -266,7 +200,7 @@ export function numberWord(
   language: Language,
 ): string | null {
   const words = NUMBER_WORDS[language]
-  if (!Number.isInteger(n) || n < 1 || n >= words.length) return null
-  const word = words[n]
+  if (!Number.isInteger(n) || n < 1 || n > words.length) return null
+  const word = words[n - 1]
   return /^\p{Lu}/u.test(like) ? word[0].toUpperCase() + word.slice(1) : word
 }

@@ -17,6 +17,17 @@ describe('readUnit', () => {
     expect(readUnit('mm', 0, 'fi')?.unit.id).toBe('mm')
   })
 
+  it.each([
+    ['boxes', 'box'],
+    ['bunches', 'bunch'],
+    ['inches', 'in'],
+    ['fluid ounces', 'fl-oz'],
+    ['millilitres', 'ml'],
+    ['milliliters', 'ml'],
+  ])('reads the English plural %s as %s', (word, unit) => {
+    expect(readUnit(word, 0, 'en')?.unit.id).toBe(unit)
+  })
+
   it('needs the word to end', () => {
     expect(readUnit('garlic', 0, 'en')).toBeNull()
     expect(readUnit('levyä', 0, 'fi')?.unit.id).toBe('levy')

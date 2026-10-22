@@ -1,3 +1,4 @@
+import { sumBy } from 'es-toolkit'
 import {
   INCH,
   OUNCE,
@@ -6,7 +7,9 @@ import {
   US_QUART,
   US_TBSP,
   US_TSP,
+  sizeOf,
 } from '@/lib/quantities/measures'
+import { unitById } from '@/lib/quantities/units'
 import type { Value } from '@/lib/quantities/numbers'
 
 // Kitchen measures: which unit a cook would write an exact amount in, and
@@ -51,41 +54,13 @@ export const maxOf = (v: Value) => (typeof v === 'number' ? v : v.max)
 // millimetres. Teaspoons and tablespoons are US ones in the US display and
 // 5 and 15 ml in the metric one.
 export function partSize(unit: KitchenUnit, us: boolean): number {
-  switch (unit) {
-    case 'ml':
-    case 'g':
-    case 'mm':
-      return 1
-    case 'cm':
-      return 10
-    case 'dl':
-      return 100
-    case 'l':
-    case 'kg':
-      return 1000
-    case 'tsp':
-      return us ? US_TSP : 5
-    case 'tbsp':
-      return us ? US_TBSP : 15
-    case 'cup':
-      return US_CUP
-    case 'quart':
-      return US_QUART
-    case 'oz':
-      return OUNCE
-    case 'lb':
-      return POUND
-    case 'in':
-      return INCH
-  }
+  const metricSpoon = !us && (unit === 'tsp' || unit === 'tbsp')
+  return sizeOf(unitById(unit), metricSpoon ? 'metric' : 'us')!
 }
 
 // The size of a measure, at the top of a range.
 export function measureSize(measure: Measure, us: boolean): number {
-  return measure.reduce(
-    (sum, part) => sum + maxOf(part.value) * partSize(part.unit, us),
-    0,
-  )
+  return sumBy(measure, (part) => maxOf(part.value) * partSize(part.unit, us))
 }
 
 // How far a conversion may land from the exact amount before the amount is

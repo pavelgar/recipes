@@ -52,6 +52,9 @@ describe('numbers', () => {
     [1.5, { slash: true }, '1 1/2'],
     [2.25, { slash: true, joiner: '-' }, '2-1/4'],
     [0.375, { slash: true }, '3/8'],
+    [2 / 3, { slash: true }, '2/3'],
+    [1 / 5, {}, '0.2'],
+    [1 / 6, {}, '0.17'],
   ])('%s %j → %s', (n, style, expected) => {
     expect(formatFraction(n, style)).toBe(expected)
   })
@@ -68,6 +71,9 @@ describe('numbers', () => {
     [3, 'Kaksi', 'fi', 'Kolme'],
     [1.5, 'one', 'en', null],
     [13, 'one', 'en', null],
+    [12, 'one', 'en', 'twelve'],
+    [10, 'Yksi', 'fi', 'Kymmenen'],
+    [11, 'yksi', 'fi', null],
   ] as const)('%s like %s in %s → %s', (n, like, language, expected) => {
     expect(numberWord(n, like, language)).toBe(expected)
   })

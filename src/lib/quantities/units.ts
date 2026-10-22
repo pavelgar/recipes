@@ -1,3 +1,5 @@
+import { escapeRegExp } from 'es-toolkit'
+import pluralize from 'pluralize'
 import { mayPrecedeHyphen } from '@/lib/quantities/ambiguity'
 import { inflect, MEASURE_CASES } from '@/lib/quantities/finnish'
 import { matchAt } from '@/lib/quantities/text'
@@ -11,7 +13,7 @@ export type UnitKind =
 // a recipe may mix units. Matched in any case.
 //
 // - short: abbreviations and symbols, which don't change with their number.
-// - en: English words, singular and plural.
+// - en: English singulars; pluralize supplies the plurals.
 // - fi: Finnish words, nominative, genitive and partitive: "1 purkki", "1,5
 //   litran vuoka", "2 purkkia". Measures (volumes, weights and lengths)
 //   are read in the other cases too: "6 desissä vettä", see finnish.ts.
@@ -22,27 +24,27 @@ export type UnitKind =
 // prettier-ignore
 export const UNITS = [
   // Volume
-  { id: 'ml', kind: 'volume', short: ['ml'], fi: [['millilitra', 'millilitran', 'millilitraa']], en: [['millilitre', 'millilitres'], ['milliliter', 'milliliters']] },
-  { id: 'cl', kind: 'volume', short: ['cl'], fi: [['senttilitra', 'senttilitran', 'senttilitraa']], en: [['centilitre', 'centilitres'], ['centiliter', 'centiliters']] },
-  { id: 'dl', kind: 'volume', short: ['dl'], fi: [['desilitra', 'desilitran', 'desilitraa'], ['desi', 'desin', 'desiä']], en: [['decilitre', 'decilitres'], ['deciliter', 'deciliters']] },
-  { id: 'l', kind: 'volume', short: ['l', 'ltr'], fi: [['litra', 'litran', 'litraa']], en: [['litre', 'litres'], ['liter', 'liters']] },
-  { id: 'tsp', kind: 'volume', short: ['tl', 'tsp', 'tsps'], fi: [['teelusikallinen', 'teelusikallisen', 'teelusikallista'], ['teelusikka', 'teelusikan', 'teelusikkaa']], en: [['teaspoon', 'teaspoons']] },
-  { id: 'tbsp', kind: 'volume', short: ['rkl', 'rk', 'tbsp', 'tbsps', 'tbs'], fi: [['ruokalusikallinen', 'ruokalusikallisen', 'ruokalusikallista'], ['ruokalusikka', 'ruokalusikan', 'ruokalusikkaa']], en: [['tablespoon', 'tablespoons']] },
+  { id: 'ml', kind: 'volume', short: ['ml'], fi: [['millilitra', 'millilitran', 'millilitraa']], en: ['millilitre', 'milliliter'] },
+  { id: 'cl', kind: 'volume', short: ['cl'], fi: [['senttilitra', 'senttilitran', 'senttilitraa']], en: ['centilitre', 'centiliter'] },
+  { id: 'dl', kind: 'volume', short: ['dl'], fi: [['desilitra', 'desilitran', 'desilitraa'], ['desi', 'desin', 'desiä']], en: ['decilitre', 'deciliter'] },
+  { id: 'l', kind: 'volume', short: ['l', 'ltr'], fi: [['litra', 'litran', 'litraa']], en: ['litre', 'liter'] },
+  { id: 'tsp', kind: 'volume', short: ['tl', 'tsp', 'tsps'], fi: [['teelusikallinen', 'teelusikallisen', 'teelusikallista'], ['teelusikka', 'teelusikan', 'teelusikkaa']], en: ['teaspoon'] },
+  { id: 'tbsp', kind: 'volume', short: ['rkl', 'rk', 'tbsp', 'tbsps', 'tbs'], fi: [['ruokalusikallinen', 'ruokalusikallisen', 'ruokalusikallista'], ['ruokalusikka', 'ruokalusikan', 'ruokalusikkaa']], en: ['tablespoon'] },
   { id: 'maustemitta', kind: 'volume', fi: [['maustemitta', 'maustemitan', 'maustemittaa'], ['maustemitallinen', 'maustemitallisen', 'maustemitallista']] },
-  { id: 'cup', kind: 'volume', fi: [['kuppi', 'kupin', 'kuppia'], ['kupillinen', 'kupillisen', 'kupillista']], en: [['cup', 'cups']] },
-  { id: 'fl-oz', kind: 'volume', short: ['fl oz', 'fl. oz', 'fl.oz'], fi: [['nesteunssi', 'nesteunssin', 'nesteunssia']], en: [['fluid ounce', 'fluid ounces']] },
-  { id: 'pint', kind: 'volume', short: ['pt'], fi: [['pintti', 'pintin', 'pinttiä']], en: [['pint', 'pints']] },
-  { id: 'quart', kind: 'volume', short: ['qt'], fi: [['neljännesgallona', 'neljännesgallonan', 'neljännesgallonaa']], en: [['quart', 'quarts']] },
-  { id: 'gallon', kind: 'volume', fi: [['gallona', 'gallonan', 'gallonaa']], en: [['gallon', 'gallons']] },
+  { id: 'cup', kind: 'volume', fi: [['kuppi', 'kupin', 'kuppia'], ['kupillinen', 'kupillisen', 'kupillista']], en: ['cup'] },
+  { id: 'fl-oz', kind: 'volume', short: ['fl oz', 'fl. oz', 'fl.oz'], fi: [['nesteunssi', 'nesteunssin', 'nesteunssia']], en: ['fluid ounce'] },
+  { id: 'pint', kind: 'volume', short: ['pt'], fi: [['pintti', 'pintin', 'pinttiä']], en: ['pint'] },
+  { id: 'quart', kind: 'volume', short: ['qt'], fi: [['neljännesgallona', 'neljännesgallonan', 'neljännesgallonaa']], en: ['quart'] },
+  { id: 'gallon', kind: 'volume', fi: [['gallona', 'gallonan', 'gallonaa']], en: ['gallon'] },
   // Weight
-  { id: 'g', kind: 'weight', short: ['g', 'gr'], fi: [['gramma', 'gramman', 'grammaa']], en: [['gram', 'grams'], ['gramme', 'grammes']] },
-  { id: 'kg', kind: 'weight', short: ['kg'], fi: [['kilo', 'kilon', 'kiloa'], ['kilogramma', 'kilogramman', 'kilogrammaa']], en: [['kilo', 'kilos'], ['kilogram', 'kilograms']] },
-  { id: 'oz', kind: 'weight', short: ['oz'], fi: [['unssi', 'unssin', 'unssia']], en: [['ounce', 'ounces']] },
-  { id: 'lb', kind: 'weight', short: ['lb', 'lbs'], fi: [['pauna', 'paunan', 'paunaa']], en: [['pound', 'pounds']] },
+  { id: 'g', kind: 'weight', short: ['g', 'gr'], fi: [['gramma', 'gramman', 'grammaa']], en: ['gram', 'gramme'] },
+  { id: 'kg', kind: 'weight', short: ['kg'], fi: [['kilo', 'kilon', 'kiloa'], ['kilogramma', 'kilogramman', 'kilogrammaa']], en: ['kilo', 'kilogram'] },
+  { id: 'oz', kind: 'weight', short: ['oz'], fi: [['unssi', 'unssin', 'unssia']], en: ['ounce'] },
+  { id: 'lb', kind: 'weight', short: ['lb', 'lbs'], fi: [['pauna', 'paunan', 'paunaa']], en: ['pound'] },
   // Length
-  { id: 'mm', kind: 'length', short: ['mm'], fi: [['millimetri', 'millimetrin', 'millimetriä']], en: [['millimetre', 'millimetres'], ['millimeter', 'millimeters']] },
-  { id: 'cm', kind: 'length', short: ['cm'], fi: [['senttimetri', 'senttimetrin', 'senttimetriä'], ['sentti', 'sentin', 'senttiä']], en: [['centimetre', 'centimetres'], ['centimeter', 'centimeters']] },
-  { id: 'in', kind: 'length', short: ['in'], fi: [['tuuma', 'tuuman', 'tuumaa']], en: [['inch', 'inches']] },
+  { id: 'mm', kind: 'length', short: ['mm'], fi: [['millimetri', 'millimetrin', 'millimetriä']], en: ['millimetre', 'millimeter'] },
+  { id: 'cm', kind: 'length', short: ['cm'], fi: [['senttimetri', 'senttimetrin', 'senttimetriä'], ['sentti', 'sentin', 'senttiä']], en: ['centimetre', 'centimeter'] },
+  { id: 'in', kind: 'length', short: ['in'], fi: [['tuuma', 'tuuman', 'tuumaa']], en: ['inch'] },
   // Packages
   { id: 'prk', kind: 'package', short: ['prk'], fi: [['purkki', 'purkin', 'purkkia']] },
   { id: 'pss', kind: 'package', short: ['pss', 'ps'], fi: [['pussi', 'pussin', 'pussia']] },
@@ -51,17 +53,17 @@ export const UNITS = [
   { id: 'tlk', kind: 'package', short: ['tlk'], fi: [['tölkki', 'tölkin', 'tölkkiä'], ['tölkillinen', 'tölkillisen', 'tölkillistä']] },
   { id: 'plo', kind: 'package', short: ['plo'], fi: [['pullo', 'pullon', 'pulloa']] },
   { id: 'rku', kind: 'package', short: ['rku'], fi: [['ruukku', 'ruukun', 'ruukkua']] },
-  { id: 'can', kind: 'package', en: [['can', 'cans'], ['tin', 'tins']] },
-  { id: 'package', kind: 'package', short: ['pkg'], en: [['package', 'packages'], ['packet', 'packets'], ['pack', 'packs']] },
-  { id: 'jar', kind: 'package', en: [['jar', 'jars']] },
-  { id: 'carton', kind: 'package', en: [['carton', 'cartons']] },
-  { id: 'container', kind: 'package', en: [['container', 'containers']] },
-  { id: 'tub', kind: 'package', en: [['tub', 'tubs']] },
-  { id: 'bottle', kind: 'package', en: [['bottle', 'bottles']] },
-  { id: 'bag', kind: 'package', en: [['bag', 'bags']] },
-  { id: 'box', kind: 'package', en: [['box', 'boxes']] },
-  { id: 'block', kind: 'package', en: [['block', 'blocks']] },
-  { id: 'stick', kind: 'package', en: [['stick', 'sticks']] },
+  { id: 'can', kind: 'package', en: ['can', 'tin'] },
+  { id: 'package', kind: 'package', short: ['pkg'], en: ['package', 'packet', 'pack'] },
+  { id: 'jar', kind: 'package', en: ['jar'] },
+  { id: 'carton', kind: 'package', en: ['carton'] },
+  { id: 'container', kind: 'package', en: ['container'] },
+  { id: 'tub', kind: 'package', en: ['tub'] },
+  { id: 'bottle', kind: 'package', en: ['bottle'] },
+  { id: 'bag', kind: 'package', en: ['bag'] },
+  { id: 'box', kind: 'package', en: ['box'] },
+  { id: 'block', kind: 'package', en: ['block'] },
+  { id: 'stick', kind: 'package', en: ['stick'] },
   // Counts
   { id: 'kpl', kind: 'count', short: ['kpl'], fi: [['kappale', 'kappaleen', 'kappaletta']] },
   { id: 'nippu', kind: 'count', fi: [['nippu', 'nipun', 'nippua']] },
@@ -70,16 +72,16 @@ export const UNITS = [
   { id: 'viipale', kind: 'count', fi: [['viipale', 'viipaleen', 'viipaletta'], ['siivu', 'siivun', 'siivua']] },
   { id: 'pala', kind: 'count', fi: [['pala', 'palan', 'palaa']] },
   { id: 'levy', kind: 'count', fi: [['levy', 'levyn', 'levyä']] },
-  { id: 'clove', kind: 'count', en: [['clove', 'cloves']] },
-  { id: 'slice', kind: 'count', en: [['slice', 'slices']] },
-  { id: 'bunch', kind: 'count', en: [['bunch', 'bunches']] },
-  { id: 'sprig', kind: 'count', en: [['sprig', 'sprigs']] },
-  { id: 'head', kind: 'count', fi: [['pää', 'pään', 'päätä']], en: [['head', 'heads']] },
-  { id: 'stalk', kind: 'count', en: [['stalk', 'stalks']] },
-  { id: 'rib', kind: 'count', en: [['rib', 'ribs']] },
-  { id: 'ear', kind: 'count', en: [['ear', 'ears']] },
-  { id: 'piece', kind: 'count', en: [['piece', 'pieces']] },
-  { id: 'sheet', kind: 'count', en: [['sheet', 'sheets']] },
+  { id: 'clove', kind: 'count', en: ['clove'] },
+  { id: 'slice', kind: 'count', en: ['slice'] },
+  { id: 'bunch', kind: 'count', en: ['bunch'] },
+  { id: 'sprig', kind: 'count', en: ['sprig'] },
+  { id: 'head', kind: 'count', fi: [['pää', 'pään', 'päätä']], en: ['head'] },
+  { id: 'stalk', kind: 'count', en: ['stalk'] },
+  { id: 'rib', kind: 'count', en: ['rib'] },
+  { id: 'ear', kind: 'count', en: ['ear'] },
+  { id: 'piece', kind: 'count', en: ['piece'] },
+  { id: 'sheet', kind: 'count', en: ['sheet'] },
   // Pinches
   { id: 'ripaus', kind: 'pinch', fi: [['ripaus', 'ripauksen', 'ripausta']] },
   { id: 'hyppysellinen', kind: 'pinch', fi: [['hyppysellinen', 'hyppysellisen', 'hyppysellistä']] },
@@ -87,17 +89,17 @@ export const UNITS = [
   { id: 'loraus', kind: 'pinch', fi: [['loraus', 'lorauksen', 'lorausta']] },
   { id: 'tippa', kind: 'pinch', fi: [['tippa', 'tipan', 'tippaa']] },
   { id: 'kourallinen', kind: 'pinch', fi: [['kourallinen', 'kourallisen', 'kourallista']] },
-  { id: 'pinch', kind: 'pinch', en: [['pinch', 'pinches']] },
-  { id: 'dash', kind: 'pinch', en: [['dash', 'dashes']] },
-  { id: 'handful', kind: 'pinch', en: [['handful', 'handfuls']] },
-  { id: 'knob', kind: 'pinch', en: [['knob', 'knobs']] },
-  { id: 'drop', kind: 'pinch', en: [['drop', 'drops']] },
-  { id: 'splash', kind: 'pinch', en: [['splash', 'splashes']] },
+  { id: 'pinch', kind: 'pinch', en: ['pinch'] },
+  { id: 'dash', kind: 'pinch', en: ['dash'] },
+  { id: 'handful', kind: 'pinch', en: ['handful'] },
+  { id: 'knob', kind: 'pinch', en: ['knob'] },
+  { id: 'drop', kind: 'pinch', en: ['drop'] },
+  { id: 'splash', kind: 'pinch', en: ['splash'] },
 ] as const satisfies ReadonlyArray<{
   id: string
   kind: UnitKind
   short?: ReadonlyArray<string>
-  en?: ReadonlyArray<readonly [singular: string, plural: string]>
+  en?: ReadonlyArray<string>
   fi?: ReadonlyArray<FinnishWord>
 }>
 
@@ -109,7 +111,7 @@ type Entry = (typeof UNITS)[number]
 const shortOf = (u: Entry): ReadonlyArray<string> =>
   'short' in u ? u.short : []
 const englishOf = (u: Entry): ReadonlyArray<readonly [string, string]> =>
-  'en' in u ? u.en : []
+  ('en' in u ? u.en : []).map((word) => [word, pluralize(word)] as const)
 const finnishOf = (u: Entry): ReadonlyArray<FinnishWord> =>
   'fi' in u ? u.fi : []
 
@@ -202,12 +204,10 @@ export function unitById(id: UnitId): Unit {
   return unit
 }
 
-const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
 // Longest forms first, so "tbsp" wins over "tbs" and "fl oz" over "fl".
 const wordPattern = [...byForm.keys()]
   .sort((a, b) => b.length - a.length)
-  .map((form) => escape(form).replace(/ /g, '\\s+'))
+  .map((form) => escapeRegExp(form).replace(/ /g, '\\s+'))
   .join('|')
 
 // A unit word ends where the word ends.

@@ -1,3 +1,4 @@
+import { sortBy } from 'es-toolkit'
 import { caseOfEnding } from '@/lib/quantities/finnish'
 import {
   agreeingWord,
@@ -561,9 +562,7 @@ function present(
 }
 
 function build(text: string, edits: ReadonlyArray<Edit>): Presented {
-  const sorted = [...edits].sort(
-    (a, b) => a.at[0] - b.at[0] || a.at[1] - b.at[1],
-  )
+  const sorted = sortBy(edits, [(e) => e.at[0], (e) => e.at[1]])
   const segments: Array<Segment> = []
   let pos = 0
   for (const e of sorted) {

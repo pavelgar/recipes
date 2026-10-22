@@ -1,3 +1,4 @@
+import { omit } from 'es-toolkit'
 import { textBefore } from '@/lib/quantities/text'
 import type { Quantity, Read } from '@/lib/quantities/scan'
 
@@ -40,14 +41,8 @@ export type Placed = {
 
 // The quantity a read holds, without what pass 1 noted about the text.
 export function quantityOf(read: Read): Quantity {
-  const {
-    link: _link,
-    mark: _mark,
-    paren: _paren,
-    leading: _leading,
-    ...q
-  } = read
-  return q
+  // Omit's type loses the union's variants; only scan metadata is removed.
+  return omit(read, ['link', 'mark', 'paren', 'leading']) as Quantity
 }
 
 // Drops the reads that weren't placed and turns links into indices of the

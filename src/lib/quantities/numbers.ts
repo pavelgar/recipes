@@ -1,3 +1,4 @@
+import { mapValues } from 'es-toolkit'
 import { DASH, matchAt } from '@/lib/quantities/text'
 
 export type Language = 'fi' | 'en'
@@ -11,24 +12,27 @@ export type Value = number | Range
 // "2", "1,5" or "1.5", "½" or "1 1/2", "kaksi" or "one".
 export type NumberForm = 'integer' | 'decimal' | 'fraction' | 'word'
 
-const FRACTIONS: Record<string, number> = {
-  '½': 1 / 2,
-  '⅓': 1 / 3,
-  '⅔': 2 / 3,
-  '¼': 1 / 4,
-  '¾': 3 / 4,
-  '⅕': 1 / 5,
-  '⅖': 2 / 5,
-  '⅗': 3 / 5,
-  '⅘': 4 / 5,
-  '⅙': 1 / 6,
-  '⅚': 5 / 6,
-  '⅛': 1 / 8,
-  '⅜': 3 / 8,
-  '⅝': 5 / 8,
-  '⅞': 7 / 8,
+// Shared by the reader and formatter. The reader accepts every glyph;
+// the formatter uses only halves, thirds, quarters and eighths.
+export const FRACTIONS: Record<string, readonly [number, number]> = {
+  '½': [1, 2],
+  '⅓': [1, 3],
+  '⅔': [2, 3],
+  '¼': [1, 4],
+  '¾': [3, 4],
+  '⅕': [1, 5],
+  '⅖': [2, 5],
+  '⅗': [3, 5],
+  '⅘': [4, 5],
+  '⅙': [1, 6],
+  '⅚': [5, 6],
+  '⅛': [1, 8],
+  '⅜': [3, 8],
+  '⅝': [5, 8],
+  '⅞': [7, 8],
 }
 
+const FRACTION_VALUES = mapValues(FRACTIONS, ([n, d]) => n / d)
 export const FRACTION_CHARS = Object.keys(FRACTIONS).join('')
 
 // Where a number may start: a digit or a fraction character.
@@ -80,7 +84,8 @@ export function readNumber(
     form,
   })
   let m = matchAt(MIXED_FRACTION, text, pos)
-  if (m) return at(Number(m[1]) + FRACTIONS[m[2]], m[0].length, 'fraction')
+  if (m)
+    return at(Number(m[1]) + FRACTION_VALUES[m[2]], m[0].length, 'fraction')
   m = matchAt(MIXED_SLASH, text, pos) ?? matchAt(HYPHEN_MIXED, text, pos)
   if (m && isProper(m[2], m[3])) {
     const value = Number(m[1]) + Number(m[2]) / Number(m[3])
@@ -108,7 +113,7 @@ export function readNumber(
   m = matchAt(LEADING_POINT, text, pos)
   if (m) return at(Number(`0.${m[1]}`), m[0].length, 'decimal')
   m = matchAt(FRACTION, text, pos)
-  if (m) return at(FRACTIONS[m[0]], 1, 'fraction')
+  if (m) return at(FRACTION_VALUES[m[0]], 1, 'fraction')
   return null
 }
 
@@ -139,7 +144,10 @@ function readAndFraction(
       ? { value: Number(numerator) / Number(denominator), end }
       : null
   }
-  return { value: fraction === undefined ? 0.5 : FRACTIONS[fraction], end }
+  return {
+    value: fraction === undefined ? 0.5 : FRACTION_VALUES[fraction],
+    end,
+  }
 }
 
 // A dash, or "to", "or" or "tai", which may follow a hyphen left hanging
@@ -159,35 +167,48 @@ export function makeRange(min: number, max: number): Value | null {
   return max > min ? { min, max } : null
 }
 
-const NUMBER_WORDS: Record<Language, Record<string, number>> = {
+// Canonical whole-number spellings for both reading and writing, from one.
+export const NUMBER_WORDS: Record<Language, ReadonlyArray<string>> = {
+  fi: [
+    'yksi',
+    'kaksi',
+    'kolme',
+    'neljä',
+    'viisi',
+    'kuusi',
+    'seitsemän',
+    'kahdeksan',
+    'yhdeksän',
+    'kymmenen',
+  ],
+  en: [
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'ten',
+    'eleven',
+    'twelve',
+  ],
+}
+
+const wordValues = (words: ReadonlyArray<string>) =>
+  Object.fromEntries(words.map((word, i) => [word, i + 1]))
+
+const NUMBER_WORD_VALUES: Record<Language, Record<string, number>> = {
   fi: {
-    yksi: 1,
-    kaksi: 2,
-    kolme: 3,
-    neljä: 4,
-    viisi: 5,
-    kuusi: 6,
-    seitsemän: 7,
-    kahdeksan: 8,
-    yhdeksän: 9,
-    kymmenen: 10,
+    ...wordValues(NUMBER_WORDS.fi),
     puoli: 0.5,
     puolikas: 0.5,
     puolitoista: 1.5,
   },
   en: {
-    one: 1,
-    two: 2,
-    three: 3,
-    four: 4,
-    five: 5,
-    six: 6,
-    seven: 7,
-    eight: 8,
-    nine: 9,
-    ten: 10,
-    eleven: 11,
-    twelve: 12,
+    ...wordValues(NUMBER_WORDS.en),
     'half a': 0.5,
     'half an': 0.5,
     half: 0.5,
@@ -197,8 +218,8 @@ const NUMBER_WORDS: Record<Language, Record<string, number>> = {
 }
 
 const NUMBER_WORD: Record<Language, RegExp> = {
-  fi: wordRegExp(Object.keys(NUMBER_WORDS.fi)),
-  en: wordRegExp(Object.keys(NUMBER_WORDS.en)),
+  fi: wordRegExp(Object.keys(NUMBER_WORD_VALUES.fi)),
+  en: wordRegExp(Object.keys(NUMBER_WORD_VALUES.en)),
 }
 
 function wordRegExp(words: Array<string>) {
@@ -223,7 +244,7 @@ export function readNumberWord(
   const m = matchAt(NUMBER_WORD[language], text, pos)
   if (!m) return null
   const word = m[0].toLowerCase().replace(/\s+/g, ' ')
-  const value = NUMBER_WORDS[language][word]
+  const value = NUMBER_WORD_VALUES[language][word]
   const article = word === 'a' || word === 'an'
   const end = pos + m[0].length
   const half =
