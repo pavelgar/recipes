@@ -61,8 +61,6 @@
   Write our own implementations, inspired by theirs.
 - Build a test suite from real Finnish and English ingredient lines,
   conversions and search queries.
-- The prior-art report (Recipe app prior art.md) records research findings
-  and known pitfalls. Where it and this brief disagree, this brief wins.
 
 ### Adding recipes
 
