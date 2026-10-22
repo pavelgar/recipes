@@ -1,0 +1,482 @@
+{
+  "site": "kingarthurbaking.com",
+  "country": "US",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe",
+      "name": "Baked Doughnuts Three Ways",
+      "yield": ["12", "12 doughnuts"],
+      "format": "json-ld",
+      "ingredients": [
+        "4 tablespoons (57g) butter",
+        "1/4 cup (50g) vegetable oil",
+        "1/2 cup (99g) granulated sugar",
+        "1/3 cup (71g) light brown sugar or dark brown sugar, packed",
+        "2 large eggs",
+        "1 1/2 teaspoons baking powder",
+        "1/4 teaspoon baking soda",
+        "1/2 to 1 teaspoon ground nutmeg, to taste",
+        "3/4 teaspoon table salt",
+        "1 teaspoon King Arthur Pure Vanilla Extract",
+        "2 2/3 cups (320g) King Arthur Unbleached All-Purpose Flour",
+        "1 cup (227g) milk"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/birthday-cake-ice-cream-recipe",
+      "name": "Birthday Cake Ice Cream",
+      "yield": [
+        "5 1/2 to 6 cups ice cream (12 servings)",
+        "5 1/2 to 6 cups ice cream"
+      ],
+      "format": "json-ld",
+      "ingredients": [
+        "2 cups (454g) heavy cream",
+        "one 14-ounce can (397g) sweetened condensed milk",
+        "1 tablespoon (14g) vanilla bean paste",
+        "pinch of table salt",
+        "2 cups (about 150g) diced yellow cake, such Classic Birthday Cake, Back-to-Basics Yellow Cake, or Classic Yellow Cake*",
+        "1/4 cup (48g) sprinkles"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/buttermilk-pancake-crepes-recipe",
+      "name": "Buttermilk Pancake Crêpes",
+      "yield": ["12", "one dozen 8” to 10” crêpes"],
+      "format": "json-ld",
+      "ingredients": [
+        "2 cups (220g) King Arthur Buttermilk Pancake Mix",
+        "1 1/2 cups (340g) water",
+        "4 large eggs",
+        "4 tablespoons (57g) butter, melted",
+        "12-ounce bag fresh cranberries, or 3 1/2 cups (347g) fresh or frozen cranberries",
+        "3/4 cup (149g) granulated sugar",
+        "zest and juice of 1 medium orange",
+        "1 teaspoon King Arthur Pure Vanilla Extract",
+        "whipped cream, lightly sweetened",
+        "orange slices"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chilindrinas-recipe",
+      "name": "Chilindrinas",
+      "yield": ["10", "10 buns"],
+      "format": "json-ld",
+      "ingredients": [
+        "1 cup (120g) King Arthur Unbleached Bread Flour",
+        "2 teaspoons instant yeast",
+        "3/4 cup (170g) water, lukewarm",
+        "2 3/4 cups (330g) King Arthur Unbleached Bread Flour",
+        "1 1/4 teaspoons (8g) table salt",
+        "1/2 cup (99g) granulated sugar",
+        "3 tablespoons (43g) unsalted butter, softened",
+        "2 large eggs, plus 1 egg yolk, white reserved",
+        "2 teaspoons Mexican vanilla extract, or your favorite vanilla extract",
+        "2/3 cup (133g) granulated sugar",
+        "1/4 rounded teaspoon table salt",
+        "1 1/2 teaspoons Mexican vanilla extract, or your favorite vanilla extract",
+        "7 tablespoons (99g) unsalted butter, softened",
+        "2/3 cup plus 3 tablespoons (103g) King Arthur Unbleached Bread Flour",
+        "1/2 teaspoon ground turmeric, single-origin preferred*",
+        "1 large egg white, reserved from above",
+        "coarse sparkling sugar, for sprinkling"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chocolate-cookies-recipe",
+      "name": "Chocolate Cookies",
+      "yield": ["18", "1 1/2 to 2 1/2 dozen cookies, depending on add-ins"],
+      "format": "json-ld",
+      "ingredients": [
+        "8 tablespoons (113g) unsalted butter, room temperature",
+        "1/2 cup (99g) granulated sugar",
+        "1/3 cup (71g) light brown sugar or dark brown sugar, packed",
+        "1/3 cup (28g) Dutch-process cocoa or King Arthur Triple Cocoa Blend",
+        "1/2 teaspoon table salt",
+        "1/4 teaspoon baking soda",
+        "1/2 teaspoon baking powder",
+        "1 teaspoon King Arthur Pure Vanilla Extract",
+        "1 large egg",
+        "2 tablespoons (28g) milk, (optional, if you add chips/nuts/fruit)",
+        "1 cup plus 2 tablespoons (134g) King Arthur Unbleached All-Purpose Flour",
+        "1 teaspoon espresso powder, optional; for depth of flavor",
+        "2 cups (227g to 340g) chips, nuts, and/or dried fruit, optional but good"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/cinnamon-snails-recipe",
+      "name": "Cinnamon Snails",
+      "yield": ["48", "4 dozen pastries"],
+      "format": "json-ld",
+      "ingredients": [
+        "1 1/2 cups (180g) King Arthur Unbleached All-Purpose Flour",
+        "1/4 teaspoon table salt",
+        "1/2 teaspoon baking powder",
+        "16 tablespoons (227g) unsalted butter, cold, cut into pats",
+        "1/2 cup (113g) sour cream",
+        "1/2 cup (99g) granulated sugar",
+        "1 tablespoon (7g) ground cinnamon"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/crisp-molasses-cookies-recipe",
+      "name": "Crisp Molasses Cookies",
+      "yield": ["30", "about 2 1/2 dozen cookies"],
+      "format": "json-ld",
+      "ingredients": [
+        "1/4 cup (53g) coconut oil or 4 tablespoons (57g) butter, at room temperature",
+        "1/2 cup (92g) vegetable shortening",
+        "1 cup (198g) granulated sugar",
+        "1/4 cup (85g) molasses",
+        "1 large egg",
+        "2 cups (240g) King Arthur Unbleached All-Purpose Flour",
+        "1 teaspoon baking powder",
+        "1/2 teaspoon baking soda",
+        "1/2 teaspoon table salt",
+        "1 teaspoon ground cinnamon",
+        "1 teaspoon ground ginger",
+        "1/2 teaspoon ground cloves",
+        "1/2 cup (99g) granulated sugar"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/giant-strawberry-shortcake-recipe",
+      "name": "Giant Strawberry Shortcake",
+      "yield": ["9", "one large shortcake (serves 9)"],
+      "format": "json-ld",
+      "ingredients": [
+        "2 cups plus 2 tablespoons (255g) King Arthur Unbleached All-Purpose Flour*",
+        "1/3 cup (66g) granulated sugar",
+        "2 teaspoons baking powder",
+        "1/4 plus 1/8 teaspoon baking soda",
+        "1/2 teaspoon table salt",
+        "2/3 cup (152g) heavy cream, cold, plus 1 1/2 tablespoons (21g) for brushing",
+        "1/4 cup (57g) sour cream, cold",
+        "6 tablespoons (85g) unsalted butter, melted",
+        "3/4 teaspoon vanilla bean paste or King Arthur Pure Vanilla Extract",
+        "1 1/2 tablespoons (21g) coarse sparkling sugar, for sprinkling",
+        "1 pound (454g) fresh strawberries (from about 1 quart)",
+        "2 tablespoons (25g) granulated sugar",
+        "1/2 teaspoon vanilla bean paste or King Arthur Pure Vanilla Extract",
+        "1 cup (227g) heavy cream, cold",
+        "1/4 cup (57g) sour cream, cold",
+        "1 1/2 tablespoons (18g) granulated sugar",
+        "1/2 teaspoon vanilla bean paste or King Arthur Pure Vanilla Extract",
+        "pinch of table salt"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-bacon-cheddar-chive-scones-recipe",
+      "name": "Gluten-Free Bacon-Cheddar-Chive Scones",
+      "yield": ["8", "8 large scones"],
+      "format": "json-ld",
+      "ingredients": [
+        "2 cups (240g) King Arthur Gluten-Free Measure for Measure Flour",
+        "1/2 teaspoon table salt",
+        "1 tablespoon (12g) baking powder",
+        "2 teaspoons granulated sugar",
+        "4 tablespoons (57g) butter, cold; cut into 1/2\" pieces",
+        "1 cup (113g) cheddar cheese, very coarsely grated or diced",
+        "1/3 cup (about 14g) snipped fresh chives or 1/3 cup (21g) finely chopped scallion tops",
+        "1/2 pound (227g) bacon, cooked, cooled, and crumbled (about 1 cup)",
+        "1 cup (227g) heavy cream or whipping cream, or enough to make the dough cohesive"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-peach-cobbler-made-with-baking-mix-recipe",
+      "name": "Gluten-Free Peach Cobbler made with baking mix",
+      "yield": ["8", "one 8\" square or 9\" round pan"],
+      "format": "json-ld",
+      "ingredients": [
+        "4 tablespoons (57g) butter, cold",
+        "1 cup (120g) King Arthur Gluten-Free All-Purpose Biscuit & Baking Mix",
+        "1/2 cup (99g) granulated sugar",
+        "3/4 cup (170g) milk, at room temperature",
+        "1 large egg, at room temperature",
+        "2 1/2 cups (425g) fresh or frozen peaches (about 3 or 4 peaches)",
+        "1/2 cup (99g) granulated sugar",
+        "pinch of table salt",
+        "1/2 teaspoon cinnamon or 1/4 teaspoon nutmeg, optional"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-sandwich-bread-recipe",
+      "name": "Gluten-Free Sandwich Bread",
+      "yield": ["16", "1 loaf"],
+      "format": "json-ld",
+      "ingredients": [
+        "3 cups (468g) King Arthur Gluten-Free All-Purpose Flour",
+        "3 tablespoons (35g) granulated sugar",
+        "2 teaspoons instant yeast",
+        "1 1/4 teaspoons (8g) table salt",
+        "1 1/4 teaspoons xanthan gum",
+        "1 cup (227g) milk, warm",
+        "4 tablespoons (57g) butter, softened",
+        "3 large eggs"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/golden-chocolate-chip-muffins-recipe",
+      "name": "Golden Chocolate Chip Muffins",
+      "yield": ["12", "12 muffins"],
+      "format": "json-ld",
+      "ingredients": [
+        "8 tablespoons (113g) unsalted butter, softened",
+        "1 cup (198g) granulated sugar",
+        "2 teaspoons baking powder",
+        "1/2 teaspoon table salt",
+        "1 teaspoon King Arthur Pure Vanilla Extract",
+        "1/8 to 1/2 teaspoon extra-strong flavor, optional*",
+        "2 large eggs",
+        "1/2 cup (113g) milk",
+        "2 cups (227g) King Arthur Golden Wheat Flour",
+        "2 cups (340g) chocolate chips",
+        "coarse sparkling sugar, for topping"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/lighter-than-air-parmesan-puffs-recipe",
+      "name": "Lighter Than Air Parmesan Puffs",
+      "yield": "2 1/2 dozen 2 1/2\" puffs",
+      "format": "json-ld",
+      "ingredients": [
+        "1 cup (227g) water",
+        "6 tablespoons (85g) unsalted butter, cold",
+        "1 teaspoon table salt",
+        "1/8 teaspoon ground black pepper, or a couple of dashes Tabasco sauce",
+        "1 cup (120g) King Arthur Unbleached All-Purpose Flour",
+        "1 cup (113g) Parmesan cheese, freshly grated",
+        "4 large eggs"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/make-ahead-gravy-recipe",
+      "name": "Make-Ahead Gravy",
+      "yield": ["18", "about 2 1/2 cups"],
+      "format": "json-ld",
+      "ingredients": [
+        "4 cups (908g) best-quality chicken or turkey stock, homemade or store-bought",
+        "1 bay leaf",
+        "1 sprig fresh thyme",
+        "6 tablespoons (85g) unsalted butter",
+        "6 tablespoons (45g) King Arthur Unbleached All-Purpose Flour or King Arthur Gluten-Free Measure for Measure Flour",
+        "1/2 teaspoon Worcestershire sauce",
+        "salt and pepper, to taste"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/maple-doughnuts-recipe",
+      "name": "Maple Doughnuts",
+      "yield": ["6 doughnuts", "6 doughnuts"],
+      "format": "json-ld",
+      "ingredients": [
+        "3/4 cup (90g) King Arthur Unbleached All-Purpose Flour",
+        "1/2 cup (78g) maple sugar",
+        "2 tablespoons (25g) potato flour",
+        "3/4 teaspoon baking powder",
+        "1/4 teaspoon table salt",
+        "1 large egg",
+        "6 tablespoons (85g) water",
+        "3 tablespoons (39g) vegetable oil",
+        "1/4 teaspoon natural maple flavor",
+        "2 tablespoons (20g) maple sugar",
+        "2 tablespoons (28g) confectioners' sugar",
+        "2 tablespoons (28g) heavy cream",
+        "1/8 teaspoon natural maple flavor, optional",
+        "crushed walnuts, optional"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/mocha-pound-cake-recipe",
+      "name": "Mocha Pound Cake",
+      "yield": ["16", "one 10\" Bundt cake"],
+      "format": "json-ld",
+      "ingredients": [
+        "16 tablespoons (227g) unsalted butter, softened",
+        "2 1/2 cups (495g) granulated sugar",
+        "2 teaspoons King Arthur Pure Vanilla Extract",
+        "1/2 teaspoon baking powder",
+        "1/2 teaspoon baking soda",
+        "1 teaspoon table salt",
+        "5 large eggs, at room temperature",
+        "3 tablespoons (21g) espresso powder",
+        "1/4 cup (57g) water, warm",
+        "3/4 cup (170g) buttermilk",
+        "1 cup (85g) Dutch-process cocoa",
+        "2 cups (240g) King Arthur Unbleached All-Purpose Flour"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+      "name": "Neapolitan-Style Pizza Crust",
+      "yield": ["16", "two 10\" to 12\" pizzas"],
+      "format": "json-ld",
+      "ingredients": [
+        "2 cups (232g) King Arthur ‘00’ Pizza Flour",
+        "1/8 teaspoon instant yeast or active dry yeast",
+        "1/2 teaspoon granulated sugar",
+        "1 1/4 teaspoons (8g) table salt",
+        "3/4 cup (170g) water, lukewarm, (105° to 115°F)"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/pizza-crust-recipe",
+      "name": "Pizza Crust",
+      "yield": [
+        "12",
+        "1 or 2 standard round pizzas, or 1 large rectangular pizza, about 12 servings"
+      ],
+      "format": "json-ld",
+      "ingredients": [
+        "2 teaspoons active dry yeast or instant yeast",
+        "7/8 to 1 1/8 cups (198g to 255g) lukewarm water*",
+        "2 tablespoons (25g) olive oil",
+        "3 cups (360g) King Arthur Unbleached All-Purpose Flour",
+        "1 1/4 teaspoons (8g) table salt"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/savory-masa-harina-waffles-recipe",
+      "name": "Savory Masa Harina Waffles",
+      "yield": [
+        "9",
+        "4 1/2 large (7\") Belgian waffles; or 5 medium (5\") square American-style waffles"
+      ],
+      "format": "json-ld",
+      "ingredients": [
+        "1 mango, peeled and finely diced",
+        "1 jalapeño, seeded and finely diced",
+        "2 Roma or plum tomatoes, diced",
+        "1/2 small red onion, peeled and finely diced (about 1/3 cup)",
+        "2 tablespoons cilantro, chopped",
+        "2 to 3 tablespoons (28g to 43g) lime juice",
+        "table salt, to taste",
+        "1 1/3 cups (124g) masa harina",
+        "1/3 cup (52g) yellow cornmeal",
+        "3 tablespoons (37g) granulated sugar",
+        "1 tablespoon baking powder",
+        "1/2 teaspoon table salt",
+        "1 teaspoon garlic powder",
+        "1 teaspoon onion powder",
+        "1 teaspoon chili powder",
+        "2 large eggs",
+        "2 cups (454g) milk",
+        "2 tablespoons (25g) vegetable oil",
+        "2 tablespoons (28g) butter, melted"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/soft-golden-rolls-buns-recipe",
+      "name": "Soft Golden Rolls & Buns",
+      "yield": ["12", "12 rolls"],
+      "format": "json-ld",
+      "ingredients": [
+        "1 package (453g) King Arthur Soft Golden Roll & Bun Mix Kit",
+        "yeast packet, included with the mix",
+        "4 tablespoons (57g) butter, at room temperature*",
+        "1 1/3 cups (303g) milk, hot (120°F to 130°F), plus more as needed*",
+        "2 tablespoons (28g) butter, melted*"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/sourdough-chocolate-chip-cookies-recipe",
+      "name": "Sourdough Chocolate Chip Cookies",
+      "yield": ["18", "16 to 18 cookies"],
+      "format": "json-ld",
+      "ingredients": [
+        "8 tablespoons (113g) unsalted butter",
+        "2/3 cup (142g) dark brown sugar, packed",
+        "1/2 cup (99g) granulated sugar",
+        "1/2 cup (113g) ripe (fed) sourdough starter or 1/2 cup plus 1 tablespoon (135g) sourdough discard",
+        "1 large egg",
+        "2 teaspoons King Arthur Pure Vanilla Extract",
+        "1/2 cup plus 2 tablespoons (75g) King Arthur Unbleached All-Purpose Flour",
+        "3/4 cup (90g) King Arthur Unbleached Bread Flour",
+        "1/2 teaspoon table salt",
+        "1/2 teaspoon baking powder",
+        "1/4 teaspoon baking soda",
+        "1 1/4 cups (213g) dark chocolate, chopped; divided*",
+        "1 1/4 cups (213g) milk chocolate, chopped; divided",
+        "flaky sea salt, to garnish; optional"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/sourdough-milk-bread-recipe",
+      "name": "Sourdough Milk Bread",
+      "yield": ["16", "one 9\" x 4\" loaf"],
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 cup (113g) milk, lukewarm; whole preferred",
+        "2 tablespoons (28g) water, lukewarm",
+        "1 large egg yolk, white reserved for egg wash",
+        "5 tablespoons (70g) unsalted butter, melted",
+        "2 tablespoons (24g) granulated sugar",
+        "1 cup plus 2 tablespoons (250g) ripe sourdough starter",
+        "2 teaspoons (6g) instant yeast",
+        "1 1/2 teaspoons (9g) table salt",
+        "2 1/2 cups (300g) King Arthur Unbleached Bread Flour"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/stuffed-bagel-buns-recipe",
+      "name": "Stuffed Bagel Buns",
+      "yield": ["12", "12 buns"],
+      "format": "json-ld",
+      "ingredients": [
+        "4 cups (480g) King Arthur Unbleached Bread Flour",
+        "3 tablespoons (27g) non-diastatic malt powder or 2 tablespoons (26g) light brown sugar",
+        "1/4 cup (28g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor",
+        "1 1/4 teaspoons (8g) table salt",
+        "1 1/2 teaspoons instant yeast",
+        "1 1/3 to 1 1/2 cups (301g to 340g) water, lukewarm",
+        "6 ounces (170g) cream cheese",
+        "2 tablespoons (14g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor",
+        "3/4 cup (85g) cheddar cheese, shredded",
+        "1/3 cup (13g) chives or parsley, or other fresh herbs, optional",
+        "2 quarts (1814g) water",
+        "2 tablespoons (18g) non-diastatic malt powder or 1 tablespoon (13g) light brown sugar",
+        "1 tablespoon (14g) granulated sugar",
+        "Everything Bagel Topping"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/walnut-bread-recipe",
+      "name": "Walnut Bread",
+      "yield": "2 loaves",
+      "format": "json-ld",
+      "ingredients": [
+        "1 1/2 cups (340g) warm water",
+        "1 tablespoon (11g) active dry yeast",
+        "1/2 cup (170g) honey",
+        "1/4 cup (50g) olive oil, or walnut oil",
+        "1 1/2 teaspoons (9g) table salt",
+        "6 cups (720g) King Arthur Unbleached All-Purpose Flour, divided",
+        "2 cups (227g) walnut pieces, toasted until lightly browned"
+      ]
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/warm-strawberry-puff-recipe",
+      "name": "Warm Strawberry Puff",
+      "yield": ["4", "one 8\" puff, 1 to 3 servings (this is easily doubled)"],
+      "format": "json-ld",
+      "ingredients": [
+        "3 large eggs, separated",
+        "2 tablespoons (25g) granulated sugar",
+        "1/2 cup (113g) light cream",
+        "1/8 teaspoon table salt",
+        "1 teaspoon King Arthur Pure Vanilla Extract",
+        "1 tablespoon (14g) butter, melted",
+        "1/3 cup (39g) King Arthur Unbleached All-Purpose Flour",
+        "1 tablespoon (14g) butter",
+        "1 tablespoon (21g) light corn syrup or dark corn syrup",
+        "1/4 cup (50g) granulated sugar",
+        "2 cups (333g) strawberries, washed, trimmed of their leaves and sliced in half",
+        "1 teaspoon lemon juice",
+        "1/4 teaspoon ground cinnamon",
+        "1 to 2 tablespoons (14g to 28g) crème fraîche or sour cream, for topping"
+      ]
+    }
+  ]
+}

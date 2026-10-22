@@ -1,0 +1,525 @@
+{
+  "site": "soppa365.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.soppa365.fi/reseptit/arjen-nopeat-kana/harissaporkkanat",
+      "name": "Harissaporkkanat",
+      "yield": "2",
+      "format": "json-ld",
+      "ingredients": [
+        "2 isoa porkkanaa",
+        "2 rkl kookos- tai rypsiöljyä",
+        "loraus vettä",
+        "1/2 appelsiinin raastettu kuori",
+        "1 rkl appelsiinin mehua",
+        "2 tl limetin mehua",
+        "1 1/2 rkl juoksevaa hunajaa",
+        "1/2 rkl harissatahnaa",
+        "suolaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/grillaus/flank-steak-chimichurri",
+      "name": "Flank steak & chimichurri",
+      "yield": "4-6",
+      "format": "json-ld",
+      "ingredients": [
+        "1 flank steak",
+        "sormisuolaa",
+        "mustapippuria myllystä",
+        "1 valkosipulinkynsi",
+        "2 dl hienonnettuja yrttejä",
+        "esim. lehtipersiljaa",
+        "korianteria ja oreganoa",
+        "n. 3/4 dl oliiviöljyä",
+        "1 rkl punaviinietikkaa",
+        "1 tl savupaprikajauhetta",
+        "1/2 tl juustokuminaa",
+        "1/4 tl rouhittua chiliä myllystä",
+        "1 tl (sormi)suolaa",
+        "1/2 tl sokeria",
+        "1/4 tl mustapippuria myllystä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/lakritsimousse",
+      "name": "Lakritsimousse",
+      "yield": "6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "250 g mascarponejuustoa",
+        "2 dl vispikermaa",
+        "1/2 rkl sokeria",
+        "1 tl vanilijasokeria",
+        "3/4 tl lakritsijauhetta (esim. Urtekram)",
+        "ripaus suolaa",
+        "puolukkalientä",
+        "mantelilehtiä",
+        "puolukoita",
+        "2 1/2 dl puolukoita",
+        "1/2 dl puolukoita",
+        "5 dl vettä",
+        "2 1/2 rkl sokeria",
+        "50 g voita",
+        "4 rkl ruokosokeria",
+        "1 rkl siirappia",
+        "1/2 dl vehnäjauhoja",
+        "1/2 dl mantelijauhoa",
+        "1 rkl rouhittuja manteleita",
+        "1 tl inkivääriä",
+        "1 tl puolukkamehua tai maitoa",
+        "1 rkl rypsiöljyä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/paahdetut-persimonit-ja-mascarponevaahtoa",
+      "name": "Paahdetut persimonit ja mascarponevaahtoa",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "4 kypsää persimonia",
+        "¾ dl kiehuvaa vettä",
+        "1 sitruunan mehu ja kuoriraaste",
+        "1 limetin mehu",
+        "4 rkl juoksevaa hunajaa",
+        "4 inkivääriviipaletta",
+        "2 tähtianista",
+        "1 kanelitanko",
+        "1 tl vaniljasokeria",
+        "100 g mascarponea",
+        "1 dl kuohukermaa",
+        "2 tl vaniljasokeria"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/juomat/kylmauutettu-vaniljaespresso",
+      "name": "Kylmäuutettu vaniljaespresso",
+      "format": "json-ld",
+      "ingredients": [
+        "5 dl vettä",
+        "1 dl espressojauhettua kahvia",
+        "1/2 vaniljatanko"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kala-arjen-nopeat-pastat-ja-risotot-kastikkeet-tahnat-ja-marinadit/villikalapasta",
+      "name": "Villikalapasta",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 prk säilykekalaa (Arkikala",
+        "Villikala",
+        "tonnikala tai vastaava)",
+        "1 kpl valkosipulin kynsi TAI hyppysellinen valkosipulijauhetta",
+        "1 tl paprikajauhetta - Arki- ja Villikala-säilykkeet sisältävät paprikaa",
+        "joten niitä käytettäessä tätä ei tarvita.",
+        "1 kpl keltasipuli TAI ruokalusikallinen sipulijauhetta/kuivattua sipulia",
+        "1 prk tomaattimurskaa",
+        "1 tl sokeria",
+        "1/2 - 1 kpl kasvisliemikuutio TAI maun mukaan suolaa",
+        "ripaus mustapippuria",
+        "1 tl balsamicoa - voi jättää poiskin",
+        "n. 1 tl kuivattua basilikaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-kastikkeet-tahnat-ja-marinadit/kananugetit-dippilankku",
+      "name": "Kananugetit & dippilankku",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g maustamatonta broilerin sisäfileetä",
+        "1 tl suolaa",
+        "1⁄4 tl mustapippuria",
+        "1 tl savupaprikajauhetta",
+        "1 muna",
+        "3 dl pankojauhoja",
+        "1⁄2 dl öljyä",
+        "4 porkkanaa",
+        "1 pieni kukkakaali",
+        "2 paprikaa",
+        "1 salaattisikuri",
+        "1 tlk (380 g) isoja valkopapuja",
+        "1 valkosipulinkynsi",
+        "2 rkl vettä",
+        "2 rkl sitruunamehua",
+        "2 rkl öljyä",
+        "1 rkl tahinia",
+        "1 tl kurkumaa",
+        "1⁄2 tl suolaa",
+        "1⁄4 tl mustapippuria",
+        "1 prk kermaviiliä",
+        "1–2 tl harissa-chilitahnaa",
+        "1⁄4 tl suolaa",
+        "1 tl hunajaa",
+        "1⁄2 tl chilihiutaleita"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-gluteeniton/pirteat-porkkanapihvit",
+      "name": "Pirteät porkkanapihvit",
+      "yield": "10 kpl",
+      "format": "json-ld",
+      "ingredients": [
+        "4 dl porkkanaraastetta",
+        "1-2 rkl tuoretta inkivääriä raastettuna",
+        "1 dl persiljaa hienonnettuna",
+        "1 prk (285 g) kypsiä valkoisia papuja",
+        "2 kananmunaa",
+        "3/4 dl mantelijauhetta",
+        "1 tl suolaa",
+        "ruokaöljyä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-juhli-ja-nauti-salaatit/kuningasperunasalaatti",
+      "name": "Kuningasperunasalaatti",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "800 g pieniä kiinteitä perunoita (esim. siikli)",
+        "2–4 kananmunaa",
+        "2 dl herneitä (pakaste)",
+        "1 ps (50 g) kuorettomia suolaamattomia pistaaseja",
+        "2 valkosipulinkynttä",
+        "1 ruukku basilikaa",
+        "1 ruukku lehtipersiljaa",
+        "1 ruukku minttua",
+        "2½ dl oliiviöljyä",
+        "1 tl valkoviinietikkaa",
+        "25 g parmesaania",
+        "1½ tl sormisuolaa",
+        "¼ tl mustapippuria"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-salaatit/appelsiininen-aasiaslaw",
+      "name": "Appelsiininen aasiaslaw",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g varhaiskaalia (puolikas isosta varhaiskaalista)",
+        "2 porkkanaa",
+        "1 fenkoli",
+        "1/2 appelsiinin kuoren oranssi osa raasteena",
+        "1 appelsiinin mehu",
+        "1/2 dl tummaa seesamiöljyä",
+        "2 rkl soijakastiketta"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/japanilaiset-dippinuudelit-eli-tsukemen",
+      "name": "Japanilaiset dippinuudelit eli tsukemen",
+      "yield": "2",
+      "format": "json-ld",
+      "ingredients": [
+        "170 g udon- tai ramen-nuudeleita",
+        "1 pieni salottisipuli",
+        "1 valkosipulinkynsi",
+        "5 cm:n pala inkivääriä",
+        "1 rkl rypsiöljyä",
+        "3 rkl (tummaa) misotahnaa",
+        "1 rkl soijakastiketta",
+        "3½ dl kasvis- tai sienilientä",
+        "1 tl sokeria",
+        "1 rkl seesaminsiemeniä",
+        "1 tl chiliöljyä",
+        "1 tl seesamiöljyä",
+        "2 kevätsipulia",
+        "2 tl togarashi-chilimaustetta",
+        "50 g osterivinokkaita",
+        "1 rkl öljyä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/kesakurpitsapasta-nopean-tomaattikastikken-kera",
+      "name": "Kesäkurpitsapasta nopean tomaattikastikken kera",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "3 rkl oliiviöljyä",
+        "1 kpl keskikokoinen sipuli",
+        "silputtu",
+        "700-900 g tomaattia: murskana",
+        "paloina tms",
+        "3 kpl keskikokoista kesäkurpitsaa",
+        "spiraaleina",
+        "raastettua parmesanjuustoa oman maun mukaan",
+        "suolaa ja pippuria",
+        "halutessasi pilkottua tuoretta basilikaa tai persiljaa koristeluun"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/rapeat-kvinoa-pinaattipihvit-ja-edamamehummus",
+      "name": "Rapeat kvinoa-pinaattipihvit ja edamamehummus",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "3 dl kvinoaa",
+        "kotimaista",
+        "2 l salaattipinaattia",
+        "1 tl sitruunan kuorta",
+        "2 tl juustokuminaa",
+        "½ tl suolaa",
+        "¼ tl mustapippuria",
+        "2 rkl oliiviöljyä paistamiseen",
+        "150 g kuorittuja edamamepapuja sulatettuina",
+        "1 rku lehtipersiljaa",
+        "1 rkl tahinia",
+        "½ tl suolaa",
+        "2 rkl sitruunamehua",
+        "2–3 rkl vettä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/tofu-kasvisvokki",
+      "name": "Tofu-kasvisvokki",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "300 g punakaalia",
+        "2 porkkanaa",
+        "1 palsternakka",
+        "2 lehtisellerin vartta",
+        "2 sipulia",
+        "200 g (hamppu)tofua",
+        "1/2 dl rypsi- tai oliiviöljyä",
+        "1 dl makeaa chilikastiketta",
+        "1/2 dl soija- tai osterikastiketta",
+        "1 rkl raastettua inkivääriä",
+        "1/2 dl cashewpähkinöitä",
+        "tuoretta korianteria"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-gluteeniton/harkispyorykat",
+      "name": "Härkispyörykät",
+      "yield": "16 kpl",
+      "format": "json-ld",
+      "ingredients": [
+        "1 pkt Härkistä (250g)",
+        "1 sipuli",
+        "3 valkosipulinkynttä",
+        "3 + 3 rkl rypsiöljyä",
+        "1 tl paprikajauhetta",
+        "1/2 tl suolaa",
+        "1/4 tl mustapippuria",
+        "100 g fetajuustoa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-juhli-ja-nauti-pastat-ja-risotot/maa-artisokkasipsit",
+      "name": "Maa-artisokkasipsit",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "4 isoa maa-artisokkaa",
+        "1-2 dl rypsiöljyä",
+        "ripaus suolaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-salaatit/pinaatti-kaurasalaatti",
+      "name": "Pinaatti-kaurasalaatti",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "4 dl kaurajyviä (Myllärin)",
+        "1 ps varsiparsakaalia",
+        "1 ps (80 g) tuoretta pinaattia",
+        "1 rs minitomaatteja",
+        "1 prk kidneypapuja suolaliemessä",
+        "1 ps (80 g) tuoretta pinaattia",
+        "½ dl rypsiöljyä",
+        "2 rkl sinappia",
+        "½ sitruunan mehu",
+        "1 dl parmesaania raasteena",
+        "½ tl valkopippuria rouheena",
+        "½ tl suolaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/keitot/maa-artisokkakeitto",
+      "name": "Maa-artisokkakeitto",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kg maa-artisokkia",
+        "2 kpl porkkanaa",
+        "5 kpl salottisipuleita",
+        "1 rkl oliiviöljyä",
+        "1 l vettä",
+        "½ g sahramia",
+        "2-3 rkl hienonnettua inkivääriä",
+        "2 tl raastettua sitruunan kuorta",
+        "½ dl sitruunamehua",
+        "2 tl sokeria",
+        "1 ½ tl suolaa",
+        "2 dl ruokakermaa",
+        "1 ps (150 g) kuorittuja manteleita",
+        "1 ps (100 g) saksanpähkinöitä",
+        "1 dl oliiviöljyä",
+        "½ dl sitruunamehua",
+        "1 tl sokeria",
+        "1/4 tl suolaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-kasvis-suolainen-leivonta/sienipiirakka",
+      "name": "Sienipiirakka",
+      "yield": "8 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "1 dl perunasosejauhetta",
+        "1–1½ dl vettä",
+        "100 g sulatettua voita",
+        "2 dl vehnäjauhoja",
+        "1 tl suolaa",
+        "1 l kantarelleja",
+        "suppilovahveroita tai mustia torvisieniä",
+        "150–170 g pekonisiivuja",
+        "1–2 sipulia",
+        "1 rkl voita",
+        "200 g tuoretta pinaattia",
+        "½ tl suolaa",
+        "ripaus mustapippuria",
+        "2 tl karkeaa dijoninsinappia",
+        "3 dl vahvaa juustoraastetta",
+        "2 dl kermaa",
+        "2 munaa",
+        "½ dl silputtua yrttejä",
+        "esim. rakuunaa tai lehtipersiljaa",
+        "ripaus suolaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-makea-leivonta/limekaaretorttu",
+      "name": "Limekääretorttu",
+      "yield": "8 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "4 munaa",
+        "2 dl sokeria",
+        "1 dl perunajauhoja",
+        "1 tl leivinjauhetta",
+        "2 tl matcha-jauhetta",
+        "½ dl mantelijauhetta",
+        "2 dl kuohukermaa",
+        "200 g tuorejuustoa",
+        "¾ dl limecurdia eli limettitahnaa",
+        "1 tl vaniljasokeria",
+        "½ ruukkua sitruunamelissaa",
+        "100 g valkosuklaata",
+        "½ ruukkua sitruunamelissaa"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-pizzat-ja-piirakat-kasvis-suolainen-leivonta/myskikurpitsaquiche",
+      "name": "Myskikurpitsaquiche",
+      "yield": "10–12 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "½ dl (40 g) hasselpähkinää jauhettuna",
+        "2 dl vehnäjauhoja",
+        "½ tl suolaa",
+        "100 g voita",
+        "n. ½ dl kylmää vettä",
+        "½ myskikurpitsaa",
+        "½ tl suolaa",
+        "½ tl mustapippuria myllystä",
+        "½ tl kuivattua chiliä myllystä",
+        "1 rkl oliiviöljyä",
+        "½ pieni purjo",
+        "150 g maukasta juustoa (esim. Appenzeller)",
+        "1 rkl timjamia tai rosmariinia hienonnettuna",
+        "2 dl kuohu- tai ruokakermaa",
+        "1 prk (150 g) ranskankermaa",
+        "3 kananmunaa",
+        "½ tl mustapippuria myllystä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta/omenavuokaleipa",
+      "name": "Omenavuokaleipä",
+      "format": "json-ld",
+      "ingredients": [
+        "4 dl vehnäjauhoja",
+        "1 dl sokeria",
+        "1 tl soodaa",
+        "½ tl leivinjauhetta",
+        "½ tl jauhettua muskottipähkinää",
+        "¼ tl suolaa",
+        "2½ dl omenasosetta",
+        "1 dl öljyä",
+        "1 dl fariinisokeria",
+        "½ dl maustamatonta jogurttia",
+        "2 munaa",
+        "1 ps (70 g) pekaanipähkinöitä",
+        "1 ps (70 g) pekaanipähkinöitä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha-pastat-ja-risotot/pekoni-ruusukaalipasta",
+      "name": "Pekoni-ruusukaalipasta",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g ruusukaaleja",
+        "1 sipuli",
+        "2 valkosipulinkynttä",
+        "100 g gruyère-juustoa",
+        "1 pkt pekonia",
+        "1/2 dl balsamico-etikkaa",
+        "400 g spagettia"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha/nepalilainen-broilerikastike",
+      "name": "Nepalilainen broilerikastike",
+      "yield": "6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3 sipulia",
+        "4 valkosipulinkynttä",
+        "pala tuoretta inkivääriä",
+        "1 punaista chiliä",
+        "2 rkl öljyä",
+        "1 tlk säilyke linssejä",
+        "2 dl ruuanvalmistus jogurttia",
+        "3 tl suolaa",
+        "2 rkl paprikajauhetta",
+        "2 rkl kurkumaa",
+        "1 rkl jeeraa",
+        "1 rkl jauhettua korianteria",
+        "1 kg broilerin fileepihvejä"
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/makea-leivonta/inkivaari-luumutorttu",
+      "name": "Inkivääri-luumutorttu",
+      "yield": "6-12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "250 g voita",
+        "4 dl vehnäjauhoja",
+        "1 tl leivinjauhetta",
+        "250 g maitorahkaa",
+        "2 rkl raastettua inkivääriä",
+        "1/4 dl ruokosokeria",
+        "12-16 luumua",
+        "350 g ricottajuustoa",
+        "3 rkl ruokosokeria",
+        "1 dl hasselpähkinöitä",
+        "1 kananmuna",
+        "½ dl inkiväärisiirappia",
+        "6 dl vettä",
+        "5 dl ruokosokeria",
+        "200 g inkivääriä",
+        "1/4 tl suolaa"
+      ]
+    }
+  ]
+}

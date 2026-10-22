@@ -1,0 +1,505 @@
+{
+  "site": "womensweeklyfood.com.au",
+  "country": "AU",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/banoffee-meringue-with-honeycomb-11216/",
+      "name": "Banoffee meringue with honeycomb",
+      "yield": "12",
+      "format": "json-ld",
+      "ingredients": [
+        "4 egg whites",
+        "1/4 teaspoon cream of tartar",
+        "1/4 cup (55g) caster (superfine) sugar",
+        "3/4 cup (165g) firmly packed brown sugar",
+        "2 teaspoons cornflour (cornstarch)",
+        "1 teaspoon white vinegar",
+        "1/4 teaspoon vanilla extract",
+        "2 medium bananas (400g), sliced",
+        "1 tablespoon caster (superfine) sugar, extra",
+        "300 millilitres thick (double) cream",
+        "100 grams honeycomb, chopped coarsely",
+        "Dolce de leche",
+        "395 gram canned sweetened condensed milk"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/beef-and-lentil-lasagne-13937/",
+      "name": "Beef and lentil lasagne",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 medium red onion (170g), chopped finely",
+        "2 clove garlic, crushed",
+        "1 large red capsicum (bell pepper) (200g), chopped finely",
+        "300 gram (9½ ounces) lean minced (ground) beef",
+        "400 gram (12½ ounces) canned brown lentils, rinsed, drained",
+        "2 teaspoon dried oregano",
+        "1 cup (250ml) water",
+        "800 gram (1½ ounces) canned diced tomatoes",
+        "4 fresh lasagne sheets, cut crossways into thirds",
+        "1/4 cup finely grated parmesan",
+        "1/3 cup finely chopped fresh flat-leaf parsley",
+        "White sauce",
+        "2 tablespoon cornflour (cornstarch)",
+        "1 1/3 cup (330ml) skim milk"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/cheesy-spinach-rice-cakes-9368/",
+      "name": "Cheesy spinach rice cakes",
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 cup (40g) parmesan cheese, finely grated",
+        "250 gram packet frozen spinach, chopped, thawed",
+        "250 gram packet pre-cooked white rice",
+        "3 eggs, beaten lightly",
+        "250 gram cottage cheese",
+        "125 gram fetta cheese, crumbled",
+        "3 green onions, chopped finely"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/choc-malt-slice-11478/",
+      "name": "Choc-malt slice",
+      "format": "json-ld",
+      "ingredients": [
+        "250 gram (8 ounces) plain chocolate biscuits",
+        "280 gram (9 ounces) choc-coated malt balls",
+        "100 gram (3 ounces) unsalted butter, chopped coarsely",
+        "1/2 cup (125ml) sweetened condensed milk",
+        "400 gram (12½ ounces) milk eating chocolate, chopped coarsely",
+        "1 tablespoon vegetable oil"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/classic-pavlova-12932/",
+      "name": "Classic pavlova",
+      "yield": "8",
+      "format": "json-ld",
+      "ingredients": [
+        "4 egg whites",
+        "1 cup caster sugar",
+        "2 teaspoon cornflour",
+        "1 teaspoon lemon juice",
+        "1/2 teaspoon vanilla extract",
+        "300 millilitre cream, whipped",
+        "3 bananas, peeled, sliced",
+        "250 gram punnet strawberries, hulled, quartered",
+        "2 kiwifruit, peeled, sliced",
+        "4 passionfruit, pulp"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/funny-faces-13990/",
+      "name": "Funny faces",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 x 470g packet buttercake mix",
+        "65 gram butter, softened",
+        "3/4 cup (120 grams) icing sugar",
+        "1 tablespoon milk",
+        "yellow, blue, green, purple and brown food colouring",
+        "2 pink doughnuts lollies",
+        "2 small yellow jelly beans",
+        "1 jaffa",
+        "1 freckle, halved",
+        "1 red sour strap",
+        "2 brown mini m&amp;m’s",
+        "1 jaffa",
+        "7 centimetre piece black liquorice strap",
+        "1 candy orange wedge",
+        "7 centimetre piece black liquorice strap",
+        "1 strawberry and cream lolly, halved",
+        "1 red jelly bean",
+        "1 sour worm",
+        "2 blue mini m&amp;m’s",
+        "2 round peppermints",
+        "1 yellow jelly bean",
+        "6 centimetre piece black liquorice strap",
+        "1 yellow fruit stick",
+        "2 blue mini m&amp;m’s",
+        "2 round peppermints",
+        "1 orange jelly bean",
+        "3 centimetre piece red liquorice strap",
+        "2 candy orange wedges"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/mushroom-and-egg-bruschetta-with-sage-butter-3072/",
+      "name": "Mushroom and egg bruschetta with sage butter",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "30 gram (1 ounce) butter",
+        "2 tablespoon finely chopped fresh sage",
+        "8 large swiss brown or portobello mushrooms (400g)",
+        "4 eggs",
+        "4 thick slices ciabatta bread (120g)",
+        "1 tablespoon olive oil",
+        "1 clove garlic, halved",
+        "120 gram (4 ounces) garlic and chive cream cheese",
+        "40 gram (1½ ounces) butter, extra",
+        "12 fresh sage leaves",
+        "1 tablespoon lemon juice"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/orange-almond-macaroons-4831/",
+      "name": "Orange almond macaroons",
+      "format": "json-ld",
+      "ingredients": [
+        "3 egg whites",
+        "1/4 cup (55g) caster sugar",
+        "orange food colouring",
+        "1 1/4 cup (200g) icing (confectioners') sugar",
+        "1 cup (120g) ground almonds",
+        "1 teaspoon finely grated orange rind",
+        "2 tablespoon flaked almonds",
+        "1/3 cup (115g) orange marmalade"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/raspberry-and-white-chocolate-brownie-10112/",
+      "name": "Raspberry and white chocolate brownies",
+      "yield": "10",
+      "format": "json-ld",
+      "ingredients": [
+        "150 gram butter, chopped",
+        "200 gram dark eating chocolate, chopped",
+        "1 cup (220g) caster sugar",
+        "2 teaspoon vanilla extract",
+        "3 eggs, beaten lightly",
+        "1/2 cup (75g) plain flour",
+        "1/2 cup (75g) self-raising flour",
+        "100 gram white eating chocolate, chopped",
+        "150 gram frozen raspberries"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/ribbons-and-bows-3800/",
+      "name": "Ribbons &#038; bows",
+      "format": "json-ld",
+      "ingredients": [
+        "ribbons",
+        "red sour straps",
+        "icing sets",
+        "packet arrowroot biscuits"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/roasted-pumpkin-kumara-soup-5794/",
+      "name": "Roasted pumpkin kumara soup",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "2 large brown onions (400g)",
+        "750 gram jap pumpkin, cut into 5cm cubes",
+        "1 large kumara (500g), cut into 5cm cubes",
+        "2 large carrots (360g), cut into 2cm slices",
+        "4 clove garlic, peeled",
+        "2 teaspoon cumin seeds",
+        "1 teaspoon coriander seeds olive oil spray",
+        "3 cup (750ml) vegetable stock",
+        "1/3 cup fresh coriander leaves"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/russian-style-potato-and-fish-casserole-28589/",
+      "name": "Russian–style potato and fish casserole",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "900 gram agria potatoes",
+        "sea salt, to season",
+        "1/2 teaspoon sweet paprika",
+        "2 tablespoon chopped dill",
+        "500 gram skinned and boned thick white fish fillets, rinsed, patted dry, cut innto several chunks",
+        "2 tablespoon plain flour mixed with 1/4 teaspoon salt",
+        "2 tablespoon olive oil",
+        "2 tablespoon butter",
+        "250 gram baby brown button mushrooms, halved",
+        "1 bunch spring onions, trimmed, chopped",
+        "2 large free-range eggs",
+        "300 millilitre cream",
+        "1/2 cup grated vintage cheddar",
+        "1/4 cup freshly grated parmesan",
+        "2 tablespoon panko crumbs"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/turkish-bread-13734/",
+      "name": "Turkish bread",
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 teaspoon dry yeast",
+        "1/4 cup (60ml) warm water",
+        "2 tablespoon warm milk",
+        "1 cup (150g) plain flour",
+        "1 teaspoon dried yeast",
+        "1 1/2 cup (375ml) warm water",
+        "1 teaspoon sugar",
+        "3 cup (450g) plain flour",
+        "1 1/2 teaspoon salt",
+        "2 tablespoon olive oil",
+        "2 teaspoon sesame seeds"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/aloo-gobi-10839/",
+      "name": "Aloo gobi",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "450 gram ruby lou potatoes, peeled, chopped coarsely",
+        "1 tablespoon (20g) ghee",
+        "1 tablespoon black mustard seeds",
+        "1 tablespoon cumin seeds",
+        "3 clove garlic, crushed",
+        "1/2 teaspoon ground turmeric",
+        "1/2 teaspoon garam masala",
+        "1 large brown onion (200g), sliced thinly",
+        "2 medium tomatoes (380g), chopped coarsely",
+        "1 kilogram cauliflower, chopped coarsely",
+        "1 cup (250ml) water",
+        "1/4 cup loosely packed fresh coriander leaves"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/broccoli-and-ocean-trout-salad-9990/",
+      "name": "Broccoli and ocean trout salad",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "Dressing",
+        "1 tablespoon sesame oil",
+        "1 tablespoon olive oil",
+        "1/4 cup (60ml) rice wine vinegar",
+        "1 clove garlic, crushed",
+        "1 tablespoon soy sauce",
+        "600 gram (1¼ pounds) broccoli florets",
+        "1/3 cup (80ml) olive oil",
+        "350 gram (12 ounces) brussels sprouts, halved",
+        "3 green onions (scallions), sliced thinly",
+        "1/2 cup (75g) dry-roasted cashews, chopped coarsely",
+        "1 tablespoon sesame seeds, toasted",
+        "1 medium nashi pear (200g), cored, sliced thinly",
+        "200 gram (7-ounce) skinless, boneless ocean trout or salmon fillet",
+        "2 tablespoon rice flour or cornflour (cornstarch)"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/grilled-lamb-and-capsicum-with-olive-mash-16602/",
+      "name": "Grilled lamb and capsicum with olive mash",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kilogram mashing potatoes, chopped coarsely",
+        "1/2 cup (125ml) cream",
+        "50 gram butter, chopped",
+        "salt and freshly ground black pepper",
+        "1/4 cup (40g) seeded black olives, chopped coarsely",
+        "1 large (350g) red capsicum, quartered",
+        "8 lamb loin chops",
+        "1/4 cup loosely packed fresh mint leaves"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/mediterranean-vegetables-with-cheese-3371/",
+      "name": "Mediterranean vegetables with cheese",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "80 gram butter",
+        "1 (200g) red capsicum, thinly sliced",
+        "1 (200g) yellow capsicum, thickly sliced",
+        "1 (170g) red onion, cut into wedges",
+        "5 (330g) eggplant, coarsely chopped",
+        "5 (380g) zucchini, coarsely chopped",
+        "150 gram button mushrooms, halved",
+        "1/4 cup loosely packed fresh basil leaves",
+        "1/4 cup (20g) finely grated parmesan cheese",
+        "1/4 cup (30g) coarsely grated cheddar cheese"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/pork-vindaloo-4450/",
+      "name": "Pork vindaloo",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "Vindaloo paste",
+        "2 teaspoon ground cumin",
+        "1 teaspoon chilli powder",
+        "2 teaspoon black mustard seeds",
+        "1 1/2 teaspoon ground cinnamon",
+        "1/3 cup (80ml) white wine vinegar",
+        "1 teaspoon salt",
+        "1 teaspoon sugar",
+        "1 teaspoon ground cardamom",
+        "2 teaspoon ground turmeric",
+        "1/2 teaspoon ground cloves",
+        "1 teaspoon cracked black pepper",
+        "3 clove garlic, crushed",
+        "1 1/2 teaspoon ground ginger",
+        "1 tablespoon vegetable oil",
+        "1 kilogram pork neck, cut into 3cm pieces",
+        "2 brown onions (400g), sliced thinly",
+        "1 cup (250ml) vegetable stock",
+        "Mango sambal",
+        "1 mango (430g), chopped finely",
+        "1 fresh red thai chilli, chopped finely",
+        "1 tablespoon lemon juice",
+        "1 tablespoon finely chopped fresh mint"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/roast-pork-with-prune-sauce-5127/",
+      "name": "Roast pork with prune sauce",
+      "yield": "8",
+      "format": "json-ld",
+      "ingredients": [
+        "Stuffing",
+        "2/3 cup (70) stale breadcrumbs",
+        "1 tablespoon olive oil",
+        "1 small brown onion (150g), chopped finely",
+        "garlic, crushed",
+        "2 medium tomatoes (300g), seeded, chopped finely",
+        "1/2 cup (75g) raisins",
+        "1/2 cup (80g) blanched almonds, chopped finely",
+        "150 gram pork mince",
+        "150 gram veal mince",
+        "Roast pork",
+        "2 kilogram boneless loin of pork, rind on",
+        "Prune sauce",
+        "1 medium brown onion (150g), quartered",
+        "1 medium tomato (150g), quartered",
+        "3 clove garlic, unpeeled",
+        "2 tablespoon olive oil",
+        "2 chipotle chillies",
+        "1/3 cup (55g) blanched almonds",
+        "3/4 cup (125g) seeded prunes",
+        "4 whole cloves",
+        "1 teaspoon ground cinnamon",
+        "2 tablespoon cider vinegar",
+        "1 cup (250ml) chicken stock"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/silver-beet-omelette-with-capsicum-salad-29451/",
+      "name": "Silverbeet omelette with capsicum salad",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "Silver beet omelette with capsicum salad",
+        "260 gram chargrilled red capsicum (bell pepper), drained, sliced thickly",
+        "1 tablespoon fresh thyme leaves",
+        "1 clove garlic, crushed",
+        "1 tablespoon balsamic vinegar",
+        "1 tablespoon olive oil",
+        "6 medium stalks silver beet (swiss chard)",
+        "10 free-range eggs",
+        "1/4 cup (60ml) milk",
+        "2 clove garlic, extra, crushed",
+        "3 cup (350g) firmly packed snow pea tendrils",
+        "1/2 cup (40g) shaved pecorino cheese"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/drinks/classic-margarita-6850/",
+      "name": "Classic margarita",
+      "yield": "8",
+      "format": "json-ld",
+      "ingredients": [
+        "1 lime, quartered",
+        "coarse salt",
+        "5 cup crushed ice",
+        "2/3 cup (160ml) white tequila",
+        "1/2 cup (125ml) cointreau or triple sec",
+        "1/3 cup (80ml) lime juice"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/entertaining/potato-salad-with-yoghurt/",
+      "name": "Zesty yoghurt potato salad with salmon",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1kg kipfler potatoes, scrubbed, halved lengthways",
+        "100g pancetta",
+        "1 tablespoon extra virgin olive oil",
+        "2 stalks celery (300g), trimmed, leaves reserved, sliced",
+        "600g leftover cooked fish (salmon, ocean trout or snapper)",
+        "Zesty yoghurt dressing",
+        "½ cup (140g) Greek yoghurt",
+        "½ bunch chives, chopped finely, plus extra to serve",
+        "1 teaspoon finely grated lemon rind, plus extra to serve",
+        "1 tablespoon lemon juice",
+        "1 tablespoon Dijon mustard"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/gluten-free/creamy-garlic-and-herb-chicken-9168/",
+      "name": "Creamy garlic and herb chicken",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "4 (800g) chicken breast fillets",
+        "3 clove garlic, crushed",
+        "300 millilitre cream",
+        "2 tablespoon coarsely chopped fresh oregano"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/quick-and-easy/mussels-in-thai-broth-6947/",
+      "name": "Mussels in Thai broth",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "4 thin slices galangal, finely chopped",
+        "1 long red chilli, seeds removed, roughly chopped",
+        "4 coriander roots, cleaned and chopped",
+        "2 clove garlic, roughly chopped",
+        "1 tablespoon vegetable oil",
+        "1 cup (250ml) chicken stock",
+        "1 cup (250ml) coconut milk",
+        "1 stick lemongrass, bruised",
+        "1 tablespoon fish sauce",
+        "1 tablespoon grated palm sugar",
+        "1 kilogram black mussels, cleaned, debearded",
+        "1 tablespoon lime juice",
+        "1/4 cup coriander sprigs",
+        "crusty bread, to serve"
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/slow-cooker-recipes/julie-goodwins-chicken-korma-28633/",
+      "name": "Julie Goodwin&#8217;s chicken korma",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "1/3 cup (95g) natural yoghurt",
+        "1 tablespoon ground coriander",
+        "2 teaspoon ground cumin",
+        "1 teaspoon ground cardamom",
+        "1 teaspoon ground turmeric",
+        "1.2 kilogram chicken thigh fillets, cut into 2.5cm cubes",
+        "2 large (600g) red onions, peeled",
+        "5 centimetre piece fresh ginger, peeled, sliced thickly",
+        "3 clove garlic, peeled",
+        "1/2 cup (60g) almond meal",
+        "2 tablespoon vegetable oil",
+        "5 whole cloves",
+        "1 cinnamon stick",
+        "1 teaspoon salt",
+        "400 millilitre can coconut cream",
+        "steamed basmati rice, to serve",
+        "roti, to serve",
+        "cucumber and mint, to serve"
+      ]
+    }
+  ]
+}

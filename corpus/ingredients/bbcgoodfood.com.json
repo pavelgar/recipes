@@ -1,0 +1,454 @@
+{
+  "site": "bbcgoodfood.com",
+  "country": "GB",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/boulevardier",
+      "name": "Boulevardier",
+      "yield": 1,
+      "format": "json-ld",
+      "ingredients": [
+        "25ml bourbon",
+        "25ml sweet vermouth",
+        "25ml Campari",
+        "ice",
+        "orange peel twist to garnish"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/carrot-swede-mash-with-brown-butter-thyme",
+      "name": "Carrot & swede mash with brown butter & thyme",
+      "yield": "Serves 6-8",
+      "format": "json-ld",
+      "ingredients": [
+        "75g butter",
+        "3 thyme sprigs leaves picked",
+        "500g carrots peeled and roughly chopped",
+        "1 medium swede (around 600g), peeled and roughly chopped"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/champagne-cocktail",
+      "name": "Champagne cocktail",
+      "yield": 1,
+      "format": "json-ld",
+      "ingredients": [
+        "1 white sugar cube",
+        "2 dashes  bitters",
+        "2 tsp  brandy (optional)",
+        "chilled  champagne to top up",
+        "orange twist to garnish"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/charred-aubergine-pepper-bulgur-salad",
+      "name": "Charred aubergine, pepper & bulgur salad",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "175g bulgur wheat",
+        "2 tbsp sundried tomato paste",
+        "4 baby aubergines each sliced lengthways into 3",
+        "1 red pepper sliced lengthways into 1cm pieces",
+        "2 tsp olive oil",
+        "handful basil leaves"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/chiffon-cake",
+      "name": "Chiffon cake",
+      "yield": 10,
+      "format": "json-ld",
+      "ingredients": [
+        "5 eggs separated",
+        "80g caster sugar",
+        "100g self-raising flour (or sponge flour), plus extra for the tin",
+        "3 tbsp vegetable oil or another neutral-tasting oil, plus extra for the tin",
+        "5 tbsp milk",
+        "½ tsp baking powder",
+        "1 tsp vanilla extract",
+        "¼ tsp cream of tartar",
+        "icing sugar for dusting (optional)"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/coconut-pastries-gujiya",
+      "name": "Gujiya",
+      "yield": "Makes 17-18",
+      "format": "json-ld",
+      "ingredients": [
+        "275g  flour",
+        "35g  ghee melted and cooled",
+        "sunflower oil for kneading and deep-frying",
+        "1 litre whole milk (we used Jersey milk)",
+        "125g  caster sugar",
+        "200g frozen grated  coconut defrosted",
+        "50g blanched  almonds finely chopped",
+        "50g raisins",
+        "½ tsp  ground cardamom",
+        "¼ tsp  grated nutmeg"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/devilled-eggs",
+      "name": "Halloween devilled eggs",
+      "yield": "Makes 24 halves",
+      "format": "json-ld",
+      "ingredients": [
+        "12 eggs",
+        "red, orange, green or black food colouring or a mixture",
+        "1-4 tbsp vinegar",
+        "3 tbsp mayonnaise plus extra if the eggs are large",
+        "1 small red pepper finely chopped",
+        "a few tarragon sprigs finely chopped (optional)",
+        "paprika for sprinkling"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/elderflower-lemon-celebration-cake",
+      "name": "Lemon & elderflower celebration cake",
+      "yield": "Serves 15-18",
+      "format": "json-ld",
+      "ingredients": [
+        "oil for greasing",
+        "6 medium eggs",
+        "100g natural yoghurt",
+        "50ml milk",
+        "450g butter softened",
+        "450g golden caster sugar",
+        "450g self-raising flour",
+        "finely grated zest of 1 lemon plus juice",
+        "3 tbsp elderflower cordial",
+        "250g butter softened",
+        "300g full fat cream cheese",
+        "700g icing sugar",
+        "finely grated zest of 1 lemon",
+        "fresh flowers to decorate"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/flavour-bomb-roast-turkey-gravy",
+      "name": "Flavour-bomb roast turkey & gravy",
+      "yield": "Serves 8-10",
+      "format": "json-ld",
+      "ingredients": [
+        "200g unsalted butter softened",
+        "3 garlic cloves crushed",
+        "2 tbsp soy sauce",
+        "1 tbsp Worcestershire sauce",
+        "1 tbsp miso paste",
+        "1 tbsp rosemary leaves chopped (reserve the sprigs for the turkey)",
+        "½ tsp smoked paprika",
+        "1 lemon zested",
+        "5-6kg oven-ready turkey with the neck and giblets",
+        "2 onions roughly chopped",
+        "2 carrots roughly chopped",
+        "1 lemon (reserved from making the flavoured butter), halved",
+        "1 head of  garlic halved",
+        "small bunch of rosemary sprigs (reserved from the butter, above)",
+        "2 tbsp sunflower oil",
+        "2 tbsp plain flour",
+        "large glass red or white wine",
+        "1 tbsp soy sauce",
+        "600ml chicken or turkey stock"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/floating-islands",
+      "name": "Floating islands",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "500ml whole milk",
+        "2 tsp vanilla bean paste",
+        "4 large egg yolks (save the white of 1 egg and freeze the rest for another recipe)",
+        "100g caster sugar",
+        "1 large egg white",
+        "50g caster sugar",
+        "200ml whole milk",
+        "50g caster sugar"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/foolproof-chocolate-coffee-fondants",
+      "name": "Foolproof chocolate & coffee fondants",
+      "yield": 6,
+      "format": "json-ld",
+      "ingredients": [
+        "175g butter plus extra melted butter for greasing",
+        "cocoa powder for dusting",
+        "175g good-quality dark chocolate (we used 70%)",
+        "200g golden caster sugar",
+        "4 eggs",
+        "50ml good-quality black coffee (we used espresso coffee)",
+        "85g plain flour",
+        "vanilla ice cream to serve"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/huevos-rancheros",
+      "name": "Huevos rancheros",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "2 tbsp olive oil",
+        "1 small onion diced",
+        "2 garlic cloves crushed",
+        "400g can red kidney beans drained and rinsed",
+        "1 tsp ground cumin",
+        "¼ tsp  chilli powder",
+        "½ tsp dried oregano",
+        "4 eggs",
+        "4 small flour tortillas warmed",
+        "1 large tomato diced",
+        "handful pickled jalapeño peppers roughly chopped",
+        "30g cheddar grated",
+        "1 avocado peeled, de-stoned and diced",
+        "1 lime half juiced, half cut into wedges, to serve",
+        "chopped coriander to serve"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/lentil-rice-salad-beetroot-feta-dressing",
+      "name": "Lentil rice salad with beetroot & feta dressing",
+      "yield": 2,
+      "format": "json-ld",
+      "ingredients": [
+        "2 beetroot (use different colours if you like), peeled and cut into wedges",
+        "100g baby carrot",
+        "2 tbsp sherry vinegar",
+        "1 tsp Dijon mustard",
+        "1 tbsp extra-virgin olive oil",
+        "small bunch mint few leaves picked and remaining chopped",
+        "pinch of sugar",
+        "250g pouch cooked basmati rice",
+        "400g can cooked  puy lentils drained and rinsed",
+        "2 tbsp hazelnut toasted and roughly chopped",
+        "2 tbsp crumbled  feta cheese"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/little-iced-christmas-puds",
+      "name": "Little iced Christmas puds",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "1 clementine",
+        "5 tbsp golden rum",
+        "140g golden caster sugar",
+        "85g mix of dried cranberry and raisins",
+        "25g cut mixed peel",
+        "2 x 150g cartons light Greek yogurt",
+        "142ml carton double cream",
+        "50g white chocolate broken in pieces"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/one-pan-simple-summer-chicken",
+      "name": "One-pan simple summer chicken",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "8 chicken thighs skin on",
+        "800g potato cut into chunks",
+        "1 garlic bulb, broken into cloves, skin left on",
+        "2 tbsp olive oil",
+        "200ml chicken stock",
+        "1 lemon halved",
+        "2 courgettes cut into thick batons",
+        "1 red chilli deseeded and sliced",
+        "large handful basil leaves torn"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/one-pot-cheeseburger-pasta",
+      "name": "One-pot cheeseburger pasta",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "1 tbsp olive oil",
+        "1 large onion chopped",
+        "500g minced beef",
+        "2 tomatoes chopped",
+        "1 tbsp Worcestershire sauce",
+        "500ml warm beef stock",
+        "300g fusilli or other pasta shape",
+        "100ml milk",
+        "125g mature cheddar coarsely grated, plus extra to serve",
+        "1 tbsp mustard",
+        "1 tbsp ketchup plus extra to serve",
+        "50-70g pickles chopped",
+        "sliced dill pickles and/or jalapeños, to serve"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/peach-streusel-cheesecake",
+      "name": "Peach streusel cheesecake",
+      "yield": "Serves 10-12",
+      "format": "json-ld",
+      "ingredients": [
+        "vegetable oil for the tin",
+        "200g digestive biscuits",
+        "2 tbsp caster sugar",
+        "85g unsalted butter melted",
+        "700g cream cheese",
+        "250g mascarpone",
+        "280ml soured cream",
+        "250g golden caster sugar",
+        "3 large eggs",
+        "1 tbsp vanilla bean paste",
+        "3 tbsp plain flour",
+        "115g plain flour",
+        "60g light brown soft sugar",
+        "1 tsp ground cinnamon",
+        "45g unsalted butter melted",
+        "20g roasted hazelnuts roughly chopped",
+        "3 ripe, firm peaches",
+        "30g light brown soft sugar",
+        "1 lemon juiced",
+        "1 tsp vanilla bean paste"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/roasted-asparagus-smashed-new-potato-salad",
+      "name": "Roasted asparagus & smashed new potato salad",
+      "yield": 3,
+      "format": "json-ld",
+      "ingredients": [
+        "200g asparagus",
+        "½ lemon juiced and zested",
+        "500g new potatoes",
+        "2 tbsp olive oil",
+        "2 Little Gem lettuces quartered",
+        "50g peas",
+        "100g soft goat’s cheese",
+        "small bunch dill or parsley"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/sausage-traybake-with-garlic-butter-croutons",
+      "name": "Sausage traybake with garlic butter croutons",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "8 pork sausages",
+        "1 medium head of cauliflower cut into small florets and leaves chopped",
+        "1 head of broccoli cut into medium florets, stalk peeled and cut into chunks",
+        "1 red onion cut into wedges",
+        "3 tbsp red wine vinegar",
+        "1½ tbsp  honey",
+        "3 tbsp wholegrain mustard",
+        "3 tsp fennel seeds",
+        "3 tbsp olive oil",
+        "50g soft butter",
+        "3 garlic cloves crushed",
+        "2 tbsp chopped basil, parsley and thyme",
+        "2 sourdough slices cut into cubes"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/steak-chunky-chips-horseradish-cream",
+      "name": "Steak with chunky chips & horseradish cream",
+      "yield": 2,
+      "format": "json-ld",
+      "ingredients": [
+        "1-2 tbsp horseradish depending on how hot you like it",
+        "500g floury potato",
+        "2 thick sirloin steaks",
+        "2 tbsp snipped chive",
+        "100g crème fraîche"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/sunken-chocolate-olive-oil-hazelnut-cake",
+      "name": "Sunken chocolate, olive oil & hazelnut cake",
+      "yield": 10,
+      "format": "json-ld",
+      "ingredients": [
+        "100g blanched hazelnuts roughly chopped (see tip, below)",
+        "175ml extra virgin olive oil plus extra for the tin",
+        "200g 70% dark chocolate roughly chopped",
+        "5 eggs separated",
+        "175g golden caster sugar",
+        "1 tbsp icing sugar and vanilla ice cream, to serve"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/sweet-potato-brownies",
+      "name": "Sweet potato brownies",
+      "yield": 16,
+      "format": "json-ld",
+      "ingredients": [
+        "2 (about 400g) sweet potatoes halved",
+        "125g  almond butter",
+        "100g  maple syrup",
+        "25g  cocoa powder sifted",
+        "50g  plain flour",
+        "½ tsp  baking powder",
+        "25g  chopped almonds (optional)",
+        "100g  dark chocolate roughly chopped (dairy-free if necessary)"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/tunis-cake",
+      "name": "Tunis cake",
+      "yield": "Serves 12",
+      "format": "json-ld",
+      "ingredients": [
+        "250g  unsalted butter plus extra for the tin",
+        "250g  golden caster sugar",
+        "4 eggs",
+        "1 orange zested and juiced (see tip)",
+        "1 tsp  vanilla extract",
+        "250g  self-raising flour",
+        "75g  ground almonds",
+        "150g  dark milk chocolate or dark chocolate chopped (or use buttons; see tip)",
+        "100ml  double cream",
+        "25g  butter softened",
+        "50g  icing sugar",
+        "pink and yellow food colouring gels",
+        "marzipan fruit to decorate"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/turkey-larb-bowls",
+      "name": "Turkey larb bowls",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "1 small red onion finely sliced",
+        "3 tbsp rice wine vinegar",
+        "pinch of sugar",
+        "300g  sticky white rice",
+        "1 tbsp sunflower oil",
+        "1 tsp sesame oil",
+        "4 garlic cloves crushed",
+        "3 banana shallots finely sliced",
+        "1 lemongrass stalk outer leaves removed and finely chopped",
+        "1-2 bird's-eye chillies to taste (deseeded if you prefer less heat), finely chopped",
+        "400g leftover turkey shredded",
+        "2 tbsp dark soy sauce",
+        "2 tsp fish sauce",
+        "1 tbsp light brown soft sugar",
+        "1 lime juiced",
+        "1 Little Gem lettuce roughly chopped",
+        "½ cucumber halved and sliced",
+        "5g coriander finely chopped",
+        "5g mint leaves finely chopped"
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/ultimate-meringue",
+      "name": "Ultimate meringue",
+      "yield": 16,
+      "format": "json-ld",
+      "ingredients": [
+        "4 large organic egg whites at room temperature",
+        "115g caster sugar",
+        "115g icing sugar"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "site": "kotiliesi.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://kotiliesi.fi/resepti/etikkasilakat/",
+      "name": "Etikkasilakat",
+      "format": "json-ld",
+      "ingredients": [
+        "8  silakkafileetä",
+        "  korppujauhoja",
+        "  suolaa, pippuria",
+        "1  sipuli",
+        "2 rkl voita",
+        "  Etikkaliemi:",
+        "1 dl etikkaa",
+        "2 dl sokeria",
+        "3 dl vettä"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/grillattu-siika/",
+      "name": "Grillattu siika",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "  noin kilon painoinen siika",
+        "  suolaa",
+        "  valkopippuria",
+        "  puolen sitruunan mehu ja raastettu kuori",
+        "  sitruunaöljyä",
+        "  tillinippu tai sitruunatimjamin oksa"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/italialainen-joulusilli/",
+      "name": "Italialainen joulusilli",
+      "yield": "10",
+      "format": "json-ld",
+      "ingredients": [
+        "150 g kevytsuolattuja sillifileitä",
+        "1  sitruunan raastettu kuori ja puristettu mehu",
+        "1 dl vettä",
+        "1 dl sokeria",
+        "10  mustapippuria",
+        "1/2 dl valkoviinietikkaa",
+        "2 rkl kapriksia",
+        "1 pieni punasipuli viipaloituna"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/jalkiruokakulho/",
+      "name": "Jälkiruokakulho",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "3 rkl vaaleaa tahinia",
+        "2 rkl lämmintä vettä",
+        "2–4 rkl juoksevaa hunajaa",
+        "4 dl kookosjogurttia",
+        "2  banaania",
+        "1 dl gluteenitonta mysliä",
+        "4 rkl kookoslastuja",
+        "2 dl pensasmustikoita tai karhunvatukoita"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/kesaunelma/",
+      "name": "Kesäunelma",
+      "yield": "20",
+      "format": "json-ld",
+      "ingredients": [
+        "0.5 dl vehnäjauhoja",
+        "0.5 dl perunajauhoja",
+        "1 tl leivinjauhetta",
+        "3  munaa",
+        "1 dl sokeria",
+        "75 g mantelijauhetta",
+        "5  liivatelehteä",
+        "  Kylmää vettä",
+        "2  limettiä",
+        "2 dl kuohukermaa",
+        "500 g (2 prk)  limevalkosuklaarahkaa",
+        "2 rkl sokeria",
+        "1.5 dl soseutettua mansikkaa tai vadelmaa",
+        "2 rkl sokeria",
+        "1 dl mansikanmakuista vispikermaa",
+        "  mansikoita tai vadelmia"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/kirjolohi-uunissa/",
+      "name": "Kirjolohi uunissa",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "800 g perunoita",
+        "4  valkosipulinkynttä",
+        "1  sipuli",
+        "2 dl kasvislientä",
+        "2 dl kuohukermaa",
+        "1 tl suolaa",
+        "1/2 tl mustapippuria",
+        "1 (1 1/2 kg) kokonainen kirjolohi",
+        "1 tl suolaa",
+        "1/2 tl rouhittua valkopippuria",
+        "1  sitruuna",
+        "2 rkl oliiviöljyä",
+        "2  valkosipulinkynttä",
+        "1  salottisipuli",
+        "1/2 dl oliiviöljyä",
+        "1 ruukku persiljaa",
+        "1  rosmariininoksa",
+        "1 tl paprikajauhetta",
+        "1 tl jauhettua korianteria",
+        "1 tl juustokuminaa",
+        "1 tl suolaa"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/kukkoa-valkoviinissa/",
+      "name": "Kukkoa valkoviinissä",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1  broileri tai 700 g broilerinpaloja",
+        "1 rkl öljyä",
+        "1  pieni sipuli",
+        "1-2  porkkanaa",
+        "6-8  salottisipulia",
+        "2-3  laakerinlehteä",
+        "3-5 oksaa timjamia",
+        "3/4 - 1 tl suolaa",
+        "½ - 1  tl vastarouhittua mustapippuria",
+        "3-4 dl valkoviiniä (osa nesteestä voi olla kanalientä)",
+        "200 g siemenettömiä viinirypäleitä",
+        "150 g herkkusieniä",
+        "4 rkl ruskeaa suurustetta tai 2 rkl maissitärkkelystä",
+        "1-2 dl persiljaa"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/lohenmati-napit/",
+      "name": "Lohenmäti-napit",
+      "yield": "16",
+      "format": "json-ld",
+      "ingredients": [
+        "100-150 g kirjolohen mätiä",
+        "1 pkt rukiisia saaristolaisnappeja",
+        "1 tlk creme fraichea",
+        "1 tlk kermaviiliä",
+        " nippu tuoretta tilliä silppuna",
+        "1/2  punasipuli silppuna",
+        "1 rkl sitruunan mehua",
+        " ripaus suolaa",
+        "  tuoretta tilliä",
+        " ripaus suolaa"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/mansikka-ja-pistaasimarengit/",
+      "name": "Mansikka- ja pistaasimarengit",
+      "yield": "50",
+      "format": "json-ld",
+      "ingredients": [
+        "4  kananmunanvalkuaista",
+        "½ tl suolaa",
+        "1 tl valkoviinietikkaa",
+        "3 dl hienoa kidesokeria (Siro)",
+        " tippa punaista elintarvikepastaväriä",
+        "20 g pakastekuivattuja mansikkalastuja",
+        "1 dl kuorittuja pistaasipähkinöitä"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/matchawhoopie-pie/",
+      "name": "Matchawhoopie pie",
+      "yield": "20",
+      "format": "json-ld",
+      "ingredients": [
+        "100 g huoneenlämpöistä voita",
+        "1.5 dl sokeria",
+        "1  kananmuna",
+        "3.5 dl vehnäjauhoja",
+        "2 tl matcha-teejauhetta",
+        "1 tl leivinjauhetta",
+        "0.5 tl soodaa",
+        "1 dl maustamatonta jogurttia",
+        "150 g maustamatonta tuorejuustoa",
+        "5 rkl tomusokeria"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/modernit-makkaraperunat/",
+      "name": "Modernit makkaraperunat",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "6-8  keskikokoista perunaa",
+        "2-3  porkkanaa",
+        "200 g palsternakkaa",
+        "2  punasipulia",
+        "1 tl valkosipulirouhetta",
+        "1 tl kuivattua timjamia",
+        "½ tl  chilijauhetta",
+        "1 tl paprikajauhetta",
+        "  suolaa",
+        "  rouhittua mustapippuria",
+        "3 rkl oliiviöljyä",
+        "400 g bratwurstia"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/mokkilaisen-sienipannu/",
+      "name": "Mökkiläisen sienipannu",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "6  keskikokoista perunaa kuorineen",
+        "1 nippu porkkanoita",
+        "2  kesäistä palsternakkaa",
+        "1/2 rkl  öljyä",
+        "1/2 l  tatteja tai kantarelleja tai",
+        "1 rasia  siitakkeita (100 g)",
+        "1 dl vettä tai kasvislientä",
+        "2  kesäsipulia",
+        "2-3  valkosipulinkynttä",
+        "  tilli- tai rakuunasilppua",
+        "  suolaa, mustapippurirouhetta"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/mustapapukastike-frijoles-negros/",
+      "name": "Mustapapukastike (Frijoles negros)",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "noin 200 g  mustapapuja tai ruskeita papuja",
+        "2 l vettä",
+        "  kypsät pavut",
+        "1 rkl öljyä",
+        "½  punasipuli",
+        "1  puristettu valkosipulinkynsi",
+        "2  säilöttyä chiliä",
+        "  merisuolaa myllystä",
+        "1  limetin mehu ja raastettu kuori"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/nuotiomakkarat-ja-sinappimajoneesi/",
+      "name": "Nuotiomakkarat ja sinappimajoneesi",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "4  grillimakkaraa",
+        "1 dl majoneesia",
+        "2 rkl Dijon-sinappia",
+        "  rouhittua mustapippuria"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/omenainen-possupata/",
+      "name": "Omenainen possupata",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kg porsaan ulko-tai sisäfileetä",
+        "200 g sipulia",
+        "  valkosipulin kynsiä",
+        "1 rkl currya",
+        "  jauhettua valkopippuria",
+        "1 rkl soijakastiketta",
+        "1 kpl kanelitankoa",
+        "1 rkl inkiväärisiirappia",
+        " tai hunajaa",
+        "1 rkl tagine-tahnaa",
+        "puolen tai sitruunan raastettu kuori ja mehu",
+        "pala  juuriselleriä",
+        "3 dl vettä",
+        "0.5 kg hapahkoja omenalohkoja",
+        "1 dl keltaisia rusinoita",
+        "  öljyä tai voita"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/oopperakellarin-silakat/",
+      "name": "Oopperakellarin silakat",
+      "yield": "5",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kg silakoita",
+        "2  keltuaista",
+        "2 dl kermaa",
+        "1 1/2 dl ruisjauhoja",
+        "2-3 tl  suolaa",
+        "  voita paistamiseen"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/pekonihillo-joulutortun-taytteeksi/",
+      "name": "Pekonihillo joulutortun täytteeksi",
+      "format": "json-ld",
+      "ingredients": [
+        "2 pkt (à 170 g)  pekonia",
+        "1  punasipuli",
+        "4  valkosipulinkynttä",
+        "1 dl fariinisokeria",
+        "1 dl valmista kahvia",
+        "1/2 dl vaahterasiirappia",
+        "2 rkl tummaa balsamicoa",
+        "1 rkl kokojyväsinappia"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/suklainen-kakunkuorrutus/",
+      "name": "Suklainen kakunkuorrutus",
+      "format": "json-ld",
+      "ingredients": [
+        "150 g laktoositonta margariinia",
+        "3 dl tomusokeria",
+        "2  keltuaista tai valkuaista",
+        "200 g taloussuklaata",
+        "1 dl vahvaa kahvia",
+        "1 rkl murukahvia",
+        "1 rkl kaakaojauhetta"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/sweet-chili-seiti/",
+      "name": "Sweet chili -seiti",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 pkt (4 x 100 g) seitiä annospaloina",
+        "1/4 tl suolaa",
+        "1/4 tl rouhittua roseepippuria",
+        "2 dl kermaa",
+        "1 prk (200 g) ranskankermaa",
+        "4 rkl sweet chili -kastiketta",
+        "2 rkl tomaattisosetta",
+        "1/4 tl chilijauhetta",
+        "1  kalaliemikuutio",
+        "1 dl hienonnettua tuoretta tilliä"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/syysmarmeladi/",
+      "name": "Syysmarmeladi",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kg porkkanoita (uusia)",
+        "200 g (3-4 dl)  puolukoita",
+        "1  sitruuna",
+        "2 tl sitruunan kuorta",
+        "7 dl hillosokeria"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/taateli-kookospalat/",
+      "name": "Taateli-kookospalat",
+      "yield": "15",
+      "format": "json-ld",
+      "ingredients": [
+        "1 pkt (250 g) taateleita",
+        "3 dl kiehuvaa vettä",
+        "150 g voita",
+        "1 1/2 dl sokeria",
+        "2  kananmunaa",
+        "2 tl vaniljasokeria",
+        "2 tl kanelia",
+        "4 1/2 dl vehnäjauhoa",
+        "1 1/2 tl soodaa",
+        "100 g voita",
+        "2 dl fariinisokeria",
+        "2 dl kookoshiutaleita"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/taysjyvapastaa-ja-pinaattikastiketta/",
+      "name": "Täysjyväpastaa ja pinaattikastiketta",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "250 g täysjyväpastaa",
+        "1 rkl rypsiöljyä",
+        "1 kpl salottisipuli",
+        "250 g pinaattia (myös kokonaisena pakastetut lehdet käyvät, esim. Findus)",
+        "1 tl muskottia",
+        "4 rkl kasvirasvatuorejuustoa (esimerkiksi Keiju, puutarhan yrtit)",
+        "3 rkl vettä",
+        "1  ruukku tuoretta basilikaa",
+        "50 g pinjansiemeniä"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/tomaatti-ananassalsa/",
+      "name": "Tomaatti-ananassalsa",
+      "yield": "8",
+      "format": "json-ld",
+      "ingredients": [
+        "8-10 kpl tuoretta tomaattia",
+        "1 kpl tuore ananas (700-800 g)",
+        "1-2 kpl puna- tai keltasipulia",
+        "  öljyä",
+        "noin 1  rkl maizenaa",
+        "2 dl tomaattimehua",
+        "1 kpl kasvisliemikuutio",
+        "muutama  tippa tabascoa",
+        "  sokeria tai hunajaa"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/vappu-pimian-taytelainen-kasviskeitto/",
+      "name": "Vappu Pimiän täyteläinen kasviskeitto",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g Saarioisten perunalaatikkoa",
+        "  yksi paketti",
+        "1  sipuli",
+        "1  valkosipulinkynsi",
+        "  loraus öljyä",
+        "3-4  porkkanaa",
+        "2-3  perunaa",
+        "5-6 dl vettä",
+        "2 dl kermaa",
+        " ripaus suolaa",
+        " ripaus jauhettua paprikaa",
+        " ripaus kuivattua chiliä"
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/vihreat-letut/",
+      "name": "Vihreät letut",
+      "format": "json-ld",
+      "ingredients": [
+        "0.5 l nokkos- tai pinaattikeittoa",
+        "2  kananmunaa",
+        "2 dl hiivaleipäjauhoja",
+        "500 g savusilakkaa",
+        "1 purkki  kevytranskankermaa",
+        "1 purkki  raejuustoa",
+        "  tilliä"
+      ]
+    }
+  ]
+}

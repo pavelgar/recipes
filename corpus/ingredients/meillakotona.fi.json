@@ -1,0 +1,515 @@
+{
+  "site": "meillakotona.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.meillakotona.fi/reseptit/broileria-ja-kaalia-hoisinkastikkeessa-uusi-arkiruokasuosikki-valmistuu-vartissa",
+      "name": "Broileria ja kaalia hoisinkastikkeessa – katso ohje! | Maku",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3-4 kypsää broilerin koipireisipalaa",
+        "250 g parsakaalia",
+        "150 g valko- tai punakaalia",
+        "3 valkosipulinkynttä",
+        "2 kevätsipulia",
+        "1 rkl rypsiöljyä",
+        "1 dl hoisinkastiketta",
+        "1 1/2 dl broilerin kypsennyslientä tai kanalientä",
+        "1 rkl fariinisokeria",
+        "1 rkl sitruunamehua",
+        "2-3 tl ruskeaa kastikesuurustetta",
+        "1 rkl seesaminsiemeniä"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/donitsitorni",
+      "name": "Donitsitorni – katso resepti! | Kotivinkki",
+      "yield": "24 kpl",
+      "format": "json-ld",
+      "ingredients": [
+        "3 dl vehnäjauhoja",
+        "1 dl sokeria",
+        "1 tl vaniljasokeria",
+        "1 tl leivinjauhetta",
+        "½ tl  ruokasoodaa",
+        "50 g voita",
+        "1½ dl piimää",
+        "1 muna",
+        "1½ dl  tomusokeria",
+        "1 rkl kookosmaitoa",
+        "12 mintunlehteä",
+        "2 rkl maitorahkaa",
+        "1½ dl  tomusokeria",
+        "(tippa vihreää elintarvikeväriä)",
+        "1 prk karamellisoitua kondensoitua maitoa",
+        "¼ tl  hienoa merisuolaa",
+        "12 donitsin donitsipelti",
+        "voita pellin koloihin",
+        "nonparelleja",
+        " pakastekuivattuja marjoja",
+        " rouhittuja pistaasipähkinöitä ja sulatettua suklaata koristeeksi"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/jogurtti-suklaapallot",
+      "name": " Jogurtti-suklaapallot – katso ohje! | Maku",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1 limen kuori",
+        "5–6 siivua (50 g) kuivattua mangoa",
+        "4 dl paksua turkkilaista jogurttia",
+        "2 rkl sokeria",
+        "1 rkl vaniljasokeria",
+        "100 g suklaata",
+        "2 rkl kuohukermaa",
+        "1 rkl kaakaojauhetta"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/juuresnachot-airfryerilla",
+      "name": "Juuresnachot airfryerilla – katso resepti! | Maku",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1 bataatti",
+        "1–2  lanttua",
+        "2 rkl  rypsiöljyä",
+        "½ tl  suolaa",
+        "¼ tl  mustapippuria",
+        "1 avokado",
+        "125 g miniluumutomaatteja",
+        "1 pieni punasipuli",
+        "1 lime",
+        "1 prk (à 115 g)  pintopaputahnaa ",
+        "noin 1½ dl  tomaattisalsakastiketta",
+        "½ prk (à 240 g)  vegaanista juustonmakuista kastiketta (Frankful)",
+        "½ rku  korianteria tai lehtipersiljaa"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/kermainen-kanapata",
+      "name": "Kermainen kanapata – katso ohje! | Kotona",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "600 g broilerin paistileikkeitä",
+        "1 ps (350 g) salottisipuleita (tai muita pikkusipuleita)",
+        "2–3 valkosipulinkynttä",
+        "3 rkl rypsiöljyä",
+        "½ tl suolaa",
+        "½ tl mustapippuria",
+        "5 dl vettä",
+        "1 prk (2 dl) ruoka- tai kuohukermaa",
+        "1½ rkl kanafondia",
+        "2 rkl hunajaa",
+        "1–2 tl (dijonin)sinappia",
+        "1 rkl timjamia hienonnettuna",
+        "1 rkl rosmariinia hienonnettuna",
+        "1 sitruunan mehu"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/kevatsipulipiirakka",
+      "name": "Kevätsipulipiirakka – katso ohje! | Kotivinkki",
+      "yield": "12 palaa ",
+      "format": "json-ld",
+      "ingredients": [
+        "1 (600 g) iso lehtitaikinalevy",
+        "1 nippu (100 g) kevätsipulia",
+        "2 rkl rypsiöljyä",
+        "2 munaa",
+        "1 rs (250 g) ricottajuustoa",
+        "1 pkt (125 g) sinihomejuustoa",
+        "4 rkl tuoretta tai 2 tl kuivattua timjamia",
+        "¼ tl mustapippuria",
+        "4 rkl hunajaa"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/kvinoavohvelit",
+      "name": "Kvinoavohvelit – katso resepti | Maku",
+      "yield": "2–4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "2 dl kvinoaa",
+        "4 palaa (40 g) pakastepinaattia",
+        "100 g fetajuustoa",
+        "1 valkosipulinkynsi",
+        "2 munaa",
+        "1 rkl rypsiöljyä",
+        "1 tl juustokuminaa",
+        "⅓ tl suolaa",
+        "1 prk hummusta ",
+        "100 g fetajuustoa",
+        "150 g kirsikkatomaatteja",
+        "½ kurkkua",
+        "rucolanversoja tai muita versoja"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/mangolassikakku",
+      "name": "Mangolassikakku – nappaa resepti! | Maku",
+      "yield": "10 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "175 g digestivekeksejä",
+        "75 g voita",
+        "2 (noin 1 kg) syöntikypsää mangoa",
+        "6  liivatelehteä",
+        "2 dl kuohukermaa",
+        "400 g turkkilaista jogurttia",
+        "1 dl sokeria",
+        "2 tl vaniljasokeria",
+        "½ dl  sitruunanmehua",
+        "2 dl kuohukermaa",
+        "1 pieni mango",
+        "1–2 tl kardemummaa"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/mansikkavuokakakku-tassa-on-kesan-nopein-mansikkakakku",
+      "name": "Mansikkavuokakakku eli kesän nopein mansikkakakku | Maku",
+      "yield": "10 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3 munaa",
+        "1½ dl sokeria",
+        "1 dl mantelijauhetta",
+        " ¾ dl  perunajauhoja",
+        "1 tl leivinjauhetta",
+        "1 rkl sokeria",
+        "2 dl  vispikermaa",
+        "1 tlk kondensoitua karamellisoitua maitoa",
+        "1 ½ l mansikoita"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/mille-feuille-tuhatlehtinen",
+      "name": "Mille feuille – katso resepti! | Kotona",
+      "yield": "8–10 annosta ",
+      "format": "json-ld",
+      "ingredients": [
+        "2 lehtitaikinalevyä",
+        "3 dl kuohukermaa",
+        "1 prk (250 g) mascarponejuustoa",
+        "½–1 dl  sokeria",
+        "2 tl vaniljasokeria",
+        "1 dl tuoreita vadelmia",
+        "50 g valkosuklaata",
+        "2 dl tomusokeria",
+        "2 tl ruusuvettä",
+        "pari tippaa punaista geeliväriä",
+        "pakastekuivattuja vadelmia ",
+        "kuivattuja ruusuja "
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/munkkitaikina",
+      "name": "Munkkitaikina – katso ohje! | Maku",
+      "yield": "20–30 kpl",
+      "format": "json-ld",
+      "ingredients": [
+        "2 ½ dl maitoa",
+        "25 g hiivaa",
+        "1 dl sokeria",
+        "½ tl suolaa",
+        "1 tl kardemummaa",
+        "1 muna",
+        "noin 7 dl vehnäjauhoja",
+        "50 g voita",
+        "1 l rypsiöljyä",
+        "noin 2 dl sokeria"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/pienet-sitruunajuustokakut-sous-vide-tekniikalla",
+      "name": "Pienet sitruunajuustokakut sous vide -tekniikalla – katso ohje! | Maku",
+      "yield": "6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "6 digestivekeksiä",
+        "1½ rkl  sokeria",
+        "1½ rkl  voita",
+        "400 g maustamatonta tuorejuustoa",
+        "1 dl  sokeria",
+        "½ dl  kuohukermaa",
+        "3 munaa",
+        "½  sitruuna",
+        "1 tl  vaniljasokeria",
+        "½ dl  lemon curd -sitruunatahnaa",
+        "½ dl  tuoreita tai pakaste- vadelmia ",
+        "½ dl  pensasmustikoita tai  pakastemustikoita"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/pikkeloidyt-silakat",
+      "name": "Pikkelöidyt silakat | Kotona",
+      "yield": "12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g silakoita",
+        "2 dl vettä",
+        "1 dl etikkaa",
+        "1 rkl suolaa",
+        "½ dl väkiviinaetikkaa",
+        "1 dl sokeria",
+        "1 ½ dl vettä",
+        "½ rkl suolaa",
+        "10 maustepippuria",
+        "1 tähtianis",
+        "6 neilikkaa",
+        "1 tl sinapinsiemeniä",
+        "1 pieni punasipuli",
+        "puoli ruukkua tilliä",
+        "1 sitruuna"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/pinkki-kaaretorttu-on-helppo-ja-hurmaavan-hempea-leivonnainen",
+      "name": "Pinkki kääretorttu – katso resepti! | Maku",
+      "yield": "12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "4 munaa",
+        "2 dl sokeria",
+        "2 rkl sitruunamehua",
+        "1 dl vehnäjauhoja",
+        "1 dl perunajauhoja",
+        "1 tl  leivinjauhetta",
+        "2 tl nestemäistä punaista elintarvikeväriä",
+        "200 g maustamatonta tuorejuustoa",
+        "50 g voita",
+        "1 tl vaniljasokeria",
+        "2 dl tomusokeria"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/pohjanpoikien-parempi-kakku",
+      "name": "Pohjanpoikien parempi kakku  | Unelmien Talo&Koti",
+      "yield": null,
+      "format": "json-ld",
+      "ingredients": [
+        "2 kahvikupillista vettä ",
+        "2 kahvikupillista rusinoita ",
+        "1 tl soodaa ",
+        "1 tl neilikkaa ",
+        "1 tl kanelia ",
+        "200 g pehmeää voita ",
+        "2  lasia sokeria ",
+        "2 munaa",
+        "3 kahvikupillista vehnäjauhoja "
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/poke-kakku",
+      "name": "Poke-kakku – katso resepti! | Kotivinkki",
+      "yield": "10 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g voita huoneenlämpöisenä",
+        "2 dl sokeria",
+        "3 kananmunaa",
+        "2 dl vehnäjauhoja",
+        "1 dl tummaa kaakaojauhetta",
+        "2 tl leivinjauhetta",
+        "2 tl vaniljasokeria",
+        "2 dl boysenmarja- tai vadelmasosetta tai vähäsokerista hilloa",
+        "100 g maitosuklaata",
+        "2 dl vispikermaa",
+        "tuoreita boysenmarjoja"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/punajuuri-suklaapulla",
+      "name": "Punajuuri-suklaapulla – katso resepti! | Kotona",
+      "yield": "18 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "2 ½ dl  punajuuritäysmehua ",
+        "1 dl sokeria",
+        "25 g  hiivaa",
+        "1 tl  kardemummaa ",
+        "½ tl  suolaa",
+        "1 muna",
+        "6–7 dl  vehnäjauhoa ",
+        "75 g  voita ",
+        "150 g  tummaa suklaata ",
+        "50 g  voita",
+        "1 ½ dl  muscovadosokeria ",
+        "2 rkl  tummaa kaakaojauhetta ",
+        "2 tl  espressopikakahvijauhetta ",
+        "1  muna",
+        "tomusokeria ",
+        "karpalojauhetta tai -rouhetta "
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/rahkakaaretorttu",
+      "name": "Rahkakääretorttu – katso ohje! | Kotona",
+      "yield": "12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "4 munaa",
+        "1½ dl sokeria",
+        "1 dl perunajauhoja",
+        "¾ dl vehnäjauhoja",
+        "1 tl leivinjauhetta",
+        "1 prk (2 dl) vispi- tai kuohukermaa",
+        "1 prk (200 g) mango- tai persikkarahkaa",
+        "1 rkl tomusokeria",
+        "1 tl vaniljasokeria",
+        "tomusokeria"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/raparperisiirappi",
+      "name": "Raparperisiirappi – katso ohje! | Kotona",
+      "yield": "2,5 dl ",
+      "format": "json-ld",
+      "ingredients": ["250 g raparperia", "2½ dl sokeria", "2½ dl vettä"]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/shanghai-tacot",
+      "name": "Shanghai-tacot  – katso ohje! | Maku",
+      "yield": "10 kpl",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g broilerinfileetä",
+        " vaaleaa kalaa",
+        " tofua tai halloumia",
+        "½ tl suolaa",
+        "2 munaa",
+        "1½ dl vehnäjauhoja",
+        "2½ dl panko- tai korppujauhoja",
+        "noin 2 dl rypsiöljyä paistamiseen",
+        "1 dl majoneesia",
+        "2 tl srirachaa",
+        "1 dl hoisinkastiketta",
+        "1 rkl seesamiöljyä",
+        "1 dl maustamatonta jogurttia",
+        "2 tl hunajaa",
+        "1–2 chiliä",
+        "2 limeä",
+        "2 pkt (à 5 × 65 g) paratha-sipuli-leipiä",
+        "1 ps (150 g) salaattisekoitusta",
+        "noin 2 dl ituja",
+        "1 rku korianteria",
+        "½ dl kuivattua sipulia",
+        "1 rkl seesaminsiemeniä"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/skumppakuula-juustokakku",
+      "name": "Skumppakuula-juustokakku – katso ohje! | Maku",
+      "yield": "12",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g Digestive-keksejä",
+        "75 g voita",
+        "600 g maustamatonta tuorejuustoa",
+        "230 g omenamarmeladia",
+        "2 dl tomusokeria",
+        "4 dl vispikermaa",
+        "2 rkl sitruunanmehua",
+        "1½ dl kuohuviiniä",
+        "5 liivatelehteä",
+        "260 g Skumppakuulat -marmeladeja",
+        "30 g valkosuklaata",
+        "syötäviä kukkia"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/suklaa-kirsikkapiirakka",
+      "name": "Suklaa-kirsikkapiirakka – katso resepti! | Maku",
+      "yield": "12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3 dl vehnäjauhoja",
+        "¾ dl kaakaojauhetta",
+        "1 dl tomusokeria",
+        "125 g voita",
+        "1 muna",
+        "(1–2 tl kylmää vettä)",
+        "1 ps (1 kg) kirsikoita",
+        "1 pkt (330 g) hillo-marmeladisokeria",
+        "(2 rkl rommia)",
+        "100 g voita",
+        "2 dl tomusokeria",
+        "2 munaa",
+        "2 ps (à 80 g) mantelijauhetta",
+        "1 dl kaakaojauhetta"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/suklaasuun-vadelmakaaretorttu",
+      "name": "Suklaasuun vadelmakääretorttu – katso resepti | Maku",
+      "yield": "12 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "4 munaa",
+        "1½ dl sokeria",
+        "1 dl perunajauhoja",
+        "4 rkl kaakaojauhetta",
+        "1 tl leivinjauhetta",
+        "2 dl vispikermaa",
+        "1 pkt (200 g) maustamatonta tuorejuustoa",
+        "½ dl sokeria",
+        "150 g rubysuklaata",
+        "150 g kotimaisia vadelmia",
+        "150 g tummaa suklaata",
+        "1 dl kuohukermaa",
+        "100 g kotimaisia vadelmia",
+        "100 g rubysuklaata"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/tonnikala-perunatacot",
+      "name": "Tonnikala-perunatacot − katso resepti | Kotivinkki",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "15 pienehköä varhaisperunaa",
+        "2 rkl öljyä",
+        "1 rkl tacomaustetta",
+        "2 prk tonnikalaa öljyssä",
+        "1 valkosipulinkynsi",
+        "½ rku korianteria",
+        "1 prk ranskankermaa",
+        "½ tl suolaa",
+        "1 limen mehu",
+        "4 tomaattia",
+        "2 avokadoa",
+        "1 punasipuli",
+        "1 lime",
+        "12 pientä maissitortillaa",
+        "½ rku korianteria"
+      ]
+    },
+    {
+      "url": "https://www.meillakotona.fi/reseptit/vegaaninen-voileipakakku",
+      "name": "Vegaaninen voileipäkakku – katso resepti! | Kotona",
+      "yield": "8 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "12 siivua grahampaahtoleipää",
+        "½ dl kasvislientä",
+        "1 rs (200 g) vegaanista tuorejuustoa",
+        "2 avokadoa",
+        "1 limen mehu",
+        "1 valkosipulinkynsi",
+        "1 rku korianteria",
+        "1 tlk (380/230 g) kikherneitä",
+        "2 rkl vaaleaa tahinia",
+        "1 tl suolaa",
+        "1 tlk (380/230 g) kikherneitä",
+        "2 rkl oliiviöljyä",
+        "1 tl paprikajauhetta",
+        "1 tl suolaa"
+      ]
+    }
+  ]
+}

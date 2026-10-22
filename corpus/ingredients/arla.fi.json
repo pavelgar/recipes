@@ -1,0 +1,438 @@
+{
+  "site": "arla.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.arla.fi/reseptit/banaanismoothie-maapahkinavoin-kera/",
+      "name": "Banaanismoothie maapähkinävoin kera ",
+      "yield": "2",
+      "format": "json-ld",
+      "ingredients": [
+        "2 banaania",
+        "4 dl Arla® Kevytmaitoa",
+        "4 rkl maapähkinävoita"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/capricciosa-pizzaleipa/",
+      "name": "Capricciosa pizzaleipä",
+      "yield": "1 pala",
+      "format": "json-ld",
+      "ingredients": [
+        "viipaletta keitettyä kinkkua",
+        "125 g mozzarellaa",
+        "1 dl tomaattikastiketta",
+        "150 g Arla® Emmental juustoraastetta",
+        "1 tl kuivattua tai hienonnettua tuoretta oreganoa",
+        "½ dl Arla® Meijerivoita sulatettuna",
+        "1½ dl Arla® Kevytmaitoa",
+        "2 kananmunat",
+        "5 dl vehnäjauhoja",
+        "2 tl leivinjauhetta",
+        "1 tl suolaa"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/dippilihapullat/",
+      "name": "Dippilihapullat",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g lampaan tai naudan jauhelihaa",
+        "sipulikeitto kasvikset",
+        "2 dl Arla Ingman Luonnonjogurttia",
+        "100 g korppujauhoja",
+        "2 valkosipulinkynnet",
+        "1 kananmuna",
+        "hienoa suolaa",
+        "pippuria",
+        "750 g tuoreita kasviksia (esim. porkkanaa, kurkkua, paprikaa)"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/graavilohitartar-ja-piimakastike/",
+      "name": "Graavilohitartar",
+      "yield": "5 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g graavattua lohifileitä",
+        "1½ dl Arla® AB piimä 2,5% vähälaktoosinen",
+        "½ dl vatkattua Arla® Lempi Smetana laktoositon 150 g",
+        "1¼ tl jauhettua fenkolia",
+        "½ tl hienoa suolaa",
+        "½ tl sokerit",
+        "1 rkl dijon sinappia"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/grillattu-parsa-auringonkukkapesto-juustosabayonne/",
+      "name": "Grillattu parsa auringonkukkapestolla ja juustosabayonnella",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "16 tuoreita vihreitä parsoja",
+        "50 g Arla® Meijerivoita",
+        "hiutaleista suolaa",
+        "1 ruukku tuoretta tilliä",
+        "50 g lehtipersiljaa",
+        "1 pieni valkosipulinkynsi",
+        "1 dl rypsiöljyä",
+        "50 g auringonkukansiemeniä, paahdettuna",
+        "1 tl sherryviinietikkaa",
+        "1 tl suolaa",
+        "mustapippuria, vastajauhettua",
+        "200 g Arla® Meijerivoita",
+        "100 g kypsytettyä kovaa Havart juustoa (tai Arla Passeli Port Salut)",
+        "3 kananmunan keltuaisia",
+        "2 kananmunaa",
+        "½ dl sitruunaa (mehua)",
+        "suolaa"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/grillipihvi-tillipestovoilla/",
+      "name": "Grillipihvi tillipestovoilla",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "4 välikyljystä (yht. n. 600 g)",
+        "2 rkl inkivääriä",
+        "2 tl worcestershirekastiketta",
+        "1 tl suolaa",
+        "75 g Arla® Meijerivoita huoneenlämpöisenä",
+        "1 dl Arla® Emmental juustoraastetta",
+        "1 valkosipulinkynsi puserrettu",
+        "½ dl tilliä silputtuna",
+        "1½ rkl hasselpähkinöitä tai manteleita rouhittuna"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/hummerikeitto/",
+      "name": "Hummerikeitto",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1 iso pakastehummeri tai 2 pientä",
+        "25 g Arla® Meijerivoita",
+        "1 valkosipulinkynsi murskattuna",
+        "2 rkl tomaattipyreetä",
+        "1 tl salviaa",
+        "3 rkl vehnäjauhoja",
+        "8 dl kalaliemeä",
+        "1 dl kuivaa valkoviiniä",
+        "200 g Arla® Lempi Crème Fraîche 28 %",
+        "¼ tl jauhettua cayennepippuria",
+        "2 rkl konjakkia",
+        "muutama tuoreen salvianlehteä"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/jogurttikulho-on-trendikas-valipala/",
+      "name": "Jogurttikulho",
+      "yield": "2 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "kreikkalaista jogurttia",
+        "puolikas kurkkua siivutettuna",
+        "½ rkl murskattua korianteria (siemeniä)",
+        "2 tl valkoviinietikkaa",
+        "1 tl hunajaa",
+        "ripausta hienoa suolaa",
+        "4 retiisejä ohuiksi viipaloituna",
+        "2 tl seesaminsiementä",
+        "tilliä",
+        "mustapippurirouheet",
+        "oliiviöljyä",
+        "kreikkalaista jogurttia",
+        "½ dl cashewpähkinät",
+        "1 dl kaurahiutaletta",
+        "1 rkl sulatettua Arla® Meijerivoita",
+        "½ tl kanelia",
+        "2 rkl kookossokeria",
+        "2 omenaa",
+        "1 rkl Arla® Meijerivoita",
+        "1 rkl kookossokeria",
+        "1 rkl vaniljasokeria",
+        "1 rkl rusinaa",
+        "kreikkalaista jogurttia",
+        "2 dl tuoreita marjaa (herukoita, mustikoita, vadelmia)",
+        "2 rkl auringonkukansiementä",
+        "10 mintunlehdet",
+        "hunajaa",
+        "ripaus vaniljajauhetta tai vaniljasokeria"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/juustoinen-uunilohi/",
+      "name": "Juustoinen uunilohi",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g lohifileitä",
+        "300 g fenkoli",
+        "1 punainen paprika",
+        "Arla® Meijerivoita",
+        "1 tl suolaa",
+        "1 rkl rosmariinia",
+        "100 g Apetina® Original pala"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kermainen-bataatti-perunakeitto/",
+      "name": "Kermainen bataatti-perunakeitto",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 keltainen sipuli",
+        "300 g bataatteja",
+        "1 tl voita",
+        "3 dl vettä",
+        "1 ripaus valkopippuria",
+        "2 kasvisliemikuutiota",
+        "5 dl Arla® Kevytmaitoa",
+        "2½ dl Arla Lempi ruokakermaa"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kermainen-sienipasta/",
+      "name": "Kermainen sienipasta",
+      "yield": "",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g fettuccine- pastaa (nauhapastaa)",
+        "1 rkl suolaa",
+        "150 g ruskeita herkkusieniä",
+        "1 valkosipulinkynsi",
+        "1 tuore rosmariinin oksa",
+        "25 g Arla® Meijerivoi vähemmän suolaa laktoositon",
+        "2½ dl Arla® Lempi Ruokakerma 15% laktoositon 3 dl",
+        "½ sitruuna"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kolmen-suklaan-juustokakku/",
+      "name": "Kolmen suklaan juustokakku",
+      "yield": "10 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g Digestive-keksejä",
+        "½ dl ruokosokeria",
+        "3 rkl tummaa kaakaojauhetta",
+        "75 g sulatettua Arla® Meijerivoita",
+        "400 g Arla® Lempi Maitorahka 0,2 % laktoositon (1 prk)",
+        "2 dl ruokosokeria",
+        "2 dl Arla® Kuohukerma (1 prk)",
+        "3 liivatelehteä",
+        "200 g tummaa suklaat",
+        "100 g maitosuklaata",
+        "100 g valkosuklaata",
+        "tuoreita mansikat"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kylmasavulohipiirakka/",
+      "name": "Kylmäsavulohipiirakka",
+      "yield": "12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1 dl ruisjauhoa",
+        "2 dl vehnäjauhoa",
+        "100 g Arla® Meijerivoi vähemmän suolaa laktoositon",
+        "1 kananmuna",
+        "200 g kylmäsavulohta",
+        "1 varsi sipuli",
+        "½ ruukku tuoretta tilliä",
+        "160 g Arla® Lempi Tuorejuusto Vihreät yrtit",
+        "200 g Arla® Lempi Crème Fraîche 28 %",
+        "2 kananmunaa",
+        "1 dl Apetina® Cheddar-mozzarella -raaste 200 g",
+        "½ tl mustapippuria",
+        "2 rkl sitruunamehua"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lehtikaali-hedelmasmoothie/",
+      "name": "Lehtikaali-hedelmäsmoothie ",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "250 g pakastettua mangoa",
+        "4 dl maitoa",
+        "1 rkl hunajaa",
+        "1 dl hienonnettua pinaattia",
+        "1 dl hienonnettua lehtikaalia",
+        "1 limetin mehu"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lemon-curd-eli-sitruunatahna/",
+      "name": "Lemon curd eli sitruunatahna",
+      "yield": "3",
+      "format": "json-ld",
+      "ingredients": [
+        "1 dl puristettua sitruunamehua",
+        "1½ dl tomusokeria",
+        "4 kanamunan keltuaiset",
+        "50 g Arla® Meijerivoita"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lihapata/",
+      "name": "Lihapata",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "25 g Arla® Meijerivoita",
+        "400 g porsaan ulkofileetä kuutioituna pieniksi paloiksi",
+        "150 g pekonia",
+        "400 g sieniä kokonaisina tai puoliksi leikattuina",
+        "1 suuri punasipuli hienonnettuna (n. 100 g)",
+        "400 g kuorittuja tomaatteja",
+        "1 tl karkeaa suolaa",
+        "1 tl vahvaa paprikajauhetta",
+        "200 g cocktail- tai muita pieniä makkaraa",
+        "1½ dl Arla® Luomu kuohukermaa",
+        "persiljaa karkeasti hienonnettuna",
+        "320 g keitettyä riisiä"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/munakoisotahna/",
+      "name": "Munakoisotahna",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3½ dl Arla® Lempi Turkkilaista jogurttia 10 %",
+        "1 munakoiso",
+        "1 valkosipulinkynsi",
+        "½ dl silputtua tuoretta tuoreet basilikat",
+        "½ dl saksanpähkinöitä",
+        "1 tl suolaa",
+        "1 tl mustapippuria",
+        "saksanpähkinöitä",
+        "tuoretta tuoreet basilikat"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/pekaanipahkinamousse/",
+      "name": "Pekaanipähkinämousse",
+      "yield": "2 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "2 dl kuohukermaa",
+        "2 rkl fariinisokeria",
+        "½ tl jauhettua kanelia",
+        "2 rkl tummaa rommia",
+        "2 rkl rouhittuja pekaanipähkinät"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/protein-tuorepuuro/",
+      "name": "Protein tuorepuuro",
+      "yield": "2 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3½ dl Arla® Protein Kaakaojuoma UHT laktoositon 1 L",
+        "10 taateleita",
+        "1 ripaus suolaa",
+        "120 g kaurahiutaleita",
+        "2 tl chiansiementä",
+        "2 tl pekaanipähkinät",
+        "vadelmat",
+        "mustikkat"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/raparperijaadyke/",
+      "name": "Raparperijäädyke",
+      "yield": "6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "300 g raparperia",
+        "1½ dl sokeria",
+        "2 dl kuohukermaa",
+        "200 g maitorahkaa",
+        "1 tl vaniljasokeria",
+        "1 dl tomusokeria",
+        "2 kananmunat",
+        "3 dl mantelikeksejä"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/salmiakki-mutakakku/",
+      "name": "Salmiakki-mutakakku",
+      "yield": "12",
+      "format": "json-ld",
+      "ingredients": [
+        "150 g Arla® Meijerivoita",
+        "3 kananmunat",
+        "3 dl sokerit",
+        "2 dl vehnäjauhoa",
+        "1 dl kaakaota",
+        "( 2 tl suolaa )",
+        "10 kpl turkinpippurikarkkia"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/tuore-pinaattisalaatti-mintun-ja-juuston-kera/",
+      "name": "Tuore pinaattisalaatti mintun ja juuston kera ",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 punasipuli, ohuiksi viipaleiksi leikattuna (noin 100 g)",
+        "1 tl merisuolaa",
+        "250 g leipää, viipaloituna",
+        "2 tl kylmäpuristettua rypsiöljyä",
+        "1 kurkku, viipaloitu tikuiksi (noin 300 g)",
+        "2 rkl tuoreita mintunlehtiä, hienonnettuna",
+        "100 g Arla Apetina® Classic Pala",
+        "100 g pinaattia",
+        "250 g edamamepapuja papuja",
+        "1 tl sitruunankuorta",
+        "pippuria",
+        "lohifilettä grillattuna"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/vadelmasorbetti/",
+      "name": "Vadelmasorbetti",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1 vaniljatanko",
+        "1 dl vettä",
+        "1 dl sokeria",
+        "250 g vadelmia",
+        "3 dl Arla® Lempi Kermaviiliä 15%"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/voikahvi/",
+      "name": "Voikahvi ",
+      "yield": "",
+      "format": "json-ld",
+      "ingredients": [
+        "2 - 4 dl hyvälaatuista kumaa kahvia",
+        "1 - 2 rkl kirkastettua voita",
+        "1 - 2 rkl MCT -öljyä"
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/yrtti-juustokastike-kasviksille/",
+      "name": "Yrtti-juustokastike kasviksille",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "2 dl kuohukermaa",
+        "1 dl Arla® Kevytmaitoa",
+        "1 rkl vehnäjauhoa",
+        "150 g Arla® Emmental Sinileimaa raastettuna",
+        "1 rkl yrttisekoitusta (esim. Herbes de Provence)",
+        "½ tl yrttisuolaa",
+        "½ tl mustapippurit myllystä"
+      ]
+    }
+  ]
+}

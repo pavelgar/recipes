@@ -1,0 +1,437 @@
+{
+  "site": "kotikokki.net",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.kotikokki.net/kumppanit/bonne/reseptit/nayta/884419/Mangosorbetti/",
+      "name": "Mangosorbetti",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "5dl Bonne Mangososetta",
+        "4dl 77% sokerilientä",
+        "5g ksantaania"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/844539/Appelsiini-suklaakakku/",
+      "name": "Appelsiini-suklaakakku",
+      "format": "json-ld",
+      "ingredients": [
+        "4 kanamunaa (isoja munia)",
+        "2½dl sokeria",
+        "2dl rypsiöljyä",
+        "1dl appelsiinimehua",
+        "1 appeliini raastettu kuori",
+        "4dl vehnäjauhoja",
+        "2tl leivinjauhetta",
+        "1tl kaardemummaa",
+        "jaa valmistaikina 2 astiaan ja lisää",
+        "0,75dl kaakaojauhetta",
+        "200g valkosuklaata",
+        "½dl kermaa",
+        "(Tumma)",
+        "100g tummaasuklaata",
+        "n 1tl voita"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/853592/Gluteeniton%20vuokaleip%C3%A4/",
+      "name": "Gluteeniton vuokaleipä",
+      "yield": "8 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "5dl vettä",
+        "1pss kuivahiivaa",
+        "1tl suolaa",
+        "1/2dl öljyä",
+        "n. 5dl Virtasalmen Viljatuotteen Vaaleaa gluteenitonta jauhoseosta"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/854204/Marmorileiv%C3%A4t/",
+      "name": "Marmorileivät",
+      "format": "json-ld",
+      "ingredients": [
+        "200g voita tai margariinia",
+        "1dl sokeria",
+        "1kpl kananmuna",
+        "1tl leivinjauhetta",
+        "2tl vanilliinisokeria",
+        "1,5dl kuohukermaa",
+        "3/4dl sokeria",
+        "3/4dl fariinisokeria",
+        "2tl voita tai margariinia",
+        "1tl vanilliinisokeria",
+        "225g tomusokeria",
+        "1kpl kananmunan valkuainen",
+        "1/2rkl vettä",
+        "1tl kaakaojauhetta"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/857948/Ohraryyni%20lis%C3%A4ke%201.6.2021/",
+      "name": "Ohraryyni lisäke 1.6.2021",
+      "yield": "2 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "125gr ohraryynejä",
+        "3dl pakasteherneitä",
+        "omaa salaattikastiketta",
+        "tuoretta minttua ja basilikaa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/869770/Intialaista%20kanaa%20voissa/",
+      "name": "Intialaista kanaa voissa",
+      "format": "json-ld (repaired)",
+      "ingredients": [
+        "Paketti broilerin koipia",
+        "Öljyä",
+        "Kaneli",
+        "Neilikka",
+        "Mustapippuri",
+        "Kumina",
+        "Inkivääri",
+        "Valkosipuli",
+        "2 Sipuli",
+        "Tomaattimurska",
+        "Garam masala",
+        "Punainen chilijauhe",
+        "Kurkuma",
+        "Korianteri",
+        "Suola",
+        "Kuohukerma",
+        "Maustamaton jugurtti"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/869939/Nakkimakaronilaatikko/",
+      "name": "Nakkimakaronilaatikko",
+      "format": "json-ld",
+      "ingredients": [
+        "Vettä",
+        "3Kpl Lihaliemikuutiota",
+        "200G Täysjyvämakaronia",
+        "2Kpl Sipulia",
+        "400G Nakkeja",
+        "3Kpl Munaa",
+        "5Dl Maitoa",
+        "Gouda juustoa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/870250/Sp%C3%A4tzlespyd%C3%A4ri/",
+      "name": "Spätzlespydäri",
+      "format": "json-ld",
+      "ingredients": [
+        "Voita",
+        "Sipulia",
+        "Perunaa",
+        "Spätzle",
+        "Kananmunahyydykettä",
+        "Fleur de Sel- suolaa",
+        "Pariloitua pekonia",
+        "Tuoretta ruohosipulia + sen kukkia, jos sattuu kukkimaan"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/870540/Kana-paprika%20piiras/",
+      "name": "Kana-paprika piiras",
+      "yield": "6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "400g Maustamaton kanan fileesuikale",
+        "2dl Ruokakermaa",
+        "150g juustoraastetta",
+        "1 paprika",
+        "1.5dl Maitoa",
+        "50g sulatettua voita",
+        "2tl leivinjauhetta",
+        "3.5dl vehnäjauhoja",
+        "4 Munaa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/870575/Keitti%C3%B6taikaa%20suolainen%20pannukakku/",
+      "name": "Keittiötaikaa suolainen pannukakku",
+      "format": "json-ld",
+      "ingredients": [
+        "2-3dl Jauhoja",
+        "5-7dl Maitoa",
+        "1tl Suolaa ja leivinjauhetta",
+        "4 Munaa",
+        "Sitruunapippuria",
+        "1pkt Salami chorizo leikkeleitä (lidl merkki)",
+        "1 Paprika",
+        "1rs luumutomaattia / kirsikkatomaattia",
+        "1 Kevätsipuli varsineen",
+        "2dl Maissia"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/871260/Paras%20kahden%20pohjan%20marjapiirakka/",
+      "name": "Paras kahden pohjan marjapiirakka",
+      "yield": "12 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "150g voita",
+        "1,5dl sokeria",
+        "3dl vehnäjauhoja",
+        "1tl leivinjauhe",
+        "3kpl kananmunia",
+        "2dl sokeria",
+        "3dl vehnäjauhoja",
+        "1tl leivinjauhe",
+        "50g voita",
+        "1dl maitoa",
+        "150-200g marjoja",
+        "3rkl sokeria/ruokosokeria"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/871867/Karhu-t%C3%B6lkki%20kakku%2017.9.2022/",
+      "name": "Karhu-tölkki kakku 17.9.2022",
+      "yield": "1 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "mustaa sokerimassaa",
+        "oranssia/kultaista sokerimassaa",
+        "valkoista sokerimassaa",
+        "kakkupohja, valmis 8-10hlö (Rainbow)",
+        "vattuhilloa",
+        "kermavaahtoa",
+        "mascarponea",
+        "tomusokeria",
+        "vaniljauutetta/sokeria tms",
+        "vaniljakreemijauhe",
+        "elintarviketussi (musta) tai väriä ja ohut sivellin",
+        "kultainen geeliväri ellei ole kultainen sokerimassa",
+        "lehmänhermot",
+        "eintarvikeliimaa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/876870/Keitti%C3%B6taikaa%20uppopaistetut%20vihapiirakat/",
+      "name": "Keittiötaikaa uppopaistetut vihapiirakat",
+      "format": "json-ld",
+      "ingredients": [
+        "6dl Käden lämpöistä maitoa",
+        "1rkl Sokeria",
+        "1tl Suolaa",
+        "10-12dl Jauhoja",
+        "1-2rkl Öljyä",
+        "50g Tuorehiivaa",
+        "1rkl Öljyä",
+        "3dl Tummaa soijarouhetta",
+        "5dl Vettä",
+        "3 1/2dl Puuroriisiä",
+        "6dl Vettä",
+        "Kasvisliemikuutio",
+        "2 Keskikokoista sipulia",
+        "3 Valkosipulinkynttä",
+        "1 Iso porkkana raasteena",
+        "3rkl Paprikajauhetta",
+        "1rkl Mustapippurirouhetta",
+        "1/4tl Valkopippurijauhetta",
+        "2tl Chilijauhetta."
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/877778/Broilerinakkivuoka%20Lasagelevyist%C3%A4/",
+      "name": "Broilerinakkivuoka Lasagelevyistä",
+      "format": "json-ld",
+      "ingredients": [
+        "8kpl broilerinakkeja pitkiä",
+        "8kpl lasagnelevyjä",
+        "voita",
+        "sipulia",
+        "vehnäjauhoja",
+        "maitoa",
+        "Juustoraastetta + tuorejuustoa",
+        "suolaa, mustapippuria, ruohosipulia,",
+        "sinappia, ketsuppia"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/879617/Kes%C3%A4keitto/",
+      "name": "Kesäkeitto",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "4-6 Perunaa",
+        "2-3 Porkkanaa",
+        "Kukkakaalia",
+        "n.200g Pakasteherneitä",
+        "Kevätsipulia",
+        "Ruohosipulia",
+        "Persiljaa",
+        "n.80g Sulatejuustoa",
+        "2dl Kermaa tai maitoa",
+        "10-30kpl Kokonaista mustapippuria",
+        "1kpl Kasvisliemikuutio",
+        "0-1tl Suolaa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/879953/Scoths%20egg%2021.10.2023/",
+      "name": "Scoths egg 21.10.2023",
+      "yield": "2 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "300gr nauta jauhelihaa",
+        "1kpl kananmuna",
+        "2-4rkl korppujauhoja",
+        "tilkka kermaa",
+        "1rkl Dijon-sinappia",
+        "1kpl kevätsipuli pilkottuna",
+        "ruohosipulia,persiljaa pilkottuna",
+        "suolaa,currya,kurkumaa,paprikaa,pippuria",
+        "2kpl kananmunaa",
+        "Öljyä  tal kookosrasvaa uppopaistoon"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/881537/Jogurttia/",
+      "name": "Jogurttia",
+      "yield": "1 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "250g.prk rahkajogurttia (Milbona 0,9%)",
+        "klementtiini",
+        "pieni omena",
+        "tummia rypäleitä",
+        "puolikas avocado",
+        "salsanpähkinöitä",
+        "pinnalle limestä mehua"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/883100/Kanawokki/",
+      "name": "Kanawokki",
+      "format": "json-ld",
+      "ingredients": [
+        "500G Wokvihanneksia",
+        "110G Kananuudeleita",
+        "450G Hunajamarinoituja kananfileesuikaleita",
+        "Paahdettua sipulirouhetta",
+        "Valkosipulimaustetta",
+        "Pippurimaustetta",
+        "Soijaa",
+        "1PURKKI Kookosmaitoa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/883627/Grillattavat%20kasvisvartaat/",
+      "name": "Grillattavat kasvisvartaat",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "4 punasipulia",
+        "250g Herkkusieniä (1 pkt)",
+        "3 paprikaa",
+        "8kynttä valkosipulia",
+        "2dl oliiviöljyä",
+        "2 + 2rkl persiljaa ja basilikaa",
+        "suolaa, mustapippuria, (chiliä) oman maun mukaan",
+        "4 (tai enemmän) varrastikkua"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/886100/Sekasienikeitto/",
+      "name": "Sekasienikeitto",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "450g sekasieniä, pakastettuja ja esikäsiteltyjä ( mustavahakas, herkkutatti, suppilovahvero ja kanttarelli )",
+        "1pieni keltasipuli, silputtuna",
+        "paistoon voita",
+        "3rkl vehnäjauhoja",
+        "1ltr vettä",
+        "1 kasvisliemikuutio",
+        "rakuunaa",
+        "50g sinihome sulatejuustoa ( Edel Blue ) tjms.",
+        "1dl ruokakermaa 15 %",
+        "hienoa merisuolaa"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/887639/Kana%20Heston%2030.6.2025/",
+      "name": "Kana Heston 30.6.2025",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kpl kana,m.1,6 kg",
+        "2 litraa vettä",
+        "140 gr suolaa",
+        "5 rkl sitruunamehua",
+        "appelsiini/ limen mehua",
+        "1 rkl hunajaa",
+        "1 sitruuna lohkottuna",
+        "125 gr kylmää voita",
+        "timjamia"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/887749/Sitruuna-valkosuklaakakku/",
+      "name": "Sitruuna-valkosuklaakakku",
+      "yield": "10 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "250ml Vehnäjauhoja",
+        "250ml Sokeria",
+        "1tl Vaniljasokeria",
+        "0,75tl Ruokasoodaa",
+        "100g Voita sulatettuna (1,4 %)",
+        "145g Valkosuklaata sulatettuna (Panda)",
+        "200ml Maitoa",
+        "Sitruunan kuori raasteena (1 rkl)",
+        "Iso kananmuna",
+        "Ison sitruunan mehu (90 ml)",
+        "100ml Kuohukermaa",
+        "145g Valkosuklaata",
+        "1rkl Tomusokeria",
+        "Sitruuna-appelsiinirakeita"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/888325/Feta-tomaatti-tonnikala%20pannukakkuk%C3%A4%C3%A4retorttu/",
+      "name": "Feta-tomaatti-tonnikala pannukakkukääretorttu",
+      "format": "json-ld",
+      "ingredients": [
+        "2purkki Tonnikala",
+        "2 Tomaatti",
+        "Fetaa 1",
+        "PuolPrk Valkosibamajo",
+        "1 Maailman paras pannukakku"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/889197/Uusi%20resepti%2011.3.2026/",
+      "name": "Uusi resepti 11.3.2026",
+      "format": "json-ld",
+      "ingredients": [
+        "1Kg Perunaa",
+        "400G Sika-nauta jauheliha",
+        "7Dl Maitoa",
+        "200 Keittojuures pussi",
+        "Juustoraastetta",
+        "3Kpl Kananmuna",
+        "7Dl Maitoa",
+        "Suolaa,mustapippuria,paprikajauhetta,sipulijauhetta,chiliä ja valkopippuria"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/889861/Ruohosipulivoinapit%2027.7.2026/",
+      "name": "Ruohosipulivoinapit 27.7.2026",
+      "yield": "1 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "voita",
+        "ruohosipulin kukkia",
+        "ruohosipulin vartta hienonnettuna"
+      ]
+    }
+  ]
+}

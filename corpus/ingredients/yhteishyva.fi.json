@@ -1,0 +1,470 @@
+{
+  "site": "yhteishyva.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://yhteishyva.fi/reseptit/aasialainen-pihvisalaatti/9hdFCASjlhB4rSLkNosL0",
+      "name": "Aasialainen pihvisalaatti",
+      "yield": "6 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g naudan entrecôtepihvejä",
+        "1 tl rypsiöljyä",
+        "1/2 tl suolaa",
+        "1/2 tl mustapippuria rouhittuna",
+        "3 kpl limeä",
+        "2 kpl valkosipulinkynttä",
+        "1 kpl punainen chili",
+        "1 kpl ruukku korianteria",
+        "4 rkl kalakastiketta",
+        "2 rkl vaahterasiirappia",
+        "2 rkl rypsiöljyä",
+        "1 kpl ruukku romainesalaattia",
+        "1 kpl ruukku minttua",
+        "400 g (2 rs, à 200 g) helmitomaatteja",
+        "1 kpl kurkku",
+        "1 kpl porkkana",
+        "1 kpl pieni punasipuli",
+        "125 g (½ ps) riisivermisellinuudeleita",
+        "1 dl suolattuja maapähkinöitä"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/bataattilaatikko-feta-pistaasikuorrutteella/7pvWaOVCfPX52d2CvMAMBJ",
+      "name": "Bataattilaatikko feta-pistaasikuorrutteella",
+      "yield": "8 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kg bataattia",
+        "2 dl (1 prk) ruokakermaa",
+        "1 kpl kananmuna",
+        "1/2 dl korppujauhoja",
+        "3 rkl siirappia",
+        "3/4 tl suolaa",
+        "1/2 tl muskottipähkinää",
+        "150 g (1 pkt) fetajuustoa",
+        "1/2 dl suolattuja pistaasipähkinöitä",
+        "2 rkl korppujauhoja",
+        "1 rkl voita vuoan voiteluun"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/bebepiirakka/2VaChlivMVQ0EtkG5tPnx7",
+      "name": "Bebepiirakka",
+      "yield": "12 piece",
+      "format": "json-ld",
+      "ingredients": [
+        "100 g voita",
+        "1 dl sokeria",
+        "1 kpl kananmuna",
+        "3 dl vehnäjauhoja",
+        "2 dl (1 prk) ruokakermaa",
+        "1/2 dl sokeria",
+        "1 rkl perunajauhoja",
+        "2 kpl kananmunan keltuaista",
+        "175 g voita tai leivontamargariinia",
+        "2 tl vaniljasokeria",
+        "3 dl tomusokeria",
+        "2 rkl vettä",
+        "muutama tippa punaista elintarvikeväriä",
+        "1 rkl voita tai leivontamargariinia",
+        "1 dl vadelmahilloa",
+        "nonparelleja tai koristerakeita"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/caesarsalaatti-ruusukaalista/lTzlAu9TFwsZlOFm1V1sT",
+      "name": "Caesarsalaatti ruusukaalista",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "600 g (2 pkt) ruusukaaleja",
+        "100 g (0,5 pkt) parmesaanijuustoa",
+        "1 kpl valkosipulinkynsi",
+        "1 kpl kananmuna",
+        "4 kpl anjovisfileetä",
+        "2 rkl sitruunanmehua",
+        "1 tl sinappia",
+        "1/4 tl mustapippuria rouhittuna",
+        "1/4 tl suolaa",
+        "1 tl hunajaa",
+        "1 dl rypsiöljyä",
+        "4 kpl paahtoleipäviipaletta",
+        "1/2 dl rypsiöljyä",
+        "1 rkl välimeren yrttiseosta"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kesarullakulhot/2rsxHiJsY1QcSw6wsrmxm3",
+      "name": "Kesärullakulhot",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "360 g (2 pkt) Yosa-kaurapalaa",
+        "2 rkl rypsiöljyä",
+        "1 kpl pieni kurkku",
+        "200 g kaalia",
+        "2 kpl porkkanaa",
+        "1 kpl avokado",
+        "150 g muita kasviksia, esim. retiisiä",
+        "225 g (1 pkt) riisinuudelia",
+        "1  valkosipulinkynsi",
+        "1 dl soijakastiketta",
+        "3/4 dl seesamiöljyä",
+        "2 tl inkivääritahnaa (Spice Up!)",
+        "1 - 2 tl sriracha-chilikastiketta",
+        "4 rkl vegaanista maustekastiketta (esim. Satay Spice Up!)",
+        "muutama oksa korianteria ja minttua",
+        "1 kpl lime"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kimchi/4AUW00R6k0ceyy2W8Ae0mM",
+      "name": "Kimchi",
+      "yield": "8 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "Iso kiinankaali",
+        "2 rkl karkeaa merisuolaa",
+        "1 1/2 dl sokeria",
+        "10 - 20 kpl valkosipulinkynttä",
+        "20 kpl viipaletta inkivääriä",
+        "1/2 dl chilijauhetta",
+        "4 rkl kalakastiketta",
+        "4 rkl soijaa",
+        "Iso porkkana",
+        "2 kpl kevätsipulia"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kulman-keittion-uunijaatelo/2XI2qkszNeK83shpX1xEjv",
+      "name": "Kulman Keittiön uunijäätelö",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "3 kpl kanamunanvalkuaista",
+        "1 1/2 dl sokeria",
+        "1 kpl valmis kakkupohja",
+        "4 rkl omenamehua",
+        "4 rkl lakkahilloa",
+        "4 kpl palloa kulman keittiön päärynä-mascarponejäätelöä"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kuohkea-bearnaisekastike/3L7M1yJlFK8YQ00WcO44ii",
+      "name": "Kuohkea béarnaisekastike",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 kpl sipulia",
+        "1/2 dl valkoviinietikkaa",
+        "1/2 dl vettä",
+        "1 tl rakuunaa",
+        "4 kpl kokonaista mustapippuria",
+        "ripaus suolaa",
+        "ripaus cayennenpippuria",
+        "3 kpl kananmunan keltuaista",
+        "200 g Voita"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/lime-inkivaari-halsteribroileri-ja-grillattu-anana/1ZJyIyI1weMETsQIeEa3bV",
+      "name": "Lime-inkivääri halsteribroileri ja grillattu ananas",
+      "yield": "2 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kpl kokonainen broileri",
+        "2 kpl limen mehu ja raastettu kuori",
+        "1 dl  rypsiöljyä",
+        "3 tl raastettua inkivääriä",
+        "2 kpl valkosipulinkynttä",
+        "1 tl savupaprikaa",
+        "2 tl suolaa",
+        "1/2 tl mustapippurirouhetta",
+        "1/2 kpl ananas",
+        "1/2 dl rypsiöljyä",
+        "1 rkl tummaa sokeria",
+        "1 tl suolaa",
+        "1/4 punaista chiliä",
+        "0.5 prk Kulman Keittiön aiolia",
+        "1 tl currya",
+        "1 kpl limen mehu",
+        "1/2 tl suolaa"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/makea-amerikkalainen-kurpitsapiirakka/4YxFCtOUTuh4HpDVTtfkFH",
+      "name": "Makea amerikkalainen kurpitsapiirakka",
+      "yield": "10 piece",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kpl piirakkataikina (pakaste)",
+        "400 g (1/2 kpl) hokkaidokurpitsa",
+        "3 dl vettä",
+        "397 g (1 tlk) kondensoitua maitoa",
+        "3 kpl kananmunaa",
+        "1 tl kanelia",
+        "1/2 tl jauhettua inkivääriä",
+        "ripaus suolaa",
+        "2 dl (1 prk) vispikermaa",
+        "1/4 tl kanelia"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/marinoitu-tomaatti-fetasalaatti/sQU409RSwkKILm9sBsmyL",
+      "name": "Marinoitu tomaatti-fetasalaatti",
+      "yield": "6 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g (2 rs) minitomaatteja",
+        "200 g (1 pkt) fetajuustoa",
+        "1 kpl valkosipulinkynsi",
+        "1/2  ruukkua basilikaa",
+        "1/2 dl rypsiöljyä",
+        "1 tl punaviinietikkaa",
+        "1 tl hunajaa",
+        "ripaus mustapippuria rouhittuna",
+        "1/2  ruukkua basilikaa"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/meloni-mozzarellasalaatti/4dkQaDAPCSmplyoVDtZeCE",
+      "name": "Meloni-mozzarellasalaatti",
+      "yield": "6 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 kpl hunajamelonia",
+        "125 g (1 ps) mozzarellajuustoa",
+        "100 g (1 ps) jääsalaattia",
+        "1  ruukku villirucolaa",
+        "75 g (½ pkt) ilmakuivattua kinkkua (esim. serranon kinkkua)",
+        "1 kpl lime",
+        "1/2  ruukkua basilikaa",
+        "3/4 dl oliiviöljyä",
+        "1 rkl hunajaa",
+        "(ananaskirsikoita)"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/mustikkarahka/2YJ6zWdpImdqMRSzKADHwr",
+      "name": "Mustikkarahka",
+      "yield": "5 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "2 1/2 dl (1 prk) Kotimaista -vaahtoutuvaa vaniljakastiketta",
+        "250 g (1 prk) Kotimaista -rasvatonta rahkaa",
+        "200 g (1 ps) Kotimaista-mustikoita",
+        "Kotimaista -kaneliässiä tai -ruis-kauramuroja"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/neljan-aineksen-marjamuffinssit/Pi3mhTjeRolBv44z2cTbz",
+      "name": "Neljän aineksen marjamuffinssit",
+      "yield": "12 piece",
+      "format": "json-ld",
+      "ingredients": [
+        "2 kpl isoa banaania tai 3 pientä",
+        "4 kpl kananmunaa",
+        "1 dl kaurahiutaleita (gluteenittomia)",
+        "100 g pakastemarjoja",
+        "paperisia muffinivuokia"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/paahdettu-punajuuritahna/7ySQGD3y2WWB8ZAzEH2wsZ",
+      "name": "Paahdettu punajuuritahna",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kg punajuuria",
+        "2 kpl valkosipulinkynttä",
+        "1/4 tl ruukkua tilliä",
+        "3/4 dl rypsiöljyä",
+        "1 tl suolaa",
+        "1/2 tl mustapippuria rouhittuna"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/paahdetut-luumut-ja-sitruunaruohomoussea/4KPfQgXjpKCwOAAk0I8QMu",
+      "name": "Paahdetut luumut ja sitruunaruohomoussea",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "6 kpl luumua neljään osaan leikattuna",
+        "1/4 tl kanelia jauhettuna",
+        "1/4 tl kardemummaa jauhettuna",
+        "1/4 tl inkivääriä jauhettuna",
+        "1 rkl ruokosokeria",
+        "3 rkl voita",
+        "150 g ranskankermaa",
+        "100 g mascarponea",
+        "20 g (2 rkl) tomusokeria",
+        "1 rkl sitruunaruohotahnaa",
+        "3/10 kpl sitruunankuorta raastettuna",
+        "2 rkl sitruunamehua",
+        "1/2 kpl vaniljatangon siemenet",
+        "piparkakkuja raastettuna"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/rikkaat-ritarit-grillissa/6gbDgbeV4oMtur548PJLtE",
+      "name": "Rikkaat ritarit grillissä",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g turkkilaista jogurttia",
+        "2 rkl sokeria",
+        "2 tl vaniljasokeria",
+        "8 kpl pullaviipaletta",
+        "2 rkl voita",
+        "4 rkl ruusunterälehti- tai vadelmahilloa",
+        "1/2 dl pistaasipähkinöitä",
+        "varsi minttua"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/suklaakakku-grillista-vaniljajaatelon-kera/1wMzCLm1vSSa8UwsOSmquA",
+      "name": "Suklaakakku grillistä vaniljajäätelön kera",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "4 kpl kananmunaa",
+        "150 g ruokosokeria",
+        "120 g voita ruskistettuna",
+        "130 g tumma suklaata sulatettuna",
+        "50 g vehnäjauhoja",
+        "1 prk Jymy vaniljajäätelöä"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/taytetty-kanamureke/SUGdXQymnIxkOmtengrum",
+      "name": "Täytetty kanamureke",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g (1 pkt) Kotimaista-kananjauhelihaa",
+        "1 dl Kotimaista -maustettuja korppujauhoja",
+        "1 kpl Kotimaista-kananmuna",
+        "1 tl suolaa",
+        "100 g (1/2 rs) Kotimaista-ruohosipulituorejuustoa",
+        "125 g (1/2 rs) Kotimaista-kirsikkatomaatteja",
+        "1 kpl ruukku Kotimaista-basilikaa"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/thai-kasviskeitto/6lJAFEdQXC0TrIRc6Lwt8y",
+      "name": "Thai-kasviskeitto",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 rkl rypsiöljyä",
+        "3 rkl punaista currytahnaa",
+        "250 g (1 pkt) kasviproteiinisuikaleita (Kanaton, Muu)",
+        "5 dl vettä",
+        "2 1/2 dl (1 prk) kookosmaitoa",
+        "200 g (1 rs) thai wok -tuorekasviksia (Coop)",
+        "55 g (1 pkt) nuudeleita",
+        "1 kpl lime",
+        "1/2 kpl punaista chiliä",
+        "1 rkl soijakastiketta",
+        "2 tl ruokosokeria",
+        "1 kpl ruukku korianteria"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/thaimaalainen-peruna-kalacurry/5DuKZxAePTaU4veIS72of5",
+      "name": "Thaimaalainen peruna-kalacurry",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "400 g madefileetä (nahatonta)",
+        "600 g perunaa (kiinteä lajike)",
+        "1 kpl sipuli",
+        "2 kpl valkosipulinkynttä",
+        "1 kpl punainen chili",
+        "2 rkl rypsiöljyä",
+        "2 rkl vihreää currytahnaa",
+        "1 tl sokeria",
+        "1 1/2 dl vettä",
+        "1 kpl kasvisliemikuutio",
+        "200 ml (1 tlk) kookoskermaa",
+        "70 g (1 ps) pinaattia",
+        "1 rkl kalakastiketta",
+        "2 rkl limenmehua"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/tuliset-kukkakaaliwingsit/4suvCoLnZXo1R3xeKnUv6k",
+      "name": "Tuliset kukkakaaliwingsit",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kpl iso kukkakaali",
+        "2 dl vehnäjauhoja",
+        "1 tl paprikajauhetta",
+        "1 tl valkosipulijauhetta",
+        "1/2 tl suolaa",
+        "2 dl vettä",
+        "2 1/2 dl pankojauhoja",
+        "1 dl vegaanista majoneesia",
+        "1/2 dl makeaa chilikastiketta",
+        "1 rkl limenmehua",
+        "1 rkl vettä",
+        "2 tl srirachaa",
+        "ruohosipulia",
+        "seesaminsiemeniä"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/vegepinsa/1nE7CdNc3jCldPo0dVnJhO",
+      "name": "Vegepinsa",
+      "yield": "8 piece",
+      "format": "json-ld",
+      "ingredients": [
+        "230 g (1 kpl) pinsapohja (Coop)",
+        "1 1/2 dl pizzakastiketta",
+        "200 g  (1 ps) varsiparsakaalia (Bimi)",
+        "200 g (1 ps) makeaa paprikamixiä",
+        "1 kpl pieni punasipuli",
+        "50 g vegaanista margariinia (esim. Eleplant)",
+        "1/4 kpl (ruukkua) basilikaa",
+        "2 tl sitruunanmehua",
+        "1/4 tl suolaa",
+        "1/4 tl mustapippuria rouhittuna"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/verigreippi-fenkolisalaatti/4kypNUL1y8CEG44Gs6qgYq",
+      "name": "Verigreippi-fenkolisalaatti",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "2 kpl fenkolia",
+        "2 kpl verigreippiä (miedomman salaatin toivossa voi korvata veriappelsiinilla)",
+        "1 tl dijon-sinappia",
+        "Puolikas valkosipulinkynsi",
+        "1 dl oliiviöljyä",
+        "suolaa",
+        "pippuria",
+        "2 pkt rucolaa"
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/vispipuuro/2Z1NJOGRFCI2gEoc0eaK8u",
+      "name": "Vispipuuro",
+      "yield": "4 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 l vettä",
+        "5 dl puolukoita",
+        "3 dl hienoa sokeria",
+        "2 tl vaniljasokeria",
+        "1 tl suolaa",
+        "2 dl vispikermaa",
+        "1 1/2 dl mannasuurimoita"
+      ]
+    }
+  ]
+}
