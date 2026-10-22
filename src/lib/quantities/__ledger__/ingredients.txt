@@ -2162,7 +2162,7 @@
 ? "7 tablespoons (99g) unsalted butter, softened"
   measured 7 tbsp = 99 g  [7 tablespoons] [99g]
 ? "2/3 cup plus 3 tablespoons (103g) King Arthur Unbleached Bread Flour"
-  measured 0.667 cup | more 3 tbsp | more 103 g  [2/3 cup] [3 tablespoons] [103g]
+  measured 0.667 cup | more 3 tbsp | total 103 g  [2/3 cup] [3 tablespoons] [103g]
 ? "1/2 teaspoon ground turmeric, single-origin preferred*"
   measured 0.5 tsp  [1/2 teaspoon]
 ? "1 large egg white, reserved from above"
@@ -2182,7 +2182,7 @@
 ? "2 tablespoons (28g) milk, (optional, if you add chips/nuts/fruit)"
   measured 2 tbsp = 28 g  [2 tablespoons] [28g]
 ✓ "1 cup plus 2 tablespoons (134g) King Arthur Unbleached All-Purpose Flour"
-  measured 1 cup | more 2 tbsp | more 134 g  [1 cup] [2 tablespoons] [134g]
+  measured 1 cup | more 2 tbsp | total 134 g  [1 cup] [2 tablespoons] [134g]
 ? "1 teaspoon espresso powder, optional; for depth of flavor"
   measured 1 tsp  [1 teaspoon]
 ? "2 cups (227g to 340g) chips, nuts, and/or dried fruit, optional but good"
@@ -2218,7 +2218,7 @@
 ? "1/2 teaspoon ground cloves"
   measured 0.5 tsp  [1/2 teaspoon]
 ✓ "2 cups plus 2 tablespoons (255g) King Arthur Unbleached All-Purpose Flour*"
-  measured 2 cup | more 2 tbsp | more 255 g  [2 cups] [2 tablespoons] [255g]
+  measured 2 cup | more 2 tbsp | total 255 g  [2 cups] [2 tablespoons] [255g]
 ? "1/3 cup (66g) granulated sugar"
   measured 0.333 cup = 66 g  [1/3 cup] [66g]
 ? "2 teaspoons baking powder"
@@ -2428,9 +2428,9 @@
 ? "2/3 cup (142g) dark brown sugar, packed"
   measured 0.667 cup = 142 g  [2/3 cup] [142g]
 ✓ "1/2 cup (113g) ripe (fed) sourdough starter or 1/2 cup plus 1 tablespoon (135g) sourdough discard"
-  measured 0.5 cup = 113 g | more 0.5 cup | more 1 tbsp | more 135 g  [1/2 cup] [113g] [1/2 cup] [1 tablespoon] [135g]
+  measured 0.5 cup = 113 g | more 0.5 cup | more 1 tbsp | total 135 g  [1/2 cup] [113g] [1/2 cup] [1 tablespoon] [135g]
 ✓ "1/2 cup plus 2 tablespoons (75g) King Arthur Unbleached All-Purpose Flour"
-  measured 0.5 cup | more 2 tbsp | more 75 g  [1/2 cup] [2 tablespoons] [75g]
+  measured 0.5 cup | more 2 tbsp | total 75 g  [1/2 cup] [2 tablespoons] [75g]
 ? "3/4 cup (90g) King Arthur Unbleached Bread Flour"
   measured 0.75 cup = 90 g  [3/4 cup] [90g]
 ? "1 1/4 cups (213g) dark chocolate, chopped; divided*"
@@ -2450,7 +2450,7 @@
 ? "2 tablespoons (24g) granulated sugar"
   measured 2 tbsp = 24 g  [2 tablespoons] [24g]
 ? "1 cup plus 2 tablespoons (250g) ripe sourdough starter"
-  measured 1 cup | more 2 tbsp | more 250 g  [1 cup] [2 tablespoons] [250g]
+  measured 1 cup | more 2 tbsp | total 250 g  [1 cup] [2 tablespoons] [250g]
 ? "2 teaspoons (6g) instant yeast"
   measured 2 tsp = 6 g  [2 teaspoons] [6g]
 ? "1 1/2 teaspoons (9g) table salt"
@@ -2528,13 +2528,13 @@
 ✓ "12 tablespoons (170g) unsalted butter, softened (about 70°F)"
   measured 12 tbsp = 170 g | more fixed ~70 °F  [12 tablespoons] [170g] [70°F]
 ? "4 cups plus 2 1/2 tablespoons (500g) King Arthur Unbleached Bread Flour"
-  measured 4 cup | more 2.5 tbsp | more 500 g  [4 cups] [2 1/2 tablespoons] [500g]
+  measured 4 cup | more 2.5 tbsp | total 500 g  [4 cups] [2 1/2 tablespoons] [500g]
 ? "3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 1/4\"-1/2\" pieces or [product-link]chocolate chips[/product-link]"
-  measured 0.75 cup | more 0.75 cup | more 2 tbsp | more 128-149 g | more fixed 0.25-0.5 in  [3/4 cup] [3/4 cup] [2 tablespoons] [128g to 149g] [1/4"-1/2"]
+  measured 0.75 cup | more 0.75 cup | more 2 tbsp | total 128-149 g | more fixed 0.25-0.5 in  [3/4 cup] [3/4 cup] [2 tablespoons] [128g to 149g] [1/4"-1/2"]
 ? "3 tablespoons (21g) cornstarch or 1/4 cup plus 2 teaspoons (35g) King Arthur Unbleached All-Purpose Flour"
-  measured 3 tbsp = 21 g | more 0.25 cup | more 2 tsp | more 35 g  [3 tablespoons] [21g] [1/4 cup] [2 teaspoons] [35g]
+  measured 3 tbsp = 21 g | more 0.25 cup | more 2 tsp | total 35 g  [3 tablespoons] [21g] [1/4 cup] [2 teaspoons] [35g]
 ? "1 1/4 cups plus 1 tablespoon (295g) water"
-  measured 1.25 cup | more 1 tbsp | more 295 g  [1 1/4 cups] [1 tablespoon] [295g]
+  measured 1.25 cup | more 1 tbsp | total 295 g  [1 1/4 cups] [1 tablespoon] [295g]
 ? "1 tablespoon (21g) barley malt syrup or 1 tablespoon (13g) dark brown sugar"
   measured 1 tbsp = 21 g | more 1 tbsp = 13 g  [1 tablespoon] [21g] [1 tablespoon] [13g]
 ? "8 tablespoons (113g) unsalted butter, at room temperature, at least 65°F"
@@ -2542,9 +2542,9 @@
 ? "1/8 teaspoon orange oil or 1 teaspoon orange zest"
   measured 0.125 tsp | more 1 tsp  [1/8 teaspoon] [1 teaspoon]
 ? "1 cup plus 1 tablespoon (242g) water, divided"
-  measured 1 cup | more 1 tbsp | more 242 g  [1 cup] [1 tablespoon] [242g]
+  measured 1 cup | more 1 tbsp | total 242 g  [1 cup] [1 tablespoon] [242g]
 ? "1/4 cup plus 2 teaspoons (60g) light brown sugar or dark brown sugar, packed"
-  measured 0.25 cup | more 2 tsp | more 60 g  [1/4 cup] [2 teaspoons] [60g]
+  measured 0.25 cup | more 2 tsp | total 60 g  [1/4 cup] [2 teaspoons] [60g]
 ? "1 batch Pâte à Choux"
   counted 1  [1]
 ? "half an 8-ounce package (113g) cream cheese"
@@ -2552,19 +2552,19 @@
 ? "12 tablespoons (170g) unsalted butter, at room temperature, at least 65°F"
   measured 12 tbsp = 170 g | more fixed 65 °F  [12 tablespoons] [170g] [65°F]
 ? "2/3 cup plus 1 tablespoon (88g) King Arthur Unbleached Cake Flour"
-  measured 0.667 cup | more 1 tbsp | more 88 g  [2/3 cup] [1 tablespoon] [88g]
+  measured 0.667 cup | more 1 tbsp | total 88 g  [2/3 cup] [1 tablespoon] [88g]
 ✓ "2 cups plus 1 tablespoon (247g) King Arthur Unbleached All-Purpose Flour"
-  measured 2 cup | more 1 tbsp | more 247 g  [2 cups] [1 tablespoon] [247g]
+  measured 2 cup | more 1 tbsp | total 247 g  [2 cups] [1 tablespoon] [247g]
 ✓ "1/2 cup plus 1 tablespoon (64g) confectioners' sugar"
-  measured 0.5 cup | more 1 tbsp | more 64 g  [1/2 cup] [1 tablespoon] [64g]
+  measured 0.5 cup | more 1 tbsp | total 64 g  [1/2 cup] [1 tablespoon] [64g]
 ? "2 3/4 cups plus 2 tablespoons (326g) walnuts, shelled"
-  measured 2.75 cup | more 2 tbsp | more 326 g  [2 3/4 cups] [2 tablespoons] [326g]
+  measured 2.75 cup | more 2 tbsp | total 326 g  [2 3/4 cups] [2 tablespoons] [326g]
 ✓ "4 tablespoons plus 1 teaspoon (91g) honey"
-  measured 4 tbsp | more 1 tsp | more 91 g  [4 tablespoons] [1 teaspoon] [91g]
+  measured 4 tbsp | more 1 tsp | total 91 g  [4 tablespoons] [1 teaspoon] [91g]
 ? "3/4 cup plus 1 tablespoon (161g) granulated sugar"
-  measured 0.75 cup | more 1 tbsp | more 161 g  [3/4 cup] [1 tablespoon] [161g]
+  measured 0.75 cup | more 1 tbsp | total 161 g  [3/4 cup] [1 tablespoon] [161g]
 ✓ "1/3 cup plus 2 tablespoons (90g) vegetable oil"
-  measured 0.333 cup | more 2 tbsp | more 90 g  [1/3 cup] [2 tablespoons] [90g]
+  measured 0.333 cup | more 2 tbsp | total 90 g  [1/3 cup] [2 tablespoons] [90g]
 ✓ "two 8-ounce packages (452g) cream cheese, at room temperature"
   counted 2 package | each 8 oz | total 452 g  [two 8-ounce packages] [8-ounce] [452g]
 ? "two 8-ounce packages (454g) cream cheese, at room temperature"
@@ -2581,23 +2581,23 @@
 ? "8 tablespoons (113g) butter, melted, or 1/2 cup (99g) vegetable oil"
   measured 8 tbsp = 113 g | more 0.5 cup = 99 g  [8 tablespoons] [113g] [1/2 cup] [99g]
 ? "1 cup plus 2 tablespoons (255g) water"
-  measured 1 cup | more 2 tbsp | more 255 g  [1 cup] [2 tablespoons] [255g]
+  measured 1 cup | more 2 tbsp | total 255 g  [1 cup] [2 tablespoons] [255g]
 ✓ "1/4 cup plus 2 tablespoons (45g) King Arthur Unbleached All-Purpose Flour"
-  measured 0.25 cup | more 2 tbsp | more 45 g  [1/4 cup] [2 tablespoons] [45g]
+  measured 0.25 cup | more 2 tbsp | total 45 g  [1/4 cup] [2 tablespoons] [45g]
 ✓ "1/4 plus 1/8 teaspoon baking powder"
   measured 0.25 tsp | more 0.125 tsp  [1/4] [1/8 teaspoon]
 ? "1/4 plus 1/8 teaspoon ground cardamom, ground"
   measured 0.25 tsp | more 0.125 tsp  [1/4] [1/8 teaspoon]
 ? "1/2 cup plus 1 tablespoon (110g) granulated sugar"
-  measured 0.5 cup | more 1 tbsp | more 110 g  [1/2 cup] [1 tablespoon] [110g]
+  measured 0.5 cup | more 1 tbsp | total 110 g  [1/2 cup] [1 tablespoon] [110g]
 ? "3/4 cup plus 2 tablespoons (99g) confectioners' sugar, sifted if lumpy"
-  measured 0.75 cup | more 2 tbsp | more 99 g  [3/4 cup] [2 tablespoons] [99g]
+  measured 0.75 cup | more 2 tbsp | total 99 g  [3/4 cup] [2 tablespoons] [99g]
 ✓ "3/4 cup (90g) plus 1/3 cup (40g) water-milled glutinous rice flour, divided; plus more as needed*"
   measured 0.75 cup = 90 g | more 0.333 cup = 40 g  [3/4 cup] [90g] [1/3 cup] [40g]
 ? "1/2 cup plus 1 tablespoon (128g) water"
-  measured 0.5 cup | more 1 tbsp | more 128 g  [1/2 cup] [1 tablespoon] [128g]
+  measured 0.5 cup | more 1 tbsp | total 128 g  [1/2 cup] [1 tablespoon] [128g]
 ? "3/4 cup plus 1 tablespoon (184g) water"
-  measured 0.75 cup | more 1 tbsp | more 184 g  [3/4 cup] [1 tablespoon] [184g]
+  measured 0.75 cup | more 1 tbsp | total 184 g  [3/4 cup] [1 tablespoon] [184g]
 ✓ "2 cups (240g) King Arthur Unbleached All-Purpose Flour or 2 cups (212g) King Arthur Pastry Flour"
   measured 2 cup = 240 g | more 2 cup = 212 g  [2 cups] [240g] [2 cups] [212g]
 ? "1 cup (170g) blueberries or 1 cup (184g) King Arthur Blueberry Jammy Bits"
@@ -2605,7 +2605,7 @@
 ? "6 1/2 tablespoons (93g) lard or unsalted butter, plus 2 to 3 tablespoons (28g to 42g) for shaping"
   measured 6.5 tbsp = 93 g | more 2-3 tbsp = 28-42 g  [6 1/2 tablespoons] [93g] [2 to 3 tablespoons] [28g to 42g]
 ? "1/3 cup plus 1 tablespoon (78g) granulated sugar"
-  measured 0.333 cup | more 1 tbsp | more 78 g  [1/3 cup] [1 tablespoon] [78g]
+  measured 0.333 cup | more 1 tbsp | total 78 g  [1/3 cup] [1 tablespoon] [78g]
 ✓ "1/2 cup cold water water, plus 1 to 2 tablespoons additional water as needed"
   measured 0.5 cup | more 1-2 tbsp  [1/2 cup] [1 to 2 tablespoons]
 ? "2 tablespoons vanilla sugar or 1 teaspoon King Arthur Pure Vanilla Extract"
@@ -2635,13 +2635,13 @@
 ? "one 8-ounce package (227g) cream cheese, cold"
   counted 1 package | each 8 oz | total 227 g  [one 8-ounce package] [8-ounce] [227g]
 ? "1/4 cup plus 3 tablespoons (147g) honey"
-  measured 0.25 cup | more 3 tbsp | more 147 g  [1/4 cup] [3 tablespoons] [147g]
+  measured 0.25 cup | more 3 tbsp | total 147 g  [1/4 cup] [3 tablespoons] [147g]
 ? "one 12-ounce can (340g) sweetened red bean paste*"
   counted 1 can | each 12 oz | total 340 g  [one 12-ounce can] [12-ounce] [340g]
 ? "1 cup (227g) apple cider or apple juice, or substitute 1/4 cup (57g) boiled cider plus 3/4 cup (170g) water"
   measured 1 cup = 227 g | more 0.25 cup = 57 g | more 0.75 cup = 170 g  [1 cup] [227g] [1/4 cup] [57g] [3/4 cup] [170g]
 ? "1 tablespoon plus 1 teaspoon (17g) granulated sugar"
-  measured 1 tbsp | more 1 tsp | more 17 g  [1 tablespoon] [1 teaspoon] [17g]
+  measured 1 tbsp | more 1 tsp | total 17 g  [1 tablespoon] [1 teaspoon] [17g]
 ? "1/4 cup (43g) potato flour or 1/2 cup (43g) dried potato flakes (instant mashed potatoes)"
   measured 0.25 cup = 43 g | more 0.5 cup = 43 g  [1/4 cup] [43g] [1/2 cup] [43g]
 ? "1 tablespoon (14g) orange zest or 1/8 teaspoon orange oil"
@@ -2667,7 +2667,7 @@
 ? "1/2 cup (78g) maple sugar or 1/2 cup (106g) brown sugar, packed"
   measured 0.5 cup = 78 g | more 0.5 cup = 106 g  [1/2 cup] [78g] [1/2 cup] [106g]
 ? "3 tablespoons plus 1/2 cup (61g) old-fashioned rolled oats, divided*"
-  measured 3 tbsp | more 0.5 cup | more 61 g  [3 tablespoons] [1/2 cup] [61g]
+  measured 3 tbsp | more 0.5 cup | total 61 g  [3 tablespoons] [1/2 cup] [61g]
 ? "one 8-ounce package (227g) cream cheese, room temperature"
   counted 1 package | each 8 oz | total 227 g  [one 8-ounce package] [8-ounce] [227g]
 ? "half an 8-ounce package (113g) cream cheese, room temperature"
@@ -4132,7 +4132,7 @@
 ? "1 rs (200 g) vegaanista tuorejuustoa"
   counted 1 rs | total 200 g  [1 rs] [200 g]
 ? "1 tlk (380/230 g) kikherneitä"
-  counted 1 tlk | total 1.652 g  [1 tlk] [380/230 g]
+  counted 1 tlk  [1 tlk]
 ? "2 rkl vaaleaa tahinia"
   measured 2 tbsp  [2 rkl]
 ? "1 tl suolaa"

@@ -104,6 +104,42 @@ const LETTER_UNITS: Record<string, UnitId> = {
   C: 'cup',
 }
 
+// The singular and plural of each unit word that changes with its number,
+// so a scaled amount stays grammatical: "1 cup" → "2 cups", "1 purkki" → "2
+// purkkia". English takes the plural above one; Finnish takes the partitive
+// for anything but exactly one. Abbreviations ("dl", "tbsp") and genitives
+// ("1,5 litran vuoka") don't change.
+// prettier-ignore
+export const UNIT_WORDS: Record<Language, ReadonlyArray<readonly [singular: string, plural: string]>> = {
+  en: [
+    ['millilitre', 'millilitres'], ['milliliter', 'milliliters'], ['centilitre', 'centilitres'], ['centiliter', 'centiliters'],
+    ['decilitre', 'decilitres'], ['deciliter', 'deciliters'], ['litre', 'litres'], ['liter', 'liters'],
+    ['teaspoon', 'teaspoons'], ['tablespoon', 'tablespoons'], ['cup', 'cups'], ['fluid ounce', 'fluid ounces'],
+    ['pint', 'pints'], ['quart', 'quarts'], ['gallon', 'gallons'],
+    ['gram', 'grams'], ['gramme', 'grammes'], ['kilo', 'kilos'], ['kilogram', 'kilograms'], ['ounce', 'ounces'], ['pound', 'pounds'],
+    ['millimetre', 'millimetres'], ['millimeter', 'millimeters'], ['centimetre', 'centimetres'], ['centimeter', 'centimeters'], ['inch', 'inches'],
+    ['can', 'cans'], ['tin', 'tins'], ['package', 'packages'], ['packet', 'packets'], ['pack', 'packs'], ['jar', 'jars'],
+    ['carton', 'cartons'], ['container', 'containers'], ['tub', 'tubs'], ['bottle', 'bottles'], ['bag', 'bags'], ['box', 'boxes'],
+    ['block', 'blocks'], ['stick', 'sticks'], ['clove', 'cloves'], ['slice', 'slices'], ['bunch', 'bunches'], ['sprig', 'sprigs'],
+    ['head', 'heads'], ['stalk', 'stalks'], ['rib', 'ribs'], ['ear', 'ears'], ['piece', 'pieces'], ['sheet', 'sheets'],
+    ['pinch', 'pinches'], ['dash', 'dashes'], ['handful', 'handfuls'], ['knob', 'knobs'], ['drop', 'drops'], ['splash', 'splashes'],
+  ],
+  fi: [
+    ['millilitra', 'millilitraa'], ['senttilitra', 'senttilitraa'], ['desilitra', 'desilitraa'], ['desi', 'desiä'], ['litra', 'litraa'],
+    ['teelusikallinen', 'teelusikallista'], ['teelusikka', 'teelusikkaa'], ['ruokalusikallinen', 'ruokalusikallista'], ['ruokalusikka', 'ruokalusikkaa'],
+    ['maustemitta', 'maustemittaa'], ['maustemitallinen', 'maustemitallista'], ['kuppi', 'kuppia'], ['kupillinen', 'kupillista'],
+    ['nesteunssi', 'nesteunssia'], ['pintti', 'pinttiä'], ['gallona', 'gallonaa'],
+    ['gramma', 'grammaa'], ['kilo', 'kiloa'], ['kilogramma', 'kilogrammaa'], ['unssi', 'unssia'], ['pauna', 'paunaa'],
+    ['millimetri', 'millimetriä'], ['senttimetri', 'senttimetriä'], ['sentti', 'senttiä'], ['tuuma', 'tuumaa'],
+    ['purkki', 'purkkia'], ['pussi', 'pussia'], ['paketti', 'pakettia'], ['pakkaus', 'pakkausta'], ['rasia', 'rasiaa'],
+    ['tölkki', 'tölkkiä'], ['tölkillinen', 'tölkillistä'], ['pullo', 'pulloa'], ['ruukku', 'ruukkua'],
+    ['kappale', 'kappaletta'], ['nippu', 'nippua'], ['oksa', 'oksaa'], ['kynsi', 'kynttä'], ['viipale', 'viipaletta'],
+    ['siivu', 'siivua'], ['pala', 'palaa'], ['levy', 'levyä'], ['pää', 'päätä'],
+    ['ripaus', 'ripausta'], ['hyppysellinen', 'hyppysellistä'], ['tilkka', 'tilkkaa'], ['loraus', 'lorausta'],
+    ['tippa', 'tippaa'], ['kourallinen', 'kourallista'],
+  ],
+}
+
 export function isMeasure(unit: Unit | null): boolean {
   return (
     unit !== null &&

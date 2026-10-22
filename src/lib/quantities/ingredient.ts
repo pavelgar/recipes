@@ -360,6 +360,7 @@ function measureScales(text: string, q: Quantity, end: number): boolean {
 // - a time: "for 30–40 minutes"
 // - who a product is for: "valmis 8-10hlö", "(4-serving size each)"
 // - a note reference: "(Note 1 & 3)"
+// - half of a pair the parser can't read: "(380/230 g)", net and drained
 const INTO_BEFORE = /\b(?:into|in)\s*$/i
 const TIMES_AROUND = new RegExp(String.raw`(?<![\p{L}])${TIMES}\s*$`, 'u')
 const TIMES_AFTER = new RegExp(
@@ -374,6 +375,7 @@ const SERVINGS_AFTER =
 // A number glued to a word that isn't a unit: "8-10hlö", "4-serving".
 const GLUED_WORD = new RegExp(String.raw`${HYPHEN}?\p{L}`, 'uy')
 const OF_BEFORE = /\bof\s*$/i
+const SLASH_NUMBER_AFTER = /\/\s*\d/y
 const NOTE_BEFORE = /\b(?:notes?|steps?)\s*(?:\d+\s*(?:&|and|ja|,)\s*)*$/i
 
 // How deep in parentheses each position of text is, so that "is this
@@ -409,6 +411,7 @@ function countKept(text: string, r: Read, depths: Uint16Array): boolean {
     endOf(RATE_AFTER, text, end) !== null ||
     endOf(TIME_AFTER, text, end) !== null ||
     endOf(SERVINGS_AFTER, text, end) !== null ||
+    endOf(SLASH_NUMBER_AFTER, text, end) !== null ||
     (!r.unit && endOf(GLUED_WORD, text, end) !== null)
   ) {
     return false
@@ -429,24 +432,26 @@ function laterScales(text: string, q: Quantity, end: number): boolean {
     : measureScales(text, q, end)
 }
 
-// "X plus Y (Z)": Z is usually the total of both, "1 cup plus 2 tablespoons
-// (134g)". But when X already has its own amount in another unit, Z is Y's:
-// "3/4 cup (90g) plus 1/3 cup (40g)".
-function plusTotal(
+// "X plus Y (Z)": Z is usually the total of both, and belongs to X as its
+// total: "1 cup plus 2 tablespoons (134g)". But when X already has its own
+// amount in another unit, Z is Y's: "3/4 cup (90g) plus 1/3 cup (40g)".
+// Returns X, or null when Z is Y's.
+function plusTotalOf(
   text: string,
   reads: ReadonlyArray<Read>,
   placed: ReadonlyArray<Placed | null>,
   r: Read,
-): boolean {
-  if (r.link?.by !== 'paren') return false
+): number | null {
+  if (r.link?.by !== 'paren') return null
   const owner = r.link.to
-  if (!PLUS_BEFORE.test(textBefore(text, reads[owner].at[0]))) return false
+  if (!PLUS_BEFORE.test(textBefore(text, reads[owner].at[0]))) return null
   let x = owner - 1
   while (x >= 0 && (placed[x]?.role === 'same' || !placed[x])) x--
-  if (x < 0) return true
-  return !placed.some(
+  if (x < 0) return null
+  const ownSame = placed.some(
     (p) => p?.role === 'same' && p.of === x && isMeasure(unitOf(p.read)),
   )
+  return ownSame ? null : x
 }
 
 // Picks the amount in parentheses that belongs to the whole line: "Ison
@@ -560,7 +565,10 @@ function relate(
       continue
     }
     const owner = r.link ? placed[r.link.to] : null
-    if (r.link && owner && !plusTotal(text, reads, placed, r)) {
+    const total = plusTotalOf(text, reads, placed, r)
+    if (total !== null) {
+      placed[i] = { read: { ...r, link: null }, role: 'total', of: total }
+    } else if (r.link && owner) {
       placed[i] = { read: r, role: 'same', of: r.link.to }
     } else if (kept(text, r, depths)) {
       placed[i] = { read: { ...r, link: null }, role: 'other', of: null }

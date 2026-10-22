@@ -1,9 +1,11 @@
 import { parseIngredient } from '@/lib/quantities/ingredient'
+import { presentIngredient, presentStep } from '@/lib/quantities/present'
 import { scanStep } from '@/lib/quantities/steps'
 import { checkLedger } from '@/test/ledger'
 import { describeIngredient, describeStep } from '@/test/quantities'
 import type { CorpusLine } from '@/test/corpus'
 import type { LedgerCheck } from '@/test/ledger'
+import type { DisplaySystem } from '@/lib/quantities/measures'
 
 // The ledgers of ingredient lines and step sentences, with a summary of
 // each site's results after its heading.
@@ -82,5 +84,55 @@ export function stepLedger(
       const c = counts.get(site) ?? { sentences: 0, found: 0 }
       return `(${sites.get(site)}): ${c.sentences} sentences, ${entries.length} entries; ${c.found} with quantities`
     },
+  })
+}
+
+// How every corpus line reads on a metric and a US device, and at one and a
+// half times the servings on a metric one. Only what differs from the line
+// as written is listed.
+export function presentedLedger(
+  path: string,
+  lines: ReadonlyArray<CorpusLine>,
+  sentences: ReadonlyArray<CorpusLine>,
+): LedgerCheck {
+  const items: Array<{ group: string; text: string; reading: Array<string> }> =
+    []
+  const changed = new Map<string, number>()
+  const add = (line: CorpusLine, step: boolean) => {
+    const show = (display: DisplaySystem, factor: number) => {
+      const opts = { ...line, display, factor }
+      return step
+        ? presentStep(line.text, scanStep(line.text, line), opts).text
+        : presentIngredient(parseIngredient(line.text, line), opts).text
+    }
+    const metric = show('metric', 1)
+    const reading = [
+      ...(metric !== line.text ? [`metric: ${metric}`] : []),
+      ...(show('us', 1) !== line.text ? [`us: ${show('us', 1)}`] : []),
+      ...(!step && show('metric', 1.5) !== metric
+        ? [`×1.5: ${show('metric', 1.5)}`]
+        : []),
+    ]
+    if (reading.length === 0) return
+    changed.set(line.site, (changed.get(line.site) ?? 0) + 1)
+    items.push({
+      group: line.site,
+      text: step ? `step: ${line.text}` : line.text,
+      reading,
+    })
+  }
+  for (const line of lines) add(line, false)
+  for (const sentence of sentences) add(sentence, true)
+  return checkLedger({
+    path,
+    title: [
+      'Every corpus line and step sentence as a metric and a US device show',
+      'it, and as a metric one shows it at 1.5 times the servings. Lines',
+      'shown exactly as written are left out.',
+      ...SEE,
+    ],
+    items,
+    summarise: (site, entries) =>
+      `: ${changed.get(site) ?? 0} lines and sentences, ${entries.length} entries`,
   })
 }

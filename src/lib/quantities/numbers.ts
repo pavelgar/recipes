@@ -102,7 +102,8 @@ export function readNumber(
     return at(value, m[0].length, 'fraction')
   }
   m = matchAt(SLASH, text, pos)
-  if (m && Number(m[2]) !== 0) {
+  // "380/230 g" is a can's net and drained weight, not a fraction.
+  if (m && isProper(m[1], m[2]) && Number(m[2]) <= 64) {
     return at(Number(m[1]) / Number(m[2]), m[0].length, 'fraction')
   }
   if (language === 'en') {

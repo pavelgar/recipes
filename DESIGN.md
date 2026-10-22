@@ -142,7 +142,36 @@
   line. In step text and later in an ingredient line ("cut into 5 mm
   slices") it means millimetres.
 - Text that already gives both systems, like "425 °F (220 °C)", is left as
-  written.
+  written. So is an amount given again in the display's units: "2 2/3 cups
+  (320g)" and "1 cup plus 2 tablespoons (134g)" on a metric device. When
+  both are in units the display doesn't use ("330ml/11fl oz" on a US
+  device), only the first converts.
+- Converted amounts are rounded the way recipes write them:
+  - Metric volumes are decilitres with one decimal (⅓ cup → 0,8 dl), and
+    litres from 10 dl (5 cups → 1,2 l).
+  - US volumes are teaspoons below a tablespoon, tablespoons below ¼ cup,
+    then cups: the nearest of ¼, ⅓, ½, ⅔ and ¾ when that is within 6%,
+    otherwise the fraction below plus tablespoons (1 dl → ⅓ cup + 1½
+    tbsp). English recipes switch to quarts from 8 cups.
+  - Grams round to 1 g below 20 g, 5 g below 250 g and 10 g below 1 kg,
+    then kilograms with one decimal (8 oz → 225 g). US weights are ounces
+    below 2 lb (500 g → 18 oz), then quarter pounds.
+  - Lengths use the usual recipe equivalents: ¼ in ↔ 5 mm, ½ in ↔ 1 cm,
+    1 in ↔ 2,5 cm, 9 × 13 in ↔ 23 × 33 cm.
+  - Oven temperatures, from 120 °C (250 °F) up, follow the usual tables in
+    steps of 25 °F and 10 °C (180 °C ↔ 350 °F). Lower ones round to 5 °F
+    and 1 °C (165 °F → 74 °C).
+  - Australian and metric cups are 250 ml.
+  - An amount that no unit fits within 35% stays as written: "½ g
+    sahramia" on a US device.
+- Converted text follows the recipe's language: decimal comma and Finnish
+  unit words ("⅓ kuppia", "7 unssia") in a Finnish recipe, decimal point
+  and English ones in an English recipe.
+- Scaled amounts keep the way they were written: decimals stay decimals,
+  fractions stay fractions ("1-1/2" → "3"), number words stay words ("yksi
+  paketti" → "kaksi pakettia"). Unit words agree with the new number ("1
+  cup" → "2 cups", "1 purkki" → "2 purkkia"). Scaled grams and millilitres
+  round to 5 from 20 up (175 g × 1,5 → 265 g).
 - Package units (1 prk) are never converted, but scale with servings. A size
   given in the line, as in "1 prk (400 g)", converts. It counts as the total
   for the line and scales with it ("2 prk (800 g)"), unless the line marks

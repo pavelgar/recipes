@@ -256,11 +256,11 @@ const CASES: Record<string, Array<[line: string, expected: string]>> = {
       '2 large eggs, plus 1 egg yolk, white reserved',
       'counted 2 | more 1  [2] [1]',
     ],
-    // Grams after an addition are the total of both, unless the first
-    // amount already has its own.
+    // Grams after an addition are the total of both, and belong to the
+    // first amount, unless it already has its own.
     [
       '1 cup plus 2 tablespoons (134g) King Arthur Unbleached All-Purpose Flour',
-      'measured 1 cup | more 2 tbsp | more 134 g  [1 cup] [2 tablespoons] [134g]',
+      'measured 1 cup | more 2 tbsp | total 134 g  [1 cup] [2 tablespoons] [134g]',
     ],
     [
       '3/4 cup (90g) plus 1/3 cup (40g) water-milled glutinous rice flour, divided; plus more as needed*',

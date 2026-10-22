@@ -25,7 +25,7 @@ Before editing files for a substantial task:
 
 - Run Intent as `bun run intent list` and `bun run intent load <package>#<skill>`, in place of the `bunx … intent` commands above and the `Load:` lines that `intent list` prints. Those resolve to a stale `intent` binary shipped by `@tanstack/devtools` and crash ([TanStack/devtools#525](https://github.com/TanStack/devtools/issues/525)); drop this line once that issue is fixed.
 - Run tests with `bun run test`. Plain `bun test` starts Bun's built-in runner, not Vitest.
-- Ledgers in `src/lib/quantities/__ledger__/` hold the parser's reading of every corpus line. After a parser change, review each reported change, then accept with `UPDATE_LEDGER=1 bun run test` (`-u` leaves ledgers alone). Statuses and update rules: `src/test/ledger.ts`.
+- Ledgers in `src/lib/quantities/__ledger__/` hold how the parser reads and the app shows every corpus line. After a change to either, review each reported change, then accept with `UPDATE_LEDGER=1 bun run test` (`-u` leaves ledgers alone). Statuses and update rules: `src/test/ledger.ts`.
 - Tune parser rules against the development corpus only. `corpus/held-out/` is the held-out sample: leave its lines and ledgers unread, and run `HELD_OUT=1 bun run test held-out` only when asked (see corpus/README.md).
 - After adding or removing files in `corpus/`, run `bun run test --clearCache` once. Vitest's module cache keeps the corpus file list from an earlier run until `src/test/corpus.ts` itself changes.
 - `bun run typecheck` needs the generated `src/paraglide/`. On a fresh checkout, run `bun run build` or `bun run dev` first.
