@@ -6,6 +6,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
+import { Toaster } from '@/components/ui/toast'
 import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
 
 import { getLocale } from '@/paraglide/runtime'
@@ -57,7 +58,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        {/* Long enough to reach Undo with busy hands. */}
+        <Toaster timeout={10_000}>{children}</Toaster>
         <TanStackDevtools
           config={{
             position: 'bottom-right',
