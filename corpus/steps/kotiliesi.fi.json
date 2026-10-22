@@ -1,0 +1,62 @@
+{
+  "site": "kotiliesi.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://kotiliesi.fi/resepti/grillattu-siika/",
+      "sentences": [
+        "Kypsennä uunin grillivastuksen alla noin 15 minuuttia välillä kääntäen tai 200-asteisessa uunissa noin 20 minuuttia."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/kesaunelma/",
+      "sentences": [
+        "Kuumenna uuni 225-asteeseen.",
+        "Kaada taikinapellille ja kyp- sennä225- asteisessa uunissa noin 10 minuuttia.",
+        "Leikkaa torttulevystä kaksi pienen kakkuvuoan pohjan kokoista pyöreää levyä (halkaisija 20 cm)."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/kirjolohi-uunissa/",
+      "sentences": [
+        "Kuori ja viipaloi 800 grammaa perunoita, neljä valkosipulinkynttä ja yksi sipuli.",
+        "Kiehauta kaksi desilitraa kasvislientä.",
+        "Lisää kaksi desilitraa kuohukermaa, teelusikallinen suolaa sekä puoli teelusikallista mustapippuria.",
+        "Paista 225 asteessa 30 minuuttia.",
+        "Leikkaa pintaan molemmin puolin 4–5 noin 1⁄2 cm:n syvyistä viiltoa.",
+        "Soseuta maustetahnan ainekset eli kaksi valkosipulinkynttä, yksi salottisipuli, puoli desilitraa oliiviöljyä, ruukku persiljaa, oksa rosmariinia, teelusikallinen paprikajauhetta, teelusikallinen korianteria, teelusikallinen juustokuminaa ja teelusikallinen suolaa sauvasekoittimella.",
+        "Ota perunavuoka uunista ja laske uunin lämpötila 175 asteeseen.",
+        "Sivele kalan pintaan kaksi ruokalusikallista oliiviöljyä."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/mansikka-ja-pistaasimarengit/",
+      "sentences": ["Paista marenkeja 95-asteisessa uunissa noin 2 tuntia."]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/matchawhoopie-pie/",
+      "sentences": [
+        "Paista 175-asteisen uunin keskitasossa noin&nbsp;10 minuuttia."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/modernit-makkaraperunat/",
+      "sentences": ["Kypsennä uunissa 200 asteessa noin 25 minuuttia."]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/sweet-chili-seiti/",
+      "sentences": [
+        "Kypsennä&nbsp; seitipaloja 200 asteessa uunin keskitasolla noin 25–30 minuuttia."
+      ]
+    },
+    {
+      "url": "https://kotiliesi.fi/resepti/taateli-kookospalat/",
+      "sentences": [
+        "Levitä taikina uunivuokaan&nbsp;(30 x 35 cm) leivinpaperin päälle.",
+        "Paista 175 asteessa uunin keskitasolla noin 25 minuuttia."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "site": "arla.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.arla.fi/reseptit/capricciosa-pizzaleipa/",
+      "sentences": ["Kuumenna uuni 175 °C:een."]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/dippilihapullat/",
+      "sentences": [
+        "Lado lihapullat leivinpaperin päälle uunipellille ja paista kypsiksi uunissa 200°C:ssa n. 20 minuuttia."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/grillattu-parsa-auringonkukkapesto-juustosabayonne/",
+      "sentences": [
+        "Aseta kulho vesihauteen päälle ja vatkaa voimakkaasti, kunnes seos sakenee ja saavuttaa 60 °C:n lämpötilan.",
+        "Sulata 50 g voita pannulla ja voitele parsat huolellisesti."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/juustoinen-uunilohi/",
+      "sentences": ["Kuumenna uuni 225 °C:een."]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kolmen-suklaan-juustokakku/",
+      "sentences": [
+        "Aloita kolmen suklaan juustokakun valmistus vuoraamalla irtopohjaisen piirakkavuoan (halkaisija 23 cm) pohja ja reunat leivinpaperilla.",
+        "Sekoita liivatelehtiseokseen 6-7 lusikallista täytemassaa ja kaada seos lopun täyteen joukkoon."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kylmasavulohipiirakka/",
+      "sentences": [
+        "Kuumenna uuni 200 ℃:seen.",
+        "Vuoraa piirakkavuoka (halk. noin 24 cm) leivinpaperilla tai voitele se kevyesti."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/munakoisotahna/",
+      "sentences": [
+        "Aloita valmistamaan munakoisotahna lämmittämällä uuni  200°C asteeseen."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/protein-tuorepuuro/",
+      "sentences": [
+        "Sekoita taatelit sauvasekoittimella ja lisää samalla 0.5dl Arla Protein Kaakaojuomaa ja ripaus suolaa."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/salmiakki-mutakakku/",
+      "sentences": [
+        "Kuumenna uuni 175°C.",
+        "Voitele ja jauhota irtopohja kakkuvuoka jonka halkaisija on noin 24 cm."
+      ]
+    }
+  ]
+}

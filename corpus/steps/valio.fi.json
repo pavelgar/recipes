@@ -1,0 +1,72 @@
+{
+  "site": "valio.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.valio.fi/reseptit/baskimaan-juustokakku/",
+      "sentences": [
+        "Levitä irtopohjavuoan (ø 20 cm) pohjalle ja reunoille leivinpaperi.",
+        "Kaada taikina vuokaan leivinpaperin päälle ja paista 200-asteisessa uunissa 1 h 15 min. tai kunnes kakun pinta on tummanruskea."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/gluteeniton-kesakurpitsa-juustoleipa/",
+      "sentences": [
+        "Kaada taikina voideltuun, suorakaiteen muotoiseen 1,5 litran vetoiseen leipävuokaan.",
+        "Paista 175 asteessa uunin alatasolla n. 40 min tai kunnes kypsä.",
+        "Jos haluat tehdä tavallisen kesäkurpitsaleivän gluteenittoman sijasta, käytä gluteenittoman jauhoseoksen tilalla 5 dl vehnäjauhoja ja 2,5 dl sämpyläjauhoja."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/granolanakkari/",
+      "sentences": ["Paista uunin keskiosassa 150 asteessa 35 min."]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/juustokermasarvet/",
+      "sentences": [
+        "Kauli kumpikin taikinapala pyöreiksi levyiksi (Ø 35 cm).",
+        "Paista uunin keskiosassa 225 asteessa n. 10 min tai kunnes kypsiä."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/kesaporkkanat-nyytissa/",
+      "sentences": ["Voit valmistaa nyytit myös uunissa 225 asteessa."]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/nopea-tortillalasagne/",
+      "sentences": ["Paista 225 asteessa uunin keskiosassa 10 - 15 min."]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/pahkinasuklainen-kirsikkakaaretorttu/",
+      "sentences": [
+        "Laita uuni kuumenemaan 200 asteeseen.",
+        "Levitä torttupohjalle ensin suklaa-pähkinälevite, sitten kirsikkarahka (ja paloitellut kirsikat) jättäen n. 2 cm toisesta reunasta ilman täytettä."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/spagettivuoka/",
+      "sentences": ["Paista uunin keskiosassa 200 asteessa 25 min."]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/taatelimokkapalat/",
+      "sentences": [
+        "Kaada taikina leivinpaperilla vuorattuun uunivuokaan (20 x 30 cm).",
+        "Paista 200-asteisessa uunissa 20 minuuttia."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/tomaattinen-peltileipa/",
+      "sentences": [
+        "Lämmitä maito 42-asteiseksi.",
+        "Painele taikina ohueksi (1- 1 ½ cm) levyksi leivinpaperilla vuoratulle pellille.",
+        "Paista uunin keskiosassa 200 asteessa n. 15 min."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/yrtti-jauhelihapullat/",
+      "sentences": ["Paista uunin keskiosassa 225 asteessa 20 - 25 min."]
+    }
+  ]
+}

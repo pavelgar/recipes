@@ -1,7 +1,7 @@
 # Corpus
 
-Real recipe data for tests: ingredient lines from published Finnish and
-English recipe pages, collected on 2026-10-22.
+Real recipe data for tests: ingredient lines and step sentences from
+published Finnish and English recipe pages, collected on 2026-10-22.
 
 ## Ingredient lines
 
@@ -34,6 +34,35 @@ are untouched.
 
 Kotikokki recipes are written by home cooks, the other sites by editors.
 
+## Step sentences
+
+`steps/<site>.json` holds sentences from the steps of the same recipes,
+matched by `url`. Only sentences that mention a temperature or an amount
+with a unit are kept (157 Finnish, 338 English), so recipes without any are
+left out.
+
+| Site                    | Recipes | Sentences |
+| ----------------------- | ------- | --------- |
+| arla.fi                 | 9       | 13        |
+| kotikokki.net           | 17      | 28        |
+| kotiliesi.fi            | 8       | 18        |
+| meillakotona.fi         | 20      | 34        |
+| soppa365.fi             | 11      | 19        |
+| valio.fi                | 11      | 19        |
+| yhteishyva.fi           | 18      | 26        |
+| allrecipes.com          | 18      | 43        |
+| kingarthurbaking.com    | 23      | 94        |
+| bbc.co.uk               | 18      | 35        |
+| bbcgoodfood.com         | 21      | 51        |
+| recipetineats.com       | 23      | 75        |
+| womensweeklyfood.com.au | 15      | 40        |
+
+Each sentence is cut from the published step text unchanged, entities and
+spacing included. The selection was a broad pattern match, so a few kept
+sentences only look like amounts ("A tablespoon cookie scoop works well
+here."), which makes them useful negative cases, and sentences that write
+an amount in a form the pattern didn't cover may be missing.
+
 ## Rules
 
 - Keep every line exactly as published. Tests that need clean input
@@ -45,8 +74,13 @@ Kotikokki recipes are written by home cooks, the other sites by editors.
 For each site, recipe URLs came from its sitemaps, and a random sample
 (fixed seed 20261022) was fetched until 25 pages with Recipe data were
 found. Requests followed robots.txt, used an identifying user agent, and
-were spaced 1.5 seconds apart per site. Only ingredient lists and the
-fields above were kept, not instructions or descriptions.
+were spaced 1.5 seconds apart per site. Only ingredient lists, the fields
+above and the selected step sentences were kept, not whole instructions or
+descriptions.
+
+Step sentences were collected later the same day by fetching the same pages
+again. Three allrecipes.com pages refused the second visit, and three
+soppa365.fi recipes publish no steps in their Recipe data.
 
 Left out: seriouseats.com (refused requests), taste.com.au and
 bestrecipes.com.au (disallowed by robots.txt), and k-ruoka.fi (blocks

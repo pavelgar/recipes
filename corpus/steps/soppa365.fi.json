@@ -1,0 +1,72 @@
+{
+  "site": "soppa365.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.soppa365.fi/reseptit/grillaus/flank-steak-chimichurri",
+      "sentences": ["Kun mittari osoittaa 58 astetta, liha on medium."]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/lakritsimousse",
+      "sentences": [
+        "Survo puolukoita kevyesti kattilan pohjalla; jätä 1/2 dl puolukoita annosten koristeeksi.",
+        "Laita uuni kuumenemaan 200 asteeseen."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/paahdetut-persimonit-ja-mascarponevaahtoa",
+      "sentences": ["Kuumenna uuni 200 asteeseen."]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-kastikkeet-tahnat-ja-marinadit/kananugetit-dippilankku",
+      "sentences": ["Kuumenna uuni 225 asteeseen."]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-juhli-ja-nauti-pastat-ja-risotot/maa-artisokkasipsit",
+      "sentences": [
+        "Kaada pieni kattila vajaa puolilleen öljyä ja laita öljy kuumenemaan 160 asteeseen eli niin lämpimäksi, että sipsit ruskistuvat parissa minuutissa."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-kasvis-suolainen-leivonta/sienipiirakka",
+      "sentences": [
+        "Taputtele taikina voideltuun piirasvuokaan (ø 24 cm) ja pistele pohjaa haarukalla.",
+        "Esikypsennä 225-asteisessa uunissa 10 minuuttia.",
+        "Kypsennä 200 asteessa 25–35 minuuttia, kunnes pinta on kullanruskea."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-makea-leivonta/limekaaretorttu",
+      "sentences": ["Laita uuni kuumenemaan 225 asteeseen."]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-pizzat-ja-piirakat-kasvis-suolainen-leivonta/myskikurpitsaquiche",
+      "sentences": [
+        "Kuumenna uuni 200 asteeseen.",
+        "Kauli taikina jauhotetulla alustalla tasai­seksi levyksi (Ø n. 30 cm).",
+        "Pingota leivin­paperi irtopohjavuoan pohjalle (Ø 24 cm).",
+        "Nosta taikina vuokaan kaulimen avulla ja siisti taikinan reunat veitsellä 3–4 cm:n kor­keudelle."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta/omenavuokaleipa",
+      "sentences": ["Paista 180-asteisessa uunissa 40–50 minuuttia."]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha-pastat-ja-risotot/pekoni-ruusukaalipasta",
+      "sentences": [
+        "Ota pastavedestä 1½ desiä vettä talteen ennen kuin valutat pastan."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/makea-leivonta/inkivaari-luumutorttu",
+      "sentences": [
+        "Pane uuni lämpiämään 225 asteeseen.",
+        "Jaa taikina 3 osaan ja kauli jauhotetulla pöydällä pyöreiksi pohjiksi (halkaisija 25 cm).",
+        "Levitä pohjille tasainen kerros ricottaa niin, että 2 cm reunoista jää ilman juustoa."
+      ]
+    }
+  ]
+}
