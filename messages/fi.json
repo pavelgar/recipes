@@ -1,0 +1,5 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "language_label": "Kieli",
+  "current_locale": "Nykyinen kieli: {locale}"
+}
