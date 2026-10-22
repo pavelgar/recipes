@@ -71,6 +71,11 @@
     "vite": "^8.0.0",
     "vitest": "^5.0.5"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "intent": {
     "skills": [
       "@tanstack/*"
