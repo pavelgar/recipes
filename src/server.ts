@@ -1,5 +1,5 @@
 import handler from '@tanstack/react-start/server-entry'
-import { paraglideMiddleware } from './paraglide/server'
+import { paraglideMiddleware } from '@/paraglide/server'
 
 // Makes the locale cookie available to getLocale() during SSR.
 export default {
