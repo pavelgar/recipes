@@ -1,3 +1,7 @@
+## Design brief
+
+Read [DESIGN.md](DESIGN.md) before planning or changing features, screens, visual design, the data model, or deployment. It holds what is decided, the build order, and the working rules for this project.
+
 <!-- intent-skills:start -->
 
 ## Skill Loading
