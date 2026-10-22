@@ -6,7 +6,7 @@
 - Mobile-first, responsive, installable as a PWA.
 - One shared recipe collection for everyone. No accounts, no logins.
 - Distributed as a Docker/Podman image that runs anywhere containers run.
-- Licensed under AGPL-3.0.
+- Licensed under AGPL-3.0-only. Settings links to the source code.
 
 ## Decided
 
