@@ -32,9 +32,12 @@ const JOINING: Record<Language, ReadonlySet<string>> = {
   en: new Set(['and', 'or', 'with']),
 }
 
-// Keep original words apart from word keys, so prefixes match the spelling
-// before stemming without changing which whole words match.
-const prefixKey = (word: string) => `prefix:${word}`
+// Each word as written, kept apart from word keys. Query words match it
+// whole, so recipes with the form typed rank above other forms: "chops"
+// above "chopped". An unfinished last word also matches the start of it,
+// so prefixes match the spelling before stemming without changing which
+// whole words match.
+const formKey = (word: string) => `form:${word}`
 
 // Each language has its own fields, so its keys only meet its recipes.
 const fieldsOf = (language: Language) => [
@@ -59,7 +62,7 @@ export function createRecipeSearch(
     tokenize: (text, field) => splitWords(text, languageOf(field)),
     processTerm: (word, field) => [
       ...wordKeys(word, languageOf(field)),
-      prefixKey(word),
+      formKey(word),
     ],
     // Queries are built from keys below, so they pass through as they are.
     searchOptions: {
@@ -88,8 +91,9 @@ export function createRecipeSearch(
               combineWith: 'OR',
               queries: [
                 ...wordKeys(word, language),
+                formKey(word),
                 ...(unfinished && i === words.length - 1
-                  ? [{ queries: [prefixKey(word)], prefix: true }]
+                  ? [{ queries: [formKey(word)], prefix: true }]
                   : []),
               ],
             })),

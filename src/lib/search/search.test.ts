@@ -54,6 +54,30 @@ describe.each(['fi', 'en'] as const)('searching %s word forms', (language) => {
     expect(misses).toEqual([])
   })
 
+  // The title boost may still put another form first: "sitruunaa" finds
+  // "Sitruuna-valkosuklaakakku" first. While a word is being typed, the
+  // longer words it starts can add up past the exact form, so only
+  // complete words are checked.
+  it('ranks the form searched for above other forms, but for titles', () => {
+    const misplaced: Array<string> = []
+    for (const form of answerKey(language).flat()) {
+      const found = search(`${form} `).filter(
+        (url) => recipes.get(url)?.language === language,
+      )
+      const exact = found.map((url) => !!wordsOf.get(url)?.includes(form))
+      found.slice(0, exact.lastIndexOf(true)).forEach((url, i) => {
+        const title = splitWords(recipes.get(url)?.title ?? '', language)
+        if (
+          !exact[i] &&
+          !title.some((word) => sameWord(word, form, language))
+        ) {
+          misplaced.push(`${form}: ${url}`)
+        }
+      })
+    }
+    expect(misplaced).toEqual([])
+  })
+
   it('finds only recipes with the word, read in their own language', () => {
     for (const form of answerKey(language).flat()) {
       for (const url of search(`${form} `)) {

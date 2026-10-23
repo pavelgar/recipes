@@ -220,7 +220,9 @@
   Findings: [Voikko investigation](docs/voikko-investigation.md).
 - Search matches as you type: the last word of a search also matches the
   start of longer words, so "porkk" finds "porkkanaa" and "kana" finds
-  "kanapata" (and "kananmuna"). Whole-word matches rank first.
+  "kanapata" (and "kananmuna"). Once a word is complete, the exact form
+  typed ranks above other forms of the word, though a match in the title
+  can rank higher.
 - A recipe must contain every word of a search, except the joining words
   ja, tai, sekä, and, or and with, which are skipped. "kana tai kala"
   finds recipes with both.
