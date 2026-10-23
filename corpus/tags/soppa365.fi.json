@@ -1,0 +1,261 @@
+{
+  "site": "soppa365.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://www.soppa365.fi/reseptit/arjen-nopeat-kana/harissaporkkanat",
+      "name": "Harissaporkkanat",
+      "recipeCategory": ["Arjen nopeat", "Kana"],
+      "recipeCuisine": "Arjen nopeat,Kana",
+      "keywords": "Porkkana,Broileri,Avokado,pääsiäinen,kana,harissa,Mia: Tinto,30 min,kot kot,Kot kot,30 minuuttia,Pääsiäinen"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/grillaus/flank-steak-chimichurri",
+      "name": "Flank steak & chimichurri",
+      "recipeCategory": "Grillaus",
+      "recipeCuisine": "Grillaus",
+      "keywords": "Stockmann Herkku grilli"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/lakritsimousse",
+      "name": "Lakritsimousse",
+      "recipeCategory": "Jälkiruuat",
+      "recipeCuisine": "Jälkiruuat",
+      "keywords": "Jälkiruoka,Lakritsimousse,Puolukkaliemi,puolukka,lakritsi,mousse,jälkiruuat,Manteli,viikonloppubistro,Viikonloppubistro,Jälkiruuat"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/paahdetut-persimonit-ja-mascarponevaahtoa",
+      "name": "Paahdetut persimonit ja mascarponevaahtoa",
+      "recipeCategory": "Jälkiruuat",
+      "recipeCuisine": "Jälkiruuat",
+      "keywords": "Jälkiruuat,persimoni,mascarpone,mascarponevaahto,Kemut,juhli ja nauti,joulu"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat/porkkana-tyrnijaatelo-ja-tyrnikastike",
+      "name": "Porkkana-tyrnijäätelö ja tyrnikastike",
+      "recipeCategory": "Jälkiruuat",
+      "recipeCuisine": "Jälkiruuat",
+      "keywords": "Jäätelö,tyrnijäätelö,glukoosisiirappi,kotijäätelö,porkkanajäätelö,tyrnikastike,tyrnimehu,Jälkiruuat"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/juomat/kylmauutettu-vaniljaespresso",
+      "name": "Kylmäuutettu vaniljaespresso",
+      "recipeCategory": "Juomat",
+      "recipeCuisine": "Juomat"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kala-arjen-nopeat-pastat-ja-risotot-kastikkeet-tahnat-ja-marinadit/villikalapasta",
+      "name": "Villikalapasta",
+      "recipeCategory": [
+        "Kala",
+        "Arjen nopeat",
+        "Pastat ja risotot",
+        "Kastikkeet",
+        "tahnat ja marinadit"
+      ],
+      "recipeCuisine": "Kala,Arjen nopeat,Pastat ja risotot,Kastikkeet, tahnat ja marinadit"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-aamiaiset-gluteeniton/australialainen-makea-kiivimunakas",
+      "name": "Australialainen makea kiivimunakas",
+      "recipeCategory": ["Kana", "Aamiaiset", "Gluteeniton"],
+      "recipeCuisine": "Kana,Aamiaiset,Gluteeniton",
+      "keywords": "aamiainen & brunssi,makea kiivimunakas,Kananmuna,munakas"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-arjen-nopeat-padat-ja-laatikot/siiderinen-broileripata",
+      "name": "Siiderinen broileripata",
+      "recipeCategory": ["Kana", "Arjen nopeat", "Padat ja laatikot"],
+      "recipeCuisine": "Kana,Arjen nopeat,Padat ja laatikot",
+      "keywords": "Kot kot,kanapata,Siideri,siiderikana,kanaruuat,pääsiäinen,Broileri"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kana-kastikkeet-tahnat-ja-marinadit/kananugetit-dippilankku",
+      "name": "Kananugetit & dippilankku",
+      "recipeCategory": ["Kana", "Kastikkeet", "tahnat ja marinadit"],
+      "recipeCuisine": "Kana,Kastikkeet, tahnat ja marinadit",
+      "keywords": "30 minuuttia,kananugetit,Kot kot,Dippi,kana"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-alkuruuat-valipalat-lisukkeet/burrata-sienibruschettat",
+      "name": "Burrata-sienibruschettat",
+      "recipeCategory": [
+        "Kasvis",
+        "Arjen nopeat",
+        "Alkuruuat",
+        "Välipalat",
+        "Lisukkeet"
+      ],
+      "recipeCuisine": "Kasvis,Arjen nopeat,Alkuruuat,Välipalat,Lisukkeet",
+      "keywords": "burrata,sienibruschetta,bruschetta,30 minuuttia,Vege,kasvis,Vegebaari,Leivät & piirakat"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-gluteeniton/pirteat-porkkanapihvit",
+      "name": "Pirteät porkkanapihvit",
+      "recipeCategory": ["Kasvis", "Arjen nopeat", "Gluteeniton"],
+      "recipeCuisine": "Kasvis,Arjen nopeat,Gluteeniton",
+      "keywords": "pirteät porkkanapihvit,porkkanapihvit,kasvispihvit,Porkkana,Vegebaari,gluteeniton deli,30 minuuttia"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-juhli-ja-nauti-salaatit/kuningasperunasalaatti",
+      "name": "Kuningasperunasalaatti",
+      "recipeCategory": [
+        "Kasvis",
+        "Arjen nopeat",
+        "Juhli ja nauti",
+        "Salaatit"
+      ],
+      "recipeCuisine": "Kasvis,Arjen nopeat,Juhli ja nauti,Salaatit",
+      "keywords": "30 minuuttia,kevyet & salaatit,Ottolenghi,perunasalaatti,Vegebaari,Kemut"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-padat-ja-laatikot/helppo-kaali-pastagratiini",
+      "name": "Helppo kaali-pastagratiini",
+      "recipeCategory": ["Kasvis", "Arjen nopeat", "Padat ja laatikot"],
+      "recipeCuisine": "Kasvis,Arjen nopeat,Padat ja laatikot",
+      "keywords": "30 min,30 minuuttia,kasvis,Vegebaari,Pastatehdas,Kukkakaali,Parsakaali"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-salaatit/appelsiininen-aasiaslaw",
+      "name": "Appelsiininen aasiaslaw",
+      "recipeCategory": ["Kasvis", "Arjen nopeat", "Salaatit"],
+      "recipeCuisine": "Kasvis,Arjen nopeat,Salaatit",
+      "keywords": "salaatti,Coleslaw,Kaali,grillaus,30 minuuttia,kevyet & salaatit,kevyet & salaatit,grillaus,juhannus"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/japanilaiset-dippinuudelit-eli-tsukemen",
+      "name": "Japanilaiset dippinuudelit eli tsukemen",
+      "recipeCategory": ["Kasvis", "Arjen nopeat"],
+      "recipeCuisine": "Kasvis,Arjen nopeat",
+      "keywords": "30 minuuttia,Vegebaari,japanilainen,miso"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/kesakurpitsapasta-nopean-tomaattikastikken-kera",
+      "name": "Kesäkurpitsapasta nopean tomaattikastikken kera",
+      "recipeCategory": ["Kasvis", "Arjen nopeat"],
+      "recipeCuisine": "Kasvis,Arjen nopeat"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/rapeat-kvinoa-pinaattipihvit-ja-edamamehummus",
+      "name": "Rapeat kvinoa-pinaattipihvit ja edamamehummus",
+      "recipeCategory": ["Kasvis", "Arjen nopeat"],
+      "recipeCuisine": "Kasvis,Arjen nopeat",
+      "keywords": "30 minuuttia,Vegebaari,kasvisruokareseptejä,kvinoapihvit,kvinoa,Pinaatti,edamame"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/tofu-kasvisvokki",
+      "name": "Tofu-kasvisvokki",
+      "recipeCategory": ["Kasvis", "Arjen nopeat"],
+      "recipeCuisine": "Kasvis,Arjen nopeat",
+      "keywords": "Tofu,vokki,Vege,wokki,Vegebaari,Kevyet & salaatit,Etno,30 minuuttia"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-gluteeniton/harkispyorykat",
+      "name": "Härkispyörykät",
+      "recipeCategory": ["Kasvis", "Gluteeniton"],
+      "recipeCuisine": "Kasvis,Gluteeniton"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-juhli-ja-nauti-pastat-ja-risotot/maa-artisokkasipsit",
+      "name": "Maa-artisokkasipsit",
+      "recipeCategory": ["Kasvis", "Juhli ja nauti", "Pastat ja risotot"],
+      "recipeCuisine": "Kasvis,Juhli ja nauti,Pastat ja risotot",
+      "keywords": "risotto,parmesaani,Sipsit,Maa-artisokka,maa-artisokkapyree,Vegebaari,Viikonloppubistro"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-salaatit/pinaatti-kaurasalaatti",
+      "name": "Pinaatti-kaurasalaatti",
+      "recipeCategory": ["Kasvis", "Salaatit"],
+      "recipeCuisine": "Kasvis,Salaatit",
+      "keywords": "30 minuuttia,Pinaatti,kevyet & salaatit,papusalaatti,Vegebaari"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis/hedelma-kvinoapaistos",
+      "name": "Hedelmä-kvinoapaistos",
+      "recipeCategory": "Kasvis",
+      "recipeCuisine": "Kasvis",
+      "keywords": "vinegretti,sahrami,kvinoa,hedelmä-kvinoapaistos,Vegebaari,Pääsiäinen"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/keitot/maa-artisokkakeitto",
+      "name": "Maa-artisokkakeitto",
+      "recipeCategory": "Keitot",
+      "recipeCuisine": "Keitot",
+      "keywords": "keitto,keitot,maa-artisokkakeitto,sahramilla maustettu maa-artisokkakeitto,Vegebaari,Pääsiäinen"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-kasvis-suolainen-leivonta/sienipiirakka",
+      "name": "Sienipiirakka",
+      "recipeCategory": ["Leivonta", "Kasvis", "Suolainen leivonta"],
+      "recipeCuisine": "Leivonta,Kasvis,Suolainen leivonta",
+      "keywords": "leivonta,suolainen leivonta,sienipiirakka,Leivät & piirakat,Vegebaari,Suppilovahvero"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-makea-leivonta/limekaaretorttu",
+      "name": "Limekääretorttu",
+      "recipeCategory": ["Leivonta", "Makea leivonta"],
+      "recipeCuisine": "Leivonta,Makea leivonta",
+      "keywords": "30 minuuttia,leivonta,makea leivonta,Sokerileipuri,Kemut,kääretorttu"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-pizzat-ja-piirakat-kasvis-suolainen-leivonta/myskikurpitsaquiche",
+      "name": "Myskikurpitsaquiche",
+      "recipeCategory": [
+        "Leivonta",
+        "Pizzat ja piirakat",
+        "Kasvis",
+        "Suolainen leivonta"
+      ],
+      "recipeCuisine": "Leivonta,Pizzat ja piirakat,Kasvis,Suolainen leivonta",
+      "keywords": "Kemut,Vegebaari,Leivät & piirakat,myskikurpitsa,quiche"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta-pizzat-ja-piirakat-suolainen-leivonta/liekkipiiras-siitakesienista",
+      "name": "Liekkipiiras siitakesienistä",
+      "recipeCategory": [
+        "Leivonta",
+        "Pizzat ja piirakat",
+        "Suolainen leivonta"
+      ],
+      "recipeCuisine": "Leivonta,Pizzat ja piirakat,Suolainen leivonta",
+      "keywords": "Leivät & piirakat,sienipiirakka,Siitakesieni,suolainen leivonta"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/leivonta/omenavuokaleipa",
+      "name": "Omenavuokaleipä",
+      "recipeCategory": "Leivonta",
+      "recipeCuisine": "Leivonta",
+      "keywords": "Leivät & piirakat,vuokaleipä"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha-pastat-ja-risotot/pekoni-ruusukaalipasta",
+      "name": "Pekoni-ruusukaalipasta",
+      "recipeCategory": ["Liha", "Pastat ja risotot"],
+      "recipeCuisine": "Liha,Pastat ja risotot",
+      "keywords": "Pekoni-ruusukaalipasta,Pasta,Pekoni,Pastatehdas,ruusukaali"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha-pastat-ja-risotot/possuragu",
+      "name": "Possuragù",
+      "recipeCategory": ["Liha", "Pastat ja risotot"],
+      "recipeCuisine": "Liha,Pastat ja risotot",
+      "keywords": "Possuragù,ragu,pastakastike,Viikonloppubistro,Pihvi & BBQ"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha/nepalilainen-broilerikastike",
+      "name": "Nepalilainen broilerikastike",
+      "recipeCategory": "Liha",
+      "recipeCuisine": "Liha",
+      "keywords": "kastikkeet,kanaruuat,etniset ruuat,Etno"
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/makea-leivonta/inkivaari-luumutorttu",
+      "name": "Inkivääri-luumutorttu",
+      "recipeCategory": "Makea leivonta",
+      "recipeCuisine": "Makea leivonta",
+      "keywords": "inkivääri,Luumu,ricotta,torttu,Sokerileipuri,pääsiäinen"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "site": "womensweeklyfood.com.au",
+  "country": "AU",
+  "language": "en",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/slow-cooker-recipes/julie-goodwins-chicken-korma-28633/",
+      "name": "Julie Goodwin&#8217;s chicken korma",
+      "recipeCuisine": ["Indian"],
+      "keywords": ["chicken curry", "chicken Korma", "slow cooked curry"]
+    }
+  ]
+}

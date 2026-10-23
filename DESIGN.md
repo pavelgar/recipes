@@ -55,7 +55,8 @@
 - Depend only on proven, widely used packages, such as MiniSearch,
   @orama/stemmers and the Vercel AI SDK.
 - Write our own ingredient parser, Finnish unit list, unit conversion and
-  number formatting, and website recipe extractor.
+  number formatting, Finnish word keys for search and tags, and website
+  recipe extractor.
 - Use es-toolkit for common utilities and pluralize to generate English
   unit plurals from singular spellings.
 - Learn from existing projects (Mealie, Tandoor, RecipeSage, Norish,
@@ -208,8 +209,21 @@
 - Search covers titles and ingredients, in the language each recipe is
   written in. There is no matching across languages. Finnish ingredient
   names inflect (jauhot, jauhoja), so search has to match inflected forms.
-- Stemming uses @orama/stemmers (the Snowball algorithm) for Finnish and
-  English, unless a better option turns up.
+- English words are stemmed with @orama/stemmers (the Snowball
+  algorithm). Finnish words use our own word keys: Snowball's Finnish
+  stemmer found every corpus form of only 142 of 221 words ("peruna" and
+  "perunaa" stayed apart), the keys find them for 219.
+- Keep the current Finnish word keys for now. Revisit Voikko with a
+  Snowball fallback when designing the service worker, offline navigation
+  and recipe caching, starting with the M1 offline prototype. Compare its
+  additional asset and startup work alongside the shared offline design.
+  Findings: [Voikko investigation](docs/voikko-investigation.md).
+- Search matches as you type: the last word of a search also matches the
+  start of longer words, so "porkk" finds "porkkanaa" and "kana" finds
+  "kanapata" (and "kananmuna"). Whole-word matches rank first.
+- A recipe must contain every word of a search, except the joining words
+  ja, tai, sekä, and, or and with, which are skipped. "kana tai kala"
+  finds recipes with both.
 - Search works offline too.
 - Library sort options: A–Z (default), Z–A, newest first, oldest first.
 - Suggestion rows to start with (more may come later). All are chosen
@@ -239,10 +253,19 @@
 - Tags are normalised to lowercase.
 - Duplicate checks ignore case, spacing and plurals ("pasta", "Pasta",
   "pastas"; "jälkiruoka", "jälkiruoat"). Finnish plurals are irregular, so
-  simple suffix rules won't do.
+  simple suffix rules won't do. The check is deliberately broad: it also
+  flags other forms of a word ("välipala", "välipalaa") and English words
+  made from one another ("bake", "baking").
+- A tag is read by the rules of the languages of its recipes, or of both
+  languages while it is on no recipe, and two tags are only compared in a
+  language they share. So "pork" on English recipes and "porkkana" on
+  Finnish ones are never flagged.
 - Possible duplicates are flagged for someone to review, never merged
-  automatically.
-- Typing a tag offers existing tags first. No matching across languages.
+  automatically. A flag can be dismissed, and the pair isn't flagged
+  again.
+- Typing a tag offers existing tags first, including other forms of what
+  is typed, by the duplicate check: typing "jälkiruoat" offers an existing
+  "jälkiruoka". No matching across languages.
 - A tag management screen lists every tag with its recipe count. Anyone can
   rename, merge and delete tags there, and flagged possible duplicates
   appear there too. Merging moves every recipe onto one tag.
@@ -251,8 +274,13 @@
   deletes it.
 - Filtering by several tags shows recipes that have all of them.
 - On import, the site's categories and keywords that match existing tags are
-  pre-selected in the review step. Others are offered as new tags, not
-  selected.
+  pre-selected in the review step. Matching uses the duplicate check, so the
+  site's "Jälkiruuat" pre-selects an existing "jälkiruoka"; an exact match
+  wins over a near one. Others are offered as new tags, not selected.
+- Site keywords that aren't useful as tags are left out of the offers:
+  author names ("Sophie Godwin"), nutrients ("Calcium"), numbers and
+  fragments ("77", "bo"). How to recognise them is decided with the
+  importer, against the tags in the test corpus.
 - In the editor, the app offers tags used on recipes that share the most
   ingredients with this one, as tap-to-add options.
 - Nothing is applied without someone seeing it.
@@ -298,8 +326,9 @@
 - Groceries and pantry tracking.
 - AI features beyond photo import.
 - Matching tags or search across languages.
-- Search matching parts of compound words ("jauho" finding "vehnäjauhoja").
-  A later improvement.
+- Search matching later parts of compound words ("jauho" finding
+  "vehnäjauhoja"). A later improvement. The first part already matches as
+  you type ("kana" finds "kanapata").
 - Importing from sites that block requests not made by a browser, such as
   K-Ruoka.
 - Importing recipes from other apps or files. There are no existing recipes

@@ -1,0 +1,205 @@
+{
+  "site": "arla.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://www.arla.fi/reseptit/aurinkokakku/",
+      "name": "Aurinkokakku",
+      "recipeCategory": "Jälkiruoka",
+      "keywords": "Aurinkokakku"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/banaanismoothie-maapahkinavoin-kera/",
+      "name": "Banaanismoothie maapähkinävoin kera ",
+      "recipeCategory": "Välipala, Aamupala",
+      "keywords": "Banaanismoothie maapähkinävoin kera "
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/capricciosa-pizzaleipa/",
+      "name": "Capricciosa pizzaleipä",
+      "recipeCategory": "Välipala",
+      "recipeCuisine": "Välimeren, Italialainen",
+      "keywords": "Capricciosa pizzaleipä"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/dippilihapullat/",
+      "name": "Dippilihapullat",
+      "recipeCategory": "Illallinen, Pääruoka, Iltapala, Välipala",
+      "recipeCuisine": "Suomalainen",
+      "keywords": "Dippilihapullat"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/graavilohitartar-ja-piimakastike/",
+      "name": "Graavilohitartar",
+      "recipeCategory": "Brunssi, Alkuruoka, Lounas",
+      "keywords": "Graavilohitartar"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/grillattu-parsa-auringonkukkapesto-juustosabayonne/",
+      "name": "Grillattu parsa auringonkukkapestolla ja juustosabayonnella",
+      "recipeCategory": "Lounas",
+      "keywords": "Grillattu parsa auringonkukkapestolla ja juustosabayonnella"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/grillipihvi-tillipestovoilla/",
+      "name": "Grillipihvi tillipestovoilla",
+      "recipeCategory": "Illallinen, Pääruoka",
+      "keywords": "Grillipihvi tillipestovoilla"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/hummerikeitto/",
+      "name": "Hummerikeitto",
+      "recipeCategory": "Illallinen, Pääruoka",
+      "keywords": "Hummerikeitto"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/jogurttikulho-on-trendikas-valipala/",
+      "name": "Jogurttikulho",
+      "recipeCategory": "Iltapala, Välipala, Aamupala",
+      "keywords": "Jogurttikulho"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/juustoinen-uunilohi/",
+      "name": "Juustoinen uunilohi",
+      "recipeCategory": "Illallinen, Pääruoka",
+      "keywords": "Juustoinen uunilohi"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kasvis-bouillabaisse/",
+      "name": "Kasvis-bouillabaisse",
+      "recipeCuisine": "Välimeren, Ranskalainen",
+      "keywords": "Kasvis-bouillabaisse"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kermainen-bataatti-perunakeitto/",
+      "name": "Kermainen bataatti-perunakeitto",
+      "recipeCategory": "Lounas",
+      "keywords": "Kermainen bataatti-perunakeitto"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kermainen-sienipasta/",
+      "name": "Kermainen sienipasta",
+      "recipeCategory": "Illallinen, Pääruoka, Lounas",
+      "recipeCuisine": "Välimeren, Italialainen",
+      "keywords": "Pasta,Sienet"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kolmen-suklaan-juustokakku/",
+      "name": "Kolmen suklaan juustokakku",
+      "keywords": "Kolmen suklaan juustokakku"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kylmasavulohipiirakka/",
+      "name": "Kylmäsavulohipiirakka",
+      "recipeCategory": "Jälkiruoka",
+      "keywords": "Piirakka,Savulohi"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lammaspata-karitsasta/",
+      "name": "Karitsapata",
+      "recipeCategory": "Illallinen, Pääruoka",
+      "keywords": "Karitsapata"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lattea-ja-laakerinlehtea/",
+      "name": "Lattea ja laakerinlehteä",
+      "recipeCategory": "Brunssi, Jälkiruoka",
+      "keywords": "Lattea ja laakerinlehteä"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lehtikaali-hedelmasmoothie/",
+      "name": "Lehtikaali-hedelmäsmoothie ",
+      "recipeCategory": "Välipala, Aamupala",
+      "keywords": "Lehtikaali-hedelmäsmoothie "
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lemon-curd-eli-sitruunatahna/",
+      "name": "Lemon curd eli sitruunatahna",
+      "keywords": "Lemon curd eli sitruunatahna"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lihapata/",
+      "name": "Lihapata",
+      "recipeCategory": "Illallinen, Pääruoka",
+      "recipeCuisine": "Tanskalainen",
+      "keywords": "Lihapata"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/mozzarellakana/",
+      "name": "Mozzarellakana",
+      "recipeCategory": "Illallinen, Lounas",
+      "keywords": "Helppo,Nopea,Kana"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/munakoisotahna/",
+      "name": "Munakoisotahna",
+      "recipeCategory": "Lisuke",
+      "recipeCuisine": "Lähi-idän, Turkkilainen",
+      "keywords": "Munakoisotahna"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/pekaanipahkinamousse/",
+      "name": "Pekaanipähkinämousse",
+      "recipeCategory": "Jälkiruoka",
+      "recipeCuisine": "Välimeren, Ranskalainen",
+      "keywords": "Pekaanipähkinämousse"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/porsaan-ribsit-airfryerissa/",
+      "name": "Porsaan ribsit airfryerissa",
+      "keywords": "Porsaan ribsit airfryerissa"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/protein-tuorepuuro/",
+      "name": "Protein tuorepuuro",
+      "recipeCategory": "Iltapala, Välipala, Aamupala",
+      "keywords": "Protein tuorepuuro"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/raparperijaadyke/",
+      "name": "Raparperijäädyke",
+      "recipeCategory": "Jälkiruoka",
+      "recipeCuisine": "Välimeren, Ranskalainen",
+      "keywords": "Raparperijäädyke"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/salmiakki-mutakakku/",
+      "name": "Salmiakki-mutakakku",
+      "keywords": "Salmiakki-mutakakku"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/tuore-pinaattisalaatti-mintun-ja-juuston-kera/",
+      "name": "Tuore pinaattisalaatti mintun ja juuston kera ",
+      "recipeCategory": "Lisuke, Lisuke kalalle, Lisuke pihville, Lounas",
+      "keywords": "Salaatti,Pinaatti"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/uunissa-paistetut-kanan-siivet/",
+      "name": "Uunissa paistetut kanan siivet",
+      "recipeCategory": "Lounas",
+      "keywords": "Uunissa paistetut kanan siivet"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/vadelmasorbetti/",
+      "name": "Vadelmasorbetti",
+      "recipeCategory": "Jälkiruoka",
+      "recipeCuisine": "Välimeren, Ranskalainen",
+      "keywords": "Vadelmasorbetti"
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/voikahvi/",
+      "name": "Voikahvi ",
+      "recipeCategory": "Aamupala",
+      "keywords": "Voikahvi "
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/yrtti-juustokastike-kasviksille/",
+      "name": "Yrtti-juustokastike kasviksille",
+      "recipeCategory": "Lisuke",
+      "recipeCuisine": "Välimeren, Ranskalainen",
+      "keywords": "Yrtti-juustokastike kasviksille"
+    }
+  ]
+}

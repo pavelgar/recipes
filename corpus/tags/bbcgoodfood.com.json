@@ -1,0 +1,258 @@
+{
+  "site": "bbcgoodfood.com",
+  "country": "GB",
+  "language": "en",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/asparagus-pea-ricotta-flatbreads",
+      "name": "Asparagus, pea & ricotta flatbreads",
+      "recipeCategory": "Lunch, Supper",
+      "keywords": "Asparagus, Calcium, Fibre, Flatbreads, Folate, Peas, Ricotta, Rosie Birkett, Summer, Summer recipes, Vitamin c"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/baked-mushrooms-ricotta-pesto",
+      "name": "Baked mushrooms with ricotta & pesto",
+      "recipeCategory": "Dinner, Starter",
+      "recipeCuisine": "Italian",
+      "keywords": "Budget, Chestnut mushroom, Chestnut mushrooms, Garlic clove, Garlic cloves, Good Food, Parmesan, Pesto, Ricotta, Slow cooker, Slow cooking, Student, Stuffed, Valentina harris, Veggie"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/banana-tahini-porridge",
+      "name": "Banana & tahini porridge",
+      "recipeCategory": "Breakfast, Brunch",
+      "keywords": "Bananas, Breakfast, Calcium, Fibre, goodhealth, gut health, Healthy, Iron, Porridge, Sophie Godwin, Tahini"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/bbq-pulled-pork-sandwich",
+      "name": "BBQ pulled pork sandwich",
+      "recipeCategory": "Dinner, Main course",
+      "recipeCuisine": "American",
+      "keywords": "4th July, 4th of July, Al fresco, Authentic, Bap, Barbecue, Barbeque, Braised pork, Coals, Garden party, James Martin, Make ahead, Sarnie, Slow cooked, Tender pork, Usa"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/better-baked-beans-spicy-wedges",
+      "name": "Better-than-baked beans with spicy wedges",
+      "recipeCategory": "Breakfast, Dinner",
+      "recipeCuisine": "British",
+      "keywords": "Baked beans, Baking potato, Baking potatoes, Breakfast, Brunch, Cannellini bean, Cannellini beans, Cheap, Chopped tomato, Chopped tomatoes, Filling, Good Food, Homemade baked beans, Quick, Slow cooker, Slow cooking, Streaky bacon, Students, Tv dinner"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/boulevardier",
+      "name": "Boulevardier",
+      "recipeCategory": "Cocktails, Drink",
+      "keywords": "Alcoholic drink, Boulevardier, Bourbon, Campari, Cocktails, Drinks, Sweet vermouth"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/brandy-snaps",
+      "name": "Brandy snaps",
+      "recipeCategory": "Dessert, Dinner",
+      "recipeCuisine": "British",
+      "keywords": " Josh Eagleton, 10-30 minutes, 200 kcal or less, Brandy baskets, Brandysnaps, Buttercream filling, Caroline Hire, Christmas, Filling, Hamper, Homemade, Mains, Quick, Rolls, Seasonal, Skills, Xmas"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/caramelised-squash-spinach-lasagne",
+      "name": "Butternut squash lasagne",
+      "recipeCategory": "Dinner",
+      "keywords": "Butternut squash, Calcium, Family meals, Folate, Lasagne, Pasta, Spinach, Veggie lasagne, Vitamin c"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/carrot-swede-mash-with-brown-butter-thyme",
+      "name": "Carrot & swede mash with brown butter & thyme",
+      "recipeCategory": "Side dish",
+      "keywords": "brown butter, Carrot, Christmas side dish, Mash, Swede"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/champagne-cocktail",
+      "name": "Champagne cocktail",
+      "recipeCategory": "Cocktails, Drink",
+      "keywords": "Alcoholic drinks, Champagne, Cocktails"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/charred-aubergine-pepper-bulgur-salad",
+      "name": "Charred aubergine, pepper & bulgur salad",
+      "recipeCategory": "Side dish",
+      "recipeCuisine": "Middle Eastern",
+      "keywords": "1 of 5-a-day, Accompaniments, Al fresco, Barbecue or grill, Barbecue or oven, Barbecue sides, Bbq or grill, Bbq or oven, Bbq sides, Fibre, Garden party, Good Food, Grain, In season, Moroccan, Veggie, Vitamin c"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/chiffon-cake",
+      "name": "Chiffon cake",
+      "recipeCategory": "Dessert",
+      "keywords": "Baking, Bundt cake, CAKE, chiffon cake, Light cake"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/chorizo-purple-sprouting-broccoli-carbonara",
+      "name": "Chorizo & purple sprouting broccoli carbonara",
+      "recipeCategory": "Dinner",
+      "keywords": "Calcium, Carbonara, Chorizo, Fibre, Folate, Midweek meal, Pasta, Purple sprouting broccoli"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/coconut-pastries-gujiya",
+      "name": "Gujiya",
+      "recipeCategory": "Side dish, Snack",
+      "recipeCuisine": "Indian",
+      "keywords": "Coconut, gujiya, Holi, Indian festival, indian pastry, sweet pastries"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/creme-fraiche-ice-cream",
+      "name": "Crème fraîche ice cream",
+      "recipeCategory": "Treat",
+      "recipeCuisine": "French",
+      "keywords": " Josh Eagleton, Al fresco, Barbecue, BBQ, Family, Frozen, Garden party, In season, Kids, Sarah Cook, Seasonal, Smooth ice cream, Summer, Summertime, Summery, Sunshine fruits, Vanilla ice cream"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/devilled-eggs",
+      "name": "Halloween devilled eggs",
+      "recipeCategory": "Buffet, Snack",
+      "keywords": "Autumn, devilled eggs, Eggs, Family friendly, Halloween, Kids party, Lulu Grimes"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/elderflower-lemon-celebration-cake",
+      "name": "Lemon & elderflower celebration cake",
+      "recipeCategory": "Dessert, Treat",
+      "keywords": "CAKE, Cassie Best, Celebration, Dessert, Elderflower, Indulgent, Lemon, Royal wedding, Summer"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/flavour-bomb-roast-turkey-gravy",
+      "name": "Flavour-bomb roast turkey & gravy",
+      "recipeCategory": "Dinner",
+      "keywords": "best christmas turkey, Christmas dinner, Turkey"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/floating-islands",
+      "name": "Floating islands",
+      "recipeCategory": "Dessert",
+      "recipeCuisine": "French",
+      "keywords": "Anna Glover, Caramel, Creme anglaise, Dessert, Dinner party, floating islands, FRENCH, Indulgent, Meringue"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/foolproof-chocolate-coffee-fondants",
+      "name": "Foolproof chocolate & coffee fondants",
+      "recipeCategory": "Dessert, Dinner",
+      "recipeCuisine": "British",
+      "keywords": " Josh Eagleton, Barney Desmazery, Bursting pudding, Choc pud, Chocolate pudding, Chocolatey, Cocoa powder, Coffee, Coffee flavoured, Dinner party treat, Girls night in, Hot and cold, Ice cream, Ice creams, Impressive dish, Indulgent, Make ahead, Melting middle, Molten, Soft centre, Treat"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/gt-meringue-tart",
+      "name": "G&T meringue tart",
+      "recipeCategory": "Afternoon tea, Dessert, Treat",
+      "keywords": "Cassie Best, Dessert, g&amp;t, gin and tonic, Meringue, Tart, Treat"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/huevos-rancheros",
+      "name": "Huevos rancheros",
+      "recipeCategory": "Breakfast, Brunch",
+      "recipeCuisine": "Mexican",
+      "keywords": "2 of 5-a-day, Brunch, Calcium, Comfort Food, Eggs, Fibre, Huevos rancheros, Iron, Mexican, Niamh Hempenstall, Vegetarian"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/korean-chilli-sesame-honey-chicken",
+      "name": "Korean chilli, sesame & honey chicken",
+      "recipeCategory": "Dinner, Lunch, Supper",
+      "keywords": "Barbecue, BBC Good Food team, BBQ, Chicken, Chilli, Freezable, Honey, Korean, Sesame, Skewers, Summer"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/lentil-rice-salad-beetroot-feta-dressing",
+      "name": "Lentil rice salad with beetroot & feta dressing",
+      "recipeCategory": "Dinner, Main course",
+      "recipeCuisine": "Middle Eastern",
+      "keywords": " Josh Eagleton, 10-30 minutes, 2 servings, 600 kcal or less, A week of healthy suppers, Contrasting flavours, Diet, Fibre, Five a day, Folate, goodhealth, Jennifer Joyce, Low calorie, Mains, Mixed veg, Pulses, Quick, Root veg, Two of five a day, Vitamin c, Weight watching"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/little-iced-christmas-puds",
+      "name": "Little iced Christmas puds",
+      "recipeCategory": "Dessert, Dinner",
+      "recipeCuisine": "British",
+      "keywords": " Josh Eagleton, 4 servings, 600 kcal or less, Adults, Angela Nilsen, Children, Christmas pudding, christmas-kitchen, Cranberries, Kids, Mains, Make ahead, Over an hour, Pud, Raisins, Rum, White chocolate, Xmas"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/one-pan-simple-summer-chicken",
+      "name": "One-pan simple summer chicken",
+      "recipeCategory": "Dinner, Main course",
+      "recipeCuisine": "Mediterranean",
+      "keywords": " Josh Eagleton, 30-60 minutes, 4 servings, 600 kcal or less, All in one, Baby new potatoes, Cheap, Chicken and potatoes, Everyday, Family, Folate, Good Food, Mains, Make it tonight, Over an hour, Roast chicken, Roast potatoes, Tray bake, Traybake, Vitamin c"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/one-pot-cheeseburger-pasta",
+      "name": "One-pot cheeseburger pasta",
+      "recipeCategory": "Dinner",
+      "keywords": "Cheeseburger, Comfort Food, easy one pot, Jalapeños, Pasta"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/peach-streusel-cheesecake",
+      "name": "Peach streusel cheesecake",
+      "recipeCategory": "Dessert",
+      "keywords": "Baked cheesecake, Cheesecake, Dessert, Peaches, Streusel, Summer dessert"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/roasted-asparagus-smashed-new-potato-salad",
+      "name": "Roasted asparagus & smashed new potato salad",
+      "recipeCategory": "Dinner, Lunch, Main course, Supper",
+      "keywords": "Asparagus, Goat's Cheese, Midweek meal, Potatoes, Salad, Spring, Vegetarian"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/sausage-traybake-with-garlic-butter-croutons",
+      "name": "Sausage traybake with garlic butter croutons",
+      "keywords": "autumn dishes, back to school, Brocoli, Cauliflower, Garlic croutons, Pork sausages, Sausage bake, sausage traybake, Vegetable bake"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/slow-cooked-vine-tomatoes-with-garlic",
+      "name": "Slow-cooked vine tomatoes with garlic",
+      "recipeCategory": "Side dish",
+      "keywords": "Summer recipes, Tomato recipes, Tomatoes, Vine tomatoes"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/steak-chunky-chips-horseradish-cream",
+      "name": "Steak with chunky chips & horseradish cream",
+      "recipeCategory": "Dinner, Main course",
+      "recipeCuisine": "French",
+      "keywords": "2 servings, 30-60 minutes, 600 kcal or less, Beef, Bistro, Chips, Frites, Juicy, Mains, Mary Cadogan, Over an hour, Pommes frites, Steak"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/sunken-chocolate-olive-oil-hazelnut-cake",
+      "name": "Sunken chocolate, olive oil & hazelnut cake",
+      "recipeCategory": "Dessert",
+      "keywords": "Baking, Chocolate cake, Flourless cake, Gluten free cake, Hazelnut"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/sweet-potato-brownies",
+      "name": "Sweet potato brownies",
+      "recipeCategory": "Dessert",
+      "keywords": "Brownies, Sweet potato, vegan brownies"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/tunis-cake",
+      "name": "Tunis cake",
+      "recipeCategory": "Dessert",
+      "keywords": "Baking, best cakes, Chocolate and orange cake, Ground almonds, Madeira cake, Orange cake"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/turkey-larb-bowls",
+      "name": "Turkey larb bowls",
+      "recipeCategory": "Dinner",
+      "keywords": "Christmas turkey, Leftovers, Rice bowl, Turkey leftovers"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/ultimate-meringue",
+      "name": "Ultimate meringue",
+      "recipeCategory": "Afternoon tea, Dessert, Dinner, Lunch, Treat",
+      "recipeCuisine": "French",
+      "keywords": "Angela Nilsen, BBC Good Food, Caster sugar, Cream cake, Egg white, Egg whites, Icing sugar, Indulgent, Meringue, Romantic, Special occasion, Valentines Day, Valentines dessert, Valentines dinner, Valentines pudding"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/vietnamese-chicken-salad",
+      "name": "Vietnamese chicken salad",
+      "recipeCategory": "Dinner, Main course",
+      "recipeCuisine": "Vietnamese",
+      "keywords": " Josh Eagleton, 10-30 minutes, 600 kcal or less, Asian, Five a day, Good Food, Healthy, Low calorie, Mains, No cook main course, One of five a day, Quick, Ribbon vegetables, Shredded vegetables, South east asian"
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/yakitori-chicken",
+      "name": "Yakitori chicken",
+      "recipeCategory": "Dinner, Main course, Supper",
+      "recipeCuisine": "Japanese",
+      "keywords": "Banquet, Chicken, Comfort Food, Elena Silcock, Japanese, Low fat, Yakitori"
+    }
+  ]
+}

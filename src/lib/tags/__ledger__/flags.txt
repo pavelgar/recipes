@@ -1,0 +1,40 @@
+# Pairs of corpus tags that possibleDuplicates flags, other than those
+# in src/lib/tags/__tags__/duplicates.txt.
+# ✓: flagging them is fine. ✗ (want: apart): they should not be flagged.
+# Written by the tests; see src/test/ledger.ts for how to update it.
+#
+# 15 entries: 15 checked, of which 1 wrong; 0 unchecked.
+
+## corpus : 1137 tags, 15 other pairs flagged
+
+✓ "bake ~ baked"
+  flagged
+✓ "bake ~ baking"
+  flagged
+✓ "baked ~ baking"
+  flagged
+✓ "filled ~ filling"
+  flagged
+✓ "green ~ greens"
+  flagged
+✓ "mix ~ mixed"
+  flagged
+✓ "mixed ~ mixes"
+  flagged
+✗ "munata ~ munaton"
+  flagged
+  want: apart
+✓ "pork sausages ~ pork/sausage"
+  flagged
+✓ "slow cooked ~ slow cooker"
+  flagged
+✓ "slow cooked ~ slow cooking"
+  flagged
+✓ "slow cooker ~ slow cooking"
+  flagged
+✓ "stuffed ~ stuffing"
+  flagged
+✓ "suola ~ suolata"
+  flagged
+✓ "suolaa ~ suolata"
+  flagged

@@ -1,0 +1,181 @@
+{
+  "site": "valio.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://www.valio.fi/reseptit/ananas-rahkajuoma/",
+      "name": "Ananas-rahkajuoma",
+      "recipeCategory": "juomat",
+      "keywords": "ananasreseptit, arkiruoka, gluteeniton, gluteenittomat reseptit, juomat, kasvis (lakto-ovo), kesäjuhlat, kevät, rahkajuomat, rahkareseptit, runsaasti proteiinia, syksy, talvi, vähälaktoosinen"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/aura-sipulipasta/",
+      "name": "AURA sipulipasta",
+      "recipeCategory": "pääruoat",
+      "keywords": "arkiruoka, aura® reseptit, juuresreseptit, juustoreseptit, kananmunaton, kasvis (lakto-ovo), kasvisruokareseptit, muut ruokajuhlat, pastareseptit, pääruoat, sipulireseptit, vähälaktoosinen"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/banaanipannukakut/",
+      "name": "Banaanipannukakut",
+      "recipeCategory": "aamu- ja iltapalat",
+      "keywords": "aamu- ja iltapalat, banaanireseptit, muut ruokajuhlat, vähälaktoosinen"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/baskimaan-juustokakku/",
+      "name": "Baskimaan juustokakku",
+      "recipeCategory": "makeat leivonnaiset",
+      "keywords": "gluteeniton, gluteenittomat kakut, gluteenittomat leivonnaiset, gluteenittomat reseptit, juustokakut, laktoositon, makeat leivonnaiset, muut ruokajuhlat, tuorejuustoreseptit, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/curry-linssikeitto/",
+      "name": "Curry-linssikeitto",
+      "recipeCategory": "keitto",
+      "recipeCuisine": "Intia",
+      "keywords": "arkiruoka, gluteeniton, gluteenittomat reseptit, intia, kananmunaton, kasvis (lakto-ovo), keitot, keitto, laktoositon, linssireseptit, sosekeitot"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/delikaurapaella/",
+      "name": "Delikaurapaella",
+      "recipeCategory": "pääruoat",
+      "recipeCuisine": "Espanja",
+      "keywords": "espanja, kananmunaton, kasvisruokareseptit, maidoton, pääruoat, vegaaninen, vegaaniset reseptit, yhden pannun ruoat"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/glogi-hot-shot-eli-kuuma-glogishotti/",
+      "name": "Glögi hot shot eli Kuuma glögishotti",
+      "recipeCategory": "juomat",
+      "keywords": "gluteeniton, gluteenittomat reseptit, joulu, joulureseptit, juomat, kananmunaton, kasvis (lakto-ovo), lämpimät juomat, marjajuomat, marjareseptit, talvi, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/gluteeniton-kesakurpitsa-juustoleipa/",
+      "name": "Gluteeniton kesäkurpitsa-juustoleipä",
+      "recipeCategory": "suolaiset leivonnaiset",
+      "keywords": "arkiruoka, gluteeniton, gluteenittomat reseptit, kasvis (lakto-ovo), kesäjuhlat, kesäkurpitsareseptit, kevät, leivät, sadonkorjuu, suolaiset leivonnaiset, syksy, talvi"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/granolanakkari/",
+      "name": "Granolanäkkäri",
+      "recipeCategory": "suolaiset leivonnaiset",
+      "keywords": "arkiruoka, kasvis (lakto-ovo), leivät, suolaiset leivonnaiset, vähälaktoosinen"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/inkivaari-kanakeitto/",
+      "name": "Inkivääri-kanakeitto",
+      "recipeCategory": "keitto",
+      "keywords": "arkiruoka, broilerikeitot, broilerireseptit, inkiväärireseptit, keitot, keitto, kevyempi, kevät, laktoositon, muut ruokajuhlat, runsaasti proteiinia, syksy, talvi, uusivuosi, viikonloppureseptit, vähemmän suolaa"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/juustoinen-jauhelihakeitto-mikrossa/",
+      "name": "Juustoinen jauhelihakeitto mikrossa",
+      "recipeCategory": "keitto",
+      "keywords": "arkiruoka, gluteeniton, gluteenittomat reseptit, jauhelihareseptit, kananmunaton, keitot, keitto, laktoositon"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/juustokermasarvet/",
+      "name": "Juustokermasarvet",
+      "recipeCategory": "suolaiset leivonnaiset",
+      "keywords": "juhannus, kesäjuhlat, kevät, kurkkureseptit, laktoositon, leivät, muut ruokajuhlat, suolaiset leivonnaiset, syksy, sämpylät, talvi, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/kesaporkkanat-nyytissa/",
+      "name": "Kesäporkkanat nyytissä",
+      "recipeCategory": "lisukkeet",
+      "keywords": "gluteeniton, gluteenittomat reseptit, grilliruoka, juuresreseptit, kasvis (lakto-ovo), kesäjuhlat, kevät, laktoositon, lisukkeet, porkkanareseptit, runsaasti proteiinia, sadonkorjuu, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/kolmen-juuston-patonki/",
+      "name": "Kolmen juuston patonki",
+      "recipeCategory": "pikkusuolaiset",
+      "keywords": "arkiruoka, juustoreseptit, kasvis (lakto-ovo), kesäjuhlat, kevät, patongit, pikkusuolaiset, runsaasti proteiinia, sulatejuustoreseptit, syksy, talvi"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/kulhoruoka/",
+      "name": "Kulhoruoka",
+      "recipeCategory": "pääruoat",
+      "keywords": "arkiruoka, broilerireseptit, kananmunaton, kulhoruoat, ohrareseptit, pääruoat, vähälaktoosinen"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/nopea-tortillalasagne/",
+      "name": "Nopea tortillalasagne",
+      "recipeCategory": "pääruoat",
+      "keywords": "arkiruoka, jauhelihareseptit, kevät, laktoositon, lasagnet, lihareseptit, muut ruokajuhlat, pääruoat, runsaasti proteiinia, syksy, talvi"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/pahkinainen-tuorepuuro/",
+      "name": "Pähkinäinen tuorepuuro",
+      "recipeCategory": "aamu- ja iltapalat",
+      "keywords": "aamu- ja iltapala, aamu- ja iltapalat, arkiruoka, jogurttireseptit, jogurttivälipalat, kananmunaton, kasvis (lakto-ovo), kaurapuurot, puurot, pähkinäreseptit, tuorepuurot"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/pahkinasuklainen-kirsikkakaaretorttu/",
+      "name": "Pähkinäsuklainen kirsikkakääretorttu",
+      "recipeCategory": "makeat leivonnaiset",
+      "recipeCuisine": "Keski-Eurooppa",
+      "keywords": "kasvis (lakto-ovo), kesäjuhlat, kevät, kirsikkareseptit, kääretortut, makeat leivonnaiset, rahkareseptit, syksy, talvi, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/proteiinijaatelo/",
+      "name": "Proteiinijäätelö",
+      "recipeCategory": "jälkiruoat",
+      "keywords": "arkiruoka, gluteeniton, gluteenittomat reseptit, jälkiruoat, jälkiruokareseptit, jäätelöt, kasvis (lakto-ovo), kesäjuhlat, kevyempi, kevät, laktoositon, rahkajälkiruoat, rahkareseptit, runsaasti proteiinia, syksy, talvi"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/rapujen-keittaminen/",
+      "name": "Rapujen keittäminen",
+      "recipeCategory": "alkuruoat",
+      "recipeCuisine": "Skandinavia",
+      "keywords": "alkuruoat, alkuruoka reseptit, gluteeniton, gluteenittomat alkupalat, gluteenittomat reseptit, kananmunaton, rapujuhlat, rapureseptit, skandinavia, syksy, Äyriäisreseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/ruukkujuusto/",
+      "name": "Ruukkujuusto",
+      "recipeCategory": "kotijuustot",
+      "keywords": "arkiruoka, gluteeniton, gluteenittomat reseptit, kasvis (lakto-ovo), kesäjuhlat, kevät, kotijuustot, maitoreseptit, muut ruokajuhlat, piimäreseptit, syksy, talvi, viikonloppureseptit, vähähiilihydraattinen"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/sinappinen-jogurttikastike/",
+      "name": "Sinappinen jogurttikastike",
+      "recipeCategory": "kastikkeet",
+      "keywords": "arkiruoka, jogurttikastikkeet, jogurttireseptit, kastikkeet, kasvis (lakto-ovo), kesäjuhlat, kevät, laktoositon, syksy, talvi, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/spagettivuoka/",
+      "name": "Spagettivuoka",
+      "recipeCategory": "pääruoat",
+      "keywords": "arkiruoka, kevät, laatikot, laktoositon, makaronilaatikot, pastavuoat, pääruoat, syksy, talvi, uuniruoat, vuokaruoat"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/taatelimokkapalat/",
+      "name": "Taatelimokkapalat",
+      "recipeCategory": "makeat leivonnaiset",
+      "keywords": "arkiruoka, brunssi, illanistujaiset, isänpäivä, itsenäisyyspäivä, joulu, joululeivonnaiset, joulureseptit, makeat leivonnaiset, mokkapalareseptit, pyhäinpäivä, talvi, viikonloppureseptit"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/tomaattinen-peltileipa/",
+      "name": "Tomaattinen peltileipä",
+      "recipeCategory": "suolaiset leivonnaiset",
+      "keywords": "arkiruoka, kasvis (lakto-ovo), leivät, suolaiset leivonnaiset"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/tortelliinit-pestoa-ricottaa-ja-tomaatticonsomme/",
+      "name": "Tortelliinit, pestoa, ricottaa ja tomaatticonsommé",
+      "recipeCategory": "pääruoat",
+      "recipeCuisine": "Italia",
+      "keywords": "italia, kasvis (lakto-ovo), kasvisruokareseptit, pastareseptit, pääruoat"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/tuunatut-croissantit/",
+      "name": "Tuunatut croissantit",
+      "recipeCategory": "aamu- ja iltapalat",
+      "keywords": "aamu- ja iltapala, aamu- ja iltapalat, arkiruoka, juustoreseptit, lihareseptit, syksy, talvi, vappu, viikonloppureseptit, voileivät"
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/yrtti-jauhelihapullat/",
+      "name": "Yrtti-jauhelihapullat",
+      "recipeCategory": "pääruoat",
+      "keywords": "jauhelihareseptit, juhannus, kesäjuhlat, lihapullareseptit, pääruoat, runsaasti proteiinia, sadonkorjuu, yrttireseptit"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 # Corpus
 
-Real recipe data for tests: ingredient lines and step sentences from
-published Finnish and English recipe pages, collected on 2026-10-22.
+Real recipe data for tests: ingredient lines, step sentences and tags from
+published Finnish and English recipe pages, collected on 2026-10-22 (tags
+on 2026-10-23).
 
 ## Ingredient lines
 
@@ -202,6 +203,45 @@ Notes on individual sites:
 - One womensweeklyfood.com.au recipe publishes its ingredients as an
   object keyed by number. They were kept in order.
 - One kotikokki.net page is `json-ld (repaired)`, as described above.
+
+## Tags
+
+`tags/<site>.json` holds the `recipeCategory`, `recipeCuisine` and
+`keywords` that recipe pages publish in their schema.org Recipe data, for
+testing which tags may be duplicates. Each recipe has its `url`, `name` and
+whichever of the three fields its page has, exactly as published: a string,
+or a list for some sites. They come from the development corpus's own
+pages (`ingredients/`, `rare-units/` and `rare-forms/`), so the held-out
+sample stays unread. A recipe without any of the fields is left out.
+
+| Site                    | Country | Pages | Recipes | Category | Cuisine | Keywords |
+| ----------------------- | ------- | ----- | ------- | -------- | ------- | -------- |
+| arla.fi                 | FI      | 32    | 32      | 27       | 10      | 32       |
+| kotikokki.net           | FI      | 30    | 29      | 29       | 0       | 29       |
+| soppa365.fi             | FI      | 33    | 33      | 33       | 33      | 29       |
+| valio.fi                | FI      | 28    | 28      | 28       | 5       | 28       |
+| yhteishyva.fi           | FI      | 28    | 27      | 20       | 7       | 27       |
+| kingarthurbaking.com    | US      | 89    | 89      | 0        | 0       | 89       |
+| bettycrocker.com        | US      | 59    | 59      | 59       | 0       | 59       |
+| tasteofhome.com         | US      | 112   | 112     | 0        | 23      | 0        |
+| bbcgoodfood.com         | GB      | 39    | 39      | 38       | 17      | 39       |
+| womensweeklyfood.com.au | AU      | 37    | 1       | 0        | 1       | 1        |
+
+The importer will have to split the fields into tags. Most sites separate
+keywords with commas; kingarthurbaking.com uses ";;". Some keywords are
+ingredients ("Porkkana", "persiljaa") or noise ("bo", "77"), and
+bettycrocker.com splits its own phrases at commas ("sandwich, &, wrap").
+
+Collected on 23 October 2026 with the same rules as the rest of the
+corpus, from the same pages (487 fetches):
+
+- Skipped: allrecipes.com, bbc.co.uk and recipetineats.com, whose
+  robots.txt disallows Claude's crawlers, and kotiliesi.fi and
+  meillakotona.fi, as above.
+- arla.fi writes the type of its JSON-LD script as
+  `application/ld&#x2B;json`, which the extractor has to accept.
+- One kotikokki.net page has JSON-LD that doesn't parse (the page marked
+  `json-ld (repaired)` above), so it has no entry.
 
 ## Rules
 

@@ -1,0 +1,453 @@
+{
+  "site": "kingarthurbaking.com",
+  "country": "US",
+  "language": "en",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/a-smaller-100-whole-wheat-pain-de-mie-recipe",
+      "name": "A Smaller 100% Whole Wheat Pain de Mie",
+      "keywords": "Sandwich bread;;Whole Grain;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/almond-crisp-sandwich-cookies-recipe",
+      "name": "Almond Crisp Sandwich Cookies",
+      "keywords": "Cookies & Bars;;Filled;;Almond;;Chocolate"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe",
+      "name": "Baked Doughnuts Three Ways",
+      "keywords": "Baked doughnuts;;Cinnamon;;Spice;;Quick & easy;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/bigotes-de-azucar-sugared-mustaches-recipe",
+      "name": "Bigotes de Azúcar (Sugared Mustaches)",
+      "keywords": "Other;;Buttery;;Overnight;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/birthday-cake-ice-cream-recipe",
+      "name": "Birthday Cake Ice Cream",
+      "keywords": "Ice Cream & Sorbet;;Vanilla;;No-bake;;Celebrations;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/blue-cheese-cranberry-pastry-bites-recipe",
+      "name": "Blue Cheese Cranberry Pastry Bites",
+      "keywords": "Puff pastries;;Buttery;;Cranberry;;Cream cheese;;Nutty;;Party Snacks"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/buttermilk-pancake-crepes-recipe",
+      "name": "Buttermilk Pancake Crêpes",
+      "keywords": "Mix Tips;;Pancakes & Waffles;;Cranberry;;Orange;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/caramel-banana-walnut-muffins-recipe",
+      "name": "Caramel Banana Walnut Muffins",
+      "keywords": "Muffins & Popovers;;Banana;;Caramel;;Quick & easy;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chicken-and-dumplings-recipe",
+      "name": "Chicken and Dumplings",
+      "keywords": "Biscuits & Shortcakes;;Soup;;Chicken/Turkey;;Herb"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chilindrinas-recipe",
+      "name": "Chilindrinas",
+      "keywords": "Sweet rolls;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chocolate-cookies-recipe",
+      "name": "Chocolate Cookies",
+      "keywords": "Drop cookies;;Chocolate;;Quick & easy"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chocolate-ermine-frosting-recipe",
+      "name": "Chocolate Ermine Frosting",
+      "keywords": "Frosting & icing;;Chocolate;;Celebrations"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/chocolate-pan-de-cristal-recipe",
+      "name": "Chocolate Pan de Cristal",
+      "keywords": "Bread;;Chocolate;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/cinnamon-and-sugar-apple-pie-recipe",
+      "name": "Cinnamon-and-Sugar Apple Pie",
+      "keywords": "Fruit pies;;Apple/cider;;Cinnamon;;Thanksgiving"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/cinnamon-raisin-bagels-recipe",
+      "name": "Cinnamon Raisin Bagels",
+      "keywords": "Bagels;;Cinnamon;;Raisin;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/cinnamon-snails-recipe",
+      "name": "Cinnamon Snails",
+      "keywords": "Other;;Buttermilk/Sour cream;;Buttery;;Cinnamon;;Party Snacks"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/classic-yellow-cake-with-fudge-frosting-recipe",
+      "name": "Classic Yellow Cake with Fudge Frosting",
+      "keywords": "Single layer cake;;Chocolate;;Vanilla"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/cranberry-orange-babka-recipe",
+      "name": "Cranberry-Orange Babka",
+      "keywords": "Filled & pull-apart bread;;Coffee Cake;;Cranberry;;Orange;;Thanksgiving"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/craquelin-cream-puffs-recipe",
+      "name": "Craquelin Cream Puffs",
+      "keywords": "Cream puffs & eclairs;;Lime"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/crisp-molasses-cookies-recipe",
+      "name": "Crisp Molasses Cookies",
+      "keywords": "Drop cookies;;Molasses;;Spice;;Dairy-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/crusty-apple-pie-recipe",
+      "name": "Crusty Apple Pie",
+      "keywords": "Fruit pies;;Apple/cider;;Cinnamon;;Thanksgiving"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/devils-food-cake-recipe",
+      "name": "Devil's Food Cake",
+      "keywords": "Layer cake;;Chocolate;;Celebrations;;Valentine’s Day"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/dios-beigli-hungarian-walnut-roll-recipe",
+      "name": "Dios Beigli (Hungarian Walnut Roll)",
+      "keywords": "Enriched & sweet;;Filled & pull-apart bread;;Cinnamon;;Honey;;Lemon;;Nutty;;Christmas"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/easy-cheesecake-recipe",
+      "name": "Easy Cheesecake",
+      "keywords": "Cheesecake;;Cream cheese;;Vanilla;;Quick & easy;;Celebrations;;Christmas;;Thanksgiving"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/easy-coconut-cheesecake-recipe",
+      "name": "Easy Coconut Cheesecake",
+      "keywords": "Cheesecake;;Coconut;;Cream cheese"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/easy-fried-dough-recipe",
+      "name": "Easy Fried Dough",
+      "keywords": "Fried treats;;Mix Tips;;Cinnamon;;Start with a mix;;Celebrations;;Party Snacks"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/filled-wool-roll-bread-recipe",
+      "name": "Filled Wool Roll Bread",
+      "keywords": "Filled & pull-apart bread;;Cream cheese;;Lemon;;Raspberry/blackberry;;Tangzhong;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/giant-strawberry-shortcake-recipe",
+      "name": "Giant Strawberry Shortcake",
+      "keywords": "Biscuits & Shortcakes;;Buttermilk/Sour cream;;Strawberry;;4th of July;;Celebrations"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-artisan-bread-recipe",
+      "name": "Gluten-Free Artisan Bread",
+      "keywords": "Crusty bread;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-bacon-cheddar-chive-scones-recipe",
+      "name": "Gluten-Free Bacon-Cheddar-Chive Scones",
+      "keywords": "Scones;;Bacon;;Cheese;;Herb;;Quick & easy;;Breakfast & brunch;;Party Snacks;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-peach-cobbler-made-with-baking-mix-recipe",
+      "name": "Gluten-Free Peach Cobbler made with baking mix",
+      "keywords": "Crisps & Cobblers;;Peach;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-pumpkin-cake-recipe",
+      "name": "Gluten-Free Pumpkin Cake",
+      "keywords": "Pound & Bundt cake;;Mix Tips;;Pumpkin;;Start with a mix;;Halloween;;Dairy-free;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-rocky-road-brownies-recipe",
+      "name": "Gluten-Free Rocky Road Brownies",
+      "keywords": "Brownies & blondies;;Mix Tips;;Caramel;;Chocolate;;Marshmallow;;Nutty;;Quick & easy;;Start with a mix;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gluten-free-sandwich-bread-recipe",
+      "name": "Gluten-Free Sandwich Bread",
+      "keywords": "Sandwich bread;;Bread machine;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/golden-buttermilk-loaf-recipe",
+      "name": "Golden Buttermilk Loaf",
+      "keywords": "Sandwich bread;;Buttermilk/Sour cream"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/golden-chocolate-chip-muffins-recipe",
+      "name": "Golden Chocolate Chip Muffins",
+      "keywords": "Muffins & Popovers;;Chocolate;;Quick & easy;;Breakfast & brunch;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/gulab-jamun-recipe",
+      "name": "Gulab Jamun",
+      "keywords": "Fried treats;;Cinnamon;;Floral;;Spice;;More holidays"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/hearth-bagels-recipe",
+      "name": "Hearth Bagels",
+      "keywords": "Bagels;;Breakfast & brunch;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/high-altitude-banana-bread-recipe",
+      "name": "High-Altitude Banana Bread",
+      "keywords": "Quick Bread;;Banana"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/high-hydration-whole-wheat-sourdough-bread-recipe",
+      "name": "High-Hydration Whole Wheat Sourdough Bread",
+      "keywords": "Sourdough;;Sourdough;;Whole Grain;;Overnight;;Dairy-free;;Vegan;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/jammin-raspberry-buns-recipe",
+      "name": "Jammin’ Raspberry Buns",
+      "keywords": "Sweet rolls;;Raspberry/blackberry;;Overnight;;Breakfast & brunch;;Valentine’s Day"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/jian-dui-fried-sesame-balls-recipe",
+      "name": "Jiān Duī (Fried Sesame Balls)",
+      "keywords": "Fried treats;;Miscellaneous;;Sesame/Tahini;;More holidays;;Dairy-free;;Gluten-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/kubaneh-recipe",
+      "name": "Kubaneh",
+      "keywords": "Enriched & sweet;;Other"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/lemon-blueberry-scones-recipe",
+      "name": "Lemon Blueberry Scones",
+      "keywords": "Scones;;Blueberry;;Quick & easy;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/lemon-cream-pie-recipe",
+      "name": "Lemon Cream Pie",
+      "keywords": "Cream & custard pies;;Lemon;;Easter"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/lighter-than-air-parmesan-puffs-recipe",
+      "name": "Lighter Than Air Parmesan Puffs",
+      "keywords": "Puff pastries;;Cream puffs & eclairs;;Cheese;;Quick & easy"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/make-ahead-gravy-recipe",
+      "name": "Make-Ahead Gravy",
+      "keywords": "Miscellaneous;;Chicken/Turkey;;Christmas;;Thanksgiving;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/mallorcas-recipe",
+      "name": "Mallorcas",
+      "keywords": "Sweet rolls;;Overnight"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/malted-milk-palmiers-recipe",
+      "name": "Malted Milk Palmiers",
+      "keywords": "Other;;Puff pastries;;Buttery;;Chocolate;;Malted milk"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/maple-doughnuts-recipe",
+      "name": "Maple Doughnuts",
+      "keywords": "Baked doughnuts;;Maple;;Quick & easy;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/midsummer-berry-tart-recipe",
+      "name": "Midsummer Berry Tart",
+      "keywords": "Tarts;;Buttery;;Cream cheese;;Orange;;Strawberry"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/mocha-pound-cake-recipe",
+      "name": "Mocha Pound Cake",
+      "keywords": "Pound & Bundt cake;;Chocolate;;Coffee/espresso;;Valentine’s Day"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+      "name": "Neapolitan-Style Pizza Crust",
+      "keywords": "Pizza;;Cheese;;Tomato;;No-knead;;Overnight;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/nectarine-pie-with-poppy-seed-crumble-recipe",
+      "name": "Nectarine Pie with Poppy Seed Crumble",
+      "keywords": "Fruit pies;;Blueberry;;Vanilla"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/no-knead-100-whole-wheat-bread-recipe",
+      "name": "No-Knead 100% Whole Wheat Bread",
+      "keywords": "Sandwich bread;;Whole Grain;;No-knead;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/no-knead-amaranth-honey-nut-bread-recipe",
+      "name": "No-Knead Amaranth Honey-Nut Bread",
+      "keywords": "Crusty bread;;Nutty;;No-knead;;Dairy-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/old-fashioned-maine-sourdough-waffles-recipe",
+      "name": "Old-Fashioned Maine Sourdough Waffles",
+      "keywords": "Sourdough;;Pancakes & Waffles;;Sourdough;;Overnight;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/old-fashioned-marble-cake-recipe",
+      "name": "Old-Fashioned Marble Cake",
+      "keywords": "Pound & Bundt cake;;Chocolate;;Vanilla"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/organic-no-knead-pizza-crust-recipe",
+      "name": "Organic No-Knead Pizza Crust",
+      "keywords": "Pizza;;No-knead;;Overnight;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/papas-con-chorizo-gorditas-recipe",
+      "name": "Papas con Chorizo Gorditas",
+      "keywords": "Flatbread;;Corn;;Herb;;Onion/Garlic;;Pork/Sausage;;Dairy-free;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/pineapple-upside-down-rolls-recipe",
+      "name": "Pineapple Upside-Down Rolls",
+      "keywords": "Sweet rolls;;Pineapple"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/pizza-crust-recipe",
+      "name": "Pizza Crust",
+      "keywords": "Pizza;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/plum-almond-babka-recipe",
+      "name": "Plum Almond Babka",
+      "keywords": "Enriched & sweet;;Almond;;Overnight;;More holidays"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/prosciutto-arugula-and-parmesan-pizza-recipe",
+      "name": "Prosciutto, Arugula, and Parmesan Pizza",
+      "keywords": "Pizza;;Cheese;;Pork/Sausage"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/raspberry-cream-cheese-scones-recipe",
+      "name": "Raspberry Cream Cheese Scones",
+      "keywords": "Scones;;Apricot;;Cream cheese;;Raspberry/blackberry;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/red-bean-mooncakes-recipe",
+      "name": "Red Bean Mooncakes",
+      "keywords": "Miscellaneous;;Other;;More holidays"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/rye-puff-pastry-recipe",
+      "name": "Rye Puff Pastry",
+      "keywords": "Pastry;;Puff pastries;;Rye"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/sausage-and-apple-pie-in-a-cheddar-crust-recipe",
+      "name": "Sausage and Apple Pie in a Cheddar Crust",
+      "keywords": "Quiche & savory pies;;Apple/cider;;Cheese;;Pork/Sausage;;Thanksgiving"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/savory-masa-harina-waffles-recipe",
+      "name": "Savory Masa Harina Waffles",
+      "keywords": "Pancakes & Waffles;;Chile;;Corn;;Quick & easy;;Breakfast & brunch;;Gluten-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/small-batch-parker-house-rolls-recipe",
+      "name": "Small-Batch Parker House Rolls",
+      "keywords": "Sandwich buns & dinner rolls;;Buttery;;Herb;;Tangzhong"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/soft-golden-rolls-buns-recipe",
+      "name": "Soft Golden Rolls & Buns",
+      "keywords": "Sandwich buns & dinner rolls;;Mix Tips;;Start with a mix;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/soft-wrap-bread-recipe",
+      "name": "Soft Wrap Bread",
+      "keywords": "Flatbread;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/sourdough-chocolate-chip-cookies-recipe",
+      "name": "Sourdough Chocolate Chip Cookies",
+      "keywords": "Chocolate chip cookies;;Brown butter;;Chocolate;;Sourdough"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/sourdough-milk-bread-recipe",
+      "name": "Sourdough Milk Bread",
+      "keywords": "Sandwich bread;;Sourdough;;Sourdough"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/stollen-bites-recipe",
+      "name": "Stollen Bites",
+      "keywords": "Fruitcake & Stollen;;Almond;;Dried Fruit;;Liquor;;Orange;;Raisin;;Christmas"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/strawberries-cream-scones-recipe",
+      "name": "Strawberries & Cream Scones",
+      "keywords": "Scones;;Strawberry;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/strawberry-cream-shortbread-recipe",
+      "name": "Strawberry Cream Shortbread",
+      "keywords": "Other;;Layered pastries;;Strawberry;;Celebrations"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/stuffed-bagel-buns-recipe",
+      "name": "Stuffed Bagel Buns",
+      "keywords": "Bagels;;Cream cheese;;Onion/Garlic;;Sesame/Tahini;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/summer-fruit-crisp-recipe",
+      "name": "Summer Fruit Crisp",
+      "keywords": "Crisps & Cobblers;;Blueberry;;Cinnamon;;Peach;;Raspberry/blackberry;;Strawberry;;Quick & easy;;4th of July"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/tahini-and-coconut-muffins-recipe",
+      "name": "Tahini and Coconut Muffins",
+      "keywords": "Muffins & Popovers;;Chocolate;;Coconut;;Dried Fruit;;Sesame/Tahini;;Whole Grain;;Breakfast & brunch;;Dairy-free;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/tahini-scallion-rolls-recipe",
+      "name": "Tahini-Scallion Rolls",
+      "keywords": "Other;;Sandwich buns & dinner rolls;;Herb;;Honey;;Onion/Garlic;;Sesame/Tahini;;Dairy-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/tomato-soup-spice-cake-recipe",
+      "name": "Tomato Soup Spice Cake",
+      "keywords": "Single layer cake;;Cinnamon;;Spice;;Tomato;;Quick & easy;;Dairy-free;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/ultra-thin-pizza-crust-with-mod-inspired-toppings-recipe",
+      "name": "Ultra-Thin Pizza Crust with MOD-Inspired Toppings",
+      "keywords": "Pizza;;Cheese;;Herb"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/vegan-clementine-cupcakes-recipe",
+      "name": "Vegan Clementine Cupcakes",
+      "keywords": "Cupcakes;;Orange;;Dairy-free;;Vegan"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/vermont-whole-wheat-oatmeal-honey-bread-recipe",
+      "name": "Vermont Whole Wheat Oatmeal Honey Bread",
+      "keywords": "Sandwich bread;;Whole Grain"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/walnut-bread-recipe",
+      "name": "Walnut Bread",
+      "keywords": "Crusty bread;;Nutty;;Dairy-free"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/walnut-oat-slab-pie-recipe",
+      "name": "Walnut & Oat Slab Pie",
+      "keywords": "Nut pies;;Brown butter;;Nutty;;Thanksgiving"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/warm-strawberry-puff-recipe",
+      "name": "Warm Strawberry Puff",
+      "keywords": "Pancakes & Waffles;;Strawberry;;Breakfast & brunch"
+    },
+    {
+      "url": "https://www.kingarthurbaking.com/recipes/zingermans-halvah-swirl-cheesecake-recipe",
+      "name": "Zingerman's Halvah Swirl Cheesecake",
+      "keywords": "Cheesecake;;Chocolate;;Sesame/Tahini;;More holidays"
+    }
+  ]
+}

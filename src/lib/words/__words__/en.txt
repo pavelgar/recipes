@@ -1,0 +1,191 @@
+# Forms of one English word that the development corpus writes in its
+# recipe titles and ingredient lines, one word per line, collected by
+# reading the corpus's word list. A form is a case, number or verb form of
+# the word ("peruna perunaa perunoita"); compounds, words made from it and
+# spelling variants count as other words. Forms are written as splitWords
+# gives them, without accents. The tests check that every form occurs in
+# the corpus and that the forms of a word match.
+almond almonds
+apricot apricots
+artichoke artichokes
+aubergine aubergines
+bagel bagels
+bake baked bakes baking
+ball balls
+banana bananas
+bar bars
+batch batches
+bean beans
+biscuit biscuits
+bite bites
+blueberry blueberries
+boiled boiling
+bow bows
+bowl bowls
+box boxes
+breast breasts
+brown browned
+brushed brushing
+bulb bulbs
+bun buns
+button buttons
+cake cakes
+can cans
+candy candies
+carrot carrots
+carton cartons
+cashew cashews
+cherry cherries
+chicken chickens
+chili chilies
+chilli chillies
+chip chips
+chive chives
+clove cloves
+cooked cooking
+cookie cookies
+courgette courgettes
+cracker crackers
+cranberry cranberries
+crust crusts
+cube cubed cubes
+cucumber cucumbers
+cup cups
+cupcake cupcakes
+cut cuts
+date dates
+decorate decorating
+deseeded deseeding
+dice diced
+dry dried
+eat eating
+egg eggs
+eggplant eggplants
+fillet fillets
+flake flaked flakes
+flavor flavored
+flavour flavoured
+fondant fondants
+fry fried fries frying
+gel gels
+gram grams
+green greens
+grill grilled grilling
+half halves
+halve halved
+handful handfuls
+hazelnut hazelnuts
+head heads
+heat heated
+herb herbs
+inch inches
+jalapeno jalapenos
+jar jars
+knead kneading
+leaf leaves
+length lengths
+lentil lentils
+lettuce lettuces
+lime limes
+link links
+litre litres
+lolly lollies
+make made makes making
+marshmallow marshmallows
+mash mashed mashing
+meatball meatballs
+melt melted melting melts
+millilitre millilitres
+mince minced
+mini minis
+mix mixed
+muffin muffins
+mushroom mushrooms
+nugget nuggets
+nut nuts
+oat oats
+olive olives
+one ones
+onion onions
+ounce ounces
+pack packed
+package packages
+pea peas
+peach peaches
+peanut peanuts
+pear pears
+pecan pecans
+peel peeled peeling
+pepper peppers
+peppermint peppermints
+pickle pickled pickles
+pie pies
+piece pieces
+pinch pinches
+pint pints
+pod pods
+pomegranate pomegranates
+pop pops
+potato potatoes
+pound pounds
+prawn prawns
+prune prunes
+puff puffs
+puree pureed
+quart quarts
+radish radishes
+raisin raisins
+raspberry raspberries
+reserve reserved
+ring rings
+roast roasted
+roll rolled rolls
+root roots
+round rounds
+sandwich sandwiches
+sausage sausages
+scallion scallions
+scoop scooped
+seed seeds
+serve serving
+shallot shallots
+shape shaping
+sheet sheets
+shell shelled shells
+slice sliced slices
+soaked soaking
+spread spreading
+sprig sprigs
+sprinkle sprinkles sprinkling
+stalk stalks
+steak steaks
+stem stems
+stew stewed stewing
+stick sticks
+store stores
+strap straps
+strawberry strawberries
+tablespoon tablespoons
+tart tarts
+taste tasting
+teaspoon teaspoons
+tenderloin tenderloins
+thigh thighs
+thin thinned
+toast toasted
+tomato tomatoes
+top topped tops
+topping toppings
+tortilla tortillas
+trim trimmed trimming
+use used using
+vegetable vegetables
+waffle waffles
+walnut walnuts
+warm warmed
+wash washed
+wedge wedges
+whipped whipping
+white whites
+yolk yolks
+zest zested

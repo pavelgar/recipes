@@ -1,0 +1,175 @@
+{
+  "site": "yhteishyva.fi",
+  "country": "FI",
+  "language": "fi",
+  "collected": "2026-10-23",
+  "recipes": [
+    {
+      "url": "https://yhteishyva.fi/reseptit/aasialainen-pihvisalaatti/9hdFCASjlhB4rSLkNosL0",
+      "name": "Aasialainen pihvisalaatti",
+      "recipeCategory": ["Salaatit", "Pihvit"],
+      "recipeCuisine": ["Vietnamilainen", "Aasialainen"],
+      "keywords": "Gluteeniton, Laktoositon, Maidoton, Munaton, Naudanliha, Kasvikset, Juhlat, Juhannus, Grillikausi, Valmistujaiset, Vappu, Illanistujaiset, Kesä, Viikonloppu"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/bataattilaatikko-feta-pistaasikuorrutteella/7pvWaOVCfPX52d2CvMAMBJ",
+      "name": "Bataattilaatikko feta-pistaasikuorrutteella",
+      "recipeCategory": ["Uuniruoat"],
+      "keywords": "Kasvisruoka, Joulu, Bataatti"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/bebepiirakka/2VaChlivMVQ0EtkG5tPnx7",
+      "name": "Bebepiirakka",
+      "recipeCategory": ["Piirakka", "Makeat leivonnaiset", "Leivonnaiset"],
+      "keywords": "Juhlat, Ystävänpäivä, Äitienpäivä, Valmistujaiset, Viikonloppu, Talvi"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/caesarsalaatti-ruusukaalista/lTzlAu9TFwsZlOFm1V1sT",
+      "name": "Caesarsalaatti ruusukaalista",
+      "recipeCategory": ["Salaatit"],
+      "keywords": "Viikonloppu, Illanistujaiset, Syksy, Sadonkorjuu, Satokausi, Paistaminen, Video, Hyvää rasvaa, Vähemmän suolaa, Kasvikset, Juusto, Kala, Ruusukaali, Kaalit"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/fazerina-juustokakku/39kuWAamTSUIIlCHmHRaif",
+      "name": "Fazerina-juustokakku",
+      "recipeCategory": [
+        "Juustokakku",
+        "Kakut",
+        "Makeat leivonnaiset",
+        "Leivonnaiset"
+      ],
+      "keywords": "Munaton, Juhlat, Äitienpäivä, Ystävänpäivä, Valmistujaiset, Isänpäivä, Pääsiäinen, Talvi, Suklaa"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/jaasilakat/recipe-3513",
+      "name": "Jääsilakat",
+      "keywords": "Munaton, Maidoton, Laktoositon, Gluteeniton, Ruoka ja reseptit, Paistaminen, Sianliha, Kala"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kasvisruokailijan-makaronilaatikko/recipe-2923",
+      "name": "Kasvisruokailijan makaronilaatikko",
+      "recipeCategory": ["Pasta"],
+      "keywords": "Ruoka ja reseptit, Arkiruoka"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kesarullakulhot/2rsxHiJsY1QcSw6wsrmxm3",
+      "name": "Kesärullakulhot",
+      "recipeCategory": ["Salaatit"],
+      "keywords": "Ruoka ja reseptit, Munaton, Kasvisruoka, Laktoositon, Maidoton, Vegaaninen, Kasviproteiini, Kasvikset"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kulman-keittion-uunijaatelo/2XI2qkszNeK83shpX1xEjv",
+      "name": "Kulman Keittiön uunijäätelö",
+      "recipeCategory": ["Makeat leivonnaiset"],
+      "keywords": "Maitotuotteet, Viljatuotteet, Kananmuna, Viikonloppu, Illanistujaiset, Paistaminen"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/kuohkea-bearnaisekastike/3L7M1yJlFK8YQ00WcO44ii",
+      "name": "Kuohkea béarnaisekastike",
+      "recipeCategory": ["Kastikkeet"],
+      "recipeCuisine": ["Ranskalainen"],
+      "keywords": "Ruoka ja reseptit, Kananmuna, Maitotuotteet, Viikonloppu, Kasvisruoka, Gluteeniton, Keittäminen"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/lime-inkivaari-halsteribroileri-ja-grillattu-anana/1ZJyIyI1weMETsQIeEa3bV",
+      "name": "Lime-inkivääri halsteribroileri ja grillattu ananas",
+      "keywords": "Gluteeniton, Laktoositon, Maidoton, Ananas, Inkivääri, Lime"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/makea-amerikkalainen-kurpitsapiirakka/4YxFCtOUTuh4HpDVTtfkFH",
+      "name": "Makea amerikkalainen kurpitsapiirakka",
+      "recipeCategory": ["Makeat leivonnaiset", "Piirakka", "Leivonnaiset"],
+      "recipeCuisine": ["Amerikkalainen"],
+      "keywords": "Ruoka ja reseptit, Satokausi, Sadonkorjuu, Halloween, Syksy, Talvi, Kasvikset, Maitotuotteet, Viljatuotteet, Mausteet ja yrtit, Kurpitsat, Kasvisruoka, Viikonloppu, Kiireettömät, Leivonta"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/marinoitu-tomaatti-fetasalaatti/sQU409RSwkKILm9sBsmyL",
+      "name": "Marinoitu tomaatti-fetasalaatti",
+      "recipeCategory": ["Salaatit"],
+      "keywords": "Planetaarinen, Munaton, Kasvisruoka, Gluteeniton, Kevät, Kesä, Illanistujaiset, Pääsiäinen, Vappu, Juhannus, Grillikausi, Juhlat, Satokausi, Juusto, Kasvikset, Tomaatit"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/meloni-mozzarellasalaatti/4dkQaDAPCSmplyoVDtZeCE",
+      "name": "Meloni-mozzarellasalaatti",
+      "recipeCategory": ["Salaatit"],
+      "keywords": "Gluteeniton, Munaton, Pääsiäinen, Satokausi, Juhlat, Kevät, Illanistujaiset, Melonit"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/mustikkarahka/2YJ6zWdpImdqMRSzKADHwr",
+      "name": "Mustikkarahka",
+      "recipeCuisine": ["Suomalainen"],
+      "keywords": "Kotimaista, Edulliset, Laktoositon, Vähemmän sokeria, Marjat, Maitotuotteet, Mustikka"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/neljan-aineksen-marjamuffinssit/Pi3mhTjeRolBv44z2cTbz",
+      "name": "Neljän aineksen marjamuffinssit",
+      "recipeCategory": ["Makeat leivonnaiset", "Leivonnaiset", "Muffinssit"],
+      "keywords": "Ruoka ja reseptit, Terveellistä lapsille, Gluteeniton, Kasvisruoka, Maidoton, FODMAP, Laktoositon, Planetaarinen, Hyvää rasvaa, Vähemmän sokeria, Syksy, Talvi, Viljatuotteet, Marjat, Kananmuna, Hedelmät, Nopeat"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/paahdettu-punajuuritahna/7ySQGD3y2WWB8ZAzEH2wsZ",
+      "name": "Paahdettu punajuuritahna",
+      "recipeCategory": ["Dippikastikkeet", "Tahna"],
+      "keywords": "Ruoka ja reseptit, Satokausi, Kasvisruoka, Gluteeniton, Laktoositon, Maidoton, Vegaaninen, Planetaarinen, Munaton, Hyvää rasvaa, Kasvikset, Juurekset, Punajuuri, Illanistujaiset, Kiireettömät, Syksy, Paistaminen"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/paahdetut-luumut-ja-sitruunaruohomoussea/4KPfQgXjpKCwOAAk0I8QMu",
+      "name": "Paahdetut luumut ja sitruunaruohomoussea",
+      "recipeCategory": ["Makeat leivonnaiset"],
+      "keywords": "Hedelmät, Maitotuotteet, Luumu, Paistaminen, Viikonloppu, Pikkujoulut, Joulu, Itsenäisyyspäivä, Munaton"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/rikkaat-ritarit-grillissa/6gbDgbeV4oMtur548PJLtE",
+      "name": "Rikkaat ritarit grillissä",
+      "recipeCategory": ["Pulla"],
+      "keywords": "Ruoka ja reseptit, Kesä, Grillikausi, Grillaus"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/suklaakakku-grillista-vaniljajaatelon-kera/1wMzCLm1vSSa8UwsOSmquA",
+      "name": "Suklaakakku grillistä vaniljajäätelön kera",
+      "keywords": "Kesä"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/taytetty-kanamureke/SUGdXQymnIxkOmtengrum",
+      "name": "Täytetty kanamureke",
+      "recipeCategory": ["Mureke", "Uuniruoat"],
+      "keywords": "Kana ja kalkkuna, Jauheliha, Arkiruoka, Edulliset, Kotimaista, Isänpäivä, Äitienpäivä"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/thai-kasviskeitto/6lJAFEdQXC0TrIRc6Lwt8y",
+      "name": "Thai-kasviskeitto",
+      "recipeCategory": ["Keitot"],
+      "recipeCuisine": ["Thaimaalainen", "Aasialainen"],
+      "keywords": "Kasviproteiini, Kasvikset, Mausteet ja yrtit, Viljatuotteet, Maidoton, Munaton, Vegaaninen, Keittäminen, Arkiruoka, Edulliset, Nopeat"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/thaimaalainen-peruna-kalacurry/5DuKZxAePTaU4veIS72of5",
+      "name": "Thaimaalainen peruna-kalacurry",
+      "recipeCategory": ["Pataruoat", "Kastikkeet"],
+      "recipeCuisine": ["Aasialainen", "Thaimaalainen"],
+      "keywords": "Maidoton, Munaton, Laktoositon, Vähemmän suolaa, Gluteeniton, Kala, Peruna, Keittäminen, Ruoka ja reseptit, Arkiruoka"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/tuliset-kukkakaaliwingsit/4suvCoLnZXo1R3xeKnUv6k",
+      "name": "Tuliset kukkakaaliwingsit",
+      "keywords": "Maidoton, Munaton, Vegaaninen, Planetaarinen, Kukkakaali, Kisakatsomo"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/vegepinsa/1nE7CdNc3jCldPo0dVnJhO",
+      "name": "Vegepinsa",
+      "recipeCategory": ["Pizzat"],
+      "recipeCuisine": ["Italialainen"],
+      "keywords": "Kasvisruoka, Laktoositon, Maidoton, Munaton, Vegaaninen, Planetaarinen, Kasvikset, Nopeat, Rennosti, Illanistujaiset, Paistaminen"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/verigreippi-fenkolisalaatti/4kypNUL1y8CEG44Gs6qgYq",
+      "name": "Verigreippi-fenkolisalaatti",
+      "keywords": "Munaton, Fenkoli"
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/vispipuuro/2Z1NJOGRFCI2gEoc0eaK8u",
+      "name": "Vispipuuro",
+      "keywords": "Munaton"
+    }
+  ]
+}

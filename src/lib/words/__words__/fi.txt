@@ -1,0 +1,228 @@
+# Forms of one Finnish word that the development corpus writes in its
+# recipe titles and ingredient lines, one word per line, collected by
+# reading the corpus's word list. A form is a case, number or verb form of
+# the word ("peruna perunaa perunoita"); compounds, words made from it and
+# spelling variants count as other words. Forms are written as splitWords
+# gives them, without accents. The tests check that every form occurs in
+# the corpus and that the forms of a word match.
+airfryerilla airfryerissa
+appelsiini appelsiinin
+artisokkaa artisokkia
+auringonkukansiemeniä auringonkukansiementä
+avokado avokadoa
+balsamico balsamicoa
+banaani banaania
+basilikaa basilikan basilikat
+bataatteja bataatti bataattia
+boysenmarja boysenmarjoja
+broileri broileria broilerin
+cashewpähkinät cashewpähkinöitä
+chili chiliä
+chilijauhe chilijauhetta
+croissanteja croissantit
+curd curdia
+curry currya
+digestivekeksejä digestivekeksiä
+dijon dijonin
+fenkoli fenkolia
+feta fetaa
+fraiche fraichea
+geeliväri geeliväriä
+gluteeniton gluteenitonta gluteenittomia
+glögi glögiä
+grillattu grillattuna
+grillissä grillistä
+hasselpähkinä hasselpähkinää hasselpähkinöitä
+hedelmä hedelmiä
+herne herneitä
+hienonnettua hienonnettuja hienonnettuna
+hillo hilloa
+hoisinkastiketta hoisinkastikkeessa
+huoneenlämpöisenä huoneenlämpöistä
+inkivääri inkivääriä
+iso isoa isoja ison isosta
+jalapeno jalapenoa
+jauheliha jauhelihaa
+jauhettua jauhettuna
+jogurtti jogurttia
+juustoa juuston
+kaali kaalia
+kana kanaa kanan
+kanamunaa kanamunan
+kananmuna kananmunaa kananmunan kananmunat kananmunia
+kaneli kanelia
+kanelitanko kanelitankoa
+karamellisoidut karamellisoitua
+kasvis kasvikset kasviksia kasviksille
+kasvisliemikuutio kasvisliemikuutiota
+kaurahiutaleita kaurahiutaletta
+keittäminen keittämiseen
+keksi keksejä
+keltainen keltaisia
+keltasipuli keltasipulia
+keltuaiset keltuaisia keltuaista
+keskikokoinen keskikokoista
+kesäkurpitsa kesäkurpitsaa
+kevätsipuli kevätsipulia
+kiinteä kiinteitä
+kirjolohi kirjolohen
+kirsikka kirsikoita
+kirsikkatomaatteja kirsikkatomaattia
+kokonainen kokonaisena kokonaisina kokonaista
+kolme kolmen
+korianteri korianteria
+koti kotona
+kotimaisia kotimaista
+kuivattua kuivattuja
+kukkakaali kukkakaalia
+kultainen kultaista
+kuohukerma kuohukermaa
+kuori kuoren kuorta kuorineen
+kuorittuja kuorittuna
+kurkku kurkkua
+kurkuma kurkumaa
+kvinoa kvinoaa
+kynsi kynsiä kynttä
+kypsiä kypsät kypsää
+laktoositon laktoositonta
+lehdet lehtiä
+lehtikaali lehtikaalia
+lehtitaikinalevy lehtitaikinalevyä
+leikattuina leikattuna
+leipä leipiä leipää
+leivinjauhe leivinjauhetta
+levittyvä levittyvää
+lihaliemikuutio lihaliemikuutiota
+lime limen limestä limeä
+limetin limettiä
+lohifileitä lohifilettä
+luumu luumua luumut
+maapähkinävoin maapähkinävoita
+maissi maissia
+maitorahka maitorahkaa
+makea makeaa
+maku maun
+mango mangoa
+mansikka mansikat mansikkaa mansikoita
+manteli manteleita
+marjaa marjoja
+maustamaton maustamatonta
+maustettua maustettuja
+mehu mehua
+meijerivoi meijerivoita
+minttua mintun
+mintunlehdet mintunlehteä mintunlehtiä
+mozzarella mozzarellaa
+muita muu
+muna munaa munia
+murskaa murskana
+murskattua murskattuna
+musta mustaa mustia
+mustapippuri mustapippuria mustapippurit
+mustapippurirouheet mustapippurirouhetta
+nauta naudan
+neilikka neilikkaa
+neljän neljään
+nopea nopean
+ohraryyni ohraryynejä
+ohut ohuiksi
+oksa oksaa
+omaa oman
+omena omenaa
+oranssi oranssia
+osa osaan
+paahdettu paahdettua paahdettuna paahdetut
+pakastettua pakastettuja pakastetut
+pala palaa paloiksi paloina
+palsternakka palsternakkaa
+paprika paprikaa
+papuja pavut
+parsa parsoja
+pastaa pastan
+pekaanipähkinät pekaanipähkinöitä
+pekoni pekonia
+persimonia persimonit
+peruna perunaa perunat perunoita
+pieni pienet pieniksi pieninä pieniä pientä
+piimä piimää
+pilkottua pilkottuna
+pinaatti pinaattia
+porkkana porkkanaa porkkanoita
+punainen punaista
+punajuuri punajuuria
+punasipuli punasipulia
+puoli puolen puoliksi
+puristettu puristettua
+purjo purjoa
+raaste raasteena raastetta
+raastettu raastettua raastettuna
+rapua rapujen
+rasia rasiaa
+retiisejä retiisiä
+ripaus ripausta
+rosmariinia rosmariinin
+rouheena rouhetta
+rouhittua rouhittuja rouhittuna
+ruisjauhoa ruisjauhoja
+ruohosipulia ruohosipulin
+ruokakerma ruokakermaa
+rusinaa rusinoita
+ruskeaa ruskeita
+ruukku ruukkua
+ruusukaaleja ruusukaalista
+salottisipuli salottisipulia salottisipuleita
+seesaminsiemeniä seesaminsiementä
+seiti seitiä
+siemenet siemeniä
+silakat silakoita
+silakkafileetä silakkafileitä
+silputtu silputtua silputtuna
+sinappinen sinappista
+sipuli sipulia
+sitruuna sitruunaa sitruunan
+sitruunatahna sitruunatahnaa
+skumppakuula skumppakuulat
+smetana smetanaa
+soija soijaa
+sokeria sokerit
+sokerimassa sokerimassaa
+sriracha srirachaa
+suklaa suklaan suklaat suklaata
+sulatettua sulatettuina sulatettuna
+suola suolaa
+suppilovahvero suppilovahveroita
+säilyke säilykkeet
+taateli taateleita
+tilli tilliä
+tippa tippaa
+tofu tofua
+tomaattimurska tomaattimurskaa
+tomaatti tomaattia tomaatteja
+tonnikala tonnikalaa
+tumma tummaa tummia
+tuorejuusto tuorejuustoa
+tuore tuoreen tuoreet tuoreita tuoretta
+tähtianis tähtianista
+täyteläinen täyteläistä
+tölkki tölkistä
+uusi uusia
+vadelmaa vadelmat vadelmia
+valkoisia valkoista
+valkosipulinkynsi valkosipulinkynnet valkosipulinkynttä
+valkosipuli valkosipulia valkosipulin
+valkoviiniä valkoviinissä
+valkuainen valkuaista
+valmis valmista
+vaniljajäätelön vaniljajäätelöä
+vaniljatanko vaniljatangon
+varhaiskaalia varhaiskaalista
+varsi varsineen vartta
+vegaaninen vegaanista
+vehnäjauhoa vehnäjauhoja
+verigreippi verigreippiä
+vihreitä vihreät vihreää
+viipaleiksi viipaleina viipaletta
+viipaloitu viipaloituna
+voi voissa voita
+yrtti yrtit yrttejä yrteillä
+öljyssä öljyä
