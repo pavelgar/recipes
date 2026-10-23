@@ -395,8 +395,11 @@
 - Text is set in Atkinson Hyperlegible Next, headings in Bitter. These
   replace the preset's own fonts (Figtree, Noto Serif).
 - The menu has Home, Library, Add, Queue and Settings. Phones show it as a
-  bottom bar; wider screens as a sidebar that collapses to icons, headed by
-  the app name in the interface language (Recipes, Reseptit).
+  bottom bar floating as a pill; wider screens as an inset sidebar that
+  collapses to icons, headed by the app name in the interface language
+  (Recipes, Reseptit). Add stands out as a filled orange button: round in
+  the middle of the bottom bar, at the top of the sidebar. The bottom bar
+  marks the current page in orange.
 - Toasts appear at the top right (across the top on phones), clear of the
   bottom bar.
 - No up-front design proposals. Set up the basics first, then iterate on the
