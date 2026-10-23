@@ -31,9 +31,13 @@ on first use.
 | `bun run start`       | Run the production build (needs `DATABASE_URL`)                      |
 | `bun run db:generate` | Write a migration into `drizzle/` after changing `src/db/schema.ts`  |
 | `bun run test`        | Run the Vitest tests (`bun test` runs Bun's own test runner instead) |
+| `bun run test:e2e`    | Run the Playwright end-to-end tests against a production build       |
 | `bun run typecheck`   | Type-check (run `dev` or `build` once first to generate Paraglide)   |
 | `bun run lint`        | Lint with ESLint                                                     |
 | `bun run format`      | Format with Prettier and apply ESLint fixes                          |
+
+The end-to-end tests need Playwright's Chromium, downloaded once per
+machine with `bunx playwright install chromium`.
 
 Built with TanStack Start (React), Drizzle ORM on SQLite through libsql,
 Paraglide for translations (`messages/`), and Tailwind CSS.
