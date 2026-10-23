@@ -45,21 +45,38 @@ type Entry = {
 
 const key = (group: string, text: string) => `${group}\n${text}`
 
-function parse(source: string): Map<string, Entry> {
+// Reads a ledger: "#" comments, then "## " headings with their entries.
+// Any other line is an error, so that a mistyped status can't hand its
+// reading to the entry above.
+function parse(path: string, source: string): Map<string, Entry> {
   const entries = new Map<string, Entry>()
   let group = ''
   let entry: Entry | null = null
   let inWant = false
-  for (const line of source.split('\n')) {
+  for (const [i, line] of source.split('\n').entries()) {
+    const unplaced = () =>
+      new Error(
+        `${path}:${i + 1}: can't place ${JSON.stringify(line)}. A ledger has "#" comments, then "## " headings, entries starting with ✓, ✗ or ? and the line in quotes, and readings indented two spaces.`,
+      )
     const heading = /^## (\S+)/.exec(line)
     if (heading) {
       group = heading[1]
       entry = null
       continue
     }
+    if (line === '') continue
+    if (group === '') {
+      if (/^#( |$)/.test(line)) continue
+      throw unplaced()
+    }
     const start = /^([✓✗?]) (".*")$/.exec(line)
     if (start) {
-      const text = JSON.parse(start[2]) as string
+      let text: string
+      try {
+        text = JSON.parse(start[2]) as string
+      } catch {
+        throw unplaced()
+      }
       entry = {
         status: start[1] as Status,
         group,
@@ -71,7 +88,7 @@ function parse(source: string): Map<string, Entry> {
       entries.set(key(group, text), entry)
       continue
     }
-    if (!entry || !line.startsWith('  ')) continue
+    if (!entry || !line.startsWith('  ')) throw unplaced()
     const body = line.slice(2)
     const want = /^want:(?: (.*))?$/.exec(body)
     if (want) {
@@ -140,7 +157,7 @@ export function checkLedger(options: {
   const source = existsSync(options.path)
     ? readFileSync(options.path, 'utf8')
     : ''
-  const old = parse(source)
+  const old = parse(options.path, source)
   const problems: Array<string> = []
   const entries: Array<Entry> = []
   const seen = new Set<string>()

@@ -77,4 +77,22 @@ describe('checkLedger', () => {
     const stale = file('? "line"\n  a\n', 'wrong counts')
     expect(ledger(stale, [item('a')]).problems[0]).toMatch(/out of date/)
   })
+
+  // The line number is where the misplaced line lands in file().
+  it.each([
+    ['a mistyped status', '? "line"\n  a\n✔ "other"\n  b\n', 9],
+    ['a line out of quotes', '? line\n  a\n', 7],
+    ['a line that is not a JSON string', '? "li"ne"\n  a\n', 7],
+    ['a reading indented with a tab', '? "line"\n\ta\n', 8],
+    ['a reading under no entry', '  a\n', 7],
+    ['a comment after a heading', '? "line"\n  a\n# note\n', 9],
+  ])('rejects %s', (_, body, line) => {
+    expect(() => ledger(file(body, 'counts'), [])).toThrow(
+      `:${line}: can't place`,
+    )
+  })
+
+  it('rejects a header line without "#"', () => {
+    expect(() => ledger('Test ledger.\n', [])).toThrow(`:1: can't place`)
+  })
 })
