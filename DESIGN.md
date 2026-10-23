@@ -223,11 +223,12 @@
   from @orama/stemmers, found every corpus form of only 142 of the 221
   words then in the answer key ("peruna" and "perunaa" stayed apart). The
   keys find them for 260 of the 263 words it now has.
-- Keep the current Finnish word keys for now. Revisit Voikko with a
-  Snowball fallback when designing the service worker, offline navigation
-  and recipe caching, starting with the M1 offline prototype. Compare its
-  additional asset and startup work alongside the shared offline design.
-  Findings: [Voikko investigation](docs/voikko-investigation.md).
+- Finnish words keep our own word keys. Voikko is ruled out: with a
+  Snowball fallback it matches as many word groups as our keys, would add
+  1.7 MB (gzipped) to the 0.4 MB the app downloads for offline use, and
+  takes about 0.4 s of start-up work with the CPU slowed six-fold to
+  imitate a slow phone. Findings:
+  [Voikko investigation](docs/voikko-investigation.md).
 - Search matches as you type: the last word of a search also matches the
   start of longer words, so "porkk" finds "porkkanaa" and "kana" finds
   "kanapata" (and "kananmuna"). Once a word is complete, the exact form
