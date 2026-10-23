@@ -7,6 +7,7 @@
   "nav_add": "Lisää",
   "nav_queue": "Jono",
   "nav_settings": "Asetukset",
-  "sidebar_toggle": "Pienennä tai laajenna sivupalkki",
+  "sidebar_collapse": "Pienennä sivupalkki",
+  "sidebar_expand": "Laajenna sivupalkki",
   "toast_close": "Sulje ilmoitus"
 }

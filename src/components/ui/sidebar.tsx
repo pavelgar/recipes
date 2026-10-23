@@ -23,7 +23,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { PanelLeftIcon } from 'lucide-react'
+import { PanelLeftCloseIcon, PanelLeftOpenIcon } from 'lucide-react'
 import { m } from '@/paraglide/messages'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
@@ -257,7 +257,8 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar()
+  const { isMobile, open, openMobile, toggleSidebar } = useSidebar()
+  const isOpen = isMobile ? openMobile : open
 
   return (
     <Button
@@ -272,23 +273,28 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <PanelLeftIcon />
-      <span className="sr-only">{m.sidebar_toggle()}</span>
+      {isOpen ? <PanelLeftCloseIcon /> : <PanelLeftOpenIcon />}
+      <span className="sr-only">
+        {isOpen ? m.sidebar_collapse() : m.sidebar_expand()}
+      </span>
     </Button>
   )
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<'button'>) {
-  const { toggleSidebar } = useSidebar()
+  const { isMobile, open, openMobile, toggleSidebar } = useSidebar()
+  const label = (isMobile ? openMobile : open)
+    ? m.sidebar_collapse()
+    : m.sidebar_expand()
 
   return (
     <button
       data-sidebar="rail"
       data-slot="sidebar-rail"
-      aria-label={m.sidebar_toggle()}
+      aria-label={label}
       tabIndex={-1}
       onClick={toggleSidebar}
-      title={m.sidebar_toggle()}
+      title={label}
       className={cn(
         'absolute inset-y-0 z-20 hidden w-4 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:start-1/2 after:w-[2px] hover:after:bg-sidebar-border sm:flex ltr:-translate-x-1/2 rtl:-translate-x-1/2',
         'in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize',

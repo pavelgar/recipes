@@ -7,6 +7,7 @@
   "nav_add": "Add",
   "nav_queue": "Queue",
   "nav_settings": "Settings",
-  "sidebar_toggle": "Collapse or expand sidebar",
+  "sidebar_collapse": "Collapse sidebar",
+  "sidebar_expand": "Expand sidebar",
   "toast_close": "Close notification"
 }
