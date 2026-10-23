@@ -337,8 +337,8 @@
 
 ### Interface language
 
-- Finnish first, English as well. Full translation support from day one.
-- Set per device, with Finnish as the default.
+- Full translation support from day one. Finnish and English first.
+- Set per device, with English as the default.
 
 ### Offline
 
