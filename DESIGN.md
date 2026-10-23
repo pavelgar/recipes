@@ -33,6 +33,16 @@
 - The image is based on Node 24 LTS, and the app runs on Node. Bun, copied
   from the official Bun image, is used only at build time: installing
   packages and other build steps.
+- The container follows linuxserver.io conventions: everything the app
+  keeps is in a /data volume, and the app runs as the user and group given
+  by PUID and PGID (1000 by default), or as the user the container is
+  started with. TZ sets the time zone and UMASK the permissions of new
+  files.
+- GitHub Actions publishes the image to GitHub's container registry, for
+  amd64 only, once the type check, lint, format check and tests pass. A
+  version tag (v1.2.3) publishes that version and latest; every push to
+  main publishes edge. Pull requests build the image without publishing
+  it.
 - The database is SQLite, accessed through libsql.
 
 ### Backups and export

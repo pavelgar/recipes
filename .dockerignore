@@ -1,0 +1,23 @@
+# Installed and generated in the image.
+node_modules
+.output
+.nitro
+.tanstack
+src/paraglide
+project.inlang/*
+!project.inlang/settings.json
+
+# Not needed to build, and the corpus holds the held-out sample.
+.git
+corpus
+docs
+e2e
+test-results
+.playwright-cli
+.vscode
+
+# Local settings and data.
+.env
+.env.*
+*.db
+*.db-*
