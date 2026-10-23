@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { Toast as ToastPrimitive } from '@base-ui/react/toast'
 import { cn } from 'cn'
@@ -9,8 +11,8 @@ import {
   CircleCheckIcon,
   InfoIcon,
   TriangleAlertIcon,
-  CircleXIcon,
-  LoaderCircleIcon,
+  OctagonXIcon,
+  Loader2Icon,
 } from 'lucide-react'
 
 const toast = ToastPrimitive.createToastManager()
@@ -152,11 +154,11 @@ function ToastIcon({ type }: { type: string | undefined }) {
   }
 
   if (type === 'error') {
-    icon = <CircleXIcon className="text-destructive" aria-hidden="true" />
+    icon = <OctagonXIcon className="text-destructive" aria-hidden="true" />
   }
 
   if (type === 'loading') {
-    icon = <LoaderCircleIcon className="animate-spin" aria-hidden="true" />
+    icon = <Loader2Icon className="animate-spin" aria-hidden="true" />
   }
 
   if (!icon) {

@@ -388,10 +388,12 @@
 
 ## Visual design
 
-- Use the shadcn/ui preset the project is set up with: the Maia style on
-  Base UI, the stone base colour and Lucide icons (`components.json`).
-  Hold it on every screen.
-- Text is set in Atkinson Hyperlegible Next, headings in Bitter.
+- Use the shadcn/ui preset the project is set up with (`b5AyAQb5pY`): the
+  Maia style on Base UI, the taupe base colour, the orange theme, a bold
+  menu accent and Lucide icons (`components.json`). Hold it on every
+  screen.
+- Text is set in Atkinson Hyperlegible Next, headings in Bitter. These
+  replace the preset's own fonts (Figtree, Noto Serif).
 - No up-front design proposals. Set up the basics first, then iterate on the
   UI with me bit by bit.
 
@@ -401,8 +403,7 @@
 - A dashboard home with stat cards
 - A desktop sidebar squeezed onto a phone
 - Emoji as icons, chef-hat logos, cheerful filler copy
-- Purple gradients, a generic green/orange food palette, Inter or system
-  fonts as the only typeface
+- Purple gradients, Inter or system fonts as the only typeface
 
 ## Working rules
 
