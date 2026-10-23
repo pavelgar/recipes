@@ -1,14 +1,17 @@
 import {
   HeadContent,
+  Outlet,
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
+import { AppShell, getSidebarOpen } from '@/components/app-shell'
 import { Toaster } from '@/components/ui/toast'
 import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
 
+import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 
 import appCss from '@/styles.css?url'
@@ -34,11 +37,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         charSet: 'utf-8',
       },
       {
+        // Cover lets the bottom bar reach under the iPhone home indicator;
+        // the app shell pads by the safe-area insets instead.
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        content: 'width=device-width, initial-scale=1, viewport-fit=cover',
       },
       {
-        title: 'Recipes',
+        title: m.app_name(),
       },
     ],
     links: [
@@ -48,8 +53,19 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
     ],
   }),
+  loader: () => ({ sidebarOpen: getSidebarOpen() }),
   shellComponent: RootDocument,
+  component: RootLayout,
 })
+
+function RootLayout() {
+  const { sidebarOpen } = Route.useLoaderData()
+  return (
+    <AppShell sidebarOpen={sidebarOpen}>
+      <Outlet />
+    </AppShell>
+  )
+}
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (

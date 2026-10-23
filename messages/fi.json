@@ -1,5 +1,12 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "app_name": "Reseptit",
+  "nav_label": "Päävalikko",
+  "nav_home": "Etusivu",
+  "nav_library": "Kirjasto",
+  "nav_add": "Lisää",
+  "nav_queue": "Jono",
+  "nav_settings": "Asetukset",
   "sidebar_toggle": "Pienennä tai laajenna sivupalkki",
   "toast_close": "Sulje ilmoitus"
 }

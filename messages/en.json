@@ -1,5 +1,12 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "app_name": "Recipes",
+  "nav_label": "Main menu",
+  "nav_home": "Home",
+  "nav_library": "Library",
+  "nav_add": "Add",
+  "nav_queue": "Queue",
+  "nav_settings": "Settings",
   "sidebar_toggle": "Collapse or expand sidebar",
   "toast_close": "Close notification"
 }
