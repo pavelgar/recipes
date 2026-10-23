@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { splitWords, wordKeys } from '@/lib/words'
 import { corpusRecipes } from '@/test/corpus'
 import { checkLedger } from '@/test/ledger'
+import type { CorpusRecipe } from '@/test/corpus'
 import type { LedgerCheck } from '@/test/ledger'
 import type { Language } from '@/lib/quantities/numbers'
 
@@ -19,17 +20,20 @@ export function answerKey(language: Language): Array<Array<string>> {
 }
 
 // Words of the answer key whose forms the keys don't all bring together:
-// irregular forms ("maku", "maun") and words too short to cut ("muu",
-// "muita").
+// irregular forms ("maku", "maun"; "koti", "kotona") and words too short
+// to cut ("muu", "muita").
 export const KNOWN_MISSES: Record<Language, ReadonlyArray<string>> = {
-  fi: ['maku maun', 'muita muu'],
+  fi: ['koti kotona', 'maku maun', 'muita muu'],
   en: [],
 }
 
-// Every word in the corpus recipes' titles and ingredient lines.
-export function corpusWords(language: Language): Set<string> {
+// Every word in the recipes' titles and ingredient lines.
+export function corpusWords(
+  language: Language,
+  recipes: ReadonlyArray<CorpusRecipe> = corpusRecipes,
+): Set<string> {
   return new Set(
-    corpusRecipes
+    recipes
       .filter((recipe) => recipe.language === language)
       .flatMap((recipe) => [recipe.title, ...recipe.ingredients])
       .flatMap((text) => splitWords(text, language)),
@@ -82,5 +86,54 @@ export function mergeLedger(path: string): LedgerCheck {
     ],
     items,
     summarise: (_, entries) => `: ${entries.length} pairs`,
+  })
+}
+
+// For each word in some recipes' titles and ingredient lines, the other
+// words of those recipes it finds, sharing a key with it. Words are sorted,
+// so the forms of a word mostly sit together, and a person checking an
+// entry can see both what it finds wrongly and what it misses.
+export function findsLedger(
+  path: string,
+  recipes: ReadonlyArray<CorpusRecipe>,
+): LedgerCheck {
+  const items = (['fi', 'en'] as const).flatMap((language) => {
+    const words = [...corpusWords(language, recipes)].sort((a, b) =>
+      a.localeCompare(b, language),
+    )
+    const byKey = new Map<string, Array<string>>()
+    for (const word of words) {
+      for (const key of wordKeys(word, language)) {
+        byKey.set(key, [...(byKey.get(key) ?? []), word])
+      }
+    }
+    return words.map((word) => {
+      const found = new Set(
+        wordKeys(word, language).flatMap((key) => byKey.get(key) ?? []),
+      )
+      found.delete(word)
+      return {
+        group: language,
+        text: word,
+        reading: [
+          found.size > 0
+            ? `finds ${[...found].sort((a, b) => a.localeCompare(b, language)).join(' ')}`
+            : 'finds no other word',
+        ],
+      }
+    })
+  })
+  return checkLedger({
+    path,
+    title: [
+      'Each word of the held-out recipes, with the other words of those',
+      'recipes a search for it finds.',
+      '✓: it finds every other form of its word there, and nothing else.',
+      '✗: it misses a form or finds another word; want lines give the',
+      'right list.',
+      'Written by the tests; see src/test/ledger.ts for how to update it.',
+    ],
+    items,
+    summarise: (_, entries) => `: ${entries.length} words`,
   })
 }

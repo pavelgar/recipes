@@ -5,66 +5,33 @@
 # ✗ (want: apart): they should stay apart.
 # Written by the tests; see src/test/ledger.ts for how to update it.
 #
-# 81 entries: 78 checked, of which 14 wrong; 3 unchecked.
+# 73 entries: 73 checked, of which 5 wrong; 0 unchecked.
 
-## fi : 21 pairs
+## fi : 9 pairs
 
 ✓ "appelsiini appelsiinin ~ appelsiininen"
-  shared appelsiinin
-✗ "jauhetta ~ jauhettua jauhettuna"
-  shared jauhet
-  want: apart
-✗ "jauhetta ~ jauhoja"
-  shared jauh
-  want: apart
+  shared appelsiininE
 ✓ "kesäistä ~ kesän"
-  shared kes
+  shared kesÄ
 ✗ "kukkia ~ kukkoa"
-  shared kuk
+  shared kukA
   want: apart
-? "kumaa ~ kumina"
-  shared kum
-✗ "makea makeaa ~ maku maun"
-  shared mak
+✗ "kumaa ~ kumina"
+  shared kumA
   want: apart
-✓ "mantelijauhetta ~ mantelijauhoa"
-  shared mantelijauh
 ✓ "mustikkat ~ mustikoita"
-  shared mustik
-✗ "napit ~ nappaa"
-  shared nap
-  want: apart
-✓ "nopea nopean ~ nopein"
-  shared nope
-✗ "per ~ peruna perunaa perunat perunoita"
-  shared per
-  want: apart
-✗ "poro ~ port"
-  shared por
-  want: apart
-✗ "porsaan ~ port"
-  shared port
-  want: apart
+  shared mustikA
 ✓ "puna ~ punainen punaista"
-  shared pun
-✓ "raaste raasteena raastetta ~ raastettu raastettua raastettuna"
-  shared raastet
-✗ "siivet ~ siivua"
-  shared siip
-  want: apart
+  shared punA
 ✓ "sinappia ~ sinappinen sinappista"
-  shared sinap
-? "tal ~ talo"
-  shared tal
+  shared sinap sinapA sinapE
 ✓ "tomaattikastiketta ~ tomaattikastikken"
-  shared tomaattikastik
+  shared tomaattikastikE
 ✓ "valko ~ valkoisia valkoista"
-  shared valk
+  shared valkA
 
-## en : 60 pairs
+## en : 64 pairs
 
-? "bi ~ by"
-  shared by
 ✓ "bone ~ boned"
   shared bone
 ✓ "bread ~ breaded"
@@ -95,30 +62,38 @@
 ✓ "dill ~ dilled"
   shared dill
 ✓ "eye ~ eyed"
-  shared ey
+  shared eye
 ✓ "filled ~ filling"
   shared fill
 ✓ "fine ~ finely"
   shared fine
+✓ "firm ~ firmly"
+  shared firm
+✓ "fresh ~ freshly"
+  shared fresh
 ✓ "frosted ~ frosting"
   shared frost
 ✓ "granulated ~ granules"
   shared granul
 ✓ "herb herbs ~ herbed"
   shared herb
+✓ "high ~ highly"
+  shared high
 ✓ "ice ~ iced"
-  shared ic
+  shared ice
 ✗ "ice ~ icing"
-  shared ic
+  shared ice
   want: apart
 ✓ "iced ~ icing"
-  shared ic
+  shared ice
 ✓ "included ~ including"
   shared includ
 ✓ "it ~ its"
   shared it
 ✓ "juice ~ juiced"
   shared juic
+✓ "light ~ lightly"
+  shared light
 ✓ "like ~ liking"
   shared like
 ✓ "malt ~ malted"
@@ -127,9 +102,6 @@
   shared natur
 ✓ "oil ~ oiling"
   shared oil
-✗ "on ~ one ones"
-  shared on
-  want: apart
 ✓ "option ~ optional"
   shared option
 ✓ "pats ~ patted"
@@ -179,12 +151,15 @@
   shared sugar
 ✓ "sweet ~ sweets"
   shared sweet
+✓ "thick ~ thickly"
+  shared thick
 ✓ "thick ~ thickness"
   shared thick
+✓ "thickly ~ thickness"
+  shared thick
+✓ "thin thinned ~ thinly"
+  shared thin
 ✓ "top topped tops ~ topping toppings"
   shared top
 ✓ "up ~ ups"
   shared up
-✗ "us ~ use used using"
-  shared us
-  want: apart

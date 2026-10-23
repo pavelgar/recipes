@@ -1,4 +1,4 @@
-import { stemmer } from '@orama/stemmers/english'
+import stem from 'wink-porter2-stemmer'
 
 // Irregular forms the stemmer doesn't bring back to their word.
 const IRREGULAR = new Map([
@@ -8,12 +8,13 @@ const IRREGULAR = new Map([
   ['leaves', 'leaf'],
   ['loaves', 'loaf'],
   ['made', 'make'],
-  ['pies', 'pie'],
 ])
 
-// The key of a lowercase English word: its stem from @orama/stemmers'
-// English (Snowball) stemmer, with a final i spelled y, since the stemmer
-// leaves "dry" but cuts "dried" to "dri".
+// The key of a lowercase English word: its stem by Snowball's English
+// algorithm (Porter2), from wink-porter2-stemmer, with a final i spelled y,
+// as in "dry" and "dried". Words of two letters are their own key, so "bi"
+// (as in "bi-carb") isn't "by".
 export function englishKeys(word: string): Array<string> {
-  return [stemmer(IRREGULAR.get(word) ?? word).replace(/i$/, 'y')]
+  if (word.length < 3) return [word]
+  return [stem(IRREGULAR.get(word) ?? word).replace(/i$/, 'y')]
 }

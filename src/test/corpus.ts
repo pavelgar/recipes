@@ -28,8 +28,8 @@ const stepFiles = import.meta.glob<CorpusFile<'sentences'>>(
   { eager: true, import: 'default' },
 )
 
-// The held-out sample (corpus/held-out/) is read only by held-out.test.ts,
-// which runs on request. Don't use it while writing rules.
+// The held-out sample (corpus/held-out/) is read only by the held-out.test.ts
+// files, which run on request. Don't use it while writing rules.
 const heldOutFiles = import.meta.glob<CorpusFile<'ingredients' | 'sentences'>>(
   '/corpus/held-out/*.json',
   { eager: true, import: 'default' },
@@ -104,19 +104,24 @@ export type CorpusRecipe = {
   ingredients: Array<string>
 }
 
+function recipes(
+  files: Record<string, CorpusFile<'ingredients'>>,
+): Array<CorpusRecipe> {
+  return Object.values(files).flatMap((file) =>
+    file.recipes.map((recipe) => ({
+      site: file.site,
+      language: file.language,
+      url: recipe.url,
+      title: decodeEntities(recipe.name ?? ''),
+      ingredients: (recipe.ingredients ?? []).map(decodeEntities),
+    })),
+  )
+}
+
 // Every recipe of the development corpus with its title and ingredient
 // lines, for search. rare-forms recipes may have no ingredients.
-export const corpusRecipes: Array<CorpusRecipe> = Object.values(
-  ingredientFiles,
-).flatMap((file) =>
-  file.recipes.map((recipe) => ({
-    site: file.site,
-    language: file.language,
-    url: recipe.url,
-    title: decodeEntities(recipe.name ?? ''),
-    ingredients: (recipe.ingredients ?? []).map(decodeEntities),
-  })),
-)
+export const corpusRecipes = recipes(ingredientFiles)
+export const heldOutRecipes = recipes(heldOutFiles)
 
 type TagFile = {
   site: string

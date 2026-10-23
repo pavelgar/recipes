@@ -66,9 +66,10 @@ describe('sameWord', () => {
   })
 
   it('compares words by one language only', () => {
-    // Finnish rules read "rice" and "ricotta" ("rico-tta") as one word.
-    expect(sameWord('rice', 'ricotta', 'fi')).toBe(true)
-    expect(sameWord('rice', 'ricotta', 'en')).toBe(false)
+    // Finnish rules read "chilli" as "chill" with the i Finnish adds after
+    // a consonant, as in "dijoni-n".
+    expect(sameWord('chill', 'chilli', 'fi')).toBe(true)
+    expect(sameWord('chill', 'chilli', 'en')).toBe(false)
   })
 })
 

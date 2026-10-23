@@ -53,7 +53,7 @@
 ### Dependencies and prior art
 
 - Depend only on proven, widely used packages, such as MiniSearch,
-  @orama/stemmers and the Vercel AI SDK.
+  wink-porter2-stemmer and the Vercel AI SDK.
 - Write our own ingredient parser, Finnish unit list, unit conversion and
   number formatting, Finnish word keys for search and tags, and website
   recipe extractor.
@@ -209,10 +209,12 @@
 - Search covers titles and ingredients, in the language each recipe is
   written in. There is no matching across languages. Finnish ingredient
   names inflect (jauhot, jauhoja), so search has to match inflected forms.
-- English words are stemmed with @orama/stemmers (the Snowball
-  algorithm). Finnish words use our own word keys: Snowball's Finnish
-  stemmer found every corpus form of only 142 of 221 words ("peruna" and
-  "perunaa" stayed apart), the keys find them for 219.
+- English words are stemmed with Snowball's English algorithm (Porter2),
+  from wink-porter2-stemmer. Porter's original algorithm, in
+  @orama/stemmers, also brought "on" and "one" together, and "us" and
+  "use". Finnish words use our own word keys: Snowball's Finnish stemmer,
+  from @orama/stemmers, found every corpus form of only 142 of 221 words
+  ("peruna" and "perunaa" stayed apart), the keys find them for 218.
 - Keep the current Finnish word keys for now. Revisit Voikko with a
   Snowball fallback when designing the service worker, offline navigation
   and recipe caching, starting with the M1 offline prototype. Compare its

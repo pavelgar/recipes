@@ -55,13 +55,13 @@ describe('possibleDuplicates', () => {
   // Languages as in the corpus.
   it('compares tags only in the languages of their recipes', () => {
     const tags = [
-      { name: 'pork', languages: ['en'] },
-      { name: 'porkkana', languages: ['fi'] },
-      { name: 'rice', languages: ['en'] },
-      { name: 'ricotta', languages: ['fi', 'en'] },
+      { name: 'pizza', languages: ['en'] },
+      { name: 'pizzat', languages: ['fi'] },
+      { name: 'chill', languages: ['en'] },
+      { name: 'chilli', languages: ['en'] },
     ] as const
-    expect(sameTag('pork', 'porkkana')).toBe(true)
-    expect(sameTag('rice', 'ricotta')).toBe(true)
+    expect(sameTag('pizza', 'pizzat')).toBe(true)
+    expect(sameTag('chill', 'chilli')).toBe(true)
     expect(possibleDuplicates(tags)).toEqual([])
   })
 

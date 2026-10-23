@@ -15,6 +15,15 @@ and recipe caching, starting with the M1 offline prototype. Assess its
 additional asset and startup work then; the shared offline infrastructure
 is already planned regardless of the word-matching implementation.
 
+Later the same day, the Finnish keys changed: a key keeps the group of the
+vowel it drops (a and o, ä and ö, e and i), and one-letter endings are cut
+only after a vowel. The figures below for the current rules describe the
+keys as evaluated. The changed keys pass 218 of 221 groups, also missing
+`koti` / `kotona`, and remove eight of the nine wrong word pairs; `kukkia`
+/ `kukkoa` remains. English words moved to wink-porter2-stemmer, so
+`@orama/stemmers` is no longer installed; a Snowball fallback would add it
+back.
+
 ## What was tested
 
 - Upstream libvoikko 4.3.3, built locally from commit

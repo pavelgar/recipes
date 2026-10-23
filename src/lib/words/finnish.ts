@@ -75,6 +75,21 @@ const ENDINGS: ReadonlyArray<string> = [
 // i, u or y.
 const DIPHTHONGS = new Set(['ie', 'uo', 'yö'])
 
+// A stem's last vowel changes between the forms of a word only within one
+// of these groups: "porkkana", "porkkanoita"; "pähkinä", "pähkinöitä";
+// "kivi", "kiven". A key keeps the group of the vowel it drops, so "jauhe"
+// stays apart from "jauho", and "makea" from "maku".
+const VOWEL_GROUPS: Record<string, string> = {
+  a: 'A',
+  o: 'A',
+  ä: 'Ä',
+  ö: 'Ä',
+  e: 'E',
+  i: 'E',
+  u: 'U',
+  y: 'Y',
+}
+
 // Consonants that alternate between the forms of a word (consonant
 // gradation), and the one spelling the key uses: "kirsikka", "kirsikoita";
 // "vaniljatanko", "vaniljatangon"; "kynsi", "kynttä", "kynnet".
@@ -100,18 +115,25 @@ function stems(form: string): Set<string> {
     if (!form.endsWith(ending)) continue
     const stem = form.slice(0, -ending.length)
     if (stem.length < 3 || ![...stem].some(isVowel)) continue
+    // One-letter endings follow a vowel: "kala-a", "kala-n", "kala-t", but
+    // "port" isn't "por-t".
+    if (ending.length === 1 && !isVowel(stem.at(-1))) continue
     all.add(stem)
     cut.push(stem)
+    // The plural i replaces a final a or ä: "koira", "koir-ia"; "ruskea",
+    // "ruske-ita".
+    if (ending.startsWith('i')) all.add(stem + (/[aou]/.test(stem) ? 'a' : 'ä'))
   }
   // Words whose other forms have a longer stem: "keltainen", "keltaise-";
   // "gluteeniton", "gluteenittoma-"; "kasvis", "kasvikse-".
   for (const stem of [...all]) {
     if (stem.length > 5 && stem.endsWith('nen')) {
-      all.add(`${stem.slice(0, -3)}s`)
+      all.add(`${stem.slice(0, -3)}se`)
     } else if (/t[oö]n$/.test(stem)) {
-      all.add(`${stem.slice(0, -2)}t${stem.at(-2)}m`)
+      const vowel = stem.at(-2) === 'o' ? 'a' : 'ä'
+      all.add(`${stem.slice(0, -2)}t${stem.at(-2)}m${vowel}`)
     } else if (/[aeiouyäö]s$/.test(stem)) {
-      all.add(`${stem.slice(0, -1)}ks`)
+      all.add(`${stem.slice(0, -1)}kse`)
     }
   }
   // A k that gradation drops before an ending: "pääruoa-t", "sia-n". Ruoka
@@ -132,16 +154,8 @@ function stems(form: string): Set<string> {
   return all
 }
 
-// A stem cut back to what its word's forms share: without its last vowel,
-// or both letters of a long one, and with the consonants before that
-// spelled one way. "porkkano" and "porkkana" both become "porkkan".
-function key(stem: string): string {
-  let s = stem
-  const last = s.at(-1)
-  if (isVowel(last) && s.length > 3) {
-    s = s.slice(0, -1)
-    if (s.at(-1) === last && s.length > 3) s = s.slice(0, -1)
-  }
+// The consonants before a stem's last vowel, spelled one way.
+function grade(s: string): string {
   // Weak d and v after a vowel: "naudan", "pavut"; and "lehdet".
   if (/.[aeiouyäöh]d$/.test(s)) return `${s.slice(0, -1)}t`
   if (/.[aeiouyäö]v$/.test(s)) return `${s.slice(0, -1)}p`
@@ -153,8 +167,27 @@ function key(stem: string): string {
   return s
 }
 
+// A stem cut back to what its word's forms share: without its last vowel,
+// or both letters of a long one, but with that vowel's group, and with the
+// consonants before it spelled one way. "porkkano" and "porkkana" both
+// become "porkkanA".
+function keys(stem: string): Array<string> {
+  const last = stem.at(-1) ?? ''
+  // A stem ending in a consonant meets the e or i its word adds before
+  // endings: "dijon", "dijoni-n"; "lohi", "loh-ta".
+  if (!isVowel(last)) return [grade(stem), `${grade(stem)}E`]
+  if (stem.length <= 3) return [stem]
+  let s = stem.slice(0, -1)
+  if (s.at(-1) === last) {
+    // Half of a long vowel stays in a short word: "osa", "osaa-n".
+    if (s.length <= 3) return [s]
+    s = s.slice(0, -1)
+  }
+  return [grade(s) + VOWEL_GROUPS[last]]
+}
+
 // The keys of a lowercase Finnish word.
 export function finnishKeys(word: string): Array<string> {
   if (word.length < 3) return [word]
-  return uniq([...stems(word)].map(key))
+  return uniq([...stems(word)].flatMap(keys))
 }

@@ -126,10 +126,10 @@ of the random sample either.
 
 ## Held-out sample
 
-`held-out/<site>.json` holds 10 recipes per site that no parser rule was
-written against. It measures how the parser does on text it hasn't seen,
-which the files above can't: every rule was written while looking at them.
-The normal test run doesn't read it.
+`held-out/<site>.json` holds 10 recipes per site that no parser or word
+rule was written against. It measures how the parser and the word keys do
+on text they haven't seen, which the files above can't: every rule was
+written while looking at them. The normal test run doesn't read it.
 
 | Site                    | Country | Recipes | Lines | Sentences |
 | ----------------------- | ------- | ------- | ----- | --------- |
@@ -156,7 +156,8 @@ recipes with none.
 1. Don't look at its readings while writing or changing rules.
 2. At a milestone, run `HELD_OUT=1 UPDATE_LEDGER=1 bun run test held-out`.
    This writes the readings to the ledgers
-   `src/lib/quantities/__ledger__/held-out-*.txt`.
+   `src/lib/quantities/__ledger__/held-out-*.txt`, and the words each word
+   finds to `src/lib/words/__ledger__/held-out-words.txt`.
 3. Check a random sample of entries, marking each ✓ or ✗ as described in
    `src/test/ledger.ts`. The share marked ✗ is the error rate.
 4. Once errors found this way are fixed, the sample is no longer unseen.
@@ -176,6 +177,10 @@ ingredient readings were wrong:
 
 One step reading was wrong: "Itse tykkään kun mittari näyttää 70." is a
 temperature that only the word "mittari" (thermometer) gives away.
+
+Fixing "kuppi" means the sample is no longer unseen by the parser, so it
+is due to move into the development corpus (step 4). The word keys haven't
+been checked against it yet.
 
 ### How it was collected
 
