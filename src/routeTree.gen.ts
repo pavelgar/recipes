@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AddRouteImport } from './routes/add'
 import { Route as LibraryRouteImport } from './routes/library'
+import { Route as ManifestDotwebmanifestRouteImport } from './routes/manifest[.]webmanifest'
 import { Route as QueueRouteImport } from './routes/queue'
 import { Route as SettingsRouteImport } from './routes/settings'
 
@@ -30,6 +31,11 @@ const LibraryRoute = LibraryRouteImport.update({
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ManifestDotwebmanifestRoute = ManifestDotwebmanifestRouteImport.update({
+  id: '/manifest.webmanifest',
+  path: '/manifest.webmanifest',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QueueRoute = QueueRouteImport.update({
   id: '/queue',
   path: '/queue',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
   '/library': typeof LibraryRoute
+  '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
   '/library': typeof LibraryRoute
+  '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
 }
@@ -60,21 +68,32 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
   '/library': typeof LibraryRoute
+  '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/add' | '/library' | '/queue' | '/settings'
+  fullPaths:
+    '/' | '/add' | '/library' | '/manifest.webmanifest' | '/queue' | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/add' | '/library' | '/queue' | '/settings'
-  id: '__root__' | '/' | '/add' | '/library' | '/queue' | '/settings'
+  to:
+    '/' | '/add' | '/library' | '/manifest.webmanifest' | '/queue' | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/add'
+    | '/library'
+    | '/manifest.webmanifest'
+    | '/queue'
+    | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddRoute: typeof AddRoute
   LibraryRoute: typeof LibraryRoute
+  ManifestDotwebmanifestRoute: typeof ManifestDotwebmanifestRoute
   QueueRoute: typeof QueueRoute
   SettingsRoute: typeof SettingsRoute
 }
@@ -102,6 +121,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/manifest.webmanifest': {
+      id: '/manifest.webmanifest'
+      path: '/manifest.webmanifest'
+      fullPath: '/manifest.webmanifest'
+      preLoaderRoute: typeof ManifestDotwebmanifestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/queue': {
       id: '/queue'
       path: '/queue'
@@ -123,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddRoute: AddRoute,
   LibraryRoute: LibraryRoute,
+  ManifestDotwebmanifestRoute: ManifestDotwebmanifestRoute,
   QueueRoute: QueueRoute,
   SettingsRoute: SettingsRoute,
 }
@@ -131,10 +158,11 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
+import type { startInstance } from './start.ts'
 declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }

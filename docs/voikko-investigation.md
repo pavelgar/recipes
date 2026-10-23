@@ -9,11 +9,11 @@ substantially improve the known false matches. Its dictionary misses
 several food words, and browser use adds assets and an initialization
 lifecycle.
 
-Decision: keep the current implementation for now. Revisit Voikko with a
-Snowball fallback when designing the service worker, offline navigation
-and recipe caching, starting with the M1 offline prototype. Assess its
-additional asset and startup work then; the shared offline infrastructure
-is already planned regardless of the word-matching implementation.
+Decision (24 October 2026): Voikko is ruled out, and the current word
+keys stay. The decision was first deferred to the M1 offline prototype, so
+that Voikko's asset and start-up cost could be weighed alongside the
+service worker and offline caching. That assessment is in
+[With the offline prototype](#with-the-offline-prototype).
 
 Later the same day, the Finnish keys changed: a key keeps the group of the
 vowel it drops (a and o, ä and ö, e and i), and one-letter endings are cut
@@ -151,6 +151,44 @@ in upstream Voikko. Worker support would require fixing or replacing that
 loader. Upstream also supplies an Emscripten build and JavaScript interface,
 but adopting it means maintaining the browser build and dictionary assets.
 
+## With the offline prototype
+
+Assessed on 24 October 2026, once the app had its service worker. The
+matching results above did not change.
+
+**Download.** The service worker caches the app's built files when it
+installs: 12 files, 899,948 bytes, or 391,618 bytes with gzip level 9
+(the fonts are already compressed). Voikko's files would add 4,261,023
+bytes, or 1,739,063 with gzip, so a device would download about 4.4 times
+as much before the app works offline. Nitro serves static files
+uncompressed unless a proxy in front compresses them, so without one the
+whole 4.3 MB would travel. Only Finnish recipes need the dictionary, so it
+could be cached the first time a Finnish recipe is searched instead, at
+the cost of one more thing that has to be fetched before search works
+offline.
+
+**Start-up.** The same browser harness as above, timed in Chrome 156 with
+the CPU slowed through the DevTools protocol, median of five runs:
+
+| CPU slowdown | Voikko import | Voikko init | Analyse 2,058 inputs | Current keys |
+| ------------ | ------------: | ----------: | -------------------: | -----------: |
+| none         |          5 ms |       25 ms |                58 ms |         5 ms |
+| 4×           |         12 ms |       79 ms |               195 ms |        18 ms |
+| 6×           |         19 ms |      113 ms |               303 ms |        26 ms |
+
+A slowed desktop CPU only approximates a phone, and WebAssembly may not
+slow down in the same proportion. Search builds its index in the browser,
+so Finnish recipes can't be indexed until Voikko has started. The wrapper
+fails in Web Workers (see above), so that work runs on the main thread,
+where it would hold up the page unless it were split up or the analyses
+were cached by word.
+
+**Conclusion.** Voikko with a Snowball fallback matches as many answer-key
+groups as the current keys (218 of 221). It also separates `kukkia` /
+`kukkoa`, the one known wrong pair the current keys keep. For that it costs
+about 4.4 times the offline download and about sixteen times the start-up
+work (416 ms against 26 ms at 6×). Voikko is ruled out.
+
 ## Implications for this feature
 
 Voikko would replace the implementation behind `wordKeys`, while keeping
@@ -158,14 +196,14 @@ MiniSearch and our language and tag policies. Original word tokens would
 still be needed for prefix search: an unfinished query usually cannot be
 looked up as a complete dictionary word.
 
-Voikko plus Snowball is the most promising option if removing our Finnish
-rules becomes the priority. It trades the current code for dictionary
-assets, asynchronous startup, fallback selection and a few remaining
-matching gaps. Adding Voikko while retaining our rules improves the
-development results but increases the amount we maintain.
+Of the options tested, Voikko plus Snowball was the most promising had
+removing our Finnish rules been the priority. It trades the current code
+for dictionary assets, asynchronous startup, fallback selection and a few
+remaining matching gaps. Adding Voikko while retaining our rules improves
+the development results but increases the amount we maintain.
 
 No runtime dependency, parser rule, search behavior or corpus ledger was
-changed by this investigation. This report and the deferred decision in
+changed by this investigation. This report and the decision in
 `DESIGN.md` are documentation only.
 The temporary benchmark scripts, detailed JSON results and browser
 prototype are in `/tmp/recipes-voikko-investigation/` for this session.

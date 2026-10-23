@@ -23,6 +23,8 @@ interface MyRouterContext {
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
+  // Rendered on the server, unlike the screens inside it (src/start.ts).
+  ssr: true,
   beforeLoad: async () => {
     // Other redirect strategies are possible; see
     // https://github.com/TanStack/router/tree/main/examples/react/i18n-paraglide#offline-redirect
@@ -51,6 +53,19 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         rel: 'stylesheet',
         href: appCss,
       },
+      // The app's name in the manifest follows the interface language.
+      {
+        rel: 'manifest',
+        href: `/manifest.webmanifest?locale=${getLocale()}`,
+      },
+      { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+      {
+        rel: 'icon',
+        href: '/favicon.svg',
+        sizes: 'any',
+        type: 'image/svg+xml',
+      },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' },
     ],
   }),
   loader: () => ({ sidebarOpen: getSidebarOpen() }),
