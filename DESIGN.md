@@ -389,7 +389,7 @@
 ## Visual design
 
 - Use the shadcn/ui preset the project is set up with: the Maia style on
-  Base UI, the stone base colour and Phosphor icons (`components.json`).
+  Base UI, the stone base colour and Lucide icons (`components.json`).
   Hold it on every screen.
 - Text is set in Atkinson Hyperlegible Next, headings in Bitter.
 - No up-front design proposals. Set up the basics first, then iterate on the

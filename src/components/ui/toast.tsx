@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button'
 import { m } from '@/paraglide/messages'
 import {
   XIcon,
-  CheckCircleIcon,
+  CircleCheckIcon,
   InfoIcon,
-  WarningIcon,
-  XCircleIcon,
-  SpinnerIcon,
-} from '@phosphor-icons/react'
+  TriangleAlertIcon,
+  CircleXIcon,
+  LoaderCircleIcon,
+} from 'lucide-react'
 
 const toast = ToastPrimitive.createToastManager()
 
@@ -140,7 +140,7 @@ function ToastIcon({ type }: { type: string | undefined }) {
   let icon: React.ReactNode = null
 
   if (type === 'success') {
-    icon = <CheckCircleIcon aria-hidden="true" />
+    icon = <CircleCheckIcon aria-hidden="true" />
   }
 
   if (type === 'info') {
@@ -148,15 +148,15 @@ function ToastIcon({ type }: { type: string | undefined }) {
   }
 
   if (type === 'warning') {
-    icon = <WarningIcon aria-hidden="true" />
+    icon = <TriangleAlertIcon aria-hidden="true" />
   }
 
   if (type === 'error') {
-    icon = <XCircleIcon className="text-destructive" aria-hidden="true" />
+    icon = <CircleXIcon className="text-destructive" aria-hidden="true" />
   }
 
   if (type === 'loading') {
-    icon = <SpinnerIcon className="animate-spin" aria-hidden="true" />
+    icon = <LoaderCircleIcon className="animate-spin" aria-hidden="true" />
   }
 
   if (!icon) {
