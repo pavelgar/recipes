@@ -6,6 +6,7 @@
 # gives them, without accents. The tests check that every form occurs in
 # the corpus and that the forms of a word match.
 almond almonds
+apple apples
 apricot apricots
 artichoke artichokes
 aubergine aubergines
@@ -23,8 +24,10 @@ boiled boiling
 bow bows
 bowl bowls
 box boxes
+bread breads
 breast breasts
 brown browned
+brownie brownies
 brushed brushing
 bulb bulbs
 bun buns
@@ -36,12 +39,15 @@ carrot carrots
 carton cartons
 cashew cashews
 cherry cherries
+chestnut chestnuts
 chicken chickens
+chickpea chickpeas
 chili chilies
 chilli chillies
 chip chips
 chive chives
 clove cloves
+color colors
 cooked cooking
 cookie cookies
 courgette courgettes
@@ -53,6 +59,9 @@ cucumber cucumbers
 cup cups
 cupcake cupcakes
 cut cuts
+cutout cutouts
+danish danishes
+dash dashes
 date dates
 decorate decorating
 deseeded deseeding
@@ -62,6 +71,7 @@ eat eating
 egg eggs
 eggplant eggplants
 fillet fillets
+finger fingers
 flake flaked flakes
 flavor flavored
 flavour flavoured
@@ -69,6 +79,7 @@ fondant fondants
 fry fried fries frying
 gel gels
 gram grams
+grape grapes
 green greens
 grill grilled grilling
 half halves
@@ -78,11 +89,14 @@ hazelnut hazelnuts
 head heads
 heat heated
 herb herbs
+icing icings
 inch inches
 jalapeno jalapenos
 jar jars
+juice juices
 knead kneading
 leaf leaves
+leek leeks
 length lengths
 lentil lentils
 lettuce lettuces
@@ -110,6 +124,7 @@ onion onions
 ounce ounces
 pack packed
 package packages
+part parts
 pea peas
 peach peaches
 peanut peanuts
@@ -136,7 +151,7 @@ quart quarts
 radish radishes
 raisin raisins
 raspberry raspberries
-reserve reserved
+reserve reserved reserving
 ring rings
 roast roasted
 roll rolled rolls
@@ -149,9 +164,11 @@ scoop scooped
 seed seeds
 serve serving
 shallot shallots
-shape shaping
+shape shaping shapes
 sheet sheets
 shell shelled shells
+size sizes
+skin skins
 slice sliced slices
 soaked soaking
 spread spreading
@@ -178,6 +195,7 @@ top topped tops
 topping toppings
 tortilla tortillas
 trim trimmed trimming
+tub tubs
 use used using
 vegetable vegetables
 waffle waffles

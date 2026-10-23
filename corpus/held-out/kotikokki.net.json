@@ -2,203 +2,231 @@
   "site": "kotikokki.net",
   "country": "FI",
   "language": "fi",
-  "collected": "2026-10-22",
+  "collected": "2026-10-23",
   "recipes": [
     {
-      "url": "https://www.kotikokki.net/reseptit/nayta/140603/Lampaanviulu,%20FetaPerunat/",
-      "name": "Lampaanviulu, FetaPerunat",
+      "url": "https://www.kotikokki.net/reseptit/nayta/131789/Jyv%C3%A4broiler%20juureskiusaus/",
+      "name": "Jyväbroiler juureskiusaus",
+      "yield": "4 annosta",
+      "format": "json-ld (repaired)",
+      "ingredients": [
+        "1pss peruna-purjosuikaleita",
+        "1pss juuressuikaleita",
+        "1pss jyvbroilerin tomattimarinoituja fileesuikaleita",
+        "2dl persilijaa hienonnetuna",
+        "2dl maitoa",
+        "2dl ruokakermaa",
+        "3 munaa",
+        "½tl suolaa",
+        "½ tl mustapippuria"
+      ],
+      "sentences": [
+        "Laita voideltuun uunivuokaan kerroksittain peruna-purjosekoitusta,juuresuikaleita,broilerfileesuikaleita sekä persilija.Yhdistä loput ainekset munamaidoksi ja kaada vuokaan.Kypsennä 200 asteisessa uunissa noin 1 tunnin kunnes munamaito on hyytynyt ja laatikko on saanut kauniin värin.Todella maukasta!"
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/263786/Rahkamuffinit/",
+      "name": "Rahkamuffinit",
+      "yield": "12 annosta",
+      "format": "json-ld (repaired)",
+      "ingredients": [
+        "100g voita",
+        "1½dl sokeria",
+        "1 kananmuna",
+        "1prk maustettua rahkaa-sitruuna",
+        "3dl vehnäjauhoja",
+        "2tl leivinjauhetta",
+        "3dl tomusokeria",
+        "2rkl sitruunamehua",
+        "nonparelleja"
+      ],
+      "sentences": ["Paista 200 asteessa uunin keskiosassa 15-17 minuuttia."]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/875665/Enninkakku/",
+      "name": "Enninkakku",
+      "yield": null,
+      "format": "json-ld",
+      "ingredients": [
+        "400g kuivia kaurakeksejä (esim. Elovena Välipalakeksi)",
+        "1l täysmaitoa",
+        "200g vehnäjauhoa (~3.5 dl)",
+        "2 munaa",
+        "70g sokeria (~0.85 dl)",
+        "2tl vaniljasokeria",
+        "2tl leivinjauhea",
+        "leivontamargariinia",
+        "korppujauhoa",
+        "100 - 200g mansikkahilloa",
+        "500g rahkaa",
+        "150g mustikoita",
+        "2rkl perunajauhoa",
+        "2rkl sitruunamehua",
+        "1rkl vaniljasokeria",
+        "170g sokeria (~2 dl)",
+        "3 munaa",
+        "2dl keksimakuista maitoa (lue resepti!)",
+        "250g mascarponea tai maustamatonta tuorejuustoa"
+      ],
+      "sentences": [
+        "Tämä resepti on tarkoitettu kakkuvuokaan, jonka leveys on 24cm ja korkeus on 7-8cm.",
+        "Esikuumenna uuni 170 asteeseen.",
+        "Kaada kaikki maito kekseihin, sekoita vähän ja anna keksien olla maidossa enintään 30-45 sekuntia.",
+        "Lisää 100g / ~1.7 dl jauhoja, 2 munaa, 50g / ~0.6dl sokeria, vaniljasokeria ja 1 dl keksin makuista maito kekseihin.",
+        "Lisää loppu jauho (~100g / ~1.7dl) ja loppu sokeri (~20g / ~0.25dl) toiseen puoleen ja sekoita sekin hyvin.",
+        "Paista uunissa 18 minuuttia, sillä aikaa valmista täyte.",
+        "Kaavi pohjan yläosa (noin 40-50%), ei pidä olla yhtenä osana tai nätti.",
+        "Laita kakku vielä 170 asteiseen uuniin 40 minuutiksi.",
+        "Tämän jälkeen vähennä lämpötilaa 150 asteeseen ja paista vielä 20 minuuttia."
+      ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/454365/Paahdettu%20valkosipulikeitto/",
+      "name": "Paahdettu valkosipulikeitto",
       "yield": "4 annosta",
       "format": "json-ld",
       "ingredients": [
-        "1 ½kg lampaanviulu",
-        "kourallinen kuivattua minttua",
-        "Oreganoa",
-        "suolaa, mustapippuria",
-        "fetaperunat:",
-        "perunoita",
-        "1pkt fetaa",
-        "1 Sipuli",
-        "valkosipulinkynsiä",
-        "Oreganoa",
-        "mustapippuria",
-        "1½ dl Flora makukerma tomaatti-ricotta",
-        "1½ dl Kermaa",
-        "(suolaa)",
-        "lisäksi minttuhyytelöä"
+        "3kpl valkosipuleita",
+        "2-4kpl rosamunda-perunaa koon mukaan",
+        "2dl kuohukermaa",
+        "2dl valkoviiniä tai kasvislientä",
+        "1ripaus suolaa",
+        "1ripaus valkopippuria",
+        "15tippaa tryffeliöljyä",
+        "1tl timjamia, joko kuivattu tai tuore",
+        "1rkl oliiviöljyä"
+      ],
+      "sentences": ["Lämmitä uuni 200-asteeseen."]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/259418/Sieni-Kinkku%20Piirakka/",
+      "name": "Sieni-Kinkku Piirakka",
+      "yield": "8 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "100g sulatettua voita/margariinia",
+        "½prk (2,5dl) Valkosipuli &amp; Yrtit, Creme Bonjour cuisine",
+        "1tl leivinjauhetta",
+        "2dl hiivaleipävehnäjauhoja",
+        "6-10kpl kanttarelleja",
+        "6-10kpl mustia torvisieniä",
+        "100g (pieni purkki) herkkusieniä",
+        "1iso Sipuli",
+        "1kpl valkosipulinkynsiä",
+        "200g kinkkusuikaleita",
+        "2kpl kananmuna",
+        "½prk (2,5dl) Valkosipuli &amp; Yrtit, Creme Bonjour cuisine",
+        "½dl juustoraastetta",
+        "1tl suolaa",
+        "½tl mustapippuria"
       ],
       "sentences": [
-        "Kuori ja siivuta tarpeellinen määrä perunoita (5 aika isoa).",
-        "Laita perunavuoka ja lammasvuoka uuniin, lämpöä 150 ja anna paistua kunnes liha on kypsä.",
-        "Itse tykkään kun mittari näyttää 70."
+        "Laita jääkaappiin n. ½h, täytten tekemisen ajaksi.",
+        "5min, sitten sipulit sekä lopuksi hetkeksi myös kinkut.",
+        "Uunissa 200, keskitasolla, n.30 min."
       ]
     },
     {
-      "url": "https://www.kotikokki.net/reseptit/nayta/159386/Osso%20Buco/",
-      "name": "Osso Buco",
-      "yield": "2 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "2kiekkoa naudan potkaa",
-        "2 sipulia",
-        "2 valkosipulinkynttä",
-        "1 kasvisliemikuutio",
-        "1 ½dl punaviiniä",
-        "tomaattipyrettä putkilosta kunnon pröjäys",
-        "vettä",
-        "Suola, mustapippuri",
-        "2  laakerinlehteä",
-        "kokonaisia maustepippureita"
-      ],
-      "sentences": [
-        "Hauduttele ihan rauhassa 3 tuntia ja mielellään vielä ½ tuntia päälle."
-      ]
-    },
-    {
-      "url": "https://www.kotikokki.net/reseptit/nayta/174647/Amarettoaprikoosit/",
-      "name": "Amarettoaprikoosit",
-      "yield": null,
-      "format": "json-ld",
-      "ingredients": [
-        "200g kuivattuja aprikooseja",
-        "4dl vettä",
-        "1dl ruokosokeria",
-        "2rkl vaaleaa siirappia",
-        "0,5dl mantelilikööriä"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.kotikokki.net/reseptit/nayta/186376/Vihanneshyytel%C3%B6/",
-      "name": "Vihanneshyytelö",
+      "url": "https://www.kotikokki.net/reseptit/nayta/133353/Kotoinen%20ketsuppi%202/",
+      "name": "Kotoinen ketsuppi 2",
       "yield": null,
       "format": "json-ld (repaired)",
       "ingredients": [
-        "6dl vahvaa kasvislientä     ( kanalientä )",
-        "1 porkkana",
-        "2 maa-artisokkaa",
-        "pala juuriselleriä",
-        "1/2 kesäkurpitsaa",
-        "2 tomaattia kaltattuna, pilkottuna",
-        "2 retiisiä",
-        "pala paprikaa",
-        "2  rkl basilikaa ja kirveliä tuoreena",
-        "1  rkl ruohosipulia",
-        "1  rkl timjamia tuoreena",
-        "suolaa, pippuria",
-        "2  liivatelehteä",
-        "Sellerikerma:",
-        "1/2  juuriselleriä",
-        "1   Sipuli",
-        "1  valkosipulin kynsi",
-        "suolaa, pippuria",
-        "2  dl kasvislientä  ( kanalientä )",
-        "2  dl Kermaa",
-        "1rkl  voita"
+        "8 suurta pehmeää tomaattia",
+        "2 chiliä",
+        "2 sipulia",
+        "muutama valkosipulin kynsi",
+        "2dl sokeria",
+        "1dl punaviinietikkaa",
+        "1tl suolaa",
+        "2tl basilikaa",
+        "2tl timjamia"
       ],
       "sentences": []
     },
     {
-      "url": "https://www.kotikokki.net/reseptit/nayta/186584/P%C3%A4%C3%A4ryn%C3%A4inen%20viettelys/",
-      "name": "Päärynäinen viettelys",
+      "url": "https://www.kotikokki.net/reseptit/nayta/260070/Helpot%20Muffinit/",
+      "name": "Helpot Muffinit",
       "yield": null,
       "format": "json-ld",
       "ingredients": [
-        "3 kananmunaa",
-        "2dl tummaa ruokokidesokeria",
-        "100g voita tai margariinia",
-        "1dl vettä",
+        "2 munaa",
+        "1,5dl sokeria",
         "2,5dl vehnäjauhoja",
-        "1rkl kanelia",
-        "2tl leivinjauhetta",
-        "säilykepäärynöitä",
-        "aprikooseja, kuivattuja",
-        "Ruokosiirappia aprikooseille",
-        "rommia",
-        "kakun kuorrutus:",
-        "100 g taloussuklaata",
-        "rommia, tujaus",
-        "2 rkl Kermaa",
-        "1 rkl voita",
-        "koristeeksi nonparelleja"
-      ],
-      "sentences": ["Paista kakkua 175 asteessa noin 40 minuuttia."]
-    },
-    {
-      "url": "https://www.kotikokki.net/reseptit/nayta/233740/Tacot/",
-      "name": "Tacot",
-      "yield": null,
-      "format": "json-ld",
-      "ingredients": [
-        "400g jauhelihaa",
-        "1pss taco-mausteseosta",
-        "paprikajauhetta, pippuria",
-        "Kasviksia; salaatti, tomaatti, kurkku, sipuli jne",
-        "kastikkeita; esim. valkosipuli- ja kebabkastiketta",
-        "1pakkaus taco-kuoria"
+        "1tl leivinjauhetta",
+        "2tl vaniljasokeria",
+        "0,5dl mantelijauhetta",
+        "2dl kermaa tai maitoa",
+        "3dl tomusokeria",
+        "n.2rkl sitruunamehua",
+        "Koristeeksi: leivontarakeita"
       ],
       "sentences": [
-        "Lämmitä tacokuoret pakkauksen ohjeen mukaan (pakkauksessa luki mikrossa 1min. täydellä teholla mutta mulla jo puolen minuutin kohdalla alkoivat mustua, kannattaa siis pitää silmällä)"
+        "Jaa taikina muffinivuoan voideltuihin syvennyksiin ja paista 225-asteisessa uunissa n.",
+        "10 min."
       ]
     },
     {
-      "url": "https://www.kotikokki.net/reseptit/nayta/763606/Virkist%C3%A4v%C3%A4%20aamu%20SMOOTHIE/",
-      "name": "Virkistävä aamu SMOOTHIE",
-      "yield": null,
+      "url": "https://www.kotikokki.net/reseptit/nayta/130190/Kaalipataa%20savipadassa%20%2822.3.09%29/",
+      "name": "Kaalipataa savipadassa (22.3.09)",
+      "yield": "4 annosta",
       "format": "json-ld",
       "ingredients": [
-        "1kpl granaattiomena",
-        "parisiivua Ananasta",
-        "Parisiivua Vesimelonia",
-        "2dl Kookosvettä",
-        "5kpl tuoretta taatelia"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.kotikokki.net/reseptit/nayta/780397/Onsen%20kananmuna%2010.5.2018/",
-      "name": "Onsen kananmuna 10.5.2018",
-      "yield": null,
-      "format": "json-ld",
-      "ingredients": [
-        "1kpl kananmuna per henkilö",
-        "suolaa",
-        "pankojauhoja",
-        "öljyä"
+        "½ kaalia suikaleina",
+        "500g jauhelihaa",
+        "3 porkkanaa, kuorittuna ja paloiteltuna",
+        "2 sipulia kuorittuna ja lohkottuna",
+        "3 valkosipulinkynttä kuorittuna ja viipaloituna",
+        "2 laakerinlehteä",
+        "6kpl maustepippureita",
+        "2-3kpl lihaliemikuutiota murustettuna tai suolaa maun mukaan",
+        "hienonnettua liperiä (kuivattua)",
+        "kuivattua meiramia",
+        "3 d vettä"
       ],
       "sentences": [
-        "Meillä on Berliinissä yksi tähtien ravintola,missä kokki nimeltä Christian Lohse valmistaa alkuruokana Onsen kananmunia.Onsen Tamago ovat kananmunat,mitkä valmistetaan traditionaalisesti Japanin kuumissa lähteissä.Lohsen ravintolassa niitä voi tilata hintaan 35 Euroa.Minä en siellä ole koskaan käynyt,enkä aio sinne mennäkään.",
-        "Minulla on tällä hetkellä aika pieniä luomukananmunia,noin 50 grammaa painavia.",
-        "Laitoin kaksi kananmunaa sous vide keittimen kanssa kattilaan,annoin niiden kypsyä 45 minuuttia lämmöllä 64 astetta.Kuorin ja poistin valkuaisen,minkä paistoin myös ruoaksi rasvassa,eihän ruokaa pois heitetä."
+        "15 min.",
+        "Laita pata kylmään uuniin ja laita lämpötila 200 asteeseen.",
+        "Vähennä lämpöä tunnin kuluttua 10-20 astetta."
       ]
     },
     {
-      "url": "https://www.kotikokki.net/reseptit/nayta/786685/Lounasleip%C3%A4%20helteess%C3%A4%2024.7.2018/",
-      "name": "Lounasleipä helteessä 24.7.2018",
-      "yield": "1 annosta",
+      "url": "https://www.kotikokki.net/reseptit/nayta/131764/Broilerinfileet%20%20maissipeiton%20alla/",
+      "name": "Broilerinfileet  maissipeiton alla",
+      "yield": "6 annosta",
       "format": "json-ld",
       "ingredients": [
-        "siivu maalaisleipää",
-        "kurkkua, salaatinlehti, pihvitomaatti, majoneesia,grillatun broilerin rintafilettä siivuina. tilliä, suolaa ja pippuria"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.kotikokki.net/reseptit/nayta/793173/Kurpitsapihvit%2030.9.2018/",
-      "name": "Kurpitsapihvit 30.9.2018",
-      "yield": "3 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "400gr kuorittua,putsattua myskikurpitsaa",
-        "40gr parmesaani raastetta",
-        "1kpl kananmuna",
-        "2rkl mantelijauhoja",
-        "2rkl psylliumia/jauhoja",
-        "suolaa,mausteita oman maun mukaan"
+        "6kpl hunajamarinoituja broilerin fileepihvejä",
+        "200g pakastemaissia",
+        "150g emmentaljuustoraastetta",
+        "2tl samba oelek-maustetahnaa (chilitahna)",
+        "1-2rkl oliiviöljyä"
       ],
       "sentences": [
-        "Lämmitä uuni 200 asteeseen.",
-        "Paista 25 minuuttia,käännä pihvit,jatka paistoa vielä 20-25 minuuttia."
+        "1.",
+        "2. hienonna kohmeinen maissi mieluiten monitoimikoneella,    (sauvasekotin menee tukkoon (kokemusta on :))",
+        "3. sekoita maissimössön joukkoon juustoraaste, maustetahna ja öljy, sekoita tasaiseksi.",
+        "4.",
+        "5.",
+        "Paista 200 asteessa noin 20 min.",
+        "6."
       ]
+    },
+    {
+      "url": "https://www.kotikokki.net/reseptit/nayta/453767/Hapanmakeat%20v%C3%A4lipala%20vegehodarit/",
+      "name": "Hapanmakeat välipala vegehodarit",
+      "yield": null,
+      "format": "json-ld",
+      "ingredients": [
+        "1pussi soijanakkeja ( hälsans kök )",
+        "1 rouhepehmopala leipää",
+        "1 sipuli",
+        "1pakastepussi ruusukaalia",
+        "1rasia valkosipulihapankaalia",
+        "1pullo vaahterasiirappia",
+        "1tuubi sinappia"
+      ],
+      "sentences": ["Keitä pakaste ruusukaaleja hetki suolavedessä ( 5 min )."]
     }
   ]
 }

@@ -2,215 +2,201 @@
   "site": "arla.fi",
   "country": "FI",
   "language": "fi",
-  "collected": "2026-10-22",
+  "collected": "2026-10-23",
   "recipes": [
     {
-      "url": "https://www.arla.fi/reseptit/aprikoosit-punaviinissa/",
-      "name": "Aprikoosit punaviinissä",
-      "yield": "25 buffetannosta",
+      "url": "https://www.arla.fi/reseptit/proteiinipitoiset-bagelit-skyrin-kanssa-resepti/",
+      "name": "Proteiinipitoiset bagelit skyrin kanssa resepti ",
+      "yield": "4",
       "format": "json-ld",
       "ingredients": [
-        "7½ dl keskitäyteläistä punaviiniä",
-        "1½ dl fariinisokeria",
-        "3 vanijatangot",
-        "6 tlk säilykeaprikooseja (à 420 g)",
-        "5 prk Arla® Lempi Crème Fraîche 28 %",
-        "1 dl tomusokeria"
+        "60 g Hienoksi jauhetut kaurahiutaleita",
+        "80 g vehnäjauho",
+        "2 tl leivinjauhe",
+        "½ tl Karkea suola",
+        "250 Milliliter skyr, maustamaton",
+        "1 kananmuna voiteluun",
+        "20 g Raastettu juusto"
+      ],
+      "sentences": ["Paista 20–25 minuuttia 200 °C (kiertoilma). "]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/lempean-tulinen-nachopelti/",
+      "name": "Lempeän tulinen nachopelti",
+      "yield": "",
+      "format": "json-ld",
+      "ingredients": [
+        "300 g nachoja",
+        "1 rkl oliiviöljyä",
+        "400 g kanajauhelihaa  tai 250 g Härkäpapumurua",
+        "1 pkt tacomaustetta",
+        "150 g Arla Apetina® Cheddar-mozzarella -raaste 200 g",
+        "2 avokadoa",
+        "1- 2 mietoa chiliä",
+        "korianteria",
+        "2 dl salsaa",
+        "200 g Arla® Lempi Texmex creme fraiche mango-chili 200g laktoositon"
       ],
       "sentences": [
-        "Kuumenna ja anna kiehua miedolla lämmöllä kannen alla noin 10 minuttia."
+        "Aloita valmistamaan lempeän tulinen nachopelti kuumentamalla uuni 200 °C:seen. ",
+        "Paista noin 10 minuuttia tai kunnes juustoraaste on saanut kauniin värin."
       ]
     },
     {
-      "url": "https://www.arla.fi/reseptit/haranfileeta-ja-gremolata-maustevoita/",
-      "name": "Häränfileetä ja Gremolata-maustevoita",
+      "url": "https://www.arla.fi/reseptit/hasselpahkinapikkuleivat/",
+      "name": "Hasselpähkinäpikkuleivät",
+      "yield": "16 palaa",
+      "format": "json-ld",
+      "ingredients": [
+        "100 g paahdettuja kuorettomia hasselpähkinöitä",
+        "1 dl spelttihiutaleet",
+        "50 g raastettua tummaa suklaat",
+        "25 g Arla® Meijerivoita",
+        "1 kananmunan keltuainen",
+        "2 rkl hunajaa",
+        "1 tl kylmää vahvaa kahvia"
+      ],
+      "sentences": [
+        "Kuumenna uuni 175 asteeseen.",
+        "Jätä 16 hasselpähkinää syrjään.",
+        "Muotoile taikinasta 16 palloa ja nosta ne leivinpaperilla päällystetylle uunipellille.",
+        "Paista uunin keskiosassa 9-10 minuuttia."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/kabanossi-smetanapizza/",
+      "name": "Kabanossi-smetanapizza",
       "yield": "4 annosta",
       "format": "json-ld",
       "ingredients": [
-        "500 g naudan sisäfileet",
-        "Arla® Meijerivoita",
-        "hienoa suolaa",
-        "mustapippurit",
-        "100 g Arla® Meijerivoita huoneenlämpöisenä",
-        "1 valkosipulinkynsi puserrettu",
-        "1 sitruunankuori",
-        "1 dl tuoretta lehtipersiljaa silputtuna",
-        "hienoa suolaa",
-        "mustapippurit",
-        "4 porkkanat",
-        "1 punasipuli",
-        "200 g papuja",
-        "2 rkl pinjansiemeniä",
-        "1 ruukku romainesalaatti",
-        "1 ruukku tuore basilika",
-        "3 rkl oliiviöljyä",
-        "2 rkl punaviinietikkaa",
-        "hienoa suolaa",
-        "mustapippurit"
+        "valmis pizzapohjia tai -taikina",
+        "200 g Arla® Edamjuustoa raasteena",
+        "250 g kabanossi makkaraa",
+        "1 iso punainen paprika",
+        "60 g tuoretta rucola",
+        "150 g maustekurkkuja hienonnettuna",
+        "2 dl Arla® Lempi Smetana laktoositon 150 g"
       ],
       "sentences": [
-        "Kuumenna uuni 125-asteiseksi.",
-        "Laita filee uuniin ja paista kunnes lihan sisälämpötila on 60 °C.",
-        "Anna lihan vetäytyä noin 10 minuuttia huoneenlämmössä."
+        "Kuumenna uuni 225 asteeseen.",
+        "Paista kabanossi-smetanapizza uunin keskiosassa 10-15 minuuttia."
       ]
     },
     {
-      "url": "https://www.arla.fi/reseptit/kahvi-karamellisiirapilla/",
-      "name": "Kahvi karamellisiirapilla",
+      "url": "https://www.arla.fi/reseptit/nuudeli-katkarapusalaatti/",
+      "name": "Nuudeli-katkarapusalaatti",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g riisinuudeleita",
+        "5 kevätsipulia",
+        "1 kerä sydänsalaattia",
+        "½ kurkku",
+        "250 g pakastetut soijapavut sulatettuna",
+        "1 punainen chili",
+        "1 valkosipulinkynsi",
+        "pala noin 3 cm tuoretta inkivääriä",
+        "1 rkl omenamehua",
+        "1 rkl seesamiöljyä",
+        "½ dl soijakastiketta",
+        "1 rkl Hienosokeria",
+        "1 rkl riisiviinietikkaa",
+        "500 g katkarapuja kuorineen, kuorittuja 200 g",
+        "1 dl paahdettuja, suolattuja cashewpähkinää",
+        "1 ruukku tuoretta korianteri",
+        "1 limetti"
+      ],
+      "sentences": []
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/valkosuklaa-smetanamousse/",
+      "name": "Valkosuklaa-smetanamousse",
       "yield": "6 annosta",
       "format": "json-ld",
       "ingredients": [
-        "85 g hienoa sokeri",
-        "¾ kuppi vesi",
-        "1 dl kylmää ja vahvaa kahvi",
-        "8 dl Arla® Kevytmaitoa"
+        "100 g valkosuklaata",
+        "2½ dl kuohukermaa",
+        "1 dl Arla® Lempi Smetana laktoositon 150 g",
+        "250 g hedelmiä (esim. kiiviä, passionhedelmää, vadelmia...)"
       ],
-      "sentences": []
+      "sentences": [
+        "Lusikoi seos tarjoilukulhoihin ja anna seistä jääkaapissa vähintään 1 tunti."
+      ]
     },
     {
-      "url": "https://www.arla.fi/reseptit/keitetty-valkoinen-parsa/",
-      "name": " Keitetty valkoinen parsa",
+      "url": "https://www.arla.fi/reseptit/broileria-ja-apetina-muusia/",
+      "name": "Broileria ja Apetina-muusia",
       "yield": "4 annosta",
       "format": "json-ld",
       "ingredients": [
-        "1 kg valkoista parsaa",
-        "vettä",
+        "4 kanan fileitä (yht. n. 500 g)",
         "1 tl suolaa",
-        "½ sitruuna, mehuksi puristettuna",
-        "persiljaa",
-        "1 sitruuna, viipaloituna ja neljäsosiksi leikattuna"
+        "50 g yrttivoit",
+        "rypsiöljyä",
+        "1 kg jauhoisia perunoita",
+        "2 dl Arla® Kevytmaitoa kuumennettuna",
+        "yrttivoit",
+        "200 g Apetina® Original pala"
       ],
-      "sentences": ["Kypsennä parsaa noin 12 minuuttia."]
+      "sentences": [
+        "Keitä ne pehmeiksi kevyesti suolatussa vedessä (noin 10 minuuttia).",
+        "Asettele fileet uunivuokaan ja kypsennä 175-asteisessa uunin keskiosassa noin 15 minuuttia."
+      ]
     },
     {
-      "url": "https://www.arla.fi/reseptit/kurpitsapiirakka/",
-      "name": "Kurpitsapiirakka",
-      "yield": "1 piirakka",
+      "url": "https://www.arla.fi/reseptit/aamupalagreippi/",
+      "name": "Aamupalagreippi",
+      "yield": "2 annosta",
       "format": "json-ld",
       "ingredients": [
-        "n. 3 dl (180g) vehnäjauhoja",
-        "2 rkl sokeria",
-        "125 g kylmää Arla® Meijerivoita",
-        "1 kananmunan keltuainen",
-        "250 g kuorittua hokkaido-kurpitsoja kuutioina",
-        "2 kananmunat",
-        "2 dl sokeria",
-        "1 tl kanelia",
-        "1 tl piparkakkumaustetta",
+        "1 verigreippi",
+        "1 banaani",
+        "1 dl raejuustoa",
+        "1 rkl juoksevaa hunajaa",
+        "1 ripaus jauhettua inkivääriä",
+        "½ dl paahdettuja hasselpähkinöitä"
+      ],
+      "sentences": []
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/sieni-kasviskastike-pastalle/",
+      "name": "Sieni-kasviskastike pastalle",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "200 g parsakaalia",
+        "50 g pinaattia",
+        "2 rkl inkivääriä",
+        "1 sipuli",
+        "200 g herkkusieniä",
+        "2 dl kuivaa valkoviiniä",
+        "1 yrttifondikuutio",
+        "1 prk Arla® Lempi Smetana laktoositon 150 g",
+        "mustapippurirouheet",
+        "hienoa suolaa",
+        "400 g pastaa",
+        "150 g Arla® Eeppinen Emmental raasteena"
+      ],
+      "sentences": [
+        "Halkaise parsakaali ja pane kiehumaan suolalla maustettuun, kiehuvaan veteen 3 minuutiksi."
+      ]
+    },
+    {
+      "url": "https://www.arla.fi/reseptit/grillatut-kesakurpitsat/",
+      "name": "Grillatut kesäkurpitsat",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "3 kesäkurpitsaa",
         "1 tl suolaa",
-        "2 rkl vehnäjauhoa",
-        "2 dl Arla® Kuohukerma",
-        "2 rkl sokeria",
-        "10 g Arla® Meijerivoita",
-        "75 g kurpitsansiemeniä",
-        "1 dl kuohukermaa",
-        "25 g hienonnettuja kurpitsansiemeniä"
-      ],
-      "sentences": [
-        "Painele uuninkestävään muottiin, jonka halkaisija on noin 24 cm.",
-        "Anna levätä jääkaapissa noin 30 minuuttia.",
-        "Aseta uuni 200 °C:een.",
-        "Hienonna kurpitsa ja keitä sitä kevyesti suolatussa vedessä 5-8 minuuttia.",
-        "Paista uunin alaosassa 40-50 minuuttia."
-      ]
-    },
-    {
-      "url": "https://www.arla.fi/reseptit/mango-aprikoosismoothie/",
-      "name": "Mango-aprikoosismoothie",
-      "yield": "1 annos",
-      "format": "json-ld",
-      "ingredients": [
-        "1 dl mangoa kuutioina",
-        "4 kuivattuja aprikooseja",
-        "1 dl Arla® Lempi Kreikkalainen jogurtti, 1 kg",
-        "½ dl Arla® Luomu rasvatonta maitoa"
+        "mustapippurit myllystä",
+        "oliiviöljyä",
+        "2 rkl omenaviinietikkaa",
+        "2 rkl Ingmariini® Valkosipuli-karhunlaukka levitettä",
+        "200 g Apetina® Classic -kuutioita",
+        "½ ruukku Tuoretta minttua"
       ],
       "sentences": []
-    },
-    {
-      "url": "https://www.arla.fi/reseptit/paasiaisen-rahkajalkiruoka/",
-      "name": "Pääsiäisen rahkajälkiruoka",
-      "yield": "4 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "2 dl kuohukermaa",
-        "200 g Arla® Lempi Rahka Vanilja 200g, laktoositon",
-        "½ dl sokerit",
-        "2 tl vaniljasokeria",
-        "n. 200 g suklaacookieita",
-        "½ dl jogurttikuorrutetut rusinat",
-        "½ appelsiini"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.arla.fi/reseptit/piparjuurella-maustettu-kesakurpitsakeitto/",
-      "name": "Piparjuurella maustettu kesäkurpitsakeitto",
-      "yield": "4 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "600 g kesäkurpitsaa keltaista ja vihreää",
-        "1 keltasipuli",
-        "Arla® Meijerivoita",
-        "6 dl Arla® Täysmaito",
-        "2 kasvisfondia",
-        "1 dl hienonnettua ruohosipulia",
-        "suolaa ja valkopippuri",
-        "1½ dl kuohukermaa",
-        "2 rkl raastettua piparjuurta"
-      ],
-      "sentences": ["Anna keiton kiehua noin 10 min."]
-    },
-    {
-      "url": "https://www.arla.fi/reseptit/sitruunamarenkitorttu/",
-      "name": "Sitruunamarenkitorttu",
-      "yield": "14 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "100 g Arla® Meijerivoita huoneenlämpöisenä",
-        "1½ dl sokeria",
-        "5 kanamunan keltuaiset",
-        "4 rkl Arla® Kevytmaitoa",
-        "2 dl vehnäjauhoa",
-        "2 tl leivinjauhetta",
-        "5 kananmunan valkuaiset",
-        "2½ dl sokeria",
-        "50 g mantelilastuja",
-        "3 dl kuohukermaa",
-        "2 dl lemon curdia eli sitruunatahnaa"
-      ],
-      "sentences": [
-        "Kuumenna uuni 150-asteiseksi.",
-        "Levitä taikina leivinpaperille uunipannuun, kooltaan 30x40 sentin kokoiseksi.",
-        "Paista uunin alaosassa noin 30 minuuttia."
-      ]
-    },
-    {
-      "url": "https://www.arla.fi/reseptit/vadelmaista-panna-cottaa-lakritsikastikkeella-ja-vohveleilla/",
-      "name": "Vadelmaista panna cottaa lakritsikastikkeella ja vohveleilla",
-      "yield": "6",
-      "format": "json-ld",
-      "ingredients": [
-        "150 g vadelmia",
-        "1½ dl hillosokeria",
-        "3 dl Arla® Kuohukerma 35% laktoositon",
-        "½ dl Arla® Kevytmaitoa",
-        "45 g tomusokeria",
-        "½ dl vaaleaa siirappia",
-        "suolaa",
-        "auutama tippa mustaa elintarvikeväriä (valinnainen)",
-        "40 g lakritsi",
-        "120 g jauhoja",
-        "2 rkl leivinjauhetta",
-        "1½ dl vettä",
-        "suolaa",
-        "25 g Arla® Meijerivoita",
-        "2 dl Arla® Kuohukerma 35% laktoositon"
-      ],
-      "sentences": [
-        "Kiehauta ja keitä noin 30 sekuntia.",
-        "Kuumenna kiehuvaksi ja hauduta sekoittaen 5-10 minuuttia, kunnes kastike alkaa paksuuntua."
-      ]
     }
   ]
 }

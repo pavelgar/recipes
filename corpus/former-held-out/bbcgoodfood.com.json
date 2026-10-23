@@ -1,0 +1,266 @@
+{
+  "site": "bbcgoodfood.com",
+  "country": "GB",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/baked-piri-piri-tilapia-crushed-potatoes",
+      "name": "Baked piri-piri tilapia with crushed potatoes",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "600g small new potatoes",
+        "2 red peppers cut into chunky pieces",
+        "1 tbsp red wine vinegar",
+        "drizzle of extra virgin olive oil",
+        "4 large pieces tilapia or cod",
+        "green salad to serve",
+        "6 hot pickled peppers (I used Peppadew)",
+        "1 tsp chilli flakes",
+        "2 garlic cloves",
+        "juice and zest 1 lemon",
+        "1 tbsp red wine vinegar",
+        "2 tbsp extra virgin olive oil",
+        "1 tbsp smoked paprika"
+      ],
+      "sentences": [
+        "Heat oven to 220C/200C fan/gas 7.",
+        "Add the peppers, drizzle with the vinegar and oil, season well and roast for 25 mins.",
+        "Season and bake for the final 10 mins of the potatoes’ cooking time."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/charred-baby-aubergine-toasted-quinoa-salad",
+      "name": "Charred baby aubergine & toasted quinoa salad",
+      "yield": 6,
+      "format": "json-ld",
+      "ingredients": [
+        "3 small leeks",
+        "180g quinoa",
+        "4 baby aubergines each cut into 4 slices",
+        "6 tbsp good-quality olive oil",
+        "2 tbsp cider vinegar",
+        "3 tbsp chopped dill",
+        "½ small pack mint chopped",
+        "60g semi-dried tomatoes roughly chopped",
+        "2 tbsp hazelnuts toasted and crushed",
+        "150g pack soft herby goat's cheese crumbled"
+      ],
+      "sentences": [
+        "Cook for 6-8 mins or until they have a slight bend to them.",
+        "Toast for 5-6 mins or until lightly browned.",
+        "Reduce the heat to low and pour in enough water to cover 1cm above the quinoa.",
+        "Gently simmer for 15 mins, stirring occasionally, until the liquid has been absorbed.",
+        "Cook for 3-4 mins each side until lightly charred and tender. (Alternatively, brush the aubergines with 1 tbsp oil, put in a really hot griddle pan and cook each side for 3 mins or until lightly charred.",
+        "Brush the leeks with 1 tbsp oil and cook on either side for 4-5 mins or until charred.",
+        "Combine 3 tbsp of the olive oil with the cider vinegar and half the herbs."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/curried-chickpea-brothy-pasta",
+      "name": "Curried chickpea brothy pasta",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "1 tbsp olive oil",
+        "1 small  onion finely chopped",
+        "3 tbsp  tomato purée",
+        "400g can  chickpeas drained",
+        "750ml vegetable stock",
+        "700g leftover coconut, curry leaf &amp; turmeric saucy lentils (see step 1)",
+        "150g small  pasta (we used macaroni)",
+        "150g kale",
+        "flatbreads to serve"
+      ],
+      "sentences": [
+        "Stir in the onion with a pinch of salt and cook for 8-10 mins until softening around the edges.",
+        "Mix in the tomato purée and cook for a further 3-5 mins until darkened and caramelised.",
+        "Bring to a gentle simmer and let it bubble away for 6-8 mins.",
+        "Add the kale to the lentil mixture and cook for a further 5 mins."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/lazy-summer-tomato-sourdough-traybake",
+      "name": "Lazy summer tomato & sourdough traybake",
+      "yield": "Serves 2-3",
+      "format": "json-ld",
+      "ingredients": [
+        "3 tbsp olive oil plus more for the tin",
+        "1 small aubergine cut into 3cm chunks (250g)",
+        "500g ripe tomatoes of all different shapes, colours and sizes, some cut into wedges, some halved across the middle (reserving all the juices and seeds)",
+        "pinch sugar",
+        "2 tsp red wine vinegar",
+        "2 thyme sprigs, leaves picked, plus more to serve",
+        "½ tsp coriander seeds",
+        "½ tsp chilli flakes",
+        "150g sourdough torn into chunks",
+        "2 shallots peeled and sliced lengthways",
+        "2 tbsp kalamata olives pitted and torn in half",
+        "4 eggs",
+        "125g ricotta",
+        "10g parmesan or vegetarian alternative, grated",
+        "1 ball of mozzarella torn into chunks",
+        "handful of watercress lightly dressed in vinaigrette, to serve (optional)"
+      ],
+      "sentences": [
+        "Oil a large brownie tin or roasting tin (about 35 x 25cm).",
+        "Put the aubergine in a sieve and scatter over ½ tsp salt.",
+        "Rub the salt all over the aubergine and leave to drain over a bowl or the sink for 30 mins.",
+        "Heat the oven to 180C/160C fan/gas 4.",
+        "Heat 2 tbsp of the olive oil in a non-stick frying pan over a medium to high heat, then add the coriander seeds.",
+        "Cook, stirring for 15-20 mins, until the aubergine is caramelised and soft in the middle.",
+        "Drizzle over the rest of the olive oil and bake for 20 mins.",
+        "Return to the oven for another 15 mins, until the sourdough is crisp and golden and the cheese is melted."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/minty-pineapple-smoothie",
+      "name": "Minty pineapple smoothie",
+      "yield": 2,
+      "format": "json-ld",
+      "ingredients": [
+        "200g pineapple peeled, cored and cut into chunks",
+        "a few  mint leaves",
+        "50g baby spinach leaves",
+        "25g oats",
+        "2 tbsp linseed",
+        "handful unsalted, unroasted cashew nuts",
+        "fresh  lime juice to taste"
+      ],
+      "sentences": [
+        "Put all the ingredients in a blender with 200ml water and process until smooth.",
+        "If it’s too thick, add more water (up to 400ml) until you get the right mix."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/pea-pesto-sausage-lasagne",
+      "name": "Pea, pesto & sausage lasagne",
+      "yield": 6,
+      "format": "json-ld",
+      "ingredients": [
+        "4 tbsp olive oil",
+        "6 good-quality sausages meat squeezed from the skins and rolled into cherry-tomato-sized balls",
+        "small head of broccoli (about 400g), cut into small florets",
+        "250g (small punnet) cherry tomatoes halved",
+        "200g frozen peas",
+        "400g mascarpone",
+        "150g tub fresh pesto",
+        "large bunch basil chopped",
+        "12 lasagne sheets",
+        "50ml milk",
+        "100g grated mozzarella",
+        "3 tbsp grated parmesan",
+        "20g pine nuts"
+      ],
+      "sentences": [
+        "Add the sausageballs and sizzle for 5-10 mins, rolling around until browned on all sides.",
+        "Meanwhile, bring a pan of water to the boil, add the broccoli and cook for 3-4 mins until really tender.",
+        "Heat oven to 200C/180C fan/gas 6.",
+        "Put the tomatoes on a baking tray, drizzle over the remaining oil, season well and roast for 10 mins until just softened.",
+        "Scoop a third of the mixture into a casserole dish (mine was 25 x 35cm),top with a third of the tomatoes, then arrange three lasagne sheets on top.",
+        "Bake for 35-40 mins until golden brown and bubbling."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/rocket-charred-lemon-dressing",
+      "name": "Rocket with a charred lemon dressing",
+      "yield": 8,
+      "format": "json-ld",
+      "ingredients": [
+        "1 lemon",
+        "50ml cold-pressed olive oil",
+        "100g rocket leaves"
+      ],
+      "sentences": []
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/schmaltzy-lentils-with-chicken-olives-lemon",
+      "name": "Schmaltzy lentils with chicken, olives & lemon",
+      "yield": 4,
+      "format": "json-ld",
+      "ingredients": [
+        "1 tbsp olive oil",
+        "4 skin-on chicken breasts",
+        "1 red onion finely sliced",
+        "2 garlic cloves finely chopped",
+        "1 tsp sumac",
+        "1 tsp ground turmeric",
+        "500ml low-salt chicken stock",
+        "500g cooked lentils tomato flavoured if you can get them",
+        "125g kale finely chopped",
+        "1 lemon half sliced and half juiced",
+        "50g green olives pitted and roughly chopped",
+        "small handful of parsley finely chopped, to serve"
+      ],
+      "sentences": [
+        "Cook for 6-8 mins until well browned and golden, then flip and cook for 2-3 mins until just golden, they don’t need to be cooked through at this point.",
+        "Cook for 2-3 mins before stirring in the spices.",
+        "Cook for 1-2 mins until fragrant, then splash in the chicken stock, scraping the bottom to remove any browned bits.",
+        "Bring to a simmer, nestle the chicken breasts back in, skin-side up and cook for 8-10 mins until reduced and the chicken is cooked through."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/vegetarian-wellington",
+      "name": "Vegetarian wellington",
+      "yield": 8,
+      "format": "json-ld",
+      "ingredients": [
+        "500g butternut squash peeled and cut into 1cm dice",
+        "2 tbsp olive oil",
+        "small bunch sage leaves finely chopped",
+        "2 shallots finely chopped",
+        "500g closed cup mushrooms chopped",
+        "3 garlic cloves crushed",
+        "150ml double cream",
+        "200g fresh breadcrumbs",
+        "½ tsp ground mace",
+        "150g cooked chestnuts chopped",
+        "whole nutmeg for grating",
+        "500g block puff pastry",
+        "plain flour to dust",
+        "6-8 cooked beetroot (similar sized- about 400g)",
+        "1 egg beaten, to glaze",
+        "1 tbsp sesame seeds or poppy seeds, to decorate"
+      ],
+      "sentences": [
+        "Heat the oven to 200C/180C fan/gas 6.",
+        "Toss the squash with 1 tbsp oil, half the sage and some seasoning.",
+        "Tip onto a baking tray and roast for 25 mins until tender.",
+        "Meanwhile, heat 1 tbsp oil in a large frying pan and fry the shallots for 10 mins until tender.",
+        "Add the mushrooms and fry for 15 mins until softened, and the liquid has evaporated.",
+        "Roll the pastry out on a floured work surface to a 35 x 45cm rectangle.",
+        "Spoon the mushroom and squash mixture down the length of the pastry, leaving a 7cm border along the top and 1cm on both sides.",
+        "Roll up and trim the pastry with a knife when it’s overlapping by 1cm.",
+        "Chill until for at least 30 mins, or up to 24 hrs.",
+        "Heat the oven to 200C/180C fan/gas 6.",
+        "Brush the wellington with more beaten egg, sprinkle with the sesame or poppy seeds and bake for 45-50 mins until golden brown and puffed up.",
+        "Leave to rest for 10 mins before carving into chunky slices with a sharp knife to serve."
+      ]
+    },
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/very-berry-oat-crumble",
+      "name": "Very-berry oat crumble",
+      "yield": 6,
+      "format": "json-ld",
+      "ingredients": [
+        "100g plain flour",
+        "50g rolled oats",
+        "100g butter cut into cubes",
+        "50g golden caster sugar",
+        "400g strawberry hulled and halved if large",
+        "100g golden caster sugar",
+        "1 ½ tbsp cornflour",
+        "500g mixed berry and currants, such as raspberries, blackberries, blueberries, redcurrants or blackcurrants",
+        "ice cream or custard, to serve"
+      ],
+      "sentences": [
+        "Heat oven to 200C/180C fan/gas 6.",
+        "Put the flour, oats, butter and sugar in a bowl, squash together with your fingers into a crumble texture, sprinkle over a baking tray and bake for 10 mins, stirring and roughly breaking up halfway through cooking.",
+        "Can be done up to 2 days ahead, and stored in an airtight container.",
+        "When the crumble topping is cooked, sprinkle it over the fruit, and place back in the oven for a further 15 mins until bubbling and golden.",
+        "Leave for 5 mins before serving with ice cream or custard."
+      ]
+    }
+  ]
+}

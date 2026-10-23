@@ -2,231 +2,244 @@
   "site": "yhteishyva.fi",
   "country": "FI",
   "language": "fi",
-  "collected": "2026-10-22",
+  "collected": "2026-10-23",
   "recipes": [
     {
-      "url": "https://yhteishyva.fi/reseptit/broileri-maapahkinakastike/recipe-4227",
-      "name": "Broileri-maapähkinäkastike",
-      "yield": "4 portion",
+      "url": "https://yhteishyva.fi/reseptit/itsenaisyyspaivakakku/33I6ilcv9XvkY3XJ1vQWAl",
+      "name": "Itsenäisyyspäiväkakku",
+      "yield": "12 portion",
       "format": "json-ld",
       "ingredients": [
-        "400 g Broilerinleikkeitä",
-        "1 kpl Pieni sipuli",
-        "1 kpl Valkosipulinkynsi",
-        "1 kpl (400 g) kookosmaitoa",
-        "2 rkl Punaista currytahnaa",
-        "1 dl Maapähkinälevitettä",
-        "1 - 2 rkl Soijakastike",
-        "Hienonnettua basilikaa",
-        "2 dl Riisiä (esim. basmatiriisiä)"
+        "150 g voita tai leivontamargariinia",
+        "1 1/2 dl sokeria",
+        "4 kpl keltuaista",
+        "60 g (noin 8 kpl) piparkakkuja",
+        "2 dl vehnäjauhoja",
+        "2 tl leivinjauhetta",
+        "1/2 tl kardemummaa",
+        "1 1/2 dl maitoa",
+        "4 kpl valkuaista",
+        "2 dl sokeria",
+        "50 g (1 dl) mantelilastuja tai -rouhetta",
+        "2 dl (1 prk) vispikermaa",
+        "200 g (1 rs) vaniljatuorejuustoa",
+        "1 1/2 dl mustikkahilloa",
+        "250 g (2 rs) pensasmustikoita",
+        "minttua"
       ],
-      "sentences": ["Hauduta noin 5 minuuttia."]
+      "sentences": [
+        "Paista 175-asteisessa uunissa 30–35 minuuttia.",
+        "Levitä päälle 1/3 hillosta ja 1/4 vaahdosta sekä mustikoista."
+      ]
     },
     {
-      "url": "https://yhteishyva.fi/reseptit/grillipossu-ja-lammin-rypalesalsa/recipe-22541",
-      "name": "Grillipossu ja lämmin rypälesalsa",
+      "url": "https://yhteishyva.fi/reseptit/helppo-chili-con-carne/recipe-834",
+      "name": "Helppo chili con carne",
       "yield": "4 portion",
       "format": "json-ld",
       "ingredients": [
-        "600 g porsaan sisäfilee",
+        "1 kpl sipuli",
+        "2 kpl valkosipulinkynttä",
         "1 rkl rypsiöljyä",
-        "1 rkl fariinisokeria",
-        "1 rkl paprikajauhetta",
-        "2 tl sinappijauhetta",
-        "1 tl sitruunapippuria",
-        "1/2 tl suolaa",
-        "500 g rypäleitä",
-        "1 kpl punasipuli",
-        "1 kpl valkosipulinkynsi",
-        "1/2 dl säilykejalopenoja",
-        "1 kpl ruukku korianteria",
-        "1 rkl rypsiöljyä",
-        "1/2 tl juustokuminaa",
-        "1/2 tl suolaa",
-        "1/2 tl sokeria"
+        "400 g jauhelihaa",
+        "390 g (1 tlk) kidneypapuja suolaliemessä",
+        "390 g (1 tlk) chili-tomaattimurskaa",
+        "2 rkl tomaattisosetta",
+        "1/2 dl vettä",
+        "1 tl soijakastiketta",
+        "2 tl kuivattua oreganoa",
+        "3/4 tl suolaa",
+        "1/2 tl savupaprikajauhetta",
+        "ripaus chilihiutaleita",
+        "keitettyä riisiä",
+        "korianteria",
+        "avokadoa"
       ],
       "sentences": [
-        "Kääri folioon ja anna maustua jääkaapissa vähintään 2 tuntia.",
-        "Ota liha huoneenlämpöön 30 minuuttia ennen paistamista.",
-        "Grillaa lihaa keskilämmöllä tai epäsuoralla lämmöllä käännellen 20 minuuttia tai kunnes sisälämpö on 65–70 astetta.",
-        "Ota liha grillistä ja kääri folioon 15 minuutiksi."
+        "Anna kastikkeen muhia liedellä miedolla lämmöllä noin 10 minuuttia."
       ]
     },
     {
-      "url": "https://yhteishyva.fi/reseptit/jouluiset-brownie-kuuset/1F8rhwaF8onCoPwUPaU3Pn",
-      "name": "Jouluiset brownie-kuuset",
-      "yield": "18 piece",
+      "url": "https://yhteishyva.fi/reseptit/omena-chiavanukas/45O7oLZLT13Jrb5r17RLPj",
+      "name": "Omena-chiavanukas",
+      "yield": "2 portion",
       "format": "json-ld",
       "ingredients": [
-        "200 g tummaa suklaata",
-        "200 g voita",
-        "2 1/2 dl fariinisokeria",
-        "5 kpl huoneenlämpöistä kananmunaa",
-        "1 ¾ dl vehnäjauhoja",
-        "¾ dl tummaa kaakaojauhetta",
-        "1 tl piparimaustetta",
-        "Koristeluun pitkänomaisia suklaakeksejä tai piparminttutikkuja, sokerikuorrutetta, koristerakeita"
+        "1 kpl iso omena",
+        "4 rkl chiansiemeniä",
+        "2 dl maitoa",
+        "2 dl paksua jogurttia",
+        "2 rkl vaahterasiirappia",
+        "1/2 tl kanelia",
+        "(maapähkinävoita)"
       ],
       "sentences": [
-        "Laita leivinpaperi 20×30 cm kokoiseen uunivuokaan.",
-        "Paista 175-asteisen uunin keskitasolla n.",
-        "30 minuuttia."
+        "Peitä kulho ja nosta jääkaappiin tekeytymään vähintään 4 tunniksi tai yön yli."
       ]
     },
     {
-      "url": "https://yhteishyva.fi/reseptit/juustotaytteiset-silakkapihvit/5sHdkwjDVAtkTdQfLLfNJT",
-      "name": "Juustotäytteiset silakkapihvit",
+      "url": "https://yhteishyva.fi/reseptit/katkarapuwrapit/recipe-2061",
+      "name": "Katkarapuwrapit",
       "yield": "4 portion",
       "format": "json-ld",
       "ingredients": [
-        "600 g silakkafileitä",
-        "1/2 tl suolaa",
-        "1/2 tl mustapippuria rouhittuna",
-        "75 g (1/2 ps) cheddarjuustoraastetta",
-        "1 kpl ruukku tilliä"
+        "4 kpl Ohutta tortillalettua",
+        "2 kpl Keitettyä munaa",
+        "1 dl Kermaviiliä tai kevytmajoneesia",
+        "2 rkl Hienonnettua tilliä",
+        "2 tl Piparjuuritahnaa",
+        "Suolaa",
+        "1/4 tl Sitruunapippuria",
+        "250 g Kuorittuja katkarapuja",
+        "1/2 kpl Kerää amerikansalaattia"
       ],
-      "sentences": [
-        "Hienonna tilliä noin 1 desilitra, säästä loput viimeistelyyn.",
-        "Kypsennä pellillä leivinpaperin päällä 225-asteisessa uunissa noin 20 minuuttia tai pannulla rasvassa noin 3–4 minuuttia kummaltakin puolelta."
-      ]
+      "sentences": []
     },
     {
-      "url": "https://yhteishyva.fi/reseptit/kylmasavulohi-paprikahyrrat/recipe-1097",
-      "name": "Kylmäsavulohi-paprikahyrrät",
-      "yield": "20 unit",
-      "format": "json-ld",
-      "ingredients": [
-        "2 kpl Punaista paprikaa",
-        "2 kpl Keltaista paprikaa",
-        "1 kpl Vihreä paprika",
-        "300 g Kylmäsavulohta viipaleina",
-        "1 kpl Punasipuli",
-        "1/2 kpl Ruukku basilikaa",
-        "1 rkl Kapriksia",
-        "1 rkl Pinjansiemeniä",
-        "200 g Maustamatonta (kevyt) tuorejuustoa"
-      ],
-      "sentences": ["Kuumenna uuni 225 asteeseen."]
-    },
-    {
-      "url": "https://yhteishyva.fi/reseptit/lammin-uunijuuressalaatti/6tL9ac6OuX71LQF927Nb3Z",
-      "name": "Lämmin uunijuuressalaatti",
-      "yield": "4 portion",
-      "format": "json-ld",
-      "ingredients": [
-        "800 g (1 kpl) myskikurpitsaa",
-        "2 kpl porkkanaa",
-        "300 g juuripersiljaa",
-        "2 rkl rypsiöljyä",
-        "1 tl suolaa",
-        "1/2 tl rouhittua mustapippuria",
-        "1 tl yrttimaustetta",
-        "400 g tofua",
-        "180 g (1 ps) salaattisekoitusta",
-        "4 rkl kurpitsansiemeniä",
-        "1 kpl valkosipulinkynsi",
-        "3 rkl rypsiöljyä",
-        "1 rkl viinietikkaa",
-        "1 tl sinappia",
-        "1/2 tl suolaa",
-        "1/4 tl rouhittua mustapippuria",
-        "1/4 tl sokeria"
-      ],
-      "sentences": [
-        "Kuumenna uuni 200 asteeseen.",
-        "Kypsennä noin 30 minuuttia.",
-        "Lisää kuutiot kasvisten joukkoon ja paista noin 5 minuuttia."
-      ]
-    },
-    {
-      "url": "https://yhteishyva.fi/reseptit/minisampylat/recipe-4864",
-      "name": "Minisämpylät",
-      "yield": "18 unit",
-      "format": "json-ld",
-      "ingredients": [
-        "2 dl Vettä",
-        "1 dl Maitoa",
-        "2 tl Kuivahiivaa",
-        "2 tl Suolaa",
-        "2 rkl Sokeria",
-        "6 dl Vehnäjauhoja",
-        "1 kpl Kananmuna",
-        "50 g Sulatettua voita",
-        "1 kpl Kananmuna",
-        "2 rkl Seesaminsiemeniä",
-        "Voita",
-        "200 g Maustamatonta tuorejuustoa",
-        "200 g Kylmäsavulohiviipaleita",
-        "1 kpl Salaattia",
-        "1 kpl Ruukku tilliä",
-        "Cocktailtikkuja"
-      ],
-      "sentences": [
-        "Anna kohota 1–2 tuntia peitettynä.",
-        "Leivo kahdeksi tangoksi ja jaa tangot 9:ään palaan.",
-        "Paista sämpylöitä 200-asteisessa uunissa 10–12 minuuttia."
-      ]
-    },
-    {
-      "url": "https://yhteishyva.fi/reseptit/paahdettu-naudanpaisti/recipe-4338",
-      "name": "Paahdettu naudanpaisti",
+      "url": "https://yhteishyva.fi/reseptit/juhlava-palapaisti-ja-uunipaahdetut-juurekset/4pmfHLXVzWwmaY4AWc4O2e",
+      "name": "Juhlava palapaisti ja uunipaahdetut juurekset",
       "yield": "6 portion",
       "format": "json-ld",
       "ingredients": [
-        "800 g Naudan sisäpaistia",
-        "1 rkl Öljyä",
-        "1 kpl Murskattu valkosipulinkynsi",
-        "Suolaa",
-        "Mustapippurirouhetta",
-        "1 rkl Öljyä",
-        "2 kpl Oksaa tuoretta tai 1 tl kuivattua timjamia",
-        "Paahdettua kuivattua sipulia",
-        "Kapriksia"
+        "1 kg naudan sisäpaistia",
+        "Oksa tuoretta rosmariinia (0.5 rkl kuivattua)",
+        "50 g voita",
+        "Rasia tuoreita herkkusieniä",
+        "350 g salottisipulia",
+        "1 rkl suolaa",
+        "3 tl mustapippurirouhetta",
+        "1 prk tomaattipyreetä",
+        "1/2 dl dijon-sinappia",
+        "1 dl vehnäjauhoja",
+        "3 dl punaviiniä",
+        "8 dl lihalientä",
+        "1 dl tuoretta persiljaa",
+        "800 g porkkanaa",
+        "800 g palsternakkaa",
+        "1/2 dl rypsiöljyä",
+        "1/2 dl hunajaa",
+        "1 tl mustapippurirouhetta",
+        "1 rkl sormisuolaa",
+        "4 kpl tuoreen rosmariinin oksaa riivittynä",
+        "Puolikkaan sitruunan mehu"
       ],
       "sentences": [
-        "Kypsennä 150 °C:ssa, kunnes sisälämpötila on 60 °C.",
-        "Kääri paisti folioon 15 minuutiksi."
+        "3 x 3 cm kokoisiksi kuutioiksi.",
+        "3 tuntia välillä sekoitellen.",
+        "Laita lohkot uunipellille ja paahda kuumassa uunissa 225 asteessa noin 15 minuuttia ja sen jälkeen 120 asteessa toiset 15 minuuttia, kunnes juurekset ovat pureskeltavan kypsiä ja kauniin värisiä.",
+        "Varaa lisäkettä noin 100-150 g ruokailijaa kohden."
       ]
     },
     {
-      "url": "https://yhteishyva.fi/reseptit/pastramibagelit/fmh-recipe-905",
-      "name": "Pastramibagelit",
-      "yield": "4 portion",
+      "url": "https://yhteishyva.fi/reseptit/helppo-laskiaispiirakka/1oUjTX1TgSkpb1EzuWQxK0",
+      "name": "Helppo laskiaispiirakka",
+      "yield": "10 piece",
       "format": "json-ld",
       "ingredients": [
-        "4 kpl bagelia",
-        "300 g pastramisiivuja",
-        "100 g Appenzeller-juustoa",
-        "2 kpl maustekurkkua",
-        "French's Classic Yellow -sinappia",
-        "majoneesia"
+        "400 g (1 pkt) murotaikinaa (pakaste)",
+        "200 g (1 prk) vaniljakreemiä",
+        "200 g (1 ps) vadelmia (pakaste)",
+        "250 g (1 rs) mascarponejuustoa",
+        "2 dl (1 prk) vispikermaa",
+        "1 dl tomusokeria",
+        "1 tl kardemummaa",
+        "1/2 dl mantelilastuja",
+        "125 g (1 rs) tuoreita vadelmia",
+        "1 rkl voita tai leivontamargariinia"
       ],
       "sentences": [
-        "Käytä grillivastusta, varo palamista! (2 minuuttia riittää)."
+        "Painele taikina voidellun piirakkavuoan (halkaisija 26 cm) pohjalle ja reunoille.",
+        "Paista 200-asteisen uunin alatasolla noin 20 minuuttia."
       ]
     },
     {
-      "url": "https://yhteishyva.fi/reseptit/pauluksen-lempipyorykat-ja-perunamuusi/3l9KmZLt5hr1fYLwU9zczV",
-      "name": "Pauluksen lempipyörykät ja perunamuusi",
-      "yield": "4 portion",
+      "url": "https://yhteishyva.fi/reseptit/perunagalette/recipe-1305",
+      "name": "Perunagalette",
+      "yield": "8 piece",
       "format": "json-ld",
       "ingredients": [
-        "1 dl vettä",
-        "63 g (1 pss) sipulikeittoaineksia",
-        "1 tl jauhelihamaustetta, ei lisättyä suolaa",
-        "1 tl valkosipulimurskaa",
-        "2 kpl kananmunaa",
-        "400 g sika-nautajauhelihaa",
-        "800 g perunoita (jauhoinen lajike)",
-        "1 1/2 - 2 dl maitoa",
-        "30 g voita",
-        "1 tl suolaa"
+        "600 g (1 pkt) iso lehtitaikinalevy",
+        "150 g pinaattia (pakaste)",
+        "200 g ranskankermaa",
+        "150 g (1 ps) juustoraastetta",
+        "1 kpl Kananmuna",
+        "1/2 tl Suolaa",
+        "3 kpl perunaa keitettynä",
+        "100 g purjoa",
+        "1 kpl Kananmuna (voiteluun)",
+        "1/4 tl mustapippuria rouhittuna",
+        "(rosmariinia)"
       ],
       "sentences": [
-        "Pyörittele seoksesta lihapullia (noin 24 kpl) leivinpaperin päälle uunipellille.",
-        "Paista 225-asteisessa uunissa 17–20 minuuttia.",
-        "Keitä noin 15–20 minuuttia, kunnes perunat ovat kypsiä."
+        "Kauli sulanut taikina noin 25 cm x 35 cm:n kokoiseksi suorakaiteen muotoiseksi levyksi.",
+        "Kypsennä piirakkaa 225-asteisen uunin keskitasolla noin 35 minuuttia."
       ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/tacopasteijat/recipe-4290",
+      "name": "Tacopasteijat",
+      "yield": "25 unit",
+      "format": "json-ld",
+      "ingredients": [
+        "4 dl Vehnäjauhoja",
+        "250 g Margariinia",
+        "1 tl Leivinjauhetta",
+        "1 kpl (250 g) maitorahkaa",
+        "3/4 dl Pitkäjyväistä riisiä",
+        "250 g Naudan jauhelihaa",
+        "1/2 - 1 tl Suolaa",
+        "2 rkl Taco-mausteseosta",
+        "1 tl Sambal oelek -chilitahnaa",
+        "1/2 kpl Punaista paprikaa",
+        "100 g Maustettua tuorejuustoa, esim. taco",
+        "1 kpl Kananmuna"
+      ],
+      "sentences": [
+        "10 cm) kiekkoja.",
+        "Paista 225-asteisessa uunissa 10–12 minuuttia."
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/vanilja-kolakuutiot/recipe-2325",
+      "name": "Vanilja-kolakuutiot",
+      "yield": "16 unit",
+      "format": "json-ld",
+      "ingredients": [
+        "2 dl Kermaa",
+        "3 dl Sokeria",
+        "2 rkl Siirappia",
+        "1 rkl Voita",
+        "1 rkl Vaniljasokeria"
+      ],
+      "sentences": [
+        "Anna seoksen kiehua välillä sekoittaen 20–25 minuuttia tai kunnes seos paksunee.",
+        "15 x 15 cm kokoiseen suorareunaiseen astiaan."
+      ]
+    },
+    {
+      "url": "https://yhteishyva.fi/reseptit/jauheliha-pastakeitto/recipe-2652",
+      "name": "Jauheliha-pastakeitto",
+      "yield": "6 portion",
+      "format": "json-ld",
+      "ingredients": [
+        "1 kpl Sipuli",
+        "3 kpl Valkosipulinkynttä",
+        "400 g Jauhelihaa",
+        "1/2 rkl rypsiöljyä",
+        "3 rkl tomaattipyreetä",
+        "2 tl Paprikajauhetta",
+        "1 tl Kuivattua timjamia",
+        "1 tl Kuivattua oreganoa",
+        "1/2 tl Suolaa",
+        "1/2 tl mustapippuria rouhittuna",
+        "1 l Vettä",
+        "2 kpl kasvisliemikuutiota",
+        "2 dl Kuviopastaa (esim. fusilli)",
+        "250 g (1 ps) sekavihanneksia (pakaste)",
+        "100 g Sulatejuustoa",
+        "tuoretta persiljaa"
+      ],
+      "sentences": ["Keitä 10 minuuttia tai pastapakkauksen ohjeen mukaan."]
     }
   ]
 }

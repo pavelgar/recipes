@@ -214,8 +214,9 @@
   from wink-porter2-stemmer. Porter's original algorithm, in
   @orama/stemmers, also brought "on" and "one" together, and "us" and
   "use". Finnish words use our own word keys: Snowball's Finnish stemmer,
-  from @orama/stemmers, found every corpus form of only 142 of 221 words
-  ("peruna" and "perunaa" stayed apart), the keys find them for 218.
+  from @orama/stemmers, found every corpus form of only 142 of the 221
+  words then in the answer key ("peruna" and "perunaa" stayed apart). The
+  keys find them for 260 of the 263 words it now has.
 - Keep the current Finnish word keys for now. Revisit Voikko with a
   Snowball fallback when designing the service worker, offline navigation
   and recipe caching, starting with the M1 offline prototype. Compare its

@@ -6,13 +6,17 @@
 # gives them, without accents. The tests check that every form occurs in
 # the corpus and that the forms of a word match.
 airfryerilla airfryerissa
+amerikkalainen amerikkalaista
+ananas ananasta
 appelsiini appelsiinin
+aprikoosi aprikoosit aprikooseja aprikooseille
 artisokkaa artisokkia
 auringonkukansiemeniä auringonkukansiementä
+aurinkokuivattu aurinkokuivattuja
 avokado avokadoa
 balsamico balsamicoa
 banaani banaania
-basilikaa basilikan basilikat
+basilikaa basilikan basilikat basilika
 bataatteja bataatti bataattia
 boysenmarja boysenmarjoja
 broileri broileria broilerin
@@ -30,8 +34,11 @@ fraiche fraichea
 geeliväri geeliväriä
 gluteeniton gluteenitonta gluteenittomia
 glögi glögiä
-grillattu grillattuna
+gnocchit gnoccheja
+grillattu grillattuna grillatun
 grillissä grillistä
+halloumi halloumia
+hapahkoa hapahkoja
 hasselpähkinä hasselpähkinää hasselpähkinöitä
 hedelmä hedelmiä
 herne herneitä
@@ -39,49 +46,61 @@ hienonnettua hienonnettuja hienonnettuna
 hillo hilloa
 hoisinkastiketta hoisinkastikkeessa
 huoneenlämpöisenä huoneenlämpöistä
+härkis härkistä
 inkivääri inkivääriä
 iso isoa isoja ison isosta
 jalapeno jalapenoa
+japanilaiset japanilaista
 jauheliha jauhelihaa
 jauhettua jauhettuna
 jogurtti jogurttia
+jugurtti jugurttia
 juustoa juuston
 kaali kaalia
+kahvi kahvia kahviin
+kakku kakun
 kana kanaa kanan
 kanamunaa kanamunan
 kananmuna kananmunaa kananmunan kananmunat kananmunia
 kaneli kanelia
 kanelitanko kanelitankoa
 karamellisoidut karamellisoitua
+kastiketta kastikkeita
 kasvis kasvikset kasviksia kasviksille
 kasvisliemikuutio kasvisliemikuutiota
 kaurahiutaleita kaurahiutaletta
+keitetty keitettyä keitettyjä
 keittäminen keittämiseen
 keksi keksejä
-keltainen keltaisia
+keltainen keltaisia keltaista
 keltasipuli keltasipulia
-keltuaiset keltuaisia keltuaista
+keltuaiset keltuaisia keltuaista keltuainen
 keskikokoinen keskikokoista
+kesäiset kesäistä
 kesäkurpitsa kesäkurpitsaa
 kevätsipuli kevätsipulia
+kiinankaali kiinankaalia
 kiinteä kiinteitä
 kirjolohi kirjolohen
 kirsikka kirsikoita
 kirsikkatomaatteja kirsikkatomaattia
-kokonainen kokonaisena kokonaisina kokonaista
+kokonainen kokonaisena kokonaisina kokonaista kokonaisia
 kolme kolmen
+kookosmaitoa kookosmaitoon
 korianteri korianteria
 koti kotona
 kotimaisia kotimaista
+kreikkalainen kreikkalaista
 kuivattua kuivattuja
 kukkakaali kukkakaalia
 kultainen kultaista
 kuohukerma kuohukermaa
-kuori kuoren kuorta kuorineen
-kuorittuja kuorittuna
+kuori kuoren kuorta kuorineen kuoria
+kuorittuja kuorittuna kuorittua
 kurkku kurkkua
 kurkuma kurkumaa
 kvinoa kvinoaa
+kylmäsavulohi kylmäsavulohta
 kynsi kynsiä kynttä
 kypsiä kypsät kypsää
 laktoositon laktoositonta
@@ -96,7 +115,9 @@ lihaliemikuutio lihaliemikuutiota
 lime limen limestä limeä
 limetin limettiä
 lohifileitä lohifilettä
+lohkoja lohkoina
 luumu luumua luumut
+lämmin lämmintä
 maapähkinävoin maapähkinävoita
 maissi maissia
 maitorahka maitorahkaa
@@ -105,10 +126,12 @@ maku maun
 mango mangoa
 mansikka mansikat mansikkaa mansikoita
 manteli manteleita
+mantelijauhoa mantelijauhoja
 marjaa marjoja
 maustamaton maustamatonta
-maustettua maustettuja
-mehu mehua
+maustepippuria maustepippureita
+maustettua maustettuja maustettu
+mehu mehua mehuksi
 meijerivoi meijerivoita
 minttua mintun
 mintunlehdet mintunlehteä mintunlehtiä
@@ -116,7 +139,8 @@ mozzarella mozzarellaa
 muita muu
 muna munaa munia
 murskaa murskana
-murskattua murskattuna
+murskattua murskattuna murskattu
+murua muruina
 musta mustaa mustia
 mustapippuri mustapippuria mustapippurit
 mustapippurirouheet mustapippurirouhetta
@@ -125,7 +149,7 @@ neilikka neilikkaa
 neljän neljään
 nopea nopean
 ohraryyni ohraryynejä
-ohut ohuiksi
+ohut ohuiksi ohutta
 oksa oksaa
 omaa oman
 omena omenaa
@@ -137,7 +161,8 @@ pala palaa paloiksi paloina
 palsternakka palsternakkaa
 paprika paprikaa
 papuja pavut
-parsa parsoja
+parmesaani parmesaania
+parsa parsoja parsaa
 pastaa pastan
 pekaanipähkinät pekaanipähkinöitä
 pekoni pekonia
@@ -147,52 +172,67 @@ pieni pienet pieniksi pieninä pieniä pientä
 piimä piimää
 pilkottua pilkottuna
 pinaatti pinaattia
-porkkana porkkanaa porkkanoita
+piparjuurta piparjuurella
+porkkana porkkanaa porkkanoita porkkanat
 punainen punaista
 punajuuri punajuuria
 punasipuli punasipulia
+punaviiniä punaviinissä
 puoli puolen puoliksi
-puristettu puristettua
+puristettu puristettua puristettuna
 purjo purjoa
+pussi pussia
 raaste raasteena raastetta
 raastettu raastettua raastettuna
+rahka rahkaa
 rapua rapujen
 rasia rasiaa
 retiisejä retiisiä
+ricotta ricottaa
 ripaus ripausta
+romainesalaatti romainesalaattia
 rosmariinia rosmariinin
 rouheena rouhetta
 rouhittua rouhittuja rouhittuna
 ruisjauhoa ruisjauhoja
 ruohosipulia ruohosipulin
 ruokakerma ruokakermaa
-rusinaa rusinoita
+ruokokidesokeri ruokokidesokeria
+rusinaa rusinoita rusinat
 ruskeaa ruskeita
 ruukku ruukkua
 ruusukaaleja ruusukaalista
+salaatinlehti salaatinlehteä
+salaatti salaattia salaatin
 salottisipuli salottisipulia salottisipuleita
 seesaminsiemeniä seesaminsiementä
 seiti seitiä
 siemenet siemeniä
+sienet sieniä
+siivu siivua siivuina
 silakat silakoita
 silakkafileetä silakkafileitä
 silputtu silputtua silputtuna
 sinappinen sinappista
 sipuli sipulia
+sisäfilee sisäfileet sisäfileetä
 sitruuna sitruunaa sitruunan
+sitruunankuori sitruunankuorta
 sitruunatahna sitruunatahnaa
 skumppakuula skumppakuulat
 smetana smetanaa
 soija soijaa
-sokeria sokerit
+soijakastike soijakastiketta
+sokeria sokerit sokeri
 sokerimassa sokerimassaa
 sriracha srirachaa
 suklaa suklaan suklaat suklaata
-sulatettua sulatettuina sulatettuna
+sulatettua sulatettuina sulatettuna sulatettuja
 suola suolaa
 suppilovahvero suppilovahveroita
 säilyke säilykkeet
-taateli taateleita
+taateli taateleita taatelia
+taco tacot
 tilli tilliä
 tippa tippaa
 tofu tofua
@@ -201,18 +241,20 @@ tomaatti tomaattia tomaatteja
 tonnikala tonnikalaa
 tumma tummaa tummia
 tuorejuusto tuorejuustoa
-tuore tuoreen tuoreet tuoreita tuoretta
+tuore tuoreen tuoreet tuoreita tuoretta tuoreena
 tähtianis tähtianista
+täysmaito täysmaitoa
 täyteläinen täyteläistä
 tölkki tölkistä
 uusi uusia
 vadelmaa vadelmat vadelmia
-valkoisia valkoista
-valkosipulinkynsi valkosipulinkynnet valkosipulinkynttä
+valkoisia valkoista valkoinen
+valkopippuri valkopippuria
+valkosipulinkynsi valkosipulinkynnet valkosipulinkynttä valkosipulinkynsiä
 valkosipuli valkosipulia valkosipulin
 valkoviiniä valkoviinissä
-valkuainen valkuaista
-valmis valmista
+valkuainen valkuaista valkuaiset
+valmis valmista valmiita
 vaniljajäätelön vaniljajäätelöä
 vaniljatanko vaniljatangon
 varhaiskaalia varhaiskaalista
@@ -220,7 +262,7 @@ varsi varsineen vartta
 vegaaninen vegaanista
 vehnäjauhoa vehnäjauhoja
 verigreippi verigreippiä
-vihreitä vihreät vihreää
+vihreitä vihreät vihreää vihreä
 viipaleiksi viipaleina viipaletta
 viipaloitu viipaloituna
 voi voissa voita

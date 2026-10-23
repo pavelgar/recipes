@@ -11,9 +11,9 @@ import { uniq } from 'es-toolkit'
 // of their keys do.
 //
 // Snowball's Finnish stemmer from @orama/stemmers was the first choice, but
-// it found every form of only 142 of the 221 words in
-// src/lib/words/__words__/fi.txt: it cuts "peruna" to "peru" and "perunaa"
-// to "perun".
+// it found every form of only 142 of the 221 words that
+// src/lib/words/__words__/fi.txt then listed: it cuts "peruna" to "peru"
+// and "perunaa" to "perun".
 
 const VOWELS = 'aeiouyäö'
 
@@ -125,7 +125,8 @@ function stems(form: string): Set<string> {
     if (ending.startsWith('i')) all.add(stem + (/[aou]/.test(stem) ? 'a' : 'ä'))
   }
   // Words whose other forms have a longer stem: "keltainen", "keltaise-";
-  // "gluteeniton", "gluteenittoma-"; "kasvis", "kasvikse-".
+  // "gluteeniton", "gluteenittoma-"; "kasvis", "kasvikse-"; "valmis",
+  // "valmii-".
   for (const stem of [...all]) {
     if (stem.length > 5 && stem.endsWith('nen')) {
       all.add(`${stem.slice(0, -3)}se`)
@@ -134,6 +135,7 @@ function stems(form: string): Set<string> {
       all.add(`${stem.slice(0, -2)}t${stem.at(-2)}m${vowel}`)
     } else if (/[aeiouyäö]s$/.test(stem)) {
       all.add(`${stem.slice(0, -1)}kse`)
+      if (stem.length > 4) all.add(stem.slice(0, -1) + stem.at(-2))
     }
   }
   // A k that gradation drops before an ending: "pääruoa-t", "sia-n". Ruoka

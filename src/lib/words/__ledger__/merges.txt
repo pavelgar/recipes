@@ -5,13 +5,13 @@
 # ✗ (want: apart): they should stay apart.
 # Written by the tests; see src/test/ledger.ts for how to update it.
 #
-# 73 entries: 73 checked, of which 5 wrong; 0 unchecked.
+# 95 entries: 95 checked, of which 10 wrong; 0 unchecked.
 
-## fi : 9 pairs
+## fi : 13 pairs
 
 ✓ "appelsiini appelsiinin ~ appelsiininen"
   shared appelsiininE
-✓ "kesäistä ~ kesän"
+✓ "kesäiset kesäistä ~ kesän"
   shared kesÄ
 ✗ "kukkia ~ kukkoa"
   shared kukA
@@ -19,23 +19,35 @@
 ✗ "kumaa ~ kumina"
   shared kumA
   want: apart
+✓ "lisäksi ~ lisää"
+  shared lisÄ
 ✓ "mustikkat ~ mustikoita"
   shared mustikA
 ✓ "puna ~ punainen punaista"
   shared punA
+✓ "rintafileetä ~ rintafilettä"
+  shared rintafilE
 ✓ "sinappia ~ sinappinen sinappista"
   shared sinap sinapA sinapE
 ✓ "tomaattikastiketta ~ tomaattikastikken"
   shared tomaattikastikE
-✓ "valko ~ valkoisia valkoista"
+✓ "tomaattipyreetä ~ tomaattipyrettä"
+  shared tomaattipyrE
+✓ "vadelmaa vadelmat vadelmia ~ vadelmaista"
+  shared vadelmA
+✓ "valko ~ valkoisia valkoista valkoinen"
   shared valkA
 
-## en : 64 pairs
+## en : 82 pairs
 
+✓ "approximate ~ approximately"
+  shared approxim
 ✓ "bone ~ boned"
   shared bone
-✓ "bread ~ breaded"
+✓ "bread breads ~ breaded"
   shared bread
+✓ "butter ~ buttered"
+  shared butter
 ✓ "can cans ~ canned"
   shared can
 ✗ "chopped ~ chops"
@@ -45,6 +57,8 @@
   shared coars
 ✓ "colouring ~ colours"
   shared colour
+✓ "cool ~ cooled"
+  shared cool
 ✓ "cream ~ creamed"
   shared cream
 ✓ "crumble ~ crumbled"
@@ -61,6 +75,10 @@
   shared devil
 ✓ "dill ~ dilled"
   shared dill
+✓ "dressed ~ dressing"
+  shared dress
+✓ "dust ~ dusting"
+  shared dust
 ✓ "eye ~ eyed"
   shared eye
 ✓ "filled ~ filling"
@@ -73,27 +91,39 @@
   shared fresh
 ✓ "frosted ~ frosting"
   shared frost
+✓ "glaze ~ glazed"
+  shared glaze
 ✓ "granulated ~ granules"
   shared granul
+✓ "grated ~ grating"
+  shared grate
 ✓ "herb herbs ~ herbed"
   shared herb
 ✓ "high ~ highly"
   shared high
 ✓ "ice ~ iced"
   shared ice
-✗ "ice ~ icing"
+✗ "ice ~ icing icings"
   shared ice
   want: apart
-✓ "iced ~ icing"
+✓ "iced ~ icing icings"
   shared ice
 ✓ "included ~ including"
   shared includ
 ✓ "it ~ its"
   shared it
-✓ "juice ~ juiced"
+✓ "juice juices ~ juiced"
   shared juic
+✓ "knots ~ knotted"
+  shared knot
 ✓ "light ~ lightly"
   shared light
+✗ "light ~ lights"
+  shared light
+  want: apart
+✗ "lightly ~ lights"
+  shared light
+  want: apart
 ✓ "like ~ liking"
   shared like
 ✓ "malt ~ malted"
@@ -112,10 +142,23 @@
   shared powder
 ✓ "prefer ~ preferably"
   shared prefer
+✗ "prefer ~ preferment"
+  shared prefer
+  want: apart
 ✓ "prefer ~ preferred"
   shared prefer
+✗ "preferably ~ preferment"
+  shared prefer
+  want: apart
 ✓ "preferably ~ preferred"
   shared prefer
+✗ "preferment ~ preferred"
+  shared prefer
+  want: apart
+✓ "preserved ~ preserves"
+  shared preserv
+✓ "press ~ pressed"
+  shared press
 ✓ "pudding ~ puds"
   shared pud
 ✗ "pure ~ puree pureed"
@@ -123,6 +166,8 @@
   want: apart
 ✓ "reduce ~ reduced"
   shared reduc
+✓ "rise ~ rising"
+  shared rise
 ✓ "round rounds ~ rounded"
   shared round
 ✓ "salt ~ salted"
@@ -131,9 +176,9 @@
   shared season
 ✓ "seed seeds ~ seeded"
   shared seed
-✓ "size ~ sized"
+✓ "size sizes ~ sized"
   shared size
-✓ "skin ~ skinned"
+✓ "skin skins ~ skinned"
   shared skin
 ✓ "sour ~ soured"
   shared sour
@@ -141,6 +186,8 @@
   shared spice
 ✓ "sprouting ~ sprouts"
   shared sprout
+✓ "squeeze ~ squeezed"
+  shared squeez
 ✓ "stone ~ stoned"
   shared stone
 ✓ "stuffed ~ stuffing"
@@ -155,6 +202,8 @@
   shared thick
 ✓ "thick ~ thickness"
   shared thick
+✓ "thickened ~ thickening"
+  shared thicken
 ✓ "thickly ~ thickness"
   shared thick
 ✓ "thin thinned ~ thinly"

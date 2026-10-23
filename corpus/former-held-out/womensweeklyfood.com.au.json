@@ -1,0 +1,260 @@
+{
+  "site": "womensweeklyfood.com.au",
+  "country": "AU",
+  "language": "en",
+  "collected": "2026-10-22",
+  "recipes": [
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/chocolate-peppermint-cakes-4240/",
+      "name": "Chocolate peppermint cakes",
+      "yield": null,
+      "format": "json-ld",
+      "ingredients": [
+        "1 cup (150g) self-raising flour",
+        "1/2 cup (75g) plain flour",
+        "1/3 cup (35g) cocoa powder",
+        "3/4 cup (165g) caster sugar",
+        "185 gram softened butter",
+        "3 eggs",
+        "1/2 cup (125ml) milk",
+        "Butter cream",
+        "125 gram butter, softened",
+        "1 1/2 cup (240g) icing sugar",
+        "2 tablespoon milk",
+        "peppermint essence",
+        "green food colouring",
+        "1 flake bar",
+        "100 gram milk chocolate melts, melted"
+      ],
+      "sentences": [
+        "Preheat oven to 180°C/160°C fan-forced.",
+        "Line 15 holes of two 12-hole standard muffin pans with paper cases.",
+        "Drop ¼ cup of mixture into cases.",
+        "Bake about 20 minutes.",
+        "Stand 5 minutes; turn, top-side up, onto wire rack to cool."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/baking/little-christmas-cakes-4510/",
+      "name": "Little Christmas cakes",
+      "yield": null,
+      "format": "json-ld",
+      "ingredients": [
+        "1 cup (150g) raisins",
+        "1 cup (140g) seeded dates",
+        "1 cup (200g) dried figs",
+        "1/4 cup (50g) red glacé cherries",
+        "1/2 cup (125g) chopped glacé fruit (such as pineapple, apricot, peach)",
+        "2 cup (320g) sultanas",
+        "1 cup (160g) dried currants",
+        "3/4 cup (180ml) brandy",
+        "250 gram butter",
+        "4 eggs",
+        "1 cup (220g) firmly packed dark brown sugar",
+        "1/4 cup (85g) orange marmalade",
+        "1 3/4 cup (260g) plain (all-purpose) flour",
+        "1/2 cup (75g) self-raising flour",
+        "1 1/2 teaspoon ground cinnamon",
+        "1 teaspoon mixed spice red glacé cherries, to decorate",
+        "Lemon icing",
+        "3 cup (480g) pure icing (confectioners') sugar",
+        "1 tablespoon lemon juice",
+        "1/4 cup (60ml) water (approximate)"
+      ],
+      "sentences": [
+        "Combine all fruit in large bowl and stir in ½ cup of the brandy.",
+        "Preheat oven to 160°C/325°F.",
+        "Lightly grease 20 holes of two 12-hole (¹/³-cup/80ml) muffin pans.",
+        "Bake for about 30 minutes.",
+        "Stand cakes in pans for 5 minutes before turning, top-side up, onto wire rack to cool."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dessert/poached-pears-with-chocolate-cream-11837/",
+      "name": "Poached pears with chocolate cream",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "4 pears (920g), peeled, halved, cored",
+        "1 litre (4 cups) water",
+        "1 cinnamon stick",
+        "1 vanilla bean, halved lengthways",
+        "1/2 cup (110g) white sugar",
+        "200 gram dark eating chocolate, chopped coarsely",
+        "1/2 cup (125ml) cream"
+      ],
+      "sentences": [
+        "Bring to the boil; simmer, covered, about 8 minutes or until pears are just tender, drain.",
+        "Meanwhile, combine chocolate and cream in small saucepan; stir over low heat about 5 minutes or until smooth."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/brown-rice-and-split-pea-salad-with-orange-dressing-12863/",
+      "name": "Brown rice and split pea salad with orange dressing",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "3/4 cup (150g) brown long-grain rice",
+        "3/4 cup (150g) green split peas",
+        "150 gram (4½ ounces) snow peas, sliced thinly",
+        "2 small_piece (180g) zucchini, sliced thinly",
+        "1 medium_piece (200g) red capsicum (bell pepper), chopped finely",
+        "80 gram (2½ ounces) baby spinach leaves, shredded coarsely",
+        "1/3 cup (80ml) strained freshly squeezed orange juice",
+        "1 small_piece clove garlic, crushed",
+        "2 teaspoon sesame oil"
+      ],
+      "sentences": [
+        "Cook rice and split peas in medium saucepan of boiling water about 20 minutes or until tender."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/freeken-salad/",
+      "name": "Freekeh salad with roast pumpkin",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "1 cup (200g) freekah",
+        "2 ½ cups (625ml) water",
+        "¼ cup (60ml) extra virgin olive oil",
+        "2 tablespoons lemon juice",
+        "¼ cup chopped parsley",
+        "2 tablespoons honey",
+        "1 cup (100g) toasted walnuts",
+        "1.5kg Kent pumpkin, cut into 7cm chunks",
+        "1 large red capsicum (350g), sliced thickly",
+        "1 large red onion (300g), cut into wedges",
+        "2 tablespoons extra virgin olive oil",
+        "labneh, micro herbs for serving",
+        "LEBANESE SPICE MIX",
+        "1 teaspoon sweet paprika",
+        "1 teaspoon ground cumin",
+        "1 teaspoon ground coriander",
+        "1 teaspoon ground cardamom",
+        "½ teaspoon ground cinnamon",
+        "½ teaspoon ground nutmeg"
+      ],
+      "sentences": [
+        "Cover, reduce heat to low; cook for 30 minutes or until tender.",
+        "Meanwhile, preheat oven to 200°C (180°C fan-forced).",
+        "Reserve 1 teaspoon of the walnuts.",
+        "Drizzle with 2 tablespoons oil and remaining Lebanese Spice Mix; toss to coat.",
+        "Bake pumpkin for 40 minutes and capsicum and onion for 25 minutes or until vegetables are browned and tender."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/seafood-and-chicken-tomato-rice-4816/",
+      "name": "Seafood and chicken tomato rice",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "500 gram uncooked medium king prawns (shrimp)",
+        "2 tablespoon olive oil",
+        "600 gram chicken thigh fillets, chopped coarsely",
+        "1 medium brown onion (150g), chopped finely",
+        "3 clove garlic, sliced thinly",
+        "1/2 teaspoon dried chilli flakes",
+        "1 teaspoon smoked paprika",
+        "1 1/2 cup (300g) white medium-grain rice",
+        "800 gram canned diced tomatoes",
+        "2 1/2 cup (625ml) chicken stock",
+        "500 gram baby clams",
+        "1/4 cup coarsely chopped fresh flat-leaf parsley",
+        "1 medium lemon (140g), cut into wedges"
+      ],
+      "sentences": [
+        "Reduce heat; simmer, covered, 25 minutes.",
+        "Return chicken and prawns to pan with clams; simmer, covered, for 10 minutes or until rice is tender and clams open."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/tuna-bean-and-basil-salad-12840/",
+      "name": "Tuna, bean and basil salad",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 (150g) medium red onion, thinly sliced",
+        "1/4 cup red wine vinegar",
+        "425 gram can tuna in oil",
+        "420 gram can cannellini beans, rinsed, drained",
+        "2 tablespoon baby capers, rinsed, drained",
+        "2 (200g) medium tomatoes, seeded, finely chopped",
+        "100 gram baby rocket leaves",
+        "1/4 cup baby basil leaves"
+      ],
+      "sentences": [
+        "In a large bowl, combine onion and vinegar; stand for 10 minutes.",
+        "Meanwhile, drain tuna over small bowl; reserve 2 tablespoons of the oil."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/veal-stroganoff-with-buttered-sage-pasta-11659/",
+      "name": "Veal stroganoff with buttered sage pasta",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "250 gram ricciolini pasta (or other short pasta)",
+        "1 tablespoon olive oil",
+        "1 small brown onion (80g), sliced thinly",
+        "1 teaspoon crushed garlic",
+        "2 teaspoon sweet paprika",
+        "600 gram veal steaks, sliced thinly",
+        "100 gram cup mushrooms, sliced thickly",
+        "100 gram button mushrooms, sliced thickly",
+        "1/4 cup (60ml) red wine",
+        "1 tablespoon tomato paste",
+        "1/2 cup (120g) sour cream",
+        "1/2 cup (125ml) beef stock",
+        "2 teaspoon cornflour",
+        "1 tablespoon chopped fresh sage",
+        "30 gram butter",
+        "50 gram baby spinach leaves"
+      ],
+      "sentences": []
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/dinner/vietnamese-beef-pho-13636/",
+      "name": "Vietnamese beef pho",
+      "yield": "6",
+      "format": "json-ld",
+      "ingredients": [
+        "2 litre (8 cups) water",
+        "1 litre (4 cups) beef stock",
+        "1 kilogram chuck steak",
+        "2 whole star anise",
+        "8 centimetre piece fresh ginger, grated",
+        "1/3 cup (80 millilitres) japanese soy sauce",
+        "200 gram bean thread noodles",
+        "1 1/2 cup (120 grams) bean sprouts",
+        "1/3 cup loosely packed fresh mint leaves",
+        "1/4 cup loosely packed fresh coriander leaves",
+        "4 green onions, thinly sliced",
+        "2 fresh long red chillies, thinly sliced",
+        "1/4 cup (60 millilitres) fish sauce",
+        "1 medium lemon, cut into six wedges"
+      ],
+      "sentences": [
+        "Reduce heat; simmer, covered, 30 minutes.",
+        "Uncover, simmer 30 minutes or until beef is tender."
+      ]
+    },
+    {
+      "url": "https://www.womensweeklyfood.com.au/recipe/in-season/passionfruit-skin-jam-6331/",
+      "name": "Passionfruit skin jam",
+      "yield": null,
+      "format": "json-ld",
+      "ingredients": [
+        "12 large passionfruit",
+        "6 cup (1.5 litres) water",
+        "1/3 cup (80ml) lemon juice",
+        "3 cups (660g) white (granulated) sugar (approx)"
+      ],
+      "sentences": [
+        "Reduce heat, simmer, covered, about 30 minutes or until the white flesh inside the passionfruit skins turns a burgundy colour and is soft enough to remove from the outer skin.",
+        "Measure flesh mixture, allow 1 cup of sugar for each cup of flesh mixture.",
+        "Boil uncovered, without stirring, about 40 minutes or until jam jells when tested.",
+        "Stand jam 10 minutes."
+      ]
+    }
+  ]
+}

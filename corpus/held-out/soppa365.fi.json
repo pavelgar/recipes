@@ -2,212 +2,231 @@
   "site": "soppa365.fi",
   "country": "FI",
   "language": "fi",
-  "collected": "2026-10-22",
+  "collected": "2026-10-23",
   "recipes": [
     {
-      "url": "https://www.soppa365.fi/reseptit/arjen-nopeat-aamiaiset-juomat-vegaaninen/marjalatte",
-      "name": "Marjalatte",
-      "yield": "2",
-      "format": "json-ld",
-      "ingredients": [
-        "2 dl (sulatettuja) marjoja (esim. mustikoita",
-        "tyrniä tai vadelmaa)",
-        "5 dl (kahviin sopivaa) kaura- tai mantelimaitoa",
-        "1/2 tl jauhettua kardemummaa",
-        "1/4 tl jauhettua inkivääriä",
-        "1 tl vaniljasokeria",
-        "2 tl vaahterasiirappia",
-        "kanelia"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/juomat-aamiaiset/aamupaiva-raakamehu",
-      "name": "Aamupäivä-raakamehu",
-      "yield": "1",
-      "format": "json-ld",
-      "ingredients": ["4 porkkanaa", "1 appelsiini", "4 mansikkaa", "jäitä"],
-      "sentences": [
-        "Muussa tapauksessa suorita etikkakylpy: laske suureen kulhoon lämmintä vettä, lisää 1 dl väkiviinaetikkaa ja uita kasviksia 15 min."
-      ]
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/kala-arjen-nopeat/seesamilohi-ja-kiinankaalia",
-      "name": "Seesamilohi ja kiinankaalia",
+      "url": "https://www.soppa365.fi/reseptit/kana-arjen-nopeat-pastat-ja-risotot/broilerivuoka-ja-pistoukastike",
+      "name": "Broilerivuoka ja pistoukastike",
       "yield": "4",
       "format": "json-ld",
       "ingredients": [
-        "600 g lohifilettä",
-        "2 rkl seesaminsiemeniä",
-        "1 pieni kiinankaali",
-        "1½ rkl öljyä",
-        "2 rkl japanilaista soijakastiketta",
-        "1 rkl miriniä eli makeaa riisiviinietikkaa"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/kasvis-alkuruuat-lisukkeet/punajuuritaytteiset-sienet",
-      "name": "Punajuuritäytteiset sienet",
-      "yield": "4",
-      "format": "json-ld",
-      "ingredients": [
-        "8 kpl isoja herkkusieniä",
-        "1",
-        "5 dl keitettyjä punajuuria (kuutioina tässä)",
-        "1/2 sipuli",
-        "1 omena",
-        "8 rkl Aurajuustomurua",
-        "1",
-        "5 dl Creme Fraichea",
-        "1 kananmuna",
-        "Ripaus mustapippuria",
-        "1/2 tl timjamia",
-        "1/2 tl oreganoa",
-        "8 rkl Emmental juustoraastetta"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-grillaus-salaatit/grillattu-kesakurpitsa-halloumisalaatti",
-      "name": "Grillattu kesäkurpitsa-halloumisalaatti",
-      "yield": "6",
-      "format": "json-ld",
-      "ingredients": [
-        "3 keskikokoista kesäkurpitsaa",
-        "öljyä ja ripaus suolaa",
-        "2 pkt (noin 300 g) halloumi-tyyppistä juustoa (esimerkiksi Juustoportin Halla)",
-        "1 sipuli",
-        "2 valkosipulinkynttä",
-        "2 mietoa chiliä",
-        "1 pieni prk (35 g) pikkukapriksia",
-        "¾ dl oliiviöljyä",
-        "1 ison sitruunan mehu ja kuoriraaste",
-        "2 rkl vettä",
-        "noin ½ tl suolaa"
-      ],
-      "sentences": [
-        "Grillaa kesäkurpitsoja noin 4 minuuttia leikkuupinta alaspäin, käännä ja jatka noin 3 minuuttia."
-      ]
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/kasvis-juhli-ja-nauti-padat-ja-laatikot/kookosmaitoon-tehty-porkkanalaatikko",
-      "name": "Kookosmaitoon tehty porkkanalaatikko",
-      "yield": "4-8",
-      "format": "json-ld",
-      "ingredients": [
-        "1 l kookosmaitoa",
-        "1 1/2 dl puuroriisiä",
-        "2 kg porkkanoita",
-        "2 kananmunaa tai 2 rkl maissitärkkelystä",
-        "2 tl suolaa",
-        "1/2 tl valkopippuria myllystä",
-        "korppujauhoja tai kookoslastuja",
-        "voita tai kookosöljyä"
-      ],
-      "sentences": [
-        "Lisää riisi ja anna kiehua noin 5 minuuttia.",
-        "Alenna lieden lämpö ja hauduta puuroksi välillä sekoitellen, noin 40 minuuttia.",
-        "Laita uuni lämpenemään 175 asteeseen.",
-        "Keitä ne kypsiksi, palojen koon mukaan 10–15 minuuttia.",
-        "Kypsennä porkkanalaatikkoa uunissa 1–1 ½ tuntia, kunnes laatikko tuntuu lusikalla kokeiltaessa kiinteältä ja sen pinta on kauniin ruskea."
-      ]
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/kasvis-salaatit-arjen-nopeat/tofu-kuskussalaatti",
-      "name": "Tofu-kuskussalaatti",
-      "yield": "2-4",
-      "format": "json-ld",
-      "ingredients": [
-        "1 pkt maustamatonta tofua",
-        "1 iso sipuli",
-        "2 dl kuskusia",
-        "1 pieni paprika",
-        "½ tlk ananasta",
-        "1-2 dl aurinkokuivattuja tomaattikuutioita",
-        "oliiviöljyä",
-        "suolaa",
-        "pippuria",
-        "paprikajauhetta"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/leivonta-juhli-ja-nauti-jalkiruuat-makea-leivonta/jouni-toivasen-mokkapalat",
-      "name": "Jouni Toivasen mokkapalat",
-      "yield": "1 pellillinen",
-      "format": "json-ld",
-      "ingredients": [
-        "250 g voita",
-        "4 kananmunaa",
-        "3 dl sokeria",
-        "4 3/4 dl vehnäjauhoja",
-        "5 rkl tummaa kaakaojauhetta",
-        "3 tl leivinjauhetta",
-        "1/4 tl suolaa",
-        "3/4 dl täysmaitoa",
-        "5 rkl vahvaa espressoa",
-        "50 g voita",
-        "500 g tomusokeria",
-        "1 1/2 rkl tummaa kaakaojauhetta",
-        "ripaus merisuolaa"
-      ],
-      "sentences": [
-        "Sulata 250 g voita kattilassa keskilämmöllä.",
-        "Lämmitä uuni 250 asteeseen.",
-        "Paista 250 asteessa 1 minuutti, laske sitten lämpö 200 asteeseen ja paista noin 15 minuuttia.",
-        "Ruskista 50 g voita kuten kohdassa 1, mutta älä jäähdytä."
-      ]
-    },
-    {
-      "url": "https://www.soppa365.fi/reseptit/liha-arjen-nopeat/havaijinleike",
-      "name": "Havaijinleike",
-      "yield": "4",
-      "format": "json-ld",
-      "ingredients": [
-        "4 viipaletta (à 150 g) porsaan ulkofileetä",
+        "600 g luuttomia broilerin paistileikkeitä",
         "1 tl suolaa",
-        "½ tl rouhittua mustapippuria",
-        "1 dl vehnäjauhoja",
-        "2 kananmunaa",
-        "2 dl korppujauhoja",
-        "4 ananasrengasta",
-        "2 rkl voita ja 2 rkl rypsiöljyä",
-        "100 g pehmeää voita",
-        "1 valkosipulikynsi",
-        "2 rkl (suolatonta) grillimaustetta",
-        "noin ¼ tl suolaa"
+        "1 tl Provencen yrttisekoitusta",
+        "10 pientä perunaa",
+        "2 rkl oliiviöljyä",
+        "250 g kirsikkatomaatteja",
+        "2 dl oliiveja",
+        "4 valkosipulinkynttä kuorineen",
+        "2 valkosipulinkynttä",
+        "1 iso ruukku basilikaa",
+        "¾ dl oliiviöljyä",
+        "¼ tl suolaa",
+        "¼ tl mustapippuria"
+      ],
+      "sentences": [
+        "Kypsennä 225-asteisessa uunissa 15 min.",
+        "Jatka kypsentämistä vielä 10–15 minuuttia, kunnes broileri on kypsää."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-lisukkeet/uunin-paahtamat-tomaatit",
+      "name": "Uunin paahtamat tomaatit",
+      "yield": "4–5",
+      "format": "json-ld",
+      "ingredients": [
+        "n. 1½ kg pieniä tomaatteja",
+        "1 rkl oliiviöljyä",
+        "1 tl sormisuolaa",
+        "½ tl mustapippuria",
+        "2 valkosipulinkynttä",
+        "½ ruukku oreganoa",
+        "2 palloa mozzarellaa",
+        "vaaleaa leipää"
+      ],
+      "sentences": [
+        "Kuumenna uuni 200 asteeseen.",
+        "Kypsennä uunissa ensin 15 minuuttia tai kunnes tomaateista alkaa irrota nestettä.",
+        "Laske uunin lämpö 150 asteeseen ja jatka paistamista noin 1½ tuntia."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat-juhli-ja-nauti-makea-leivonta/snickers-kerroskakku",
+      "name": "Snickers-kerroskakku",
+      "yield": "8-10",
+      "format": "json-ld",
+      "ingredients": [
+        "50 g voita",
+        "3 dl vehnäjauhoja",
+        "1 dl kaakaojauhetta",
+        "2 dl sokeria",
+        "1 tl leivinjauhetta",
+        "1 tl soodaa",
+        "1 prk (200 g) creme fraichea",
+        "1 dl appelsiinimehua",
+        "2 munaa",
+        "2 dl kuohukermaa",
+        "2 dl (fariini)sokeria",
+        "1 rkl voita",
+        "100 g voita",
+        "1",
+        "5 dl tomusokeria",
+        "100 g tuorejuustoa",
+        "2 dl kinuskia",
+        "150-200 g tummaa suklaata",
+        "1 rkl voita",
+        "suolapähkinöitä"
       ],
       "sentences": []
     },
     {
-      "url": "https://www.soppa365.fi/reseptit/valipalat-suolainen-leivonta/hatsapurit",
-      "name": "Hatsapurit",
-      "yield": "4-6",
+      "url": "https://www.soppa365.fi/reseptit/liha/pekoni-taatelipintxot",
+      "name": "Pekoni-taatelipintxot",
+      "yield": "8 leipää",
       "format": "json-ld",
       "ingredients": [
-        "15 g hiivaa",
-        "3 dl kädenlämpöistä vettä",
-        "½ tl suolaa",
-        "1 tl sokeria",
-        "1 rkl öljyä",
-        "n. 7 dl vehnäjauhoja",
-        "200 g halloumijuustoa",
-        "100 g emmentaljuustoraastetta",
-        "2 dl turkkilaista jugurttia",
-        "1 muna",
-        "1 valkosipulinkynsi",
-        "1 ruukku lehtipersiljaa",
-        "4 munaa",
-        "½–1 tl chilihiutaleita",
-        "2–3 oksaa lehtipersiljaa"
+        "1 punasipuli",
+        "10 kokonaista kuivattua taatelia",
+        "1 pkt pekonia (175 g)",
+        "1 tl kanelia",
+        "½ tl savupaprikajauhetta",
+        "ripaus mustapippuria myllystä",
+        "8 viipaletta patonkia",
+        "2 rkl oliiviöljyä",
+        "2 rkl pinjansimeniä"
+      ],
+      "sentences": ["Paahda leipiä 200-asteisessa uunissa 5-7 minuuttia."]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/liha-juhli-ja-nauti-grillaus/juuresvartaat-nuotiolla",
+      "name": "Juuresvartaat nuotiolla",
+      "yield": "4 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "2 porkkanaa",
+        "2 palsternakkaa",
+        "1 pieni juuriselleri",
+        "8 pientä salottisipulia",
+        "suolaa"
       ],
       "sentences": [
-        "Vaivaa taikinaa noin 5 minuuttia.",
-        "Anna kohota liinan alla noin 45 minuuttia.",
-        "Kauli taikinapallot noin 30 cm pitkiksi soikeiksi pohjiksi.",
-        "Paista piiraita 225-asteisessa uunissa 15 minuuttia.",
-        "Paista piirakoita vielä 5–7 minuuttia, kunnes valkuainen hyytyy, mutta keltuainen on yhä valuva."
+        "Ryöppää juureskuutioita suolalla maustetussa vedessä (1 tl suolaa/1 l vettä) 3 minuuttia.",
+        "Grillaa vartaita noin 10 minuuttia välillä käännellen."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/jalkiruuat-juhli-ja-nauti/pinacolada-marenkimurulautaset",
+      "name": "Pinacolada-marenkimurulautaset",
+      "yield": "2 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "1/2 tuoreesta",
+        "kypsästä ananaksesta",
+        "1/2 dl rommia",
+        "1 dl ananasmehua",
+        "1 dl ruokosokeria",
+        "2 dl kuohukermaa",
+        "cl ripaus sokeria",
+        "400 g mascarponetuorejuustoa",
+        "1 valmis marenkikakkulevy"
+      ],
+      "sentences": []
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kala-juhli-ja-nauti/3-x-graavilohi",
+      "name": "3 x graavilohi",
+      "yield": "10",
+      "format": "json-ld",
+      "ingredients": [
+        "500 g lohifileetä",
+        "2 rkl karkeaa merisuolaa",
+        "1 hienonnettu jalapeño-chili",
+        "2 rkl sitruunaöljyä (esim. Neito sitruunarypsiöljy)",
+        "1/4 tl sokeria",
+        "3 rkl raastettua(luomu)appelsiininkuorta",
+        "1 1/2 rkl hienonnettua tuoretta inkivääriä",
+        "1 tl murskattuja korianterinsiemeniä",
+        "1 tl jauhettua juustokuminaa",
+        "2 rkl muscovadosokeria",
+        "valkopippuria myllystä"
+      ],
+      "sentences": []
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-vegaaninen/mandariini-leipasalaatti",
+      "name": "Mandariini-leipäsalaatti",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "1 (250 g) paistovalmis ciabatta-leipä",
+        "2 rkl öljyä",
+        "1 rkl öljyä",
+        "2 tl ras el hanout -mausteseosta",
+        "1/2 tl suolaa",
+        "1/2 tl chilimausteseosta",
+        "1 prk (170 g) kypsiä valkopapuja",
+        "2 porkkanaa",
+        "1/2 dl siemensekoitusta",
+        "1 ps (70 g) babypinaattia",
+        "2 klementiiniä",
+        "1 rkl öljyä",
+        "1 klementiinin mehu"
+      ],
+      "sentences": [
+        "Paahda leipiä 225-asteisessa uunissa noin 5 minuuttia.",
+        "Jatka paahtamista 10 minuuttia."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kasvis-salaatit-gluteeniton-vegaaninen/burmalainen-tofu-ja-pikacaesar",
+      "name": "Burmalainen tofu ja pikacaesar",
+      "yield": "4",
+      "format": "json-ld",
+      "ingredients": [
+        "2 dl kikhernejauhoja",
+        "1 tl kurkumaa",
+        "3/4 tl suolaa",
+        "4 cm:n pala inkivääriä",
+        "1 iso valkosipulinkynsi",
+        "5 dl vettä",
+        "3 rkl (seesami)öljyä",
+        "2 rkl seesaminsiemeniä",
+        "1 iso kerä romainesalaattia",
+        "1 dl vegaanista majoneesia",
+        "1 rkl misotahnaa",
+        "1 sitruuna"
+      ],
+      "sentences": [
+        "Lisää 2 dl vettä ja sekoita tasaiseksi.",
+        "Kiehauta 3 dl vettä kattilassa.",
+        "Keitä seosta matalalla lämmöllä 5-8 minuuttia pohjaa myöten sekoittaen, kunnes se muuttuu kiiltäväksi, paksuksi puuroksi."
+      ]
+    },
+    {
+      "url": "https://www.soppa365.fi/reseptit/kala-arjen-nopeat-juhli-ja-nauti-valipalat-suolainen-leivonta/tacomaustetut-katkarapuletut",
+      "name": "Tacomaustetut katkarapuletut",
+      "yield": "8 lettua",
+      "format": "json-ld",
+      "ingredients": [
+        "2 dl pieniä katkarapuja",
+        "3 kananmunaa",
+        "2 dl maitoa",
+        "1 dl maissi- tai vehnäjauhoja",
+        "1 punainen chili",
+        "1 rkl tacomaustetta (esim. Pirkka)",
+        "2-4 rkl ruokaöljyä paistamiseen",
+        "1 porkkana",
+        "1 avokado",
+        "1 ruukku korianteria",
+        "1 limetti",
+        "1 ps salaattisekoitusta",
+        "chili- tai srirachamajoneesia"
+      ],
+      "sentences": [
+        "Kuumenna ½ rkl öljyä lettupannussa (Ø 20 cm).",
+        "Kaada noin ½ dl taikinaa pannuun ja ripottele heti reilu 1 rkl katkarapuja letun pinnalle.",
+        "Paista lettua vain toiselta puolelta 1 minuutti tai kunnes lettu on hyytynyt.",
+        "Paista kukin lettu 1 tl:ssa öljyä ja pinoa leivinpaperipalojen kanssa."
       ]
     }
   ]

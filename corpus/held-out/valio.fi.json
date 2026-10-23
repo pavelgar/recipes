@@ -2,209 +2,221 @@
   "site": "valio.fi",
   "country": "FI",
   "language": "fi",
-  "collected": "2026-10-22",
+  "collected": "2026-10-23",
   "recipes": [
     {
-      "url": "https://www.valio.fi/reseptit/alkupala-blinit/",
-      "name": "Alkupala-blinit",
-      "yield": "16, 16 pientä bliniä",
+      "url": "https://www.valio.fi/reseptit/banaani-lattemuffinssit/",
+      "name": "Banaani-lattemuffinssit",
+      "yield": "12, 12 muffinssia",
       "format": "json-ld",
       "ingredients": [
-        "3 dl Valio Gefilus® Kefir juomaa maustamaton",
-        "2 dl tattarijauhoja",
-        "1½ dl vehnäjauhoja",
-        "1 tl suolaa",
-        "2 kananmunaa eroteltuina",
-        "1 dl olutta tai vichyä",
-        "100 g Valio voita",
-        "150 g suolasieniä",
-        "1 pieni sipuli",
-        "1 prk (150 g) Valio Keittiön crème fraîchea",
-        "0 kg mustapippuria myllystä",
-        "100 g kirjolohen mätiä",
-        "1 punasipuli",
-        "1 prk (120 g) Valio Keittiön smetanaa",
-        "150 g kylmäsavulohta"
-      ],
-      "sentences": ["12 h."]
-    },
-    {
-      "url": "https://www.valio.fi/reseptit/halloween-porkkanakakku/",
-      "name": "Halloween porkkanakakku",
-      "yield": "12, 12 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "3 kananmunaa",
-        "3 dl tummaa sokeria, esim. fariini- tai ruokokidesokeri",
-        "5 dl vehnäjauhoja",
+        "1½ dl sokeria",
+        "1 dl Valio Oivariini® juoksevaa",
+        "2 kananmunaa",
+        "1½ dl Valio Eila® Latte original maitokahvijuomaa",
+        "½ tl kardemummaa",
+        "4 dl vehnäjauhoja",
         "2 tl leivinjauhetta",
-        "2 tl kanelia",
-        "2 tl vaniljasokeria",
-        "½ dl keltaisia rusinoita",
-        "300 g porkkanoita raasteena",
-        "1 pieni tlk ananasmurskaa",
-        "½ dl hassel- tai saksanpähkinärouhetta",
-        "1½ dl (150 g) Valio voita",
-        "1 rasia (200 g) Valio Viola® vanilja tuorejuustoa",
-        "1 prk (200 g) Valio Keittiön maustettua rahkaa sitruuna tai vanilja",
-        "1½ dl tomusokeria",
+        "1 iso kypsää banaania",
         "100 g Valio voita",
-        "¼ dl Valio kevytmaitoa",
-        "12 (75 g) lakritsitoffeekaramelleja, esim. Lakritsi Alku",
-        "1 rkl (15 g) Valio voita"
+        "3 dl tomusokeria",
+        "1 dl Valio Eila® Latte original maitokahvijuomaa",
+        "0 kg nonparelleja",
+        "0 kg minivaahtokarkkeja"
       ],
       "sentences": [
-        "Pohjusta leivinpaperilla pinnoitettu irtopohjavuoka (Ø 24 cm).",
-        "Kypsennä uunin alaosassa 175 asteessa 45 - 50 min tai kunnes kypsä."
+        "Paista uunin keskiosassa 200 asteessa n.",
+        "20 min.",
+        "8 min samalla sekoittaen, kunnes seos paksuuntuu."
       ]
     },
     {
-      "url": "https://www.valio.fi/reseptit/harkis-texmex-salaatti/",
-      "name": "Härkis texmex-salaatti",
+      "url": "https://www.valio.fi/reseptit/tulinen-jauhelihapiiras/",
+      "name": "Tulinen jauhelihapiiras",
+      "yield": "1, 1 iso piiras",
+      "format": "json-ld",
+      "ingredients": [
+        "250 g Valio maitorahkaa",
+        "1 dl paholaisen hilloa",
+        "200 g Valio Eila® voita",
+        "4 dl (karkeita) vehnäjauhoja",
+        "1 tl leivinjauhetta",
+        "400 g vähärasvaista naudan jauhelihaa",
+        "1 rkl Valio Oivariini® juoksevaa",
+        "1 iso (200 g) sipuli",
+        "1-3  valkosipulinkynttä",
+        "½ dl tomaattipyreetä",
+        "1 tl pippurisekoitusta",
+        "1 tl suolaa",
+        "1 kananmuna",
+        "0 kg kananmunaa",
+        "0 kg seesaminsiemeniä"
+      ],
+      "sentences": [
+        "Taputtele 1,5 cm:n paksuiseksi suorakaiteeksi.",
+        "4 mm:n paksuiseksi suorakaiteeksi.",
+        "Kypsennä piiras uunin ala- / keskiosassa 220 asteessa 20 min tai kunnes kypsä."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/palermon-pasta/",
+      "name": "Palermon pasta",
       "yield": "4, 4 annosta",
       "format": "json-ld",
       "ingredients": [
-        "½ dl öljyä",
-        "1 pkt (250 g) Valio Gold&Green® härkäpapumurskaa texmex",
-        "150 g kirsikkatomaatteja",
-        "1 pieni kurkku",
-        "1 suippopaprika",
-        "½ punasipuli",
-        "60 g Valio Salaneuvos® Cheddar juustoa",
-        "0 kg nachoja",
-        "300 g salaattisekoitusta",
-        "0 kg limetin lohkoja",
-        "0 kg tuoretta korianteria",
-        "1 prk (200 g) Valio kermaviilidippiä Ranch"
+        "350 g broilerin fileesuikaleita",
+        "15 g Valio voita",
+        "2 tl currya",
+        "1 tl suolaa",
+        "0 kg mustapippuria myllystä",
+        "1-2  valkosipulinkynttä",
+        "250 g pastaa",
+        "1 prk (3 dl) Valio Keittiön kermaista vaaleaa kastiketta",
+        "1 pussi (150 g) Valio mozzarella raastetta",
+        "1 rkl tuoretta rakuunaa"
+      ],
+      "sentences": [
+        "Keitä pasta suolalla maustetussa vedessä pakkauksen ohjeen mukaan, säästä 1 dl keitinvettä kastikepurkin huuhteluun."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/juustotaytteiset-lohitaskut/",
+      "name": "Juustotäytteiset lohitaskut",
+      "yield": "6, 6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "6 palaa (à n. 150 g) nahallista kirjolohifileetä",
+        "0 kg gourmet-suolahiutaleita",
+        "10 cm:n pala purjoa",
+        "1-2  valkosipulinkynttä",
+        "1 rasia (200 g) Valio Viola® kolme pippuria tuorejuustoa"
+      ],
+      "sentences": [
+        "Kypsennä uunin keskitasolla 200 asteessa 15-20 minuuttia tai kunnes kypsä."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/persiljavoi/",
+      "name": "Persiljavoi",
+      "yield": "6, 6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "2 rkl sitruunamehua",
+        "3 rkl kylmäpuristettua rypsiöljyä",
+        "2 dl hienonnettua persiljaa",
+        "200 g Valio voita"
       ],
       "sentences": []
     },
     {
-      "url": "https://www.valio.fi/reseptit/juustotoastit/",
-      "name": "Juustotoastit",
+      "url": "https://www.valio.fi/reseptit/kevyt-juureslasagne/",
+      "name": "Kevyt juureslasagne",
+      "yield": "6, 6 annosta",
+      "format": "json-ld",
+      "ingredients": [
+        "9 lasagnelevyä",
+        "2 pussia (à 200 g) pakastesipulia",
+        "1 pussi (200 g) keittojuureksia",
+        "1 tlk (400 g) tomaattimurskaa",
+        "2-3  valkosipulinkynttä",
+        "½ rkl oreganoa",
+        "½ rkl basilikaa",
+        "1 tl sokeria",
+        "¾-1 tl suolaa",
+        "¾ dl vehnäjauhoja",
+        "8 dl Valio kevytmaitoa",
+        "150 g Valio Polar® 15% vähemmän suolaa juusto raastettuna",
+        "¼ tl valkopippuria",
+        "½ tl suolaa"
+      ],
+      "sentences": [
+        "Lado päälle 3 lasagnelevyä.",
+        "Paista uunin alaosassa 175 asteessa 45 min - 1 t tai kunnes kypsä."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/suolaiset-cake-popsit-pupukupissa/",
+      "name": "Suolaiset cake popsit pupukupissa",
+      "yield": "40, 40 kpl",
+      "format": "json-ld",
+      "ingredients": [
+        "½ dl seesaminsiemeniä",
+        "1 pkt (80 g) ilmakuivattua kinkkua",
+        "5 viipaletta (95 g) vaaleaa paahtoleipää",
+        "½ rasia (à 200 g) Valio Viola® aurinkokuivattu tomaatti tuorejuustoa",
+        "1 dl hienonnettua basilikaa tai korianteria",
+        "50 g sipulia hienonnettuna",
+        "1-1½ rkl limetti- tai sitruunamehua",
+        "¼ tl rouhittua mustapippuria",
+        "3-4 viipaletta (60-80 g) vaaleaa paahtoleipää",
+        "1 dl (40 g) saksanpähkinöitä",
+        "75 g (0,75 dl) Valio Koskenlaskija® Ruoka & Dippiä cheddar",
+        "½ tl ancho chilimaustetta",
+        "1-2 rkl paahdettua sipulia",
+        "1 dl (20 g) juustonaksuja murennettuna",
+        "0 kg juustonaksuja ja minipretzeleitä"
+      ],
+      "sentences": [
+        "Paahda ilmakuivatut kinkut uunissa 250 asteessa leivinpaperin päällä uunin ylätasolla n.",
+        "5 min, kunnes rapsakoita.",
+        "Pyörittele massasta pieniä palloja (Ø 1,5 cm), n.",
+        "20 kpl.",
+        "Pyörittele massasta pieniä palloja (Ø 1,5 cm), n.",
+        "20 kpl."
+      ]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/vaalea-vuokaleipa/",
+      "name": "Vaalea vuokaleipä",
+      "yield": "2, 2 leipää",
+      "format": "json-ld",
+      "ingredients": [
+        "6 dl Valio kevytmaitoa",
+        "1 pala (50 g) hiivaa",
+        "ripaus sokeria",
+        "2 tl suolaa",
+        "1 rkl Valio Oivariini® juoksevaa",
+        "3 dl kaurahiutaleita",
+        "9-11 dl vehnäjauhoja"
+      ],
+      "sentences": ["1h.", "20 min.", "Paista 175 asteessa n.", "45 min."]
+    },
+    {
+      "url": "https://www.valio.fi/reseptit/vaahtokarkkipizzat/",
+      "name": "Vaahtokarkkipizzat",
       "yield": "2, 2 kpl",
       "format": "json-ld",
       "ingredients": [
-        "4 paahtoleipää, esim. ruistoast",
-        "3 rkl amerikkalaista kurkkusalaattia",
-        "750 g ohutta viipaletta tomaattia",
-        "50 g kinkkuviipaletta",
-        "1 dl (50 g) kinkkusuikaleita",
-        "2 Valio Polar® viipaletta"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.valio.fi/reseptit/kesaiset-nakkipiilot/",
-      "name": "Kesäiset nakkipiilot",
-      "yield": "10, 10 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "500 g voitaikinalevyjä",
-        "1 rasia (200 g) Valio Viola® aurinkokuivattu tomaatti tuorejuustoa",
-        "150 g tuoretta, vihreää parsaa",
-        "5 nakkeja",
-        "1 kananmuna",
-        "ripaus unikonsiemeniä",
-        "0 kg tuoretta rosmariinia"
-      ],
-      "sentences": ["Paista uunissa 225 asteessa 15 min."]
-    },
-    {
-      "url": "https://www.valio.fi/reseptit/mustaleima-gnocchit-mikrossa/",
-      "name": "Mustaleima gnocchit mikrossa",
-      "yield": "2, 2 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "1 pkt (500 g) valmiita peruna-gnoccheja",
-        "100 g tuoreita herkkusieniä lohkoina",
-        "75 g pakastepinaattia",
-        "1 valkosipulinkynsi hienonnettuna",
-        "½ sitruunan kuori raastettuna",
-        "0 kg mustapippuria myllystä",
+        "1¼ dl Valio kevytmaitoa",
+        "¼ pkt hiivaa",
+        "2 rkl sokeria",
         "ripaus suolaa",
-        "½ pussia (à 130 g) Valio Mustaleima™ raastetta",
-        "1 prk (2 dl) Valio ruokakermaa"
+        "3½ dl vehnäjauhoja",
+        "½ dl Valio Oivariini® juoksevaa",
+        "1 prk (200 g) Valio Keittiön maustettua rahkaa vanilja",
+        "25 g tummaa suklaata rouhittuna",
+        "100 g vaahtokarkkeja",
+        "2 dl (100 g) vadelmia, kotimaisia",
+        "1 tl perunajauhoja",
+        "0 kg mintunlehtiä"
       ],
       "sentences": [
-        "2 l) gnocchit, sienet ja pinaatti.",
-        "Mikrota täydellä teholla (800 W) mikrokuvun alla 10 min."
+        "Jos teet pikkupizzoja, jaa taikina 8:an palaan.",
+        "Kohota liinan alla 20 min.",
+        "Paista 200 asteessa uunin alimmalla tasolla 8 min."
       ]
     },
     {
-      "url": "https://www.valio.fi/reseptit/omena-paprikakeitto/",
-      "name": "Omena-paprikakeitto",
-      "yield": "4, 4 annosta",
+      "url": "https://www.valio.fi/reseptit/kahvi-ranskalaisittain-cafe-au-lait/",
+      "name": "Kahvi ranskalaisittain (Café au lait)",
+      "yield": "1, 1 annos",
       "format": "json-ld",
       "ingredients": [
-        "6 dl vettä",
-        "1 kasvisliemikuutio",
-        "3 isoa (n. 600 g) hapahkoa omenaa",
-        "1 iso (150 g) punainen paprika",
-        "2 dl Valio Keittiön ruokakermaa 15 %",
-        "½ pussia (à 150 g) Valio AURA® murua",
-        "0 kg suolaa"
-      ],
-      "sentences": ["15 min."]
-    },
-    {
-      "url": "https://www.valio.fi/reseptit/punainen-kalakeitto/",
-      "name": "Punainen kalakeitto",
-      "yield": "5, 5 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "13 dl vettä",
-        "1 kalaliemikuutio",
-        "1 tlk (70 g) tomaattipyreetä",
-        "5 maustepippuria",
-        "2 laakerinlehteä",
-        "2 sipulia",
-        "2 porkkanaa",
-        "4 perunaa",
-        "200 g kylmäsavulohta",
-        "2 suolakurkkua",
-        "½ dl kapriksia tai mustia oliiveja",
-        "2 rkl sitruunamehua",
-        "½ tl suolaa",
-        "1 prk (120 g) Valio Keittiön smetanaa",
-        "1 dl tilliä"
+        "1 dl vahvaa kahvia (esim. Paulig Parisien)",
+        "1 dl Valio Eila® maitojuomaa 3%",
+        "0 kg sokeria tai ruokosokeria"
       ],
       "sentences": []
-    },
-    {
-      "url": "https://www.valio.fi/reseptit/satokausikalenterin-kerroskiisseli-lumikarpaloilla/",
-      "name": "Satokausikalenterin kerroskiisseli lumikarpaloilla",
-      "yield": "4, 4 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "4 dl Valio Luomu™ kevytmaitoa",
-        "½ dl sokeria",
-        "2 rkl perunajauhoja",
-        "2 tl vaniljasokeria",
-        "2½ dl Valio Hedelmätarha® luomupuolukkamehua",
-        "2 rkl sokeria",
-        "1½ rkl perunajauhoja",
-        "2½ dl Valio Hedelmätarha® luomumustikkamehua",
-        "1½ rkl perunajauhoja",
-        "100 g tuoreita karpaloita",
-        "1 valkuainen",
-        "1 dl tomusokeria"
-      ],
-      "sentences": []
-    },
-    {
-      "url": "https://www.valio.fi/reseptit/sipulilisake-jauhelihapihveille/",
-      "name": "Sipulilisäke jauhelihapihveille",
-      "yield": "4, 4 annosta",
-      "format": "json-ld",
-      "ingredients": [
-        "1-2  (270 g) isoa sipulia",
-        "1 rkl Valio Oivariini® juoksevaa",
-        "1 dl vettä",
-        "1 puolikas liha-juuresliemikuutiota",
-        "1 prk (2,5 dl) Valio ruokakermaa Kolme sipulia"
-      ],
-      "sentences": ["Keitä kokoon 2 min ilman kantta."]
     }
   ]
 }

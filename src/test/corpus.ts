@@ -20,11 +20,16 @@ const ingredientFiles = import.meta.glob<CorpusFile<'ingredients'>>(
     '/corpus/ingredients/*.json',
     '/corpus/rare-units/*.json',
     '/corpus/rare-forms/*.json',
+    '/corpus/former-held-out/*.json',
   ],
   { eager: true, import: 'default' },
 )
 const stepFiles = import.meta.glob<CorpusFile<'sentences'>>(
-  ['/corpus/steps/*.json', '/corpus/rare-forms/*.json'],
+  [
+    '/corpus/steps/*.json',
+    '/corpus/rare-forms/*.json',
+    '/corpus/former-held-out/*.json',
+  ],
   { eager: true, import: 'default' },
 )
 

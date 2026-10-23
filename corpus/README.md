@@ -2,7 +2,7 @@
 
 Real recipe data for tests: ingredient lines, step sentences and tags from
 published Finnish and English recipe pages, collected on 2026-10-22 (tags
-on 2026-10-23).
+and the current held-out sample on 2026-10-23).
 
 ## Ingredient lines
 
@@ -133,16 +133,16 @@ written while looking at them. The normal test run doesn't read it.
 
 | Site                    | Country | Recipes | Lines | Sentences |
 | ----------------------- | ------- | ------- | ----- | --------- |
-| arla.fi                 | FI      | 10      | 99    | 16        |
-| kotikokki.net           | FI      | 10      | 91    | 11        |
-| soppa365.fi             | FI      | 10      | 100   | 16        |
-| valio.fi                | FI      | 10      | 106   | 8         |
-| yhteishyva.fi           | FI      | 10      | 105   | 23        |
-| kingarthurbaking.com    | US      | 10      | 143   | 101       |
-| tasteofhome.com         | US      | 10      | 100   | 36        |
-| bettycrocker.com        | US      | 10      | 88    | 69        |
-| bbcgoodfood.com         | GB      | 10      | 108   | 51        |
-| womensweeklyfood.com.au | AU      | 10      | 125   | 28        |
+| arla.fi                 | FI      | 10      | 86    | 13        |
+| kotikokki.net           | FI      | 10      | 103   | 28        |
+| soppa365.fi             | FI      | 10      | 113   | 17        |
+| valio.fi                | FI      | 10      | 98    | 23        |
+| yhteishyva.fi           | FI      | 10      | 123   | 17        |
+| kingarthurbaking.com    | US      | 10      | 115   | 59        |
+| tasteofhome.com         | US      | 10      | 105   | 33        |
+| bettycrocker.com        | US      | 10      | 95    | 68        |
+| bbcgoodfood.com         | GB      | 10      | 89    | 30        |
+| womensweeklyfood.com.au | AU      | 10      | 117   | 62        |
 
 Each recipe has its `url`, `name`, `yield` (as published, or null),
 `format`, `ingredients` and `sentences`, verbatim like the rest of the
@@ -161,15 +161,72 @@ recipes with none.
 3. Check a random sample of entries, marking each ✓ or ✗ as described in
    `src/test/ledger.ts`. The share marked ✗ is the error rate.
 4. Once errors found this way are fixed, the sample is no longer unseen.
-   Move it into the development corpus, and collect a new held-out sample
-   with a new seed.
+   Move its recipes into `former-held-out/`, carry its checked ledger
+   entries over to the development ledgers, delete its ledgers, and collect
+   a new held-out sample with a new seed.
+
+This sample hasn't been checked yet.
+
+### How it was collected
+
+On 23 October 2026, the same way as the former sample but with seed
+20261024:
+
+- robots.txt and crawl delays were obeyed, with an identifying user agent
+  and at least 1.5 seconds between requests to a site (5 seconds for
+  womensweeklyfood.com.au, its crawl delay). Every site's robots.txt
+  allowed Claude's crawlers.
+- Recipe URLs came from each site's recipe sitemaps. For sites with more
+  than five, five sitemaps were picked with seed 20261024.
+- URLs already anywhere in the corpus, the former sample included, were
+  removed. The rest were sorted, shuffled with seed 20261024, and fetched
+  in that order until 10 pages had Recipe data with ingredients.
+- Sentences were cut the same way as for the rare forms.
+- The collecting script printed only counts, so the sample's text wasn't
+  shown while collecting it.
+
+Notes on individual sites:
+
+- Skipped, as for the former sample: kotiliesi.fi and meillakotona.fi.
+- bbcgoodfood.com's robots.txt still carries
+  `Content-signal: search=yes, ai-train=no`. This collection isn't
+  training, so the site was kept.
+- kotikokki.net: three pages are `json-ld (repaired)`. The script first
+  fetched all 68 of the site's recipe sitemaps and then picked five; it
+  now picks before fetching, which gives the same five.
+- soppa365.fi and kingarthurbaking.com took 11 page fetches each, because
+  one page had no Recipe with ingredients.
+
+## Former held-out sample
+
+`former-held-out/<site>.json` is the first held-out sample, collected on 22
+October 2026. It was checked once, and an error the check found was fixed,
+so on 23 October 2026 it joined the development corpus: the tests read its
+ingredient lines and step sentences like the files above, and the entries
+its check marked kept their status in the development ledgers. Its format
+is the held-out sample's. Its pages' tags weren't collected.
+
+| Site                    | Country | Recipes | Lines | Sentences |
+| ----------------------- | ------- | ------- | ----- | --------- |
+| arla.fi                 | FI      | 10      | 99    | 16        |
+| kotikokki.net           | FI      | 10      | 91    | 11        |
+| soppa365.fi             | FI      | 10      | 100   | 16        |
+| valio.fi                | FI      | 10      | 106   | 8         |
+| yhteishyva.fi           | FI      | 10      | 105   | 23        |
+| kingarthurbaking.com    | US      | 10      | 143   | 101       |
+| tasteofhome.com         | US      | 10      | 100   | 36        |
+| bettycrocker.com        | US      | 10      | 88    | 69        |
+| bbcgoodfood.com         | GB      | 10      | 108   | 51        |
+| womensweeklyfood.com.au | AU      | 10      | 125   | 28        |
+
+### What its check found
 
 The first check, on 22 October 2026, used a random sample (seed 20261023)
 of 200 of the 1,017 ingredient entries and 80 of the 347 step entries. Three
 ingredient readings were wrong:
 
 - "¾ kuppi vesi": "kuppi" (cup) was missing from the unit list. This is
-  fixed, so the ledger now shows the entry as checked.
+  fixed, and the development ledger shows the entry as checked.
 - "200 g Arla® Lempi Rahka Vanilja 200g, laktoositon": the package size in
   the product name scales, because it doesn't end the line.
 - "1 pieni tlk ananasmurskaa": the adjective "pieni" hides the package unit.
@@ -177,9 +234,6 @@ ingredient readings were wrong:
 
 One step reading was wrong: "Itse tykkään kun mittari näyttää 70." is a
 temperature that only the word "mittari" (thermometer) gives away.
-
-Fixing "kuppi" means the sample is no longer unseen by the parser, so it
-is due to move into the development corpus (step 4).
 
 The word check, on 23 October 2026, used a random sample (seed 20261023,
 Python's `random.sample` over each language's entries) of 50 of the 582
