@@ -99,8 +99,14 @@
 - A recipe has a title, ingredients, steps, servings, prep time, cook time,
   a source (where it came from) and one optional cover photo. It also keeps
   the total time its source publishes, when the source gives one.
+- A source is a name ("Valio", "Kotiruokaa, s. 112"), a web address, or
+  both.
 - The app must work and look good for recipes without a photo.
 - Servings are adjustable, and ingredient amounts follow.
+- Servings are kept as written, since recipes often give a yield instead
+  ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
+  scales it, keeping the word: "24 pullaa" → "48 pullaa". Ranges scale at
+  both ends.
 - Ingredients are entered as free-text lines. As you type, each line
   indicates whether the app recognised its amount and unit. Lines it can't
   recognise are fine: they are saved and shown exactly as written, without
@@ -324,7 +330,7 @@
 
 - A queue of recipes: order only, no days. Easy to rearrange.
 - Marking a recipe cooked removes it from the queue and records the date on
-  the recipe.
+  the recipe. Every cooked date is kept, not only the last.
 
 ### Recipe view and cooking
 
