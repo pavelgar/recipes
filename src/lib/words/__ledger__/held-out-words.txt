@@ -1,0 +1,2556 @@
+# Each word of the held-out recipes, with the other words of those
+# recipes a search for it finds.
+# ✓: it finds every other form of its word there, and nothing a
+# search for it shouldn't ("salted" is fine for "salt").
+# ✗: it misses a form or finds an unrelated word; want lines give the
+# right list.
+# Written by the tests; see src/test/ledger.ts for how to update it.
+#
+# 1270 entries: 100 checked, of which 1 wrong; 1170 unchecked.
+
+## fi : 582 words
+
+? "aamu"
+  finds no other word
+? "aamupäivä"
+  finds no other word
+? "alku"
+  finds no other word
+? "alkupala"
+  finds no other word
+? "amarettoaprikoosit"
+  finds no other word
+? "amerikkalaista"
+  finds no other word
+? "ananasmurskaa"
+  finds no other word
+? "ananasrengasta"
+  finds no other word
+? "ananasta"
+  finds no other word
+? "appelsiini"
+  finds no other word
+? "appenzeller"
+  finds no other word
+? "aprikooseille"
+  finds aprikooseja aprikoosit
+? "aprikooseja"
+  finds aprikooseille aprikoosit
+? "aprikoosismoothie"
+  finds no other word
+? "aprikoosit"
+  finds aprikooseille aprikooseja
+? "arla"
+  finds no other word
+? "artisokkaa"
+  finds no other word
+? "aura"
+  finds no other word
+? "aurajuustomurua"
+  finds no other word
+? "aurinkokuivattu"
+  finds aurinkokuivattuja
+✓ "aurinkokuivattuja"
+  finds aurinkokuivattu
+✓ "auutama"
+  finds no other word
+? "bagelia"
+  finds no other word
+✓ "basilika"
+  finds basilikaa
+? "basilikaa"
+  finds basilika
+? "basmatiriisiä"
+  finds no other word
+? "blinit"
+  finds no other word
+? "broileri"
+  finds broilerin
+? "broilerin"
+  finds broileri
+? "broilerinleikkeitä"
+  finds no other word
+? "brownie"
+  finds no other word
+✓ "buco"
+  finds no other word
+? "cheddar"
+  finds no other word
+? "cheddarjuustoraastetta"
+  finds no other word
+? "chilihiutaleita"
+  finds no other word
+? "chiliä"
+  finds no other word
+? "classic"
+  finds no other word
+? "cocktailtikkuja"
+  finds no other word
+? "cottaa"
+  finds no other word
+? "creme"
+  finds no other word
+✓ "curdia"
+  finds no other word
+? "currytahnaa"
+  finds no other word
+? "dl"
+  finds no other word
+? "ei"
+  finds no other word
+✓ "eli"
+  finds no other word
+? "elintarvikeväriä"
+  finds no other word
+? "emmental"
+  finds no other word
+? "emmentaljuustoraastetta"
+  finds no other word
+? "eroteltuina"
+  finds no other word
+? "esim"
+  finds no other word
+? "esimerkiksi"
+  finds no other word
+? "espressoa"
+  finds no other word
+? "fariini"
+  finds no other word
+? "fariinisokeria"
+  finds no other word
+? "fetaa"
+  finds no other word
+✓ "fetaperunat"
+  finds no other word
+? "flora"
+  finds no other word
+? "fraiche"
+  finds fraichea
+? "fraichea"
+  finds fraiche
+? "frenchs"
+  finds no other word
+? "gefilus"
+  finds no other word
+? "gnoccheja"
+  finds gnocchit
+? "gnocchit"
+  finds gnoccheja
+? "gold"
+  finds no other word
+? "gr"
+  finds no other word
+? "granaattiomena"
+  finds no other word
+? "green"
+  finds no other word
+? "gremolata"
+  finds no other word
+? "grillattu"
+  finds grillatun
+? "grillatun"
+  finds grillattu
+? "grillimaustetta"
+  finds no other word
+? "grillipossu"
+  finds no other word
+? "halla"
+  finds no other word
+? "halloumi"
+  finds no other word
+? "halloumijuustoa"
+  finds no other word
+? "halloumisalaatti"
+  finds no other word
+? "halloween"
+  finds no other word
+? "hapahkoa"
+  finds no other word
+✓ "hassel"
+  finds no other word
+? "hatsapurit"
+  finds no other word
+? "havaijinleike"
+  finds no other word
+? "hedelmätarha"
+  finds no other word
+? "helteessä"
+  finds no other word
+? "henkilö"
+  finds no other word
+? "herkkusieniä"
+  finds no other word
+? "hienoa"
+  finds no other word
+? "hienonnettua"
+  finds hienonnettuja hienonnettuna
+? "hienonnettuja"
+  finds hienonnettua hienonnettuna
+? "hienonnettuna"
+  finds hienonnettua hienonnettuja
+? "hiivaa"
+  finds no other word
+? "hillosokeria"
+  finds no other word
+? "hokkaido"
+  finds no other word
+? "huoneenlämpöisenä"
+  finds huoneenlämpöistä
+? "huoneenlämpöistä"
+  finds huoneenlämpöisenä
+? "härkis"
+  finds no other word
+? "härkäpapumurskaa"
+  finds no other word
+? "häränfileetä"
+  finds no other word
+? "inkivääriä"
+  finds no other word
+? "iso"
+  finds isoa isoja ison
+? "isoa"
+  finds iso isoja ison
+? "isoja"
+  finds iso isoa ison
+? "ison"
+  finds iso isoa isoja
+? "ja"
+  finds no other word
+? "japanilaista"
+  finds no other word
+? "jauhelihaa"
+  finds no other word
+? "jauhelihamaustetta"
+  finds no other word
+? "jauhelihapihveille"
+  finds no other word
+? "jauhettua"
+  finds no other word
+? "jauhoinen"
+  finds no other word
+? "jauhoja"
+  finds no other word
+? "jne"
+  finds no other word
+? "jogurtti"
+  finds no other word
+? "jogurttikuorrutetut"
+  finds no other word
+? "jouluiset"
+  finds no other word
+? "jouni"
+  finds no other word
+? "jugurttia"
+  finds no other word
+? "juoksevaa"
+  finds no other word
+? "juomaa"
+  finds no other word
+? "juuresliemikuutiota"
+  finds no other word
+? "juuripersiljaa"
+  finds no other word
+? "juuriselleriä"
+  finds no other word
+? "juustoa"
+  finds no other word
+? "juustokuminaa"
+  finds no other word
+? "juustoportin"
+  finds no other word
+? "juustoraastetta"
+  finds no other word
+? "juustotoastit"
+  finds no other word
+? "juustotäytteiset"
+  finds no other word
+? "jäitä"
+  finds no other word
+? "kaakaojauhetta"
+  finds no other word
+? "kahvi"
+  finds kahviin
+? "kahviin"
+  finds kahvi
+? "kakun"
+  finds no other word
+? "kalakeitto"
+  finds no other word
+? "kalaliemikuutio"
+  finds no other word
+? "kaltattuna"
+  finds no other word
+? "kanalientä"
+  finds no other word
+? "kanamunan"
+  finds no other word
+? "kananmuna"
+  finds kananmunaa kananmunan kananmunat
+? "kananmunaa"
+  finds kananmuna kananmunan kananmunat
+? "kananmunan"
+  finds kananmuna kananmunaa kananmunat
+? "kananmunat"
+  finds kananmuna kananmunaa kananmunan
+? "kanelia"
+  finds no other word
+? "kapriksia"
+  finds no other word
+? "karamellisiirapilla"
+  finds no other word
+? "kardemummaa"
+  finds no other word
+? "karpaloita"
+  finds no other word
+? "kastikkeita"
+  finds no other word
+✓ "kasviksia"
+  finds no other word
+? "kasvisfondia"
+  finds no other word
+? "kasvisliemikuutio"
+  finds no other word
+? "kasvislientä"
+  finds no other word
+✓ "kaura"
+  finds no other word
+? "kebabkastiketta"
+  finds no other word
+✓ "kefir"
+  finds no other word
+? "keitetty"
+  finds keitettyjä
+? "keitettyjä"
+  finds keitetty
+✓ "keittiön"
+  finds no other word
+? "keltaisia"
+  finds keltaista
+? "keltaista"
+  finds keltaisia
+? "keltasipuli"
+  finds no other word
+? "keltuainen"
+  finds keltuaiset
+? "keltuaiset"
+  finds keltuainen
+? "kermaa"
+  finds no other word
+? "kermaviilidippiä"
+  finds no other word
+? "kerroskiisseli"
+  finds no other word
+? "keskikokoista"
+  finds no other word
+? "keskitäyteläistä"
+  finds no other word
+? "kesäiset"
+  finds no other word
+? "kesäkurpitsa"
+  finds kesäkurpitsaa
+? "kesäkurpitsaa"
+  finds kesäkurpitsa
+? "kesäkurpitsakeitto"
+  finds no other word
+? "kevyt"
+  finds no other word
+? "kevytmaitoa"
+  finds no other word
+? "kg"
+  finds no other word
+? "kiekkoa"
+  finds no other word
+? "kiinankaali"
+  finds kiinankaalia
+? "kiinankaalia"
+  finds kiinankaali
+? "kinkkusuikaleita"
+  finds no other word
+? "kinkkuviipaletta"
+  finds no other word
+? "kirjolohen"
+  finds no other word
+? "kirsikkatomaatteja"
+  finds no other word
+? "kirveliä"
+  finds no other word
+? "kokonaisia"
+  finds no other word
+? "kolme"
+  finds no other word
+? "kookoslastuja"
+  finds no other word
+? "kookosmaitoa"
+  finds kookosmaitoon
+? "kookosmaitoon"
+  finds kookosmaitoa
+? "kookosvettä"
+  finds no other word
+? "kookosöljyä"
+  finds no other word
+? "korianteria"
+  finds no other word
+? "koristeeksi"
+  finds no other word
+? "koristeluun"
+  finds no other word
+? "koristerakeita"
+  finds no other word
+? "korppujauhoja"
+  finds no other word
+? "kourallinen"
+  finds no other word
+? "kpl"
+  finds no other word
+? "kreikkalainen"
+  finds no other word
+? "kuivahiivaa"
+  finds no other word
+? "kuivattua"
+  finds kuivattuja
+? "kuivattuja"
+  finds kuivattua
+? "kunnon"
+  finds no other word
+? "kuohukerma"
+  finds kuohukermaa
+? "kuohukermaa"
+  finds kuohukerma
+? "kuori"
+  finds kuoria
+? "kuoria"
+  finds kuori
+? "kuoriraaste"
+  finds no other word
+✓ "kuorittua"
+  finds no other word
+? "kuorrutus"
+  finds no other word
+? "kuppi"
+  finds no other word
+✓ "kurkku"
+  finds kurkkua
+? "kurkkua"
+  finds kurkku
+? "kurkkusalaattia"
+  finds no other word
+? "kurpitsansiemeniä"
+  finds no other word
+? "kurpitsapihvit"
+  finds no other word
+? "kurpitsapiirakka"
+  finds no other word
+? "kurpitsoja"
+  finds no other word
+? "kuskusia"
+  finds no other word
+? "kuskussalaatti"
+  finds no other word
+? "kuuset"
+  finds no other word
+? "kuutioina"
+  finds no other word
+? "kylmäsavulohi"
+  finds kylmäsavulohta
+? "kylmäsavulohiviipaleita"
+  finds no other word
+? "kylmäsavulohta"
+  finds kylmäsavulohi
+? "kylmää"
+  finds no other word
+? "kynsi"
+  finds no other word
+? "kädenlämpöistä"
+  finds no other word
+? "laakerinlehteä"
+  finds no other word
+? "lajike"
+  finds no other word
+? "lakritsi"
+  finds no other word
+? "lakritsikastikkeella"
+  finds no other word
+✓ "lakritsitoffeekaramelleja"
+  finds no other word
+? "laktoositon"
+  finds no other word
+? "lampaanviulu"
+  finds no other word
+? "lehtipersiljaa"
+  finds no other word
+? "leikattuna"
+  finds no other word
+? "leivinjauhetta"
+  finds no other word
+? "lemon"
+  finds no other word
+? "lempi"
+  finds no other word
+? "lempipyörykät"
+  finds no other word
+? "liha"
+  finds no other word
+? "liivatelehteä"
+  finds no other word
+? "limetin"
+  finds no other word
+? "lisäksi"
+  finds no other word
+? "lisättyä"
+  finds no other word
+? "lohifilettä"
+  finds no other word
+✓ "lohkoina"
+  finds lohkoja
+✓ "lohkoja"
+  finds lohkoina
+? "lounasleipä"
+  finds no other word
+? "lumikarpaloilla"
+  finds no other word
+? "luomu"
+  finds no other word
+? "luomumustikkamehua"
+  finds no other word
+? "luomupuolukkamehua"
+  finds no other word
+? "lämmin"
+  finds no other word
+? "maa"
+  finds no other word
+? "maalaisleipää"
+  finds no other word
+? "maapähkinäkastike"
+  finds no other word
+? "maapähkinälevitettä"
+  finds no other word
+✓ "maissitärkkelystä"
+  finds no other word
+? "maitoa"
+  finds no other word
+✓ "majoneesia"
+  finds no other word
+? "makeaa"
+  finds no other word
+? "makukerma"
+  finds no other word
+? "mango"
+  finds mangoa
+? "mangoa"
+  finds mango
+? "mansikkaa"
+  finds no other word
+✓ "mantelijauhoja"
+  finds no other word
+✓ "mantelilastuja"
+  finds no other word
+? "mantelilikööriä"
+  finds no other word
+? "mantelimaitoa"
+  finds no other word
+? "margariinia"
+  finds no other word
+✓ "marjalatte"
+  finds no other word
+? "marjoja"
+  finds no other word
+? "maun"
+  finds no other word
+? "maustamaton"
+  finds maustamatonta
+? "maustamatonta"
+  finds maustamaton
+? "mausteita"
+  finds no other word
+✓ "maustekurkkua"
+  finds no other word
+✓ "maustepippureita"
+  finds maustepippuria
+? "maustepippuria"
+  finds maustepippureita
+✓ "mausteseosta"
+  finds no other word
+? "maustettu"
+  finds maustettua
+? "maustettua"
+  finds maustettu
+? "maustevoita"
+  finds no other word
+? "mehu"
+  finds mehuksi
+? "mehuksi"
+  finds mehu
+? "meijerivoita"
+  finds no other word
+✓ "merisuolaa"
+  finds no other word
+? "mietoa"
+  finds no other word
+? "mikrossa"
+  finds no other word
+? "minisämpylät"
+  finds no other word
+? "minttua"
+  finds no other word
+✓ "minttuhyytelöä"
+  finds no other word
+? "miriniä"
+  finds no other word
+? "mokkapalat"
+  finds no other word
+? "mukaan"
+  finds no other word
+? "muna"
+  finds munaa
+? "munaa"
+  finds muna
+? "murskattu"
+  finds no other word
+✓ "murua"
+  finds no other word
+? "mustaa"
+  finds mustia
+? "mustaleima"
+  finds no other word
+? "mustapippuri"
+  finds mustapippuria mustapippurit
+? "mustapippuria"
+  finds mustapippuri mustapippurit
+✓ "mustapippurirouhetta"
+  finds no other word
+? "mustapippurit"
+  finds mustapippuri mustapippuria
+? "mustia"
+  finds mustaa
+? "mustikoita"
+  finds no other word
+? "myllystä"
+  finds no other word
+✓ "myskikurpitsaa"
+  finds no other word
+? "mätiä"
+  finds no other word
+? "nachoja"
+  finds no other word
+? "nakkeja"
+  finds no other word
+? "nakkipiilot"
+  finds no other word
+? "naudan"
+  finds no other word
+? "naudanpaisti"
+  finds no other word
+? "nautajauhelihaa"
+  finds no other word
+? "neljäsosiksi"
+  finds no other word
+? "noin"
+  finds no other word
+? "nonparelleja"
+  finds no other word
+✓ "ohutta"
+  finds no other word
+? "oivariini"
+  finds no other word
+? "oksaa"
+  finds no other word
+? "oliiveja"
+  finds no other word
+? "oliiviöljyä"
+  finds no other word
+? "olutta"
+  finds no other word
+? "oman"
+  finds no other word
+? "omena"
+  finds omenaa
+? "omenaa"
+  finds omena
+? "onsen"
+  finds no other word
+✓ "oreganoa"
+  finds no other word
+? "osso"
+  finds no other word
+? "paahdettu"
+  finds paahdettua
+? "paahdettua"
+  finds paahdettu
+? "paahtoleipää"
+  finds no other word
+? "pakastepinaattia"
+  finds no other word
+? "pakkaus"
+  finds no other word
+✓ "pala"
+  finds no other word
+? "pankojauhoja"
+  finds no other word
+? "panna"
+  finds no other word
+? "paprika"
+  finds paprikaa
+? "paprikaa"
+  finds paprika
+? "paprikahyrrät"
+  finds no other word
+? "paprikajauhetta"
+  finds no other word
+? "paprikakeitto"
+  finds no other word
+? "papuja"
+  finds no other word
+? "parisiivua"
+  finds no other word
+? "parmesaani"
+  finds no other word
+? "parsa"
+  finds parsaa
+? "parsaa"
+  finds parsa
+? "pastramibagelit"
+  finds no other word
+? "pastramisiivuja"
+  finds no other word
+? "pauluksen"
+  finds no other word
+? "pehmeää"
+  finds no other word
+? "per"
+  finds no other word
+✓ "persiljaa"
+  finds no other word
+? "peruna"
+  finds perunaa perunoita
+? "perunaa"
+  finds peruna perunoita
+? "perunajauhoja"
+  finds no other word
+? "perunamuusi"
+  finds no other word
+? "perunoita"
+  finds peruna perunaa
+? "pieni"
+  finds no other word
+✓ "pihvitomaatti"
+  finds no other word
+? "pikkukapriksia"
+  finds no other word
+✓ "pilkottuna"
+  finds no other word
+? "pinjansiemeniä"
+  finds no other word
+? "piparimaustetta"
+  finds no other word
+? "piparjuurella"
+  finds piparjuurta
+? "piparjuurta"
+  finds piparjuurella
+? "piparkakkumaustetta"
+  finds no other word
+? "piparminttutikkuja"
+  finds no other word
+? "pippuria"
+  finds no other word
+? "pitkänomaisia"
+  finds no other word
+? "pkt"
+  finds no other word
+? "polar"
+  finds no other word
+? "porkkana"
+  finds porkkanaa porkkanat porkkanoita
+✓ "porkkanaa"
+  finds porkkana porkkanat porkkanoita
+? "porkkanakakku"
+  finds no other word
+? "porkkanalaatikko"
+  finds no other word
+? "porkkanat"
+  finds porkkana porkkanaa porkkanoita
+? "porkkanoita"
+  finds porkkana porkkanaa porkkanat
+? "porsaan"
+  finds no other word
+? "potkaa"
+  finds no other word
+✓ "prk"
+  finds no other word
+? "pröjäys"
+  finds no other word
+? "ps"
+  finds no other word
+✓ "pss"
+  finds no other word
+? "psylliumia"
+  finds no other word
+? "punainen"
+  finds punaista
+? "punaista"
+  finds punainen
+? "punajuuria"
+  finds no other word
+? "punajuuritäytteiset"
+  finds no other word
+? "punasipuli"
+  finds no other word
+? "punaviinietikkaa"
+  finds no other word
+? "punaviinissä"
+  finds punaviiniä
+? "punaviiniä"
+  finds punaviinissä
+? "puolikas"
+  finds no other word
+? "puristettuna"
+  finds no other word
+? "puserrettu"
+  finds no other word
+? "pussia"
+  finds no other word
+? "putkilosta"
+  finds no other word
+? "putsattua"
+  finds no other word
+? "puuroriisiä"
+  finds no other word
+? "päärynäinen"
+  finds no other word
+? "pääsiäisen"
+  finds no other word
+? "raakamehu"
+  finds no other word
+? "raasteena"
+  finds raastetta
+? "raastetta"
+  finds raasteena
+? "raastettua"
+  finds raastettuna
+✓ "raastettuna"
+  finds raastettua
+? "rahka"
+  finds rahkaa
+? "rahkaa"
+  finds rahka
+? "rahkajälkiruoka"
+  finds no other word
+✓ "ranch"
+  finds no other word
+? "rasia"
+  finds no other word
+? "rasvatonta"
+  finds no other word
+? "retiisiä"
+  finds no other word
+✓ "ricotta"
+  finds no other word
+✓ "riisiviinietikkaa"
+  finds no other word
+? "riisiä"
+  finds no other word
+? "rintafilettä"
+  finds no other word
+? "ripaus"
+  finds no other word
+? "rkl"
+  finds no other word
+? "romainesalaatti"
+  finds no other word
+? "rommia"
+  finds no other word
+? "rosmariinia"
+  finds no other word
+? "rouhittua"
+  finds rouhittuna
+? "rouhittuna"
+  finds rouhittua
+? "ruistoast"
+  finds no other word
+? "ruohosipulia"
+  finds no other word
+? "ruokakermaa"
+  finds no other word
+? "ruokokidesokeri"
+  finds ruokokidesokeria
+? "ruokokidesokeria"
+  finds ruokokidesokeri
+? "ruokosiirappia"
+  finds no other word
+? "ruokosokeria"
+  finds no other word
+? "rusinat"
+  finds rusinoita
+? "rusinoita"
+  finds rusinat
+? "ruukku"
+  finds no other word
+? "rypsiöljyä"
+  finds no other word
+? "rypäleitä"
+  finds no other word
+? "rypälesalsa"
+  finds no other word
+? "saksanpähkinärouhetta"
+  finds no other word
+? "salaatinlehti"
+  finds no other word
+? "salaatti"
+  finds salaattia
+? "salaattia"
+  finds salaatti
+? "salaattisekoitusta"
+  finds no other word
+? "salaneuvos"
+  finds no other word
+? "satokausikalenterin"
+  finds no other word
+? "seesamilohi"
+  finds no other word
+? "seesaminsiemeniä"
+  finds no other word
+? "sellerikerma"
+  finds no other word
+? "sienet"
+  finds no other word
+? "siirappia"
+  finds no other word
+? "siivu"
+  finds siivuina
+? "siivuina"
+  finds siivu
+? "sika"
+  finds no other word
+? "silakkafileitä"
+  finds no other word
+? "silakkapihvit"
+  finds no other word
+? "silputtuna"
+  finds no other word
+? "sinappia"
+  finds no other word
+? "sinappijauhetta"
+  finds no other word
+? "sipuli"
+  finds sipulia
+? "sipulia"
+  finds sipuli
+? "sipulikeittoaineksia"
+  finds no other word
+? "sipulilisäke"
+  finds no other word
+? "sisäfilee"
+  finds sisäfileet
+? "sisäfileet"
+  finds sisäfilee
+? "sisäpaistia"
+  finds no other word
+✓ "sitruuna"
+  finds sitruunan
+? "sitruunamarenkitorttu"
+  finds no other word
+? "sitruunamehua"
+  finds no other word
+? "sitruunan"
+  finds sitruuna
+? "sitruunankuori"
+  finds no other word
+? "sitruunapippuria"
+  finds no other word
+? "sitruunatahnaa"
+  finds no other word
+? "smetanaa"
+  finds no other word
+? "smoothie"
+  finds no other word
+? "soijakastike"
+  finds soijakastiketta
+? "soijakastiketta"
+  finds soijakastike
+? "sokeri"
+  finds sokeria sokerit
+? "sokeria"
+  finds sokeri sokerit
+? "sokerikuorrutetta"
+  finds no other word
+? "sokerit"
+  finds sokeri sokeria
+? "sopivaa"
+  finds no other word
+? "suippopaprika"
+  finds no other word
+? "suklaacookieita"
+  finds no other word
+? "suklaakeksejä"
+  finds no other word
+? "suklaata"
+  finds no other word
+? "sulatettua"
+  finds sulatettuja
+? "sulatettuja"
+  finds sulatettua
+? "suola"
+  finds suolaa
+? "suolaa"
+  finds suola
+? "suolakurkkua"
+  finds no other word
+? "suolasieniä"
+  finds no other word
+? "suolatonta"
+  finds no other word
+? "säilykeaprikooseja"
+  finds no other word
+? "säilykejalopenoja"
+  finds no other word
+? "säilykepäärynöitä"
+  finds no other word
+? "taatelia"
+  finds no other word
+? "taco"
+  finds tacot
+? "tacot"
+  finds taco
+? "tai"
+  finds no other word
+? "taloussuklaata"
+  finds no other word
+? "tattarijauhoja"
+  finds no other word
+? "tehty"
+  finds no other word
+? "texmex"
+  finds no other word
+? "tilliä"
+  finds no other word
+? "timjamia"
+  finds no other word
+? "tippa"
+  finds no other word
+? "tl"
+  finds no other word
+? "tlk"
+  finds no other word
+? "tofu"
+  finds tofua
+? "tofua"
+  finds tofu
+? "toivasen"
+  finds no other word
+? "tomaatti"
+  finds tomaattia
+? "tomaattia"
+  finds tomaatti
+✓ "tomaattikuutioita"
+  finds no other word
+? "tomaattipyreetä"
+  finds tomaattipyrettä
+? "tomaattipyrettä"
+  finds tomaattipyreetä
+? "tomusokeria"
+  finds no other word
+? "tujaus"
+  finds no other word
+? "tummaa"
+  finds no other word
+? "tuore"
+  finds tuoreena tuoreita tuoretta
+? "tuoreena"
+  finds tuore tuoreita tuoretta
+? "tuoreita"
+  finds tuore tuoreena tuoretta
+? "tuorejuustoa"
+  finds no other word
+? "tuoretta"
+  finds tuore tuoreena tuoreita
+? "turkkilaista"
+  finds no other word
+? "tyrniä"
+  finds no other word
+? "tyyppistä"
+  finds no other word
+? "tässä"
+  finds no other word
+✓ "täysmaito"
+  finds täysmaitoa
+? "täysmaitoa"
+  finds täysmaito
+? "ulkofileetä"
+  finds no other word
+? "unikonsiemeniä"
+  finds no other word
+? "uunijuuressalaatti"
+  finds no other word
+? "vaahterasiirappia"
+  finds no other word
+? "vaaleaa"
+  finds no other word
+? "vadelmaa"
+  finds vadelmaista vadelmia
+? "vadelmaista"
+  finds vadelmaa vadelmia
+? "vadelmia"
+  finds vadelmaa vadelmaista
+? "vahvaa"
+  finds no other word
+? "valinnainen"
+  finds no other word
+✓ "valio"
+  finds no other word
+? "valkoinen"
+  finds valkoista
+? "valkoista"
+  finds valkoinen
+? "valkopippuri"
+  finds valkopippuria
+✓ "valkopippuria"
+  finds valkopippuri
+? "valkosipuli"
+  finds valkosipulin
+? "valkosipulikynsi"
+  finds no other word
+? "valkosipulimurskaa"
+  finds no other word
+? "valkosipulin"
+  finds valkosipuli
+? "valkosipulinkynsi"
+  finds valkosipulinkynsiä valkosipulinkynttä
+? "valkosipulinkynsiä"
+  finds valkosipulinkynsi valkosipulinkynttä
+? "valkosipulinkynttä"
+  finds valkosipulinkynsi valkosipulinkynsiä
+? "valkuainen"
+  finds valkuaiset
+? "valkuaiset"
+  finds valkuainen
+? "valmiita"
+  finds no other word
+? "vanijatangot"
+  finds no other word
+? "vanilja"
+  finds no other word
+? "vaniljasokeria"
+  finds no other word
+? "vehnäjauhoa"
+  finds vehnäjauhoja
+? "vehnäjauhoja"
+  finds vehnäjauhoa
+? "vesi"
+  finds no other word
+? "vesimelonia"
+  finds no other word
+? "vettä"
+  finds no other word
+? "vichyä"
+  finds no other word
+? "viettelys"
+  finds no other word
+? "vihanneshyytelö"
+  finds no other word
+? "vihreä"
+  finds vihreää
+? "vihreää"
+  finds vihreä
+? "viinietikkaa"
+  finds no other word
+? "viipaleina"
+  finds viipaletta
+? "viipaletta"
+  finds viipaleina
+? "viipaloituna"
+  finds no other word
+? "viola"
+  finds no other word
+? "virkistävä"
+  finds no other word
+? "vohveleilla"
+  finds no other word
+? "voita"
+  finds no other word
+? "voitaikinalevyjä"
+  finds no other word
+? "yellow"
+  finds no other word
+✓ "yrttimaustetta"
+  finds no other word
+✓ "öljyä"
+  finds no other word
+
+## en : 688 words
+
+? "about"
+  finds no other word
+? "above"
+  finds no other word
+? "across"
+  finds no other word
+? "active"
+  finds no other word
+? "all"
+  finds no other word
+? "allspice"
+  finds no other word
+? "almond"
+  finds almonds
+? "almonds"
+  finds almond
+? "alternative"
+  finds no other word
+? "and"
+  finds no other word
+? "anise"
+  finds no other word
+? "appetizer"
+  finds no other word
+? "apple"
+  finds apples
+? "apples"
+  finds apple
+? "approx"
+  finds no other word
+? "approximate"
+  finds no other word
+? "apricot"
+  finds no other word
+? "arthur"
+  finds no other word
+? "artichoke"
+  finds no other word
+? "as"
+  finds no other word
+✓ "assorted"
+  finds no other word
+? "at"
+  finds no other word
+? "aubergine"
+  finds aubergines
+✓ "aubergines"
+  finds aubergine
+? "baby"
+  finds no other word
+? "bacon"
+  finds no other word
+? "bag"
+  finds no other word
+? "baked"
+  finds baking
+? "bakers"
+  finds no other word
+? "baking"
+  finds baked
+? "ball"
+  finds balls
+✓ "balls"
+  finds ball
+? "banana"
+  finds bananas
+? "bananas"
+  finds banana
+? "bar"
+  finds no other word
+? "barbecue"
+  finds no other word
+? "basil"
+  finds no other word
+? "batch"
+  finds no other word
+? "bean"
+  finds beans
+? "beans"
+  finds bean
+✓ "beaten"
+  finds no other word
+? "beef"
+  finds no other word
+? "beetroot"
+  finds no other word
+? "bell"
+  finds no other word
+✓ "berry"
+  finds no other word
+? "better"
+  finds no other word
+? "betty"
+  finds no other word
+? "biscoff"
+  finds no other word
+? "biscuits"
+  finds no other word
+? "bisquick"
+  finds no other word
+? "blackberries"
+  finds no other word
+? "blackcurrants"
+  finds no other word
+? "blend"
+  finds no other word
+? "block"
+  finds no other word
+? "blue"
+  finds no other word
+✓ "blueberries"
+  finds no other word
+? "boiled"
+  finds no other word
+? "boneless"
+  finds no other word
+? "box"
+  finds boxes
+? "boxes"
+  finds box
+? "braeburn"
+  finds no other word
+? "brandy"
+  finds no other word
+? "bread"
+  finds breads
+? "breadcrumbs"
+  finds no other word
+? "breads"
+  finds bread
+? "breakfast"
+  finds no other word
+? "breast"
+  finds breasts
+? "breasts"
+  finds breast
+? "broccoli"
+  finds no other word
+? "brothy"
+  finds no other word
+? "brown"
+  finds no other word
+? "brownie"
+  finds no other word
+? "brushing"
+  finds no other word
+? "bulk"
+  finds no other word
+? "bunch"
+  finds no other word
+? "butter"
+  finds buttered
+? "buttered"
+  finds butter
+? "butternut"
+  finds no other word
+✓ "button"
+  finds no other word
+? "cake"
+  finds cakes
+? "cakes"
+  finds cake
+? "called"
+  finds no other word
+? "can"
+  finds canned
+? "candies"
+  finds candy
+? "candy"
+  finds candies
+? "canned"
+  finds can
+? "cannellini"
+  finds no other word
+? "canola"
+  finds no other word
+? "capers"
+  finds no other word
+? "capsicum"
+  finds no other word
+? "caramel"
+  finds no other word
+? "caraway"
+  finds no other word
+? "cardamom"
+  finds no other word
+? "carrot"
+  finds no other word
+? "carton"
+  finds no other word
+? "cashew"
+  finds no other word
+? "caster"
+  finds no other word
+? "cayenne"
+  finds no other word
+? "centimetre"
+  finds no other word
+? "charred"
+  finds no other word
+? "cheddar"
+  finds no other word
+? "cheese"
+  finds no other word
+? "cherries"
+  finds cherry
+? "cherry"
+  finds cherries
+? "chestnuts"
+  finds no other word
+? "chicken"
+  finds no other word
+? "chickpea"
+  finds chickpeas
+? "chickpeas"
+  finds chickpea
+? "chilli"
+  finds chillies
+? "chillies"
+  finds chilli
+? "chip"
+  finds chips
+? "chips"
+  finds chip
+? "chocolate"
+  finds no other word
+? "choice"
+  finds no other word
+? "chopped"
+  finds no other word
+? "christmas"
+  finds no other word
+? "chuck"
+  finds no other word
+? "chunks"
+  finds no other word
+? "chunky"
+  finds no other word
+? "cider"
+  finds no other word
+? "cilantro"
+  finds no other word
+? "cinnamon"
+  finds no other word
+? "clams"
+  finds no other word
+? "classic"
+  finds no other word
+? "clearjel"
+  finds no other word
+? "closed"
+  finds no other word
+? "clove"
+  finds cloves
+? "cloves"
+  finds clove
+? "cm"
+  finds no other word
+? "coarse"
+  finds coarsely
+? "coarsely"
+  finds coarse
+? "cocoa"
+  finds no other word
+? "coconut"
+  finds no other word
+? "cod"
+  finds no other word
+? "cold"
+  finds no other word
+? "colors"
+  finds no other word
+? "colouring"
+  finds colours
+? "colours"
+  finds colouring
+? "combination"
+  finds no other word
+? "concentrate"
+  finds no other word
+? "confectioners"
+  finds no other word
+? "container"
+  finds no other word
+? "cooked"
+  finds cooking
+? "cookie"
+  finds cookies
+? "cookies"
+  finds cookie
+? "cooking"
+  finds cooked
+? "cool"
+  finds no other word
+✓ "cored"
+  finds no other word
+? "coriander"
+  finds no other word
+? "corn"
+  finds no other word
+? "cornflour"
+  finds no other word
+✓ "cornmeal"
+  finds no other word
+? "cornstarch"
+  finds no other word
+? "cottage"
+  finds no other word
+? "crackers"
+  finds no other word
+? "cream"
+  finds no other word
+✓ "creamy"
+  finds no other word
+? "creme"
+  finds no other word
+? "crocker"
+  finds no other word
+? "crosswise"
+  finds no other word
+? "crumble"
+  finds crumbled
+? "crumbled"
+  finds crumble
+? "crushed"
+  finds no other word
+? "crust"
+  finds no other word
+? "cubed"
+  finds cubes
+? "cubes"
+  finds cubed
+? "cumin"
+  finds no other word
+? "cup"
+  finds cups
+? "cupcakes"
+  finds no other word
+? "cups"
+  finds cup
+? "curd"
+  finds no other word
+? "currants"
+  finds no other word
+? "curried"
+  finds curry
+? "curry"
+  finds curried
+? "custard"
+  finds no other word
+? "cut"
+  finds no other word
+? "cutout"
+  finds cutouts
+? "cutouts"
+  finds cutout
+? "danishes"
+  finds no other word
+? "dark"
+  finds no other word
+? "dash"
+  finds no other word
+? "dates"
+  finds no other word
+? "decorate"
+  finds decorating
+? "decorating"
+  finds decorate
+? "desired"
+  finds no other word
+? "deveined"
+  finds no other word
+? "devils"
+  finds no other word
+? "dice"
+  finds diced
+? "diced"
+  finds dice
+? "different"
+  finds no other word
+? "dill"
+  finds no other word
+? "dip"
+  finds no other word
+? "discard"
+  finds no other word
+? "double"
+  finds no other word
+? "dough"
+  finds no other word
+? "doughnuts"
+  finds no other word
+? "drained"
+  finds no other word
+? "dressed"
+  finds dressing
+? "dressing"
+  finds dressed
+? "dried"
+  finds dry
+? "drinking"
+  finds no other word
+? "drizzle"
+  finds no other word
+? "dry"
+  finds dried
+? "dust"
+  finds no other word
+? "each"
+  finds no other word
+? "easy"
+  finds no other word
+✓ "eating"
+  finds no other word
+? "egg"
+  finds eggs
+? "eggs"
+  finds egg
+✓ "enhanced"
+  finds no other word
+? "essence"
+  finds no other word
+? "extra"
+  finds no other word
+? "extract"
+  finds no other word
+? "fashioned"
+  finds no other word
+? "fat"
+  finds no other word
+? "feta"
+  finds no other word
+? "few"
+  finds no other word
+? "figs"
+  finds no other word
+? "fillets"
+  finds no other word
+? "filling"
+  finds no other word
+? "finely"
+  finds no other word
+? "fingers"
+  finds no other word
+? "firmly"
+  finds no other word
+? "fish"
+  finds no other word
+? "flake"
+  finds flakes
+? "flakes"
+  finds flake
+? "flat"
+  finds no other word
+? "flatbreads"
+  finds no other word
+? "flavor"
+  finds no other word
+? "flavoured"
+  finds no other word
+✓ "florets"
+  finds no other word
+? "flour"
+  finds no other word
+? "flowers"
+  finds no other word
+? "foam"
+  finds no other word
+? "food"
+  finds no other word
+? "for"
+  finds no other word
+? "fourths"
+  finds no other word
+? "free"
+  finds no other word
+? "freekah"
+  finds no other word
+? "freekeh"
+  finds no other word
+? "fresh"
+  finds freshly
+? "freshly"
+  finds fresh
+? "frilled"
+  finds no other word
+? "from"
+  finds no other word
+? "frosting"
+  finds no other word
+? "frozen"
+  finds no other word
+✓ "fruit"
+  finds no other word
+? "frying"
+  finds no other word
+? "fudge"
+  finds no other word
+? "galas"
+  finds no other word
+? "garlic"
+  finds no other word
+? "gel"
+  finds no other word
+? "generous"
+  finds no other word
+? "get"
+  finds no other word
+? "ginger"
+  finds no other word
+? "gingerbread"
+  finds no other word
+? "glace"
+  finds no other word
+✓ "glaze"
+  finds no other word
+? "glen"
+  finds no other word
+✓ "gluten"
+  finds no other word
+? "goats"
+  finds no other word
+? "gold"
+  finds no other word
+? "golden"
+  finds no other word
+? "good"
+  finds no other word
+? "grain"
+  finds no other word
+✓ "gram"
+  finds grams
+✓ "grams"
+  finds gram
+? "granny"
+  finds no other word
+? "granulated"
+  finds no other word
+? "grape"
+  finds grapes
+✓ "grapes"
+  finds grape
+? "grated"
+  finds grating
+? "grating"
+  finds grated
+? "greek"
+  finds no other word
+? "green"
+  finds no other word
+? "grilled"
+  finds no other word
+? "ground"
+  finds no other word
+? "half"
+  finds halves
+? "halved"
+  finds no other word
+✓ "halves"
+  finds half
+? "handful"
+  finds no other word
+? "hazelnuts"
+  finds no other word
+? "head"
+  finds no other word
+? "hearts"
+  finds no other word
+? "heavy"
+  finds no other word
+? "herb"
+  finds herbs
+? "herbs"
+  finds herb
+? "herby"
+  finds no other word
+? "homemade"
+  finds no other word
+? "honey"
+  finds no other word
+? "horizontally"
+  finds no other word
+✓ "hot"
+  finds no other word
+? "hulled"
+  finds no other word
+? "ice"
+  finds icing icings
+? "icing"
+  finds ice icings
+? "icings"
+  finds ice icing
+? "if"
+  finds no other word
+? "improved"
+  finds no other word
+✓ "in"
+  finds no other word
+? "inch"
+  finds inches
+? "inches"
+  finds inch
+? "instant"
+  finds no other word
+? "intact"
+  finds no other word
+✓ "into"
+  finds no other word
+? "irish"
+  finds no other word
+? "italian"
+  finds no other word
+? "jam"
+  finds no other word
+? "japanese"
+  finds no other word
+? "jar"
+  finds no other word
+? "juice"
+  finds juiced juices
+? "juiced"
+  finds juice juices
+? "juices"
+  finds juice juiced
+? "julienned"
+  finds no other word
+? "kalamata"
+  finds no other word
+? "kale"
+  finds no other word
+? "kent"
+  finds no other word
+? "kg"
+  finds no other word
+? "kilogram"
+  finds no other word
+? "king"
+  finds no other word
+✓ "knots"
+  finds no other word
+? "labneh"
+  finds no other word
+? "large"
+  finds no other word
+? "lasagna"
+  finds no other word
+? "lasagne"
+  finds no other word
+? "lazy"
+  finds no other word
+? "lb"
+  finds no other word
+? "leaf"
+  finds leaves
+? "lean"
+  finds no other word
+? "leaves"
+  finds leaf
+? "lebanese"
+  finds no other word
+? "leeks"
+  finds no other word
+? "leftover"
+  finds no other word
+? "lemon"
+  finds no other word
+? "lengthways"
+  finds no other word
+? "lentils"
+  finds no other word
+? "light"
+  finds lightly lights
+✗ "lightly"
+  finds light lights
+  want: finds light
+? "lights"
+  finds light lightly
+? "lime"
+  finds no other word
+? "linseed"
+  finds no other word
+? "litre"
+  finds litres
+? "litres"
+  finds litre
+? "little"
+  finds no other word
+? "lollipop"
+  finds no other word
+? "long"
+  finds no other word
+? "loosely"
+  finds no other word
+? "louisiana"
+  finds no other word
+? "low"
+  finds no other word
+? "lukewarm"
+  finds no other word
+? "lumpy"
+  finds no other word
+? "macaroni"
+  finds no other word
+? "mace"
+  finds no other word
+? "maple"
+  finds no other word
+? "margarine"
+  finds no other word
+✓ "marmalade"
+  finds no other word
+? "marshmallow"
+  finds no other word
+? "mascarpone"
+  finds no other word
+? "mashed"
+  finds no other word
+? "mayonnaise"
+  finds no other word
+? "measure"
+  finds no other word
+? "meat"
+  finds no other word
+✓ "medal"
+  finds no other word
+? "mediterranean"
+  finds no other word
+✓ "medium"
+  finds no other word
+? "melted"
+  finds melts
+? "melts"
+  finds melted
+? "meringue"
+  finds no other word
+? "micro"
+  finds no other word
+? "middle"
+  finds no other word
+? "milk"
+  finds no other word
+? "millilitres"
+  finds no other word
+? "minced"
+  finds no other word
+? "mini"
+  finds minis
+? "minis"
+  finds mini
+? "mint"
+  finds no other word
+✓ "minty"
+  finds no other word
+? "mix"
+  finds mixed
+? "mixed"
+  finds mix
+? "ml"
+  finds no other word
+? "moist"
+  finds no other word
+? "moisture"
+  finds no other word
+? "more"
+  finds no other word
+✓ "mozzarella"
+  finds no other word
+? "ms"
+  finds no other word
+? "muir"
+  finds no other word
+✓ "mushrooms"
+  finds no other word
+? "new"
+  finds no other word
+? "nonfat"
+  finds no other word
+? "noodles"
+  finds no other word
+? "nutmeg"
+  finds no other word
+? "nuts"
+  finds no other word
+? "oat"
+  finds oats
+? "oatmeal"
+  finds no other word
+? "oats"
+  finds oat
+? "of"
+  finds no other word
+? "oil"
+  finds no other word
+? "old"
+  finds no other word
+? "olive"
+  finds olives
+? "olives"
+  finds olive
+? "on"
+  finds no other word
+? "one"
+  finds no other word
+? "onion"
+  finds onions
+? "onions"
+  finds onion
+? "optional"
+  finds no other word
+? "or"
+  finds no other word
+? "orange"
+  finds no other word
+? "oregano"
+  finds no other word
+? "organic"
+  finds no other word
+✓ "other"
+  finds no other word
+? "ounce"
+  finds ounces
+? "ounces"
+  finds ounce
+? "overnight"
+  finds no other word
+✓ "oz"
+  finds no other word
+? "pack"
+  finds packed
+? "package"
+  finds packages
+? "packages"
+  finds package
+✓ "packed"
+  finds pack
+✓ "pan"
+  finds no other word
+? "pancake"
+  finds no other word
+? "paper"
+  finds no other word
+? "paprika"
+  finds no other word
+? "parmesan"
+  finds no other word
+? "parsley"
+  finds no other word
+? "part"
+  finds parts
+? "parts"
+  finds part
+? "passionfruit"
+  finds no other word
+? "pasta"
+  finds no other word
+? "paste"
+  finds no other word
+? "pastry"
+  finds no other word
+? "patted"
+  finds no other word
+? "pea"
+  finds peas
+? "peach"
+  finds no other word
+? "pears"
+  finds no other word
+? "peas"
+  finds pea
+? "pecan"
+  finds no other word
+? "peel"
+  finds peeled
+? "peeled"
+  finds peel
+? "peppadew"
+  finds no other word
+? "pepper"
+  finds peppers
+? "peppermint"
+  finds no other word
+? "peppers"
+  finds pepper
+? "per"
+  finds no other word
+? "pesto"
+  finds no other word
+? "pho"
+  finds no other word
+? "picked"
+  finds no other word
+? "pickled"
+  finds no other word
+? "pie"
+  finds no other word
+? "piece"
+  finds pieces
+? "pieces"
+  finds piece
+? "pinch"
+  finds no other word
+? "pine"
+  finds no other word
+? "pineapple"
+  finds no other word
+? "piri"
+  finds no other word
+? "pita"
+  finds no other word
+? "pitted"
+  finds no other word
+? "pizza"
+  finds no other word
+? "plain"
+  finds no other word
+? "plastic"
+  finds no other word
+? "plus"
+  finds no other word
+? "poached"
+  finds no other word
+? "pop"
+  finds no other word
+? "poppy"
+  finds no other word
+? "pork"
+  finds no other word
+? "potato"
+  finds potatoes
+? "potatoes"
+  finds potato
+? "pouch"
+  finds no other word
+? "pound"
+  finds pounds
+✓ "pounds"
+  finds pound
+? "powder"
+  finds no other word
+? "prawns"
+  finds no other word
+? "preferment"
+  finds preferred
+? "preferred"
+  finds preferment
+? "prepared"
+  finds no other word
+? "preserves"
+  finds no other word
+? "pressed"
+  finds no other word
+? "puff"
+  finds no other word
+? "pumpkin"
+  finds no other word
+? "punnet"
+  finds no other word
+? "pure"
+  finds puree
+? "puree"
+  finds pure
+? "purpose"
+  finds no other word
+? "quality"
+  finds no other word
+? "quick"
+  finds no other word
+? "quinoa"
+  finds no other word
+? "raisin"
+  finds raisins
+? "raising"
+  finds no other word
+? "raisins"
+  finds raisin
+? "ramen"
+  finds no other word
+? "ranch"
+  finds no other word
+? "raspberries"
+  finds no other word
+? "recipe"
+  finds no other word
+? "red"
+  finds no other word
+? "redcurrants"
+  finds no other word
+? "reduced"
+  finds no other word
+? "refrigerated"
+  finds no other word
+? "regular"
+  finds no other word
+? "reserve"
+  finds reserved reserving
+? "reserved"
+  finds reserve reserving
+? "reserving"
+  finds reserve reserved
+? "ricciolini"
+  finds no other word
+? "rice"
+  finds no other word
+? "rich"
+  finds no other word
+? "ricotta"
+  finds no other word
+? "rinsed"
+  finds no other word
+? "ripe"
+  finds no other word
+? "rising"
+  finds no other word
+? "roast"
+  finds roasted
+? "roasted"
+  finds roast
+? "rocket"
+  finds no other word
+? "rolled"
+  finds no other word
+? "room"
+  finds no other word
+? "rosemary"
+  finds no other word
+? "roughly"
+  finds no other word
+? "sage"
+  finds no other word
+? "salad"
+  finds no other word
+✓ "salsa"
+  finds no other word
+? "salt"
+  finds no other word
+? "sauce"
+  finds no other word
+? "saucy"
+  finds no other word
+? "sausage"
+  finds sausages
+? "sausages"
+  finds sausage
+? "schmaltzy"
+  finds no other word
+? "seafood"
+  finds no other word
+? "seasoning"
+  finds no other word
+? "see"
+  finds no other word
+? "seeded"
+  finds seeds
+? "seedless"
+  finds no other word
+? "seeds"
+  finds seeded
+? "self"
+  finds no other word
+? "semi"
+  finds no other word
+✓ "semisweet"
+  finds no other word
+? "semolina"
+  finds no other word
+? "separated"
+  finds no other word
+? "serve"
+  finds serving
+? "serving"
+  finds serve
+? "sesame"
+  finds no other word
+? "shallots"
+  finds no other word
+? "shapes"
+  finds no other word
+? "sharp"
+  finds no other word
+? "sheets"
+  finds no other word
+? "short"
+  finds no other word
+? "shortbread"
+  finds no other word
+? "shortening"
+  finds no other word
+? "shredded"
+  finds no other word
+? "shrimp"
+  finds no other word
+? "sifted"
+  finds no other word
+✓ "similar"
+  finds no other word
+? "single"
+  finds no other word
+? "six"
+  finds no other word
+? "sized"
+  finds sizes
+? "sizes"
+  finds sized
+? "skewers"
+  finds no other word
+? "skim"
+  finds no other word
+? "skin"
+  finds skins
+? "skinless"
+  finds no other word
+? "skins"
+  finds skin
+? "sliced"
+  finds slices
+? "slices"
+  finds sliced
+? "slightly"
+  finds no other word
+? "small"
+  finds no other word
+? "smiths"
+  finds no other word
+? "smoked"
+  finds no other word
+? "smoothie"
+  finds no other word
+? "snow"
+  finds no other word
+? "soda"
+  finds no other word
+? "soft"
+  finds no other word
+? "softened"
+  finds no other word
+? "some"
+  finds no other word
+? "sour"
+  finds no other word
+? "sourdough"
+  finds no other word
+? "soy"
+  finds no other word
+? "sparkling"
+  finds no other word
+? "special"
+  finds no other word
+? "speculoos"
+  finds no other word
+? "spice"
+  finds no other word
+? "spinach"
+  finds no other word
+? "split"
+  finds no other word
+? "spreadable"
+  finds no other word
+? "sprigs"
+  finds no other word
+? "sprouts"
+  finds no other word
+✓ "squash"
+  finds no other word
+✓ "squeezed"
+  finds no other word
+? "star"
+  finds no other word
+? "starter"
+  finds no other word
+? "steak"
+  finds steaks
+? "steaks"
+  finds steak
+✓ "step"
+  finds no other word
+? "stick"
+  finds sticks
+✓ "sticks"
+  finds stick
+? "stock"
+  finds no other word
+✓ "strained"
+  finds no other word
+? "strawberries"
+  finds strawberry
+? "strawberry"
+  finds strawberries
+✓ "straws"
+  finds no other word
+? "strips"
+  finds no other word
+? "stroganoff"
+  finds no other word
+? "stuffed"
+  finds no other word
+? "style"
+  finds no other word
+? "such"
+  finds no other word
+? "sugar"
+  finds no other word
+? "sultanas"
+  finds no other word
+? "sumac"
+  finds no other word
+? "summer"
+  finds no other word
+✓ "sun"
+  finds no other word
+? "super"
+  finds no other word
+? "sweet"
+  finds no other word
+? "syrup"
+  finds no other word
+? "table"
+  finds no other word
+? "tablespoon"
+  finds tablespoons
+? "tablespoons"
+  finds tablespoon
+✓ "tartar"
+  finds no other word
+? "taste"
+  finds no other word
+? "tbsp"
+  finds no other word
+? "tea"
+  finds no other word
+? "teaspoon"
+  finds teaspoons
+? "teaspoons"
+  finds teaspoon
+? "temperature"
+  finds no other word
+? "thawed"
+  finds no other word
+? "the"
+  finds no other word
+? "their"
+  finds no other word
+? "them"
+  finds no other word
+? "thickening"
+  finds no other word
+? "thickly"
+  finds no other word
+✓ "thigh"
+  finds no other word
+? "thinly"
+  finds no other word
+? "thoroughly"
+  finds no other word
+? "thread"
+  finds no other word
+? "thumbprint"
+  finds no other word
+? "thyme"
+  finds no other word
+? "tilapia"
+  finds no other word
+? "tin"
+  finds no other word
+? "to"
+  finds no other word
+? "toasted"
+  finds no other word
+? "tomato"
+  finds tomatoes
+? "tomatoes"
+  finds tomato
+? "toothpicks"
+  finds no other word
+? "topping"
+  finds no other word
+? "torn"
+  finds no other word
+? "tortellini"
+  finds no other word
+? "traybake"
+  finds no other word
+✓ "trimmed"
+  finds no other word
+? "tsp"
+  finds no other word
+? "tub"
+  finds tubs
+? "tubs"
+  finds tub
+? "tuna"
+  finds no other word
+? "turmeric"
+  finds no other word
+? "ultimate"
+  finds no other word
+? "unbleached"
+  finds no other word
+? "uncooked"
+  finds no other word
+? "undrained"
+  finds no other word
+? "unfed"
+  finds no other word
+? "unroasted"
+  finds no other word
+? "unsalted"
+  finds no other word
+? "used"
+  finds no other word
+? "vanilla"
+  finds no other word
+? "veal"
+  finds no other word
+? "vegan"
+  finds no other word
+? "vegetable"
+  finds no other word
+? "vegetarian"
+  finds no other word
+? "very"
+  finds no other word
+? "vietnamese"
+  finds no other word
+? "vinaigrette"
+  finds no other word
+? "vinegar"
+  finds no other word
+? "virgin"
+  finds no other word
+? "walnuts"
+  finds no other word
+? "warm"
+  finds no other word
+? "washed"
+  finds no other word
+? "water"
+  finds no other word
+? "watercress"
+  finds no other word
+? "we"
+  finds no other word
+? "wedges"
+  finds no other word
+? "wellington"
+  finds no other word
+? "wheat"
+  finds no other word
+? "whipped"
+  finds whipping
+? "whipping"
+  finds whipped
+? "white"
+  finds whites
+? "whites"
+  finds white
+? "whole"
+  finds no other word
+? "wine"
+  finds no other word
+? "with"
+  finds no other word
+? "writing"
+  finds no other word
+? "yeast"
+  finds no other word
+? "yellow"
+  finds no other word
+? "yolks"
+  finds no other word
+? "you"
+  finds no other word
+? "your"
+  finds no other word
+✓ "zest"
+  finds no other word
+? "zucchini"
+  finds no other word

@@ -179,8 +179,16 @@ One step reading was wrong: "Itse tykkään kun mittari näyttää 70." is a
 temperature that only the word "mittari" (thermometer) gives away.
 
 Fixing "kuppi" means the sample is no longer unseen by the parser, so it
-is due to move into the development corpus (step 4). The word keys haven't
-been checked against it yet.
+is due to move into the development corpus (step 4).
+
+The word check, on 23 October 2026, used a random sample (seed 20261023,
+Python's `random.sample` over each language's entries) of 50 of the 582
+Finnish and 50 of the 688 English words. One was wrong: "lightly" also
+finds "lights", from "Christmas Lights Cupcakes", since the stemmer can't
+tell the lights from the adjective. Most sampled words have no other form
+in a sample this small: 21 had one, and all 21 found theirs. The parts of
+compound words count as other words ("porkkanakakku" isn't a form of
+"porkkana"), as in search.
 
 ### How it was collected
 

@@ -128,8 +128,9 @@ export function findsLedger(
     title: [
       'Each word of the held-out recipes, with the other words of those',
       'recipes a search for it finds.',
-      '✓: it finds every other form of its word there, and nothing else.',
-      '✗: it misses a form or finds another word; want lines give the',
+      '✓: it finds every other form of its word there, and nothing a',
+      'search for it shouldn\'t ("salted" is fine for "salt").',
+      '✗: it misses a form or finds an unrelated word; want lines give the',
       'right list.',
       'Written by the tests; see src/test/ledger.ts for how to update it.',
     ],
