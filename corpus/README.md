@@ -228,7 +228,7 @@ sample stays unread. A recipe without any of the fields is left out.
 | yhteishyva.fi           | FI      | 28    | 27      | 20       | 7       | 27       |
 | kingarthurbaking.com    | US      | 89    | 89      | 0        | 0       | 89       |
 | bettycrocker.com        | US      | 59    | 59      | 59       | 0       | 59       |
-| tasteofhome.com         | US      | 112   | 112     | 0        | 23      | 0        |
+| tasteofhome.com         | US      | 112   | 112     | 112      | 23      | 0        |
 | bbcgoodfood.com         | GB      | 39    | 39      | 38       | 17      | 39       |
 | womensweeklyfood.com.au | AU      | 37    | 1       | 0        | 1       | 1        |
 
@@ -276,7 +276,9 @@ more from them.
 
 The rare forms were collected later the same day in the same way, also
 following each site's crawl delay (12 seconds for bbcgoodfood.com, 5 for
-womensweeklyfood.com.au, hence their fewer pages). It skipped
+womensweeklyfood.com.au, hence their fewer pages). bbcgoodfood.com's
+robots.txt sets its 12 seconds only for the Scope3 crawler, as checked on
+23 October 2026, so the wait was longer than needed. It skipped
 allrecipes.com, recipetineats.com and bbc.co.uk from the random sample, and
 the new candidates food.com, simplyrecipes.com, bonappetit.com and
 epicurious.com, because their robots.txt disallow AI agents such as Claude,
