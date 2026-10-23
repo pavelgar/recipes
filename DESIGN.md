@@ -97,7 +97,8 @@
 ### Recipes
 
 - A recipe has a title, ingredients, steps, servings, prep time, cook time,
-  a source (where it came from) and one optional cover photo.
+  a source (where it came from) and one optional cover photo. It also keeps
+  the total time its source publishes, when the source gives one.
 - The app must work and look good for recipes without a photo.
 - Servings are adjustable, and ingredient amounts follow.
 - Ingredients are entered as free-text lines. As you type, each line
@@ -204,8 +205,8 @@
 
 ### Finding recipes
 
-- Search, tags, scrolling the full library, and scrolling rows of
-  suggestions and categories.
+- Search, derived terms, tags, scrolling the full library, and scrolling
+  rows of suggestions and categories.
 - Search covers titles and ingredients, in the language each recipe is
   written in. There is no matching across languages. Finnish ingredient
   names inflect (jauhot, jauhoja), so search has to match inflected forms.
@@ -235,23 +236,52 @@
   - Recently added.
   - Not cooked in a while: recipes cooked at least once, longest gap first.
     Recipes never cooked are left out.
-  - Quick lunch: recipes with a total time (prep plus cook) of 30 minutes or
-    less. Recipes without times are left out. The row keeps the name
-    "quick lunch". The logic can be refined later.
-- Category rows show recipes by tag. They are picked automatically, the
-  same for the whole household; nobody has to configure them.
-  - Only tags with enough recipes to fill a row (around four or more)
-    qualify, and tags on most of the library are skipped.
-  - Each day, a limited number of rows is picked from the qualifying tags,
-    rotating so different tags come up. Every device shows the same
+  - Quick lunch: recipes with a total time of 30 minutes or less: the total
+    time the source publishes when there is one, otherwise prep plus cook.
+    Recipes without times are left out. The row keeps the name "quick
+    lunch". The logic can be refined later.
+- Category rows show recipes by derived term or tag. They are picked
+  automatically, the same for the whole household; nobody has to configure
+  them.
+  - Only terms and tags with enough recipes to fill a row (around four or
+    more) qualify, and those on most of the library are skipped.
+  - Each day, a limited number of rows is picked from the qualifying ones,
+    rotating so different ones come up. Every device shows the same
     selection that day.
-  - With a small library, no category rows appear until a tag qualifies.
+  - With a small library, no category rows appear until one qualifies.
   - Thresholds are tuned during the build.
 - Expect hundreds of recipes, but the app must look good and work with fewer
   than ten.
 
+### Derived terms
+
+- What a recipe is, such as its dish type, diet, occasion or season, is
+  worked out by the app with deterministic rules, not by hand and not by
+  AI. These are its derived terms.
+- They appear in three places: search understands them ("keitto" finds
+  "Inkivääri-kanakeitto"), the search box offers a few as chips (only
+  those with recipes behind them), and the home screen's category rows.
+- The first kinds are dish type, diet, and occasion or season.
+- Dish type comes from the title ("Fazerina-juustokakku" is a cake).
+- Diet comes from the ingredient lines: no meat or fish found. A
+  vegetarian term is shown only once a held-out check shows that it rarely
+  lists meat dishes. Allergy-type terms (gluten-free, lactose-free) come
+  only from what the source states.
+- Occasion and season come from the site's keywords, from a list of dishes
+  tied to an occasion ("joulutorttu" for Christmas), and from the
+  household's own tags.
+- On import, the site's categories and keywords that the app knows are
+  mapped onto its own terms ("Jälkiruoat" becomes dessert) and kept with
+  the recipe. They aren't offered as tags or reviewed one by one.
+- The recipe view lists a recipe's derived terms, so none is applied
+  unseen. A wrong one can be removed there and a missing one added, and
+  the correction stays when the rules change.
+
 ### Tags
 
+- Tags are the household's own groupings, such as "grandma's recipes" or
+  "kids' favourites", which only the household knows. What a recipe is
+  comes from derived terms instead.
 - One flat list: no groups or hierarchy.
 - Free-form and in any language; the household decides how to use them.
 - Tags are normalised to lowercase.
@@ -260,16 +290,15 @@
   simple suffix rules won't do. The check is deliberately broad: it also
   flags other forms of a word ("välipala", "välipalaa") and English words
   made from one another ("bake", "baking").
-- A tag is read by the rules of the languages of its recipes, or of both
-  languages while it is on no recipe, and two tags are only compared in a
-  language they share. So "pork" on English recipes and "porkkana" on
-  Finnish ones are never flagged.
+- The duplicate check reads every tag by the rules of both languages, so a
+  tag needs no language of its own: "pizza" and "pizzat" are flagged
+  whichever recipes they are on.
 - Possible duplicates are flagged for someone to review, never merged
   automatically. A flag can be dismissed, and the pair isn't flagged
   again.
 - Typing a tag offers existing tags first, including other forms of what
   is typed, by the duplicate check: typing "jälkiruoat" offers an existing
-  "jälkiruoka". No matching across languages.
+  "jälkiruoka".
 - A tag management screen lists every tag with its recipe count. Anyone can
   rename, merge and delete tags there, and flagged possible duplicates
   appear there too. Merging moves every recipe onto one tag.
@@ -277,14 +306,6 @@
 - Tags never disappear by themselves. An unused tag stays until someone
   deletes it.
 - Filtering by several tags shows recipes that have all of them.
-- On import, the site's categories and keywords that match existing tags are
-  pre-selected in the review step. Matching uses the duplicate check, so the
-  site's "Jälkiruuat" pre-selects an existing "jälkiruoka"; an exact match
-  wins over a near one. Others are offered as new tags, not selected.
-- Site keywords that aren't useful as tags are left out of the offers:
-  author names ("Sophie Godwin"), nutrients ("Calcium"), numbers and
-  fragments ("77", "bo"). How to recognise them is decided with the
-  importer, against the tags in the test corpus.
 - In the editor, the app offers tags used on recipes that share the most
   ingredients with this one, as tap-to-add options.
 - Nothing is applied without someone seeing it.
@@ -329,7 +350,8 @@
 
 - Groceries and pantry tracking.
 - AI features beyond photo import.
-- Matching tags or search across languages.
+- Translating tags or searches between languages ("dessert" finding
+  "jälkiruoka").
 - Search matching later parts of compound words ("jauho" finding
   "vehnäjauhoja"). A later improvement. The first part already matches as
   you type ("kana" finds "kanapata").
