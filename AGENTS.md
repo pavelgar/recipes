@@ -29,6 +29,10 @@ Before editing files for a substantial task:
 
 <!-- intent-skills:end -->
 
+## Browser
+
+Use agent-browser for browser work on the app, such as checking a change or reproducing a bug. End-to-end tests are the exception: they use playwright-cli, as [e2e/AGENTS.md](e2e/AGENTS.md) describes.
+
 ## Commands
 
 - Run Intent as `bun run intent list` and `bun run intent load <package>#<skill>`, in place of the `bunx … intent` commands above and the `Load:` lines that `intent list` prints. Those resolve to a stale `intent` binary shipped by `@tanstack/devtools` and crash ([TanStack/devtools#525](https://github.com/TanStack/devtools/issues/525)); drop this line once that issue is fixed.
