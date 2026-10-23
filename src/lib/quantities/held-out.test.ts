@@ -8,10 +8,11 @@ import { ingredientLedger, stepLedger } from '@/test/ledgers'
 //
 //   HELD_OUT=1 bun run test held-out
 //
-// Its ledgers record the readings like the corpus ledgers do. A person
-// checks a random sample of entries, and the share marked wrong is the
-// parser's error rate on text it hasn't seen. See corpus/README.md for how
-// to use the sample without spoiling it.
+// Its ledgers record the readings like the corpus ledgers do. A fresh
+// agent, one that hasn't worked on the rules, checks a random sample of
+// entries, and the share marked wrong is the parser's error rate on text
+// it hasn't seen. See corpus/AGENTS.md for how to use the sample without
+// spoiling it.
 describe.runIf(process.env.HELD_OUT)('the held-out sample', () => {
   it('keeps its reading of every ingredient line', () => {
     const path = 'src/lib/quantities/__ledger__/held-out-ingredients.txt'

@@ -201,7 +201,7 @@ const CASES: Record<
     [
       'two 8-ounce packages (452g) cream cheese, at room temperature',
       'metric ×1.5',
-      'three 8-ounce packages (678g) cream cheese, at room temperature',
+      'three 8-ounce packages (680g) cream cheese, at room temperature',
     ],
     [
       '600g/1lb 5oz raw jumbo prawns, peeled and deveined (defrosted if frozen)',
@@ -215,6 +215,11 @@ const CASES: Record<
     ],
     ['0.33333334326744 cup buttermilk', 'us ×1.2', '⅓ cup + 1 tbsp buttermilk'],
     ['1 tbsp soy sauce', 'us ×1.5', '1½ tbsp soy sauce'],
+  ],
+  'scaled grams and millilitres round to 5 from 20 up': [
+    ['142ml carton double cream', 'metric ×1.5', '215ml carton double cream'],
+    // Below 20, to the gram.
+    ['10 g Arla® Meijerivoita', 'metric ×1.7', '17 g Arla® Meijerivoita'],
   ],
   'unit words agree with the new number': [
     ['1 maustemitta sahramia', 'metric ×1.5', '1½ maustemittaa sahramia'],

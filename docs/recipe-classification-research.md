@@ -561,11 +561,6 @@ kingarthurbaking.com).
   "öljytä" as verbs. That they are machine-made is an inference, not
   confirmed by the site.
 
-`corpus/README.md` lists tasteofhome.com with 0 recipes having a category.
-All 112 of its recipes in `corpus/tags/tasteofhome.com.json` have
-`recipeCategory`, and 99 of the values are non-empty. The README was left
-unchanged, since this research changes no other file.
-
 ### `suitableForDiet` on the sampled pages
 
 The tag corpus didn't collect `suitableForDiet`, so 46 pages were checked

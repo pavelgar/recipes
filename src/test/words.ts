@@ -91,8 +91,8 @@ export function mergeLedger(path: string): LedgerCheck {
 
 // For each word in some recipes' titles and ingredient lines, the other
 // words of those recipes it finds, sharing a key with it. Words are sorted,
-// so the forms of a word mostly sit together, and a person checking an
-// entry can see both what it finds wrongly and what it misses.
+// so the forms of a word mostly sit together, and whoever checks an entry
+// can see both what it finds wrongly and what it misses.
 export function findsLedger(
   path: string,
   recipes: ReadonlyArray<CorpusRecipe>,

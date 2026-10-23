@@ -327,13 +327,14 @@ function formatLike(
   }
   const id = unit?.id ?? ''
   if (written.form !== 'fraction') {
+    // Grams and millilitres round to 5 from 20 up, whole or not: 175 g × 1,5
+    // → 265 g, 142 ml × 1,5 → 215 ml.
+    if (WHOLE_UNITS.has(id) && n >= 20) return String(Math.round(n / 5) * 5)
     if (Number.isInteger(Math.round(n * 1e6) / 1e6))
       return String(Math.round(n))
     if (DECIMAL_UNITS.has(id)) return formatDecimal(n, language, n < 1 ? 2 : 1)
-    // Grams and millilitres round to 5 from 20 up: 175 g × 1,5 → 265 g.
     if (WHOLE_UNITS.has(id)) {
-      if (n < 10) return formatDecimal(n, language)
-      return String(n < 20 ? Math.round(n) : Math.round(n / 5) * 5)
+      return n < 10 ? formatDecimal(n, language) : String(Math.round(n))
     }
   }
   const fractions =

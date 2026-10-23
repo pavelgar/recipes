@@ -1,8 +1,10 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 
-// A ledger records how the parser reads every corpus line, and which of
-// those readings a person has checked. It replaces a plain snapshot, which
-// only shows that a reading changed, not whether anyone ever confirmed it.
+// A ledger records how the code reads every corpus line, and which of
+// those readings an agent has checked against the rules: DESIGN.md and the
+// ledger's header. src/lib/AGENTS.md describes the checking. A ledger
+// replaces a plain snapshot, which only shows that a reading changed, not
+// whether anyone ever confirmed it.
 //
 // Each entry starts with a status and the line, then the reading, indented:
 //

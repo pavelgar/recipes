@@ -1,7 +1,7 @@
 import type { Language } from '@/lib/quantities/numbers'
 import type { MeasuringSystem } from '@/lib/quantities/scan'
 
-// Reads the real recipe data in corpus/ (see corpus/README.md) for tests.
+// Reads the real recipe data in corpus/ (see corpus/AGENTS.md) for tests.
 
 type Country = 'FI' | 'US' | 'GB' | 'AU'
 

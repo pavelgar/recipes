@@ -4,7 +4,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 4635 entries: 70 checked, of which 0 wrong; 4565 unchecked.
+# 4635 entries: 71 checked, of which 1 wrong; 4564 unchecked.
 
 ## arla.fi : 312 lines and sentences, 286 entries
 
@@ -1201,7 +1201,7 @@
   ×1.5: 3 x 150g cartons light Greek yogurt
 ? "142ml carton double cream"
   us: ½ cup + 1½ tbsp carton double cream
-  ×1.5: 213ml carton double cream
+  ×1.5: 215ml carton double cream
 ? "50g white chocolate broken in pieces"
   us: 2 oz white chocolate broken in pieces
   ×1.5: 75g white chocolate broken in pieces
@@ -2067,11 +2067,11 @@
 ? "3/4 to 1 cup (170g to 227g) heavy cream"
   ×1.5: 1 to 1 1/2 cups (255g to 340g) heavy cream
 ? "1 tablespoon (14g) butter"
-  ×1.5: 1½ tablespoons (21g) butter
+  ×1.5: 1½ tablespoons (20g) butter
 ? "1 cup (113g) walnuts, coarsely chopped"
   ×1.5: 1½ cups (170g) walnuts, coarsely chopped
 ? "1 tablespoon (14g) light brown sugar or dark brown sugar, packed"
-  ×1.5: 1½ tablespoons (21g) light brown sugar or dark brown sugar, packed
+  ×1.5: 1½ tablespoons (20g) light brown sugar or dark brown sugar, packed
 ? "1 tablespoon (21g) boiled cider or maple syrup"
   ×1.5: 1½ tablespoons (30g) boiled cider or maple syrup
 ? "2 cups (227g) King Arthur Unbleached Self-Rising Flour"
@@ -2081,9 +2081,9 @@
 ? "6 tablespoons (85g) unsalted butter, cold"
   ×1.5: 9 tablespoons (130g) unsalted butter, cold
 ? "2 tablespoons (43g) boiled cider or 2 tablespoons (36g) apple juice concentrate"
-  ×1.5: 3 tablespoons (65g) boiled cider or 3 tablespoons (54g) apple juice concentrate
+  ×1.5: 3 tablespoons (65g) boiled cider or 3 tablespoons (55g) apple juice concentrate
 ? "1/3 to 1/2 cup (74g to 113g) milk"
-  ×1.5: 1/2 to 3/4 cup (111g to 170g) milk
+  ×1.5: 1/2 to 3/4 cup (110g to 170g) milk
 ? "2 cups (227g) peeled, sliced cooking apples (Granny Smiths, Braeburn, Galas)"
   ×1.5: 3 cups (340g) peeled, sliced cooking apples (Granny Smiths, Braeburn, Galas)
 ? "2 tablespoons (25g) granulated sugar"
@@ -2103,7 +2103,7 @@
 ? "1/2 teaspoon baking soda"
   ×1.5: 3/4 teaspoon baking soda
 ? "3/4 cup plus 2 tablespoons (198g) water"
-  ×1.5: 1 cup + 2 tbsp plus 3 tablespoons (297g) water
+  ×1.5: 1 cup + 2 tbsp plus 3 tablespoons (295g) water
 ? "1/2 cup (99g) vegetable oil"
   ×1.5: 3/4 cup (150g) vegetable oil
 ? "1 large egg"
@@ -2113,7 +2113,7 @@
 ? "4 1/2 teaspoons (21g) cider vinegar or white vinegar"
   ×1.5: 6 3/4 teaspoons (30g) cider vinegar or white vinegar
 ? "1 tablespoon (14g) King Arthur Pure Vanilla Extract"
-  ×1.5: 1½ tablespoons (21g) King Arthur Pure Vanilla Extract
+  ×1.5: 1½ tablespoons (20g) King Arthur Pure Vanilla Extract
 ? "1/2 teaspoon almond extract"
   ×1.5: 3/4 teaspoon almond extract
 ? "4 tablespoons (57g) butter or vegan butter, at room temperature"
@@ -2123,7 +2123,7 @@
 ? "1/2 teaspoon King Arthur Pure Vanilla Extract"
   ×1.5: 3/4 teaspoon King Arthur Pure Vanilla Extract
 ? "2 tablespoons (28g) water"
-  ×1.5: 3 tablespoons (42g) water
+  ×1.5: 3 tablespoons (40g) water
 ? "1 cup (227g) lukewarm water"
   ×1.5: 1½ cups (340g) lukewarm water
 ? "4 tablespoons (57g) softened or sliced butter"
@@ -2133,9 +2133,9 @@
 ? "1 1/2 cups (170g) King Arthur Golden Wheat Flour"
   ×1.5: 2 1/4 cups (255g) King Arthur Golden Wheat Flour
 ? "1 tablespoon (14g) granulated sugar"
-  ×1.5: 1½ tablespoons (21g) granulated sugar
+  ×1.5: 1½ tablespoons (20g) granulated sugar
 ? "1/4 cup (28g) King Arthur Baker's Special Dry Milk or nonfat dry milk"
-  ×1.5: ⅓ cup + ½ tbsp (42g) King Arthur Baker's Special Dry Milk or nonfat dry milk
+  ×1.5: ⅓ cup + ½ tbsp (40g) King Arthur Baker's Special Dry Milk or nonfat dry milk
 ? "1/3 cup (39g) King Arthur Better Cheddar Cheese Powder, optional for enhanced cheese flavor"
   ×1.5: 1/2 cup (60g) King Arthur Better Cheddar Cheese Powder, optional for enhanced cheese flavor
 ? "4 teaspoons King Arthur Pizza Dough Flavor, optional for enhanced flavor"
@@ -2147,10 +2147,10 @@
 ? "2 1/2 teaspoons instant yeast"
   ×1.5: 3 3/4 teaspoons instant yeast
 ? "1 1/3 cups (152g) shredded cheese: pizza blend, mozzarella, cheddar, or the cheese of your choice"
-  ×1.5: 2 cups (228g) shredded cheese: pizza blend, mozzarella, cheddar, or the cheese of your choice
+  ×1.5: 2 cups (230g) shredded cheese: pizza blend, mozzarella, cheddar, or the cheese of your choice
 ? "1 large head (38g) garlic, about 6 to 7 cloves, intact"
   us: 1 large head (1½ oz) garlic, about 6 to 7 cloves, intact
-  ×1.5: 1½ large head (57g) garlic, about 9 to 10½ cloves, intact
+  ×1.5: 1½ large head (55g) garlic, about 9 to 10½ cloves, intact
 ? "1 generous tablespoon (15g) olive oil"
   ×1.5: 1½ generous tablespoons (25g) olive oil
 ? "3 tablespoons (43g) water"
@@ -2188,7 +2188,7 @@
 ? "2 cups (240g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 3 cups (360g) King Arthur Unbleached All-Purpose Flour
 ? "3 tablespoons (32g) potato flour or 1/3 cup (32g) dried potato flakes (instant mashed potatoes)"
-  ×1.5: 4½ tablespoons (48g) potato flour or 1/2 cup (48g) dried potato flakes (instant mashed potatoes)
+  ×1.5: 4½ tablespoons (50g) potato flour or 1/2 cup (50g) dried potato flakes (instant mashed potatoes)
 ? "3 tablespoons (50g) light brown sugar or dark brown sugar, packed"
   ×1.5: 4½ tablespoons (75g) light brown sugar or dark brown sugar, packed
 ? "2 1/4 teaspoons instant yeast"
@@ -2202,9 +2202,9 @@
 ? "1 tablespoon (7g) confectioners' sugar"
   ×1.5: 1½ tablespoons (11g) confectioners' sugar
 ? "1 tablespoon (14g) cold water"
-  ×1.5: 1½ tablespoons (21g) cold water
+  ×1.5: 1½ tablespoons (20g) cold water
 ? "2 cups (454g) thoroughly mashed banana, about 4 or 5 medium bananas"
-  ×1.5: 3 cups (681g) thoroughly mashed banana, about 4 or 5 medium bananas
+  ×1.5: 3 cups (680g) thoroughly mashed banana, about 4 or 5 medium bananas
 ? "1 cup (213g) light brown sugar or dark brown sugar, firmly packed"
   ×1.5: 1½ cups (320g) light brown sugar or dark brown sugar, firmly packed
 ? "2 large eggs"
@@ -2242,33 +2242,33 @@
 ? "4 tablespoons (57g) unsalted butter, softened"
   ×1.5: 6 tablespoons (85g) unsalted butter, softened
 ? "6 cups (1188g) vegetable oil, for frying"
-  ×1.5: 9 cups (1782g) vegetable oil, for frying
+  ×1.5: 9 cups (1780g) vegetable oil, for frying
 ? "2 2/3 cups (301g) confectioners' sugar, sifted"
   ×1.5: 4 cups (450g) confectioners' sugar, sifted
 ? "1/3 cup (76g) milk, whole preferred"
-  ×1.5: 1/2 cup (114g) milk, whole preferred
+  ×1.5: 1/2 cup (115g) milk, whole preferred
 ? "one batch Classic Single Pie Crust, prepared"
   ×1.5: 1½ batch Classic Single Pie Crust, prepared
 ? "1 cup (198g) granulated sugar"
-  ×1.5: 1½ cups (297g) granulated sugar
+  ×1.5: 1½ cups (295g) granulated sugar
 ? "1 tablespoon (11g) Instant Clearjel, optional; for improved thickening"
   ×1.5: 1½ tablespoons (17g) Instant Clearjel, optional; for improved thickening
 ? "6 cups (999g) strawberries, washed, trimmed of their leaves, and sliced"
   ×1.5: 9 cups (1500g) strawberries, washed, trimmed of their leaves, and sliced
 ? "6 tablespoons (42g) King Arthur Unbleached All-Purpose Flour"
-  ×1.5: 9 tablespoons (63g) King Arthur Unbleached All-Purpose Flour
+  ×1.5: 9 tablespoons (65g) King Arthur Unbleached All-Purpose Flour
 ? "1 tablespoon (14g) unsalted butter"
-  ×1.5: 1½ tablespoons (21g) unsalted butter
+  ×1.5: 1½ tablespoons (20g) unsalted butter
 ? "1 tablespoon (14g) lemon juice, fresh preferred"
-  ×1.5: 1½ tablespoons (21g) lemon juice, fresh preferred
+  ×1.5: 1½ tablespoons (20g) lemon juice, fresh preferred
 ? "3 large egg yolks, (reserve the whites for the topping)"
   ×1.5: 4½ large egg yolks, (reserve the whites for the topping)
 ? "2 tablespoons (28g) heavy cream"
-  ×1.5: 3 tablespoons (42g) heavy cream
+  ×1.5: 3 tablespoons (40g) heavy cream
 ? "3 large egg whites, (reserved from filling)"
   ×1.5: 4½ large egg whites, (reserved from filling)
 ? "1/3 cup (74g) water"
-  ×1.5: 1/2 cup (111g) water
+  ×1.5: 1/2 cup (110g) water
 ? "1 tablespoon (7g) cornstarch"
   ×1.5: 1½ tablespoons (11g) cornstarch
 ? "1 1/4 cups (283g) water"
@@ -2290,11 +2290,11 @@
 ? "2 tablespoons (43g) honey"
   ×1.5: 3 tablespoons (65g) honey
 ? "2 tablespoons (28g) orange juice, lukewarm"
-  ×1.5: 3 tablespoons (42g) orange juice, lukewarm
+  ×1.5: 3 tablespoons (40g) orange juice, lukewarm
 ? "2 tablespoons (25g) olive oil"
   ×1.5: 3 tablespoons (40g) olive oil
 ? "3/4 cup to 7/8 cup (170g to 198g) lukewarm water"
-  ×1.5: 1 cup to 1 1/3 cups (255g to 297g) lukewarm water
+  ×1.5: 1 cup to 1 1/3 cups (255g to 295g) lukewarm water
 ? "4 tablespoons (57g) butter"
   ×1.5: 6 tablespoons (85g) butter
 ? "1/4 cup (50g) vegetable oil"
@@ -2308,15 +2308,15 @@
 ? "1 cup (227g) milk"
   ×1.5: 1½ cups (340g) milk
 ? "2 cups (454g) heavy cream"
-  ×1.5: 3 cups (681g) heavy cream
+  ×1.5: 3 cups (680g) heavy cream
 ? "one 14-ounce can (397g) sweetened condensed milk"
   ×1.5: 1½ 14-ounce cans (595g) sweetened condensed milk
 ✓ "1 tablespoon (14g) vanilla bean paste"
-  ×1.5: 1½ tablespoons (21g) vanilla bean paste
+  ×1.5: 1½ tablespoons (20g) vanilla bean paste
 ? "2 cups (about 150g) diced yellow cake, such Classic Birthday Cake, Back-to-Basics Yellow Cake, or Classic Yellow Cake*"
   ×1.5: 3 cups (about 225g) diced yellow cake, such Classic Birthday Cake, Back-to-Basics Yellow Cake, or Classic Yellow Cake*
 ? "1/4 cup (48g) sprinkles"
-  ×1.5: ⅓ cup + ½ tbsp (72g) sprinkles
+  ×1.5: ⅓ cup + ½ tbsp (70g) sprinkles
 ? "2 cups (220g) King Arthur Buttermilk Pancake Mix"
   ×1.5: 3 cups (330g) King Arthur Buttermilk Pancake Mix
 ? "1 1/2 cups (340g) water"
@@ -2357,11 +2357,11 @@
 ? "8 tablespoons (113g) unsalted butter, room temperature"
   ×1.5: 12 tablespoons (170g) unsalted butter, room temperature
 ? "1/3 cup (28g) Dutch-process cocoa or King Arthur Triple Cocoa Blend"
-  ×1.5: 1/2 cup (42g) Dutch-process cocoa or King Arthur Triple Cocoa Blend
+  ×1.5: 1/2 cup (40g) Dutch-process cocoa or King Arthur Triple Cocoa Blend
 ? "2 tablespoons (28g) milk, (optional, if you add chips/nuts/fruit)"
-  ×1.5: 3 tablespoons (42g) milk, (optional, if you add chips/nuts/fruit)
+  ×1.5: 3 tablespoons (40g) milk, (optional, if you add chips/nuts/fruit)
 ? "1 cup plus 2 tablespoons (134g) King Arthur Unbleached All-Purpose Flour"
-  ×1.5: 1½ cups plus 3 tablespoons (201g) King Arthur Unbleached All-Purpose Flour
+  ×1.5: 1½ cups plus 3 tablespoons (200g) King Arthur Unbleached All-Purpose Flour
 ? "1 teaspoon espresso powder, optional; for depth of flavor"
   ×1.5: 1½ teaspoons espresso powder, optional; for depth of flavor
 ? "2 cups (227g to 340g) chips, nuts, and/or dried fruit, optional but good"
@@ -2377,7 +2377,7 @@
 ? "1/4 cup (53g) coconut oil or 4 tablespoons (57g) butter, at room temperature"
   ×1.5: ⅓ cup + ½ tbsp (80g) coconut oil or 6 tablespoons (85g) butter, at room temperature
 ? "1/2 cup (92g) vegetable shortening"
-  ×1.5: 3/4 cup (138g) vegetable shortening
+  ×1.5: 3/4 cup (140g) vegetable shortening
 ? "1/4 cup (85g) molasses"
   ×1.5: ⅓ cup + ½ tbsp (130g) molasses
 ? "1 teaspoon baking powder"
@@ -2389,11 +2389,11 @@
 ? "2 cups plus 2 tablespoons (255g) King Arthur Unbleached All-Purpose Flour*"
   ×1.5: 3 cups plus 3 tablespoons (385g) King Arthur Unbleached All-Purpose Flour*
 ? "1/3 cup (66g) granulated sugar"
-  ×1.5: 1/2 cup (99g) granulated sugar
+  ×1.5: 1/2 cup (100g) granulated sugar
 ? "2 teaspoons baking powder"
   ×1.5: 3 teaspoons baking powder
 ? "2/3 cup (152g) heavy cream, cold, plus 1 1/2 tablespoons (21g) for brushing"
-  ×1.5: 1 cup (228g) heavy cream, cold, plus 2 tbsp + ¾ tsp (30g) for brushing
+  ×1.5: 1 cup (230g) heavy cream, cold, plus 2 tbsp + ¾ tsp (30g) for brushing
 ? "1/4 cup (57g) sour cream, cold"
   ×1.5: ⅓ cup + ½ tbsp (85g) sour cream, cold
 ? "6 tablespoons (85g) unsalted butter, melted"
@@ -2404,13 +2404,13 @@
   ×1.5: 2 tbsp + ¾ tsp (30g) coarse sparkling sugar, for sprinkling
 ? "1 pound (454g) fresh strawberries (from about 1 quart)"
   metric: 1 pound (454g) fresh strawberries (from about 9.5 dl)
-  ×1.5: 1½ pounds (681g) fresh strawberries (from about 1.4 l)
+  ×1.5: 1½ pounds (680g) fresh strawberries (from about 1.4 l)
 ? "1/2 teaspoon vanilla bean paste or King Arthur Pure Vanilla Extract"
   ×1.5: 3/4 teaspoon vanilla bean paste or King Arthur Pure Vanilla Extract
 ? "1 cup (227g) heavy cream, cold"
   ×1.5: 1½ cups (340g) heavy cream, cold
 ? "1 1/2 tablespoons (18g) granulated sugar"
-  ×1.5: 2 tbsp + ¾ tsp (27g) granulated sugar
+  ×1.5: 2 tbsp + ¾ tsp (25g) granulated sugar
 ? "1 tablespoon (12g) baking powder"
   ×1.5: 1½ tablespoons (18g) baking powder
 ? "2 teaspoons granulated sugar"
@@ -2421,7 +2421,7 @@
 ? "1 cup (113g) cheddar cheese, very coarsely grated or diced"
   ×1.5: 1½ cups (170g) cheddar cheese, very coarsely grated or diced
 ? "1/3 cup (about 14g) snipped fresh chives or 1/3 cup (21g) finely chopped scallion tops"
-  ×1.5: 1/2 cup (about 21g) snipped fresh chives or 1/2 cup (30g) finely chopped scallion tops
+  ×1.5: 1/2 cup (about 20g) snipped fresh chives or 1/2 cup (30g) finely chopped scallion tops
 ? "1/2 pound (227g) bacon, cooked, cooled, and crumbled (about 1 cup)"
   ×1.5: 3/4 pound (340g) bacon, cooked, cooled, and crumbled (about 1½ cups)
 ? "1 cup (227g) heavy cream or whipping cream, or enough to make the dough cohesive"
@@ -2439,7 +2439,7 @@
 ? "1/2 teaspoon cinnamon or 1/4 teaspoon nutmeg, optional"
   ×1.5: 3/4 teaspoon cinnamon or 1/4 teaspoon nutmeg, optional
 ? "3 cups (468g) King Arthur Gluten-Free All-Purpose Flour"
-  ×1.5: 4½ cups (702g) King Arthur Gluten-Free All-Purpose Flour
+  ×1.5: 4½ cups (700g) King Arthur Gluten-Free All-Purpose Flour
 ✓ "3 tablespoons (35g) granulated sugar"
   ×1.5: 4½ tablespoons (55g) granulated sugar
 ? "1 1/4 teaspoons xanthan gum"
@@ -2467,7 +2467,7 @@
 ? "1 cup (113g) Parmesan cheese, freshly grated"
   ×1.5: 1½ cups (170g) Parmesan cheese, freshly grated
 ? "4 cups (908g) best-quality chicken or turkey stock, homemade or store-bought"
-  ×1.5: 6 cups (1362g) best-quality chicken or turkey stock, homemade or store-bought
+  ×1.5: 6 cups (1360g) best-quality chicken or turkey stock, homemade or store-bought
 ? "1 bay leaf"
   ×1.5: 1½ bay leaf
 ? "1 sprig fresh thyme"
@@ -2481,7 +2481,7 @@
 ? "3/4 cup (90g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 1 cup + 2 tbsp (135g) King Arthur Unbleached All-Purpose Flour
 ? "1/2 cup (78g) maple sugar"
-  ×1.5: 3/4 cup (117g) maple sugar
+  ×1.5: 3/4 cup (115g) maple sugar
 ? "2 tablespoons (25g) potato flour"
   ×1.5: 3 tablespoons (40g) potato flour
 ? "3/4 teaspoon baking powder"
@@ -2493,7 +2493,7 @@
 ? "2 tablespoons (20g) maple sugar"
   ×1.5: 3 tablespoons (30g) maple sugar
 ? "2 tablespoons (28g) confectioners' sugar"
-  ×1.5: 3 tablespoons (42g) confectioners' sugar
+  ×1.5: 3 tablespoons (40g) confectioners' sugar
 ? "16 tablespoons (227g) unsalted butter, softened"
   ×1.5: 24 tablespoons (340g) unsalted butter, softened
 ? "2 1/2 cups (495g) granulated sugar"
@@ -2511,7 +2511,7 @@
 ? "1 cup (85g) Dutch-process cocoa"
   ×1.5: 1½ cups (130g) Dutch-process cocoa
 ? "2 cups (232g) King Arthur ‘00’ Pizza Flour"
-  ×1.5: 3 cups (348g) King Arthur ‘00’ Pizza Flour
+  ×1.5: 3 cups (350g) King Arthur ‘00’ Pizza Flour
 ? "1/2 teaspoon granulated sugar"
   ×1.5: 3/4 teaspoon granulated sugar
 ? "3/4 cup (170g) water, lukewarm, (105° to 115°F)"
@@ -2520,7 +2520,7 @@
 ? "2 teaspoons active dry yeast or instant yeast"
   ×1.5: 3 teaspoons active dry yeast or instant yeast
 ? "7/8 to 1 1/8 cups (198g to 255g) lukewarm water*"
-  ×1.5: 1 1/3 to 1 2/3 cups (297g to 385g) lukewarm water*
+  ×1.5: 1 1/3 to 1 2/3 cups (295g to 385g) lukewarm water*
 ? "3 cups (360g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 4½ cups (540g) King Arthur Unbleached All-Purpose Flour
 ? "1 mango, peeled and finely diced"
@@ -2535,11 +2535,11 @@
 ? "2 tablespoons cilantro, chopped"
   ×1.5: 3 tablespoons cilantro, chopped
 ? "2 to 3 tablespoons (28g to 43g) lime juice"
-  ×1.5: 3 to 4½ tablespoons (42g to 65g) lime juice
+  ×1.5: 3 to 4½ tablespoons (40g to 65g) lime juice
 ? "1 1/3 cups (124g) masa harina"
-  ×1.5: 2 cups (186g) masa harina
+  ×1.5: 2 cups (185g) masa harina
 ? "1/3 cup (52g) yellow cornmeal"
-  ×1.5: 1/2 cup (78g) yellow cornmeal
+  ×1.5: 1/2 cup (80g) yellow cornmeal
 ? "3 tablespoons (37g) granulated sugar"
   ×1.5: 4½ tablespoons (55g) granulated sugar
 ? "1 tablespoon baking powder"
@@ -2551,11 +2551,11 @@
 ? "1 teaspoon chili powder"
   ×1.5: 1½ teaspoons chili powder
 ? "2 cups (454g) milk"
-  ×1.5: 3 cups (681g) milk
+  ×1.5: 3 cups (680g) milk
 ? "2 tablespoons (25g) vegetable oil"
   ×1.5: 3 tablespoons (40g) vegetable oil
 ? "2 tablespoons (28g) butter, melted"
-  ×1.5: 3 tablespoons (42g) butter, melted
+  ×1.5: 3 tablespoons (40g) butter, melted
 ? "1 package (453g) King Arthur Soft Golden Roll & Bun Mix Kit"
   us: 1 package (16 oz) King Arthur Soft Golden Roll & Bun Mix Kit
   ×1.5: 1½ packages (680g) King Arthur Soft Golden Roll & Bun Mix Kit
@@ -2565,11 +2565,11 @@
   metric: 1 1/3 cups (303g) milk, hot (49–54°C), plus more as needed*
   ×1.5: 2 cups (455g) milk, hot (49–54°C), plus more as needed*
 ? "2 tablespoons (28g) butter, melted*"
-  ×1.5: 3 tablespoons (42g) butter, melted*
+  ×1.5: 3 tablespoons (40g) butter, melted*
 ? "8 tablespoons (113g) unsalted butter"
   ×1.5: 12 tablespoons (170g) unsalted butter
 ? "2/3 cup (142g) dark brown sugar, packed"
-  ×1.5: 1 cup (213g) dark brown sugar, packed
+  ×1.5: 1 cup (215g) dark brown sugar, packed
 ? "1/2 cup (113g) ripe (fed) sourdough starter or 1/2 cup plus 1 tablespoon (135g) sourdough discard"
   ×1.5: 3/4 cup (170g) ripe (fed) sourdough starter or 3/4 cup plus 1½ tablespoons (205g) sourdough discard
 ? "1/2 cup plus 2 tablespoons (75g) King Arthur Unbleached All-Purpose Flour"
@@ -2583,13 +2583,13 @@
 ? "1/2 cup (113g) milk, lukewarm; whole preferred"
   ×1.5: 3/4 cup (170g) milk, lukewarm; whole preferred
 ? "2 tablespoons (28g) water, lukewarm"
-  ×1.5: 3 tablespoons (42g) water, lukewarm
+  ×1.5: 3 tablespoons (40g) water, lukewarm
 ? "1 large egg yolk, white reserved for egg wash"
   ×1.5: 1½ large egg yolk, white reserved for egg wash
 ? "5 tablespoons (70g) unsalted butter, melted"
   ×1.5: 7½ tablespoons (105g) unsalted butter, melted
 ? "2 tablespoons (24g) granulated sugar"
-  ×1.5: 3 tablespoons (36g) granulated sugar
+  ×1.5: 3 tablespoons (35g) granulated sugar
 ? "1 cup plus 2 tablespoons (250g) ripe sourdough starter"
   ×1.5: 1½ cups plus 3 tablespoons (375g) ripe sourdough starter
 ? "2 teaspoons (6g) instant yeast"
@@ -2599,23 +2599,23 @@
 ? "4 cups (480g) King Arthur Unbleached Bread Flour"
   ×1.5: 6 cups (720g) King Arthur Unbleached Bread Flour
 ? "3 tablespoons (27g) non-diastatic malt powder or 2 tablespoons (26g) light brown sugar"
-  ×1.5: 4½ tablespoons (40g) non-diastatic malt powder or 3 tablespoons (39g) light brown sugar
+  ×1.5: 4½ tablespoons (40g) non-diastatic malt powder or 3 tablespoons (40g) light brown sugar
 ? "1/4 cup (28g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor"
-  ×1.5: ⅓ cup + ½ tbsp (42g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor
+  ×1.5: ⅓ cup + ½ tbsp (40g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor
 ? "1 1/3 to 1 1/2 cups (301g to 340g) water, lukewarm"
   ×1.5: 2 to 2 1/4 cups (450g to 510g) water, lukewarm
 ? "6 ounces (170g) cream cheese"
   ×1.5: 9 ounces (255g) cream cheese
 ? "2 tablespoons (14g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor"
-  ×1.5: 3 tablespoons (21g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor
+  ×1.5: 3 tablespoons (20g) King Arthur Better Cheddar Cheese Powder, optional, for enhanced flavor
 ? "3/4 cup (85g) cheddar cheese, shredded"
   ×1.5: 1 cup + 2 tbsp (130g) cheddar cheese, shredded
 ? "1/3 cup (13g) chives or parsley, or other fresh herbs, optional"
   ×1.5: 1/2 cup (20g) chives or parsley, or other fresh herbs, optional
 ? "2 quarts (1814g) water"
-  ×1.5: 3 quarts (2721g) water
+  ×1.5: 3 quarts (2720g) water
 ? "2 tablespoons (18g) non-diastatic malt powder or 1 tablespoon (13g) light brown sugar"
-  ×1.5: 3 tablespoons (27g) non-diastatic malt powder or 1½ tablespoons (20g) light brown sugar
+  ×1.5: 3 tablespoons (25g) non-diastatic malt powder or 1½ tablespoons (20g) light brown sugar
 ? "1 1/2 cups (340g) warm water"
   ×1.5: 2 1/4 cups (510g) warm water
 ? "1 tablespoon (11g) active dry yeast"
@@ -2633,7 +2633,7 @@
 ? "1/2 cup (113g) light cream"
   ×1.5: 3/4 cup (170g) light cream
 ? "1 tablespoon (14g) butter, melted"
-  ×1.5: 1½ tablespoons (21g) butter, melted
+  ×1.5: 1½ tablespoons (20g) butter, melted
 ? "1/3 cup (39g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 1/2 cup (60g) King Arthur Unbleached All-Purpose Flour
 ? "1 tablespoon (21g) light corn syrup or dark corn syrup"
@@ -2643,9 +2643,9 @@
 ? "1 teaspoon lemon juice"
   ×1.5: 1½ teaspoons lemon juice
 ? "1 to 2 tablespoons (14g to 28g) crème fraîche or sour cream, for topping"
-  ×1.5: 1½ to 3 tablespoons (21g to 42g) crème fraîche or sour cream, for topping
+  ×1.5: 1½ to 3 tablespoons (20g to 40g) crème fraîche or sour cream, for topping
 ? "1/4 cup (46g) potato flour or 3/4 cup (46g) dried potato flakes (instant mashed potatoes)"
-  ×1.5: ⅓ cup + ½ tbsp (69g) potato flour or 1 cup + 2 tbsp (69g) dried potato flakes (instant mashed potatoes)
+  ×1.5: ⅓ cup + ½ tbsp (70g) potato flour or 1 cup + 2 tbsp (70g) dried potato flakes (instant mashed potatoes)
 ? "one 8-ounce package (227g) cream cheese, at room temperature"
   ×1.5: 1½ 8-ounce packages (340g) cream cheese, at room temperature
 ? "3/4 cup (170g) buttermilk, or 1/2 cup (113g) plain yogurt thinned with 1/4 cup (57g) milk"
@@ -2655,9 +2655,12 @@
   ×1.5: 18 tablespoons (255g) unsalted butter, softened (about 21°C)
 ? "4 cups plus 2 1/2 tablespoons (500g) King Arthur Unbleached Bread Flour"
   ×1.5: 6 cups plus 3½ tbsp + ¾ tsp (750g) King Arthur Unbleached Bread Flour
-? "3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 1/4\"-1/2\" pieces or [product-link]chocolate chips[/product-link]"
+✗ "3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 1/4\"-1/2\" pieces or [product-link]chocolate chips[/product-link]"
   metric: 1.8 dl to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]
-  ×1.5: 2.7 dl to 1 cup + 2 tbsp plus 3 tablespoons (192g to 225g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]
+  ×1.5: 2.7 dl to 1 cup + 2 tbsp plus 3 tablespoons (190g to 225g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]
+  want:
+  metric: 3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]
+  ×1.5: 1 cup + 2 tbsp to 1 cup + 2 tbsp plus 3 tablespoons (190g to 225g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]
 ? "3 tablespoons (21g) cornstarch or 1/4 cup plus 2 teaspoons (35g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 4½ tablespoons (30g) cornstarch or ⅓ cup + ½ tbsp plus 3 teaspoons (55g) King Arthur Unbleached All-Purpose Flour
 ? "1 1/4 cups plus 1 tablespoon (295g) water"
@@ -2670,7 +2673,7 @@
 ? "1/8 teaspoon orange oil or 1 teaspoon orange zest"
   ×1.5: 1/8 teaspoon orange oil or 1½ teaspoons orange zest
 ? "1 cup plus 1 tablespoon (242g) water, divided"
-  ×1.5: 1½ cups plus 1½ tablespoons (363g) water, divided
+  ×1.5: 1½ cups plus 1½ tablespoons (365g) water, divided
 ? "1/4 cup plus 2 teaspoons (60g) light brown sugar or dark brown sugar, packed"
   ×1.5: ⅓ cup + ½ tbsp plus 3 teaspoons (90g) light brown sugar or dark brown sugar, packed
 ? "1 batch Pâte à Choux"
@@ -2681,13 +2684,13 @@
   metric: 12 tablespoons (170g) unsalted butter, at room temperature, at least 18°C
   ×1.5: 18 tablespoons (255g) unsalted butter, at room temperature, at least 18°C
 ? "2/3 cup plus 1 tablespoon (88g) King Arthur Unbleached Cake Flour"
-  ×1.5: 1 cup plus 1½ tablespoons (132g) King Arthur Unbleached Cake Flour
+  ×1.5: 1 cup plus 1½ tablespoons (130g) King Arthur Unbleached Cake Flour
 ? "2 cups plus 1 tablespoon (247g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 3 cups plus 1½ tablespoons (370g) King Arthur Unbleached All-Purpose Flour
 ? "1/2 cup plus 1 tablespoon (64g) confectioners' sugar"
-  ×1.5: 3/4 cup plus 1½ tablespoons (96g) confectioners' sugar
+  ×1.5: 3/4 cup plus 1½ tablespoons (95g) confectioners' sugar
 ? "2 3/4 cups plus 2 tablespoons (326g) walnuts, shelled"
-  ×1.5: 4 cups plus 3 tablespoons (489g) walnuts, shelled
+  ×1.5: 4 cups plus 3 tablespoons (490g) walnuts, shelled
 ? "4 tablespoons plus 1 teaspoon (91g) honey"
   ×1.5: 6 tablespoons plus 1½ teaspoons (135g) honey
 ? "3/4 cup plus 1 tablespoon (161g) granulated sugar"
@@ -2695,12 +2698,12 @@
 ? "1/3 cup plus 2 tablespoons (90g) vegetable oil"
   ×1.5: 1/2 cup plus 3 tablespoons (135g) vegetable oil
 ? "two 8-ounce packages (452g) cream cheese, at room temperature"
-  ×1.5: three 8-ounce packages (678g) cream cheese, at room temperature
+  ×1.5: three 8-ounce packages (680g) cream cheese, at room temperature
 ? "two 8-ounce packages (454g) cream cheese, at room temperature"
-  ×1.5: three 8-ounce packages (681g) cream cheese, at room temperature
+  ×1.5: three 8-ounce packages (680g) cream cheese, at room temperature
 ? "1 3/4 cups (398g) water or milk, hot (115°F to 120°F)"
   metric: 1 3/4 cups (398g) water or milk, hot (46–49°C)
-  ×1.5: 2 2/3 cups (597g) water or milk, hot (46–49°C)
+  ×1.5: 2 2/3 cups (595g) water or milk, hot (46–49°C)
 ? "half an 8-ounce package (113g) cream cheese, softened*"
   ×1.5: ¾ 8-ounce package (170g) cream cheese, softened*
 ? "3/4 cup (170g) water, lukewarm (100°F)"
@@ -2722,17 +2725,17 @@
 ? "3/4 cup (90g) plus 1/3 cup (40g) water-milled glutinous rice flour, divided; plus more as needed*"
   ×1.5: 1 cup + 2 tbsp (135g) plus 1/2 cup (60g) water-milled glutinous rice flour, divided; plus more as needed*
 ? "1/2 cup plus 1 tablespoon (128g) water"
-  ×1.5: 3/4 cup plus 1½ tablespoons (192g) water
+  ×1.5: 3/4 cup plus 1½ tablespoons (190g) water
 ? "3/4 cup plus 1 tablespoon (184g) water"
-  ×1.5: 1 cup + 2 tbsp plus 1½ tablespoons (276g) water
+  ×1.5: 1 cup + 2 tbsp plus 1½ tablespoons (275g) water
 ? "2 cups (240g) King Arthur Unbleached All-Purpose Flour or 2 cups (212g) King Arthur Pastry Flour"
-  ×1.5: 3 cups (360g) King Arthur Unbleached All-Purpose Flour or 3 cups (318g) King Arthur Pastry Flour
+  ×1.5: 3 cups (360g) King Arthur Unbleached All-Purpose Flour or 3 cups (320g) King Arthur Pastry Flour
 ? "1 cup (170g) blueberries or 1 cup (184g) King Arthur Blueberry Jammy Bits"
-  ×1.5: 1½ cups (255g) blueberries or 1½ cups (276g) King Arthur Blueberry Jammy Bits
+  ×1.5: 1½ cups (255g) blueberries or 1½ cups (275g) King Arthur Blueberry Jammy Bits
 ? "6 1/2 tablespoons (93g) lard or unsalted butter, plus 2 to 3 tablespoons (28g to 42g) for shaping"
-  ×1.5: 10 tablespoons (140g) lard or unsalted butter, plus 3 to 4½ tablespoons (42g to 63g) for shaping
+  ×1.5: 10 tablespoons (140g) lard or unsalted butter, plus 3 to 4½ tablespoons (40g to 65g) for shaping
 ? "1/3 cup plus 1 tablespoon (78g) granulated sugar"
-  ×1.5: 1/2 cup plus 1½ tablespoons (117g) granulated sugar
+  ×1.5: 1/2 cup plus 1½ tablespoons (115g) granulated sugar
 ? "1/2 cup cold water water, plus 1 to 2 tablespoons additional water as needed"
   metric: 1.2 dl cold water water, plus 1 to 2 tablespoons additional water as needed
   ×1.5: 1.8 dl cold water water, plus 1½ to 3 tablespoons additional water as needed
@@ -2749,18 +2752,18 @@
   ×1.5: 6 tablespoons (85g) melted butter (or 6 tablespoons (75g) vegetable oil)
 ? "9 tablespoons (128g) unsalted butter, at room temperature, at least 65°F"
   metric: 9 tablespoons (128g) unsalted butter, at room temperature, at least 18°C
-  ×1.5: 13½ tablespoons (192g) unsalted butter, at room temperature, at least 18°C
+  ×1.5: 13½ tablespoons (190g) unsalted butter, at room temperature, at least 18°C
 ? "1 1/2 cups (340g) water, barely lukewarm (about 78°F)"
   metric: 1 1/2 cups (340g) water, barely lukewarm (about 26°C)
   ×1.5: 2 1/4 cups (510g) water, barely lukewarm (about 26°C)
 ? "1 2/3 cups (378g) water, warm (about 100°F)"
   metric: 1 2/3 cups (378g) water, warm (about 38°C)
-  ×1.5: 2 1/2 cups (567g) water, warm (about 38°C)
+  ×1.5: 2 1/2 cups (565g) water, warm (about 38°C)
 ? "1 teaspoon Instant Clearjel or 1 tablespoon King Arthur Unbleached All-Purpose Flour"
   ×1.5: 1½ teaspoons Instant Clearjel or 1½ tablespoons King Arthur Unbleached All-Purpose Flour
 ? "2/3 cup (152g) milk, whole preferred; warm (90°F to 100°F)"
   metric: 2/3 cup (152g) milk, whole preferred; warm (32–38°C)
-  ×1.5: 1 cup (228g) milk, whole preferred; warm (32–38°C)
+  ×1.5: 1 cup (230g) milk, whole preferred; warm (32–38°C)
 ? "1 batch frangipane (about 1 3/4 cups or 360g), at room temperature"
   metric: 1 batch frangipane (about 4.1 dl or 360g), at room temperature
   us: 1 batch frangipane (about 1 3/4 cups or 13 oz), at room temperature
@@ -2780,14 +2783,14 @@
 ? "1/4 cup (43g) potato flour or 1/2 cup (43g) dried potato flakes (instant mashed potatoes)"
   ×1.5: ⅓ cup + ½ tbsp (65g) potato flour or 3/4 cup (65g) dried potato flakes (instant mashed potatoes)
 ? "1 tablespoon (14g) orange zest or 1/8 teaspoon orange oil"
-  ×1.5: 1½ tablespoons (21g) orange zest or 1/8 teaspoon orange oil
+  ×1.5: 1½ tablespoons (20g) orange zest or 1/8 teaspoon orange oil
 ? "2 cups (240g) King Arthur Unbleached All-Purpose Flour or 2 cups (227g) King Arthur Pastry Flour Blend"
   ×1.5: 3 cups (360g) King Arthur Unbleached All-Purpose Flour or 3 cups (340g) King Arthur Pastry Flour Blend
 ? "two 1/4-ounce packages unflavored gelatin"
   metric: two 7 g packages unflavored gelatin
   ×1.5: three 7 g packages unflavored gelatin
 ? "2 1/2 tablespoons (28g) Instant Clearjel or 1/3 cup (40g) King Arthur Unbleached All-Purpose Flour"
-  ×1.5: 3½ tbsp + ¾ tsp (42g) Instant Clearjel or 1/2 cup (60g) King Arthur Unbleached All-Purpose Flour
+  ×1.5: 3½ tbsp + ¾ tsp (40g) Instant Clearjel or 1/2 cup (60g) King Arthur Unbleached All-Purpose Flour
 ? "1/2 cup (113g) coconut oil or 8 tablespoons (113g) unsalted butter, room temperature"
   ×1.5: 3/4 cup (170g) coconut oil or 12 tablespoons (170g) unsalted butter, room temperature
 ? "1/4 cup (61g) coconut milk or 1/4 cup (57g) heavy cream"
@@ -2803,7 +2806,7 @@
 ? "1 teaspoon King Arthur Pure Vanilla Extract or 1/4 teaspoon King Arthur Fiori di Sicilia"
   ×1.5: 1½ teaspoons King Arthur Pure Vanilla Extract or 1/4 teaspoon King Arthur Fiori di Sicilia
 ? "1/2 cup (78g) maple sugar or 1/2 cup (106g) brown sugar, packed"
-  ×1.5: 3/4 cup (117g) maple sugar or 3/4 cup (159g) brown sugar, packed
+  ×1.5: 3/4 cup (115g) maple sugar or 3/4 cup (160g) brown sugar, packed
 ? "3 tablespoons plus 1/2 cup (61g) old-fashioned rolled oats, divided*"
   metric: 3 tablespoons plus 1.2 dl (61g) old-fashioned rolled oats, divided*
   ×1.5: 4½ tablespoons plus 1.8 dl (90g) old-fashioned rolled oats, divided*
@@ -7907,7 +7910,7 @@
   ×1.5: 2 1/4 dl mannasuurimoita
 ? "242 g (2 levyä, à 121 g) Fazerina-suklaata"
   us: 9 unssia (2 levyä, à 4 unssia) Fazerina-suklaata
-  ×1.5: 363 g (3 levyä, à 121 g) Fazerina-suklaata
+  ×1.5: 365 g (3 levyä, à 121 g) Fazerina-suklaata
 ? "1 kg Tuoreita silakoita tai 600 g silakkafileitä"
   us: 2¼ paunaa Tuoreita silakoita tai 21 unssia silakkafileitä
   ×1.5: 1,5 kg Tuoreita silakoita tai 900 g silakkafileitä
@@ -9153,7 +9156,7 @@
   ×1.5: 300g/10½oz medium dried egg noodles
 ? "396g pack firm tofu, drained, dried, cut into 8 rectangular slices"
   us: 14 oz pack firm tofu, drained, dried, cut into 8 rectangular slices
-  ×1.5: 594g pack firm tofu, drained, dried, cut into 8 rectangular slices
+  ×1.5: 595g pack firm tofu, drained, dried, cut into 8 rectangular slices
 ? "2-3 tsp sunflower oil"
   ×1.5: 3-4½ tsp sunflower oil
 ? "4 large free-range eggs"

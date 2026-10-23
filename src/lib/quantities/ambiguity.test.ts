@@ -127,7 +127,7 @@ describe('"mm"', () => {
     )
   })
 
-  // The corpus has no "mm" meaning maustemitta; see corpus/README.md.
+  // The corpus has no "mm" meaning maustemitta.
   it('is maustemitta as the first amount of a Finnish line (notation)', () => {
     expect(isMaustemitta('1 mm suolaa', [2, 4], 'fi', true)).toBe(true)
     expect(isMaustemitta('1 mm suolaa', [2, 4], 'fi', false)).toBe(false)
