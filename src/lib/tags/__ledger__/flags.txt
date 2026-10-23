@@ -3,19 +3,28 @@
 # ✓: flagging them is fine. ✗ (want: apart): they should not be flagged.
 # Written by the tests; see src/test/ledger.ts for how to update it.
 #
-# 15 entries: 15 checked, of which 1 wrong; 0 unchecked.
+# 19 entries: 19 checked, of which 2 wrong; 0 unchecked.
 
-## corpus : 1137 tags, 15 other pairs flagged
+## corpus : 1137 tags, 19 other pairs flagged
 
+✓ "asia ~ asian"
+  flagged
 ✓ "bake ~ baked"
   flagged
 ✓ "bake ~ baking"
   flagged
 ✓ "baked ~ baking"
   flagged
+✓ "chile ~ chiliä"
+  flagged
+✗ "chill ~ chilli"
+  flagged
+  want: apart
 ✓ "filled ~ filling"
   flagged
 ✓ "green ~ greens"
+  flagged
+✓ "italia ~ italian"
   flagged
 ✓ "mix ~ mixed"
   flagged

@@ -1,15 +1,9 @@
 import { foldText, wordKeys } from '@/lib/words'
 import type { Language } from '@/lib/quantities/numbers'
 
+// Tags have no language of their own, so they are read by the rules of
+// both.
 const LANGUAGES: ReadonlyArray<Language> = ['fi', 'en']
-
-// A tag and the languages of the recipes that have it. Tags have no
-// language of their own, so it is read by the rules of these; a tag on no
-// recipe may be in any language.
-export type Tag = {
-  readonly name: string
-  readonly languages: ReadonlyArray<Language>
-}
 
 // A tag's name as stored: lowercase, with spaces trimmed and collapsed.
 export function normaliseTag(name: string): string {
@@ -72,31 +66,19 @@ export function sameTag(
 }
 
 // Every pair of tags that may be one tag, in the order of the list, for
-// someone to review. Nothing is merged. Two tags are compared in the
-// languages they share, so tags in different languages never are: "pork"
-// on English recipes and "porkkana" on Finnish ones.
+// someone to review. Nothing is merged. Each pair is compared by the rules
+// of both languages, as sameTag does.
 export function possibleDuplicates(
-  tags: ReadonlyArray<Tag>,
+  tags: ReadonlyArray<string>,
 ): Array<readonly [string, string]> {
-  const readings = tags.map(
-    (tag) =>
-      new Map(
-        (tag.languages.length > 0 ? tag.languages : LANGUAGES).map(
-          (language) => [language, read(tag.name, language)],
-        ),
-      ),
+  const readings = tags.map((tag) =>
+    LANGUAGES.map((language) => read(tag, language)),
   )
   const pairs: Array<readonly [string, string]> = []
   for (let i = 0; i < tags.length; i++) {
     for (let j = i + 1; j < tags.length; j++) {
-      const other = readings[j]
-      if (
-        [...readings[i]].some(([language, reading]) => {
-          const theirs = other.get(language)
-          return theirs !== undefined && same(reading, theirs)
-        })
-      ) {
-        pairs.push([tags[i].name, tags[j].name])
+      if (readings[i].some((reading, k) => same(reading, readings[j][k]))) {
+        pairs.push([tags[i], tags[j]])
       }
     }
   }

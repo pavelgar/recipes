@@ -23,6 +23,7 @@ kaali | kaalit
 kasvisruokareseptejä | kasvisruokareseptit
 keitot | keitto
 kääretorttu | kääretortut
+lasagne | lasagnet
 lisuke | lisukkeet
 marja | marjat
 nopea | nopeaa | nopeat

@@ -43,51 +43,24 @@ describe('sameTag', () => {
 
   it('checks constructor tags for duplicates', () => {
     expect(sameTag('constructor', 'constructors')).toBe(true)
-    const tags = ['constructor', 'dessert', 'constructors'].map((name) => ({
-      name,
-      languages: [],
-    }))
-    expect(possibleDuplicates(tags)).toEqual([['constructor', 'constructors']])
+    expect(
+      possibleDuplicates(['constructor', 'dessert', 'constructors']),
+    ).toEqual([['constructor', 'constructors']])
   })
 })
 
 describe('possibleDuplicates', () => {
-  // Languages as in the corpus.
-  it('compares tags only in the languages of their recipes', () => {
-    const tags = [
-      { name: 'pizza', languages: ['en'] },
-      { name: 'pizzat', languages: ['fi'] },
-      { name: 'chill', languages: ['en'] },
-      { name: 'chilli', languages: ['en'] },
-    ] as const
-    expect(sameTag('pizza', 'pizzat')).toBe(true)
-    expect(sameTag('chill', 'chilli')).toBe(true)
-    expect(possibleDuplicates(tags)).toEqual([])
-  })
-
-  it('reads a tag on no recipe in every language', () => {
-    const tags = [
-      { name: 'jälkiruoka', languages: ['fi'] },
-      { name: 'jälkiruoat', languages: [] },
-      { name: 'desserts', languages: [] },
-      { name: 'dessert', languages: ['en'] },
-    ] as const
-    expect(possibleDuplicates(tags)).toEqual([
-      ['jälkiruoka', 'jälkiruoat'],
-      ['desserts', 'dessert'],
-    ])
+  // Tags from the corpus: "pizza" from an English site, "pizzat" from a
+  // Finnish one.
+  it('reads every tag by the rules of both languages', () => {
+    expect(
+      possibleDuplicates(['jälkiruoka', 'pizza', 'desserts', 'pizzat']),
+    ).toEqual([['pizza', 'pizzat']])
   })
 })
 
-// Every corpus tag, with the languages of the sites that use it.
-const tags = [
-  ...corpusTags
-    .reduce((all, tag) => {
-      const name = normaliseTag(tag.text)
-      return all.set(name, (all.get(name) ?? new Set()).add(tag.language))
-    }, new Map<string, Set<Language>>())
-    .entries(),
-].map(([name, languages]) => ({ name, languages: [...languages] }))
+// Every corpus tag.
+const tags = [...new Set(corpusTags.map((tag) => normaliseTag(tag.text)))]
 
 // src/lib/tags/__tags__/duplicates.txt: one tag per line, its forms
 // separated by " | ", under a heading for the language they are read in
@@ -109,7 +82,7 @@ const duplicates = readFileSync('src/lib/tags/__tags__/duplicates.txt', 'utf8')
 
 describe('the tag answer key', () => {
   it('lists tags of the corpus', () => {
-    const names = new Set(tags.map((tag) => tag.name))
+    const names = new Set(tags)
     const forms = duplicates.flatMap((group) => group.forms)
     expect(forms.filter((tag) => !names.has(tag))).toEqual([])
   })
