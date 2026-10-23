@@ -2,7 +2,7 @@
 
 ## What it is
 
-- A self-hosted recipe app for one household.
+- An open-source, self-hostable recipe management app for households.
 - Mobile-first, responsive, installable as a PWA.
 - One shared recipe collection for everyone. No accounts, no logins.
 - Distributed as a Docker/Podman image that runs anywhere containers run.
@@ -28,8 +28,8 @@
 - The documentation describes two setups: Tailscale (a ts.net address, also
   reachable away from home), and a home network with a reverse proxy such as
   Caddy and your own domain.
-- Test environment: a home server running Podman, Caddy with my own domain
-  and a Let's Encrypt certificate, and Tailscale.
+- Test environment: a home server running Podman, Caddy with a custom
+  domain and a Let's Encrypt certificate, and Tailscale.
 - The image is based on Node 24 LTS, and the app runs on Node. Bun, copied
   from the official Bun image, is used only at build time: installing
   packages and other build steps.

@@ -1,8 +1,9 @@
 # Recipes
 
-A self-hosted recipe app for one household: mobile-first, installable as
-a PWA, with a Finnish and English interface. It will be distributed as a
-container image. See [DESIGN.md](DESIGN.md) for the full brief.
+An open-source, self-hostable recipe management app for households:
+mobile-first, installable as a PWA, with a Finnish and English interface.
+It will be distributed as a container image. See [DESIGN.md](DESIGN.md)
+for the full brief.
 
 In early development.
 
