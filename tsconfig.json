@@ -1,5 +1,7 @@
 {
   "include": ["**/*.ts", "**/*.tsx", "eslint.config.js"],
+  // Type-checked with its own tsconfig.json.
+  "exclude": ["src/service-worker"],
 
   "compilerOptions": {
     "target": "ES2022",
@@ -9,7 +11,7 @@
       "@/*": ["./src/*"]
     },
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
+    "types": ["vite/client", "vite-plugin-pwa/vanillajs"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",

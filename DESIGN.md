@@ -352,6 +352,21 @@
 - Cover photos are resized and compressed when uploaded.
 - All recipe text and the optimised cover photos are cached for offline
   reading.
+- The server renders the page around the screens: the document, the menu,
+  the interface language and the sidebar. Screens render in the browser
+  from data loaded through server functions. Any page the server sends can
+  then start the app at any address, so the service worker keeps the latest
+  one and serves it for every address offline.
+- The service worker is built with Workbox, through vite-plugin-pwa. It
+  caches the app's built files when it installs. Pages and data (server
+  functions that read) come from the server, or from the cache when the
+  server doesn't answer within 3 seconds.
+- A new version takes over as soon as it's installed, and open pages reload
+  into it. Revisit once the editor exists, so that an update never reloads
+  over unsaved input.
+- Until recipe caching is built (M4), data is offline only once it has been
+  read online. A screen whose data was never read shows the default error
+  page offline.
 
 ## Not now
 
@@ -381,8 +396,9 @@
   - The data model includes from day one what's costly to add later:
     original lines, measuring system, sections, cooked dates, and deletions
     that can be undone.
-  - A small prototype proves that TanStack Start and a service worker can
-    serve the app offline, before much is built on top of it.
+  - A small prototype proved that TanStack Start and a service worker can
+    serve the app offline, before much was built on top of it. The way
+    screens render and the service worker under Offline come from it.
 - M2, getting recipes in: website import with the review step, cover photos,
   tags and the tag screen, nightly backups.
 - M3, everyday use: home rows, the meal queue, cooking aids (screen kept
@@ -400,6 +416,8 @@
   screen.
 - Text is set in Atkinson Hyperlegible Next, headings in Bitter. These
   replace the preset's own fonts (Figtree, Noto Serif).
+- The app icon is a placeholder until a real one is designed: a white
+  Bitter Bold R on the theme orange (`public/favicon.svg`).
 - The menu has Home, Library, Add, Queue and Settings. Phones show it as a
   bottom bar floating as a pill; wider screens as an inset sidebar that
   collapses to icons, headed by the app name in the interface language

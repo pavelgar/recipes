@@ -8,8 +8,9 @@ import viteReact, { reactCompilerPreset } from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
 import tailwindcss from '@tailwindcss/vite'
 import { nitro } from 'nitro/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
-import type { Rolldown } from 'vite'
+import type { Plugin, Rolldown } from 'vite'
 
 // "use client" only matters for React Server Components, which this app
 // doesn't use, so Rolldown dropping it from dependencies is fine.
@@ -26,6 +27,17 @@ const dropUseClientWarnings: NonNullable<Rolldown.InputOptions['onLog']> = (
   }
   handler(level, log)
 }
+
+// Start builds the client, the server and Nitro as separate Vite
+// environments, and plugins run in each of them. The service worker belongs
+// to the client build only: built there once, it lands in Nitro's public
+// folder before Nitro lists the files it serves, which it does only once.
+const inClientBuildOnly = (plugins: Array<Plugin>) =>
+  plugins.map((plugin) => ({
+    ...plugin,
+    applyToEnvironment: (environment: { name: string }) =>
+      environment.name === 'client',
+  }))
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
@@ -54,6 +66,27 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
+    ...inClientBuildOnly(
+      VitePWA({
+        strategies: 'injectManifest',
+        srcDir: 'src/service-worker',
+        filename: 'sw.ts',
+        // Nitro's public folder, where the client build goes too.
+        outDir: '.output/public',
+        // src/client.tsx registers it; a server route serves the manifest.
+        injectRegister: false,
+        manifest: false,
+        registerType: 'autoUpdate',
+        // From public/, which is copied after the precache list is made.
+        // Installed apps keep their own copy of the manifest icons.
+        includeAssets: ['favicon.ico', 'favicon.svg'],
+        injectManifest: {
+          // A classic script, which every browser runs as a service worker.
+          rollupFormat: 'iife',
+          globPatterns: ['**/*.{js,css,woff2}'],
+        },
+      }),
+    ),
   ],
 })
 
