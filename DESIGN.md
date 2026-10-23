@@ -366,10 +366,10 @@
 - M0, core logic without UI: the ingredient parser for Finnish and English,
   unit conversion and formatting, Finnish word handling for search and tags,
   and the test suite of real recipe lines, conversions and searches.
-- M1, the basic loop: choose the design direction; type a recipe with
-  recognition as you type; recipe view with unit conversion and adjustable
-  servings; library with sorting and search; Finnish and English interface;
-  Docker image, installable as an app.
+- M1, the basic loop: type a recipe with recognition as you type; recipe
+  view with unit conversion and adjustable servings; library with sorting
+  and search; Finnish and English interface; Docker image, installable as
+  an app.
   - Search runs in the browser from the start, so it doesn't have to be
     rebuilt for offline later.
   - The data model includes from day one what's costly to add later:
@@ -386,14 +386,14 @@
 - Early, alongside the milestones: try a few real cookbook photos against
   one cloud model and one local model.
 
-## Design direction
+## Visual design
 
-Before building any UI, propose 3 visual directions drawn from the subject
-itself (for example: a well-set printed cookbook, a box of index cards,
-kitchen equipment). For each, give one sentence of intent, a palette as CSS
-variables with hex values, a type pairing, and a description of the recipe
-view on a phone. Wait for me to choose, then hold that direction on every
-screen.
+- Use the shadcn/ui preset the project is set up with: the Maia style on
+  Base UI, the stone base colour and Phosphor icons (`components.json`).
+  Hold it on every screen.
+- Text is set in Atkinson Hyperlegible Next, headings in Bitter.
+- No up-front design proposals. Set up the basics first, then iterate on the
+  UI with me bit by bit.
 
 ## Avoid (common defaults for apps like this)
 
@@ -403,7 +403,6 @@ screen.
 - Emoji as icons, chef-hat logos, cheerful filler copy
 - Purple gradients, a generic green/orange food palette, Inter or system
   fonts as the only typeface
-  For each, say what you are doing instead.
 
 ## Working rules
 
