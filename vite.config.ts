@@ -41,7 +41,14 @@ const config = defineConfig({
     }),
     nitro({
       plugins: ['./src/nitro/check-env.ts'],
-      rolldownConfig: { onLog: dropUseClientWarnings },
+      rolldownConfig: {
+        onLog: dropUseClientWarnings,
+        // Otherwise Rolldown can put its CommonJS helper in a chunk that runs
+        // after a chunk that needs it, and the server stops at start with
+        // "__commonJSMin is not a function" (rolldown/rolldown#9993). The
+        // first server function in the app was enough to cause it.
+        output: { strictExecutionOrder: true },
+      },
     }),
     tailwindcss(),
     tanstackStart(),
