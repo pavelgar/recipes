@@ -9,6 +9,10 @@ COPY package.json bun.lock ./
 RUN --mount=type=cache,target=/root/.bun/install/cache \
     bun install --frozen-lockfile
 COPY . .
+# The version and commit the settings screen shows, passed in by CI. Builds
+# without them show "development".
+ARG VITE_APP_VERSION
+ARG VITE_APP_COMMIT
 RUN bun run build
 
 FROM docker.io/library/node:24-slim
