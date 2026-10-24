@@ -1,4 +1,30 @@
-import { createCsrfMiddleware, createStart } from '@tanstack/react-start'
+import {
+  createCsrfMiddleware,
+  createMiddleware,
+  createStart,
+} from '@tanstack/react-start'
+import { getCookie, setCookie } from '@tanstack/react-start/server'
+
+import { DISPLAY_SYSTEM_COOKIE } from '@/lib/display-system'
+import { PREFERENCE_MAX_AGE } from '@/lib/preferences'
+import { THEME_COOKIE } from '@/lib/theme'
+import { cookieName as LOCALE_COOKIE } from '@/paraglide/runtime'
+
+// The interface language, units and theme are set per device, in cookies
+// the browser writes. Safari keeps a cookie written in the browser for 7 days
+// at most, so they would reset after a week away. The same cookie sent
+// from the server lasts as long as it asks, so every page renews them.
+const renewPreferences = createMiddleware().server(({ next, handlerType }) => {
+  if (handlerType === 'router') {
+    for (const name of [LOCALE_COOKIE, DISPLAY_SYSTEM_COOKIE, THEME_COOKIE]) {
+      const value = getCookie(name)
+      if (value) {
+        setCookie(name, value, { maxAge: PREFERENCE_MAX_AGE, sameSite: 'lax' })
+      }
+    }
+  }
+  return next()
+})
 
 export const startInstance = createStart(() => ({
   // The server renders the page around the screens: the document, the menu,
@@ -11,5 +37,6 @@ export const startInstance = createStart(() => ({
   // own pages only when this file doesn't exist.
   requestMiddleware: [
     createCsrfMiddleware({ filter: (ctx) => ctx.handlerType === 'serverFn' }),
+    renewPreferences,
   ],
 }))

@@ -1,6 +1,7 @@
 import {
   HeadContent,
   Outlet,
+  ScriptOnce,
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
@@ -9,6 +10,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import { AppShell, getSidebarOpen } from '@/components/app-shell'
 import { Toaster } from '@/components/ui/toast'
+import { themeScript } from '@/lib/theme'
 import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
 
 import { m } from '@/paraglide/messages'
@@ -84,8 +86,11 @@ function RootLayout() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={getLocale()}>
+    // The theme script below sets the theme on <html> before React starts.
+    <html lang={getLocale()} suppressHydrationWarning>
       <head>
+        {/* Before anything paints, so a dark page never flashes light. */}
+        <ScriptOnce children={themeScript} />
         <HeadContent />
       </head>
       <body>

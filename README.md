@@ -72,7 +72,9 @@ those files yours, run with `--userns=keep-id` instead of `PUID` and
 `-v ./data:/data:Z`.
 
 To build the image yourself, run `podman build -t recipes .` in this
-folder.
+folder. The app's settings then call it a development version; CI passes
+the version and commit in with `--build-arg VITE_APP_VERSION=…` and
+`--build-arg VITE_APP_COMMIT=…`.
 
 ## Development
 

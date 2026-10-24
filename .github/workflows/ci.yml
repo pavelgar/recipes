@@ -66,5 +66,9 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
+          # Shown in the app's settings: 1.2.3 or edge, and the commit.
+          build-args: |
+            VITE_APP_VERSION=${{ steps.meta.outputs.version }}
+            VITE_APP_COMMIT=${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

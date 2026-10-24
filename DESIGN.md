@@ -6,7 +6,9 @@
 - Mobile-first, responsive, installable as a PWA.
 - One shared recipe collection for everyone. No accounts, no logins.
 - Distributed as a Docker/Podman image that runs anywhere containers run.
-- Licensed under AGPL-3.0-only. Settings links to the source code.
+- Licensed under AGPL-3.0-only. Settings links to the source code of the
+  running version, and shows that version (1.2.3, or edge for a build from
+  main) with the commit it was built from.
 
 ## Decided
 
@@ -20,8 +22,18 @@
   works, with fewer features. Browsers allow some features only over HTTPS:
   installing the app, offline use (service workers) and keeping the screen
   awake. Over HTTP these are unavailable, and the app degrades quietly
-  instead of breaking. Settings shows one line, only over HTTP, saying that
-  installing and offline use need HTTPS.
+  instead of breaking. Settings has an item for installing the app:
+  - Where the browser lets the page open its install dialog (Chrome, Edge,
+    Samsung Internet), an Install button opens it.
+  - Elsewhere it gives numbered steps for installing from the browser's own
+    menu: Share, then Add to Home Screen on iPhone and iPad; Share, then Add
+    to Dock in Safari on a Mac. Next to the name of each button to tap is a
+    Lucide icon like it, since the device may be in another language than
+    the app, so the name in the step may not match. Firefox on a computer
+    can't install web apps, and the item says so.
+  - Over HTTP its description says that installing and offline use need
+    HTTPS, and the Install button is disabled.
+  - In the installed app it shows a disabled Installed button.
 - Core features (adding, viewing, searching, importing, converting) must
   work over plain HTTP, so they can't depend on HTTPS-only browser APIs (for
   example crypto.randomUUID or the Cache API).
@@ -69,6 +81,11 @@
   recipe extractor.
 - Use es-toolkit for common utilities and pluralize to generate English
   unit plurals from singular spellings.
+- Use date-fns for working with dates, and countries-and-timezones to tell
+  which country a time zone belongs to.
+- Render translations that mark words for the app to draw (such as a
+  button's name with its icon) with Paraglide's React adapter,
+  @inlang/paraglide-js-react.
 - Learn from existing projects (Mealie, Tandoor, RecipeSage, Norish,
   Cooklang, parse-ingredient, ingredient-parser), but don't copy their code.
   Write our own implementations, inspired by theirs.
@@ -134,7 +151,8 @@
   the recipe stays stored as written. Converted amounts should read the way
   a cook would write them, not like raw arithmetic.
 - The preferred unit system is set per device. The imperial display uses US
-  measures.
+  measures. Until someone picks one, a device uses US units when its time
+  zone is in the US, and metric everywhere else.
 - Each recipe has a measuring system setting (US, British, Australian,
   metric) that tells the app how to read its units. It is guessed on import
   from the site's domain, defaults to US for recipes typed in English and
@@ -427,6 +445,11 @@
   screen.
 - Text is set in Atkinson Hyperlegible Next, headings in Bitter. These
   replace the preset's own fonts (Figtree, Noto Serif).
+- Warnings are amber (`--warning` in `src/styles.css`), which the preset
+  doesn't have: Tailwind's amber-600, or amber-500 in dark mode.
+- Light and dark themes, from the preset. The theme is set per device
+  (System, Light, Dark); System, the default, follows the device's own
+  setting.
 - The app icon is a placeholder until a real one is designed: a white
   Bitter Bold R on the theme orange (`public/favicon.svg`).
 - The menu has Home, Library, Add, Queue and Settings. Phones show it as a
