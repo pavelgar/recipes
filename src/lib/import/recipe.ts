@@ -1,16 +1,19 @@
 import { decodeHTML } from 'entities'
 import { DomUtils } from 'htmlparser2'
 import { siteOf } from '@/lib/import/link'
+import { recipeLanguageOf, regionOf } from '@/lib/languages'
+import { recipeLanguage } from '@/lib/languages.server'
 import { isOfType, isThing, valuesOf } from '@/lib/import/schema-org'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
 import type { Section } from '@/db/schema'
 import type { ImportedRecipe } from '@/lib/import/types'
 import type { Page, Thing } from '@/lib/import/schema-org'
-import type { Language } from '@/lib/quantities'
 
 // Reads a schema.org Recipe, from JSON-LD or microdata, into what the app
-// keeps. A recipe needs ingredients or steps; without either, the page
-// has none worth importing.
+// keeps. A recipe needs steps or more than one ingredient; otherwise the
+// page has none worth importing. olivemagazine.com marks its collection
+// pages as a Recipe whose one ingredient is a list of keywords ("chicken,
+// chicken breasts, chicken thighs…") and which has no steps.
 export function readRecipe(
   recipe: Thing,
   {
@@ -29,18 +32,28 @@ export function readRecipe(
     readSteps(valuesOf(recipe, 'recipeInstructions'), resolve),
     title,
   )
-  if (ingredients.length === 0 && steps.length === 0) return null
+  if (steps.length === 0 && ingredients.length <= 1) return null
 
   const host = siteOf(pageUrl)
-  const language =
-    languageOf(firstText(valuesOf(recipe, 'inLanguage'))) ??
-    languageOf(htmlLang(page)) ??
-    (host.endsWith('.fi') ? 'fi' : 'en')
+  // The language tag the page states: the Recipe's own, then the page's.
+  const stated =
+    [firstText(valuesOf(recipe, 'inLanguage')), htmlLang(page)].find(
+      (tag) => recipeLanguageOf(tag) !== null,
+    ) ?? null
+  const language = recipeLanguage(
+    [title, ...ingredients, ...steps.flatMap(sectionText)]
+      .filter((text) => text !== null)
+      .join('\n'),
+    recipeLanguageOf(stated),
+  )
+  // The region it states ("en-GB") goes with the language it states, so it
+  // doesn't count where the text overrules the page.
+  const region = recipeLanguageOf(stated) === language ? regionOf(stated) : null
 
   return {
     title: title ?? host,
     language,
-    measuringSystem: guessMeasuringSystem(host, language),
+    measuringSystem: guessMeasuringSystem(host, language, region),
     servings: readServings([
       ...valuesOf(recipe, 'recipeYield'),
       ...valuesOf(recipe, 'yield'),
@@ -168,21 +181,69 @@ function readServings(values: Array<unknown>): string | null {
   return texts.find((text) => /\p{L}/u.test(text)) ?? texts.at(0) ?? null
 }
 
-// ISO 8601 durations, as schema.org asks: "PT1H30M" is 90 minutes. Zero
-// and other forms are taken as not given.
+// ISO 8601 durations, as schema.org asks: "PT1H30M" is 90 minutes. Some
+// sites write the time as text instead: "10 min" (jalotofu.fi), "30m"
+// (hellofresh.co.uk), "1 hour 15 minutes" (epicurious.com). A note after
+// a comma or in parentheses is left out: "30 minutes, plus cooling". Zero
+// and other forms, ranges among them, are taken as not given.
 export function readMinutes(values: Array<unknown>): number | null {
   const text = firstText(values)
+  const total = text === null ? null : (isoMinutes(text) ?? textMinutes(text))
+  return total !== null && total > 0 ? Math.round(total) : null
+}
+
+function isoMinutes(text: string): number | null {
   const match =
-    text &&
     /^P(?:(\d+(?:[.,]\d+)?)D)?(?:T(?:(\d+(?:[.,]\d+)?)H)?(?:(\d+(?:[.,]\d+)?)M)?(?:(\d+(?:[.,]\d+)?)S)?)?$/i.exec(
       text,
     )
   if (!match) return null
   const [days, hours, minutes, seconds] = match
     .slice(1)
-    .map((part) => (part ? Number(part.replace(',', '.')) : 0))
-  const total = Math.round(days * 24 * 60 + hours * 60 + minutes + seconds / 60)
-  return total > 0 ? total : null
+    .map((part) => (part ? decimal(part) : 0))
+  return days * 24 * 60 + hours * 60 + minutes + seconds / 60
+}
+
+// Minutes in each unit of a time written as text.
+const UNIT_MINUTES: Readonly<Partial<Record<string, number>>> = {
+  d: 24 * 60,
+  day: 24 * 60,
+  days: 24 * 60,
+  h: 60,
+  hr: 60,
+  hrs: 60,
+  hour: 60,
+  hours: 60,
+  m: 1,
+  min: 1,
+  mins: 1,
+  minute: 1,
+  minutes: 1,
+  s: 1 / 60,
+  sec: 1 / 60,
+  secs: 1 / 60,
+  second: 1 / 60,
+  seconds: 1 / 60,
+}
+
+// A time as amounts of units, "1 hour 15 minutes", or null. A decimal
+// comma ("1,5 h") isn't a note's comma, which a space follows.
+function textMinutes(text: string): number | null {
+  const [time] = text.split(/\s*(?:\(|,\s)/, 1)
+  if (!/^(?:\d+(?:[.,]\d+)?\s*\p{L}+\s*)+$/u.test(time)) return null
+  let total = 0
+  for (const [, amount, unit] of time.matchAll(
+    /(\d+(?:[.,]\d+)?)\s*(\p{L}+)/gu,
+  )) {
+    const minutes = UNIT_MINUTES[unit.toLowerCase()]
+    if (minutes === undefined) return null
+    total += decimal(amount) * minutes
+  }
+  return total
+}
+
+function decimal(text: string): number {
+  return Number(text.replace(',', '.'))
 }
 
 function publisherName(
@@ -237,8 +298,6 @@ function htmlLang(page: Page): string | null {
   return (html && DomUtils.getAttributeValue(html, 'lang')) ?? null
 }
 
-// "fi", "fi-FI" and "en-GB" name a language the app reads; others don't.
-function languageOf(tag: string | null): Language | null {
-  const primary = tag?.trim().toLowerCase().split(/[-_]/)[0]
-  return primary === 'fi' || primary === 'en' ? primary : null
+function sectionText(section: Section): Array<string | null> {
+  return [section.heading, ...section.lines]
 }

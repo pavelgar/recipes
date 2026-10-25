@@ -87,8 +87,9 @@
   button's name with its icon, or a link) with Paraglide's React adapter,
   @inlang/paraglide-js-react.
 - The website recipe extractor reads pages with htmlparser2, finds their
-  charset with encoding-sniffer, decodes HTML entities with entities and
-  repairs broken JSON-LD with jsonrepair. The server fetches pages with
+  charset with encoding-sniffer, decodes HTML entities with entities,
+  repairs broken JSON-LD with jsonrepair and identifies the language a
+  recipe is written in with franc. The server fetches pages with
   node-fetch, through request-filtering-agent, which refuses to connect to
   anything but a public address, redirects included. linkify-it finds the
   link in what is pasted into the add dialog, with the list of top-level
@@ -110,7 +111,12 @@
   and scan it from a photo, disabled until an AI provider is configured.
 - The dialog stays open while the page is read and names the site
   ("Reading valio.fi…"). If the page can't be read or has no recipe, it
-  says why there.
+  says why there, reading the site's answer by the standard meaning of its
+  status. A site that refuses the request (403) blocked the import, and
+  the message doesn't suggest trying again, even though some sites (Serious
+  Eats) refuse now and then and let the next request in. A check only a
+  browser passes is a block too, whatever its status: S-Kaupat sends its
+  check as a 429, which would otherwise read as a site to try again later.
 - On Android, the installed app appears in the share menu: sharing a page
   opens the dialog with its link filled in, waiting for the arrow.
 - On wider screens, pasting a link anywhere in the app outside a text
@@ -122,6 +128,44 @@
   form. All seven Finnish sites in the test corpus (Arla, Kotikokki,
   Kotiliesi, Meillä kotona, Soppa365, Valio, Yhteishyvä) publish JSON-LD.
   Microdata support stays for sites that use it.
+- Website import supports a page whose HTML, as the server sends it, holds
+  schema.org/Recipe data with steps, or with more than one ingredient: Olive
+  marks its collection pages as a Recipe whose one ingredient is a list of
+  keywords. It reads every standard form of that data and works around
+  mistakes many sites make, such as a stub Recipe before the full one, JSON
+  that doesn't parse, and times written as text ("10 min", "1 hour 15
+  minutes") instead of ISO 8601, but nothing is written for one site.
+- Import doesn't guess where a site's steps, sentences and headings start
+  and end, since no rule for it is reliable. Steps cut mid-sentence, run
+  together ("…pastan sekaan.Kiehauta…", "2.In a bowl") or with a heading
+  run onto their end come as the page publishes them, and someone fixes
+  them in the editor if they care to.
+- Not supported, and no parser is written for one site to make up for it:
+  pages without Recipe data (sydanmerkki.fi, martat.fi), recipes a page
+  draws with scripts after it loads (Gousto), recipes behind a login
+  (Nigella's members-only recipes), and sites that block requests not made
+  by a browser (see Not now). The app identifies itself, and doesn't pretend
+  to be a browser or run one to get past a block.
+- WP Recipe Maker, the recipe plugin most WordPress food sites use, leaves
+  its ingredient groups ("For the sauce") out of its JSON-LD. For a page
+  with its recipe cards, the server also asks the plugin's public REST API
+  for the recipe, and takes its groups as ingredient sections when the
+  answer is for the same recipe and ingredients. The lines stay as the
+  JSON-LD gives them. If the API doesn't answer, the ingredients stay one
+  list. Other recipe plugins, such as Tasty Recipes, keep their groups only
+  in the page's HTML, which isn't read.
+- An imported recipe's language is the one its page states (the Recipe's
+  own, then the page's), whichever language that is, unless its text is
+  long enough to tell (500 characters) and franc scores the stated language
+  below 0.95 of its first choice; then franc's first choice. Pages can
+  state the wrong language: kinuskikissa.fi gives its Finnish recipes
+  lang="en", which franc scores 0.86–0.92. franc can't tell Scots from
+  English (it scores Scots within 1% of English on almost every English
+  recipe, and first on some), so Scots is left out of what it finds. Its
+  first choice is still often wrong on short texts, so it overrules a page
+  only by a clear margin. A page that states no language takes franc's
+  first choice from enough text; otherwise the language is unknown until
+  someone chooses it in the editor.
 - Photo import sends the photo directly to a vision-capable AI model, with no
   separate OCR step.
 - Imported and photographed recipes open in the editor for review before
@@ -133,13 +177,14 @@
   what it's about: the name set as its heading, in a field like the
   others so it reads as editable; under it, for an import a line of small
   text that names its source as a link, for a typed recipe a source field,
-  and then the recipe language, labelled; under the Ingredients heading,
-  servings and measures side by side, since they decide how the amounts
-  read; under the Steps heading, the prep, cook and total times side by
-  side, each named under its box, where its name has room; and the
-  ingredients and steps as lists, with bullets and step numbers that start
-  again after each heading. Other fields without a visible label show an
-  icon and a placeholder instead, and each measures option names itself.
+  and then the recipe language and its measures side by side, since
+  together they decide how the amounts read, each labelled above its box
+  (see Recipes and Units); under the Ingredients heading, servings; under
+  the Steps heading, the prep, cook and total times side by side, each
+  labelled above its box, where its name has room; and the ingredients and
+  steps as lists, with bullets and step numbers that start again after
+  each heading. Other fields without a visible label show an icon and a
+  placeholder instead.
   Choices are in alphabetical order. A dropdown is the system's own picker
   on touch screens and the app's styled one with a mouse or trackpad. An
   empty list shows example lines, in the recipe's language: part of a
@@ -196,7 +241,30 @@
   sauce"). Recipes without sections must look and work just as well. In
   the editor, a line with no amount that ends with a colon is a section
   heading ("Etikkaliemi:"), as recipe sites publish them.
-- Recipes are in English and Finnish to begin with.
+- A recipe keeps the language it's written in, whichever that is: what it
+  is is a fact about the recipe, apart from which languages the app has
+  rules for. The app reads amounts (recognition, conversion, scaling) and
+  knows word forms in English and Finnish to begin with. A recipe in
+  another language is kept and shown as written, and the editor says so
+  under its language. It still has measures, which are as much a fact
+  about the recipe as its language. An unknown one asks for its language
+  to be chosen.
+- The recipe language offers the languages the app reads (English,
+  Finnish) first, above a divider, then every other language with a
+  two-letter code that the device can name; each group by its names in
+  the interface's language, alphabetically. The recipe's own is always
+  offered, in its place in the list; Unknown, while it's chosen, comes
+  first. Devices carry different language data: headless Chromium names
+  132 of the 183. A name two codes share is offered once.
+- When the language chosen doesn't fit the recipe's text, by the import's
+  rule (franc scores it below 0.95 of its first choice), the editor says
+  so under the language, with a tap to switch: "Written in Swedish? Switch
+  to it". It asks once the text has about 70 characters; with less,
+  franc's guesses are noise. Only one language is offered: franc's next
+  choices are mostly neighbours (Norwegian for Swedish) or noise. franc
+  runs on the server, so the app's download doesn't grow; the editor asks
+  when it opens, when a text field is left and when the language changes,
+  not as each letter is typed, and offers nothing without the server.
 
 ### Units
 
@@ -208,11 +276,21 @@
   measures. Until someone picks one, a device uses US units when its time
   zone is in the US, and metric everywhere else.
 - Each recipe has a measuring system setting (US, British, Australian,
-  metric) that tells the app how to read its units. It is guessed on import
-  from the site's domain, defaults to US for recipes typed in English and
-  metric for recipes typed in Finnish, and can be changed. The review step
-  shows it prominently, beside the ingredients ("US measures"), with a tap
-  to change it, since photographed and typed recipes have no domain to
+  metric) that tells the app how to read its units. A wrong one can't be
+  seen ("1 cup" reads the same either way), so it is guessed from what
+  pages publish, never asked. On import it is guessed from the site's
+  domain, then from the region the page states with the recipe's
+  language: en-GB is British, en-AU Australian, and a region whose
+  measures are metric, metric (en-NZ). The domain comes first, since a
+  British blog on WordPress can still state WordPress's default, en-US.
+  Otherwise, and for typed recipes, it is guessed from the recipe's
+  language: the measures of the region the language is most
+  likely written in, by CLDR's likely subtags, which the platform carries
+  (English is the US's, Scots Britain's, Finnish and Swedish metric), and
+  metric for an unknown language. Changing the language moves measures
+  that followed it; measures someone picked stay, since they may know
+  better. The editor shows them beside the language ("Metric"), with a tap
+  to change them, since photographed and typed recipes have no domain to
   guess from.
 - British measures: cup 250 ml, tablespoon 15 ml, pint 568 ml. Australian
   tablespoon: 20 ml.
@@ -299,6 +377,8 @@
 - Search covers titles and ingredients, in the language each recipe is
   written in. There is no matching across languages. Finnish ingredient
   names inflect (jauhot, jauhoja), so search has to match inflected forms.
+  A recipe in a language the app has no rules for matches its words as
+  written.
 - English words are stemmed with Snowball's English algorithm (Porter2),
   from wink-porter2-stemmer. Porter's original algorithm, in
   @orama/stemmers, also brought "on" and "one" together, and "us" and
@@ -462,7 +542,8 @@
   "vehnäjauhoja"). A later improvement. The first part already matches as
   you type ("kana" finds "kanapata").
 - Importing from sites that block requests not made by a browser, such as
-  K-Ruoka.
+  K-Ruoka, S-Kaupat and maangchi.com. The add dialog says the site blocked
+  the import.
 - Importing recipes from other apps or files. There are no existing recipes
   to bring in.
 

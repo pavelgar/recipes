@@ -1,6 +1,6 @@
 import { MIMEType } from 'node:util'
 import { describe, expect, it } from 'vitest'
-import { fetchPage, pageText } from '@/lib/import/fetch.server'
+import { fetchPage, isChallenge, pageText } from '@/lib/import/fetch.server'
 import { siteOf } from '@/lib/import/link'
 
 describe('fetchPage', () => {
@@ -26,6 +26,20 @@ describe('fetchPage', () => {
       ok: false,
       error: { code: 'private-address', site: siteOf(link) },
     })
+  })
+})
+
+describe('isChallenge', () => {
+  // As K-Ruoka (Cloudflare) and S-Kaupat (Vercel) answered in October 2026.
+  it.each([
+    [{ 'cf-mitigated': 'challenge' }],
+    [{ 'x-vercel-mitigated': 'challenge' }],
+  ])('finds a challenge in %j', (headers) => {
+    expect(isChallenge(new Headers(headers))).toBe(true)
+  })
+
+  it('finds none in a plain refusal', () => {
+    expect(isChallenge(new Headers({ server: 'cloudflare' }))).toBe(false)
   })
 })
 

@@ -9,6 +9,9 @@ export type FetchedPage =
   { ok: true; html: string; url: string } | { ok: false; error: ImportError }
 
 const TIMEOUT_MS = 15_000
+// What a page points to is extra: waiting long for it would only delay an
+// import that already has its recipe.
+const JSON_TIMEOUT_MS = 5_000
 const MAX_REDIRECTS = 5
 // Recipe pages run to a few hundred kilobytes.
 const MAX_BYTES = 5_000_000
@@ -16,13 +19,10 @@ const MAX_BYTES = 5_000_000
 const PAGE_TYPES = new Set(['text/html', 'application/xhtml+xml'])
 
 // Identifies the app to the site, as the corpus collection did.
-const HEADERS = {
-  'user-agent':
-    'Mozilla/5.0 (compatible; Recipes; +https://github.com/pavelgar/recipes)',
-  accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.1',
-}
+const USER_AGENT =
+  'Mozilla/5.0 (compatible; Recipes; +https://github.com/pavelgar/recipes)'
 
-// Fetches a web page for import, following redirects.
+// Fetches from a site, following redirects.
 //
 // Anyone who can open the app can make the server fetch a page, so it
 // fetches only from public addresses. Otherwise a link could reach the
@@ -33,19 +33,31 @@ const HEADERS = {
 // fetch. Only ordinary public (unicast) addresses pass: not private
 // networks, loopback, link-local, carrier-grade NAT (which Tailscale
 // uses), multicast or reserved ranges.
+function request(link: string, accept: string, timeoutMs: number) {
+  return fetch(link, {
+    headers: { 'user-agent': USER_AGENT, accept },
+    agent: (url) =>
+      url.protocol === 'http:' ? globalHttpAgent : globalHttpsAgent,
+    follow: MAX_REDIRECTS,
+    size: MAX_BYTES,
+    // Also drops a body left unread.
+    signal: AbortSignal.timeout(timeoutMs),
+  })
+}
+
+// Fetches a web page for import.
 export async function fetchPage(link: string): Promise<FetchedPage> {
   try {
-    const response = await fetch(link, {
-      headers: HEADERS,
-      agent: (url) =>
-        url.protocol === 'http:' ? globalHttpAgent : globalHttpsAgent,
-      follow: MAX_REDIRECTS,
-      size: MAX_BYTES,
-      // Also drops a body left unread below.
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-    })
+    const response = await request(
+      link,
+      'text/html,application/xhtml+xml;q=0.9,*/*;q=0.1',
+      TIMEOUT_MS,
+    )
     const site = siteOf(response.url)
     if (!response.ok) {
+      if (isChallenge(response.headers)) {
+        return { ok: false, error: { code: 'blocked', site } }
+      }
       return {
         ok: false,
         error: { code: 'http-error', site, status: response.status },
@@ -60,6 +72,31 @@ export async function fetchPage(link: string): Promise<FetchedPage> {
   } catch (error) {
     return { ok: false, error: { code: failure(error), site: siteOf(link) } }
   }
+}
+
+// Fetches JSON that a page points to, such as WP Recipe Maker's recipes,
+// or undefined if it can't be read.
+export async function fetchJson(link: string): Promise<unknown> {
+  try {
+    const response = await request(link, 'application/json', JSON_TIMEOUT_MS)
+    const type = mimeType(response.headers.get('content-type'))
+    if (!response.ok || type?.essence !== 'application/json') return undefined
+    return await response.json()
+  } catch {
+    return undefined
+  }
+}
+
+// Whether the site answered with a check that only a browser passes.
+// Cloudflare (K-Ruoka, Atria) and Vercel (S-Kaupat) mark it, whatever the
+// status: S-Kaupat's is a 429, which would otherwise read as a site to try
+// again later.
+export function isChallenge(headers: {
+  get: (name: string) => string | null
+}): boolean {
+  return ['cf-mitigated', 'x-vercel-mitigated'].some(
+    (name) => headers.get(name)?.trim().toLowerCase() === 'challenge',
+  )
 }
 
 // Why a page couldn't be read. request-filtering-agent says that it

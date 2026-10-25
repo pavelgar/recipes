@@ -1,12 +1,13 @@
-import { LANGUAGE_NAMES, SYSTEM_NAMES } from '@/lib/choice-names'
+import { recipeLanguageName, SYSTEM_NAMES } from '@/lib/choice-names'
 import { siteOf } from '@/lib/import/link'
 import { m } from '@/paraglide/messages'
 import type { Section } from '@/db/schema'
-import type { Language, MeasuringSystem } from '@/lib/quantities'
+import type { RecipeLanguage } from '@/lib/languages'
+import type { MeasuringSystem } from '@/lib/quantities'
 
 type Readable = {
   title: string
-  language: Language
+  language: RecipeLanguage
   measuringSystem: MeasuringSystem
   servings: string | null
   prepMinutes: number | null
@@ -27,7 +28,7 @@ export function RecipeReadout({ recipe }: { recipe: Readable }) {
     [m.recipe_prep(), minutes(recipe.prepMinutes)],
     [m.recipe_cook(), minutes(recipe.cookMinutes)],
     [m.recipe_total(), minutes(recipe.totalMinutes)],
-    [m.recipe_language(), LANGUAGE_NAMES[recipe.language]()],
+    [m.recipe_language(), recipeLanguageName(recipe.language)],
     [m.recipe_measures(), SYSTEM_NAMES[recipe.measuringSystem]()],
   ] as const
   const source =

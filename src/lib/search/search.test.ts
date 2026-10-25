@@ -106,6 +106,24 @@ describe('searching titles', () => {
 })
 
 describe('search', () => {
+  // https://www.arla.se/recept/sockerkaka/, in a language the app has no
+  // rules for, beside the corpus: its words match as written.
+  it('finds a recipe in another language by its words as written', () => {
+    const sockerkaka = {
+      id: 'https://www.arla.se/recept/sockerkaka/',
+      language: 'sv',
+      title: 'Sockerkaka',
+      ingredients: ['75 g Svenskt Smör från Arla®', '3 dl vetemjöl'],
+    }
+    const { search: searchWith } = createRecipeSearch([
+      ...[...recipes.values()].map((recipe) => ({ ...recipe, id: recipe.url })),
+      sockerkaka,
+    ])
+    for (const query of ['vetemjöl', 'Smör', 'vetem', 'sockerkaka ']) {
+      expect(searchWith(query), query).toEqual([sockerkaka.id])
+    }
+  })
+
   it('reads an unfinished last word as the start of a word', () => {
     const found = search('hasselpäh')
     expect(found.length).toBeGreaterThan(0)

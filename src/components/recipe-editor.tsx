@@ -1,10 +1,10 @@
 import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
-import { useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
 import { BookOpenIcon, CheckIcon, Trash2Icon, UsersIcon } from 'lucide-react'
 import { cn } from 'cn'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { FLOATING_BAR, useHideMenu } from '@/components/app-shell'
 import { ChoiceSelect } from '@/components/choice-select'
@@ -27,7 +27,11 @@ import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/toast'
 import { LANGUAGES, MEASURING_SYSTEMS } from '@/db/choices'
 import { createRecipe } from '@/db/recipes.functions'
-import { LANGUAGE_NAMES, SYSTEM_CHOICES } from '@/lib/choice-names'
+import {
+  namesLanguage,
+  recipeLanguageName,
+  SYSTEM_NAMES,
+} from '@/lib/choice-names'
 import {
   clearDraft,
   draftSchema,
@@ -36,10 +40,13 @@ import {
 } from '@/lib/editor/draft'
 import { marksOf } from '@/lib/editor/lines'
 import { siteOf } from '@/lib/import/link'
+import { RECIPE_LANGUAGES, rulesFor, UNKNOWN_LANGUAGE } from '@/lib/languages'
+import { suggestLanguage } from '@/lib/languages.functions'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
 import { m } from '@/paraglide/messages'
 import type { LucideIcon } from 'lucide-react'
 import type { Draft } from '@/lib/editor/draft'
+import type { RecipeLanguage } from '@/lib/languages'
 import type { Language } from '@/lib/quantities'
 
 // What an empty list shows, in the recipe's language: part of a carrot
@@ -60,6 +67,9 @@ const EXAMPLES: Record<Language, { ingredients: string; steps: string }> = {
       'Cake:\nFinely grate the carrots.\nBake in a cake pan on the bottom rack at 375°F for about 45 minutes.\nFrosting:\nSpread the frosting over the cooled cake.',
   },
 }
+
+// The fields the recipe's language is told from.
+const TEXT_FIELDS: ReadonlyArray<string> = ['title', 'ingredients', 'steps']
 
 const TIMES = [
   ['prepMinutes', m.recipe_prep],
@@ -91,14 +101,39 @@ export function RecipeEditor({
   const saveFailed = useRef<string>(undefined)
   useEffect(() => () => closeToast(saveFailed.current), [])
 
+  // The language its text reads as, from the server, when the one chosen
+  // doesn't fit it. Without the server there's none.
+  const [suggestion, setSuggestion] = useState<RecipeLanguage | null>(null)
+  const { mutate: askLanguage } = useMutation({
+    mutationFn: (data: { text: string; current: RecipeLanguage }) =>
+      suggestLanguage({ data }),
+  })
+  const asked = useRef<string>(undefined)
+  function suggest({ title, ingredients, steps, language }: Draft) {
+    const text = [title, ingredients, steps].join('\n').trim()
+    const question = `${language}\n${text}`
+    if (question === asked.current) return
+    asked.current = question
+    // Only the answer to the latest question is taken.
+    askLanguage({ text, current: language }, { onSuccess: setSuggestion })
+  }
+
   const form = useForm({
     defaultValues: initial,
     validators: { onSubmit: draftSchema },
     listeners: {
       // Every change is kept as it's made, so a reload, even the one when a
       // new version of the app takes over, loses nothing typed.
-      onChange: ({ formApi }) => {
+      onChange: ({ formApi, fieldApi }) => {
         if (!finished.current) saveDraft(link, formApi.state.values)
+        if (fieldApi.name === 'language') suggest(formApi.state.values)
+      },
+      // The language its text reads as is asked when the editor opens, when
+      // the language changes and when a text field is left, rather than as
+      // each letter is typed.
+      onMount: ({ formApi }) => suggest(formApi.state.values),
+      onBlur: ({ formApi, fieldApi }) => {
+        if (TEXT_FIELDS.includes(fieldApi.name)) suggest(formApi.state.values)
       },
     },
     // Save is at the bottom of the screen and the name at the top, so the
@@ -144,21 +179,49 @@ export function RecipeEditor({
   const timesInvalid = useStore(form.store, (state) =>
     TIMES.some(([name]) => state.fieldMeta[name]?.errors.length),
   )
-  const opts = { language: values.language, system: values.measuringSystem }
+  // The rules of the recipe's language, if the app has them. Without them
+  // nothing in its lines is recognised, and its measures don't matter.
+  const rules = rulesFor(values.language)
+  const opts = { language: rules, system: values.measuringSystem }
   // An imported recipe's source is the page it came from, shown in the note
   // under its name; a typed one's is whatever was typed in, a book and page.
   const source = link
     ? { url: values.sourceUrl || link, site: siteOf(values.sourceUrl || link) }
     : null
-  const languageChoices = LANGUAGES.map((value) => ({
-    value,
-    label: LANGUAGE_NAMES[value](),
-  }))
+  // The languages the app reads come first; then every other the browser
+  // can name, the recipe's own among them in its place. Unknown, which
+  // isn't a language, comes first while it's chosen. A browser can give two
+  // codes one name (Chromium calls Twi "Akan"), so each name is offered
+  // once: the recipe's own, or the first code's.
+  const pinned =
+    values.language === UNKNOWN_LANGUAGE
+      ? [UNKNOWN_LANGUAGE, ...LANGUAGES]
+      : LANGUAGES
+  const languageChoices = [
+    ...new Set([
+      values.language,
+      ...LANGUAGES,
+      ...RECIPE_LANGUAGES.filter(namesLanguage),
+    ]),
+  ]
+    .map((value) => ({ value, label: recipeLanguageName(value) }))
+    .filter(
+      (choice, i, all) =>
+        all.findIndex((other) => other.label === choice.label) === i,
+    )
+  // The language the text reads as, offered under the language when it
+  // isn't the one chosen.
+  const offered =
+    suggestion !== null &&
+    suggestion !== values.language &&
+    namesLanguage(suggestion)
+      ? suggestion
+      : null
   const measuresChoices = MEASURING_SYSTEMS.map((value) => ({
     value,
-    label: SYSTEM_CHOICES[value](),
+    label: SYSTEM_NAMES[value](),
   }))
-  const examples = EXAMPLES[values.language]
+  const examples = rules ? EXAMPLES[rules] : null
 
   // Nothing asks for confirmation; Undo brings the draft back.
   function discard() {
@@ -240,7 +303,10 @@ export function RecipeEditor({
 
         {/* What holds for the whole recipe: for one typed in, where it's
             from, a book and page (an import's source is the note under its
-            name), and the language it's written in, labelled. */}
+            name); then the language it's written in and whose cups and
+            spoons it measures in, side by side, since together they decide
+            how its amounts read. Each is labelled above its box, as the
+            times are. */}
         <div className="flex flex-col gap-3">
           {!link && (
             <form.Field name="sourceName">
@@ -254,39 +320,89 @@ export function RecipeEditor({
             </form.Field>
           )}
           <form.Field name="language">
-            {(field) => (
-              <Field>
-                {/* The dropdown as wide as the measures one under the
-                    Ingredients heading, and lined up with it. */}
-                <div className="grid grid-cols-2 items-center gap-3">
-                  <FieldLabel htmlFor={field.name}>
-                    {m.editor_recipe_language()}
-                  </FieldLabel>
-                  <div>
-                    <ChoiceSelect
-                      id={field.name}
-                      value={field.state.value}
-                      options={languageChoices}
-                      onValueChange={(next) => {
-                        // Measures that followed the language, or for an
-                        // import its site, keep following them.
-                        const site = source?.site ?? null
-                        if (
-                          values.measuringSystem ===
-                          guessMeasuringSystem(site, field.state.value)
-                        ) {
-                          form.setFieldValue(
-                            'measuringSystem',
-                            guessMeasuringSystem(site, next),
-                          )
-                        }
-                        field.handleChange(next)
-                      }}
-                    />
+            {(field) => {
+              // Measures that followed the language, or for an import its
+              // site, keep following them; ones someone picked stay.
+              const choose = (next: RecipeLanguage) => {
+                const site = source?.site ?? null
+                if (
+                  values.measuringSystem ===
+                  guessMeasuringSystem(site, field.state.value)
+                ) {
+                  form.setFieldValue(
+                    'measuringSystem',
+                    guessMeasuringSystem(site, next),
+                  )
+                }
+                field.handleChange(next)
+              }
+              return (
+                <div className="flex flex-col gap-1.5">
+                  <div className="grid grid-cols-2 gap-3">
+                    <Field>
+                      <FieldLabel htmlFor={field.name}>
+                        {m.editor_recipe_language()}
+                      </FieldLabel>
+                      <ChoiceSelect
+                        id={field.name}
+                        value={field.state.value}
+                        options={languageChoices}
+                        pinned={pinned}
+                        onValueChange={choose}
+                      />
+                    </Field>
+                    <form.Field name="measuringSystem">
+                      {(measures) => (
+                        <Field>
+                          <FieldLabel htmlFor={measures.name}>
+                            {m.recipe_measures()}
+                          </FieldLabel>
+                          <ChoiceSelect
+                            id={measures.name}
+                            value={measures.state.value}
+                            options={measuresChoices}
+                            onValueChange={measures.handleChange}
+                          />
+                        </Field>
+                      )}
+                    </form.Field>
                   </div>
+                  {/* Under them, a language the text reads as instead, a
+                      tap away: "Written in Swedish? Switch to it". Otherwise
+                      a language to choose, or one whose amounts the app
+                      doesn't read. */}
+                  {offered ? (
+                    <FieldDescription>
+                      <ParaglideMessage
+                        message={m.editor_language_suggested}
+                        inputs={{ language: recipeLanguageName(offered) }}
+                        markup={{
+                          use: ({ children }) => (
+                            <button
+                              type="button"
+                              onClick={() => choose(offered)}
+                              className="underline underline-offset-4 hover:text-primary"
+                            >
+                              {children}
+                            </button>
+                          ),
+                        }}
+                      />
+                    </FieldDescription>
+                  ) : field.state.value === UNKNOWN_LANGUAGE ? (
+                    <FieldDescription>
+                      {m.editor_language_unknown()}
+                    </FieldDescription>
+                  ) : (
+                    !rules && (
+                      <FieldDescription>
+                        {m.editor_language_unread()}
+                      </FieldDescription>
+                    )
+                  )}
                 </div>
-              </Field>
-            )}
+              )
+            }}
           </form.Field>
         </div>
       </header>
@@ -297,41 +413,22 @@ export function RecipeEditor({
             <h2 className="font-heading text-xl font-semibold">
               <label htmlFor={field.name}>{m.recipe_ingredients()}</label>
             </h2>
-            {/* How much the amounts make, and whose cups and spoons they're
-                in, in view where they're read. Each choice of measures
-                names itself, so its label is for screen readers. */}
-            <div className="grid grid-cols-2 gap-3">
-              <form.Field name="servings">
-                {(servings) => (
-                  <IconField
-                    field={servings}
-                    icon={UsersIcon}
-                    label={m.recipe_servings()}
-                    placeholder={m.editor_servings_placeholder()}
-                  />
-                )}
-              </form.Field>
-              <form.Field name="measuringSystem">
-                {(measures) => (
-                  <Field>
-                    <FieldLabel htmlFor={measures.name} className="sr-only">
-                      {m.recipe_measures()}
-                    </FieldLabel>
-                    <ChoiceSelect
-                      id={measures.name}
-                      value={measures.state.value}
-                      options={measuresChoices}
-                      onValueChange={measures.handleChange}
-                    />
-                  </Field>
-                )}
-              </form.Field>
-            </div>
+            {/* How much the amounts make, in view where they're read. */}
+            <form.Field name="servings">
+              {(servings) => (
+                <IconField
+                  field={servings}
+                  icon={UsersIcon}
+                  label={m.recipe_servings()}
+                  placeholder={m.editor_servings_placeholder()}
+                />
+              )}
+            </form.Field>
             <MarkedTextarea
               id={field.name}
               list="bullets"
               value={field.state.value}
-              placeholder={examples.ingredients}
+              placeholder={examples?.ingredients}
               marksOf={(line) => marksOf(line, 'ingredient', opts)}
               onChange={(event) => field.handleChange(event.target.value)}
               onBlur={field.handleBlur}
@@ -361,7 +458,7 @@ export function RecipeEditor({
               id={field.name}
               list="numbers"
               value={field.state.value}
-              placeholder={examples.steps}
+              placeholder={examples?.steps}
               marksOf={(line) => marksOf(line, 'step', opts)}
               onChange={(event) => field.handleChange(event.target.value)}
               onBlur={field.handleBlur}
@@ -450,13 +547,14 @@ function IconField({
   )
 }
 
-// A time in minutes, named under its box, where the name has the width the
-// box can't spare: three to a row on a phone, Finnish names are too long to
-// sit beside a number. The number sits beside its unit.
+// A time in minutes, labelled above its box, where the name has the width
+// the box can't spare: three to a row on a phone, Finnish names are too
+// long to sit beside a number. The number sits beside its unit.
 function MinutesField({ field, label }: { field: TextField; label: string }) {
   const invalid = !field.state.meta.isValid || undefined
   return (
-    <Field data-invalid={invalid} className="gap-1.5">
+    <Field data-invalid={invalid}>
+      <FieldLabel htmlFor={field.name}>{label}</FieldLabel>
       <InputGroup>
         <InputGroupInput
           id={field.name}
@@ -472,12 +570,6 @@ function MinutesField({ field, label }: { field: TextField; label: string }) {
           <InputGroupText>{m.editor_minutes_unit()}</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
-      <FieldLabel
-        htmlFor={field.name}
-        className="justify-center text-center font-normal text-muted-foreground"
-      >
-        {label}
-      </FieldLabel>
     </Field>
   )
 }

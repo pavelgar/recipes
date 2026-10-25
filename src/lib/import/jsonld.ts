@@ -3,15 +3,16 @@ import { jsonrepair } from 'jsonrepair'
 import { isOfType, isThing } from '@/lib/import/schema-org'
 import type { Page, Thing } from '@/lib/import/schema-org'
 
-// The page's schema.org Recipe in JSON-LD, and a way to follow references
-// to other items in the same data: WordPress pages give the recipe's
-// publisher as {"@id": "…"}, pointing elsewhere in a @graph.
+// A schema.org Recipe in the page's JSON-LD, and a way to follow
+// references to other items in the same data: WordPress pages give the
+// recipe's publisher as {"@id": "…"}, pointing elsewhere in a @graph.
 export type JsonLdRecipe = {
   recipe: Thing
   resolve: (value: unknown) => unknown
 }
 
-export function findJsonLdRecipe(page: Page): JsonLdRecipe | null {
+// Every Recipe in the page's JSON-LD, in the order the page gives them.
+export function findJsonLdRecipes(page: Page): Array<JsonLdRecipe> {
   // The parser decodes attributes, so arla.fi's
   // type="application/ld&#x2B;json" matches too.
   const scripts = DomUtils.findAll(
@@ -21,11 +22,12 @@ export function findJsonLdRecipe(page: Page): JsonLdRecipe | null {
         'application/ld+json',
     page.children,
   )
-  for (const script of scripts) {
+  return scripts.flatMap((script) => {
     const data = parseJson(DomUtils.textContent(script))
-    if (data === undefined) continue
-    const recipe = findRecipe(data, 0)
-    if (!recipe) continue
+    if (data === undefined) return []
+    const recipes: Array<Thing> = []
+    collectRecipes(data, recipes, 0)
+    if (recipes.length === 0) return []
 
     const byId = new Map<string, Thing>()
     collectIds(data, byId, 0)
@@ -33,9 +35,8 @@ export function findJsonLdRecipe(page: Page): JsonLdRecipe | null {
       if (!isThing(value) || typeof value['@id'] !== 'string') return value
       return byId.get(value['@id']) ?? value
     }
-    return { recipe, resolve }
-  }
-  return null
+    return recipes.map((recipe) => ({ recipe, resolve }))
+  })
 }
 
 // Some sites publish JSON-LD that doesn't parse. Three kotikokki.net pages
@@ -49,24 +50,22 @@ function parseJson(text: string): unknown {
   }
 }
 
-// The first Recipe anywhere in the data: on its own, in a list, in a
-// @graph, or inside another item such as a WebPage's mainEntity.
-function findRecipe(value: unknown, depth: number): Thing | null {
-  if (depth > 8) return null
+// Every Recipe anywhere in the data: on its own, in a list, in a @graph,
+// or inside another item such as a WebPage's mainEntity.
+function collectRecipes(value: unknown, recipes: Array<Thing>, depth: number) {
+  if (depth > 8) return
   if (Array.isArray(value)) {
-    for (const item of value) {
-      const recipe = findRecipe(item, depth + 1)
-      if (recipe) return recipe
-    }
-    return null
+    for (const item of value) collectRecipes(item, recipes, depth + 1)
+    return
   }
-  if (!isThing(value)) return null
-  if (isOfType(value, 'Recipe')) return value
+  if (!isThing(value)) return
+  if (isOfType(value, 'Recipe')) {
+    recipes.push(value)
+    return
+  }
   for (const property of Object.values(value)) {
-    const recipe = findRecipe(property, depth + 1)
-    if (recipe) return recipe
+    collectRecipes(property, recipes, depth + 1)
   }
-  return null
 }
 
 // Items that give more than their @id, by @id, for following references.

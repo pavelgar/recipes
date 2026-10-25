@@ -205,8 +205,10 @@ export function importProblemMessage(problem: ImportProblem): string {
     case 'unreachable':
       return m.add_error_unreachable({ site: problem.site })
     case 'http-error':
-      // Gone, refused (as K-Ruoka refuses anything but a browser), or the
-      // site failing, which trying later may fix.
+      // Gone, refused, or the site failing, which trying later may fix. The
+      // status is read by its standard meaning: a refusal (403) isn't
+      // worth trying again, even from a site that sometimes lets the next
+      // request in.
       if (problem.status === 404 || problem.status === 410) {
         return m.add_error_not_found({ site: problem.site })
       }
@@ -214,6 +216,8 @@ export function importProblemMessage(problem: ImportProblem): string {
         return m.add_error_blocked({ site: problem.site })
       }
       return m.add_error_load_failed({ site: problem.site })
+    case 'blocked':
+      return m.add_error_blocked({ site: problem.site })
     case 'not-a-page':
       return m.add_error_not_a_page()
     case 'too-large':

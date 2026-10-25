@@ -48,6 +48,34 @@ describe('isHeading', () => {
   })
 })
 
+// https://www.arla.se/recept/sockerkaka/, in a language the app has no
+// rules for: nothing in a line is an amount, and a line ending with a colon
+// is a heading.
+describe('a language without rules', () => {
+  const sv = { language: null, system: 'metric' } as const
+
+  it('marks no amounts', () => {
+    expect(marksOf('75 g Svenskt Smör från Arla®', 'ingredient', sv)).toEqual(
+      [],
+    )
+  })
+
+  it('reads a line ending with a colon as a heading', () => {
+    expect(
+      sectionsFromText(
+        'Första instruktionen:\nSätt ugnen på 175° eller 160° varmluft.',
+        'step',
+        sv,
+      ),
+    ).toEqual([
+      {
+        heading: 'Första instruktionen',
+        lines: ['Sätt ugnen på 175° eller 160° varmluft.'],
+      },
+    ])
+  })
+})
+
 describe('sectionsFromText', () => {
   it('makes a section from each heading', () => {
     expect(sectionsFromText(ETIKKASILAKAT, 'ingredient', fi)).toEqual([

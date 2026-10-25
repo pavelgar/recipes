@@ -3,30 +3,42 @@ import {
   Select,
   SelectContent,
   SelectItem,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
 import { useCoarsePointer } from '@/hooks/use-coarse-pointer'
 import { getLocale } from '@/paraglide/runtime'
 
-// A choice of one from a few, in the order of their names as they read in
-// the interface's language. With a finger it's the browser's own select,
-// which opens the system's picker; with a mouse or trackpad, shadcn's. Both
-// fill the width they're given.
+// A choice of one, in the order of their names as they read in the
+// interface's language. Pinned choices, the ones most often wanted, come
+// first, above a divider. With a finger it's the browser's own select,
+// which opens the system's picker; with a mouse or trackpad, shadcn's.
+// Both fill the width they're given.
 export function ChoiceSelect<T extends string>({
   id,
   value,
   options,
+  pinned = [],
   onValueChange,
 }: {
   id: string
   value: T
   options: ReadonlyArray<{ readonly value: T; readonly label: string }>
+  pinned?: ReadonlyArray<T>
   onValueChange: (value: T) => void
 }) {
   const touch = useCoarsePointer()
   const collator = new Intl.Collator(getLocale())
-  const sorted = [...options].sort((a, b) => collator.compare(a.label, b.label))
+  const byName = (a: { label: string }, b: { label: string }) =>
+    collator.compare(a.label, b.label)
+  const first = options
+    .filter((option) => pinned.includes(option.value))
+    .sort(byName)
+  const rest = options
+    .filter((option) => !pinned.includes(option.value))
+    .sort(byName)
+  const sorted = [...first, ...rest]
   const choose = (chosen: unknown) => {
     const option = options.find((candidate) => candidate.value === chosen)
     if (option) onValueChange(option.value)
@@ -40,7 +52,13 @@ export function ChoiceSelect<T extends string>({
         value={value}
         onChange={(event) => choose(event.target.value)}
       >
-        {sorted.map((option) => (
+        {first.map((option) => (
+          <NativeSelectOption key={option.value} value={option.value}>
+            {option.label}
+          </NativeSelectOption>
+        ))}
+        {first.length > 0 && rest.length > 0 && <hr />}
+        {rest.map((option) => (
           <NativeSelectOption key={option.value} value={option.value}>
             {option.label}
           </NativeSelectOption>
@@ -54,7 +72,13 @@ export function ChoiceSelect<T extends string>({
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        {sorted.map((option) => (
+        {first.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
+            {option.label}
+          </SelectItem>
+        ))}
+        {first.length > 0 && rest.length > 0 && <SelectSeparator />}
+        {rest.map((option) => (
           <SelectItem key={option.value} value={option.value}>
             {option.label}
           </SelectItem>

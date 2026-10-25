@@ -1,5 +1,6 @@
 import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
-import { LANGUAGES, MEASURING_SYSTEMS } from '@/db/choices'
+import { MEASURING_SYSTEMS } from '@/db/choices'
+import type { RecipeLanguage } from '@/lib/languages'
 
 // Ingredient lines or steps under an optional heading ("For the sauce"). A
 // recipe without sections has one section, with no heading. Each line is
@@ -15,7 +16,9 @@ export const recipes = sqliteTable('recipes', {
   // another recipe once a deleted one is purged.
   id: integer('id').primaryKey({ autoIncrement: true }),
   title: text('title').notNull(),
-  language: text('language', { enum: LANGUAGES }).notNull(),
+  // The language it's written in ("fi", "sv"), whether or not the app has
+  // rules for it, or "und" when nobody knows.
+  language: text('language').$type<RecipeLanguage>().notNull(),
   // How the recipe's units read: the size of its cups and spoons.
   measuringSystem: text('measuring_system', {
     enum: MEASURING_SYSTEMS,
