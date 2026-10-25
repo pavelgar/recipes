@@ -6,6 +6,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Where each screen scrolls inside the app instead of the page scrolling:
+   on wider screens, inside the inset, and in the installed app, which has
+   no browser toolbar to tuck away and no pull-to-reload. */
+@custom-variant scroll-inside {
+  @media (width >= 48rem), (display-mode: standalone) {
+    @slot;
+  }
+}
+
+/* While a backdrop (dialog-overlay, drawer-overlay, sheet-overlay) is up
+   and not on its way out: on <html> itself, and on anything in the page. */
+@custom-variant backdrop-up {
+  &:is(
+    :root:has([data-slot$='-overlay']:not([data-ending-style])),
+    :root:has([data-slot$='-overlay']:not([data-ending-style])) *
+  ) {
+    @slot;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

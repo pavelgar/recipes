@@ -39,7 +39,7 @@ function Typed() {
   return <RecipeEditor link={null} initial={initial} />
 }
 
-// Arriving from the add drawer, the import is already read. After a reload,
+// Arriving from the add dialog, the import is already read. After a reload,
 // the draft comes back instead, or the page is read again.
 function Imported({ link }: { link: string }) {
   const [draft] = useState(() => loadDraft(link))

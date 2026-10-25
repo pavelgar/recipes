@@ -11,12 +11,6 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-} from '@/components/ui/drawer'
-import {
   Field,
   FieldDescription,
   FieldError,
@@ -29,7 +23,6 @@ import {
   InputGroupInput,
 } from '@/components/ui/input-group'
 import { Spinner } from '@/components/ui/spinner'
-import { useIsMobile } from '@/hooks/use-mobile'
 import { importQuery } from '@/lib/import/import.functions'
 import { findLink, siteOf } from '@/lib/import/link'
 import { m } from '@/paraglide/messages'
@@ -37,7 +30,7 @@ import type { ImportError } from '@/lib/import/types'
 
 const OpenAddRecipe = createContext<() => void>(() => {})
 
-// Keeps the add drawer for the whole app, so the menu's Add button opens it
+// Keeps the add dialog for the whole app, so the menu's Add button opens it
 // over whatever page is showing.
 export function AddRecipeProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
@@ -53,7 +46,9 @@ export function useOpenAddRecipe() {
   return use(OpenAddRecipe)
 }
 
-// A drawer from the bottom on phones, a dialog on wider screens.
+// A dialog on every screen. A drawer from the bottom of a phone's screen
+// reaches Safari's floating toolbar, which takes on its colour, so the
+// backdrop doesn't reach under the toolbar.
 function AddRecipe({
   open,
   onOpenChange,
@@ -61,23 +56,7 @@ function AddRecipe({
   open: boolean
   onOpenChange: (open: boolean) => void
 }) {
-  const isMobile = useIsMobile()
   const close = () => onOpenChange(false)
-
-  if (isMobile) {
-    return (
-      <Drawer open={open} onOpenChange={onOpenChange} showSwipeHandle>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>{m.add_title()}</DrawerTitle>
-          </DrawerHeader>
-          <div className="p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <AddForm onDone={close} />
-          </div>
-        </DrawerContent>
-      </Drawer>
-    )
-  }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
@@ -96,7 +75,7 @@ const PHOTO_IMPORT = false
 
 // The import starts on the arrow button or Enter, whether the link was
 // pasted or typed. Text shared with a title before the link works too: the
-// link is picked out of it. The drawer stays open while the page is read,
+// link is picked out of it. The dialog stays open while the page is read,
 // so a failure can be told where the link was given.
 function AddForm({ onDone }: { onDone: () => void }) {
   const navigate = useNavigate()
@@ -114,7 +93,7 @@ function AddForm({ onDone }: { onDone: () => void }) {
     setNotALink(!link)
     if (!link) return
     setText(link)
-    // Callbacks given to mutate() don't run once the drawer has closed: a
+    // Callbacks given to mutate() don't run once the dialog has closed: a
     // read that ends after that leads nowhere.
     importing.mutate(link, {
       onSuccess: (result) => {

@@ -378,7 +378,7 @@ export function RecipeEditor({
       <div
         className={cn(
           FLOATING_BAR,
-          'flex items-center gap-2 p-3 md:sticky md:inset-x-auto md:bottom-8 md:mt-auto md:w-full md:max-w-sm md:self-center',
+          'flex items-center gap-2 p-3 md:sticky md:inset-x-auto md:bottom-6 md:mt-auto md:w-full md:max-w-sm md:self-center',
         )}
       >
         <Button type="button" variant="outline" size="lg" onClick={discard}>

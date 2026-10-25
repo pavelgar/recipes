@@ -13,6 +13,7 @@ import {
 import { createContext, use, useEffect, useState } from 'react'
 
 import { AddRecipeProvider, useOpenAddRecipe } from '@/components/add-recipe'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   SIDEBAR_COOKIE_NAME,
   Sidebar,
@@ -33,7 +34,7 @@ import { m } from '@/paraglide/messages'
 // Home is active only on itself; the others also on the pages under them.
 // Add stands out from the rest: a round button in the middle of the bottom
 // bar, and a filled button at the top of the sidebar. It opens the add
-// drawer rather than a page.
+// dialog rather than a page.
 const navItems = linkOptions([
   {
     to: '/',
@@ -47,12 +48,17 @@ const navItems = linkOptions([
   { to: '/settings', label: m.nav_settings, icon: SettingsIcon },
 ])
 
-// Where the bottom bar floats and how it looks. Fixed, not sticky: when iOS
-// bounces past the end of the page, a sticky bar rides up with it. It keeps
-// clear of the screen edges, the notch and the home indicator. A screen with
-// a bar of its own puts it here too.
+// Where the bottom bar floats and how it looks. It keeps clear of the
+// screen edges, the notch and the home indicator. A screen with a bar of its
+// own puts it here too. Safari 26 on iPhone cuts off fixed layers 0.75rem
+// below it, at its own floating toolbar, so there the shadow stays within
+// that. There a backdrop, which is part of the page (dialog.tsx), also
+// draws under every fixed layer, so the bar fades out while one is up.
 export const FLOATING_BAR =
-  'fixed right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-full bg-sidebar text-sidebar-foreground shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_12px_32px_-8px_oklch(0.147_0.004_49.3/0.24)] ring-1 ring-sidebar-border'
+  'fixed transition-[opacity,visibility] backdrop-up:invisible backdrop-up:opacity-0 right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-full bg-sidebar text-sidebar-foreground shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_12px_32px_-8px_oklch(0.147_0.004_49.3/0.24)] ring-1 ring-sidebar-border supports-[-webkit-touch-callout:none]:[@media(display-mode:browser)]:shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_4px_12px_-4px_oklch(0.147_0.004_49.3/0.24)]'
+
+// The element each screen scrolls in, for the router to restore and reset.
+export const MAIN_SCROLL_AREA = '[data-scroll-restoration-id="main"]'
 
 const HideMenu = createContext<(hidden: boolean) => void>(() => {})
 
@@ -87,13 +93,24 @@ export function AppShell({
       <AddRecipeProvider>
         <SidebarProvider
           defaultOpen={sidebarOpen}
-          className="flex-col pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] md:flex-row"
+          className="flex-col pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] scroll-inside:h-full scroll-inside:min-h-0 md:flex-row"
         >
           <AppSidebar />
-          {/* Room for the bottom bar on phones: its height, the gap below it and
-          some air above it. */}
-          <SidebarInset className="pb-[calc(5rem+max(0.75rem,env(safe-area-inset-bottom)))] md:pb-0">
-            {children}
+          {/* Each screen scrolls here on wider screens, inside the inset,
+              and in the installed app. In a phone's browser nothing holds
+              its height, so it grows with the screen and the page scrolls
+              instead (src/routes/__root.tsx). */}
+          <SidebarInset className="scroll-inside:min-h-0 scroll-inside:overflow-hidden">
+            <ScrollArea
+              className="scroll-inside:min-h-0 scroll-inside:flex-1"
+              viewportProps={{ 'data-scroll-restoration-id': 'main' }}
+            >
+              {/* Room for the bottom bar on phones: its height, the gap
+                  below it and some air above it. */}
+              <div className="flex min-h-full flex-col pb-[calc(5rem+max(0.75rem,env(safe-area-inset-bottom)))] md:pb-0">
+                {children}
+              </div>
+            </ScrollArea>
           </SidebarInset>
           {!menuHidden && <BottomNav />}
         </SidebarProvider>

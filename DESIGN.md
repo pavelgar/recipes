@@ -91,7 +91,7 @@
   repairs broken JSON-LD with jsonrepair. The server fetches pages with
   node-fetch, through request-filtering-agent, which refuses to connect to
   anything but a public address, redirects included. linkify-it finds the
-  link in what is pasted into the add drawer, with the list of top-level
+  link in what is pasted into the add dialog, with the list of top-level
   domains from tlds for addresses written without https://.
 - Learn from existing projects (Mealie, Tandoor, RecipeSage, Norish,
   Cooklang, parse-ingredient, ingredient-parser), but don't copy their code.
@@ -103,17 +103,16 @@
 
 - Typed by hand, imported from a website, or photographed from a cookbook.
 - Most recipes come from links, so adding starts with one. Add opens a
-  drawer on phones and a dialog on wider screens, with the link field
-  focused. The import starts on the arrow button beside it (or Enter),
-  whether the link was pasted or typed. The address may leave out its
-  https://, and shared text with a link in it works too. Below the field,
-  side by side: enter it manually, and scan it from a photo, disabled
-  until an AI provider is configured.
-- The drawer stays open while the page is read and names the site
+  dialog, on phones too, with the link field focused. The import starts on
+  the arrow button beside it (or Enter), whether the link was pasted or
+  typed. The address may leave out its https://, and shared text with a
+  link in it works too. Below the field, side by side: enter it manually,
+  and scan it from a photo, disabled until an AI provider is configured.
+- The dialog stays open while the page is read and names the site
   ("Reading valio.fi…"). If the page can't be read or has no recipe, it
   says why there.
 - On Android, the installed app appears in the share menu: sharing a page
-  opens the drawer with its link filled in, waiting for the arrow.
+  opens the dialog with its link filled in, waiting for the arrow.
 - On wider screens, pasting a link anywhere in the app outside a text
   field, or dropping one onto it, opens the dialog the same way: link
   filled in, waiting for the arrow.
@@ -145,14 +144,14 @@
   on touch screens and the app's styled one with a mouse or trackpad. An
   empty list shows example lines, in the recipe's language: part of a
   recipe written to show what the app recognises, section headings
-  included. Discard and Save, each with an icon and Save taking
-  the rest of the width, float at the bottom, where the thumb is: on phones
-  in the menu's place, which steps aside while the editor shows; on wider
-  screens at the bottom of the window, below a short recipe too. They stay
-  in view while something is typed. Save with a mistake in a field glides to the first
-  such field and focuses it; a save that fails for another reason says so
-  in a toast, which stays until it's closed, Save is pressed again or the
-  editor is left.
+  included. Discard and Save, each with an icon and Save taking the rest
+  of the width, float at the bottom, where the thumb is: on phones in the
+  menu's place, which steps aside while the editor shows; on wider screens
+  at the bottom of the window, below a short recipe too. They stay in view
+  while something is typed. Save with a mistake in a field glides to the
+  first such field and focuses it; a save that fails for another reason
+  says so in a toast, which stays until it's closed, Save is pressed again
+  or the editor is left.
 - Some kind of AI assistance is wanted. Beyond photo import, what it does is
   not defined yet.
 
@@ -472,7 +471,7 @@
 - M0, core logic without UI: the ingredient parser for Finnish and English,
   unit conversion and formatting, Finnish word handling for search and tags,
   and the test suite of real recipe lines, conversions and searches.
-- M1, the basic loop: add a recipe from a link (the add drawer, the share
+- M1, the basic loop: add a recipe from a link (the add dialog, the share
   menu entry, pasting anywhere) and check it in the editor, or type one
   in, with recognition as you type; recipe view with unit conversion and
   adjustable servings; library with sorting and search; Finnish and
@@ -514,6 +513,13 @@
   (Recipes, Reseptit). Add stands out as a filled orange button: round in
   the middle of the bottom bar, at the top of the sidebar. The bottom bar
   marks the current page in orange.
+- In a phone's browser the page itself scrolls, so the browser can tuck its
+  toolbar away and pulling down reloads; the floating bars move with the
+  page when it bounces, as fixed elements do there. In the installed app
+  and on wider screens each screen scrolls inside the app, so the bars stay
+  put; on wider screens inside the inset, with the app's own scrollbar,
+  shown while scrolling. While a dialog is open the page doesn't bounce,
+  and the floating bars fade out.
 - Toasts appear at the top right (across the top on phones), clear of the
   bottom bar.
 - No up-front design proposals. Set up the basics first, then iterate on the
