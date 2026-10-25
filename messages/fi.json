@@ -76,8 +76,6 @@
   "editor_imported_from": "Luettu sivustolta {#link}{site}{/link}. Tarkista ennen tallentamista.",
   "editor_servings_placeholder": "Annokset",
   "editor_minutes_unit": "min",
-  "editor_ingredients_hint": "Kaksoispisteeseen päättyvä rivi, kuten \"Kastike:\", aloittaa osion.",
-  "editor_steps_hint": "Yksi vaihe riville. Kaksoispisteeseen päättyvä rivi aloittaa osion.",
   "editor_title_required": "Anna reseptille nimi.",
   "editor_minutes_invalid": "Kirjoita aika kokonaisina minuutteina.",
   "editor_save": "Tallenna",

@@ -131,22 +131,28 @@
   by hand, and one being checked after an import. Discarding a draft asks
   nothing and can be undone.
 - The editor is laid out like the recipe it writes, each detail beside
-  what it's about: for an import, a note above the name that names its
-  source, as a link; the name set as its heading, in a field like the
-  others so it reads as editable; under it a typed recipe's source field,
-  and the recipe language, labelled; under the Ingredients heading,
+  what it's about: the name set as its heading, in a field like the
+  others so it reads as editable; under it, for an import a line of small
+  text that names its source as a link, for a typed recipe a source field,
+  and then the recipe language, labelled; under the Ingredients heading,
   servings and measures side by side, since they decide how the amounts
   read; under the Steps heading, the prep, cook and total times side by
-  side; and the ingredients and steps as lists, with bullets and step
-  numbers that start again after each heading. Fields without a visible
-  label show an icon and a placeholder instead, and each measures option
-  names itself. Choices are in alphabetical order. A dropdown is the
-  system's own picker on touch screens and the app's styled one with a
-  mouse or trackpad. An empty list shows real example lines from a
-  published recipe, in the recipe's language. Discard and Save float at the
-  bottom, where the thumb is: on phones in the menu's place, which steps
-  aside while the editor shows, and out of the keyboard's way while
-  something is typed.
+  side, each named under its box, where its name has room; and the
+  ingredients and steps as lists, with bullets and step numbers that start
+  again after each heading. Other fields without a visible label show an
+  icon and a placeholder instead, and each measures option names itself.
+  Choices are in alphabetical order. A dropdown is the system's own picker
+  on touch screens and the app's styled one with a mouse or trackpad. An
+  empty list shows example lines, in the recipe's language: part of a
+  recipe written to show what the app recognises, section headings
+  included. Discard and Save, each with an icon and Save taking
+  the rest of the width, float at the bottom, where the thumb is: on phones
+  in the menu's place, which steps aside while the editor shows; on wider
+  screens at the bottom of the window, below a short recipe too. They stay
+  in view while something is typed. Save with a mistake in a field glides to the first
+  such field and focuses it; a save that fails for another reason says so
+  in a toast, which stays until it's closed, Save is pressed again or the
+  editor is left.
 - Some kind of AI assistance is wanted. Beyond photo import, what it does is
   not defined yet.
 
@@ -527,6 +533,8 @@
   seems necessary, ask first.
 - When a requirement is ambiguous, ask instead of picking an interpretation.
 - Never invent data. Sample recipes must be real and marked as samples.
+  Placeholder text, such as the editor's example lines, isn't data: it is
+  written to show what's possible.
 
 ## Before calling a screen done
 

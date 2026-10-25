@@ -2,20 +2,13 @@ import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
 import { useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
-import {
-  BookOpenIcon,
-  ClockIcon,
-  FlameIcon,
-  SliceIcon,
-  UsersIcon,
-} from 'lucide-react'
+import { BookOpenIcon, CheckIcon, Trash2Icon, UsersIcon } from 'lucide-react'
 import { cn } from 'cn'
-import { useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { FLOATING_BAR, useHideMenu } from '@/components/app-shell'
 import { ChoiceSelect } from '@/components/choice-select'
 import { MarkedTextarea } from '@/components/marked-textarea'
-import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import {
   Field,
@@ -33,7 +26,6 @@ import { Spinner } from '@/components/ui/spinner'
 import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/toast'
 import { LANGUAGES, MEASURING_SYSTEMS } from '@/db/choices'
-import { useCoarsePointer } from '@/hooks/use-coarse-pointer'
 import { createRecipe } from '@/db/recipes.functions'
 import { LANGUAGE_NAMES, SYSTEM_CHOICES } from '@/lib/choice-names'
 import {
@@ -50,32 +42,29 @@ import type { LucideIcon } from 'lucide-react'
 import type { Draft } from '@/lib/editor/draft'
 import type { Language } from '@/lib/quantities'
 
-// What an empty list shows, in the recipe's language: real lines from
-// published recipes, with a heading, so the placeholder shows how a list is
-// written and what the app recognises in it.
+// What an empty list shows, in the recipe's language: part of a carrot
+// cake recipe, written to show how a list is written and what the app
+// recognises in it, section headings included. The steps follow
+// https://www.kotikokki.net/reseptit/nayta/360/Juustop%C3%A4%C3%A4llysteinen%20porkkanakakku/
 const EXAMPLES: Record<Language, { ingredients: string; steps: string }> = {
-  // https://kotiliesi.fi/resepti/etikkasilakat/ and
-  // https://www.valio.fi/reseptit/gluteeniton-kesakurpitsa-juustoleipa/
   fi: {
     ingredients:
-      '1 sipuli\n2 rkl voita\nEtikkaliemi:\n1 dl etikkaa\n2 dl sokeria',
+      'Pohja:\n3 porkkanaa\n2 dl sokeria\n3½ dl vehnäjauhoja\n1 tl kanelia\nKuorrutus:\n200 g tuorejuustoa\n1 dl tomusokeria',
     steps:
-      'Kaada taikina voideltuun, suorakaiteen muotoiseen 1,5 litran vetoiseen leipävuokaan.\nPaista 175 asteessa uunin alatasolla n. 40 min tai kunnes kypsä.',
+      'Pohja:\nRaasta porkkanat hienoksi raasteeksi.\nPaista kakkuvuoassa alimmalla tasolla 190 asteessa noin 45 min.\nKuorrutus:\nLevitä kuorrutus jäähtyneen kakun päälle.',
   },
-  // https://www.tasteofhome.com/recipes/overnight-cherry-danish/ and
-  // https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe
   en: {
     ingredients:
-      "6 cups all-purpose flour\n1 cup cold butter, cubed\nICING:\n3 cups confectioners' sugar\n2 tablespoons butter, softened",
+      "Cake:\n3 carrots\n1 cup sugar\n1 1/2 cups all-purpose flour\n1 teaspoon ground cinnamon\nFrosting:\n8 ounces cream cheese, softened\n1/2 cup confectioners' sugar",
     steps:
-      'Preheat the oven to 375°F with a rack in the top third.\nSpoon the batter into the lightly greased doughnut pans, filling the wells to about 1/4" shy of the rim.',
+      'Cake:\nFinely grate the carrots.\nBake in a cake pan on the bottom rack at 375°F for about 45 minutes.\nFrosting:\nSpread the frosting over the cooled cake.',
   },
 }
 
 const TIMES = [
-  ['prepMinutes', m.recipe_prep, SliceIcon],
-  ['cookMinutes', m.recipe_cook, FlameIcon],
-  ['totalMinutes', m.recipe_total, ClockIcon],
+  ['prepMinutes', m.recipe_prep],
+  ['cookMinutes', m.recipe_cook],
+  ['totalMinutes', m.recipe_total],
 ] as const
 
 // The recipe editor, laid out like the recipe it writes: the name as its
@@ -92,13 +81,15 @@ export function RecipeEditor({
 }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
-  const [saveFailed, setSaveFailed] = useState(false)
-  const [typing, setTyping] = useState(false)
-  const touch = useCoarsePointer()
   useHideMenu()
   // Once saved or discarded, a change made before the editor goes mustn't
   // bring the draft back.
   const finished = useRef(false)
+  const formElement = useRef<HTMLFormElement>(null)
+  // The toast saying saving failed. It stays until closed, saving is tried
+  // again, or the editor goes.
+  const saveFailed = useRef<string>(undefined)
+  useEffect(() => () => closeToast(saveFailed.current), [])
 
   const form = useForm({
     defaultValues: initial,
@@ -110,8 +101,23 @@ export function RecipeEditor({
         if (!finished.current) saveDraft(link, formApi.state.values)
       },
     },
+    // Save is at the bottom of the screen and the name at the top, so the
+    // first field with an error is brought into view, clear of the actions,
+    // and focused.
+    onSubmitInvalid: ({ formApi }) => {
+      const invalid = Object.entries(formApi.state.fieldMeta)
+        .filter(([, meta]) => meta.errors.length)
+        .map(([name]) => name)
+      const first = Array.from(formElement.current?.elements ?? []).find(
+        (element) => invalid.includes(element.id),
+      )
+      if (first instanceof HTMLElement) {
+        first.scrollIntoView({ block: 'center', behavior: scrollBehavior() })
+        first.focus({ preventScroll: true })
+      }
+    },
     onSubmit: async ({ value }) => {
-      setSaveFailed(false)
+      closeToast(saveFailed.current)
       try {
         const { id } = await createRecipe({ data: recipeFromDraft(value) })
         finished.current = true
@@ -122,7 +128,14 @@ export function RecipeEditor({
           params: { recipeId: id },
         })
       } catch {
-        setSaveFailed(true)
+        // Not about any one field, so it shows at the top of the screen,
+        // wherever the page is scrolled to.
+        saveFailed.current = toast.add({
+          type: 'error',
+          title: m.editor_save_failed(),
+          priority: 'high',
+          timeout: 0,
+        })
       }
     },
   })
@@ -133,7 +146,7 @@ export function RecipeEditor({
   )
   const opts = { language: values.language, system: values.measuringSystem }
   // An imported recipe's source is the page it came from, shown in the note
-  // at the top; a typed one's is whatever was typed in, a book and page.
+  // under its name; a typed one's is whatever was typed in, a book and page.
   const source = link
     ? { url: values.sourceUrl || link, site: siteOf(values.sourceUrl || link) }
     : null
@@ -152,11 +165,12 @@ export function RecipeEditor({
     const draft = form.state.values
     finished.current = true
     clearDraft(link)
-    toast.add({
+    const id = toast.add({
       title: m.editor_discarded(),
       actionProps: {
         children: m.editor_undo(),
         onClick: () => {
+          toast.close(id)
           saveDraft(link, draft)
           void navigate({ to: '/add', search: link ? { link } : {} })
         },
@@ -167,47 +181,14 @@ export function RecipeEditor({
 
   return (
     <form
+      ref={formElement}
       noValidate
       onSubmit={(event) => {
         event.preventDefault()
         void form.handleSubmit()
       }}
-      // Focus moving between fields blurs one and focuses the next in one
-      // go, so the actions don't flicker.
-      onFocus={(event) => setTyping(takesTyping(event.target))}
-      onBlur={() => setTyping(false)}
-      className="flex flex-col gap-8"
+      className="flex flex-1 flex-col gap-8"
     >
-      {source && (
-        <Alert>
-          {/* "Read from Soppa365. Check it before saving.", the source's
-              name linking to the page. */}
-          <AlertDescription>
-            <ParaglideMessage
-              message={m.editor_imported_from}
-              inputs={{ site: values.sourceName.trim() || source.site }}
-              markup={{
-                link: ({ children }) => (
-                  <a
-                    href={source.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline underline-offset-4"
-                  >
-                    {children}
-                  </a>
-                ),
-              }}
-            />
-          </AlertDescription>
-        </Alert>
-      )}
-      {saveFailed && (
-        <Alert variant="destructive">
-          <AlertDescription>{m.editor_save_failed()}</AlertDescription>
-        </Alert>
-      )}
-
       <header className="flex flex-col gap-4">
         <form.Field name="title">
           {(field) => (
@@ -234,14 +215,32 @@ export function RecipeEditor({
                 aria-invalid={!field.state.meta.isValid || undefined}
                 className="min-h-0 py-2 font-heading text-3xl font-semibold md:text-3xl"
               />
+              {/* For an import, where it's from: "Read from Soppa365. Check
+                  it before saving.", the source's name linking to the
+                  page. */}
+              {source && (
+                <FieldDescription>
+                  <ParaglideMessage
+                    message={m.editor_imported_from}
+                    inputs={{ site: values.sourceName.trim() || source.site }}
+                    markup={{
+                      link: ({ children }) => (
+                        <a href={source.url} target="_blank" rel="noreferrer">
+                          {children}
+                        </a>
+                      ),
+                    }}
+                  />
+                </FieldDescription>
+              )}
               <FieldError errors={field.state.meta.errors} />
             </Field>
           )}
         </form.Field>
 
         {/* What holds for the whole recipe: for one typed in, where it's
-            from, a book and page (an import's source is the note at the
-            top), and the language it's written in, labelled. */}
+            from, a book and page (an import's source is the note under its
+            name), and the language it's written in, labelled. */}
         <div className="flex flex-col gap-3">
           {!link && (
             <form.Field name="sourceName">
@@ -337,7 +336,6 @@ export function RecipeEditor({
               onChange={(event) => field.handleChange(event.target.value)}
               onBlur={field.handleBlur}
             />
-            <FieldDescription>{m.editor_ingredients_hint()}</FieldDescription>
           </section>
         )}
       </form.Field>
@@ -350,17 +348,9 @@ export function RecipeEditor({
             </h2>
             {/* How long it takes, in view with the steps. */}
             <div className="grid grid-cols-3 gap-3">
-              {TIMES.map(([name, label, Icon]) => (
+              {TIMES.map(([name, label]) => (
                 <form.Field key={name} name={name}>
-                  {(time) => (
-                    <IconField
-                      field={time}
-                      icon={Icon}
-                      label={label()}
-                      unit={m.editor_minutes_unit()}
-                      inputMode="numeric"
-                    />
-                  )}
+                  {(time) => <MinutesField field={time} label={label()} />}
                 </form.Field>
               ))}
             </div>
@@ -376,30 +366,38 @@ export function RecipeEditor({
               onChange={(event) => field.handleChange(event.target.value)}
               onBlur={field.handleBlur}
             />
-            <FieldDescription>{m.editor_steps_hint()}</FieldDescription>
           </section>
         )}
       </form.Field>
 
-      {/* Discard and Save where the thumb is. On phones they take the
-          bottom bar's place, the menu stepping aside while the editor
-          shows; on wider screens they float at the bottom of the editor.
-          On a phone they also step aside while something is typed, so
-          they don't crowd the keyboard. */}
+      {/* Discard and Save where the thumb is, Save taking all the room
+          Discard leaves. On phones they take the bottom bar's place, the
+          menu stepping aside while the editor shows. On wider screens they
+          float at the bottom of the window, below a short recipe too, as
+          far from its edge as when they sit at the end of the page. */}
       <div
         className={cn(
           FLOATING_BAR,
-          'flex items-center justify-between gap-2 p-3 md:sticky md:inset-x-auto md:bottom-6 md:w-full md:max-w-sm md:self-center',
-          touch && typing && 'hidden',
+          'flex items-center gap-2 p-3 md:sticky md:inset-x-auto md:bottom-8 md:mt-auto md:w-full md:max-w-sm md:self-center',
         )}
       >
         <Button type="button" variant="outline" size="lg" onClick={discard}>
+          <Trash2Icon data-icon="inline-start" />
           {m.editor_discard()}
         </Button>
         <form.Subscribe selector={(state) => state.isSubmitting}>
           {(saving) => (
-            <Button type="submit" size="lg" disabled={saving}>
-              {saving && <Spinner data-icon="inline-start" />}
+            <Button
+              type="submit"
+              size="lg"
+              disabled={saving}
+              className="flex-1"
+            >
+              {saving ? (
+                <Spinner data-icon="inline-start" />
+              ) : (
+                <CheckIcon data-icon="inline-start" />
+              )}
               {m.editor_save()}
             </Button>
           )}
@@ -409,28 +407,25 @@ export function RecipeEditor({
   )
 }
 
+type TextField = {
+  name: string
+  state: { value: string; meta: { isValid: boolean } }
+  handleChange: (value: string) => void
+  handleBlur: () => void
+}
+
 // A field without a visible label: its icon and placeholder say what it
-// is, and the label is for screen readers. A unit, such as "min", follows
-// what's typed.
+// is, and the label is for screen readers.
 function IconField({
   field,
   icon: Icon,
   label,
   placeholder = label,
-  unit,
-  inputMode,
 }: {
-  field: {
-    name: string
-    state: { value: string; meta: { isValid: boolean } }
-    handleChange: (value: string) => void
-    handleBlur: () => void
-  }
+  field: TextField
   icon: LucideIcon
   label: string
   placeholder?: string
-  unit?: string
-  inputMode?: React.ComponentProps<'input'>['inputMode']
 }) {
   const invalid = !field.state.meta.isValid || undefined
   return (
@@ -444,28 +439,58 @@ function IconField({
         </InputGroupAddon>
         <InputGroupInput
           id={field.name}
-          inputMode={inputMode}
           placeholder={placeholder}
           value={field.state.value}
           onChange={(event) => field.handleChange(event.target.value)}
           onBlur={field.handleBlur}
           aria-invalid={invalid}
         />
-        {unit && (
-          <InputGroupAddon align="inline-end">
-            <InputGroupText>{unit}</InputGroupText>
-          </InputGroupAddon>
-        )}
       </InputGroup>
     </Field>
   )
 }
 
-// Whether focusing the element brings up the keyboard. A select opens a
-// picker instead.
-function takesTyping(element: EventTarget): boolean {
+// A time in minutes, named under its box, where the name has the width the
+// box can't spare: three to a row on a phone, Finnish names are too long to
+// sit beside a number. The number sits beside its unit.
+function MinutesField({ field, label }: { field: TextField; label: string }) {
+  const invalid = !field.state.meta.isValid || undefined
   return (
-    element instanceof HTMLTextAreaElement ||
-    element instanceof HTMLInputElement
+    <Field data-invalid={invalid} className="gap-1.5">
+      <InputGroup>
+        <InputGroupInput
+          id={field.name}
+          inputMode="numeric"
+          placeholder="0"
+          value={field.state.value}
+          onChange={(event) => field.handleChange(event.target.value)}
+          onBlur={field.handleBlur}
+          aria-invalid={invalid}
+          className="text-right"
+        />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>{m.editor_minutes_unit()}</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <FieldLabel
+        htmlFor={field.name}
+        className="justify-center text-center font-normal text-muted-foreground"
+      >
+        {label}
+      </FieldLabel>
+    </Field>
   )
+}
+
+// The editor's own scrolling glides, unless the device asks for less
+// motion.
+function scrollBehavior(): ScrollBehavior {
+  return matchMedia('(prefers-reduced-motion: reduce)').matches
+    ? 'instant'
+    : 'smooth'
+}
+
+// Closing no toast at all would close every toast.
+function closeToast(id: string | undefined) {
+  if (id !== undefined) toast.close(id)
 }

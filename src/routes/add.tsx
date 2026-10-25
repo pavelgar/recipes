@@ -25,8 +25,10 @@ export const Route = createFileRoute('/add')({
 
 function AddPage() {
   const { link } = Route.useSearch()
+  // As tall as the window, so the editor's actions can sit at its bottom.
+  // Generous room above the name, clear of the notch in the installed app.
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-6">
+    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-4 pt-[calc(4rem+env(safe-area-inset-top))] pb-6">
       {link ? <Imported key={link} link={link} /> : <Typed />}
     </main>
   )

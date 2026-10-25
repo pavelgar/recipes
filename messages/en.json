@@ -76,8 +76,6 @@
   "editor_imported_from": "Read from {#link}{site}{/link}. Check it before saving.",
   "editor_servings_placeholder": "Servings",
   "editor_minutes_unit": "min",
-  "editor_ingredients_hint": "A line ending with a colon, such as \"For the sauce:\", starts a section.",
-  "editor_steps_hint": "One step per line. A line ending with a colon starts a section.",
   "editor_title_required": "Give the recipe a title.",
   "editor_minutes_invalid": "Write the time in whole minutes.",
   "editor_save": "Save",
