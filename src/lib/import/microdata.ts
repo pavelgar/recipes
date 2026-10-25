@@ -2,17 +2,17 @@ import { DomUtils, ElementType } from 'htmlparser2'
 import { isOfType } from '@/lib/import/schema-org'
 import type { Element, Page, Thing } from '@/lib/import/schema-org'
 
-// The page's schema.org Recipe in microdata (itemscope, itemtype and
-// itemprop attributes), read into the shape JSON-LD gives, so one reader
-// handles both. None of the corpus sites use microdata, but some sites do.
-export function findMicrodataRecipe(page: Page): Thing | null {
-  const scope = DomUtils.findOne(
+// Every schema.org Recipe in the page's microdata (itemscope, itemtype and
+// itemprop attributes), in page order, read into the shape JSON-LD gives,
+// so one reader handles both. None of the corpus sites use microdata, but
+// some sites do.
+export function findMicrodataRecipes(page: Page): Array<Thing> {
+  return DomUtils.findAll(
     (element) =>
       DomUtils.hasAttrib(element, 'itemscope') &&
       isOfType({ '@type': itemTypes(element) }, 'Recipe'),
     page.children,
-  )
-  return scope ? readItem(scope, 0) : null
+  ).map((scope) => readItem(scope, 0))
 }
 
 function readItem(scope: Element, depth: number): Thing {

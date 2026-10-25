@@ -1,25 +1,32 @@
+import { languageName, UNKNOWN_LANGUAGE } from '@/lib/languages'
 import { m } from '@/paraglide/messages'
-import type { Language, MeasuringSystem } from '@/lib/quantities'
+import { getLocale } from '@/paraglide/runtime'
+import type { RecipeLanguage } from '@/lib/languages'
+import type { MeasuringSystem } from '@/lib/quantities'
 
 // What the interface calls a recipe's language and measuring system.
 
-export const LANGUAGE_NAMES: Record<Language, () => string> = {
-  fi: m.language_fi,
-  en: m.language_en,
+// A language's name in the interface's language: "Swedish", "ruotsi". A
+// language the browser can't name shows its code.
+export function recipeLanguageName(language: RecipeLanguage): string {
+  if (language === UNKNOWN_LANGUAGE) return m.language_unknown()
+  return languageName(language, getLocale()) ?? language
 }
 
-// Beside a label: "Measures: US".
+// Whether the browser can name a language, so it can be offered as a
+// choice. Browsers carry different language data: headless Chromium names
+// 132 of the 183 languages with a two-letter code, Node all of them.
+export function namesLanguage(language: RecipeLanguage): boolean {
+  return (
+    language === UNKNOWN_LANGUAGE ||
+    languageName(language, getLocale()) !== null
+  )
+}
+
+// Named by a label beside or under them: "Measures: US".
 export const SYSTEM_NAMES: Record<MeasuringSystem, () => string> = {
   us: m.measures_us,
   british: m.measures_british,
   australian: m.measures_australian,
   metric: m.measures_metric,
-}
-
-// As a choice on its own, without a label beside it: "US measures".
-export const SYSTEM_CHOICES: Record<MeasuringSystem, () => string> = {
-  us: m.measures_choice_us,
-  british: m.measures_choice_british,
-  australian: m.measures_choice_australian,
-  metric: m.measures_choice_metric,
 }

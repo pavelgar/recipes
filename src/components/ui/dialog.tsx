@@ -29,8 +29,11 @@ function DialogOverlay({
   return (
     <DialogPrimitive.Backdrop
       data-slot="dialog-overlay"
+      // On iOS it's part of the page rather than fixed, covering all of it:
+      // Safari 26 draws no fixed layer behind its floating toolbar, but it
+      // does draw the page there.
       className={cn(
-        'fixed inset-0 isolate z-50 bg-black/80 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0',
+        'fixed inset-0 isolate z-50 min-h-dvh bg-black/80 duration-100 supports-backdrop-filter:backdrop-blur-xs supports-[-webkit-touch-callout:none]:absolute data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0',
         className,
       )}
       {...props}

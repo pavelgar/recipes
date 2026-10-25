@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { extractRecipe } from '@/lib/import/extract'
 import { clean, readMinutes } from '@/lib/import/recipe'
+import { UNKNOWN_LANGUAGE } from '@/lib/languages'
 
-// The pages here are built around real strings from the corpus (the URL
-// says whose). The markup around them follows the forms the corpus sites
+// The pages here are built around real strings from published pages,
+// most of them in the corpus (the URL says whose). The markup around them follows the forms the corpus sites
 // publish: a script of their own, a @graph with references, and microdata.
 // Site names are placeholders.
 
@@ -128,6 +129,50 @@ describe('extractRecipe', () => {
     })
   })
 
+  // The importer doesn't guess where a site's steps, sentences and
+  // headings start and end, so mistakes in them come as published, to fix
+  // in the editor: jalotofu.fi runs its section headings onto the ends of
+  // steps, myllynparas.fi cuts its sentences at commas and runs steps
+  // together ("sekaan.Kiehauta"), and halfbakedharvest.com leaves out the
+  // space after a step's number ("2.In"). Each method is cut to its first
+  // steps.
+  it.each([
+    [
+      'https://jalotofu.fi/reseptit/rapeat-tofupalat-korean-fried-tofu-kft/',
+      'Valmista pikkelöity kaali-porkkanasalaatti:\n\nViipaloi kaalit sekä porkkana esim. mandoliinilla ohueksi suikaleeksi ja siirrä kulhoon, lisää loput ainekset, sekoita ja anna maustua 30 min välillä sekoittaen. Paista tofut:\n\nAvaa tofut, valuta ja revi käsin varovasti paloiksi.',
+      [
+        'Valmista pikkelöity kaali-porkkanasalaatti:',
+        'Viipaloi kaalit sekä porkkana esim. mandoliinilla ohueksi suikaleeksi ja siirrä kulhoon, lisää loput ainekset, sekoita ja anna maustua 30 min välillä sekoittaen. Paista tofut:',
+        'Avaa tofut, valuta ja revi käsin varovasti paloiksi.',
+      ],
+    ],
+    [
+      'https://www.myllynparas.fi/reseptit/kuorrutettu-kinkkupaistos',
+      [
+        'Keitä Raketti Spagettia lihaliemessä 6 min pakkauksen ohjeen mukaan ja valuta lihaliemi talteen siivilän läpi. Älä huuhdo. Kaada Raketti Spagetti teflon-uunivuokaan. Sekoita palvikinkkusuikaleet',
+        'sienet ja purjorenkaat sekä mausteet pastan sekaan.Kiehauta kastiketta varten kattilassa voissa vehnäjauho',
+      ].map((text) => ({ '@type': 'HowToStep', text })),
+      [
+        'Keitä Raketti Spagettia lihaliemessä 6 min pakkauksen ohjeen mukaan ja valuta lihaliemi talteen siivilän läpi. Älä huuhdo. Kaada Raketti Spagetti teflon-uunivuokaan. Sekoita palvikinkkusuikaleet',
+        'sienet ja purjorenkaat sekä mausteet pastan sekaan.Kiehauta kastiketta varten kattilassa voissa vehnäjauho',
+      ],
+    ],
+    [
+      'https://www.halfbakedharvest.com/buffalo-chicken-strombolis/',
+      '1. Preheat the oven to 450° F. Line a baking sheet with parchment paper. 2.In a bowl, combine the chicken, buffalo sauce, cilantro, chives, and jalapeño.',
+      [
+        'Preheat the oven to 450° F. Line a baking sheet with parchment paper. 2.In a bowl, combine the chicken, buffalo sauce, cilantro, chives, and jalapeño.',
+      ],
+    ],
+  ])('takes the steps of %s as published', (url, instructions, steps) => {
+    const html = page(
+      jsonLd({ '@type': 'Recipe', recipeInstructions: instructions }),
+    )
+    expect(extractRecipe(html, url)).toMatchObject({
+      steps: [{ heading: null, lines: steps }],
+    })
+  })
+
   it('reads a Recipe whose @type is a list, inside another item', () => {
     const url =
       'https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe'
@@ -198,6 +243,74 @@ describe('extractRecipe', () => {
     ).toMatchObject({
       title: 'Mangosorbetti',
       ingredients: [{ lines: ['5dl Bonne Mangososetta', '5g ksantaania'] }],
+    })
+  })
+
+  // jalotofu.fi's rating plugin writes a Recipe of its own, with only a
+  // name and a rating, before the full one.
+  it('reads the first Recipe that holds a recipe', () => {
+    const url =
+      'https://jalotofu.fi/reseptit/rapeat-tofupalat-korean-fried-tofu-kft/'
+    const name = 'RAPEAT TOFUPALAT | KOREAN FRIED TOFU (KFT)'
+    const html = page(
+      jsonLd({
+        '@context': 'https://schema.org/',
+        '@type': 'Recipe',
+        name,
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '5',
+          bestRating: '5',
+          ratingCount: '3',
+        },
+      }) +
+        jsonLd({
+          '@context': 'http://schema.org',
+          '@type': 'Recipe',
+          name,
+          recipeIngredient: [
+            '2 kpl Jalotofu Aasia 300g',
+            'rypsiöljyä paistamiseen',
+            '3 dl kauramaitoa',
+          ],
+        }),
+    )
+    expect(extractRecipe(html, url)).toMatchObject({
+      title: name,
+      ingredients: [
+        {
+          lines: [
+            '2 kpl Jalotofu Aasia 300g',
+            'rypsiöljyä paistamiseen',
+            '3 dl kauramaitoa',
+          ],
+        },
+      ],
+    })
+  })
+
+  it('reads the first microdata Recipe that holds a recipe', () => {
+    const html = page(
+      '',
+      `<div itemscope itemtype="https://schema.org/Recipe">
+        <span itemprop="name">Ananas-rahkajuoma</span>
+      </div>
+      <article itemscope itemtype="https://schema.org/Recipe">
+        <h1 itemprop="name">Ananas-rahkajuoma</h1>
+        <ul>
+          <li itemprop="recipeIngredient">250 g Valio maitorahkaa</li>
+          <li itemprop="recipeIngredient">3 dl Valio ananastäysmehua</li>
+        </ul>
+      </article>`,
+    )
+    expect(
+      extractRecipe(html, 'https://www.valio.fi/reseptit/ananas-rahkajuoma/'),
+    ).toMatchObject({
+      ingredients: [
+        {
+          lines: ['250 g Valio maitorahkaa', '3 dl Valio ananastäysmehua'],
+        },
+      ],
     })
   })
 
@@ -281,6 +394,140 @@ describe('extractRecipe', () => {
     })
   })
 
+  // A British recipe on .com, whose page says lang="en-GB". Its ingredients
+  // are cut to the first two, its steps to the first.
+  it('reads the measures of the region a page states', () => {
+    const html = page(
+      jsonLd({
+        '@type': 'Recipe',
+        name: 'Easy sweet potato and cod traybake recipe',
+        recipeIngredient: ['2 tbsp. vegetable oil', '1 tsp. mustard seeds'],
+        recipeInstructions: [
+          {
+            '@type': 'HowToStep',
+            text: '<strong></strong>Preheat oven to 200°C (180°C fan) mark 6. In a small bowl, mix the oil, spices, curry paste and plenty of seasoning.',
+          },
+        ],
+      }),
+      '',
+      'en-GB',
+    )
+    expect(
+      extractRecipe(
+        html,
+        'https://www.goodhousekeeping.com/uk/food/recipes/a26144717/sweet-potato-cod-traybake/',
+      ),
+    ).toMatchObject({ language: 'en', measuringSystem: 'british' })
+  })
+
+  // kinuskikissa.fi gives its Finnish recipes lang="en".
+  it('reads the language the recipe is written in', () => {
+    const html = page(
+      jsonLd({
+        '@context': 'https://schema.org/',
+        '@type': 'Recipe',
+        name: 'Kaneliässät',
+        recipeIngredient: [
+          '200 g voita ',
+          '2 dl sokeria ',
+          '2  pientä munaa ',
+          '4.5 dl vehnäjauhoja ',
+          '2 tl vaniljasokeria ',
+          '1 tl kanelia ',
+          '1 tl leivinjauhetta ',
+          '0.5 dl  hienoa (ruoko)sokeria',
+          '2 tl kanelia ',
+          '1 tl vaniljasokeria ',
+        ],
+        recipeInstructions: [
+          'TAIKINA. Vatkaa voi ja sokeri vaahdoksi. Sekoita munat joukkoon yksitellen vaahtoon vatkaten.',
+          'Yhdistä kuivat aineet keskenään ja lisää taikinaan.',
+          'Nosta taikina jääkaappiin jähmettymään pariksi tunniksi.',
+          'Jaa taikina osiin ja kierittele taikinapaloista jauhoja apuna käyttäen sormen paksuisia tankoja.',
+          'Leikkaa tangot noin 8 cm:n pätkiksi.',
+          'PINNALLE. Yhdistä (ruoko)sokeriin kaneli ja vaniljasokeri.',
+          'Rullaa tankoja huolellisesti kanelisokerissa. Nosta pellille leivinpaperin päälle ja taivuta S-kirjaimen muotoon.',
+          'Paista 200 asteessa noin 10 minuuttia. Anna jäähtyä ja ei kun nauttimaan!  🙂',
+        ].map((text) => ({ '@type': 'HowToStep', text })),
+      }),
+      '',
+      'en',
+    )
+    expect(
+      extractRecipe(html, 'https://www.kinuskikissa.fi/kaneliassat/'),
+    ).toMatchObject({ language: 'fi' })
+  })
+
+  // https://www.arla.se/recept/sockerkaka/, a language the app has no
+  // rules for. Its steps are cut to the first two.
+  it('keeps the language a page states, rules or not', () => {
+    const html = page(
+      jsonLd({
+        '@type': 'Recipe',
+        name: 'Sockerkaka',
+        recipeIngredient: [
+          '75 g Svenskt Smör från Arla®',
+          '1 dl Arla Ko® Standardmjölk',
+          '2 ägg',
+          '2 dl strösocker',
+          '2 tsk vaniljsocker',
+          '3 dl vetemjöl',
+          '1½ tsk bakpulver',
+        ],
+        recipeInstructions: [
+          'Sätt ugnen på 175° eller 160° varmluft.',
+          'Smörj och bröa en form som rymmer ca 1 ½ liter. ',
+        ].map((text) => ({ '@type': 'HowToStep', text })),
+      }),
+      '',
+      'sv',
+    )
+    expect(
+      extractRecipe(html, 'https://www.arla.se/recept/sockerkaka/'),
+    ).toMatchObject({ language: 'sv', measuringSystem: 'metric' })
+  })
+
+  // Pages that state no language, built from the recipes above: franc
+  // tells from enough text, and nothing tells from a little.
+  it.each([
+    [
+      'https://www.kinuskikissa.fi/kaneliassat/',
+      {
+        '@type': 'Recipe',
+        name: 'Kaneliässät',
+        recipeIngredient: [
+          '200 g voita ',
+          '2 dl sokeria ',
+          '2  pientä munaa ',
+          '4.5 dl vehnäjauhoja ',
+        ],
+        recipeInstructions: [
+          'TAIKINA. Vatkaa voi ja sokeri vaahdoksi. Sekoita munat joukkoon yksitellen vaahtoon vatkaten.',
+          'Yhdistä kuivat aineet keskenään ja lisää taikinaan.',
+          'Nosta taikina jääkaappiin jähmettymään pariksi tunniksi.',
+          'Jaa taikina osiin ja kierittele taikinapaloista jauhoja apuna käyttäen sormen paksuisia tankoja.',
+          'Leikkaa tangot noin 8 cm:n pätkiksi.',
+          'PINNALLE. Yhdistä (ruoko)sokeriin kaneli ja vaniljasokeri.',
+          'Rullaa tankoja huolellisesti kanelisokerissa. Nosta pellille leivinpaperin päälle ja taivuta S-kirjaimen muotoon.',
+          'Paista 200 asteessa noin 10 minuuttia. Anna jäähtyä ja ei kun nauttimaan!  🙂',
+        ],
+      },
+      'fi',
+    ],
+    [
+      'https://www.arla.se/recept/sockerkaka/',
+      {
+        '@type': 'Recipe',
+        name: 'Sockerkaka',
+        recipeIngredient: ['2 ägg', '2 dl strösocker', '3 dl vetemjöl'],
+      },
+      UNKNOWN_LANGUAGE,
+    ],
+  ])('reads %s, stating no language, as %j', (url, recipe, language) => {
+    const html = `<!doctype html><html><head>${jsonLd(recipe)}</head><body></body></html>`
+    expect(extractRecipe(html, url)).toMatchObject({ language })
+  })
+
   it('finds no recipe on a page without one', () => {
     expect(
       extractRecipe(page('<title>Valio</title>'), 'https://www.valio.fi/'),
@@ -291,6 +538,28 @@ describe('extractRecipe', () => {
     const html = page(jsonLd({ '@type': 'Recipe', name: 'Ananas-rahkajuoma' }))
     expect(
       extractRecipe(html, 'https://www.valio.fi/reseptit/ananas-rahkajuoma/'),
+    ).toBeNull()
+  })
+
+  // olivemagazine.com marks a collection page as a Recipe, with keywords
+  // for its one ingredient.
+  it('finds no recipe in a Recipe with one ingredient and no steps', () => {
+    const html = page(
+      jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'Recipe',
+        name: '57 healthy chicken recipes',
+        recipeIngredient:
+          'chicken, chicken breasts, chicken thighs, potatoes, spices, peppers, noodles',
+      }),
+      '',
+      'en',
+    )
+    expect(
+      extractRecipe(
+        html,
+        'https://www.olivemagazine.com/recipes/collection/best-ever-healthy-chicken-recipes/',
+      ),
     ).toBeNull()
   })
 })
@@ -309,13 +578,21 @@ describe('clean', () => {
 })
 
 describe('readMinutes', () => {
+  // The times written as text are as jalotofu.fi, hellofresh.co.uk,
+  // epicurious.com and olivemagazine.com publish them.
   it.each([
     ['PT30M', 30],
     ['PT1H30M', 90],
     ['P0DT0H45M', 45],
     ['PT0.5H', 30],
     ['PT0M', null],
-    ['30 min', null],
+    ['10 min', 10],
+    ['30m', 30],
+    ['4 hours', 240],
+    ['1 hour 15 minutes', 75],
+    ['30 minutes, plus cooling', 30],
+    ['1 hour 30 minutes (plus rising and cooling)', 90],
+    ['Cook Time (approx.)', null],
   ])('reads %s as %s minutes', (duration, minutes) => {
     expect(readMinutes([duration])).toBe(minutes)
   })

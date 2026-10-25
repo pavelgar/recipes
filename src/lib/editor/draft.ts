@@ -1,17 +1,18 @@
 import { z } from 'zod'
-import { LANGUAGES, MEASURING_SYSTEMS } from '@/db/choices'
+import { MEASURING_SYSTEMS } from '@/db/choices'
 import { sectionsFromText, textFromSections } from '@/lib/editor/lines'
+import { isRecipeLanguage, rulesFor } from '@/lib/languages'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
 import { m } from '@/paraglide/messages'
 import type { RecipeInput } from '@/db/recipe-input'
 import type { ImportedRecipe } from '@/lib/import/types'
-import type { Language } from '@/lib/quantities'
+import type { RecipeLanguage } from '@/lib/languages'
 
 // What the editor holds: every field as typed, ingredients and steps as
 // text with one line each. It becomes a recipe only when saved.
 const draftShape = z.object({
   title: z.string(),
-  language: z.enum(LANGUAGES),
+  language: z.string().refine(isRecipeLanguage),
   measuringSystem: z.enum(MEASURING_SYSTEMS),
   servings: z.string(),
   prepMinutes: z.string(),
@@ -42,7 +43,7 @@ export const draftSchema = draftShape.extend({
   totalMinutes: minutes,
 })
 
-export function emptyDraft(language: Language): Draft {
+export function emptyDraft(language: RecipeLanguage): Draft {
   return {
     title: '',
     language,
@@ -81,7 +82,10 @@ export function draftFromImport(recipe: ImportedRecipe): Draft {
 export function recipeFromDraft(draft: Draft): RecipeInput {
   const text = (value: string) => value.trim() || null
   const number = (value: string) => Number(value.trim()) || null
-  const opts = { language: draft.language, system: draft.measuringSystem }
+  const opts = {
+    language: rulesFor(draft.language),
+    system: draft.measuringSystem,
+  }
   return {
     title: draft.title.trim(),
     language: draft.language,

@@ -8,6 +8,8 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
+import { cn } from 'cn'
+
 import { AppShell, getSidebarOpen } from '@/components/app-shell'
 import { Toaster } from '@/components/ui/toast'
 import { themeScript } from '@/lib/theme'
@@ -84,16 +86,45 @@ function RootLayout() {
   )
 }
 
+// In a phone's browser the page itself scrolls, so Safari can tuck its
+// toolbar away and show the page under it, and pulling down reloads. Fixed
+// elements move with the page when it bounces there. Elsewhere each screen
+// scrolls in the app shell's scroll area (scroll-inside), so the bars stay
+// put.
+const SCROLL_INSIDE =
+  'scroll-inside:h-full scroll-inside:overflow-hidden scroll-inside:overscroll-y-none'
+
+// While a backdrop is up:
+// - Safari 26 on iPhone draws no fixed layer behind its floating toolbar, a
+//   backdrop included. Where the page ends before the toolbar does, the
+//   page's own background shows there, so it takes the colour the backdrop
+//   gives the page: black at 80%.
+// - Safari on iPhone still lets the page scroll under it. The page doesn't
+//   bounce, so the backdrop doesn't bounce away from what it covers.
+const PAGE_BACKGROUND =
+  'bg-(--page-background) transition-colors duration-450 ease-[cubic-bezier(0.32,0.72,0,1)]'
+const HTML = cn(
+  SCROLL_INSIDE,
+  PAGE_BACKGROUND,
+  '[--page-background:var(--background)] backdrop-up:overscroll-y-none backdrop-up:[--page-background:color-mix(in_srgb,var(--background)_20%,black)]',
+)
+// Positioned, so a backdrop can cover the whole page (dialog.tsx).
+const BODY = cn(
+  SCROLL_INSIDE,
+  PAGE_BACKGROUND,
+  'relative scroll-inside:fixed scroll-inside:inset-0',
+)
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     // The theme script below sets the theme on <html> before React starts.
-    <html lang={getLocale()} suppressHydrationWarning>
+    <html lang={getLocale()} className={HTML} suppressHydrationWarning>
       <head>
         {/* Before anything paints, so a dark page never flashes light. */}
         <ScriptOnce children={themeScript} />
         <HeadContent />
       </head>
-      <body>
+      <body className={BODY}>
         {/* Long enough to reach Undo with busy hands. */}
         <Toaster timeout={10_000}>{children}</Toaster>
         <TanStackDevtools

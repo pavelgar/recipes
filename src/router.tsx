@@ -3,6 +3,7 @@ import { FileQuestionMarkIcon } from 'lucide-react'
 import { routeTree } from '@/routeTree.gen'
 
 import { setupRouterSsrQueryIntegration } from '@tanstack/react-router-ssr-query'
+import { MAIN_SCROLL_AREA } from '@/components/app-shell'
 import { NotFound } from '@/components/not-found'
 import { getContext } from '@/integrations/tanstack-query/root-provider'
 import { m } from '@/paraglide/messages'
@@ -14,6 +15,7 @@ export function getRouter() {
     routeTree,
     context,
     scrollRestoration: true,
+    scrollToTopSelectors: [MAIN_SCROLL_AREA],
     defaultPreload: 'intent',
     defaultPreloadStaleTime: 0,
     // An address the app has no page for. A screen can say more about what

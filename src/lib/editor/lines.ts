@@ -4,12 +4,14 @@ import type { Language, MeasuringSystem } from '@/lib/quantities'
 
 // The editor writes ingredients and steps as text, one line each. A line
 // with no amount that ends with a colon is a section heading:
-// "Etikkaliemi:", as Kotiliesi publishes it.
+// "Etikkaliemi:", as Kotiliesi publishes it. In a language the app has no
+// rules for, amounts aren't read, so any line ending with a colon is one.
 
 export type LineKind = 'ingredient' | 'step'
 
 export type LineOptions = {
-  readonly language: Language
+  // The rules of the recipe's language, or null without them.
+  readonly language: Language | null
   readonly system: MeasuringSystem
 }
 
@@ -20,9 +22,11 @@ export function isHeading(
 ): boolean {
   const text = line.trim()
   if (text.length < 2 || !text.endsWith(':')) return false
+  const { language, system } = opts
+  if (language === null) return true
   return kind === 'ingredient'
-    ? parseIngredient(text, opts).result === 'no-amount'
-    : scanStep(text, opts).length === 0
+    ? parseIngredient(text, { language, system }).result === 'no-amount'
+    : scanStep(text, { language, system }).length === 0
 }
 
 // The editor's text as sections. Lines before the first heading form a
@@ -79,10 +83,12 @@ export function marksOf(
     const start = line.length - line.trimStart().length
     return [{ start, end: line.trimEnd().length, kind: 'heading' }]
   }
+  const { language, system } = opts
+  if (language === null) return []
   const quantities =
     kind === 'step'
-      ? scanStep(line, opts)
-      : parseIngredient(line, opts).quantities
+      ? scanStep(line, { language, system })
+      : parseIngredient(line, { language, system }).quantities
   return quantities.map(({ at: [start, end] }) => ({
     start,
     end,

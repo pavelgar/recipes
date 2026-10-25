@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { extractRecipe } from '@/lib/import/extract'
 import { fetchPage } from '@/lib/import/fetch.server'
 import { linkSchema, siteOf } from '@/lib/import/link'
+import { withWprmGroups } from '@/lib/import/wprm.server'
 import type { ImportResult } from '@/lib/import/types'
 
 // Reads the recipe on a web page. The server fetches the page, since
@@ -16,9 +17,13 @@ export const importRecipe = createServerFn({ method: 'POST' })
     const page = await fetchPage(data.link)
     if (!page.ok) return page
     const recipe = extractRecipe(page.html, page.url)
-    return recipe
-      ? { ok: true, recipe }
-      : { ok: false, error: { code: 'no-recipe', site: siteOf(page.url) } }
+    if (!recipe) {
+      return { ok: false, error: { code: 'no-recipe', site: siteOf(page.url) } }
+    }
+    return {
+      ok: true,
+      recipe: await withWprmGroups(recipe, page.html, page.url),
+    }
   })
 
 // What the add drawer read, kept for the editor that shows it. A failed

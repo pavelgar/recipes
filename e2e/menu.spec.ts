@@ -19,9 +19,9 @@ test('the main menu reaches every page', async ({ page }) => {
   }
 })
 
-// Add opens a drawer on phones and a dialog on wider screens, over the page
-// that was showing, with the link field ready for a link.
-test('Add opens the add drawer over the page', async ({ page }) => {
+// Add opens a dialog over the page that was showing, with the link field
+// ready for a link.
+test('Add opens the add dialog over the page', async ({ page }) => {
   await page.goto('/library')
   await page
     .getByRole('navigation', { name: 'Main menu' })
