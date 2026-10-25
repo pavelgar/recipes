@@ -103,7 +103,14 @@ export function AppShell({
           <SidebarInset className="scroll-inside:min-h-0 scroll-inside:overflow-hidden">
             <ScrollArea
               className="scroll-inside:min-h-0 scroll-inside:flex-1"
-              viewportProps={{ 'data-scroll-restoration-id': 'main' }}
+              viewportProps={{
+                'data-scroll-restoration-id': 'main',
+                // Scrolling stays inside only where it scrolls here. In a
+                // phone's browser it has nothing to scroll, but Chrome and
+                // Firefox would still keep a scroll from carrying on into
+                // the page, so nothing would scroll.
+                className: 'overscroll-auto scroll-inside:overscroll-contain',
+              }}
             >
               {/* Room for the bottom bar on phones: its height, the gap
                   below it and some air above it. */}

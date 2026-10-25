@@ -9,9 +9,9 @@ function ScrollArea({
   viewportProps,
   ...props
 }: ScrollAreaPrimitive.Root.Props & {
-  // Data attributes for the element that scrolls, such as the router's
-  // data-scroll-restoration-id.
-  viewportProps?: Record<`data-${string}`, string>
+  // Data attributes and classes for the element that scrolls, such as the
+  // router's data-scroll-restoration-id.
+  viewportProps?: Record<`data-${string}`, string> & { className?: string }
 }) {
   return (
     <ScrollAreaPrimitive.Root
@@ -24,7 +24,10 @@ function ScrollArea({
       <ScrollAreaPrimitive.Viewport
         data-slot="scroll-area-viewport"
         {...viewportProps}
-        className="size-full overscroll-contain rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:ring-inset"
+        className={cn(
+          'size-full overscroll-contain rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:ring-inset',
+          viewportProps?.className,
+        )}
       >
         {children}
       </ScrollAreaPrimitive.Viewport>
