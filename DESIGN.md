@@ -84,7 +84,7 @@
 - Use date-fns for working with dates, and countries-and-timezones to tell
   which country a time zone belongs to.
 - Render translations that mark words for the app to draw (such as a
-  button's name with its icon) with Paraglide's React adapter,
+  button's name with its icon, or a link) with Paraglide's React adapter,
   @inlang/paraglide-js-react.
 - The website recipe extractor reads pages with htmlparser2, finds their
   charset with encoding-sniffer, decodes HTML entities with entities and
@@ -102,6 +102,21 @@
 ### Adding recipes
 
 - Typed by hand, imported from a website, or photographed from a cookbook.
+- Most recipes come from links, so adding starts with one. Add opens a
+  drawer on phones and a dialog on wider screens, with the link field
+  focused. The import starts on the arrow button beside it (or Enter),
+  whether the link was pasted or typed. The address may leave out its
+  https://, and shared text with a link in it works too. Below the field,
+  side by side: enter it manually, and scan it from a photo, disabled
+  until an AI provider is configured.
+- The drawer stays open while the page is read and names the site
+  ("Reading valio.fi…"). If the page can't be read or has no recipe, it
+  says why there.
+- On Android, the installed app appears in the share menu: sharing a page
+  opens the drawer with its link filled in, waiting for the arrow.
+- On wider screens, pasting a link anywhere in the app outside a text
+  field, or dropping one onto it, opens the dialog the same way: link
+  filled in, waiting for the arrow.
 - The server fetches pages for import only from public addresses, never
   from a private network.
 - Website import reads schema.org/Recipe data in both JSON-LD and microdata
@@ -112,6 +127,26 @@
   separate OCR step.
 - Imported and photographed recipes open in the editor for review before
   saving, with the same line-by-line recognition as typed recipes.
+- Until it's saved, the editor's draft is kept in the browser: one typed
+  by hand, and one being checked after an import. Discarding a draft asks
+  nothing and can be undone.
+- The editor is laid out like the recipe it writes, each detail beside
+  what it's about: for an import, a note above the name that names its
+  source, as a link; the name set as its heading, in a field like the
+  others so it reads as editable; under it a typed recipe's source field,
+  and the recipe language, labelled; under the Ingredients heading,
+  servings and measures side by side, since they decide how the amounts
+  read; under the Steps heading, the prep, cook and total times side by
+  side; and the ingredients and steps as lists, with bullets and step
+  numbers that start again after each heading. Fields without a visible
+  label show an icon and a placeholder instead, and each measures option
+  names itself. Choices are in alphabetical order. A dropdown is the
+  system's own picker on touch screens and the app's styled one with a
+  mouse or trackpad. An empty list shows real example lines from a
+  published recipe, in the recipe's language. Discard and Save float at the
+  bottom, where the thumb is: on phones in the menu's place, which steps
+  aside while the editor shows, and out of the keyboard's way while
+  something is typed.
 - Some kind of AI assistance is wanted. Beyond photo import, what it does is
   not defined yet.
 
@@ -136,21 +171,26 @@
   a source (where it came from) and one optional cover photo. It also keeps
   the total time its source publishes, when the source gives one.
 - A source is a name ("Valio", "Kotiruokaa, s. 112"), a web address, or
-  both.
+  both. An imported recipe's source is the site and page it came from,
+  which the editor shows but doesn't let anyone change; a recipe typed by
+  hand has a source field for a name, such as a book and page.
 - The app must work and look good for recipes without a photo.
 - Servings are adjustable, and ingredient amounts follow.
 - Servings are kept as written, since recipes often give a yield instead
   ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
   scales it, keeping the word: "24 pullaa" → "48 pullaa". Ranges scale at
   both ends.
-- Ingredients are entered as free-text lines. As you type, each line
-  indicates whether the app recognised its amount and unit. Lines it can't
-  recognise are fine: they are saved and shown exactly as written, without
-  conversion.
+- Ingredients are entered as free-text lines, in one text box; steps the
+  same, one step per line. As you type, the amounts and units the app
+  recognised are highlighted in place; a number it couldn't place isn't.
+  Lines it can't recognise are fine: they are saved and shown exactly as
+  written, without conversion.
 - Ingredient lines aren't split into ingredient name and notes ("finely
   chopped"). That waits until tag suggestions need ingredient names.
 - Ingredients and steps can be grouped into optional sections ("For the
-  sauce"). Recipes without sections must look and work just as well.
+  sauce"). Recipes without sections must look and work just as well. In
+  the editor, a line with no amount that ends with a colon is a section
+  heading ("Etikkaliemi:"), as recipe sites publish them.
 - Recipes are in English and Finnish to begin with.
 
 ### Units
@@ -166,8 +206,9 @@
   metric) that tells the app how to read its units. It is guessed on import
   from the site's domain, defaults to US for recipes typed in English and
   metric for recipes typed in Finnish, and can be changed. The review step
-  shows it prominently (for example "Measures: US") with a tap to change it,
-  since photographed and typed recipes have no domain to guess from.
+  shows it prominently, beside the ingredients ("US measures"), with a tap
+  to change it, since photographed and typed recipes have no domain to
+  guess from.
 - British measures: cup 250 ml, tablespoon 15 ml, pint 568 ml. Australian
   tablespoon: 20 ml.
 - Spoons map one-to-one (rkl = tbsp, tl = tsp) for US, British and metric
@@ -400,8 +441,8 @@
   functions that read) come from the server, or from the cache when the
   server doesn't answer within 3 seconds.
 - A new version takes over as soon as it's installed, and open pages reload
-  into it. Revisit once the editor exists, so that an update never reloads
-  over unsaved input.
+  into it. The editor's draft survives the reload, so nothing typed is
+  lost, but the page can still reload while someone is typing.
 - Until recipe caching is built (M4), data is offline only once it has been
   read online. A screen whose data was never read shows the default error
   page offline.
@@ -425,10 +466,11 @@
 - M0, core logic without UI: the ingredient parser for Finnish and English,
   unit conversion and formatting, Finnish word handling for search and tags,
   and the test suite of real recipe lines, conversions and searches.
-- M1, the basic loop: type a recipe with recognition as you type; recipe
-  view with unit conversion and adjustable servings; library with sorting
-  and search; Finnish and English interface; Docker image, installable as
-  an app.
+- M1, the basic loop: add a recipe from a link (the add drawer, the share
+  menu entry, pasting anywhere) and check it in the editor, or type one
+  in, with recognition as you type; recipe view with unit conversion and
+  adjustable servings; library with sorting and search; Finnish and
+  English interface; Docker image, installable as an app.
   - Search runs in the browser from the start, so it doesn't have to be
     rebuilt for offline later.
   - The data model includes from day one what's costly to add later:
@@ -437,8 +479,7 @@
   - A small prototype proved that TanStack Start and a service worker can
     serve the app offline, before much was built on top of it. The way
     screens render and the service worker under Offline come from it.
-- M2, getting recipes in: website import with the review step, cover photos,
-  tags and the tag screen, nightly backups.
+- M2: cover photos, tags and the tag screen, nightly backups.
 - M3, everyday use: home rows, the meal queue, cooking aids (screen kept
   awake, crossing off, timers), undo and recently deleted.
 - M4, offline: caching recipes and photos, and offline search.

@@ -1,5 +1,6 @@
-import { Link, linkOptions } from '@tanstack/react-router'
+import { Link, linkOptions, useLocation } from '@tanstack/react-router'
 import { createIsomorphicFn } from '@tanstack/react-start'
+import { cn } from 'cn'
 import { getCookie } from '@tanstack/react-start/server'
 import {
   HouseIcon,
@@ -9,6 +10,9 @@ import {
   SettingsIcon,
 } from 'lucide-react'
 
+import { createContext, use, useEffect, useState } from 'react'
+
+import { AddRecipeProvider, useOpenAddRecipe } from '@/components/add-recipe'
 import {
   SIDEBAR_COOKIE_NAME,
   Sidebar,
@@ -28,7 +32,8 @@ import { m } from '@/paraglide/messages'
 
 // Home is active only on itself; the others also on the pages under them.
 // Add stands out from the rest: a round button in the middle of the bottom
-// bar, and a filled button at the top of the sidebar.
+// bar, and a filled button at the top of the sidebar. It opens the add
+// drawer rather than a page.
 const navItems = linkOptions([
   {
     to: '/',
@@ -41,6 +46,25 @@ const navItems = linkOptions([
   { to: '/queue', label: m.nav_queue, icon: ListOrderedIcon },
   { to: '/settings', label: m.nav_settings, icon: SettingsIcon },
 ])
+
+// Where the bottom bar floats and how it looks. Fixed, not sticky: when iOS
+// bounces past the end of the page, a sticky bar rides up with it. It keeps
+// clear of the screen edges, the notch and the home indicator. A screen with
+// a bar of its own puts it here too.
+export const FLOATING_BAR =
+  'fixed right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-full bg-sidebar text-sidebar-foreground shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_12px_32px_-8px_oklch(0.147_0.004_49.3/0.24)] ring-1 ring-sidebar-border'
+
+const HideMenu = createContext<(hidden: boolean) => void>(() => {})
+
+// Takes the menu's place at the bottom of a phone's screen for as long as
+// the calling screen shows: the editor puts its Discard and Save there.
+export function useHideMenu() {
+  const hide = use(HideMenu)
+  useEffect(() => {
+    hide(true)
+    return () => hide(false)
+  }, [hide])
+}
 
 // Read on the server too, so a collapsed sidebar doesn't flash open on load.
 export const getSidebarOpen = createIsomorphicFn()
@@ -56,25 +80,34 @@ export function AppShell({
   sidebarOpen: boolean
   children: React.ReactNode
 }) {
+  const [menuHidden, setMenuHidden] = useState(false)
   // The insets keep the menu clear of the iPhone notch and home indicator.
   return (
-    <SidebarProvider
-      defaultOpen={sidebarOpen}
-      className="flex-col pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] md:flex-row"
-    >
-      <AppSidebar />
-      {/* Room for the bottom bar on phones: its height, the gap below it and
+    <HideMenu value={setMenuHidden}>
+      <AddRecipeProvider>
+        <SidebarProvider
+          defaultOpen={sidebarOpen}
+          className="flex-col pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] md:flex-row"
+        >
+          <AppSidebar />
+          {/* Room for the bottom bar on phones: its height, the gap below it and
           some air above it. */}
-      <SidebarInset className="pb-[calc(5rem+max(0.75rem,env(safe-area-inset-bottom)))] md:pb-0">
-        {children}
-      </SidebarInset>
-      <BottomNav />
-    </SidebarProvider>
+          <SidebarInset className="pb-[calc(5rem+max(0.75rem,env(safe-area-inset-bottom)))] md:pb-0">
+            {children}
+          </SidebarInset>
+          {!menuHidden && <BottomNav />}
+        </SidebarProvider>
+      </AddRecipeProvider>
+    </HideMenu>
   )
 }
 
 function AppSidebar() {
   const { isMobile } = useSidebar()
+  const openAddRecipe = useOpenAddRecipe()
+  const adding = useLocation({
+    select: (location) => location.pathname === '/add',
+  })
 
   // Phones get the bottom bar instead, not the sidebar as a sheet.
   if (isMobile) return null
@@ -97,9 +130,8 @@ function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  render={
-                    <Link to="/add" activeProps={{ 'data-active': '' }} />
-                  }
+                  onClick={openAddRecipe}
+                  isActive={adding}
                   tooltip={m.nav_add()}
                   className="rounded-full bg-primary font-medium text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground active:bg-primary/80 active:text-primary-foreground data-active:bg-primary data-active:text-primary-foreground"
                 >
@@ -136,28 +168,25 @@ function AppSidebar() {
   )
 }
 
-// Fixed, not sticky: when iOS bounces past the end of the page, a sticky bar
-// rides up with it. It floats clear of the screen edges, the notch and the
-// home indicator.
+// The menu on phones, floating at the bottom.
 function BottomNav() {
+  const openAddRecipe = useOpenAddRecipe()
   return (
-    <nav
-      aria-label={m.nav_label()}
-      className="fixed right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-full bg-sidebar text-sidebar-foreground shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_12px_32px_-8px_oklch(0.147_0.004_49.3/0.24)] ring-1 ring-sidebar-border md:hidden"
-    >
+    <nav aria-label={m.nav_label()} className={cn(FLOATING_BAR, 'md:hidden')}>
       <ul className="grid grid-cols-5">
         {navItems.map(({ label, icon: Icon, ...link }) => (
           <li key={link.to}>
             {link.to === '/add' ? (
-              <Link
-                {...link}
-                className="group/add flex h-16 items-center justify-center rounded-full outline-none"
+              <button
+                type="button"
+                onClick={openAddRecipe}
+                className="group/add flex h-16 w-full items-center justify-center rounded-full outline-none"
               >
                 <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/30 transition-transform group-focus-visible/add:ring-[3px] group-focus-visible/add:ring-ring/50 group-active/add:scale-95">
                   <Icon className="size-6" />
                 </span>
                 <span className="sr-only">{label()}</span>
-              </Link>
+              </button>
             ) : (
               <Link
                 {...link}

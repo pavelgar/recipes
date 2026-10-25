@@ -15,6 +15,7 @@ import { Route as LibraryRouteImport } from './routes/library'
 import { Route as ManifestDotwebmanifestRouteImport } from './routes/manifest[.]webmanifest'
 import { Route as QueueRouteImport } from './routes/queue'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as RecipesRecipeIdRouteImport } from './routes/recipes.$recipeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecipesRecipeIdRoute = RecipesRecipeIdRouteImport.update({
+  id: '/recipes/$recipeId',
+  path: '/recipes/$recipeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
+  '/recipes/$recipeId': typeof RecipesRecipeIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
+  '/recipes/$recipeId': typeof RecipesRecipeIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,14 +79,27 @@ export interface FileRoutesById {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
+  '/recipes/$recipeId': typeof RecipesRecipeIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/add' | '/library' | '/manifest.webmanifest' | '/queue' | '/settings'
+    | '/'
+    | '/add'
+    | '/library'
+    | '/manifest.webmanifest'
+    | '/queue'
+    | '/settings'
+    | '/recipes/$recipeId'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/add' | '/library' | '/manifest.webmanifest' | '/queue' | '/settings'
+    | '/'
+    | '/add'
+    | '/library'
+    | '/manifest.webmanifest'
+    | '/queue'
+    | '/settings'
+    | '/recipes/$recipeId'
   id:
     | '__root__'
     | '/'
@@ -87,6 +108,7 @@ export interface FileRouteTypes {
     | '/manifest.webmanifest'
     | '/queue'
     | '/settings'
+    | '/recipes/$recipeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -96,6 +118,7 @@ export interface RootRouteChildren {
   ManifestDotwebmanifestRoute: typeof ManifestDotwebmanifestRoute
   QueueRoute: typeof QueueRoute
   SettingsRoute: typeof SettingsRoute
+  RecipesRecipeIdRoute: typeof RecipesRecipeIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -142,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recipes/$recipeId': {
+      id: '/recipes/$recipeId'
+      path: '/recipes/$recipeId'
+      fullPath: '/recipes/$recipeId'
+      preLoaderRoute: typeof RecipesRecipeIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -152,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   ManifestDotwebmanifestRoute: ManifestDotwebmanifestRoute,
   QueueRoute: QueueRoute,
   SettingsRoute: SettingsRoute,
+  RecipesRecipeIdRoute: RecipesRecipeIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
