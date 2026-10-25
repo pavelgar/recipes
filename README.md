@@ -61,6 +61,9 @@ reverse proxy or Tailscale in front of it.
 | `-e TZ=Etc/UTC` | Time zone, for example `Europe/Helsinki`       |
 | `-e UMASK=022`  | Permissions removed from new files             |
 
+Keep `/data` on the host's own disk, not a network share (NFS, SMB): the
+database can't run from one.
+
 The container starts as root, hands `/data` to `PUID`:`PGID` and drops to
 that user, as linuxserver.io images do. Started with `--user`, it runs as
 that user instead and leaves ownership alone.

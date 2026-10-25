@@ -55,7 +55,9 @@
   version tag (v1.2.3) publishes that version and latest; every push to
   main publishes edge. Pull requests build the image without publishing
   it.
-- The database is SQLite, accessed through libsql.
+- The database is SQLite, accessed through libsql, in WAL mode so that
+  reads and saves don't block each other. WAL doesn't work on a network
+  share, so /data must be on the host's own disk.
 
 ### Backups and export
 
