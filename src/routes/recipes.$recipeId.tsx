@@ -1,8 +1,11 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute, notFound } from '@tanstack/react-router'
+import { BookXIcon } from 'lucide-react'
 
+import { NotFound } from '@/components/not-found'
 import { RecipeReadout } from '@/components/recipe-readout'
 import { recipeQuery } from '@/db/recipes.functions'
+import { m } from '@/paraglide/messages'
 
 // A saved recipe, shown plainly until the recipe view is built.
 export const Route = createFileRoute('/recipes/$recipeId')({
@@ -21,6 +24,14 @@ export const Route = createFileRoute('/recipes/$recipeId')({
   loader: ({ context, params }) =>
     context.queryClient.ensureQueryData(recipeQuery(params.recipeId)),
   component: RecipePage,
+  // No recipe has this id, or it was deleted.
+  notFoundComponent: () => (
+    <NotFound
+      icon={BookXIcon}
+      title={m.not_found_recipe_title()}
+      description={m.not_found_recipe_description()}
+    />
+  ),
 })
 
 function RecipePage() {

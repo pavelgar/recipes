@@ -90,5 +90,10 @@
   "measures_choice_british": "Brittiläiset mitat",
   "measures_choice_australian": "Australialaiset mitat",
   "measures_choice_metric": "Metriset mitat",
-  "editor_recipe_language": "Reseptin kieli"
+  "editor_recipe_language": "Reseptin kieli",
+  "not_found_title": "Sivua ei löytynyt",
+  "not_found_description": "Tässä osoitteessa ei ole sivua.",
+  "not_found_recipe_title": "Reseptiä ei löytynyt",
+  "not_found_recipe_description": "Resepti on ehkä poistettu, tai linkki on virheellinen.",
+  "not_found_library": "Siirry kirjastoon"
 }

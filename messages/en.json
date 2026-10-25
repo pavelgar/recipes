@@ -90,5 +90,10 @@
   "measures_choice_british": "British measures",
   "measures_choice_australian": "Australian measures",
   "measures_choice_metric": "Metric measures",
-  "editor_recipe_language": "Recipe language"
+  "editor_recipe_language": "Recipe language",
+  "not_found_title": "Page not found",
+  "not_found_description": "There's no page at this address.",
+  "not_found_recipe_title": "Recipe not found",
+  "not_found_recipe_description": "It may have been deleted, or the link is wrong.",
+  "not_found_library": "Go to the library"
 }
