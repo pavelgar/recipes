@@ -1,5 +1,5 @@
 import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
-import type { Language, MeasuringSystem } from '@/lib/quantities'
+import { LANGUAGES, MEASURING_SYSTEMS } from '@/db/choices'
 
 // Ingredient lines or steps under an optional heading ("For the sauce"). A
 // recipe without sections has one section, with no heading. Each line is
@@ -9,15 +9,6 @@ export type Section = {
   readonly heading: string | null
   readonly lines: ReadonlyArray<string>
 }
-
-const LANGUAGES = ['fi', 'en'] as const satisfies ReadonlyArray<Language>
-
-const MEASURING_SYSTEMS = [
-  'us',
-  'british',
-  'australian',
-  'metric',
-] as const satisfies ReadonlyArray<MeasuringSystem>
 
 export const recipes = sqliteTable('recipes', {
   // Never reused, so a link or an offline copy can't come to point at
