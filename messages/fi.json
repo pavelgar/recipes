@@ -73,7 +73,6 @@
   "measures_metric": "metrijärjestelmä",
   "editor_title": "Nimi",
   "editor_imported_from": "Luettu sivustolta {#link}{site}{/link}. Tarkista ennen tallentamista.",
-  "editor_servings_placeholder": "Annokset",
   "editor_minutes_unit": "min",
   "editor_title_required": "Anna reseptille nimi.",
   "editor_minutes_invalid": "Kirjoita aika kokonaisina minuutteina.",

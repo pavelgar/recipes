@@ -73,7 +73,6 @@
   "measures_metric": "Metric",
   "editor_title": "Title",
   "editor_imported_from": "Read from {#link}{site}{/link}. Check it before saving.",
-  "editor_servings_placeholder": "Servings",
   "editor_minutes_unit": "min",
   "editor_title_required": "Give the recipe a title.",
   "editor_minutes_invalid": "Write the time in whole minutes.",

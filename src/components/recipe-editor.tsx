@@ -2,7 +2,7 @@ import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
-import { BookOpenIcon, CheckIcon, Trash2Icon, UsersIcon } from 'lucide-react'
+import { BookOpenIcon, CheckIcon, Trash2Icon } from 'lucide-react'
 import { cn } from 'cn'
 import { useEffect, useRef, useState } from 'react'
 
@@ -16,6 +16,7 @@ import {
   FieldError,
   FieldLabel,
 } from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
 import {
   InputGroup,
   InputGroupAddon,
@@ -305,8 +306,8 @@ export function RecipeEditor({
             from, a book and page (an import's source is the note under its
             name); then the language it's written in and whose cups and
             spoons it measures in, side by side, since together they decide
-            how its amounts read. Each is labelled above its box, as the
-            times are. */}
+            how its amounts read; then how long it takes. Each is labelled
+            above its box. */}
         <div className="flex flex-col gap-3">
           {!link && (
             <form.Field name="sourceName">
@@ -404,6 +405,16 @@ export function RecipeEditor({
               )
             }}
           </form.Field>
+          <div className="grid grid-cols-3 gap-3">
+            {TIMES.map(([name, label]) => (
+              <form.Field key={name} name={name}>
+                {(time) => <MinutesField field={time} label={label()} />}
+              </form.Field>
+            ))}
+          </div>
+          {timesInvalid && (
+            <FieldError>{m.editor_minutes_invalid()}</FieldError>
+          )}
         </div>
       </header>
 
@@ -413,17 +424,31 @@ export function RecipeEditor({
             <h2 className="font-heading text-xl font-semibold">
               <label htmlFor={field.name}>{m.recipe_ingredients()}</label>
             </h2>
-            {/* How much the amounts make, in view where they're read. */}
-            <form.Field name="servings">
-              {(servings) => (
-                <IconField
-                  field={servings}
-                  icon={UsersIcon}
-                  label={m.recipe_servings()}
-                  placeholder={m.editor_servings_placeholder()}
-                />
-              )}
-            </form.Field>
+            {/* How much the amounts make, in view where they're read. As
+                wide as a time box, lined up with them and labelled above its
+                box as they are. */}
+            <div className="grid grid-cols-3 gap-3">
+              <form.Field name="servings">
+                {(servings) => (
+                  <Field
+                    data-invalid={!servings.state.meta.isValid || undefined}
+                  >
+                    <FieldLabel htmlFor={servings.name}>
+                      {m.recipe_servings()}
+                    </FieldLabel>
+                    <Input
+                      id={servings.name}
+                      value={servings.state.value}
+                      onChange={(event) =>
+                        servings.handleChange(event.target.value)
+                      }
+                      onBlur={servings.handleBlur}
+                      aria-invalid={!servings.state.meta.isValid || undefined}
+                    />
+                  </Field>
+                )}
+              </form.Field>
+            </div>
             <MarkedTextarea
               id={field.name}
               list="bullets"
@@ -443,17 +468,6 @@ export function RecipeEditor({
             <h2 className="font-heading text-xl font-semibold">
               <label htmlFor={field.name}>{m.recipe_steps()}</label>
             </h2>
-            {/* How long it takes, in view with the steps. */}
-            <div className="grid grid-cols-3 gap-3">
-              {TIMES.map(([name, label]) => (
-                <form.Field key={name} name={name}>
-                  {(time) => <MinutesField field={time} label={label()} />}
-                </form.Field>
-              ))}
-            </div>
-            {timesInvalid && (
-              <FieldError>{m.editor_minutes_invalid()}</FieldError>
-            )}
             <MarkedTextarea
               id={field.name}
               list="numbers"
@@ -517,12 +531,10 @@ function IconField({
   field,
   icon: Icon,
   label,
-  placeholder = label,
 }: {
   field: TextField
   icon: LucideIcon
   label: string
-  placeholder?: string
 }) {
   const invalid = !field.state.meta.isValid || undefined
   return (
@@ -536,7 +548,7 @@ function IconField({
         </InputGroupAddon>
         <InputGroupInput
           id={field.name}
-          placeholder={placeholder}
+          placeholder={label}
           value={field.state.value}
           onChange={(event) => field.handleChange(event.target.value)}
           onBlur={field.handleBlur}
