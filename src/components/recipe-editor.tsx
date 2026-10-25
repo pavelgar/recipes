@@ -2,7 +2,7 @@ import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
-import { BookOpenIcon, CheckIcon, Trash2Icon } from 'lucide-react'
+import { BookOpenIcon, CheckIcon, Trash2Icon, UsersIcon } from 'lucide-react'
 import { cn } from 'cn'
 import { useEffect, useRef, useState } from 'react'
 
@@ -16,7 +16,6 @@ import {
   FieldError,
   FieldLabel,
 } from '@/components/ui/field'
-import { Input } from '@/components/ui/input'
 import {
   InputGroup,
   InputGroupAddon,
@@ -421,31 +420,19 @@ export function RecipeEditor({
       <form.Field name="ingredients">
         {(field) => (
           <section className="flex flex-col gap-3">
-            <h2 className="font-heading text-xl font-semibold">
-              <label htmlFor={field.name}>{m.recipe_ingredients()}</label>
-            </h2>
-            {/* How much the amounts make, in view where they're read. As
-                wide as a time box, lined up with them and labelled above its
-                box as they are. */}
-            <div className="grid grid-cols-3 gap-3">
+            {/* Beside the heading, how much the amounts make, in view where
+                they're read, in the half of the width the heading leaves. */}
+            <div className="grid grid-cols-2 items-center gap-3">
+              <h2 className="font-heading text-xl font-semibold">
+                <label htmlFor={field.name}>{m.recipe_ingredients()}</label>
+              </h2>
               <form.Field name="servings">
                 {(servings) => (
-                  <Field
-                    data-invalid={!servings.state.meta.isValid || undefined}
-                  >
-                    <FieldLabel htmlFor={servings.name}>
-                      {m.recipe_servings()}
-                    </FieldLabel>
-                    <Input
-                      id={servings.name}
-                      value={servings.state.value}
-                      onChange={(event) =>
-                        servings.handleChange(event.target.value)
-                      }
-                      onBlur={servings.handleBlur}
-                      aria-invalid={!servings.state.meta.isValid || undefined}
-                    />
-                  </Field>
+                  <IconField
+                    field={servings}
+                    icon={UsersIcon}
+                    label={m.recipe_servings()}
+                  />
                 )}
               </form.Field>
             </div>

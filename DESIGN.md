@@ -180,11 +180,11 @@
   and then the recipe language and its measures side by side, since
   together they decide how the amounts read (see Recipes and Units), and
   under them the prep, cook and total times side by side, each of these
-  labelled above its box; under the Ingredients heading, servings,
-  labelled above its box too, as wide as a time box and lined up with
-  them; and the ingredients and steps as lists, with bullets and step
-  numbers that start again after each heading. Other fields without a
-  visible label show an icon and a placeholder instead.
+  labelled above its box; beside the Ingredients heading, servings, in the
+  half of the width the heading leaves; and the ingredients and steps as
+  lists, with bullets and step numbers that start again after each
+  heading. Other fields without a visible label show an icon and a
+  placeholder instead.
   Choices are in alphabetical order. A dropdown is the system's own picker
   on touch screens and the app's styled one with a mouse or trackpad. An
   empty list shows example lines, in the recipe's language: part of a
