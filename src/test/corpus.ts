@@ -1,3 +1,4 @@
+import { decodeHTML } from 'entities'
 import type { Language } from '@/lib/quantities/numbers'
 import type { MeasuringSystem } from '@/lib/quantities/scan'
 
@@ -47,30 +48,11 @@ const SYSTEMS: Record<Country, MeasuringSystem> = {
   AU: 'australian',
 }
 
-const ENTITIES: Record<string, string> = {
-  amp: '&',
-  nbsp: ' ',
-  deg: '°',
-  frac12: '½',
-  frac14: '¼',
-  frac34: '¾',
-  quot: '"',
-  apos: "'",
-  ndash: '–',
-  mdash: '—',
-}
-
 // Sites publish some text with HTML entities. The importer decodes them
-// before parsing; this stands in for it.
+// before parsing (clean() in src/lib/import/recipe.ts, which also makes
+// runs of spaces single); this stands in for the decoding.
 export function decodeEntities(text: string): string {
-  return text
-    .replace(/&#x([0-9a-f]+);/gi, (_, hex: string) =>
-      String.fromCodePoint(parseInt(hex, 16)),
-    )
-    .replace(/&#(\d+);/g, (_, dec: string) => String.fromCodePoint(Number(dec)))
-    .replace(/&([a-z0-9]+);/gi, (m, name: string) => {
-      return ENTITIES[name.toLowerCase()] ?? m
-    })
+  return decodeHTML(text)
 }
 
 export type CorpusLine = {

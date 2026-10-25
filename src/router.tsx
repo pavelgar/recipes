@@ -1,8 +1,11 @@
 import { createRouter as createTanStackRouter } from '@tanstack/react-router'
+import { FileQuestionMarkIcon } from 'lucide-react'
 import { routeTree } from '@/routeTree.gen'
 
 import { setupRouterSsrQueryIntegration } from '@tanstack/react-router-ssr-query'
+import { NotFound } from '@/components/not-found'
 import { getContext } from '@/integrations/tanstack-query/root-provider'
+import { m } from '@/paraglide/messages'
 
 export function getRouter() {
   const context = getContext()
@@ -13,6 +16,15 @@ export function getRouter() {
     scrollRestoration: true,
     defaultPreload: 'intent',
     defaultPreloadStaleTime: 0,
+    // An address the app has no page for. A screen can say more about what
+    // it couldn't find with a notFoundComponent of its own.
+    defaultNotFoundComponent: () => (
+      <NotFound
+        icon={FileQuestionMarkIcon}
+        title={m.not_found_title()}
+        description={m.not_found_description()}
+      />
+    ),
   })
 
   setupRouterSsrQueryIntegration({ router, queryClient: context.queryClient })

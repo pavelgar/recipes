@@ -8,7 +8,6 @@ test('the main menu reaches every page', async ({ page }) => {
 
   for (const [name, path] of [
     ['Library', '/library'],
-    ['Add', '/add'],
     ['Queue', '/queue'],
     ['Settings', '/settings'],
     ['Home', '/'],
@@ -18,4 +17,20 @@ test('the main menu reaches every page', async ({ page }) => {
     await expect(page).toHaveURL(path)
     await expect(link).toHaveAttribute('aria-current', 'page')
   }
+})
+
+// Add opens a drawer on phones and a dialog on wider screens, over the page
+// that was showing, with the link field ready for a link.
+test('Add opens the add drawer over the page', async ({ page }) => {
+  await page.goto('/library')
+  await page
+    .getByRole('navigation', { name: 'Main menu' })
+    .getByRole('button', { name: 'Add' })
+    .click()
+
+  await expect(page.getByRole('dialog', { name: 'New recipe' })).toBeVisible()
+  await expect(
+    page.getByRole('textbox', { name: 'Link to a recipe' }),
+  ).toBeFocused()
+  await expect(page).toHaveURL('/library')
 })
