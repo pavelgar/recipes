@@ -86,6 +86,13 @@
 - Render translations that mark words for the app to draw (such as a
   button's name with its icon) with Paraglide's React adapter,
   @inlang/paraglide-js-react.
+- The website recipe extractor reads pages with htmlparser2, finds their
+  charset with encoding-sniffer, decodes HTML entities with entities and
+  repairs broken JSON-LD with jsonrepair. The server fetches pages with
+  node-fetch, through request-filtering-agent, which refuses to connect to
+  anything but a public address, redirects included. linkify-it finds the
+  link in what is pasted into the add drawer, with the list of top-level
+  domains from tlds for addresses written without https://.
 - Learn from existing projects (Mealie, Tandoor, RecipeSage, Norish,
   Cooklang, parse-ingredient, ingredient-parser), but don't copy their code.
   Write our own implementations, inspired by theirs.
@@ -95,6 +102,8 @@
 ### Adding recipes
 
 - Typed by hand, imported from a website, or photographed from a cookbook.
+- The server fetches pages for import only from public addresses, never
+  from a private network.
 - Website import reads schema.org/Recipe data in both JSON-LD and microdata
   form. All seven Finnish sites in the test corpus (Arla, Kotikokki,
   Kotiliesi, Meillä kotona, Soppa365, Valio, Yhteishyvä) publish JSON-LD.
