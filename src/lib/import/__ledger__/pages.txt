@@ -6,7 +6,7 @@
 # ✗: want lines give the right reading.
 # Written by the tests; see src/test/ledger.ts for how to update it.
 #
-# 39 entries: 39 checked, of which 3 wrong; 0 unchecked.
+# 39 entries: 39 checked, of which 0 wrong; 0 unchecked.
 
 ## kotiliesi.fi : 3 pages
 
@@ -157,37 +157,19 @@
 
 ## meillakotona.fi : 3 pages
 
-✗ "https://www.meillakotona.fi/reseptit/broileria-ja-kaalia-hoisinkastikkeessa-uusi-arkiruokasuosikki-valmistuu-vartissa"
-  servings 4 annosta | prep 15 | cook – | total 15
-  ingredients 12 in 1 section
-  steps 2 in 1 section
-  fi, metric
-  source Kotona, at the address read
-  want:
+✓ "https://www.meillakotona.fi/reseptit/broileria-ja-kaalia-hoisinkastikkeessa-uusi-arkiruokasuosikki-valmistuu-vartissa"
   servings 4 annosta | prep 15 | cook – | total 15
   ingredients 12 in 1 section
   steps 6 in 1 section
   fi, metric
   source Kotona, at the address read
-✗ "https://www.meillakotona.fi/reseptit/mansikkavuokakakku-tassa-on-kesan-nopein-mansikkakakku"
-  servings 10 annosta | prep 20 | cook 10 | total 30
-  ingredients 9 in 1 section
-  steps 3 in 1 section
-  fi, metric
-  source Kotona, at the address read
-  want:
+✓ "https://www.meillakotona.fi/reseptit/mansikkavuokakakku-tassa-on-kesan-nopein-mansikkakakku"
   servings 10 annosta | prep 20 | cook 10 | total 30
   ingredients 9 in 1 section
   steps 10 in 1 section
   fi, metric
   source Kotona, at the address read
-✗ "https://www.meillakotona.fi/reseptit/pienet-sitruunajuustokakut-sous-vide-tekniikalla"
-  servings 6 annosta | prep 30 | cook 90 | total 120
-  ingredients 12 in 1 section
-  steps 2 in 1 section
-  fi, metric
-  source Kotona, at the address read
-  want:
+✓ "https://www.meillakotona.fi/reseptit/pienet-sitruunajuustokakut-sous-vide-tekniikalla"
   servings 6 annosta | prep 30 | cook 90 | total 120
   ingredients 12 in 1 section
   steps 6 in 1 section

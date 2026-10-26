@@ -94,11 +94,12 @@ export function clean(text: string): string {
 }
 
 // One string may hold several lines, separated by line breaks or by HTML
-// that breaks lines.
+// that breaks lines. meillakotona.fi breaks its steps with a carriage
+// return alone.
 function lines(text: string): Array<string> {
   return text
     .replace(/<\s*(br|\/p|\/li|\/div|\/h[1-6])\b[^>]*>/gi, '\n')
-    .split(/\r?\n/)
+    .split(/\r\n?|\n/)
     .map(clean)
     .filter((line) => line !== '')
 }
