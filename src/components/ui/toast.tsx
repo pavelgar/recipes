@@ -11,7 +11,6 @@ import {
   XIcon,
 } from 'lucide-react'
 
-import { DISPLAY, FOCUS, PILLOW, TONE } from '@/components/ui/classes'
 import { Spinner } from '@/components/ui/spinner'
 import { m } from '@/paraglide/messages'
 
@@ -52,8 +51,8 @@ function Toast({
       data-slot="toast"
       swipeDirection={swipeDirection}
       className={cn(
-        'group/toast pointer-events-auto absolute top-0 right-0 z-[calc(1000-var(--toast-index))] w-full origin-top rounded-[32px] bg-(--sorbet-plain) text-(--sorbet-ink) shadow-[inset_0_0_0_1.5px_var(--sorbet-surface-strong),0_24px_40px_-16px_rgb(90_40_56/0.35),0_6px_12px_-6px_rgb(90_40_56/0.2)] will-change-transform select-none [corner-shape:squircle] dark:shadow-[inset_0_0_0_1.5px_var(--sorbet-surface-strong),0_24px_40px_-14px_rgb(0_0_0/0.8),0_6px_12px_-6px_rgb(0_0_0/0.5)]',
-        FOCUS,
+        'group/toast pointer-events-auto absolute top-0 right-0 z-[calc(1000-var(--toast-index))] w-full origin-top rounded-4xl bg-(--sorbet-plain) text-(--sorbet-ink) shadow-float will-change-transform select-none squircle',
+        'focus-ring',
         '[--gap:0.625rem] [--height:var(--toast-frontmost-height,var(--toast-height))] [--offset-y:calc(var(--toast-offset-y)+calc(var(--toast-index)*var(--gap))+var(--toast-swipe-movement-y))] [--peek:0.625rem] [--scale:calc(max(0,1-(var(--toast-index)*0.08)))] [--shrink:calc(1-var(--scale))]',
         'h-(--height) [transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)+(var(--toast-index)*var(--peek))+(var(--shrink)*var(--height))))_scale(var(--scale))]',
         'motion-safe:[transition:transform_450ms_cubic-bezier(0.34,1.3,0.64,1),opacity_400ms,height_150ms]',
@@ -90,8 +89,8 @@ function ToastTitle({ className, ...props }: ToastPrimitive.Title.Props) {
     <ToastPrimitive.Title
       data-slot="toast-title"
       className={cn(
-        'text-[16px] leading-snug font-semibold text-pretty',
-        DISPLAY,
+        'text-base leading-snug font-semibold text-pretty',
+        'font-heading',
         className,
       )}
       {...props}
@@ -107,7 +106,7 @@ function ToastDescription({
     <ToastPrimitive.Description
       data-slot="toast-description"
       className={cn(
-        'text-[15px] leading-snug text-pretty text-(--sorbet-ink-muted)',
+        'text-sm leading-snug text-pretty text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}
@@ -126,11 +125,11 @@ function ToastAction({
       data-slot="toast-action"
       render={render}
       className={cn(
-        'relative h-10 shrink-0 rounded-full px-4.5 pb-0.5 text-[15px] font-bold',
-        TONE.butter,
-        PILLOW,
-        DISPLAY,
-        FOCUS,
+        'relative h-10 shrink-0 rounded-full px-4.5 pb-0.5 text-sm font-bold',
+        'tone-butter',
+        'pillow',
+        'font-heading',
+        'focus-ring',
         className,
       )}
       {...props}
@@ -150,8 +149,8 @@ function ToastClose({
       aria-label={m.toast_close()}
       render={render}
       className={cn(
-        "relative flex size-10 shrink-0 items-center justify-center rounded-full text-(--sorbet-ink-muted) after:absolute after:-inset-1 after:content-[''] hover:bg-(--sorbet-surface) hover:text-(--sorbet-ink) motion-safe:active:scale-90 motion-safe:transition-[scale,background-color]",
-        FOCUS,
+        "relative flex size-10 shrink-0 items-center justify-center rounded-full text-(--sorbet-ink-muted) after:absolute after:-inset-1 after:content-[''] hover:bg-(--sorbet-surface) hover:text-(--sorbet-ink) motion-safe:active:scale-90 motion-safe:transition",
+        'focus-ring',
         className,
       )}
       {...props}
@@ -168,23 +167,23 @@ function ToastClose({
 const ICONS: Record<string, { icon: React.ReactNode; fill: string }> = {
   success: {
     icon: <CircleCheckIcon />,
-    fill: 'bg-(--sorbet-mint) text-(--sorbet-mint-ink) shadow-[inset_0_1.5px_1px_-0.5px_rgb(255_255_255/0.6),inset_0_-3px_4px_-2px_var(--sorbet-mint-deep)]',
+    fill: 'bg-(--sorbet-mint) text-(--sorbet-mint-ink) shadow-bead-mint-flat',
   },
   info: {
     icon: <InfoIcon />,
-    fill: 'bg-(--sorbet-sky) text-(--sorbet-sky-ink) shadow-[inset_0_1.5px_1px_-0.5px_rgb(255_255_255/0.6),inset_0_-3px_4px_-2px_var(--sorbet-sky-deep)]',
+    fill: 'bg-(--sorbet-sky) text-(--sorbet-sky-ink) shadow-bead-sky-flat',
   },
   warning: {
     icon: <TriangleAlertIcon />,
-    fill: 'bg-(--sorbet-butter) text-(--sorbet-butter-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-butter-hi),inset_0_-3px_4px_-2px_var(--sorbet-butter-deep)]',
+    fill: 'bg-(--sorbet-butter) text-(--sorbet-butter-ink) shadow-bead-butter-flat',
   },
   error: {
     icon: <OctagonXIcon />,
-    fill: 'bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-3px_4px_-2px_var(--sorbet-melon-deep)]',
+    fill: 'bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-bead-melon-flat',
   },
   loading: {
     icon: <Spinner aria-hidden role="presentation" className="text-current" />,
-    fill: 'bg-(--sorbet-butter) text-(--sorbet-butter-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-butter-hi),inset_0_-3px_4px_-2px_var(--sorbet-butter-deep)]',
+    fill: 'bg-(--sorbet-butter) text-(--sorbet-butter-ink) shadow-bead-butter-flat',
   },
 }
 
@@ -199,7 +198,7 @@ function ToastIcon({ type }: { type: string | undefined }) {
       data-slot="toast-icon"
       aria-hidden="true"
       className={cn(
-        'flex size-10 shrink-0 items-center justify-center rounded-full [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-5 [&_svg]:[stroke-width:2.5]',
+        'flex size-10 shrink-0 items-center justify-center rounded-full [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-5 [&_svg]:stroke-2',
         kind.fill,
       )}
     >

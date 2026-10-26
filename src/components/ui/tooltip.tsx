@@ -3,8 +3,6 @@
 import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip'
 import { cn } from 'cn'
 
-import { DISPLAY } from '@/components/ui/classes'
-
 function TooltipProvider({
   delay = 0,
   ...props
@@ -52,15 +50,15 @@ function TooltipContent({
         <TooltipPrimitive.Popup
           data-slot="tooltip-content"
           className={cn(
-            'z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-full bg-(--sorbet-inverse) px-3.5 py-2 text-[14px] leading-tight font-semibold text-balance text-(--sorbet-inverse-ink)',
-            DISPLAY,
-            'motion-safe:transition-[scale,opacity] motion-safe:duration-150 motion-safe:ease-[cubic-bezier(0.34,1.56,0.64,1)] data-ending-style:scale-90 data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-90 data-starting-style:opacity-0',
+            'z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-full bg-(--sorbet-inverse) px-3.5 py-2 text-sm leading-tight font-semibold text-balance text-(--sorbet-inverse-ink)',
+            'font-heading',
+            'motion-safe:transition motion-safe:duration-150 motion-safe:ease-spring data-ending-style:scale-90 data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-90 data-starting-style:opacity-0',
             className,
           )}
           {...props}
         >
           {children}
-          <TooltipPrimitive.Arrow className="size-2.5 rotate-45 rounded-[2px] bg-(--sorbet-inverse) data-[side=bottom]:-top-1 data-[side=inline-end]:-left-1 data-[side=inline-start]:-right-1 data-[side=left]:-right-1 data-[side=right]:-left-1 data-[side=top]:-bottom-1" />
+          <TooltipPrimitive.Arrow className="size-2.5 rotate-45 rounded-sm bg-(--sorbet-inverse) data-[side=bottom]:-top-1 data-[side=inline-end]:-left-1 data-[side=inline-start]:-right-1 data-[side=left]:-right-1 data-[side=right]:-left-1 data-[side=top]:-bottom-1" />
         </TooltipPrimitive.Popup>
       </TooltipPrimitive.Positioner>
     </TooltipPrimitive.Portal>

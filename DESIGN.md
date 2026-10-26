@@ -589,8 +589,10 @@
   - Keyboard focus is the same on every control: a blueberry edge in a
     soft halo.
   - A disabled field has no well, only a dashed edge.
-  - Its colours are tokens in `src/styles.css`; the classes its parts
-    share are in `src/components/ui/classes.ts`.
+  - Its colours, shadows and motion are theme tokens in `src/styles.css`,
+    and the parts its components share are utilities there (`pillow`,
+    `field`, `focus-ring` and so on). Sizes, radii and type come from the
+    theme's scales, not one-off values.
 - Text is set in Atkinson Hyperlegible Next; headings, labels, buttons and
   menu items in Gabarito. These replace the preset's own fonts (Figtree,
   Noto Serif).

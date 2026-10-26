@@ -4,7 +4,6 @@ import { cn } from 'cn'
 import { XIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { DISPLAY } from '@/components/ui/classes'
 import { m } from '@/paraglide/messages'
 
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {
@@ -64,8 +63,8 @@ function SheetContent({
         data-slot="sheet-content"
         data-side={side}
         className={cn(
-          'fixed z-50 flex flex-col overflow-y-auto overscroll-contain rounded-[36px] bg-(--sorbet-canvas) text-[16px] text-(--sorbet-ink) shadow-(--sorbet-float) outline-none [corner-shape:squircle]',
-          'motion-safe:transition-[translate,opacity] motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:data-ending-style:translate-0 motion-reduce:data-ending-style:opacity-0 motion-reduce:data-starting-style:translate-0',
+          'fixed z-50 flex flex-col overflow-y-auto overscroll-contain rounded-4xl bg-(--sorbet-canvas) text-base text-(--sorbet-ink) shadow-float outline-none squircle',
+          'motion-safe:transition motion-safe:duration-300 motion-safe:ease-glide motion-reduce:data-ending-style:translate-0 motion-reduce:data-ending-style:opacity-0 motion-reduce:data-starting-style:translate-0',
           SIDES[side],
           className,
         )}
@@ -117,8 +116,8 @@ function SheetTitle({ className, ...props }: SheetPrimitive.Title.Props) {
     <SheetPrimitive.Title
       data-slot="sheet-title"
       className={cn(
-        'text-[24px] leading-tight font-extrabold tracking-[-0.02em] text-pretty text-(--sorbet-ink)',
-        DISPLAY,
+        'text-2xl leading-tight font-extrabold tracking-tight text-pretty text-(--sorbet-ink)',
+        'font-heading',
         className,
       )}
       {...props}
@@ -134,7 +133,7 @@ function SheetDescription({
     <SheetPrimitive.Description
       data-slot="sheet-description"
       className={cn(
-        'text-[16px] leading-normal text-pretty text-(--sorbet-ink-muted)',
+        'text-base leading-normal text-pretty text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}

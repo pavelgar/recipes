@@ -3,12 +3,6 @@ import { cn } from 'cn'
 import { ChevronDownIcon } from 'lucide-react'
 
 import { ChevronBead } from '@/components/ui/select'
-import {
-  FIELD,
-  FIELD_DISABLED,
-  FIELD_FOCUS,
-  FIELD_INVALID,
-} from '@/components/ui/classes'
 
 type NativeSelectProps = Omit<React.ComponentProps<'select'>, 'size'> & {
   size?: 'sm' | 'default'
@@ -34,11 +28,11 @@ function NativeSelect({
         data-slot="native-select"
         data-size={size}
         className={cn(
-          FIELD,
-          'h-13 w-full min-w-0 cursor-pointer appearance-none py-0 pr-13 pl-4.5 outline-none not-disabled:hover:bg-(--sorbet-surface-strong) data-[size=sm]:h-11 data-[size=sm]:pr-11 data-[size=sm]:text-[16px]',
-          FIELD_FOCUS,
-          FIELD_INVALID,
-          FIELD_DISABLED,
+          'field',
+          'h-13 w-full min-w-0 cursor-pointer appearance-none py-0 pr-13 pl-4.5 outline-none not-disabled:hover:bg-(--sorbet-surface-strong) data-[size=sm]:h-11 data-[size=sm]:pr-11 data-[size=sm]:text-base',
+          'field-focus',
+          'field-invalid',
+          'field-disabled',
         )}
         {...props}
       />
@@ -47,7 +41,7 @@ function NativeSelect({
         data-slot="native-select-icon"
         className="absolute top-1/2 right-2 -translate-y-1/2 group-data-[size=sm]/native-select:right-1.5"
       >
-        <ChevronDownIcon strokeWidth={2.75} className="size-[18px]" />
+        <ChevronDownIcon strokeWidth={2.75} className="size-4.5" />
       </ChevronBead>
     </div>
   )

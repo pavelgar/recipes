@@ -3,8 +3,6 @@ import { Menu as MenuPrimitive } from '@base-ui/react/menu'
 import { cn } from 'cn'
 import { ChevronRightIcon } from 'lucide-react'
 
-import { DISPLAY, OPTION, POPUP, POP_IN } from '@/components/ui/classes'
-
 function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />
 }
@@ -43,9 +41,9 @@ function DropdownMenuContent({
         <MenuPrimitive.Popup
           data-slot="dropdown-menu-content"
           className={cn(
-            POPUP,
+            'popup',
             'z-50 max-h-(--available-height) w-(--anchor-width) min-w-52 overflow-x-hidden overflow-y-auto p-1.5',
-            POP_IN,
+            'pop-in',
             className,
           )}
           {...props}
@@ -71,8 +69,8 @@ function DropdownMenuLabel({
       data-slot="dropdown-menu-label"
       data-inset={inset}
       className={cn(
-        'px-3 pt-2.5 pb-1 text-[13px] font-semibold text-(--sorbet-ink-muted) data-inset:pl-11',
-        DISPLAY,
+        'px-3 pt-2.5 pb-1 text-xs font-semibold text-(--sorbet-ink-muted) data-inset:pl-11',
+        'font-heading',
         className,
       )}
       {...props}
@@ -95,7 +93,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        OPTION,
+        'option',
         'group/dropdown-menu-item data-inset:pl-11',
         'data-[variant=destructive]:text-(--sorbet-danger) data-[variant=destructive]:data-highlighted:bg-(--sorbet-danger-soft) data-[variant=destructive]:data-highlighted:text-(--sorbet-danger)',
         className,
@@ -122,7 +120,7 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        OPTION,
+        'option',
         'data-inset:pl-11 data-popup-open:bg-(--sorbet-butter) data-popup-open:text-(--sorbet-butter-ink) data-popup-open:[--sorbet-ink-muted:var(--sorbet-butter-ink)]',
         className,
       )}
@@ -130,7 +128,7 @@ function DropdownMenuSubTrigger({
     >
       {children}
       <span className="ml-auto flex size-7 items-center justify-center rounded-full bg-(--sorbet-surface) text-(--sorbet-ink) in-data-highlighted:bg-(--sorbet-butter-ink)/10 in-data-popup-open:bg-(--sorbet-butter-ink)/10 in-data-popup-open:text-(--sorbet-butter-ink)">
-        <ChevronRightIcon strokeWidth={2.75} className="size-[18px]!" />
+        <ChevronRightIcon strokeWidth={2.75} className="size-4.5!" />
       </span>
     </MenuPrimitive.SubmenuTrigger>
   )
@@ -163,7 +161,7 @@ function Mark({ children }: { children: React.ReactNode }) {
   return (
     <span
       aria-hidden
-      className="pointer-events-none absolute right-2.5 flex size-7 items-center justify-center rounded-full bg-(--sorbet-well) shadow-[inset_0_0_0_2px_var(--sorbet-rim),inset_0_2px_3px_-1px_var(--sorbet-well-shade)]"
+      className="pointer-events-none absolute right-2.5 flex size-7 items-center justify-center rounded-full bg-(--sorbet-well) shadow-well-small"
     >
       {children}
     </span>
@@ -172,7 +170,7 @@ function Mark({ children }: { children: React.ReactNode }) {
 
 function Tick() {
   return (
-    <span className="flex size-7 items-center justify-center rounded-full bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-3px_4px_-2px_var(--sorbet-melon-deep),0_3px_6px_-3px_var(--sorbet-melon-glow)] motion-safe:animate-[sorbet-pop_320ms_cubic-bezier(0.3,1.4,0.5,1)_both]">
+    <span className="flex size-7 items-center justify-center rounded-full bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-bead-melon motion-safe:animate-pop">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -201,7 +199,7 @@ function DropdownMenuCheckboxItem({
     <MenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
       data-inset={inset}
-      className={cn(OPTION, 'pr-12 data-inset:pl-11', className)}
+      className={cn('option', 'pr-12 data-inset:pl-11', className)}
       checked={checked}
       {...props}
     >
@@ -237,7 +235,7 @@ function DropdownMenuRadioItem({
     <MenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
       data-inset={inset}
-      className={cn(OPTION, 'pr-12 data-inset:pl-11', className)}
+      className={cn('option', 'pr-12 data-inset:pl-11', className)}
       {...props}
     >
       <Mark>
@@ -275,8 +273,8 @@ function DropdownMenuShortcut({
     <span
       data-slot="dropdown-menu-shortcut"
       className={cn(
-        'ml-auto flex h-6 min-w-6 items-center justify-center rounded-[8px] bg-(--sorbet-well) px-1.5 text-[13px] font-bold text-(--sorbet-ink-muted) shadow-[inset_0_-2px_0_0_var(--sorbet-surface-strong)]',
-        DISPLAY,
+        'ml-auto flex h-6 min-w-6 items-center justify-center rounded-md bg-(--sorbet-well) px-1.5 text-xs font-bold text-(--sorbet-ink-muted) shadow-key',
+        'font-heading',
         className,
       )}
       {...props}

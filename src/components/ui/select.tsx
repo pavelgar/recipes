@@ -3,8 +3,6 @@ import { Select as SelectPrimitive } from '@base-ui/react/select'
 import { cn } from 'cn'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 
-import { DISPLAY, FIELD, OPTION, POPUP, POP_IN } from '@/components/ui/classes'
-
 const Select = SelectPrimitive.Root
 
 function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
@@ -43,12 +41,12 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        FIELD,
-        'group/select-trigger flex w-fit cursor-default items-center justify-between gap-2 pr-2 pl-4.5 text-left whitespace-nowrap outline-none select-none data-[size=default]:h-13 data-[size=sm]:h-11 data-[size=sm]:pr-1.5 data-[size=sm]:text-[16px]',
+        'field',
+        'group/select-trigger flex w-fit cursor-default items-center justify-between gap-2 pr-2 pl-4.5 text-left whitespace-nowrap outline-none select-none data-[size=default]:h-13 data-[size=sm]:h-11 data-[size=sm]:pr-1.5 data-[size=sm]:text-base',
         'data-placeholder:text-(--sorbet-ink-muted)',
         'not-data-disabled:hover:bg-(--sorbet-surface-strong)',
-        'focus-visible:bg-(--sorbet-canvas) focus-visible:shadow-[inset_0_0_0_2.5px_var(--sorbet-focus),0_0_0_4px_var(--sorbet-focus-halo)] data-popup-open:bg-(--sorbet-canvas) data-popup-open:hover:bg-(--sorbet-canvas)',
-        'aria-invalid:bg-(--sorbet-danger-soft) aria-invalid:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),inset_0_3px_5px_-1px_var(--sorbet-well-shade)] aria-invalid:focus-visible:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),0_0_0_4px_var(--sorbet-focus-halo)]',
+        'focus-visible:bg-(--sorbet-canvas) focus-visible:shadow-well-focus data-popup-open:bg-(--sorbet-canvas) data-popup-open:hover:bg-(--sorbet-canvas)',
+        'aria-invalid:bg-(--sorbet-danger-soft) aria-invalid:shadow-well-invalid aria-invalid:focus-visible:shadow-well-invalid-focus',
         'data-disabled:cursor-not-allowed data-disabled:bg-transparent data-disabled:text-(--sorbet-ink-muted) data-disabled:shadow-none data-disabled:outline-2 data-disabled:-outline-offset-2 data-disabled:outline-(--sorbet-rim)/60 data-disabled:outline-dashed',
         "*:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
         className,
@@ -59,7 +57,7 @@ function SelectTrigger({
       <SelectPrimitive.Icon render={<ChevronBead />}>
         <ChevronDownIcon
           strokeWidth={2.75}
-          className="size-[18px]! motion-safe:transition-[rotate] motion-safe:duration-200 group-data-popup-open/select-trigger:rotate-180"
+          className="size-4.5! motion-safe:transition motion-safe:duration-200 group-data-popup-open/select-trigger:rotate-180"
         />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
@@ -71,9 +69,9 @@ function ChevronBead({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       className={cn(
-        'pointer-events-none flex size-9 shrink-0 items-center justify-center rounded-full bg-(--sorbet-plain) text-(--sorbet-ink) shadow-[inset_0_0_0_1.5px_var(--sorbet-rim),inset_0_-3px_4px_-2px_var(--sorbet-rim),0_3px_5px_-2px_var(--sorbet-plain-glow)]',
+        'pointer-events-none flex size-9 shrink-0 items-center justify-center rounded-full bg-(--sorbet-plain) text-(--sorbet-ink) shadow-knob',
         'group-data-[size=sm]/select-trigger:size-8 group-data-[size=sm]/native-select:size-8',
-        'group-data-popup-open/select-trigger:bg-(--sorbet-butter) group-data-popup-open/select-trigger:text-(--sorbet-butter-ink) group-data-popup-open/select-trigger:shadow-[inset_0_2px_4px_-1px_var(--sorbet-butter-deep)]',
+        'group-data-popup-open/select-trigger:bg-(--sorbet-butter) group-data-popup-open/select-trigger:text-(--sorbet-butter-ink) group-data-popup-open/select-trigger:shadow-dent',
         'group-data-disabled/select-trigger:bg-transparent group-data-disabled/select-trigger:shadow-none group-has-[select:disabled]/native-select:bg-transparent group-has-[select:disabled]/native-select:text-(--sorbet-ink-muted) group-has-[select:disabled]/native-select:shadow-none',
         className,
       )}
@@ -110,9 +108,9 @@ function SelectContent({
           data-slot="select-content"
           data-align-trigger={alignItemWithTrigger}
           className={cn(
-            POPUP,
+            'popup',
             'relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-44 overflow-x-hidden overflow-y-auto p-1.5',
-            POP_IN,
+            'pop-in',
             'data-[align-trigger=true]:data-starting-style:scale-100',
             className,
           )}
@@ -135,8 +133,8 @@ function SelectLabel({
     <SelectPrimitive.GroupLabel
       data-slot="select-label"
       className={cn(
-        'px-3 pt-2.5 pb-1 text-[13px] font-semibold text-(--sorbet-ink-muted)',
-        DISPLAY,
+        'px-3 pt-2.5 pb-1 text-xs font-semibold text-(--sorbet-ink-muted)',
+        'font-heading',
         className,
       )}
       {...props}
@@ -153,7 +151,7 @@ function SelectItem({
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
-      className={cn(OPTION, 'pr-12', className)}
+      className={cn('option', 'pr-12', className)}
       {...props}
     >
       <SelectPrimitive.ItemText className="flex min-w-0 flex-1 gap-2">
@@ -171,7 +169,7 @@ function CheckDot({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       className={cn(
-        'pointer-events-none flex size-7 items-center justify-center rounded-full bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-3px_4px_-2px_var(--sorbet-melon-deep),0_3px_6px_-3px_var(--sorbet-melon-glow)] motion-safe:animate-[sorbet-pop_320ms_cubic-bezier(0.3,1.4,0.5,1)_both]',
+        'pointer-events-none flex size-7 items-center justify-center rounded-full bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-bead-melon motion-safe:animate-pop',
         className,
       )}
       {...props}
@@ -216,12 +214,12 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpArrow
       data-slot="select-scroll-up-button"
       className={cn(
-        'top-0 z-10 flex h-8 w-full cursor-default items-center justify-center rounded-[12px] bg-(--sorbet-surface) text-(--sorbet-ink)',
+        'top-0 z-10 flex h-8 w-full cursor-default items-center justify-center rounded-xl bg-(--sorbet-surface) text-(--sorbet-ink)',
         className,
       )}
       {...props}
     >
-      <ChevronUpIcon strokeWidth={2.75} className="size-[18px]" />
+      <ChevronUpIcon strokeWidth={2.75} className="size-4.5" />
     </SelectPrimitive.ScrollUpArrow>
   )
 }
@@ -234,12 +232,12 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownArrow
       data-slot="select-scroll-down-button"
       className={cn(
-        'bottom-0 z-10 flex h-8 w-full cursor-default items-center justify-center rounded-[12px] bg-(--sorbet-surface) text-(--sorbet-ink)',
+        'bottom-0 z-10 flex h-8 w-full cursor-default items-center justify-center rounded-xl bg-(--sorbet-surface) text-(--sorbet-ink)',
         className,
       )}
       {...props}
     >
-      <ChevronDownIcon strokeWidth={2.75} className="size-[18px]" />
+      <ChevronDownIcon strokeWidth={2.75} className="size-4.5" />
     </SelectPrimitive.ScrollDownArrow>
   )
 }

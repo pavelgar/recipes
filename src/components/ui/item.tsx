@@ -5,7 +5,6 @@ import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
-import { DISPLAY, FOCUS } from '@/components/ui/classes'
 import { Separator } from '@/components/ui/separator'
 
 function ItemGroup({ className, ...props }: React.ComponentProps<'div'>) {
@@ -42,9 +41,9 @@ function ItemSeparator({
 // squashes a little when pressed.
 const itemVariants = cva(
   [
-    'group/item flex w-full flex-wrap items-center rounded-[24px] text-left text-(--sorbet-ink) [corner-shape:squircle]',
-    FOCUS,
-    '[a]:cursor-pointer [a]:origin-bottom [a]:hover:shadow-[inset_0_0_0_1.5px_var(--edge),0_12px_20px_-12px_var(--sorbet-plain-glow),0_2px_4px_-2px_var(--sorbet-plain-glow)] [a]:motion-safe:hover:-translate-y-0.5 [a]:active:shadow-[inset_0_0_0_1.5px_var(--edge)] [a]:motion-safe:active:translate-y-0 [a]:motion-safe:active:scale-y-[0.97] [a]:motion-safe:transition-[translate,scale,box-shadow,background-color] [a]:motion-safe:duration-300 [a]:motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)] [a]:motion-safe:active:duration-75',
+    'group/item flex w-full flex-wrap items-center rounded-4xl text-left text-(--sorbet-ink) squircle',
+    'focus-ring',
+    '[a]:cursor-pointer [a]:origin-bottom [a]:hover:shadow-lift [a]:motion-safe:hover:-translate-y-0.5 [a]:active:shadow-edge [a]:motion-safe:active:translate-y-0 [a]:motion-safe:active:scale-y-97 [a]:motion-safe:transition [a]:motion-safe:duration-300 [a]:motion-safe:ease-spring [a]:motion-safe:active:duration-75',
   ],
   {
     variants: {
@@ -52,13 +51,13 @@ const itemVariants = cva(
         default:
           'bg-(--sorbet-surface) [--edge:transparent] [a]:hover:bg-(--sorbet-plain)',
         outline:
-          'bg-(--sorbet-plain) shadow-[inset_0_0_0_1.5px_var(--edge)] [--edge:var(--sorbet-surface-strong)]',
+          'bg-(--sorbet-plain) shadow-edge [--edge:var(--sorbet-surface-strong)]',
         muted: 'bg-(--sorbet-surface-strong) [--edge:transparent]',
       },
       size: {
         default: 'gap-4 px-5 py-4',
         sm: 'gap-3 px-4 py-3',
-        xs: 'min-h-11 gap-2.5 rounded-[16px] px-3 py-2 in-data-[slot=dropdown-menu-content]:p-0',
+        xs: 'min-h-11 gap-2.5 rounded-2xl px-3 py-2 in-data-[slot=dropdown-menu-content]:p-0',
       },
     },
     defaultVariants: {
@@ -99,9 +98,9 @@ const itemMediaVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent text-(--sorbet-ink)',
-        icon: "size-11 rounded-[15px] bg-(--sorbet-canvas) text-(--sorbet-ink) [corner-shape:squircle] shadow-[inset_0_2px_3px_-1px_var(--sorbet-well-shade)] group-data-[variant=outline]/item:bg-(--sorbet-well) group-data-[size=xs]/item:size-8 group-data-[size=xs]/item:rounded-[11px] [&_svg:not([class*='size-'])]:size-5",
+        icon: "size-11 rounded-xl bg-(--sorbet-canvas) text-(--sorbet-ink) squircle shadow-shade group-data-[variant=outline]/item:bg-(--sorbet-well) group-data-[size=xs]/item:size-8 group-data-[size=xs]/item:rounded-lg [&_svg:not([class*='size-'])]:size-5",
         image:
-          'size-12 overflow-hidden rounded-[16px] [corner-shape:squircle] group-data-[size=sm]/item:size-11 group-data-[size=xs]/item:size-8 group-data-[size=xs]/item:rounded-[10px] [&_img]:size-full [&_img]:object-cover',
+          'size-12 overflow-hidden rounded-2xl squircle group-data-[size=sm]/item:size-11 group-data-[size=xs]/item:size-8 group-data-[size=xs]/item:rounded-lg [&_img]:size-full [&_img]:object-cover',
       },
     },
     defaultVariants: {
@@ -144,8 +143,8 @@ function ItemTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="item-title"
       className={cn(
-        'flex min-w-0 items-center gap-2 text-[18px] leading-snug font-bold tracking-[-0.01em] text-pretty break-words group-data-[size=sm]/item:text-[17px] group-data-[size=xs]/item:text-[16px] group-data-[size=xs]/item:font-semibold',
-        DISPLAY,
+        'flex min-w-0 items-center gap-2 text-lg leading-snug font-bold tracking-normal text-pretty break-words group-data-[size=sm]/item:text-base group-data-[size=xs]/item:text-base group-data-[size=xs]/item:font-semibold',
+        'font-heading',
         className,
       )}
       {...props}
@@ -158,7 +157,7 @@ function ItemDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="item-description"
       className={cn(
-        'text-left text-[15px] leading-normal font-normal text-pretty text-(--sorbet-ink-muted) group-data-[size=xs]/item:text-[14px] [&>a]:underline [&>a]:decoration-[color:var(--sorbet-melon)] [&>a]:decoration-2 [&>a]:underline-offset-3 [&>a:hover]:decoration-[color:var(--sorbet-melon-deep)]',
+        'text-left text-sm leading-normal font-normal text-pretty text-(--sorbet-ink-muted) group-data-[size=xs]/item:text-sm [&>a]:underline [&>a]:decoration-(--sorbet-melon) [&>a]:decoration-2 [&>a]:underline-offset-3 [&>a:hover]:decoration-(--sorbet-melon-deep)',
         className,
       )}
       {...props}

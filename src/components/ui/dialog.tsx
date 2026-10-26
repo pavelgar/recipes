@@ -4,7 +4,6 @@ import { cn } from 'cn'
 import { XIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { DISPLAY } from '@/components/ui/classes'
 import { m } from '@/paraglide/messages'
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
@@ -60,20 +59,20 @@ function DialogContent({
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          'fixed z-50 flex flex-col gap-6 overflow-y-auto overscroll-contain bg-(--sorbet-canvas) text-[16px] text-(--sorbet-ink) shadow-(--sorbet-float) outline-none [corner-shape:squircle]',
+          'fixed z-50 flex flex-col gap-6 overflow-y-auto overscroll-contain bg-(--sorbet-canvas) text-base text-(--sorbet-ink) shadow-float outline-none squircle',
           // Phones: a bottom sheet.
-          'inset-x-0 bottom-0 max-h-[calc(100dvh-2.5rem)] rounded-t-[40px] px-5 pt-10 pb-[calc(1.5rem+env(safe-area-inset-bottom))]',
-          'motion-safe:transition-[translate,scale,opacity] motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.32,0.72,0,1)] data-ending-style:translate-y-full data-starting-style:translate-y-full motion-reduce:data-ending-style:translate-y-0 motion-reduce:data-starting-style:translate-y-0',
+          'inset-x-0 bottom-0 max-h-[calc(100dvh-2.5rem)] rounded-t-4xl px-5 pt-10 pb-[calc(1.5rem+env(safe-area-inset-bottom))]',
+          'motion-safe:transition motion-safe:duration-300 motion-safe:ease-glide data-ending-style:translate-y-full data-starting-style:translate-y-full motion-reduce:data-ending-style:translate-y-0 motion-reduce:data-starting-style:translate-y-0',
           // Wider screens: a card in the middle, popping in.
-          'sm:inset-auto sm:top-1/2 sm:left-1/2 sm:max-h-[calc(100dvh-4rem)] sm:w-[calc(100%-2rem)] sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-[40px] sm:p-8',
-          'sm:motion-safe:ease-[cubic-bezier(0.34,1.56,0.64,1)] sm:data-ending-style:-translate-y-1/2 sm:data-ending-style:scale-95 sm:data-ending-style:opacity-0 sm:data-ending-style:duration-150 sm:data-ending-style:ease-in sm:data-starting-style:-translate-y-1/2 sm:data-starting-style:scale-[0.88] sm:data-starting-style:opacity-0',
+          'sm:inset-auto sm:top-1/2 sm:left-1/2 sm:max-h-[calc(100dvh-4rem)] sm:w-[calc(100%-2rem)] sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-4xl sm:p-8',
+          'sm:motion-safe:ease-spring sm:data-ending-style:-translate-y-1/2 sm:data-ending-style:scale-95 sm:data-ending-style:opacity-0 sm:data-ending-style:duration-150 sm:data-ending-style:ease-in sm:data-starting-style:-translate-y-1/2 sm:data-starting-style:scale-88 sm:data-starting-style:opacity-0',
           className,
         )}
         {...props}
       >
         <span
           aria-hidden
-          className="absolute top-3 left-1/2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-(--sorbet-surface-strong) shadow-[inset_0_1px_2px_0_var(--sorbet-well-shade)] sm:hidden"
+          className="absolute top-3 left-1/2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-(--sorbet-surface-strong) shadow-shade-small sm:hidden"
         />
         {children}
         {showCloseButton && (
@@ -138,8 +137,8 @@ function DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {
     <DialogPrimitive.Title
       data-slot="dialog-title"
       className={cn(
-        'text-[26px] leading-tight font-extrabold tracking-[-0.02em] text-pretty',
-        DISPLAY,
+        'text-2xl leading-tight font-extrabold tracking-tight text-pretty',
+        'font-heading',
         className,
       )}
       {...props}
@@ -155,7 +154,7 @@ function DialogDescription({
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        'text-[16px] leading-normal text-pretty text-(--sorbet-ink-muted) *:[a]:underline *:[a]:decoration-2 *:[a]:underline-offset-3',
+        'text-base leading-normal text-pretty text-(--sorbet-ink-muted) *:[a]:underline *:[a]:decoration-2 *:[a]:underline-offset-3',
         className,
       )}
       {...props}

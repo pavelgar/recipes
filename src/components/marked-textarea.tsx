@@ -1,6 +1,5 @@
 import { cn } from 'cn'
 
-import { DISPLAY, FIELD, SQUIRCLE } from '@/components/ui/classes'
 import type { Mark } from '@/lib/editor/lines'
 
 // Text the textarea and the copy behind it share, so both wrap the same:
@@ -10,17 +9,16 @@ import type { Mark } from '@/lib/editor/lines'
 // textarea's too, in every browser and at every width, and the textarea
 // never scrolls away from it.
 const TEXT =
-  'col-start-1 row-start-1 m-0 border-0 py-3.5 pr-4.5 pl-13 font-sans text-[17px] leading-[1.65] tracking-normal break-words whitespace-pre-wrap'
+  'col-start-1 row-start-1 m-0 border-0 py-3.5 pr-4.5 pl-13 font-sans text-base leading-relaxed tracking-normal break-words whitespace-pre-wrap'
 
 // Marks only paint: a little lemon pillow under an amount, a pistachio
 // one under a section heading, each with a deeper edge along its bottom.
 // The spread shadow rounds their ends past the letters without moving
 // them.
 const MARK_STYLES: Record<Mark['kind'], string> = {
-  quantity:
-    'rounded-[8px] bg-(--sorbet-mark) shadow-[0_0_0_2.5px_var(--sorbet-mark),0_2px_0_2.5px_var(--sorbet-mark-deep)] box-decoration-clone',
+  quantity: 'rounded-md bg-(--sorbet-mark) shadow-mark box-decoration-clone',
   heading:
-    'rounded-[8px] bg-(--sorbet-mark-heading) shadow-[0_0_0_2.5px_var(--sorbet-mark-heading),0_2px_0_2.5px_var(--sorbet-mark-heading-deep)] box-decoration-clone',
+    'rounded-md bg-(--sorbet-mark-heading) shadow-mark-heading box-decoration-clone',
 }
 
 // A textarea for a list, one item per line, that reads like the list it
@@ -50,11 +48,11 @@ export function MarkedTextarea({
     <div
       data-slot="marked-textarea"
       className={cn(
-        FIELD,
+        'field',
         'grid',
-        'has-[textarea:focus-visible]:bg-(--sorbet-canvas) has-[textarea:focus-visible]:shadow-[inset_0_0_0_2.5px_var(--sorbet-focus),0_0_0_4px_var(--sorbet-focus-halo)]',
-        'has-[textarea[aria-invalid=true]]:bg-(--sorbet-danger-soft) has-[textarea[aria-invalid=true]]:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),inset_0_3px_5px_-1px_var(--sorbet-well-shade)]',
-        'has-[textarea[aria-invalid=true]]:has-[textarea:focus-visible]:bg-(--sorbet-canvas) has-[textarea[aria-invalid=true]]:has-[textarea:focus-visible]:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),0_0_0_4px_var(--sorbet-focus-halo)]',
+        'has-[textarea:focus-visible]:bg-(--sorbet-canvas) has-[textarea:focus-visible]:shadow-well-focus',
+        'has-[textarea[aria-invalid=true]]:bg-(--sorbet-danger-soft) has-[textarea[aria-invalid=true]]:shadow-well-invalid',
+        'has-[textarea[aria-invalid=true]]:has-[textarea:focus-visible]:bg-(--sorbet-canvas) has-[textarea[aria-invalid=true]]:has-[textarea:focus-visible]:shadow-well-invalid-focus',
         'has-[textarea:disabled]:bg-transparent has-[textarea:disabled]:shadow-none has-[textarea:disabled]:outline-2 has-[textarea:disabled]:-outline-offset-2 has-[textarea:disabled]:outline-(--sorbet-rim)/60 has-[textarea:disabled]:outline-dashed',
       )}
     >
@@ -77,15 +75,15 @@ export function MarkedTextarea({
                 (list === 'numbers' ? (
                   <span
                     className={cn(
-                      'absolute top-0.5 right-full mr-2.5 flex h-6 min-w-7 items-center justify-center rounded-[9px] bg-(--sorbet-melon-soft) px-1.5 text-[15px] leading-none font-extrabold text-(--sorbet-melon-text) tabular-nums shadow-[inset_0_-2px_0_0_color-mix(in_srgb,var(--sorbet-melon-text)_22%,transparent)]',
-                      SQUIRCLE,
-                      DISPLAY,
+                      'absolute top-0.5 right-full mr-2.5 flex h-6 min-w-7 items-center justify-center rounded-lg bg-(--sorbet-melon-soft) px-1.5 text-sm leading-none font-extrabold text-(--sorbet-melon-text) tabular-nums shadow-step',
+                      'squircle',
+                      'font-heading',
                     )}
                   >
                     {number}
                   </span>
                 ) : (
-                  <span className="absolute top-[calc(0.5lh-5.5px)] right-full mr-4.5 size-[11px] rounded-full bg-(--sorbet-melon) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-2px_2px_-1px_var(--sorbet-melon-deep)]" />
+                  <span className="absolute top-[calc(0.5lh-5.5px)] right-full mr-4.5 size-2.75 rounded-full bg-(--sorbet-melon) shadow-bead-melon-flat" />
                 ))}
               {line === '' ? '​' : marked(line, marks)}
             </div>
@@ -99,7 +97,7 @@ export function MarkedTextarea({
         placeholder={placeholder}
         className={cn(
           TEXT,
-          'relative resize-none overflow-hidden rounded-[18px] bg-transparent text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed disabled:text-(--sorbet-ink-muted)',
+          'relative resize-none overflow-hidden rounded-2xl bg-transparent text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed disabled:text-(--sorbet-ink-muted)',
           className,
         )}
         {...props}

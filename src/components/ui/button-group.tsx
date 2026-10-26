@@ -6,7 +6,6 @@ import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
 import { ButtonGroupContext } from '@/components/ui/button'
-import { DISPLAY, SQUIRCLE } from '@/components/ui/classes'
 import { Separator } from '@/components/ui/separator'
 
 // Pillows packed side by side: each keeps its own shading and squashes on
@@ -61,14 +60,14 @@ function ButtonGroupText({
     props: mergeProps<'div'>(
       {
         className: cn(
-          "flex min-h-11 items-center gap-2 bg-(--sorbet-well) px-4 text-[16px] font-bold text-(--sorbet-ink) shadow-[inset_0_3px_5px_-1px_var(--sorbet-well-shade)] [&_svg]:pointer-events-none [&_svg]:text-(--sorbet-ink-muted) [&_svg:not([class*='size-'])]:size-5",
-          DISPLAY,
-          SQUIRCLE,
+          "flex min-h-11 items-center gap-2 bg-(--sorbet-well) px-4 text-base font-bold text-(--sorbet-ink) shadow-shade [&_svg]:pointer-events-none [&_svg]:text-(--sorbet-ink-muted) [&_svg:not([class*='size-'])]:size-5",
+          'font-heading',
+          'squircle',
           group
             ? vertical
-              ? 'rounded-[12px] first:rounded-t-[22px] last:rounded-b-[22px]'
-              : 'rounded-[12px] first:rounded-l-[22px] last:rounded-r-[22px]'
-            : 'rounded-[16px]',
+              ? 'rounded-xl first:rounded-t-3xl last:rounded-b-3xl'
+              : 'rounded-xl first:rounded-l-3xl last:rounded-r-3xl'
+            : 'rounded-2xl',
           className,
         ),
       },
@@ -92,7 +91,7 @@ function ButtonGroupSeparator({
       data-slot="button-group-separator"
       orientation={orientation}
       className={cn(
-        'mx-0.5 self-center rounded-full data-vertical:self-center data-horizontal:self-center bg-(--sorbet-rim)/45 data-horizontal:my-0.5 data-horizontal:h-[3px] data-horizontal:w-6 data-vertical:h-6 data-vertical:w-[3px]',
+        'mx-0.5 self-center rounded-full data-vertical:self-center data-horizontal:self-center bg-(--sorbet-rim)/45 data-horizontal:my-0.5 data-horizontal:h-0.75 data-horizontal:w-6 data-vertical:h-6 data-vertical:w-0.75',
         className,
       )}
       {...props}

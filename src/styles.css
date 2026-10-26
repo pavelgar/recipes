@@ -235,6 +235,146 @@ body {
 @theme inline {
   --font-sans: 'Atkinson Hyperlegible Next Variable', sans-serif;
   --font-heading: 'Gabarito Variable', ui-rounded, sans-serif;
+
+  /* Sorbet's motion: a spring for what you press and what pops up, a glide
+     for sheets and drawers, and a pop for checks and dots landing. */
+  --ease-spring: cubic-bezier(0.34, 1.5, 0.5, 1);
+  --ease-glide: cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-pop: sorbet-pop 320ms cubic-bezier(0.3, 1.4, 0.5, 1) both;
+
+  /* Sorbet's depths, as shadows. Raised: a pillow, lit along the top,
+     sitting on its deep edge and casting a shadow in its own colour; the
+     pillow-* ones take their colours from a tone-* utility (--fill-hi,
+     --fill-deep, --fill-glow and --edge). */
+  --shadow-pillow:
+    inset 0 0 0 1.5px var(--edge), inset 0 2px 1px -0.5px var(--fill-hi),
+    inset 0 -5px 6px -3px var(--fill-deep), 0 9px 16px -9px var(--fill-glow),
+    0 2px 3px -1px var(--fill-glow);
+  --shadow-pillow-lifted:
+    inset 0 0 0 1.5px var(--edge), inset 0 2px 1px -0.5px var(--fill-hi),
+    inset 0 -5px 6px -3px var(--fill-deep), 0 13px 20px -10px var(--fill-glow),
+    0 3px 5px -1px var(--fill-glow);
+  --shadow-pillow-pressed:
+    inset 0 0 0 1.5px var(--edge), inset 0 1px 1px -0.5px var(--fill-hi),
+    inset 0 -2px 4px -2px var(--fill-deep), 0 2px 3px -2px var(--fill-glow);
+  /* Held down: latched, or with its menu open. */
+  --shadow-pillow-held:
+    inset 0 0 0 1.5px var(--edge), inset 0 2.5px 3px 0 var(--fill-deep),
+    inset 0 -1px 0 0 var(--fill-hi);
+  /* A small white knob with a rim, such as a select's chevron. */
+  --shadow-knob:
+    inset 0 0 0 1.5px var(--sorbet-rim),
+    inset 0 -3px 4px -2px var(--sorbet-rim),
+    0 3px 5px -2px var(--sorbet-plain-glow);
+  /* A raised white card you can choose, and lifted under the pointer. */
+  --shadow-card:
+    inset 0 0 0 1.5px var(--sorbet-surface-strong),
+    inset 0 -5px 6px -3px var(--sorbet-plain-deep),
+    0 9px 16px -9px var(--sorbet-plain-glow),
+    0 2px 3px -1px var(--sorbet-plain-glow);
+  --shadow-card-lifted:
+    inset 0 0 0 1.5px var(--sorbet-surface-strong),
+    inset 0 -5px 6px -3px var(--sorbet-plain-deep),
+    0 13px 20px -10px var(--sorbet-plain-glow),
+    0 3px 5px -1px var(--sorbet-plain-glow);
+  /* The raised white tray a joined group of segments sits in. */
+  --shadow-tray:
+    inset 0 0 0 1.5px var(--sorbet-rim),
+    inset 0 -5px 6px -3px var(--sorbet-rim),
+    0 9px 16px -9px var(--sorbet-plain-glow),
+    0 2px 3px -1px var(--sorbet-plain-glow);
+  /* A row that's a link, lifted under the pointer. */
+  --shadow-lift:
+    inset 0 0 0 1.5px var(--edge), 0 12px 20px -12px var(--sorbet-plain-glow),
+    0 2px 4px -2px var(--sorbet-plain-glow);
+  /* Beads: small raised balls (checks, dots, icons). The flat ones cast
+     no shadow. */
+  --shadow-bead-melon:
+    inset 0 1.5px 1px -0.5px var(--sorbet-melon-hi),
+    inset 0 -3px 4px -2px var(--sorbet-melon-deep),
+    0 4px 8px -4px var(--sorbet-melon-glow);
+  --shadow-bead-butter:
+    inset 0 1.5px 1px -0.5px var(--sorbet-butter-hi),
+    inset 0 -3px 4px -2px var(--sorbet-butter-deep),
+    0 4px 8px -4px var(--sorbet-butter-glow);
+  --shadow-bead-sky:
+    inset 0 1.5px 1px -0.5px rgb(255 255 255 / 0.6),
+    inset 0 -3px 4px -2px var(--sorbet-sky-deep),
+    0 4px 8px -4px var(--sorbet-sky-deep);
+  --shadow-bead-melon-flat:
+    inset 0 1.5px 1px -0.5px var(--sorbet-melon-hi),
+    inset 0 -3px 4px -2px var(--sorbet-melon-deep);
+  --shadow-bead-butter-flat:
+    inset 0 1.5px 1px -0.5px var(--sorbet-butter-hi),
+    inset 0 -3px 4px -2px var(--sorbet-butter-deep);
+  --shadow-bead-sky-flat:
+    inset 0 1.5px 1px -0.5px rgb(255 255 255 / 0.6),
+    inset 0 -3px 4px -2px var(--sorbet-sky-deep);
+  --shadow-bead-mint-flat:
+    inset 0 1.5px 1px -0.5px rgb(255 255 255 / 0.6),
+    inset 0 -3px 4px -2px var(--sorbet-mint-deep);
+  --shadow-bead-butter-large:
+    inset 0 3px 2px -1px var(--sorbet-butter-hi),
+    inset 0 -8px 12px -6px var(--sorbet-butter-deep),
+    0 14px 24px -12px var(--sorbet-butter-glow);
+  /* A latched choice: pressed into lemon. A dent: a small lemon hollow. */
+  --shadow-latched:
+    inset 0 3px 5px -1px var(--sorbet-butter-deep),
+    inset 0 0 0 1.5px
+      color-mix(in srgb, var(--sorbet-butter-deep) 45%, transparent);
+  --shadow-dent: inset 0 2px 4px -1px var(--sorbet-butter-deep);
+  /* Sunk: a well to type into, its focus and its invalid state, and the
+     smaller well a check or radio sits in. Focus is a blueberry edge in a
+     soft halo, as focus-ring draws it outside everything else. */
+  --shadow-well:
+    inset 0 0 0 1.5px var(--sorbet-rim),
+    inset 0 3px 5px -1px var(--sorbet-well-shade);
+  --shadow-well-small:
+    inset 0 0 0 2px var(--sorbet-rim),
+    inset 0 3px 4px -1px var(--sorbet-well-shade);
+  --shadow-well-focus:
+    inset 0 0 0 2px var(--sorbet-focus), 0 0 0 4px var(--sorbet-focus-halo);
+  --shadow-well-invalid:
+    inset 0 0 0 2.5px var(--sorbet-danger),
+    inset 0 3px 5px -1px var(--sorbet-well-shade);
+  --shadow-well-invalid-focus:
+    inset 0 0 0 2.5px var(--sorbet-danger), 0 0 0 4px var(--sorbet-focus-halo);
+  --shadow-invalid: inset 0 0 0 2px var(--sorbet-danger);
+  /* The shade along the top of something sunk, without its edge. */
+  --shadow-shade: inset 0 3px 5px -1px var(--sorbet-well-shade);
+  --shadow-shade-small: inset 0 1px 2px 0 var(--sorbet-well-shade);
+  /* Edges: the rim of a control, stronger under the pointer, and an edge
+     in the colour of --edge. */
+  --shadow-rim: inset 0 0 0 1.5px var(--sorbet-rim);
+  --shadow-rim-strong: inset 0 0 0 1.5px var(--sorbet-rail-ink);
+  --shadow-edge: inset 0 0 0 1.5px var(--edge);
+  /* Hairline rules across the top and bottom of a field's bars. */
+  --shadow-rule-top: inset 0 1.5px 0 0
+    color-mix(in srgb, var(--sorbet-rim) 35%, transparent);
+  --shadow-rule-bottom: inset 0 -1.5px 0 0
+    color-mix(in srgb, var(--sorbet-rim) 35%, transparent);
+  /* What floats: the bottom bar's capsule (lower where Safari cuts it off)
+     and the panels that pop up over the page. */
+  --shadow-capsule:
+    inset 0 1.5px 0 0 var(--sorbet-plain-hi),
+    0 16px 32px -14px var(--sorbet-plain-glow),
+    0 3px 8px -3px var(--sorbet-plain-glow);
+  --shadow-capsule-low:
+    inset 0 1.5px 0 0 var(--sorbet-plain-hi),
+    0 6px 12px -6px var(--sorbet-plain-glow),
+    0 3px 8px -3px var(--sorbet-plain-glow);
+  --shadow-float: var(--sorbet-float);
+  /* The editor's marks, a step number's base, a key's base and a radio's
+     dot. */
+  --shadow-mark:
+    0 0 0 2.5px var(--sorbet-mark), 0 2px 0 2.5px var(--sorbet-mark-deep);
+  --shadow-mark-heading:
+    0 0 0 2.5px var(--sorbet-mark-heading),
+    0 2px 0 2.5px var(--sorbet-mark-heading-deep);
+  --shadow-step: inset 0 -2px 0 0
+    color-mix(in srgb, var(--sorbet-melon-text) 22%, transparent);
+  --shadow-key: inset 0 -2px 0 0 var(--sorbet-surface-strong);
+  --shadow-dot: 0 1px 1px 0 var(--sorbet-melon-deep);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -269,6 +409,119 @@ body {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Sorbet's shared parts, as utilities. Three depths: raised to press (a
+   pillow), flat to read, sunk to type (a well). */
+
+/* Squircle corners where the browser draws them; round elsewhere. */
+@utility squircle {
+  corner-shape: squircle;
+}
+
+/* Keyboard focus, the same everywhere: a blueberry edge in a soft halo. A
+   field's own edge turns blueberry (field-focus); anything else takes the
+   edge hugging its outside, with the halo round that. Rings are shadows,
+   so they stack with a pillow's shading. */
+@utility focus-ring {
+  @apply outline-none focus-visible:ring-4 focus-visible:ring-(color:--sorbet-focus-halo) focus-visible:ring-offset-2 focus-visible:ring-offset-(color:--sorbet-focus);
+}
+
+/* Focus on a segment inside a joined bar: the edge drawn inside it, as on
+   a field, and the segment lifted so its halo shows over its neighbours. */
+@utility focus-ring-inside {
+  @apply focus-visible:z-10 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:shadow-well-focus!;
+}
+
+/* The tones a pillow can take: its fill, the ink on it, the pale top it
+   catches light on, the deep bottom it sits on and the tint of its shadow.
+   --edge draws a rim, for the plain one that would otherwise vanish into
+   the page. */
+@utility tone-melon {
+  --fill: var(--sorbet-melon);
+  --fill-ink: var(--sorbet-melon-ink);
+  --fill-hi: var(--sorbet-melon-hi);
+  --fill-deep: var(--sorbet-melon-deep);
+  --fill-glow: var(--sorbet-melon-glow);
+  --edge: transparent;
+}
+@utility tone-butter {
+  --fill: var(--sorbet-butter);
+  --fill-ink: var(--sorbet-butter-ink);
+  --fill-hi: var(--sorbet-butter-hi);
+  --fill-deep: var(--sorbet-butter-deep);
+  --fill-glow: var(--sorbet-butter-glow);
+  --edge: transparent;
+}
+@utility tone-plain {
+  --fill: var(--sorbet-plain);
+  --fill-ink: var(--sorbet-ink);
+  --fill-hi: var(--sorbet-plain-hi);
+  --fill-deep: var(--sorbet-rim);
+  --fill-glow: var(--sorbet-plain-glow);
+  --edge: var(--sorbet-rim);
+}
+@utility tone-danger {
+  --fill: var(--sorbet-danger-soft);
+  --fill-ink: var(--sorbet-danger);
+  --fill-hi: var(--sorbet-plain-hi);
+  --fill-deep: var(--sorbet-danger);
+  --fill-glow: var(--sorbet-melon-glow);
+  --edge: var(--sorbet-danger);
+}
+
+/* A raised pillow in its tone. Hover lifts it a little; a press squashes
+   it gently onto the table and its shadow shrinks; letting go springs
+   back. */
+@utility pillow {
+  @apply origin-bottom bg-(--fill) text-(--fill-ink) shadow-pillow hover:shadow-pillow-lifted active:shadow-pillow-pressed motion-safe:transition motion-safe:duration-300 motion-safe:ease-spring motion-safe:hover:-translate-y-px motion-safe:active:translate-y-px motion-safe:active:scale-x-102 motion-safe:active:scale-y-95 motion-safe:active:duration-75 motion-safe:active:ease-out;
+}
+
+/* A pillow that can't be pressed has gone flat: no light, no edge, no
+   shadow, in the surface tint. */
+@utility deflated {
+  @apply disabled:translate-y-0 disabled:bg-(--sorbet-surface-strong) disabled:text-(--sorbet-ink-muted) disabled:shadow-none data-disabled:bg-(--sorbet-surface-strong) data-disabled:text-(--sorbet-ink-muted) data-disabled:shadow-none;
+}
+
+/* A well to type into: sunk below the page in a deeper tone, shaded along
+   its top, with an edge you can see. */
+@utility field {
+  @apply squircle rounded-2xl bg-(--sorbet-well) text-base text-(--sorbet-ink) shadow-well motion-safe:transition motion-safe:duration-150;
+}
+
+/* Focus brings a field up to the page's light: it turns the canvas
+   colour, loses its shade and takes a blueberry edge in a soft halo. */
+@utility field-focus {
+  @apply focus-visible:bg-(--sorbet-canvas) focus-visible:shadow-well-focus;
+}
+
+/* Invalid: tinted, with a danger edge, which stays when focused. */
+@utility field-invalid {
+  @apply aria-invalid:bg-(--sorbet-danger-soft) aria-invalid:shadow-well-invalid aria-invalid:focus-visible:bg-(--sorbet-canvas) aria-invalid:focus-visible:shadow-well-invalid-focus;
+}
+
+/* A disabled field has nothing to type into: no well, only a dashed
+   edge. */
+@utility field-disabled {
+  @apply disabled:cursor-not-allowed disabled:bg-transparent disabled:text-(--sorbet-ink-muted) disabled:shadow-none disabled:outline-2 disabled:-outline-offset-2 disabled:outline-(--sorbet-rim)/60 disabled:outline-dashed;
+}
+
+/* Panels that float up from a control: selects, menus, comboboxes. No
+   rim: a canvas panel lifted on a tinted shadow, with a hairline to keep
+   its edge on a busy page. */
+@utility popup {
+  @apply rounded-3xl bg-(--sorbet-canvas) text-(--sorbet-ink) shadow-float ring-1 ring-(color:--sorbet-surface-strong) outline-none;
+}
+
+/* An option in one of those panels: 48px, Gabarito; highlighted, a lemon
+   bead rises under it. */
+@utility option {
+  @apply relative flex min-h-12 w-full cursor-default items-center gap-3 rounded-xl px-3 py-2 font-heading text-base font-semibold text-(--sorbet-ink) outline-none select-none data-highlighted:bg-(--sorbet-butter) data-highlighted:text-(--sorbet-butter-ink) data-highlighted:shadow-bead-butter-flat data-highlighted:[--sorbet-ink-muted:var(--sorbet-butter-ink)] data-highlighted:[--sorbet-ink:var(--sorbet-butter-ink)] data-disabled:pointer-events-none data-disabled:text-(--sorbet-ink-muted) data-disabled:opacity-70 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5;
+}
+
+/* Popups open with a springy swell from where they're anchored. */
+@utility pop-in {
+  @apply origin-(--transform-origin) data-starting-style:scale-92 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:duration-100 data-ending-style:ease-in motion-safe:transition motion-safe:duration-200 motion-safe:ease-spring;
 }
 
 @layer base {

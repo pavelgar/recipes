@@ -1,8 +1,6 @@
 import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox'
 import { cn } from 'cn'
 
-import { FOCUS, SQUIRCLE } from '@/components/ui/classes'
-
 // Off, a 28px squircle well, sunk with an edge. Ticked, it rises as a
 // watermelon pillow and its check springs in. It squashes a little under
 // the finger; the touch area reaches 44px.
@@ -11,14 +9,14 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        'peer relative flex size-7 shrink-0 items-center justify-center rounded-[10px] bg-(--sorbet-well) text-(--sorbet-melon-ink) shadow-[inset_0_0_0_2px_var(--sorbet-rim),inset_0_3px_4px_-1px_var(--sorbet-well-shade)]',
-        SQUIRCLE,
-        FOCUS,
+        'peer relative flex size-7 shrink-0 items-center justify-center rounded-lg bg-(--sorbet-well) text-(--sorbet-melon-ink) shadow-well-small',
+        'squircle',
+        'focus-ring',
         'after:absolute after:-inset-2',
-        'motion-safe:transition-[scale,background-color,box-shadow] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)] motion-safe:active:scale-x-105 motion-safe:active:scale-y-95',
+        'motion-safe:transition motion-safe:duration-200 motion-safe:ease-spring motion-safe:active:scale-x-105 motion-safe:active:scale-y-95',
         'not-data-checked:hover:bg-(--sorbet-surface-strong)',
-        'data-checked:bg-(--sorbet-melon) data-checked:shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-3px_4px_-2px_var(--sorbet-melon-deep),0_4px_8px_-4px_var(--sorbet-melon-glow)]',
-        'aria-invalid:bg-(--sorbet-danger-soft) aria-invalid:shadow-[inset_0_0_0_2px_var(--sorbet-danger)] aria-invalid:data-checked:bg-(--sorbet-melon)',
+        'data-checked:bg-(--sorbet-melon) data-checked:shadow-bead-melon',
+        'aria-invalid:bg-(--sorbet-danger-soft) aria-invalid:shadow-invalid aria-invalid:data-checked:bg-(--sorbet-melon)',
         'data-disabled:cursor-not-allowed data-disabled:bg-(--sorbet-surface) data-disabled:shadow-none data-disabled:outline-2 data-disabled:-outline-offset-2 data-disabled:outline-(--sorbet-rim)/60 data-disabled:outline-dashed data-disabled:data-checked:bg-(--sorbet-surface-strong) data-disabled:text-(--sorbet-ink-muted)',
         className,
       )}
@@ -26,7 +24,7 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
     >
       <CheckboxPrimitive.Indicator
         data-slot="checkbox-indicator"
-        className="grid place-content-center motion-safe:animate-[sorbet-pop_340ms_cubic-bezier(0.3,1.4,0.5,1)_both]"
+        className="grid place-content-center motion-safe:animate-pop"
       >
         <svg
           aria-hidden

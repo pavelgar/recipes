@@ -8,7 +8,6 @@ import {
   InputGroupAddon,
   InputGroupButton,
 } from '@/components/ui/input-group'
-import { DISPLAY, FIELD, OPTION, POPUP, POP_IN } from '@/components/ui/classes'
 import { CheckDot } from '@/components/ui/select'
 
 const Combobox = ComboboxPrimitive.Root
@@ -31,7 +30,7 @@ function ComboboxTrigger({
       {children}
       <ChevronDownIcon
         strokeWidth={2.75}
-        className="pointer-events-none size-[18px]! motion-safe:transition-[rotate] motion-safe:duration-150 group-data-popup-open/combobox-trigger:rotate-180"
+        className="pointer-events-none size-4.5! motion-safe:transition motion-safe:duration-150 group-data-popup-open/combobox-trigger:rotate-180"
       />
     </ComboboxPrimitive.Trigger>
   )
@@ -68,7 +67,7 @@ function ComboboxInput({
       <ComboboxPrimitive.Input
         data-slot="input-group-control"
         disabled={disabled}
-        className="h-full w-full min-w-0 flex-1 rounded-[16px] bg-transparent px-4.5 text-[17px] text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed"
+        className="h-full w-full min-w-0 flex-1 rounded-2xl bg-transparent px-4.5 text-base text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed"
         {...props}
       />
       <InputGroupAddon align="inline-end">
@@ -78,7 +77,7 @@ function ComboboxInput({
             variant="outline"
             render={<ComboboxTrigger />}
             data-slot="input-group-button"
-            className="group-has-data-[slot=combobox-clear]/input-group:hidden data-popup-open:bg-(--sorbet-butter) data-popup-open:text-(--sorbet-butter-ink) data-popup-open:shadow-[inset_0_2px_4px_-1px_var(--sorbet-butter-deep)]"
+            className="group-has-data-[slot=combobox-clear]/input-group:hidden data-popup-open:bg-(--sorbet-butter) data-popup-open:text-(--sorbet-butter-ink) data-popup-open:shadow-dent"
             disabled={disabled}
           />
         )}
@@ -116,9 +115,9 @@ function ComboboxContent({
           data-slot="combobox-content"
           data-chips={!!anchor}
           className={cn(
-            POPUP,
+            'popup',
             'group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[max(var(--anchor-width),14rem)] overflow-hidden',
-            POP_IN,
+            'pop-in',
             className,
           )}
           {...props}
@@ -149,7 +148,7 @@ function ComboboxItem({
   return (
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
-      className={cn(OPTION, 'pr-12', className)}
+      className={cn('option', 'pr-12', className)}
       {...props}
     >
       {children}
@@ -178,8 +177,8 @@ function ComboboxLabel({
     <ComboboxPrimitive.GroupLabel
       data-slot="combobox-label"
       className={cn(
-        'px-3 pt-2.5 pb-1 text-[13px] font-semibold text-(--sorbet-ink-muted)',
-        DISPLAY,
+        'px-3 pt-2.5 pb-1 text-xs font-semibold text-(--sorbet-ink-muted)',
+        'font-heading',
         className,
       )}
       {...props}
@@ -198,8 +197,8 @@ function ComboboxEmpty({ className, ...props }: ComboboxPrimitive.Empty.Props) {
     <ComboboxPrimitive.Empty
       data-slot="combobox-empty"
       className={cn(
-        'hidden w-full justify-center px-4 py-5 text-center text-[16px] font-semibold text-(--sorbet-ink-muted) group-data-empty/combobox-content:flex',
-        DISPLAY,
+        'hidden w-full justify-center px-4 py-5 text-center text-base font-semibold text-(--sorbet-ink-muted) group-data-empty/combobox-content:flex',
+        'font-heading',
         className,
       )}
       {...props}
@@ -233,11 +232,11 @@ function ComboboxChips({
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
       className={cn(
-        FIELD,
+        'field',
         'flex min-h-13 flex-wrap items-center gap-1.5 px-2 py-2',
-        'focus-within:bg-(--sorbet-canvas) focus-within:shadow-[inset_0_0_0_2.5px_var(--sorbet-focus),0_0_0_4px_var(--sorbet-focus-halo)]',
-        'has-aria-invalid:bg-(--sorbet-danger-soft) has-aria-invalid:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),inset_0_3px_5px_-1px_var(--sorbet-well-shade)]',
-        'has-aria-invalid:focus-within:bg-(--sorbet-canvas) has-aria-invalid:focus-within:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),0_0_0_4px_var(--sorbet-focus-halo)]',
+        'focus-within:bg-(--sorbet-canvas) focus-within:shadow-well-focus',
+        'has-aria-invalid:bg-(--sorbet-danger-soft) has-aria-invalid:shadow-well-invalid',
+        'has-aria-invalid:focus-within:bg-(--sorbet-canvas) has-aria-invalid:focus-within:shadow-well-invalid-focus',
         className,
       )}
       {...props}
@@ -258,8 +257,8 @@ function ComboboxChip({
     <ComboboxPrimitive.Chip
       data-slot="combobox-chip"
       className={cn(
-        'flex h-9 w-fit items-center justify-center gap-1 rounded-full bg-(--sorbet-butter) pb-px pl-3.5 text-[15px] font-bold whitespace-nowrap text-(--sorbet-butter-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-butter-hi),inset_0_-3px_4px_-2px_var(--sorbet-butter-deep),0_3px_6px_-3px_var(--sorbet-butter-glow)] has-disabled:pointer-events-none has-disabled:opacity-60 has-data-[slot=combobox-chip-remove]:pr-1 motion-safe:animate-[sorbet-pop_320ms_cubic-bezier(0.3,1.4,0.5,1)_both]',
-        DISPLAY,
+        'flex h-9 w-fit items-center justify-center gap-1 rounded-full bg-(--sorbet-butter) pb-px pl-3.5 text-sm font-bold whitespace-nowrap text-(--sorbet-butter-ink) shadow-bead-butter has-disabled:pointer-events-none has-disabled:opacity-60 has-data-[slot=combobox-chip-remove]:pr-1 motion-safe:animate-pop',
+        'font-heading',
         !showRemove && 'pr-3.5',
         className,
       )}
@@ -269,7 +268,7 @@ function ComboboxChip({
       {showRemove && (
         <ComboboxPrimitive.ChipRemove
           data-slot="combobox-chip-remove"
-          className="relative flex size-7 shrink-0 items-center justify-center rounded-full text-(--sorbet-butter-ink) outline-none after:absolute after:-inset-1.5 hover:bg-(--sorbet-butter-ink)/12 hover:shadow-[inset_0_2px_3px_-1px_var(--sorbet-butter-deep)] focus-visible:ring-4 focus-visible:ring-(color:--sorbet-focus-halo) focus-visible:ring-offset-[2.5px] focus-visible:ring-offset-(color:--sorbet-focus) motion-safe:active:scale-90"
+          className="relative flex size-7 shrink-0 items-center justify-center rounded-full text-(--sorbet-butter-ink) outline-none after:absolute after:-inset-1.5 hover:bg-(--sorbet-butter-ink)/12 hover:shadow-dent focus-visible:ring-4 focus-visible:ring-(color:--sorbet-focus-halo) focus-visible:ring-offset-2 focus-visible:ring-offset-(color:--sorbet-focus) motion-safe:active:scale-90"
         >
           <XIcon strokeWidth={3} className="pointer-events-none size-4" />
         </ComboboxPrimitive.ChipRemove>
@@ -286,7 +285,7 @@ function ComboboxChipsInput({
     <ComboboxPrimitive.Input
       data-slot="combobox-chip-input"
       className={cn(
-        'h-9 min-w-24 flex-1 bg-transparent px-2 text-[17px] text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted)',
+        'h-9 min-w-24 flex-1 bg-transparent px-2 text-base text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}

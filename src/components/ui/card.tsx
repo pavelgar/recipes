@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { cn } from 'cn'
 
-import { DISPLAY } from '@/components/ui/classes'
-
 // A flat, calm container: the apricot surface tint, big squircle corners,
 // no rim and no shadow. Volume stays with what's pressed inside it.
 function Card({
@@ -15,7 +13,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        'group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-[36px] bg-(--sorbet-surface) py-(--card-spacing) text-[16px] text-(--sorbet-ink) [corner-shape:squircle] [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:rounded-[28px] data-[size=sm]:[--card-spacing:--spacing(4.5)]',
+        'group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-4xl bg-(--sorbet-surface) py-(--card-spacing) text-base text-(--sorbet-ink) squircle [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:rounded-4xl data-[size=sm]:[--card-spacing:--spacing(4.5)]',
         className,
       )}
       {...props}
@@ -41,8 +39,8 @@ function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card-title"
       className={cn(
-        'min-w-0 text-[22px] leading-tight font-extrabold tracking-[-0.02em] text-pretty break-words group-data-[size=sm]/card:text-[18px]',
-        DISPLAY,
+        'min-w-0 text-xl leading-tight font-extrabold tracking-tight text-pretty break-words group-data-[size=sm]/card:text-lg',
+        'font-heading',
         className,
       )}
       {...props}
@@ -55,7 +53,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card-description"
       className={cn(
-        'text-[16px] leading-normal text-pretty text-(--sorbet-ink-muted)',
+        'text-base leading-normal text-pretty text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}

@@ -25,7 +25,7 @@ function ScrollArea({
         data-slot="scroll-area-viewport"
         {...viewportProps}
         className={cn(
-          'size-full overscroll-contain rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:ring-inset',
+          'size-full overscroll-contain rounded-[inherit] transition outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:ring-inset',
           viewportProps?.className,
         )}
       >
@@ -49,7 +49,7 @@ function ScrollBar({
       orientation={orientation}
       // Shown while scrolling or under the pointer, as phones show theirs.
       className={cn(
-        'flex touch-none p-px opacity-0 transition-[color,opacity] duration-200 select-none data-hovering:opacity-100 data-scrolling:opacity-100 data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent',
+        'flex touch-none p-px opacity-0 transition duration-200 select-none data-hovering:opacity-100 data-scrolling:opacity-100 data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent',
         className,
       )}
       {...props}

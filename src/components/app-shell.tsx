@@ -13,7 +13,6 @@ import {
 import { createContext, use, useEffect, useState } from 'react'
 
 import { AddRecipeProvider, useOpenAddRecipe } from '@/components/add-recipe'
-import { DISPLAY, FOCUS, PILLOW, TONE } from '@/components/ui/classes'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   SIDEBAR_COOKIE_NAME,
@@ -57,7 +56,7 @@ const navItems = linkOptions([
 // is part of the page (dialog.tsx), also draws under every fixed layer, so
 // the bar fades out while one is up.
 export const FLOATING_BAR =
-  'fixed transition-[opacity,visibility] backdrop-up:invisible backdrop-up:opacity-0 right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-[34px] [corner-shape:squircle] bg-(--sorbet-rail) text-(--sorbet-rail-ink) shadow-[inset_0_1.5px_0_0_var(--sorbet-plain-hi),0_16px_32px_-14px_var(--sorbet-plain-glow),0_3px_8px_-3px_var(--sorbet-plain-glow)] supports-[-webkit-touch-callout:none]:[@media(display-mode:browser)]:shadow-[inset_0_1.5px_0_0_var(--sorbet-plain-hi),0_6px_12px_-6px_var(--sorbet-plain-glow),0_3px_8px_-3px_var(--sorbet-plain-glow)]'
+  'fixed transition-all backdrop-up:invisible backdrop-up:opacity-0 right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-full squircle bg-(--sorbet-rail) text-(--sorbet-rail-ink) shadow-capsule supports-[-webkit-touch-callout:none]:[@media(display-mode:browser)]:shadow-capsule-low'
 
 // The element each screen scrolls in, for the router to restore and reset.
 export const MAIN_SCROLL_AREA = '[data-scroll-restoration-id="main"]'
@@ -214,11 +213,11 @@ function BottomNav() {
                 <span
                   className={cn(
                     '-mt-3 flex size-15 items-center justify-center rounded-full pb-0.5',
-                    TONE.melon,
+                    'tone-melon',
                     '[--edge:var(--sorbet-melon-deep)]',
-                    PILLOW,
-                    'group-active/add:shadow-[inset_0_1px_1px_-0.5px_var(--fill-hi),inset_0_-2px_4px_-2px_var(--fill-deep),0_2px_3px_-2px_var(--fill-glow)] motion-safe:group-active/add:translate-y-px motion-safe:group-active/add:scale-x-[1.03] motion-safe:group-active/add:scale-y-[0.94]',
-                    'group-focus-visible/add:ring-4 group-focus-visible/add:ring-(color:--sorbet-focus-halo) group-focus-visible/add:ring-offset-[2.5px] group-focus-visible/add:ring-offset-(color:--sorbet-focus)',
+                    'pillow',
+                    'group-active/add:shadow-pillow-pressed motion-safe:group-active/add:translate-y-px motion-safe:group-active/add:scale-x-103 motion-safe:group-active/add:scale-y-94',
+                    'group-focus-visible/add:ring-4 group-focus-visible/add:ring-(color:--sorbet-focus-halo) group-focus-visible/add:ring-offset-2 group-focus-visible/add:ring-offset-(color:--sorbet-focus)',
                   )}
                 >
                   <Icon strokeWidth={2.75} className="size-7" />
@@ -230,12 +229,12 @@ function BottomNav() {
               <Link
                 {...link}
                 className={cn(
-                  'group/item flex w-full flex-col items-center justify-center gap-1 rounded-[22px] text-[12px] leading-none font-semibold text-(--sorbet-rail-ink)',
-                  DISPLAY,
-                  FOCUS,
+                  'group/item flex w-full flex-col items-center justify-center gap-1 rounded-3xl text-xs leading-none font-semibold text-(--sorbet-rail-ink)',
+                  'font-heading',
+                  'focus-ring',
                 )}
               >
-                <span className="flex h-8 w-13 items-center justify-center rounded-full group-hover/item:bg-(--sorbet-rail-hover) group-aria-[current=page]/item:bg-(--sorbet-butter) group-aria-[current=page]/item:text-(--sorbet-butter-ink) group-aria-[current=page]/item:shadow-[inset_0_2px_1px_-0.5px_var(--sorbet-butter-hi),inset_0_-3px_4px_-2px_var(--sorbet-butter-deep),0_4px_8px_-4px_var(--sorbet-butter-glow)] motion-safe:transition-[background-color,scale,box-shadow] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)] motion-safe:group-active/item:scale-x-105 motion-safe:group-active/item:scale-y-95">
+                <span className="flex h-8 w-13 items-center justify-center rounded-full group-hover/item:bg-(--sorbet-rail-hover) group-aria-[current=page]/item:bg-(--sorbet-butter) group-aria-[current=page]/item:text-(--sorbet-butter-ink) group-aria-[current=page]/item:shadow-bead-butter motion-safe:transition motion-safe:duration-200 motion-safe:ease-spring motion-safe:group-active/item:scale-x-105 motion-safe:group-active/item:scale-y-95">
                   <Icon strokeWidth={2.25} className="size-6" />
                 </span>
                 <span className="group-aria-[current=page]/item:font-extrabold">

@@ -4,8 +4,6 @@ import * as React from 'react'
 import { Drawer as DrawerPrimitive } from '@base-ui/react/drawer'
 import { cn } from 'cn'
 
-import { DISPLAY } from '@/components/ui/classes'
-
 type Direction = NonNullable<DrawerPrimitive.Root.Props['swipeDirection']>
 
 type DrawerContextProps = {
@@ -106,7 +104,7 @@ function DrawerSwipeHandle({
     >
       <span
         className={cn(
-          'rounded-full bg-(--sorbet-surface-strong) shadow-[inset_0_1px_2px_0_var(--sorbet-well-shade)]',
+          'rounded-full bg-(--sorbet-surface-strong) shadow-shade-small',
           vertical ? 'mt-1.5 h-2 w-16' : 'h-16 w-2',
         )}
       />
@@ -150,9 +148,9 @@ function DrawerContent({
           data-swipe-axis={swipeAxis}
           data-snap-points={hasSnapPoints ? '' : undefined}
           className={cn(
-            'group/drawer-popup pointer-events-auto fixed z-50 flex min-h-0 bg-(--sorbet-canvas) text-[16px] text-(--sorbet-ink) shadow-(--sorbet-float) outline-none select-none [corner-shape:squircle]',
-            swipeAxis === 'y' ? 'rounded-[40px]' : 'rounded-[36px]',
-            'will-change-transform data-ending-style:duration-[calc(var(--drawer-swipe-strength,1)*400ms)] data-swiping:duration-0 motion-safe:transition-transform motion-safe:duration-450 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            'group/drawer-popup pointer-events-auto fixed z-50 flex min-h-0 bg-(--sorbet-canvas) text-base text-(--sorbet-ink) shadow-float outline-none select-none squircle',
+            swipeAxis === 'y' ? 'rounded-4xl' : 'rounded-4xl',
+            'will-change-transform data-ending-style:duration-[calc(var(--drawer-swipe-strength,1)*400ms)] data-swiping:duration-0 motion-safe:transition-transform motion-safe:duration-450 motion-safe:ease-glide',
             PLACES[swipeDirection],
             className,
           )}
@@ -202,8 +200,8 @@ function DrawerTitle({ className, ...props }: DrawerPrimitive.Title.Props) {
     <DrawerPrimitive.Title
       data-slot="drawer-title"
       className={cn(
-        'text-[24px] leading-tight font-extrabold tracking-[-0.02em] text-pretty text-(--sorbet-ink)',
-        DISPLAY,
+        'text-2xl leading-tight font-extrabold tracking-tight text-pretty text-(--sorbet-ink)',
+        'font-heading',
         className,
       )}
       {...props}
@@ -219,7 +217,7 @@ function DrawerDescription({
     <DrawerPrimitive.Description
       data-slot="drawer-description"
       className={cn(
-        'text-[16px] leading-normal text-balance text-(--sorbet-ink-muted)',
+        'text-base leading-normal text-balance text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}

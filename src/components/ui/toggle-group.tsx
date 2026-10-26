@@ -4,14 +4,6 @@ import { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group
 import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
-import {
-  DISPLAY,
-  FOCUS,
-  FOCUS_INSIDE,
-  PILLOW,
-  SQUIRCLE,
-  TONE,
-} from '@/components/ui/classes'
 import type { toggleVariants } from '@/components/ui/toggle'
 
 type Context = VariantProps<typeof toggleVariants> & {
@@ -64,14 +56,14 @@ function ToggleGroup({
         joined &&
           variant === 'outline' &&
           cn(
-            'gap-0.5 rounded-[24px] bg-(--sorbet-plain) p-1 shadow-[inset_0_0_0_1.5px_var(--sorbet-rim),inset_0_-5px_6px_-3px_var(--sorbet-rim),0_9px_16px_-9px_var(--sorbet-plain-glow),0_2px_3px_-1px_var(--sorbet-plain-glow)]',
-            SQUIRCLE,
+            'gap-0.5 rounded-4xl bg-(--sorbet-plain) p-1 shadow-tray',
+            'squircle',
           ),
         joined &&
           variant !== 'outline' &&
           cn(
-            'gap-1 rounded-[24px] bg-(--sorbet-well) p-1 shadow-[inset_0_0_0_1.5px_var(--sorbet-rim),inset_0_3px_5px_-1px_var(--sorbet-well-shade)]',
-            SQUIRCLE,
+            'gap-1 rounded-4xl bg-(--sorbet-well) p-1 shadow-well',
+            'squircle',
           ),
         className,
       )}
@@ -83,22 +75,22 @@ function ToggleGroup({
 }
 
 const HEIGHT = {
-  sm: 'h-10 text-[15px]',
-  default: 'h-12 text-[16px]',
-  lg: 'h-14 text-[17px]',
+  sm: 'h-10 text-sm',
+  default: 'h-12 text-base',
+  lg: 'h-14 text-base',
 } as const
 
 // Inside a joined group the segments are a little shorter, so the group
 // keeps the size's height.
 const JOINED_HEIGHT = {
-  sm: 'h-9 text-[15px]',
-  default: 'h-11 text-[16px]',
-  lg: 'h-13 text-[17px]',
+  sm: 'h-9 text-sm',
+  default: 'h-11 text-base',
+  lg: 'h-13 text-base',
 } as const
 
 // Latched down, lemon, shaded from above.
 const LATCHED =
-  'data-pressed:bg-(--sorbet-butter) data-pressed:text-(--sorbet-butter-ink) data-pressed:shadow-[inset_0_3px_5px_-1px_var(--sorbet-butter-deep),inset_0_0_0_1.5px_color-mix(in_srgb,var(--sorbet-butter-deep)_45%,transparent)]'
+  'data-pressed:bg-(--sorbet-butter) data-pressed:text-(--sorbet-butter-ink) data-pressed:shadow-latched'
 
 function ToggleGroupItem({
   className,
@@ -117,30 +109,30 @@ function ToggleGroupItem({
     ? cn(
         HEIGHT[itemSize],
         'rounded-full px-5 data-pressed:pl-3.5',
-        TONE.plain,
-        PILLOW,
+        'tone-plain',
+        'pillow',
         itemVariant !== 'outline' &&
           '[--fill:var(--sorbet-surface)] [--fill-glow:transparent]',
         LATCHED,
-        'data-pressed:translate-y-px data-pressed:hover:translate-y-px data-pressed:hover:shadow-[inset_0_3px_5px_-1px_var(--sorbet-butter-deep),inset_0_0_0_1.5px_color-mix(in_srgb,var(--sorbet-butter-deep)_45%,transparent)]',
+        'data-pressed:translate-y-px data-pressed:hover:translate-y-px data-pressed:hover:shadow-latched',
       )
     : itemVariant === 'outline'
       ? cn(
           JOINED_HEIGHT[itemSize],
-          'rounded-[20px] px-5',
+          'rounded-3xl px-5',
           vertical && 'justify-start',
           'not-data-pressed:hover:bg-(--sorbet-surface-strong)',
           LATCHED,
-          FOCUS_INSIDE,
-          'motion-safe:active:scale-[0.97]',
+          'focus-ring-inside',
+          'motion-safe:active:scale-97',
         )
       : cn(
           JOINED_HEIGHT[itemSize],
-          'rounded-[20px] px-5',
+          'rounded-3xl px-5',
           vertical && 'justify-start',
           'not-data-pressed:hover:bg-(--sorbet-surface-strong)',
-          'data-pressed:bg-(--sorbet-butter) data-pressed:text-(--sorbet-butter-ink) data-pressed:shadow-[inset_0_2px_1px_-0.5px_var(--sorbet-butter-hi),inset_0_-4px_5px_-3px_var(--sorbet-butter-deep),0_6px_10px_-6px_var(--sorbet-butter-glow),0_1px_2px_0_var(--sorbet-butter-glow)]',
-          'motion-safe:active:scale-[0.97]',
+          'data-pressed:bg-(--sorbet-butter) data-pressed:text-(--sorbet-butter-ink) data-pressed:shadow-bead-butter',
+          'motion-safe:active:scale-97',
         )
 
   return (
@@ -151,10 +143,10 @@ function ToggleGroupItem({
       data-spacing={context.spacing}
       className={cn(
         'group/toggle relative inline-flex shrink-0 items-center justify-center gap-1.5 font-semibold whitespace-nowrap text-(--sorbet-ink) select-none focus-visible:z-10',
-        SQUIRCLE,
-        DISPLAY,
-        FOCUS,
-        'motion-safe:transition-[scale,translate,background-color,box-shadow] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)]',
+        'squircle',
+        'font-heading',
+        'focus-ring',
+        'motion-safe:transition motion-safe:duration-200 motion-safe:ease-spring',
         'disabled:pointer-events-none disabled:text-(--sorbet-ink-muted) disabled:shadow-none data-disabled:pointer-events-none',
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
         shape,
@@ -171,7 +163,7 @@ function ToggleGroupItem({
           strokeWidth={3.5}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="hidden size-[18px]! group-data-pressed/toggle:block motion-safe:group-data-pressed/toggle:animate-[sorbet-pop_320ms_cubic-bezier(0.3,1.4,0.5,1)_both]"
+          className="hidden size-4.5! group-data-pressed/toggle:block motion-safe:group-data-pressed/toggle:animate-pop"
         >
           <path d="M5 12.5l4.5 4.5L19 7.5" />
         </svg>

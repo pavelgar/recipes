@@ -2,8 +2,6 @@ import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
-import { DISPLAY } from '@/components/ui/classes'
-
 // An empty place, centred: a big lemon ball behind the icon, a bold title
 // and what to do next.
 function Empty({ className, ...props }: React.ComponentProps<'div'>) {
@@ -11,7 +9,7 @@ function Empty({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="empty"
       className={cn(
-        'flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-[36px] border-dashed border-(--sorbet-rim)/50 px-6 py-12 text-center text-balance text-(--sorbet-ink) [corner-shape:squircle] [&.border]:border-2',
+        'flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-4xl border-dashed border-(--sorbet-rim)/50 px-6 py-12 text-center text-balance text-(--sorbet-ink) squircle [&.border]:border-2',
         className,
       )}
       {...props}
@@ -35,7 +33,7 @@ const emptyMediaVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent',
-        icon: "size-24 rounded-full bg-(--sorbet-butter) text-(--sorbet-butter-ink) shadow-[inset_0_3px_2px_-1px_var(--sorbet-butter-hi),inset_0_-8px_12px_-6px_var(--sorbet-butter-deep),0_14px_24px_-12px_var(--sorbet-butter-glow)] [&_svg:not([class*='size-'])]:size-10 [&_svg]:[stroke-width:2.25]",
+        icon: "size-24 rounded-full bg-(--sorbet-butter) text-(--sorbet-butter-ink) shadow-bead-butter-large [&_svg:not([class*='size-'])]:size-10 [&_svg]:stroke-2",
       },
     },
     defaultVariants: {
@@ -64,8 +62,8 @@ function EmptyTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="empty-title"
       className={cn(
-        'text-[26px] leading-tight font-extrabold tracking-[-0.02em]',
-        DISPLAY,
+        'text-2xl leading-tight font-extrabold tracking-tight',
+        'font-heading',
         className,
       )}
       {...props}
@@ -78,7 +76,7 @@ function EmptyDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <div
       data-slot="empty-description"
       className={cn(
-        'text-[17px] leading-relaxed text-(--sorbet-ink-muted) [&>a]:underline [&>a]:decoration-[color:var(--sorbet-melon)] [&>a]:decoration-2 [&>a]:underline-offset-4 [&>a:hover]:decoration-[color:var(--sorbet-melon-deep)]',
+        'text-base leading-relaxed text-(--sorbet-ink-muted) [&>a]:underline [&>a]:decoration-(--sorbet-melon) [&>a]:decoration-2 [&>a]:underline-offset-4 [&>a:hover]:decoration-(--sorbet-melon-deep)',
         className,
       )}
       {...props}

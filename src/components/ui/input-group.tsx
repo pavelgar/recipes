@@ -6,7 +6,6 @@ import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
 import { Button } from '@/components/ui/button'
-import { DISPLAY, FIELD } from '@/components/ui/classes'
 
 // The well holding an input or textarea with icons, units and small
 // pillows beside it, or bars of text above and below it. Focus, invalid
@@ -17,15 +16,15 @@ function InputGroup({ className, ...props }: React.ComponentProps<'div'>) {
       data-slot="input-group"
       role="group"
       className={cn(
-        FIELD,
+        'field',
         'group/input-group relative flex h-13 w-full min-w-0 items-center outline-none',
-        'has-[[data-slot=input-group-control]:focus-visible]:bg-(--sorbet-canvas) has-[[data-slot=input-group-control]:focus-visible]:shadow-[inset_0_0_0_2.5px_var(--sorbet-focus),0_0_0_4px_var(--sorbet-focus-halo)]',
-        'has-[[data-slot][aria-invalid=true]]:bg-(--sorbet-danger-soft) has-[[data-slot][aria-invalid=true]]:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),inset_0_3px_5px_-1px_var(--sorbet-well-shade)]',
-        'has-[[data-slot][aria-invalid=true]]:has-[[data-slot=input-group-control]:focus-visible]:bg-(--sorbet-canvas) has-[[data-slot][aria-invalid=true]]:has-[[data-slot=input-group-control]:focus-visible]:shadow-[inset_0_0_0_2.5px_var(--sorbet-danger),0_0_0_4px_var(--sorbet-focus-halo)]',
+        'has-[[data-slot=input-group-control]:focus-visible]:bg-(--sorbet-canvas) has-[[data-slot=input-group-control]:focus-visible]:shadow-well-focus',
+        'has-[[data-slot][aria-invalid=true]]:bg-(--sorbet-danger-soft) has-[[data-slot][aria-invalid=true]]:shadow-well-invalid',
+        'has-[[data-slot][aria-invalid=true]]:has-[[data-slot=input-group-control]:focus-visible]:bg-(--sorbet-canvas) has-[[data-slot][aria-invalid=true]]:has-[[data-slot=input-group-control]:focus-visible]:shadow-well-invalid-focus',
         'has-[[data-slot=input-group-control]:disabled]:bg-transparent has-[[data-slot=input-group-control]:disabled]:shadow-none has-[[data-slot=input-group-control]:disabled]:outline-2 has-[[data-slot=input-group-control]:disabled]:-outline-offset-2 has-[[data-slot=input-group-control]:disabled]:outline-(--sorbet-rim)/60 has-[[data-slot=input-group-control]:disabled]:outline-dashed',
         'has-[>textarea]:h-auto has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col',
         'has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-1.5',
-        'in-data-[slot=combobox-content]:has-[[data-slot=input-group-control]:focus-visible]:shadow-[inset_0_0_0_2.5px_var(--sorbet-focus)]',
+        'in-data-[slot=combobox-content]:has-[[data-slot=input-group-control]:focus-visible]:shadow-well-focus',
         className,
       )}
       {...props}
@@ -41,9 +40,9 @@ const inputGroupAddonVariants = cva(
         'inline-start': 'order-first self-stretch pl-4.5 has-[>button]:pl-1.5',
         'inline-end': 'order-last self-stretch pr-4.5 has-[>button]:pr-1.5',
         'block-start':
-          'order-first w-full justify-start px-4.5 pt-3 pb-1.5 [&.border-b]:pb-2.5 [&.border-b]:shadow-[inset_0_-1.5px_0_0_color-mix(in_srgb,var(--sorbet-rim)_35%,transparent)]',
+          'order-first w-full justify-start px-4.5 pt-3 pb-1.5 [&.border-b]:pb-2.5 [&.border-b]:shadow-rule-bottom',
         'block-end':
-          'order-last w-full justify-start px-4.5 pt-1.5 pb-2 has-[>button]:pr-2 [&.border-t]:pt-2 [&.border-t]:shadow-[inset_0_1.5px_0_0_color-mix(in_srgb,var(--sorbet-rim)_35%,transparent)]',
+          'order-last w-full justify-start px-4.5 pt-1.5 pb-2 has-[>button]:pr-2 [&.border-t]:pt-2 [&.border-t]:shadow-rule-top',
       },
     },
     defaultVariants: {
@@ -79,10 +78,10 @@ function InputGroupAddon({
 const inputGroupButtonVariants = cva('', {
   variants: {
     size: {
-      xs: "h-9 gap-1.5 rounded-[13px] px-3.5 text-[15px] has-[>svg]:px-3 [&>svg:not([class*='size-'])]:size-4",
-      sm: "h-10 gap-1.5 rounded-[14px] px-4 text-[15px] [&>svg:not([class*='size-'])]:size-[18px]",
+      xs: "h-9 gap-1.5 rounded-xl px-3.5 text-sm has-[>svg]:px-3 [&>svg:not([class*='size-'])]:size-4",
+      sm: "h-10 gap-1.5 rounded-xl px-4 text-sm [&>svg:not([class*='size-'])]:size-4.5",
       'icon-xs':
-        "size-9 rounded-full p-0 [&>svg:not([class*='size-'])]:size-[18px]",
+        "size-9 rounded-full p-0 [&>svg:not([class*='size-'])]:size-4.5",
       'icon-sm':
         "size-10 rounded-full p-0 pb-0.5 [&>svg:not([class*='size-'])]:size-5",
     },
@@ -121,8 +120,8 @@ function InputGroupText({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       className={cn(
-        "flex items-center gap-2 text-[15px] font-semibold text-(--sorbet-ink-muted) [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5",
-        DISPLAY,
+        "flex items-center gap-2 text-sm font-semibold text-(--sorbet-ink-muted) [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5",
+        'font-heading',
         className,
       )}
       {...props}
@@ -138,7 +137,7 @@ function InputGroupInput({
     <input
       data-slot="input-group-control"
       className={cn(
-        'h-full w-full min-w-0 flex-1 rounded-[16px] bg-transparent px-4.5 text-[17px] text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed disabled:text-(--sorbet-ink-muted)',
+        'h-full w-full min-w-0 flex-1 rounded-2xl bg-transparent px-4.5 text-base text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed disabled:text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}
@@ -154,7 +153,7 @@ function InputGroupTextarea({
     <textarea
       data-slot="input-group-control"
       className={cn(
-        'field-sizing-content min-h-24 w-full flex-1 resize-none bg-transparent px-4.5 py-3 text-[17px] leading-relaxed text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed',
+        'field-sizing-content min-h-24 w-full flex-1 resize-none bg-transparent px-4.5 py-3 text-base leading-relaxed text-(--sorbet-ink) outline-none placeholder:text-(--sorbet-ink-muted) disabled:cursor-not-allowed',
         className,
       )}
       {...props}

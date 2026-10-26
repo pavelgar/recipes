@@ -5,7 +5,6 @@ import { cn } from 'cn'
 import { CircleAlertIcon } from 'lucide-react'
 
 import { Label } from '@/components/ui/label'
-import { DISPLAY } from '@/components/ui/classes'
 
 function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'>) {
   return (
@@ -30,8 +29,8 @@ function FieldLegend({
       data-slot="field-legend"
       data-variant={variant}
       className={cn(
-        'mb-1 text-(--sorbet-ink) data-[variant=label]:text-[16px] data-[variant=label]:font-semibold data-[variant=legend]:mb-2 data-[variant=legend]:text-[20px] data-[variant=legend]:font-extrabold data-[variant=legend]:tracking-[-0.015em]',
-        DISPLAY,
+        'mb-1 text-(--sorbet-ink) data-[variant=label]:text-base data-[variant=label]:font-semibold data-[variant=legend]:mb-2 data-[variant=legend]:text-xl data-[variant=legend]:font-extrabold data-[variant=legend]:tracking-tight',
+        'font-heading',
         className,
       )}
       {...props}
@@ -109,13 +108,13 @@ function FieldLabel({
       data-slot="field-label"
       className={cn(
         'group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:text-(--sorbet-ink-muted)',
-        'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-[26px] has-[>[data-slot=field]]:[corner-shape:squircle] *:data-[slot=field]:p-4.5',
-        'has-[>[data-slot=field]]:bg-(--sorbet-plain) has-[>[data-slot=field]]:shadow-[inset_0_0_0_1.5px_var(--sorbet-surface-strong),inset_0_-5px_6px_-3px_var(--sorbet-plain-deep),0_9px_16px_-9px_var(--sorbet-plain-glow),0_2px_3px_-1px_var(--sorbet-plain-glow)]',
-        'has-[>[data-slot=field]]:origin-bottom has-[>[data-slot=field]]:motion-safe:transition-[scale,translate,box-shadow,background-color] has-[>[data-slot=field]]:motion-safe:duration-300 has-[>[data-slot=field]]:motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)]',
-        'has-[>[data-slot=field]]:not-has-data-checked:hover:shadow-[inset_0_0_0_1.5px_var(--sorbet-surface-strong),inset_0_-5px_6px_-3px_var(--sorbet-plain-deep),0_13px_20px_-10px_var(--sorbet-plain-glow),0_3px_5px_-1px_var(--sorbet-plain-glow)] has-[>[data-slot=field]]:motion-safe:active:scale-[0.985]',
-        'has-[>[data-slot=field]]:has-data-checked:translate-y-px has-[>[data-slot=field]]:has-data-checked:bg-(--sorbet-butter) has-[>[data-slot=field]]:has-data-checked:shadow-[inset_0_3px_6px_-1px_var(--sorbet-butter-deep),inset_0_0_0_1.5px_color-mix(in_srgb,var(--sorbet-butter-deep)_45%,transparent)]',
+        'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-4xl has-[>[data-slot=field]]:squircle *:data-[slot=field]:p-4.5',
+        'has-[>[data-slot=field]]:bg-(--sorbet-plain) has-[>[data-slot=field]]:shadow-card',
+        'has-[>[data-slot=field]]:origin-bottom has-[>[data-slot=field]]:motion-safe:transition has-[>[data-slot=field]]:motion-safe:duration-300 has-[>[data-slot=field]]:motion-safe:ease-spring',
+        'has-[>[data-slot=field]]:not-has-data-checked:hover:shadow-card-lifted has-[>[data-slot=field]]:motion-safe:active:scale-98',
+        'has-[>[data-slot=field]]:has-data-checked:translate-y-px has-[>[data-slot=field]]:has-data-checked:bg-(--sorbet-butter) has-[>[data-slot=field]]:has-data-checked:shadow-latched',
         'has-[>[data-slot=field]]:has-data-checked:[--sorbet-ink-muted:var(--sorbet-butter-ink)] has-[>[data-slot=field]]:has-data-checked:[--sorbet-ink:var(--sorbet-butter-ink)]',
-        'has-[>[data-slot=field]]:has-focus-visible:ring-4 has-[>[data-slot=field]]:has-focus-visible:ring-(color:--sorbet-focus-halo) has-[>[data-slot=field]]:has-focus-visible:ring-offset-[2.5px] has-[>[data-slot=field]]:has-focus-visible:ring-offset-(color:--sorbet-focus)',
+        'has-[>[data-slot=field]]:has-focus-visible:ring-4 has-[>[data-slot=field]]:has-focus-visible:ring-(color:--sorbet-focus-halo) has-[>[data-slot=field]]:has-focus-visible:ring-offset-2 has-[>[data-slot=field]]:has-focus-visible:ring-offset-(color:--sorbet-focus)',
         className,
       )}
       {...props}
@@ -128,8 +127,8 @@ function FieldTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="field-label"
       className={cn(
-        'flex w-fit items-center gap-2 text-[17px] leading-snug font-bold text-(--sorbet-ink) group-data-[disabled=true]/field:text-(--sorbet-ink-muted)',
-        DISPLAY,
+        'flex w-fit items-center gap-2 text-base leading-snug font-bold text-(--sorbet-ink) group-data-[disabled=true]/field:text-(--sorbet-ink-muted)',
+        'font-heading',
         className,
       )}
       {...props}
@@ -142,8 +141,8 @@ function FieldDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="field-description"
       className={cn(
-        'text-left text-[15px] leading-normal font-normal text-pretty text-(--sorbet-ink-muted) [[data-variant=legend]+&]:-mt-1.5',
-        '[&>a]:font-semibold [&>a]:text-(--sorbet-ink) [&>a]:underline [&>a]:decoration-[color:var(--sorbet-melon)] [&>a]:decoration-2 [&>a]:underline-offset-3 [&>a:hover]:decoration-[color:var(--sorbet-melon-deep)]',
+        'text-left text-sm leading-normal font-normal text-pretty text-(--sorbet-ink-muted) [[data-variant=legend]+&]:-mt-1.5',
+        '[&>a]:font-semibold [&>a]:text-(--sorbet-ink) [&>a]:underline [&>a]:decoration-(--sorbet-melon) [&>a]:decoration-2 [&>a]:underline-offset-3 [&>a:hover]:decoration-(--sorbet-melon-deep)',
         className,
       )}
       {...props}
@@ -173,8 +172,8 @@ function FieldSeparator({
       {children && (
         <span
           className={cn(
-            'relative mx-auto block w-fit rounded-full bg-(--sorbet-surface) px-3.5 py-0.5 text-[15px] font-semibold text-(--sorbet-ink-muted)',
-            DISPLAY,
+            'relative mx-auto block w-fit rounded-full bg-(--sorbet-surface) px-3.5 py-0.5 text-sm font-semibold text-(--sorbet-ink-muted)',
+            'font-heading',
           )}
           data-slot="field-separator-content"
         >
@@ -230,7 +229,7 @@ function FieldError({
       role="alert"
       data-slot="field-error"
       className={cn(
-        'flex items-start gap-1.5 text-[15px] leading-snug font-semibold text-(--sorbet-danger)',
+        'flex items-start gap-1.5 text-sm leading-snug font-semibold text-(--sorbet-danger)',
         className,
       )}
       {...props}
@@ -238,7 +237,7 @@ function FieldError({
       <CircleAlertIcon
         aria-hidden
         strokeWidth={2.5}
-        className="mt-px size-[18px] shrink-0"
+        className="mt-px size-4.5 shrink-0"
       />
       <div className="min-w-0">{content}</div>
     </div>
