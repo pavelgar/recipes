@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { scanStep } from '@/lib/quantities/steps'
 import { stepSentences } from '@/test/corpus'
-import { assertLedger } from '@/test/ledger'
-import { stepLedger } from '@/test/ledgers'
 import { describeStep } from '@/test/quantities'
 
 // Every sentence here is copied from the corpus, entities decoded, and is
@@ -14,6 +12,91 @@ const CASES: Record<
   string,
   Array<[sentence: string, expected: Array<string>]>
 > = {
+  'Finnish temperature endings': [
+    // https://www.arla.fi/reseptit/sitruunamarenkitorttu/
+    ['Kuumenna uuni 150-asteiseksi.', ['150 °C  [150-asteiseksi]']],
+    // https://www.soppa365.fi/reseptit/jalkiruuat/lakritsimousse
+    ['Laita uuni kuumenemaan 200 asteeseen.', ['200 °C  [200 asteeseen]']],
+  ],
+  'curly inch marks': [
+    // https://www.kingarthurbaking.com/recipes/grilled-garlic-knots-recipe
+    [
+      'Thread the rolls onto 10” to 12” metal or bamboo skewers, poking them through the center of their sidewalls.',
+      ['10-12 in  [10” to 12”]'],
+    ],
+  ],
+  'pan capacity': [
+    // https://www.kingarthurbaking.com/recipes/caramel-apple-biscuits-recipe
+    [
+      'To make the caramel: Place the sugar in a 2-quart heavy saucepan (preferably light colored).',
+      ['2 quart  [2-quart]'],
+    ],
+  ],
+  'storage days and reheating seconds': [
+    // https://www.kingarthurbaking.com/recipes/sourdough-doughnuts-recipe
+    [
+      'Leftover doughnuts can be stored in a paper bag at room temperature for up to 1 day.',
+      [],
+    ],
+    // https://www.kingarthurbaking.com/recipes/sourdough-doughnuts-recipe
+    ['They taste best when reheated in the microwave for 10 seconds.', []],
+  ],
+  'microwave power is not a measure': [
+    // https://www.valio.fi/reseptit/mustaleima-gnocchit-mikrossa/
+    ['Mikrota täydellä teholla (800 W) mikrokuvun alla 10 min.', []],
+  ],
+  'currency and prose are not quantities': [
+    // https://www.kotikokki.net/reseptit/nayta/780397/Onsen%20kananmuna%2010.5.2018/
+    [
+      'Meillä on Berliinissä yksi tähtien ravintola,missä kokki nimeltä Christian Lohse valmistaa alkuruokana Onsen kananmunia.Onsen Tamago ovat kananmunat,mitkä valmistetaan traditionaalisesti Japanin kuumissa lähteissä.Lohsen ravintolassa niitä voi tilata hintaan 35 Euroa.Minä en siellä ole koskaan käynyt,enkä aio sinne mennäkään.',
+      [],
+    ],
+  ],
+  'alternate degree signs': [
+    // https://www.womensweeklyfood.com.au/recipe/baking/classic-pavlova-12932/
+    [
+      'Reduce oven to very slow, 120ºC, and bake a further 45 minutes.',
+      ['120 °C  [120ºC]'],
+    ],
+  ],
+  'Finnish number words with unit words': [
+    // https://kotiliesi.fi/resepti/omenakuivakakku/
+    [
+      'Sekoita keskenään viisi desilitraa vehnäjauhoja, kaksi teelusikallista leivinjauhetta, kaksi teelusikallista jauhettua kanelia, yksi teelusikallinen jauhettua inkivääriä, yksi teelusikallista jauhettua maustepippuria, puoli teelusikallista jauhettua neilikkaa ja puoli teelusikallista suolaa.',
+      [
+        '5 dl  [viisi desilitraa]',
+        '2 tsp  [kaksi teelusikallista]',
+        '2 tsp  [kaksi teelusikallista]',
+        '1 tsp  [yksi teelusikallinen]',
+        '1 tsp  [yksi teelusikallista]',
+        '0.5 tsp  [puoli teelusikallista]',
+        '0.5 tsp  [puoli teelusikallista]',
+      ],
+    ],
+    // https://kotiliesi.fi/resepti/kirjolohi-uunissa/
+    [
+      'Sivele kalan pintaan kaksi ruokalusikallista oliiviöljyä.',
+      ['2 tbsp  [kaksi ruokalusikallista]'],
+    ],
+  ],
+  'a volume restated as a weight': [
+    // https://www.kingarthurbaking.com/recipes/walnut-bread-recipe
+    [
+      'Add 1/2 cup (60g) of all-purpose flour and let sit for 10 minutes to give the yeast a chance to get going.',
+      ['0.5 cup = 60 g  [1/2 cup] [60g]'],
+    ],
+  ],
+  'several restated sizes keep separate owners': [
+    // https://www.recipetineats.com/fondant-potatoes/
+    [
+      'Once carved into a tall cylinder 6cm/ 2" diameter, at least 7cm/3" height, so we can cut into 3.5 cm / 1.4" tall pieces.',
+      [
+        '6 cm = 2 in  [6cm] [2"]',
+        '7 cm = 3 in  [7cm] [3"]',
+        '3.5 cm = 1.4 in  [3.5 cm] [1.4"]',
+      ],
+    ],
+  ],
   'Finnish temperatures': [
     ['Kuumenna uuni 175 °C:een.', ['175 °C  [175 °C]']],
     ['Kuumenna uuni 200 ℃:seen.', ['200 °C  [200 ℃]']],
@@ -274,6 +357,8 @@ const find = (sentence: string) =>
   stepSentences.find((s) => s.text === sentence)
 
 // The intended reading of the retired step ledger's one known failure.
+// https://www.kotikokki.net/reseptit/nayta/140603/Lampaanviulu,%20FetaPerunat/
+// Currently no quantity is recognised in this sentence.
 const THERMOMETER = 'Itse tykkään kun mittari näyttää 70.'
 
 const scan = (sentence: string) => {
@@ -302,7 +387,9 @@ describe('scanStep', () => {
   }
 
   it.fails('recognises a bare thermometer reading (known failure)', () => {
-    expect(scan(THERMOMETER)).toEqual(['70 ?°C  [70]'])
+    expect(describeStep(THERMOMETER, scan(THERMOMETER))).toEqual([
+      '70 ?°C  [70]',
+    ])
   })
 
   it('links a size given again in another unit to the first', () => {
@@ -312,11 +399,5 @@ describe('scanStep', () => {
       ['other', null, false],
       ['same', 0, false],
     ])
-  })
-
-  it('keeps its reading of every corpus sentence', () => {
-    const path = 'src/lib/quantities/__ledger__/steps.txt'
-    const check = stepLedger(path, stepSentences, 'corpus')
-    assertLedger(check, path, (message) => expect.fail(message))
   })
 })
