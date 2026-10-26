@@ -118,5 +118,10 @@
   "not_found_description": "There's no page at this address.",
   "not_found_recipe_title": "Recipe not found",
   "not_found_recipe_description": "It may have been deleted, or the link is wrong.",
-  "not_found_library": "Go to the library"
+  "not_found_library": "Go to the library",
+  "add_stop_title": "Stop reading?",
+  "add_stop_description": "The read will be cancelled and its result discarded. Your pasted text will stay here if you come back.",
+  "add_keep_reading": "Keep reading",
+  "add_stop_reading": "Stop reading",
+  "ai_text_too_long": "This text is too long. Use at most {count} characters."
 }

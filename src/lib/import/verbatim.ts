@@ -1,3 +1,5 @@
+import { normalLine } from '@/lib/text'
+
 // Checks what AI read from a text against that text. The model is told to
 // copy lines as written, but may still reword one, fix its spelling or
 // make it up. Every line it gives is looked for in the text, ignoring
@@ -12,21 +14,15 @@ export type Checked = {
   readonly found: boolean
 }
 
-// Unicode in one form, and any run of spaces or line breaks one space: a
-// step cut across two lines of the page is one line of the recipe.
-function normal(text: string): string {
-  return text.normalize('NFC').replace(/\s+/g, ' ').trim()
-}
-
 export function sourceChecker(source: string): (line: string) => Checked {
-  const haystack = normal(source)
+  const haystack = normalLine(source)
   const lower = haystack.toLowerCase()
   // Lowercasing can change a text's length ("İ"), which would put a match
   // found in the lowercased text in the wrong place in the source. Then
   // letter case counts.
   const caseless = lower.length === haystack.length
   return (line) => {
-    const text = normal(line)
+    const text = normalLine(line)
     if (text === '') return { text, found: true }
     if (foundAt(haystack, text) !== -1) return { text, found: true }
     const needle = text.toLowerCase()

@@ -1,5 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { Link, Navigate, createFileRoute } from '@tanstack/react-router'
+import {
+  Link,
+  Navigate,
+  createFileRoute,
+  useLocation,
+} from '@tanstack/react-router'
 import { useState } from 'react'
 import { z } from 'zod'
 
@@ -29,14 +34,17 @@ export const Route = createFileRoute('/add')({
 
 function AddPage() {
   const { link, from } = Route.useSearch()
+  const read = useLocation({
+    select: (location) => location.state.aiRead ?? '',
+  })
   // As tall as the window, so the editor's actions can sit at its bottom.
   // Generous room above the name, clear of the notch in the installed app.
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-4 pt-[calc(4rem+env(safe-area-inset-top))] pb-6">
       {link ? (
-        <Imported key={link} link={link} />
+        <Imported key={`${link}:${read}`} link={link} />
       ) : from ? (
-        <ReadByAi key={from} from={from} />
+        <ReadByAi key={`${from}:${read}`} from={from} />
       ) : (
         <Typed />
       )}

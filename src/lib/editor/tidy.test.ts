@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { tidiedSteps } from '@/lib/editor/tidy'
+import { tidiedAlready, tidiedSteps } from '@/lib/editor/tidy'
 
 // Steps as the import takes them from pages that cut them in the wrong
 // places (src/lib/import/extract.test.ts), each with an answer Tidy steps
@@ -58,6 +58,24 @@ describe('tidiedSteps', () => {
 
   it('takes steps that need no tidying as they are', () => {
     expect(tidiedSteps(HALFBAKED, [HALFBAKED])).toBe(HALFBAKED)
+  })
+
+  it('rejects spaces added or removed inside a line', () => {
+    expect(
+      tidiedSteps('Lisää 1 1/2 dl maitoa.', ['Lisää 11/2 dl maitoa.']),
+    ).toBeNull()
+    expect(tidiedSteps('Add 1 2 dl.', ['Add 12 dl.'])).toBeNull()
+    expect(tidiedSteps('Mix flour.', ['Mix fl our.'])).toBeNull()
+  })
+
+  it('normalises Unicode and spacing without changing the steps', () => {
+    const steps = '  Lisää  maitoa.  \n\nSekoita. '
+    expect(tidiedSteps(steps.normalize('NFD'), steps.split('\n'))).toBe(
+      tidiedAlready(steps.normalize('NFD')),
+    )
+    expect(tidiedAlready(steps.normalize('NFD'))).toBe(
+      'Lisää maitoa.\nSekoita.',
+    )
   })
 
   it('rejects a word changed, added or left out', () => {

@@ -219,7 +219,12 @@
   again, the same way, and sends the text a reader sees, without scripts,
   menus and footers.
 - Paste text opens a large text box for a recipe written out as text,
-  such as one sent in a message.
+  such as one sent in a message. Back during a read asks whether to stop;
+  confirming cancels the request and discards its result, keeping the
+  pasted text for returning to it. Closing the dialog stays immediate,
+  without this question.
+- Pasted text and Tidy steps take at most 60,000 characters. Longer text
+  is kept and gets a message giving the limit before anything is sent.
 - The model copies the recipe as written: the same words, numbers, units
   and language, never translated, converted, corrected or completed. It
   puts each ingredient and step on a line of its own, without bullets or
@@ -240,7 +245,8 @@
   provider is configured and there are steps. It puts each step on its own
   line: it splits steps that run together, joins a step cut in two, moves
   a heading that runs onto a step onto its own line ending with a colon,
-  and drops step numbers. It may change nothing else, so a result that
+  and drops step numbers. Spaces within a line must still separate the
+  same words and numbers. It may change nothing else, so a result that
   changes any other character is rejected, and the editor says it
   couldn't tidy them. The result replaces the steps in place, with Undo in
   a toast.

@@ -1,3 +1,4 @@
+import { withoutStepNumber } from '@/lib/import/step-number'
 import { generateText, Output } from 'ai'
 import { z } from 'zod'
 import { MEASURING_SYSTEMS } from '@/db/choices'
@@ -99,9 +100,11 @@ function content(source: RecipeSource): UserContent {
 export async function askForRecipe(
   model: AiModel,
   source: RecipeSource,
+  abortSignal?: AbortSignal,
 ): Promise<Answer> {
   const { output } = await generateText({
     model,
+    abortSignal,
     instructions: instructions(source.kind),
     messages: [{ role: 'user', content: content(source) }],
     output: Output.object({ schema: answerSchema }),
@@ -113,10 +116,6 @@ export async function askForRecipe(
 
 // Bullets the model may leave on a line: "- 2 dl maitoa", "• 1 egg".
 const BULLET = /^[-–—•·*▪◦‣]\s*/u
-// A step's own number, which the app writes itself: "2. Kiehauta", as the
-// import drops it from a page's steps.
-const STEP_NUMBER = /^\d{1,2}[.)]\s+(?=\p{Lu})/u
-
 // The recipe in the model's answer, as the editor takes an import, or null
 // if it found none. From a page or pasted text, each line is checked
 // against the text it was read from.
@@ -154,7 +153,7 @@ export function recipeFromAnswer(
   const withoutBullet = (line: string) => line.trim().replace(BULLET, '')
   const ingredients = sections(answer.ingredients, withoutBullet)
   const steps = sections(answer.steps, (line) =>
-    withoutBullet(line).replace(STEP_NUMBER, ''),
+    withoutStepNumber(withoutBullet(line)),
   )
   if (!answer.isRecipe || (ingredients.length === 0 && steps.length === 0)) {
     return null

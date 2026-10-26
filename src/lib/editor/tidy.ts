@@ -1,49 +1,48 @@
-// Tidy steps puts each step on its own line. The model may only:
-// - split a line, or join two, and add or remove spaces,
-// - drop a step's own number from the start of a line ("2.", "3)"),
-// - end a heading it put on its own line with the colon that makes it one.
-// Anything else, a word changed, added or left out, rejects its answer.
+import { normalLine } from '@/lib/text'
 
-// The text without spaces or line breaks, Unicode in one form.
-function squeezed(text: string): string {
-  return text.normalize('NFC').replace(/\s+/g, '')
+// Tidy steps may move line boundaries, drop step numbers and end a
+// heading with a colon. Spaces inside a line still separate words and
+// numbers, so they must match the source.
+const STEP_NUMBER = /^\d{1,2}[.)](?!\d)\s*/
+
+// The same cleanup as a tidy answer, for detecting an unchanged result.
+export function tidiedAlready(steps: string): string {
+  return steps.split('\n').map(normalLine).filter(Boolean).join('\n')
 }
 
-// A step's own number, as it starts a step: "2." in "2.In a bowl", but not
-// in "2.5 dl".
-const STEP_NUMBER = /^\d{1,2}[.)](?!\d)/
-
-// The steps as the model tidied them, one per line, or null if it changed
-// more than tidying may.
 export function tidiedSteps(
   steps: string,
   lines: ReadonlyArray<string>,
 ): string | null {
-  const source = squeezed(steps)
+  const source = normalLine(steps)
   let at = 0
   const result: Array<string> = []
   for (const written of lines) {
-    const line = written.normalize('NFC').replace(/\s+/g, ' ').trim()
+    const line = normalLine(written)
     if (line === '') continue
-    const length = matchedLength(source, at, squeezed(line))
-    if (length === null) return null
-    at += length
+    // Whitespace can disappear at a new line boundary only.
+    if (source[at] === ' ') at++
+    const end = matchedEnd(source, at, line)
+    if (end === null) return null
+    at = end
     result.push(line)
   }
   return at === source.length ? result.join('\n') : null
 }
 
-// How much of the source, from where it's read up to, a tidied line
-// covers: the line itself, after a step number it dropped, and without a
-// colon it added.
-function matchedLength(source: string, at: number, line: string) {
+function matchedEnd(source: string, at: number, line: string): number | null {
   const number = STEP_NUMBER.exec(source.slice(at))?.[0] ?? ''
   const texts = line.endsWith(':') ? [line, line.slice(0, -1)] : [line]
   for (const text of texts) {
-    for (const skip of new Set([0, number.length])) {
-      if (text !== '' && source.startsWith(text, at + skip)) {
-        return skip + text.length
-      }
+    if (text !== '' && source.startsWith(text, at)) return at + text.length
+    if (number === '') continue
+    const afterNumber = at + number.length
+    // A kept number can have a space after it even if the source forgot
+    // it ("2.In a bowl"). A dropped number is allowed at this boundary too.
+    const kept = STEP_NUMBER.exec(text)?.[0]
+    const rest = kept?.trim() === number.trim() ? text.slice(kept.length) : text
+    if (rest !== '' && source.startsWith(rest, afterNumber)) {
+      return afterNumber + rest.length
     }
   }
   return null

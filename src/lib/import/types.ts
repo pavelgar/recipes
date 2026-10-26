@@ -51,6 +51,7 @@ export type AiImport = {
 export type AiReadError =
   // The container wasn't given a model.
   | { code: 'ai-unavailable' }
+  | { code: 'text-too-long' }
   // The provider couldn't be reached or failed, or its answer wasn't a
   // recipe's shape.
   | { code: 'ai-failed' }

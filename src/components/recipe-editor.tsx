@@ -1,3 +1,5 @@
+import { tidiedAlready } from '@/lib/editor/tidy'
+import { MAX_TEXT } from '@/lib/ai/limits'
 import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -251,6 +253,13 @@ export function RecipeEditor({
       form.setFieldValue('steps', steps)
       if (!finished.current) saveDraft(origin, form.state.values)
     }
+    if (before.trim().length > MAX_TEXT) {
+      toast.add({
+        type: 'error',
+        title: m.ai_text_too_long({ count: MAX_TEXT }),
+      })
+      return
+    }
     tidying.mutate(before, {
       onSuccess: (result) => {
         if (form.getFieldValue('steps') !== before) return
@@ -258,9 +267,11 @@ export function RecipeEditor({
           toast.add({
             type: 'error',
             title:
-              result.code === 'changed-words'
-                ? m.editor_tidy_rejected()
-                : m.editor_tidy_failed(),
+              result.code === 'text-too-long'
+                ? m.ai_text_too_long({ count: MAX_TEXT })
+                : result.code === 'changed-words'
+                  ? m.editor_tidy_rejected()
+                  : m.editor_tidy_failed(),
           })
           return
         }
@@ -679,16 +690,6 @@ function scrollBehavior(): ScrollBehavior {
   return matchMedia('(prefers-reduced-motion: reduce)').matches
     ? 'instant'
     : 'smooth'
-}
-
-// Steps as Tidy steps would give them back if they needed no tidying: each
-// line trimmed, with blank lines and runs of spaces gone.
-function tidiedAlready(steps: string): string {
-  return steps
-    .split('\n')
-    .map((line) => line.replace(/\s+/g, ' ').trim())
-    .filter((line) => line !== '')
-    .join('\n')
 }
 
 // Closing no toast at all would close every toast.

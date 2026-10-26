@@ -1,3 +1,4 @@
+import { getRequest } from '@tanstack/react-start/server'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 import { parseDocument } from 'htmlparser2'
@@ -9,7 +10,8 @@ import { askToTidy } from '@/lib/ai/tidy.server'
 import { tidiedSteps } from '@/lib/editor/tidy'
 import { fetchPage } from '@/lib/import/fetch.server'
 import { linkSchema, siteOf } from '@/lib/import/link'
-import { MAX_TEXT, textOfPage } from '@/lib/import/page-text'
+import { MAX_TEXT } from '@/lib/ai/limits'
+import { textOfPage } from '@/lib/import/page-text'
 import { MAX_PHOTO_BYTES, MAX_PHOTOS } from '@/lib/import/photos'
 import type { AiModel } from '@/lib/ai/model.server'
 import type { RecipeSource } from '@/lib/ai/recipe.server'
@@ -87,8 +89,10 @@ export const readPhotos = createServerFn({ method: 'POST' })
 
 // Reads the recipe in text pasted into the add dialog.
 export const readPastedText = createServerFn({ method: 'POST' })
-  .validator(z.object({ text: z.string().trim().min(1).max(MAX_TEXT) }))
+  .validator(z.object({ text: z.string().trim().min(1) }))
   .handler(async ({ data }): Promise<AiReadResult> => {
+    if (data.text.length > MAX_TEXT)
+      return { ok: false, error: { code: 'text-too-long' } }
     const model = aiModel()
     if (!model) return { ok: false, error: { code: 'ai-unavailable' } }
     return read(model, { kind: 'text', text: data.text })
@@ -99,30 +103,38 @@ async function read(
   source: RecipeSource,
 ): Promise<AiReadResult> {
   try {
-    const found = recipeFromAnswer(await askForRecipe(model, source), source)
+    const found = recipeFromAnswer(
+      await askForRecipe(model, source, getRequest().signal),
+      source,
+    )
     if (!found) {
       return { ok: false, error: { code: 'nothing-read', from: source.kind } }
     }
     return { ok: true, ...found }
   } catch (error) {
+    if (getRequest().signal.aborted) throw error
+    console.error('Reading a recipe with AI failed:', error)
     if (source.kind === 'photos' && refusedImages(error)) {
       return { ok: false, error: { code: 'photos-refused' } }
     }
-    // For whoever runs the server: a wrong key or model name shows here.
-    console.error('Reading a recipe with AI failed:', error)
     return { ok: false, error: { code: 'ai-failed' } }
   }
 }
 
 export type TidyResult =
   | { ok: true; steps: string }
-  | { ok: false; code: 'ai-unavailable' | 'ai-failed' | 'changed-words' }
+  | {
+      ok: false
+      code: 'ai-unavailable' | 'ai-failed' | 'changed-words' | 'text-too-long'
+    }
 
 // The editor's steps, each on its own line, if the model changed nothing
 // but where they break.
 export const tidySteps = createServerFn({ method: 'POST' })
-  .validator(z.object({ steps: z.string().trim().min(1).max(MAX_TEXT) }))
+  .validator(z.object({ steps: z.string().trim().min(1) }))
   .handler(async ({ data }): Promise<TidyResult> => {
+    if (data.steps.length > MAX_TEXT)
+      return { ok: false, code: 'text-too-long' }
     const model = aiModel()
     if (!model) return { ok: false, code: 'ai-unavailable' }
     try {

@@ -258,6 +258,33 @@ describe('askForRecipe', () => {
     expect(JSON.stringify(call.prompt)).toContain('Kermainen kanapata')
   })
 
+  it('passes cancellation through to the model request', async () => {
+    const controller = new AbortController()
+    const model = modelAnswering(KANAPATA_ANSWER)
+    let started!: () => void
+    const ready = new Promise<void>((resolve) => {
+      started = resolve
+    })
+    model.doGenerate = ({ abortSignal }) =>
+      new Promise((_, reject) => {
+        abortSignal!.addEventListener(
+          'abort',
+          () => reject(abortSignal!.reason),
+          { once: true },
+        )
+        started()
+      })
+    const result = askForRecipe(
+      model,
+      { kind: 'text', text: KANAPATA },
+      controller.signal,
+    )
+    const rejected = expect(result).rejects.toThrow('Stopped reading')
+    await ready
+    controller.abort(new Error('Stopped reading'))
+    await rejected
+  })
+
   it('sends photos as images, in the order given', async () => {
     const model = modelAnswering(FONDANT)
     const photo = (byte: number) => ({

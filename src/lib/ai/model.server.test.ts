@@ -53,6 +53,12 @@ describe('refusedImages', () => {
     expect(refusedImages(apiError(401, 'invalid x-api-key'))).toBe(false)
     expect(refusedImages(apiError(429, 'image rate limit'))).toBe(false)
     expect(refusedImages(apiError(500, 'overloaded'))).toBe(false)
+    expect(refusedImages(apiError(500, 'error processing image'))).toBe(false)
+    expect(refusedImages(apiError(413, 'image too large'))).toBe(false)
+    expect(refusedImages(apiError(400, 'image exceeds 5 MB maximum'))).toBe(
+      false,
+    )
+    expect(refusedImages(apiError(422, 'invalid image data'))).toBe(false)
     expect(refusedImages(new Error('image'))).toBe(false)
   })
 })

@@ -1,3 +1,14 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog'
+import { MAX_TEXT } from '@/lib/ai/limits'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import type { UseMutationResult } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
@@ -109,8 +120,17 @@ function AddForm({ ai, onDone }: { ai: boolean; onDone: () => void }) {
   const navigate = useNavigate()
   const [view, setView] = useState<'link' | 'text'>('link')
   const [pasted, setPasted] = useState('')
+  const [stopping, setStopping] = useState(false)
+  const request = useRef<AbortController | null>(null)
+  const keepReading = useRef<HTMLButtonElement>(null)
   const reading = useMutation({
-    mutationFn: (read: AiRead) => readWithAi(read),
+    mutationFn: async (read: AiRead) => {
+      const controller = new AbortController()
+      request.current = controller
+      const result = await readWithAi(read, controller.signal)
+      controller.signal.throwIfAborted()
+      return result
+    },
   })
 
   function readByAi(read: AiRead) {
@@ -123,36 +143,71 @@ function AddForm({ ai, onDone }: { ai: boolean; onDone: () => void }) {
             : { kind: read.from }
         saveDraft(origin, draftFromImport(result.recipe, result.reworded))
         onDone()
-        void navigate({ to: '/add', search: addSearch(origin) })
+        void navigate({
+          to: '/add',
+          search: addSearch(origin),
+          // Plain HTTP too: no secure-context-only randomUUID dependency.
+          state: { aiRead: `${Date.now()}-${Math.random()}` },
+        })
       },
     })
   }
 
-  return view === 'link' ? (
-    <LinkForm
-      ai={ai}
-      reading={reading}
-      readByAi={readByAi}
-      onDone={onDone}
-      onPaste={() => {
-        reading.reset()
-        setView('text')
-      }}
-    />
-  ) : (
-    <TextForm
-      text={pasted}
-      onTextChange={(text) => {
-        setPasted(text)
-        reading.reset()
-      }}
-      reading={reading}
-      readByAi={readByAi}
-      onBack={() => {
-        reading.reset()
-        setView('link')
-      }}
-    />
+  function back() {
+    reading.reset()
+    setStopping(false)
+    setView('link')
+  }
+
+  return (
+    <>
+      {view === 'link' ? (
+        <LinkForm
+          ai={ai}
+          reading={reading}
+          readByAi={readByAi}
+          onDone={onDone}
+          onPaste={() => {
+            reading.reset()
+            setView('text')
+          }}
+        />
+      ) : (
+        <TextForm
+          text={pasted}
+          onTextChange={(text) => {
+            setPasted(text)
+            reading.reset()
+          }}
+          reading={reading}
+          readByAi={readByAi}
+          onBack={() => (reading.isPending ? setStopping(true) : back())}
+        />
+      )}
+      <AlertDialog open={stopping} onOpenChange={setStopping}>
+        <AlertDialogContent initialFocus={keepReading}>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{m.add_stop_title()}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {m.add_stop_description()}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel ref={keepReading}>
+              {m.add_keep_reading()}
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                request.current?.abort()
+                back()
+              }}
+            >
+              {m.add_stop_reading()}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
   )
 }
 
@@ -165,19 +220,27 @@ type ClientProblem = {
 }
 
 // Photos are shrunk in the browser before they're sent.
-async function readWithAi(read: AiRead): Promise<AiReadResult | ClientProblem> {
+async function readWithAi(
+  read: AiRead,
+  signal: AbortSignal,
+): Promise<AiReadResult | ClientProblem> {
   switch (read.from) {
     case 'page':
-      return readPageWithAi({ data: { link: read.link } })
+      return readPageWithAi({ data: { link: read.link }, signal })
     case 'text':
-      return readPastedText({ data: { text: read.text } })
+      if (read.text.trim().length > MAX_TEXT)
+        return { ok: false, error: { code: 'text-too-long' } }
+      return readPastedText({ data: { text: read.text }, signal })
     case 'photos': {
       if (read.photos.length > MAX_PHOTOS) {
         return { ok: false, error: { code: 'too-many-photos' } }
       }
-      let photos: Array<Blob>
+      const photos: Array<Blob> = []
       try {
-        photos = await Promise.all(read.photos.map(shrinkPhoto))
+        for (const photo of read.photos) {
+          signal.throwIfAborted()
+          photos.push(await shrinkPhoto(photo))
+        }
       } catch {
         return { ok: false, error: { code: 'photo-unreadable' } }
       }
@@ -185,7 +248,8 @@ async function readWithAi(read: AiRead): Promise<AiReadResult | ClientProblem> {
       photos.forEach((photo, index) => {
         form.append('photo', photo, `photo-${index + 1}.jpg`)
       })
-      return readPhotos({ data: form })
+      signal.throwIfAborted()
+      return readPhotos({ data: form, signal })
     }
   }
 }
@@ -436,13 +500,16 @@ function TextForm({
   readByAi: (read: AiRead) => void
   onBack: () => void
 }) {
-  const failed = readProblem(reading, 'text')
+  const tooLong = text.trim().length > MAX_TEXT
+  const failed = tooLong
+    ? ({ code: 'text-too-long' } as const)
+    : readProblem(reading, 'text')
   return (
     <form
       noValidate
       onSubmit={(event) => {
         event.preventDefault()
-        if (text.trim() !== '') readByAi({ from: 'text', text })
+        if (!tooLong && text.trim() !== '') readByAi({ from: 'text', text })
       }}
       className="flex flex-col gap-6"
     >
@@ -478,7 +545,7 @@ function TextForm({
         </Button>
         <Button
           type="submit"
-          disabled={reading.isPending || text.trim() === ''}
+          disabled={reading.isPending || tooLong || text.trim() === ''}
         >
           {m.add_text_read()}
           <ArrowRightIcon data-icon="inline-end" />
@@ -537,6 +604,8 @@ const NOTHING_READ = {
 
 function addProblemMessage(problem: AddProblem): string {
   switch (problem.code) {
+    case 'text-too-long':
+      return m.ai_text_too_long({ count: MAX_TEXT })
     case 'ai-unavailable':
       return m.add_error_ai_unavailable()
     case 'ai-failed':

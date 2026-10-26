@@ -1,3 +1,4 @@
+import { withoutStepNumber } from '@/lib/import/step-number'
 import { decodeHTML } from 'entities'
 import { DomUtils } from 'htmlparser2'
 import { siteOf } from '@/lib/import/link'
@@ -167,7 +168,7 @@ function readSteps(
 function numberedSteps(text: string): Array<string> {
   return lines(text)
     .flatMap((line) => line.split(/(?<=[.!?])\s*(?=\d{1,2}\.\s+\p{Lu})/u))
-    .map((line) => line.replace(/^\d{1,2}\.\s+(?=\p{Lu})/u, '').trim())
+    .map((line) => withoutStepNumber(line).trim())
     .filter((line) => line !== '')
 }
 

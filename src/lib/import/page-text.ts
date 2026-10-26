@@ -1,5 +1,8 @@
+import { MAX_TEXT } from '@/lib/ai/limits'
 import { DomUtils, ElementType } from 'htmlparser2'
 import type { Element, Page } from '@/lib/import/schema-org'
+
+export { MAX_TEXT } from '@/lib/ai/limits'
 
 // What a page shows a reader, as text with a line for each paragraph, list
 // item, heading or table row, for AI to read a recipe from when the page
@@ -68,10 +71,6 @@ const BLOCKS = new Set([
 // A table's cells stay on their row's line: an amount in one cell and its
 // ingredient in the next are one ingredient.
 const CELLS = new Set(['td', 'th'])
-
-// About 15 000 tokens. Recipe pages hold far less text than this; a page
-// with more has the recipe in its main part, or near its start.
-export const MAX_TEXT = 60_000
 
 export function textOfPage(page: Page): string {
   const body =

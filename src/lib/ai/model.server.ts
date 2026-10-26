@@ -51,9 +51,9 @@ export function refusedImages(error: unknown): boolean {
     (failure) =>
       APICallError.isInstance(failure) &&
       failure.statusCode !== undefined &&
-      failure.statusCode >= 400 &&
-      failure.statusCode !== 401 &&
-      failure.statusCode !== 429 &&
-      /\bimage/i.test(`${failure.message} ${failure.responseBody ?? ''}`),
+      [400, 404, 422, 500, 501].includes(failure.statusCode) &&
+      /image(?:_url| input|s)? (?:is (?:not supported|only supported by certain models)|(?:are|is) not supported)|(?:does not|doesn't) support (?:image|vision)|no endpoints found that support image input/i.test(
+        `${failure.message} ${failure.responseBody ?? ''}`,
+      ),
   )
 }

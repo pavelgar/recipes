@@ -17,22 +17,26 @@ const LONG_SIDE = 2048
 // image.
 export async function shrinkPhoto(file: Blob): Promise<Blob> {
   const bitmap = await createImageBitmap(file)
-  const scale = Math.min(1, LONG_SIDE / Math.max(bitmap.width, bitmap.height))
   const canvas = document.createElement('canvas')
-  canvas.width = Math.round(bitmap.width * scale)
-  canvas.height = Math.round(bitmap.height * scale)
-  const context = canvas.getContext('2d')
-  if (!context) throw new Error('No canvas to shrink the photo on')
-  context.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
-  bitmap.close()
-  return new Promise((resolve, reject) => {
-    canvas.toBlob(
-      (blob) =>
-        blob
-          ? resolve(blob)
-          : reject(new Error('The photo could not be saved')),
-      'image/jpeg',
-      0.85,
-    )
-  })
+  try {
+    const scale = Math.min(1, LONG_SIDE / Math.max(bitmap.width, bitmap.height))
+    canvas.width = Math.round(bitmap.width * scale)
+    canvas.height = Math.round(bitmap.height * scale)
+    const context = canvas.getContext('2d')
+    if (!context) throw new Error('No canvas to shrink the photo on')
+    context.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+    return await new Promise<Blob>((resolve, reject) => {
+      canvas.toBlob(
+        (blob) =>
+          blob
+            ? resolve(blob)
+            : reject(new Error('The photo could not be saved')),
+        'image/jpeg',
+        0.85,
+      )
+    })
+  } finally {
+    bitmap.close()
+    canvas.width = canvas.height = 0
+  }
 }
