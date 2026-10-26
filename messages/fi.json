@@ -112,8 +112,8 @@
   "editor_tidy_label": "Siisti valmistusvaiheet",
   "editor_tidied": "Valmistusvaiheet siistitty.",
   "editor_tidy_unchanged": "Valmistusvaiheet olivat jo siistit.",
-  "editor_tidy_failed": "Valmistusvaiheiden siistiminen ei onnistunut. Yritä uudelleen.",
-  "editor_tidy_rejected": "Valmistusvaiheita ei voitu siistiä muuttamatta niiden sanoja.",
+  "editor_tidy_failed": "Siistiminen epäonnistui.",
+  "editor_tidy_rejected": "Sanat muuttuisivat.",
   "not_found_title": "Sivua ei löytynyt",
   "not_found_description": "Tässä osoitteessa ei ole sivua.",
   "not_found_recipe_title": "Reseptiä ei löytynyt",
@@ -123,5 +123,5 @@
   "add_stop_description": "Lukeminen keskeytetään ja sen tulos hylätään. Liittämäsi teksti säilyy, jos palaat takaisin.",
   "add_keep_reading": "Jatka lukemista",
   "add_stop_reading": "Lopeta lukeminen",
-  "ai_text_too_long": "Teksti on liian pitkä. Enimmäispituus on {count} merkkiä."
+  "ai_text_too_long": "Liian pitkä teksti. Enintään {count} merkkiä."
 }
