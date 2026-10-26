@@ -129,7 +129,7 @@ export type TidyResult =
     }
 
 // The editor's steps, each on its own line, if the model changed nothing
-// but where they break.
+// but copied page clutter and where the recipe lines break.
 export const tidySteps = createServerFn({ method: 'POST' })
   .validator(z.object({ steps: z.string().trim().min(1) }))
   .handler(async ({ data }): Promise<TidyResult> => {
@@ -138,7 +138,8 @@ export const tidySteps = createServerFn({ method: 'POST' })
     const model = aiModel()
     if (!model) return { ok: false, code: 'ai-unavailable' }
     try {
-      const steps = tidiedSteps(data.steps, await askToTidy(model, data.steps))
+      const answer = await askToTidy(model, data.steps)
+      const steps = tidiedSteps(data.steps, answer.steps, answer.removedLines)
       return steps === null
         ? { ok: false, code: 'changed-words' }
         : { ok: true, steps }

@@ -1,8 +1,9 @@
 import { normalLine } from '@/lib/text'
 
-// Tidy steps may move line boundaries, drop step numbers and end a
-// heading with a colon. Spaces inside a line still separate words and
-// numbers, so they must match the source.
+// Tidy steps may explicitly discard copied page clutter, move line
+// boundaries, drop step numbers and end a heading with a colon. Spaces
+// inside a line still separate words and numbers, so they must match the
+// source.
 const STEP_NUMBER = /^\d{1,2}[.)](?!\d)\s*/
 
 // The same cleanup as a tidy answer, for detecting an unchanged result.
@@ -13,8 +14,22 @@ export function tidiedAlready(steps: string): string {
 export function tidiedSteps(
   steps: string,
   lines: ReadonlyArray<string>,
+  removedLines: ReadonlyArray<number> = [],
 ): string | null {
-  const source = normalLine(steps)
+  const sourceLines = steps.split('\n')
+  if (
+    removedLines.some(
+      (index) =>
+        !Number.isInteger(index) || index < 0 || index >= sourceLines.length,
+    )
+  )
+    return null
+  // The model decides which whole lines are page controls, navigation or
+  // other clutter. Every other omission still fails the comparison.
+  const removed = new Set(removedLines)
+  const source = normalLine(
+    sourceLines.filter((_, index) => !removed.has(index)).join('\n'),
+  )
   let at = 0
   const result: Array<string> = []
   for (const written of lines) {
@@ -27,7 +42,7 @@ export function tidiedSteps(
     at = end
     result.push(line)
   }
-  return at === source.length ? result.join('\n') : null
+  return result.length > 0 && at === source.length ? result.join('\n') : null
 }
 
 function matchedEnd(source: string, at: number, line: string): number | null {

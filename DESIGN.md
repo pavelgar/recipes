@@ -245,11 +245,18 @@
   provider is configured and there are steps. It puts each step on its own
   line: it splits steps that run together, joins a step cut in two, moves
   a heading that runs onto a step onto its own line ending with a colon,
-  and drops step numbers. Spaces within a line must still separate the
-  same words and numbers. It may change nothing else, so a result that
-  changes any other character is rejected, and the editor says it
-  couldn't tidy them. The result replaces the steps in place, with Undo in
-  a toast.
+  and drops step numbers. It also removes whole lines of copied page
+  clutter: step-completion controls, print/share buttons, navigation,
+  adverts and unrelated labels. The model identifies those lines, with no
+  rules for individual sites. It keeps a line that mixes recipe text with
+  clutter, or whose purpose is uncertain. The model is instructed to keep
+  every cooking instruction, quantity, time, temperature, heading and
+  serving or storage note.
+  The model explicitly lists the discarded lines; all remaining recipe
+  text is checked in order, with the same wording and spaces separating
+  words and numbers. Any other omission or change is rejected. The model
+  can misidentify a recipe line as clutter, so the result is checked in
+  the editor and Undo in the toast restores the complete original text.
 
 ### AI providers
 

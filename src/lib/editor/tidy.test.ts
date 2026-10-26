@@ -25,6 +25,24 @@ const MYLLYNPARAS = [
 const HALFBAKED =
   'Preheat the oven to 450° F. Line a baking sheet with parchment paper. 2.In a bowl, combine the chicken, buffalo sauce, cilantro, chives, and jalapeño.'
 
+// Steps supplied by the user after copying a recipe page, including its
+// hidden step-completion controls.
+const SAARISTOLAISLEIPA = `Kuumenna piimä kädenlämpöiseksi. Murenna piimän joukkoon hiiva.
+Vaihe 2 tehty2
+Lisää siirappi, maltaat, kauraleseet, ruisjauhot ja suola.
+Vaihe 3 tehty3
+Alusta taikinaan vähitellen vehnäjauhot. Taikina saa jäädä löysäksi.
+Vaihe 4 tehty4
+Anna taikinan kohota leivinliinan alla lämpimässä, vedottomassa paikassa 1 1/2 tuntia.
+Vaihe 5 tehty5
+Jaa taikina kolmeen voideltuun suorakaiteen muotoiseen leipävuokaan (vetoisuus 1 1/2 l). Pistele haarukalla.
+Vaihe 6 tehty6
+Paista leipiä 175-asteisen uunin alimmalla tasolla noin 1 1/2 tuntia. Voitele leivät siirappivedellä, kun paistoaikaa on jäljellä vielä puoli tuntia. Peitä leivät tarvittaessa leivinpaperilla paistamisen loppupuolella, ettei pinta tummu liikaa.
+Vaihe 7 tehty7
+Kumoa leivät hieman jäähtyneinä vuoista.
+Vaihe 8 tehty8
+Kääri täysin jäähtyneet leivät muoviin. Saaristolaisleipä on parhaimmillaan parin päivän kuluttua.`
+
 describe('tidiedSteps', () => {
   it('moves a heading run onto a step onto its own line', () => {
     const lines = [
@@ -54,6 +72,44 @@ describe('tidiedSteps', () => {
     expect(tidiedSteps(HALFBAKED, [lines[0], `2. ${lines[1]}`])).toBe(
       `${lines[0]}\n2. ${lines[1]}`,
     )
+  })
+
+  it('removes explicitly identified copied page controls, preserving all cooking text', () => {
+    const removedLines = [1, 3, 5, 7, 9, 11, 13]
+    const lines = SAARISTOLAISLEIPA.split('\n').filter(
+      (_, index) => !removedLines.includes(index),
+    )
+    expect(tidiedSteps(SAARISTOLAISLEIPA, lines, removedLines)).toBe(
+      lines.join('\n'),
+    )
+    // An unaccounted omission must still be rejected.
+    expect(tidiedSteps(SAARISTOLAISLEIPA, lines)).toBeNull()
+    expect(
+      tidiedSteps(SAARISTOLAISLEIPA, lines.slice(1), removedLines),
+    ).toBeNull()
+    expect(
+      tidiedSteps(
+        SAARISTOLAISLEIPA,
+        lines.map((line) => line.replace('1 1/2', '11/2')),
+        removedLines,
+      ),
+    ).toBeNull()
+  })
+
+  it('allows page clutter in any language without site-specific patterns', () => {
+    const source = [
+      'Print recipe',
+      ...JALOTOFU.split('\n'),
+      'Share',
+      'Advertisement',
+    ].join('\n')
+    expect(tidiedSteps(source, JALOTOFU.split('\n'), [0, 4, 5])).toBe(JALOTOFU)
+  })
+
+  it('rejects invalid removal indices and an answer that removes every instruction', () => {
+    for (const removedLines of [[-1], [1.5], [99], [NaN], [Infinity], [0]]) {
+      expect(tidiedSteps('Sekoita.', [], removedLines)).toBeNull()
+    }
   })
 
   it('takes steps that need no tidying as they are', () => {
