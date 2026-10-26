@@ -52,8 +52,10 @@ describe('every corpus line', () => {
     }
   })
 
-  // The editor reads a line on every keystroke.
-  it('parses as it is typed', () => {
+  // The editor reads a line on every keystroke. Every prefix of every line
+  // grows with the corpus: 3.5 s on a laptop and 6.4 s on GitHub's
+  // runners, past the 5 s default.
+  it('parses as it is typed', { timeout: 30_000 }, () => {
     for (const line of ingredientLines) {
       for (let end = 1; end < line.text.length; end++) {
         const text = line.text.slice(0, end)
