@@ -2,13 +2,30 @@ import * as React from 'react'
 import { Input as InputPrimitive } from '@base-ui/react/input'
 import { cn } from 'cn'
 
+import {
+  FIELD,
+  FIELD_DISABLED,
+  FIELD_FOCUS,
+  FIELD_INVALID,
+} from '@/components/ui/classes'
+
+// A 52px well, sunk below the page with an edge you can see. Focus brings
+// it up to the page's light with a blueberry edge; invalid tints it and
+// edges it in danger; disabled leaves only a dashed edge.
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   return (
     <InputPrimitive
       type={type}
       data-slot="input"
       className={cn(
-        'h-9 w-full min-w-0 rounded-4xl border border-input bg-input/30 px-3 py-1 text-base transition-colors outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 md:text-sm dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40',
+        FIELD,
+        'h-13 w-full min-w-0 px-4.5 outline-none placeholder:text-(--sorbet-ink-muted)',
+        FIELD_FOCUS,
+        FIELD_INVALID,
+        FIELD_DISABLED,
+        'file:mr-3 file:h-9 file:rounded-full file:bg-(--sorbet-butter) file:px-4 file:text-[15px] file:font-bold file:text-(--sorbet-butter-ink) file:shadow-[inset_0_1.5px_0_0_var(--sorbet-butter-hi),inset_0_-2.5px_0_0_var(--sorbet-butter-deep)]',
+        type === 'file' &&
+          'py-[7px] text-[16px] text-(--sorbet-ink-muted) file:font-heading',
         className,
       )}
       {...props}

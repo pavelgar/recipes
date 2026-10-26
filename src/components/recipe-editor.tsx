@@ -276,7 +276,7 @@ export function RecipeEditor({
                 }}
                 onBlur={field.handleBlur}
                 aria-invalid={!field.state.meta.isValid || undefined}
-                className="min-h-0 py-2 font-heading text-3xl font-semibold md:text-3xl"
+                className="min-h-0 py-2 font-heading text-3xl font-extrabold tracking-tight md:text-3xl"
               />
               {/* For an import, where it's from: "Read from Soppa365. Check
                   it before saving.", the source's name linking to the
@@ -423,7 +423,7 @@ export function RecipeEditor({
             {/* Beside the heading, how much the amounts make, in view where
                 they're read, in the half of the width the heading leaves. */}
             <div className="grid grid-cols-2 items-center gap-3">
-              <h2 className="font-heading text-xl font-semibold">
+              <h2 className="font-heading text-xl font-extrabold tracking-tight">
                 <label htmlFor={field.name}>{m.recipe_ingredients()}</label>
               </h2>
               <form.Field name="servings">
@@ -452,7 +452,7 @@ export function RecipeEditor({
       <form.Field name="steps">
         {(field) => (
           <section className="flex flex-col gap-3">
-            <h2 className="font-heading text-xl font-semibold">
+            <h2 className="font-heading text-xl font-extrabold tracking-tight">
               <label htmlFor={field.name}>{m.recipe_steps()}</label>
             </h2>
             <MarkedTextarea

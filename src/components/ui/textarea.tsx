@@ -1,12 +1,24 @@
 import * as React from 'react'
 import { cn } from 'cn'
 
+import {
+  FIELD,
+  FIELD_DISABLED,
+  FIELD_FOCUS,
+  FIELD_INVALID,
+} from '@/components/ui/classes'
+
+// The well, growing with its text.
 function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
   return (
     <textarea
       data-slot="textarea"
       className={cn(
-        'flex field-sizing-content min-h-16 w-full resize-none rounded-xl border border-input bg-input/30 px-3 py-3 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 md:text-sm dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40',
+        FIELD,
+        'flex field-sizing-content min-h-28 w-full resize-none px-4.5 py-3.5 leading-relaxed break-words outline-none placeholder:text-(--sorbet-ink-muted)',
+        FIELD_FOCUS,
+        FIELD_INVALID,
+        FIELD_DISABLED,
         className,
       )}
       {...props}

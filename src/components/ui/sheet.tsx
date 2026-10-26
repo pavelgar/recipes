@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { Dialog as SheetPrimitive } from '@base-ui/react/dialog'
 import { cn } from 'cn'
+import { XIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { XIcon } from 'lucide-react'
+import { DISPLAY } from '@/components/ui/classes'
+import { m } from '@/paraglide/messages'
 
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
@@ -26,7 +28,7 @@ function SheetOverlay({ className, ...props }: SheetPrimitive.Backdrop.Props) {
     <SheetPrimitive.Backdrop
       data-slot="sheet-overlay"
       className={cn(
-        'fixed inset-0 z-50 bg-black/80 transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-backdrop-filter:backdrop-blur-xs',
+        'fixed inset-0 z-50 min-h-dvh bg-(--sorbet-overlay) supports-[-webkit-touch-callout:none]:absolute motion-safe:transition-opacity motion-safe:duration-200 data-ending-style:opacity-0 data-starting-style:opacity-0',
         className,
       )}
       {...props}
@@ -34,6 +36,17 @@ function SheetOverlay({ className, ...props }: SheetPrimitive.Backdrop.Props) {
   )
 }
 
+const SIDES = {
+  right:
+    'top-[max(0.75rem,env(safe-area-inset-top))] right-[max(0.75rem,env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] w-[calc(100%-1.5rem)] max-w-sm data-ending-style:translate-x-[calc(100%+1.5rem)] data-starting-style:translate-x-[calc(100%+1.5rem)]',
+  left: 'top-[max(0.75rem,env(safe-area-inset-top))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[max(0.75rem,env(safe-area-inset-left))] w-[calc(100%-1.5rem)] max-w-sm data-ending-style:-translate-x-[calc(100%+1.5rem)] data-starting-style:-translate-x-[calc(100%+1.5rem)]',
+  top: 'inset-x-3 top-[max(0.75rem,env(safe-area-inset-top))] max-h-[calc(100dvh-1.5rem)] data-ending-style:-translate-y-[calc(100%+1.5rem)] data-starting-style:-translate-y-[calc(100%+1.5rem)]',
+  bottom:
+    'inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] max-h-[calc(100dvh-1.5rem)] data-ending-style:translate-y-[calc(100%+1.5rem)] data-starting-style:translate-y-[calc(100%+1.5rem)]',
+} as const
+
+// A floating canvas panel with big squircle corners and a tinted shadow,
+// clear of every edge, sliding in from its side.
 function SheetContent({
   className,
   children,
@@ -51,7 +64,9 @@ function SheetContent({
         data-slot="sheet-content"
         data-side={side}
         className={cn(
-          'fixed z-50 flex flex-col bg-popover bg-clip-padding text-sm text-popover-foreground shadow-lg transition duration-200 ease-in-out data-ending-style:opacity-0 data-starting-style:opacity-0 data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:border-t data-[side=bottom]:data-ending-style:translate-y-[2.5rem] data-[side=bottom]:data-starting-style:translate-y-[2.5rem] data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=left]:data-ending-style:translate-x-[-2.5rem] data-[side=left]:data-starting-style:translate-x-[-2.5rem] data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l data-[side=right]:data-ending-style:translate-x-[2.5rem] data-[side=right]:data-starting-style:translate-x-[2.5rem] data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:border-b data-[side=top]:data-ending-style:translate-y-[-2.5rem] data-[side=top]:data-starting-style:translate-y-[-2.5rem] data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm',
+          'fixed z-50 flex flex-col overflow-y-auto overscroll-contain rounded-[36px] bg-(--sorbet-canvas) text-[16px] text-(--sorbet-ink) shadow-(--sorbet-float) outline-none [corner-shape:squircle]',
+          'motion-safe:transition-[translate,opacity] motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:data-ending-style:translate-0 motion-reduce:data-ending-style:opacity-0 motion-reduce:data-starting-style:translate-0',
+          SIDES[side],
           className,
         )}
         {...props}
@@ -62,14 +77,14 @@ function SheetContent({
             data-slot="sheet-close"
             render={
               <Button
-                variant="ghost"
-                className="absolute top-4 right-4"
+                variant="outline"
                 size="icon-sm"
+                className="absolute top-4 right-4"
               />
             }
           >
-            <XIcon />
-            <span className="sr-only">Close</span>
+            <XIcon strokeWidth={2.75} />
+            <span className="sr-only">{m.dialog_close()}</span>
           </SheetPrimitive.Close>
         )}
       </SheetPrimitive.Popup>
@@ -81,7 +96,7 @@ function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sheet-header"
-      className={cn('flex flex-col gap-1.5 p-6', className)}
+      className={cn('flex flex-col gap-1.5 p-6 pr-18', className)}
       {...props}
     />
   )
@@ -91,7 +106,7 @@ function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sheet-footer"
-      className={cn('mt-auto flex flex-col gap-2 p-6', className)}
+      className={cn('mt-auto flex flex-col gap-3 p-6', className)}
       {...props}
     />
   )
@@ -102,7 +117,8 @@ function SheetTitle({ className, ...props }: SheetPrimitive.Title.Props) {
     <SheetPrimitive.Title
       data-slot="sheet-title"
       className={cn(
-        'font-heading text-base font-medium text-foreground',
+        'text-[24px] leading-tight font-extrabold tracking-[-0.02em] text-pretty text-(--sorbet-ink)',
+        DISPLAY,
         className,
       )}
       {...props}
@@ -117,7 +133,10 @@ function SheetDescription({
   return (
     <SheetPrimitive.Description
       data-slot="sheet-description"
-      className={cn('text-sm text-muted-foreground', className)}
+      className={cn(
+        'text-[16px] leading-normal text-pretty text-(--sorbet-ink-muted)',
+        className,
+      )}
       {...props}
     />
   )

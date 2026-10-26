@@ -548,6 +548,7 @@
   the import.
 - Importing recipes from other apps or files. There are no existing recipes
   to bring in.
+- Styling for Windows high contrast (forced colours). To revisit later.
 
 ## Build order
 
@@ -577,25 +578,36 @@
 
 ## Visual design
 
-- Use the shadcn/ui preset the project is set up with (`b5AyAQb5pY`): the
-  Maia style on Base UI, the taupe base colour, the orange theme, a bold
-  menu accent and Lucide icons (`components.json`). Hold it on every
-  screen.
-- Text is set in Atkinson Hyperlegible Next, headings in Bitter. These
-  replace the preset's own fonts (Figtree, Noto Serif).
-- Warnings are amber (`--warning` in `src/styles.css`), which the preset
+- The components are Sorbet, the app's own (`src/components/ui`), on Base
+  UI with Lucide icons. They replace the shadcn/ui preset the project
+  started with (`b5AyAQb5pY`, Maia). Hold them on every screen.
+  - Three depths, no ink outlines: what you press is raised, a pillow
+    shaded from its own colour that squashes a little when pressed; what
+    you read is flat; what you type into is sunk, a well with an edge.
+  - Watermelon is the main action; lemon is what's chosen and where you
+    are.
+  - Keyboard focus is the same on every control: a blueberry edge in a
+    soft halo.
+  - A disabled field has no well, only a dashed edge.
+  - Its colours are tokens in `src/styles.css`; the classes its parts
+    share are in `src/components/ui/classes.ts`.
+- Text is set in Atkinson Hyperlegible Next; headings, labels, buttons and
+  menu items in Gabarito. These replace the preset's own fonts (Figtree,
+  Noto Serif).
+- Warnings are amber (`--warning` in `src/styles.css`), which Sorbet
   doesn't have: Tailwind's amber-600, or amber-500 in dark mode.
-- Light and dark themes, from the preset. The theme is set per device
+- Light and dark themes, both Sorbet's. The theme is set per device
   (System, Light, Dark); System, the default, follows the device's own
   setting.
 - The app icon is a placeholder until a real one is designed: a white
-  Bitter Bold R on the theme orange (`public/favicon.svg`).
+  Bitter Bold R on the preset's orange (`public/favicon.svg`).
 - The menu has Home, Library, Add, Queue and Settings. Phones show it as a
-  bottom bar floating as a pill; wider screens as an inset sidebar that
-  collapses to icons, headed by the app name in the interface language
-  (Recipes, Reseptit). Add stands out as a filled orange button: round in
-  the middle of the bottom bar, at the top of the sidebar. The bottom bar
-  marks the current page in orange.
+  bottom bar floating as an apricot capsule; wider screens as an inset
+  sidebar on an apricot rail that collapses to icons, headed by the app
+  name in the interface language (Recipes, Reseptit). Add stands out as a
+  watermelon pillow: a ball sitting up out of the middle of the bottom
+  bar, at the top of the sidebar. The current page rises as a lemon
+  pillow, behind its icon in the bottom bar.
 - In a phone's browser the page itself scrolls, so the browser can tuck its
   toolbar away and pulling down reloads; the floating bars move with the
   page when it bounces, as fixed elements do there. In the installed app

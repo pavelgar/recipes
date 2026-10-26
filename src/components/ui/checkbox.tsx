@@ -1,22 +1,45 @@
 import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox'
 import { cn } from 'cn'
-import { CheckIcon } from 'lucide-react'
 
+import { FOCUS, SQUIRCLE } from '@/components/ui/classes'
+
+// Off, a 28px squircle well, sunk with an edge. Ticked, it rises as a
+// watermelon pillow and its check springs in. It squashes a little under
+// the finger; the touch area reaches 44px.
 function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
   return (
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        'peer relative flex size-4 shrink-0 items-center justify-center rounded-[6px] border border-input transition-shadow outline-none group-has-disabled/field:opacity-50 group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:not-data-checked:border-input after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground group-has-[:focus-visible]/field-label:data-checked:border-primary dark:data-checked:bg-primary',
+        'peer relative flex size-7 shrink-0 items-center justify-center rounded-[10px] bg-(--sorbet-well) text-(--sorbet-melon-ink) shadow-[inset_0_0_0_2px_var(--sorbet-rim),inset_0_3px_4px_-1px_var(--sorbet-well-shade)]',
+        SQUIRCLE,
+        FOCUS,
+        'after:absolute after:-inset-2',
+        'motion-safe:transition-[scale,background-color,box-shadow] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)] motion-safe:active:scale-x-105 motion-safe:active:scale-y-95',
+        'not-data-checked:hover:bg-(--sorbet-surface-strong)',
+        'data-checked:bg-(--sorbet-melon) data-checked:shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-3px_4px_-2px_var(--sorbet-melon-deep),0_4px_8px_-4px_var(--sorbet-melon-glow)]',
+        'aria-invalid:bg-(--sorbet-danger-soft) aria-invalid:shadow-[inset_0_0_0_2px_var(--sorbet-danger)] aria-invalid:data-checked:bg-(--sorbet-melon)',
+        'data-disabled:cursor-not-allowed data-disabled:bg-(--sorbet-surface) data-disabled:shadow-none data-disabled:outline-2 data-disabled:-outline-offset-2 data-disabled:outline-(--sorbet-rim)/60 data-disabled:outline-dashed data-disabled:data-checked:bg-(--sorbet-surface-strong) data-disabled:text-(--sorbet-ink-muted)',
         className,
       )}
       {...props}
     >
       <CheckboxPrimitive.Indicator
         data-slot="checkbox-indicator"
-        className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
+        className="grid place-content-center motion-safe:animate-[sorbet-pop_340ms_cubic-bezier(0.3,1.4,0.5,1)_both]"
       >
-        <CheckIcon />
+        <svg
+          aria-hidden
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={3.75}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="size-5"
+        >
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   )

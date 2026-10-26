@@ -2,7 +2,7 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 @import '@fontsource-variable/atkinson-hyperlegible-next';
-@import '@fontsource-variable/bitter';
+@import '@fontsource-variable/gabarito';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,82 +40,201 @@ body {
   margin: 0;
 }
 
+/* Sorbet, the app's look: no ink outlines. Three depths carry everything:
+   what you press is raised (a pillow shaded from its own colour), what
+   you read is flat, and what you type into is sunk (a well with an edge).
+   Light on the root, dark under .dark.
+
+   Each bright fill has four tones: the fill, a pale highlight along its
+   top, a deep edge along its bottom (and its shadow, tinted), and its own
+   dark ink for text. No black outlines.
+
+   Contrast, computed (WCAG 2), light: ink on canvas 15.6:1, on well
+   13.9:1, on rail 13:1; muted on canvas 6.1:1, on well 5.4:1, on surface
+   5.6:1, on the deeper surface (disabled) 4.9:1; rim (field, checkbox
+   and outline edges) on canvas 4:1, on well 3.5:1, on white 4.1:1, on
+   rail 3.3:1; melon against canvas 3.1:1, melon-ink on melon 5.3:1, the
+   melon edge on the rail 4.4:1; butter-ink on butter 10:1, its deep edge
+   on canvas 3.8:1; mint-ink on mint 8.5:1; sky-ink on sky 9:1; danger on
+   canvas 5.7:1, on its tint 5:1; step numbers 5.8:1; focus (blueberry) on
+   canvas 7:1, on rail 5.8:1. Dark: ink on canvas 16:1, on plain pillows
+   11.9:1; muted on canvas 9.6:1, on surface 8.5:1; rim on canvas 4.9:1,
+   on well 5.3:1; melon on canvas 6.5:1, melon-ink on melon 6.2:1; danger
+   on its tint 6.4:1; focus on canvas 9.2:1. */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.147 0.004 49.3);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.147 0.004 49.3);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.147 0.004 49.3);
-  --primary: oklch(0.553 0.195 38.402);
-  --primary-foreground: oklch(0.98 0.016 73.684);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.96 0.002 17.2);
-  --muted-foreground: oklch(0.547 0.021 43.1);
-  --accent: oklch(0.553 0.195 38.402);
-  --accent-foreground: oklch(0.98 0.016 73.684);
-  --destructive: oklch(0.577 0.245 27.325);
-  /* Not in the preset: Tailwind's amber-600, from the chart colours' scale. */
+  /* Page and text. */
+  --sorbet-canvas: #fffaf6;
+  --sorbet-ink: #2a1d22;
+  --sorbet-ink-muted: #6e5b62;
+
+  /* Sunk: the well a field or track sits in, its edge and the shade
+     along its top. */
+  --sorbet-well: #f5ece6;
+  --sorbet-rim: #98737f;
+  --sorbet-well-shade: rgb(74 40 52 / 0.24);
+
+  /* Flat: containers. */
+  --sorbet-surface: #fdf0e6;
+  --sorbet-surface-strong: #f5e0d0;
+
+  /* Keyboard focus: blueberry, so it never reads as a choice. */
+  --sorbet-focus: #4a3fd0;
+  --sorbet-focus-halo: rgb(74 63 208 / 0.2);
+
+  /* The raised pillows. Plain: white, edged with the rim. */
+  --sorbet-plain: #ffffff;
+  --sorbet-plain-hi: rgb(255 255 255 / 0);
+  --sorbet-plain-deep: #d9c9cf;
+  --sorbet-plain-glow: rgb(74 40 52 / 0.2);
+
+  /* The main action: watermelon sorbet. */
+  --sorbet-melon: #ff4f66;
+  --sorbet-melon-ink: #3b0a14;
+  --sorbet-melon-hi: #ff8c9a;
+  --sorbet-melon-deep: #c43148;
+  --sorbet-melon-glow: rgb(196 49 72 / 0.42);
+  --sorbet-melon-soft: #ffe1e3;
+  /* Step numbers: watermelon ink on its pale tint (5.8:1). */
+  --sorbet-melon-text: #a8233a;
+
+  /* Selection and highlights: lemon. */
+  --sorbet-butter: #ffe170;
+  --sorbet-butter-ink: #3d2e00;
+  --sorbet-butter-hi: #fff4c2;
+  --sorbet-butter-deep: #a07a00;
+  --sorbet-butter-glow: rgb(160 122 0 / 0.32);
+  --sorbet-butter-soft: #fff4c7;
+
+  /* Done and news. */
+  --sorbet-mint: #8fe3be;
+  --sorbet-mint-ink: #08392a;
+  --sorbet-mint-deep: #2f9a6c;
+  --sorbet-sky: #a8d0ff;
+  --sorbet-sky-ink: #0b2a52;
+  --sorbet-sky-deep: #3f7fd4;
+  --sorbet-sky-soft: #e6f1ff;
+
+  --sorbet-danger: #c0262d;
+  --sorbet-danger-soft: #ffe6e1;
+
+  /* The sidebar and menu bar: apricot cream the page floats on. */
+  --sorbet-rail: #f6e3d6;
+  --sorbet-rail-ink: #2a1d22;
+  --sorbet-rail-muted: #6b555c;
+  --sorbet-rail-hover: #eed3c2;
+
+  /* Tooltips: the reverse of the page. */
+  --sorbet-inverse: #2a1d22;
+  --sorbet-inverse-ink: #fff4ef;
+
+  /* The editor's marks: paint only, under the text. */
+  --sorbet-mark: #ffe170;
+  --sorbet-mark-deep: #f2c53a;
+  --sorbet-mark-heading: #b4ecd2;
+  --sorbet-mark-heading-deep: #7fd3ad;
+
+  --sorbet-overlay: rgb(58 30 40 / 0.36);
+  /* What floats above the page: menus, dialogs, toasts. Tinted, never
+     grey. */
+  --sorbet-float:
+    0 24px 48px -16px rgb(90 40 56 / 0.3), 0 6px 14px -6px rgb(90 40 56 / 0.16);
+
+  /* The preset's names, for the screens' own classes and for the scroll
+     area, which Sorbet doesn't restyle. */
+  --background: var(--sorbet-canvas);
+  --foreground: var(--sorbet-ink);
+  --card: var(--sorbet-surface);
+  --card-foreground: var(--sorbet-ink);
+  --popover: var(--sorbet-canvas);
+  --popover-foreground: var(--sorbet-ink);
+  --primary: var(--sorbet-melon);
+  --primary-foreground: var(--sorbet-melon-ink);
+  --secondary: var(--sorbet-butter);
+  --secondary-foreground: var(--sorbet-butter-ink);
+  --muted: var(--sorbet-surface);
+  --muted-foreground: var(--sorbet-ink-muted);
+  --accent: var(--sorbet-surface-strong);
+  --accent-foreground: var(--sorbet-ink);
+  --destructive: var(--sorbet-danger);
+  /* Warnings: Tailwind's amber-600. */
   --warning: oklch(0.666 0.179 58.318);
-  --border: oklch(0.922 0.005 34.3);
-  --input: oklch(0.922 0.005 34.3);
-  --ring: oklch(0.714 0.014 41.2);
-  --chart-1: oklch(0.879 0.169 91.605);
-  --chart-2: oklch(0.769 0.188 70.08);
-  --chart-3: oklch(0.666 0.179 58.318);
-  --chart-4: oklch(0.555 0.163 48.998);
-  --chart-5: oklch(0.473 0.137 46.201);
+  --border: color-mix(in srgb, var(--sorbet-ink) 12%, transparent);
+  --input: var(--sorbet-rim);
+  --ring: var(--sorbet-focus);
   --radius: 0.625rem;
-  --sidebar: oklch(0.986 0.002 67.8);
-  --sidebar-foreground: oklch(0.147 0.004 49.3);
-  --sidebar-primary: oklch(0.646 0.222 41.116);
-  --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
-  --sidebar-accent: oklch(0.96 0.002 17.2);
-  --sidebar-accent-foreground: oklch(0.214 0.009 43.1);
-  --sidebar-border: oklch(0.922 0.005 34.3);
-  --sidebar-ring: oklch(0.714 0.014 41.2);
+  --sidebar: var(--sorbet-rail);
+  --sidebar-foreground: var(--sorbet-rail-ink);
+  --sidebar-primary: var(--sorbet-melon);
+  --sidebar-primary-foreground: var(--sorbet-melon-ink);
+  --sidebar-accent: var(--sorbet-rail-hover);
+  --sidebar-accent-foreground: var(--sorbet-rail-ink);
+  --sidebar-border: color-mix(in srgb, var(--sorbet-rail-ink) 12%, transparent);
+  --sidebar-ring: var(--sorbet-focus);
 }
 
 .dark {
-  --background: oklch(0.147 0.004 49.3);
-  --foreground: oklch(0.986 0.002 67.8);
-  --card: oklch(0.214 0.009 43.1);
-  --card-foreground: oklch(0.986 0.002 67.8);
-  --popover: oklch(0.214 0.009 43.1);
-  --popover-foreground: oklch(0.986 0.002 67.8);
-  --primary: oklch(0.47 0.157 37.304);
-  --primary-foreground: oklch(0.98 0.016 73.684);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.268 0.011 36.5);
-  --muted-foreground: oklch(0.714 0.014 41.2);
-  --accent: oklch(0.47 0.157 37.304);
-  --accent-foreground: oklch(0.98 0.016 73.684);
-  --destructive: oklch(0.704 0.191 22.216);
+  --sorbet-canvas: #1d1518;
+  --sorbet-ink: #fff0ea;
+  --sorbet-ink-muted: #cdb8be;
+
+  --sorbet-well: #120d10;
+  --sorbet-rim: #9a7f8a;
+  --sorbet-well-shade: rgb(0 0 0 / 0.5);
+
+  --sorbet-surface: #2a1f24;
+  --sorbet-surface-strong: #3a2c32;
+
+  --sorbet-focus: #a9b6ff;
+  --sorbet-focus-halo: rgb(169 182 255 / 0.24);
+
+  --sorbet-plain: #3a2c32;
+  --sorbet-plain-hi: rgb(255 240 234 / 0.14);
+  --sorbet-plain-deep: #20171b;
+  --sorbet-plain-glow: rgb(0 0 0 / 0.5);
+
+  --sorbet-melon: #ff6b7a;
+  --sorbet-melon-hi: #ffa3ac;
+  --sorbet-melon-deep: #b8384d;
+  --sorbet-melon-glow: rgb(0 0 0 / 0.55);
+  --sorbet-melon-soft: #45222a;
+  --sorbet-melon-text: #ff8c9a;
+
+  --sorbet-butter-hi: #fff4c2;
+  --sorbet-butter-deep: #b88d12;
+  --sorbet-butter-glow: rgb(0 0 0 / 0.55);
+  --sorbet-butter-soft: #3b3220;
+
+  --sorbet-mint-deep: #3fae80;
+  --sorbet-sky-deep: #5b93e0;
+  --sorbet-sky-soft: #1e2838;
+
+  --sorbet-danger: #ff8a7a;
+  --sorbet-danger-soft: #3f2023;
+
+  --sorbet-rail: #140e11;
+  --sorbet-rail-ink: #fff0ea;
+  --sorbet-rail-muted: #c2adb4;
+  --sorbet-rail-hover: #2a1f24;
+
+  --sorbet-inverse: #fff0ea;
+  --sorbet-inverse-ink: #2a1d22;
+
+  --sorbet-mark: #6b5617;
+  --sorbet-mark-deep: #8f7420;
+  --sorbet-mark-heading: #1f4d3b;
+  --sorbet-mark-heading-deep: #2c6a51;
+
+  --sorbet-overlay: rgb(0 0 0 / 0.6);
+  --sorbet-float:
+    0 24px 48px -16px rgb(0 0 0 / 0.75), 0 6px 14px -6px rgb(0 0 0 / 0.5);
+
   /* Tailwind's amber-500. */
   --warning: oklch(0.769 0.188 70.08);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.547 0.021 43.1);
-  --chart-1: oklch(0.879 0.169 91.605);
-  --chart-2: oklch(0.769 0.188 70.08);
-  --chart-3: oklch(0.666 0.179 58.318);
-  --chart-4: oklch(0.555 0.163 48.998);
-  --chart-5: oklch(0.473 0.137 46.201);
-  --sidebar: oklch(0.214 0.009 43.1);
-  --sidebar-foreground: oklch(0.986 0.002 67.8);
-  --sidebar-primary: oklch(0.705 0.213 47.604);
-  --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
-  --sidebar-accent: oklch(0.268 0.011 36.5);
-  --sidebar-accent-foreground: oklch(0.986 0.002 67.8);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.547 0.021 43.1);
 }
 
 @theme inline {
   --font-sans: 'Atkinson Hyperlegible Next Variable', sans-serif;
-  --font-heading: 'Bitter Variable', serif;
+  --font-heading: 'Gabarito Variable', ui-rounded, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -124,11 +243,6 @@ body {
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -166,5 +280,22 @@ body {
   }
   html {
     @apply font-sans;
+  }
+}
+
+/* A check, dot or bead landing: a quick, springy swell. Used only under
+   motion-safe. */
+@keyframes sorbet-pop {
+  0% {
+    scale: 0.3;
+  }
+  55% {
+    scale: 1.14 0.9;
+  }
+  80% {
+    scale: 0.96 1.04;
+  }
+  100% {
+    scale: 1;
   }
 }

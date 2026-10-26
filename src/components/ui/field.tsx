@@ -1,16 +1,18 @@
 import { useMemo } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
+import { CircleAlertIcon } from 'lucide-react'
 
 import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
+import { DISPLAY } from '@/components/ui/classes'
 
 function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'>) {
   return (
     <fieldset
       data-slot="field-set"
       className={cn(
-        'flex flex-col gap-6 has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3',
+        'flex min-w-0 flex-col gap-5 has-[>[data-slot=checkbox-group]]:gap-3.5 has-[>[data-slot=radio-group]]:gap-3.5',
         className,
       )}
       {...props}
@@ -28,7 +30,8 @@ function FieldLegend({
       data-slot="field-legend"
       data-variant={variant}
       className={cn(
-        'mb-3 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base',
+        'mb-1 text-(--sorbet-ink) data-[variant=label]:text-[16px] data-[variant=label]:font-semibold data-[variant=legend]:mb-2 data-[variant=legend]:text-[20px] data-[variant=legend]:font-extrabold data-[variant=legend]:tracking-[-0.015em]',
+        DISPLAY,
         className,
       )}
       {...props}
@@ -41,7 +44,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="field-group"
       className={cn(
-        'group/field-group @container/field-group flex w-full flex-col gap-7 data-[slot=checkbox-group]:gap-3 *:data-[slot=field-group]:gap-4',
+        'group/field-group @container/field-group flex w-full flex-col gap-6 data-[slot=checkbox-group]:gap-3.5 *:data-[slot=field-group]:gap-4',
         className,
       )}
       {...props}
@@ -49,23 +52,22 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
   )
 }
 
-const fieldVariants = cva(
-  'group/field flex w-full gap-3 data-[invalid=true]:text-destructive',
-  {
-    variants: {
-      orientation: {
-        vertical: 'flex-col *:w-full [&>.sr-only]:w-auto',
-        horizontal:
-          'flex-row items-center has-[>[data-slot=field-content]]:items-start *:data-[slot=field-label]:flex-auto has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
-        responsive:
-          'flex-col *:w-full @md/field-group:flex-row @md/field-group:items-center @md/field-group:*:w-auto @md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:*:data-[slot=field-label]:flex-auto [&>.sr-only]:w-auto @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
-      },
-    },
-    defaultVariants: {
-      orientation: 'vertical',
+// Label above, field below; a checkbox or radio sits beside its label,
+// lined up with the label's first line.
+const fieldVariants = cva('group/field flex w-full min-w-0', {
+  variants: {
+    orientation: {
+      vertical: 'flex-col gap-2 *:w-full [&>.sr-only]:w-auto',
+      horizontal:
+        'flex-row items-center gap-3 has-[>[data-slot=field-content]]:items-start *:data-[slot=field-label]:flex-auto has-[>[data-slot=field-content]]:*:data-[slot=field-content]:pt-0.5',
+      responsive:
+        'flex-col gap-2 *:w-full @md/field-group:flex-row @md/field-group:items-center @md/field-group:gap-4 @md/field-group:*:w-auto @md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:*:data-[slot=field-label]:flex-auto [&>.sr-only]:w-auto',
     },
   },
-)
+  defaultVariants: {
+    orientation: 'vertical',
+  },
+})
 
 function Field({
   className,
@@ -88,7 +90,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="field-content"
       className={cn(
-        'group/field-content flex flex-1 flex-col gap-1 leading-snug',
+        'group/field-content flex min-w-0 flex-1 flex-col gap-1 leading-snug',
         className,
       )}
       {...props}
@@ -96,6 +98,8 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
   )
 }
 
+// A label wrapping a whole field is a choice card: a raised white pillow
+// that, chosen, stays pressed in and turns lemon.
 function FieldLabel({
   className,
   ...props
@@ -104,8 +108,14 @@ function FieldLabel({
     <Label
       data-slot="field-label"
       className={cn(
-        'group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-data-checked:border-primary/30 has-data-checked:bg-primary/5 has-[>[data-slot=field]]:rounded-xl has-[>[data-slot=field]]:border has-[>[data-slot=field]]:not-has-[:disabled,[data-disabled]]:hover:bg-input/40 has-[>[data-slot=field]]:has-[:focus-visible]:border-ring has-[>[data-slot=field]]:has-[:focus-visible]:ring-[3px] has-[>[data-slot=field]]:has-[:focus-visible]:ring-ring/50 *:data-[slot=field]:p-4 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10',
-        'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col',
+        'group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:text-(--sorbet-ink-muted)',
+        'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-[26px] has-[>[data-slot=field]]:[corner-shape:squircle] *:data-[slot=field]:p-4.5',
+        'has-[>[data-slot=field]]:bg-(--sorbet-plain) has-[>[data-slot=field]]:shadow-[inset_0_0_0_1.5px_var(--sorbet-surface-strong),inset_0_-5px_6px_-3px_var(--sorbet-plain-deep),0_9px_16px_-9px_var(--sorbet-plain-glow),0_2px_3px_-1px_var(--sorbet-plain-glow)]',
+        'has-[>[data-slot=field]]:origin-bottom has-[>[data-slot=field]]:motion-safe:transition-[scale,translate,box-shadow,background-color] has-[>[data-slot=field]]:motion-safe:duration-300 has-[>[data-slot=field]]:motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)]',
+        'has-[>[data-slot=field]]:not-has-data-checked:hover:shadow-[inset_0_0_0_1.5px_var(--sorbet-surface-strong),inset_0_-5px_6px_-3px_var(--sorbet-plain-deep),0_13px_20px_-10px_var(--sorbet-plain-glow),0_3px_5px_-1px_var(--sorbet-plain-glow)] has-[>[data-slot=field]]:motion-safe:active:scale-[0.985]',
+        'has-[>[data-slot=field]]:has-data-checked:translate-y-px has-[>[data-slot=field]]:has-data-checked:bg-(--sorbet-butter) has-[>[data-slot=field]]:has-data-checked:shadow-[inset_0_3px_6px_-1px_var(--sorbet-butter-deep),inset_0_0_0_1.5px_color-mix(in_srgb,var(--sorbet-butter-deep)_45%,transparent)]',
+        'has-[>[data-slot=field]]:has-data-checked:[--sorbet-ink-muted:var(--sorbet-butter-ink)] has-[>[data-slot=field]]:has-data-checked:[--sorbet-ink:var(--sorbet-butter-ink)]',
+        'has-[>[data-slot=field]]:has-focus-visible:ring-4 has-[>[data-slot=field]]:has-focus-visible:ring-(color:--sorbet-focus-halo) has-[>[data-slot=field]]:has-focus-visible:ring-offset-[2.5px] has-[>[data-slot=field]]:has-focus-visible:ring-offset-(color:--sorbet-focus)',
         className,
       )}
       {...props}
@@ -118,7 +128,8 @@ function FieldTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="field-label"
       className={cn(
-        'flex w-fit items-center gap-2 text-sm font-medium group-data-[disabled=true]/field:opacity-50',
+        'flex w-fit items-center gap-2 text-[17px] leading-snug font-bold text-(--sorbet-ink) group-data-[disabled=true]/field:text-(--sorbet-ink-muted)',
+        DISPLAY,
         className,
       )}
       {...props}
@@ -131,9 +142,8 @@ function FieldDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="field-description"
       className={cn(
-        'text-left text-sm leading-normal font-normal text-muted-foreground group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.5',
-        'last:mt-0 nth-last-2:-mt-1',
-        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
+        'text-left text-[15px] leading-normal font-normal text-pretty text-(--sorbet-ink-muted) [[data-variant=legend]+&]:-mt-1.5',
+        '[&>a]:font-semibold [&>a]:text-(--sorbet-ink) [&>a]:underline [&>a]:decoration-[color:var(--sorbet-melon)] [&>a]:decoration-2 [&>a]:underline-offset-3 [&>a:hover]:decoration-[color:var(--sorbet-melon-deep)]',
         className,
       )}
       {...props}
@@ -141,6 +151,7 @@ function FieldDescription({ className, ...props }: React.ComponentProps<'p'>) {
   )
 }
 
+// A soft rule with its word in a small sunk pill across the middle.
 function FieldSeparator({
   children,
   className,
@@ -152,16 +163,19 @@ function FieldSeparator({
     <div
       data-slot="field-separator"
       data-content={!!children}
-      className={cn(
-        'relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2',
-        className,
-      )}
+      className={cn('relative flex h-7 items-center', className)}
       {...props}
     >
-      <Separator className="absolute inset-0 top-1/2" />
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-(--sorbet-surface-strong)"
+      />
       {children && (
         <span
-          className="relative mx-auto block w-fit bg-background px-2 text-muted-foreground"
+          className={cn(
+            'relative mx-auto block w-fit rounded-full bg-(--sorbet-surface) px-3.5 py-0.5 text-[15px] font-semibold text-(--sorbet-ink-muted)',
+            DISPLAY,
+          )}
           data-slot="field-separator-content"
         >
           {children}
@@ -171,6 +185,7 @@ function FieldSeparator({
   )
 }
 
+// The message under an invalid field, behind an alert icon.
 function FieldError({
   className,
   children,
@@ -197,7 +212,7 @@ function FieldError({
     }
 
     return (
-      <ul className="ml-4 flex list-disc flex-col gap-1">
+      <ul className="flex list-disc flex-col gap-1 pl-4">
         {uniqueErrors.map(
           (error, index) =>
             error?.message && <li key={index}>{error.message}</li>,
@@ -214,10 +229,18 @@ function FieldError({
     <div
       role="alert"
       data-slot="field-error"
-      className={cn('text-sm font-normal text-destructive', className)}
+      className={cn(
+        'flex items-start gap-1.5 text-[15px] leading-snug font-semibold text-(--sorbet-danger)',
+        className,
+      )}
       {...props}
     >
-      {content}
+      <CircleAlertIcon
+        aria-hidden
+        strokeWidth={2.5}
+        className="mt-px size-[18px] shrink-0"
+      />
+      <div className="min-w-0">{content}</div>
     </div>
   )
 }

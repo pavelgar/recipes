@@ -37,7 +37,7 @@ export function RecipeReadout({ recipe }: { recipe: Readable }) {
   return (
     <article lang={recipe.language} className="flex flex-col gap-6">
       <header className="flex flex-col gap-2">
-        <h1 className="font-heading text-2xl font-semibold text-balance">
+        <h1 className="font-heading text-2xl font-extrabold tracking-tight text-balance">
           {recipe.title}
         </h1>
         {source && (
@@ -87,7 +87,9 @@ function Sections({
   const List = numbered ? 'ol' : 'ul'
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="font-heading text-lg font-semibold">{title}</h2>
+      <h2 className="font-heading text-lg font-extrabold tracking-tight">
+        {title}
+      </h2>
       {sections.map((section, index) => (
         <div key={index} className="flex flex-col gap-2">
           {section.heading && (

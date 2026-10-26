@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { mergeProps } from '@base-ui/react/merge-props'
 import { useRender } from '@base-ui/react/use-render'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
+import { DISPLAY, FOCUS } from '@/components/ui/classes'
 import { Separator } from '@/components/ui/separator'
 
 function ItemGroup({ className, ...props }: React.ComponentProps<'div'>) {
@@ -12,7 +14,7 @@ function ItemGroup({ className, ...props }: React.ComponentProps<'div'>) {
       role="list"
       data-slot="item-group"
       className={cn(
-        'group/item-group flex w-full flex-col gap-4 has-data-[size=sm]:gap-2.5 has-data-[size=xs]:gap-2',
+        'group/item-group flex w-full flex-col gap-3 has-data-[size=sm]:gap-2.5 has-data-[size=xs]:gap-2',
         className,
       )}
       {...props}
@@ -34,19 +36,29 @@ function ItemSeparator({
   )
 }
 
+// Rows are flat: the apricot surface tint by default, a white card with a
+// soft edge for outline, a deeper tint for muted. A row that's a link
+// rises into a pillow under the pointer (a shadow in its tint) and
+// squashes a little when pressed.
 const itemVariants = cva(
-  'group/item flex w-full flex-wrap items-center rounded-2xl border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:transition-colors [a]:hover:bg-muted',
+  [
+    'group/item flex w-full flex-wrap items-center rounded-[24px] text-left text-(--sorbet-ink) [corner-shape:squircle]',
+    FOCUS,
+    '[a]:cursor-pointer [a]:origin-bottom [a]:hover:shadow-[inset_0_0_0_1.5px_var(--edge),0_12px_20px_-12px_var(--sorbet-plain-glow),0_2px_4px_-2px_var(--sorbet-plain-glow)] [a]:motion-safe:hover:-translate-y-0.5 [a]:active:shadow-[inset_0_0_0_1.5px_var(--edge)] [a]:motion-safe:active:translate-y-0 [a]:motion-safe:active:scale-y-[0.97] [a]:motion-safe:transition-[translate,scale,box-shadow,background-color] [a]:motion-safe:duration-300 [a]:motion-safe:ease-[cubic-bezier(0.34,1.5,0.5,1)] [a]:motion-safe:active:duration-75',
+  ],
   {
     variants: {
       variant: {
-        default: 'border-transparent',
-        outline: 'border-border',
-        muted: 'border-transparent bg-muted/50',
+        default:
+          'bg-(--sorbet-surface) [--edge:transparent] [a]:hover:bg-(--sorbet-plain)',
+        outline:
+          'bg-(--sorbet-plain) shadow-[inset_0_0_0_1.5px_var(--edge)] [--edge:var(--sorbet-surface-strong)]',
+        muted: 'bg-(--sorbet-surface-strong) [--edge:transparent]',
       },
       size: {
-        default: 'gap-3.5 px-4 py-3.5',
-        sm: 'gap-3.5 px-3.5 py-3',
-        xs: 'gap-2.5 px-3 py-2.5 in-data-[slot=dropdown-menu-content]:p-0',
+        default: 'gap-4 px-5 py-4',
+        sm: 'gap-3 px-4 py-3',
+        xs: 'min-h-11 gap-2.5 rounded-[16px] px-3 py-2 in-data-[slot=dropdown-menu-content]:p-0',
       },
     },
     defaultVariants: {
@@ -80,15 +92,16 @@ function Item({
   })
 }
 
+// An icon sits on a small sunk tile in the row.
 const itemMediaVariants = cva(
-  'flex shrink-0 items-center justify-center gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start [&_svg]:pointer-events-none',
+  'flex shrink-0 items-center justify-center gap-2 group-has-data-[slot=item-description]/item:self-start [&_svg]:pointer-events-none',
   {
     variants: {
       variant: {
-        default: 'bg-transparent',
-        icon: "[&_svg:not([class*='size-'])]:size-4",
+        default: 'bg-transparent text-(--sorbet-ink)',
+        icon: "size-11 rounded-[15px] bg-(--sorbet-canvas) text-(--sorbet-ink) [corner-shape:squircle] shadow-[inset_0_2px_3px_-1px_var(--sorbet-well-shade)] group-data-[variant=outline]/item:bg-(--sorbet-well) group-data-[size=xs]/item:size-8 group-data-[size=xs]/item:rounded-[11px] [&_svg:not([class*='size-'])]:size-5",
         image:
-          'size-10 overflow-hidden rounded-lg group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 group-data-[size=xs]/item:rounded-md [&_img]:size-full [&_img]:object-cover',
+          'size-12 overflow-hidden rounded-[16px] [corner-shape:squircle] group-data-[size=sm]/item:size-11 group-data-[size=xs]/item:size-8 group-data-[size=xs]/item:rounded-[10px] [&_img]:size-full [&_img]:object-cover',
       },
     },
     defaultVariants: {
@@ -117,7 +130,7 @@ function ItemContent({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="item-content"
       className={cn(
-        'flex flex-1 flex-col gap-1 group-data-[size=xs]/item:gap-0.5 [&+[data-slot=item-content]]:flex-none',
+        'flex min-w-0 flex-1 flex-col gap-0.5 group-data-[size=xs]/item:gap-0 [&+[data-slot=item-content]]:flex-none',
         className,
       )}
       {...props}
@@ -125,12 +138,14 @@ function ItemContent({ className, ...props }: React.ComponentProps<'div'>) {
   )
 }
 
+// Titles wrap rather than cut: Finnish names run long.
 function ItemTitle({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="item-title"
       className={cn(
-        'line-clamp-1 flex w-fit items-center gap-2 text-sm leading-snug font-medium underline-offset-4',
+        'flex min-w-0 items-center gap-2 text-[18px] leading-snug font-bold tracking-[-0.01em] text-pretty break-words group-data-[size=sm]/item:text-[17px] group-data-[size=xs]/item:text-[16px] group-data-[size=xs]/item:font-semibold',
+        DISPLAY,
         className,
       )}
       {...props}
@@ -143,7 +158,7 @@ function ItemDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="item-description"
       className={cn(
-        'line-clamp-2 text-left text-sm font-normal text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
+        'text-left text-[15px] leading-normal font-normal text-pretty text-(--sorbet-ink-muted) group-data-[size=xs]/item:text-[14px] [&>a]:underline [&>a]:decoration-[color:var(--sorbet-melon)] [&>a]:decoration-2 [&>a]:underline-offset-3 [&>a:hover]:decoration-[color:var(--sorbet-melon-deep)]',
         className,
       )}
       {...props}
@@ -166,7 +181,7 @@ function ItemHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="item-header"
       className={cn(
-        'flex basis-full items-center justify-between gap-2',
+        'flex basis-full items-center justify-between gap-3',
         className,
       )}
       {...props}
@@ -179,7 +194,7 @@ function ItemFooter({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="item-footer"
       className={cn(
-        'flex basis-full items-center justify-between gap-2',
+        'flex basis-full items-center justify-end gap-2 pt-1',
         className,
       )}
       {...props}

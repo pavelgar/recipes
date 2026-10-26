@@ -112,7 +112,7 @@ const installSteps: Record<
 function Settings() {
   return (
     <div className="mx-auto flex w-full max-w-xl flex-col gap-10 px-4 pt-[calc(1.5rem+env(safe-area-inset-top))] pb-6 md:px-6 md:pt-8">
-      <h1 className="font-heading text-2xl font-semibold">
+      <h1 className="font-heading text-2xl font-extrabold tracking-tight">
         {m.settings_title()}
       </h1>
       <SettingsSection title={m.settings_device_title()}>
@@ -141,7 +141,10 @@ function SettingsSection({
   const id = useId()
   return (
     <section aria-labelledby={id} className="flex flex-col gap-4">
-      <h2 id={id} className="font-heading text-lg font-semibold">
+      <h2
+        id={id}
+        className="font-heading text-lg font-extrabold tracking-tight"
+      >
         {title}
       </h2>
       {children}

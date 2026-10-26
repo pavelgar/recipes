@@ -29,7 +29,7 @@
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
-    "@fontsource-variable/bitter": "^5.3.0",
+    "@fontsource-variable/gabarito": "^5.3.0",
     "@inlang/paraglide-js-react": "^1.0.3",
     "@libsql/client": "^0.18.0",
     "@tailwindcss/vite": "^4.1.18",

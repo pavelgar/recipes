@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { Menu as MenuPrimitive } from '@base-ui/react/menu'
 import { cn } from 'cn'
-import { ChevronRightIcon, CheckIcon } from 'lucide-react'
+import { ChevronRightIcon } from 'lucide-react'
+
+import { DISPLAY, OPTION, POPUP, POP_IN } from '@/components/ui/classes'
 
 function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />
@@ -15,11 +17,13 @@ function DropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {
   return <MenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...props} />
 }
 
+// A canvas panel floating on a tinted shadow, 48px Gabarito items, a
+// lemon pillow under the pointer or keyboard.
 function DropdownMenuContent({
   align = 'start',
   alignOffset = 0,
   side = 'bottom',
-  sideOffset = 4,
+  sideOffset = 8,
   className,
   ...props
 }: MenuPrimitive.Popup.Props &
@@ -39,7 +43,9 @@ function DropdownMenuContent({
         <MenuPrimitive.Popup
           data-slot="dropdown-menu-content"
           className={cn(
-            'z-50 max-h-(--available-height) w-(--anchor-width) min-w-48 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-2xl bg-popover p-1 text-popover-foreground shadow-2xl ring-1 ring-foreground/5 duration-100 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 dark:ring-foreground/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:overflow-hidden data-closed:fade-out-0 data-closed:zoom-out-95',
+            POPUP,
+            'z-50 max-h-(--available-height) w-(--anchor-width) min-w-52 overflow-x-hidden overflow-y-auto p-1.5',
+            POP_IN,
             className,
           )}
           {...props}
@@ -65,7 +71,8 @@ function DropdownMenuLabel({
       data-slot="dropdown-menu-label"
       data-inset={inset}
       className={cn(
-        'px-3 py-2.5 text-xs text-muted-foreground data-inset:pl-9.5',
+        'px-3 pt-2.5 pb-1 text-[13px] font-semibold text-(--sorbet-ink-muted) data-inset:pl-11',
+        DISPLAY,
         className,
       )}
       {...props}
@@ -88,7 +95,9 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "group/dropdown-menu-item relative flex cursor-default items-center gap-2.5 rounded-xl px-3 py-2 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-inset:pl-9.5 data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[variant=destructive]:focus:bg-destructive/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-destructive",
+        OPTION,
+        'group/dropdown-menu-item data-inset:pl-11',
+        'data-[variant=destructive]:text-(--sorbet-danger) data-[variant=destructive]:data-highlighted:bg-(--sorbet-danger-soft) data-[variant=destructive]:data-highlighted:text-(--sorbet-danger)',
         className,
       )}
       {...props}
@@ -113,38 +122,69 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "flex cursor-default items-center gap-2 rounded-xl px-3 py-2 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-inset:pl-9.5 data-popup-open:bg-accent data-popup-open:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        OPTION,
+        'data-inset:pl-11 data-popup-open:bg-(--sorbet-butter) data-popup-open:text-(--sorbet-butter-ink) data-popup-open:[--sorbet-ink-muted:var(--sorbet-butter-ink)]',
         className,
       )}
       {...props}
     >
       {children}
-      <ChevronRightIcon className="ml-auto" />
+      <span className="ml-auto flex size-7 items-center justify-center rounded-full bg-(--sorbet-surface) text-(--sorbet-ink) in-data-highlighted:bg-(--sorbet-butter-ink)/10 in-data-popup-open:bg-(--sorbet-butter-ink)/10 in-data-popup-open:text-(--sorbet-butter-ink)">
+        <ChevronRightIcon strokeWidth={2.75} className="size-[18px]!" />
+      </span>
     </MenuPrimitive.SubmenuTrigger>
   )
 }
 
 function DropdownMenuSubContent({
   align = 'start',
-  alignOffset = -3,
+  alignOffset = -8,
   side = 'right',
-  sideOffset = 0,
+  sideOffset = 6,
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuContent>) {
   return (
     <DropdownMenuContent
       data-slot="dropdown-menu-sub-content"
-      className={cn(
-        'w-auto min-w-36 rounded-2xl bg-popover p-1 text-popover-foreground shadow-2xl ring-1 ring-foreground/5 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
-        className,
-      )}
+      className={cn('w-auto min-w-44', className)}
       align={align}
       alignOffset={alignOffset}
       side={side}
       sideOffset={sideOffset}
       {...props}
     />
+  )
+}
+
+// Checkbox and radio items show a small dimple at the end; chosen, a
+// watermelon bead with its check springs up out of it.
+function Mark({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      aria-hidden
+      className="pointer-events-none absolute right-2.5 flex size-7 items-center justify-center rounded-full bg-(--sorbet-well) shadow-[inset_0_0_0_2px_var(--sorbet-rim),inset_0_2px_3px_-1px_var(--sorbet-well-shade)]"
+    >
+      {children}
+    </span>
+  )
+}
+
+function Tick() {
+  return (
+    <span className="flex size-7 items-center justify-center rounded-full bg-(--sorbet-melon) text-(--sorbet-melon-ink) shadow-[inset_0_1.5px_1px_-0.5px_var(--sorbet-melon-hi),inset_0_-3px_4px_-2px_var(--sorbet-melon-deep),0_3px_6px_-3px_var(--sorbet-melon-glow)] motion-safe:animate-[sorbet-pop_320ms_cubic-bezier(0.3,1.4,0.5,1)_both]">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="size-4!"
+      >
+        <path d="M5 12.5l4.5 4.5L19 7.5" />
+      </svg>
+    </span>
   )
 }
 
@@ -161,21 +201,16 @@ function DropdownMenuCheckboxItem({
     <MenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
       data-inset={inset}
-      className={cn(
-        "relative flex cursor-default items-center gap-2.5 rounded-xl py-2 pr-8 pl-3 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-9.5 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        className,
-      )}
+      className={cn(OPTION, 'pr-12 data-inset:pl-11', className)}
       checked={checked}
       {...props}
     >
-      <span
-        className="pointer-events-none absolute right-2 flex items-center justify-center"
-        data-slot="dropdown-menu-checkbox-item-indicator"
-      >
-        <MenuPrimitive.CheckboxItemIndicator>
-          <CheckIcon />
-        </MenuPrimitive.CheckboxItemIndicator>
-      </span>
+      <Mark>
+        <MenuPrimitive.CheckboxItemIndicator
+          data-slot="dropdown-menu-checkbox-item-indicator"
+          render={<Tick />}
+        />
+      </Mark>
       {children}
     </MenuPrimitive.CheckboxItem>
   )
@@ -202,20 +237,15 @@ function DropdownMenuRadioItem({
     <MenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
       data-inset={inset}
-      className={cn(
-        "relative flex cursor-default items-center gap-2.5 rounded-xl py-2 pr-8 pl-3 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-9.5 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        className,
-      )}
+      className={cn(OPTION, 'pr-12 data-inset:pl-11', className)}
       {...props}
     >
-      <span
-        className="pointer-events-none absolute right-2 flex items-center justify-center"
-        data-slot="dropdown-menu-radio-item-indicator"
-      >
-        <MenuPrimitive.RadioItemIndicator>
-          <CheckIcon />
-        </MenuPrimitive.RadioItemIndicator>
-      </span>
+      <Mark>
+        <MenuPrimitive.RadioItemIndicator
+          data-slot="dropdown-menu-radio-item-indicator"
+          render={<Tick />}
+        />
+      </Mark>
       {children}
     </MenuPrimitive.RadioItem>
   )
@@ -228,7 +258,10 @@ function DropdownMenuSeparator({
   return (
     <MenuPrimitive.Separator
       data-slot="dropdown-menu-separator"
-      className={cn('-mx-1 my-1 h-px bg-border/50', className)}
+      className={cn(
+        'mx-3 my-1.5 h-0.5 rounded-full bg-(--sorbet-surface-strong)',
+        className,
+      )}
       {...props}
     />
   )
@@ -242,7 +275,8 @@ function DropdownMenuShortcut({
     <span
       data-slot="dropdown-menu-shortcut"
       className={cn(
-        'ml-auto text-xs tracking-widest text-muted-foreground group-focus/dropdown-menu-item:text-accent-foreground',
+        'ml-auto flex h-6 min-w-6 items-center justify-center rounded-[8px] bg-(--sorbet-well) px-1.5 text-[13px] font-bold text-(--sorbet-ink-muted) shadow-[inset_0_-2px_0_0_var(--sorbet-surface-strong)]',
+        DISPLAY,
         className,
       )}
       {...props}

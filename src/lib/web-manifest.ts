@@ -1,9 +1,10 @@
 import { m } from '@/paraglide/messages'
 import type { Locale } from '@/paraglide/runtime'
 
-// The page background (--background in src/styles.css), behind the app
-// while it starts and around it once installed.
-const background = '#ffffff'
+// The page background (--sorbet-canvas, which --background follows, in
+// src/styles.css), behind the app while it starts and around it once
+// installed.
+const background = '#fffaf6'
 
 // The web app manifest, which browsers read to install the app. The name
 // follows the interface language. The icons are written into public/ by
