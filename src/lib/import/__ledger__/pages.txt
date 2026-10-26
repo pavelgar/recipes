@@ -1,0 +1,300 @@
+# Every page in corpus/pages/ as extractRecipe reads it.
+# ✓: it is what DESIGN.md's import rules make of the page as published
+# (.cache/pages/ holds it, or its address): servings and times, how
+# many ingredients and steps in how many sections, language and
+# measures, and whose page it is.
+# ✗: want lines give the right reading.
+# Written by the tests; see src/test/ledger.ts for how to update it.
+#
+# 39 entries: 39 checked, of which 3 wrong; 0 unchecked.
+
+## kotiliesi.fi : 3 pages
+
+✓ "https://kotiliesi.fi/resepti/etikkasilakat/"
+  servings – | prep – | cook – | total 30
+  ingredients 9 in 1 section
+  steps 3 in 1 section
+  fi, metric
+  source Kotiliesi.fi, at the address read
+✓ "https://kotiliesi.fi/resepti/mansikka-ja-pistaasimarengit/"
+  servings 50 | prep – | cook – | total 60
+  ingredients 7 in 1 section
+  steps 9 in 1 section
+  fi, metric
+  source Kotiliesi.fi, at the address read
+✓ "https://kotiliesi.fi/resepti/mokkilaisen-sienipannu/"
+  servings 4 | prep – | cook – | total 30
+  ingredients 11 in 1 section
+  steps 4 in 1 section
+  fi, metric
+  source Kotiliesi.fi, at the address read
+
+## allrecipes.com : 3 pages
+
+✓ "https://www.allrecipes.com/recipe/104806/tomato-and-mozzarella-bites/"
+  servings 20 skewers | prep 30 | cook – | total 30
+  ingredients 7 in 1 section
+  steps 3 in 1 section
+  en, us
+  source Allrecipes, at the address read
+✓ "https://www.allrecipes.com/recipe/214488/lemon-chicken-piccata/"
+  servings 4 | prep 20 | cook 30 | total 50
+  ingredients 11 in 1 section
+  steps 4 in 1 section
+  en, us
+  source Allrecipes, at the address read
+✓ "https://www.allrecipes.com/recipe/21668/corn-relish-ii/"
+  servings 14 cups | prep 60 | cook 60 | total 120
+  ingredients 11 in 1 section
+  steps 4 in 1 section
+  en, us
+  source Allrecipes, at the address read
+
+## arla.fi : 3 pages
+
+✓ "https://www.arla.fi/reseptit/banaanismoothie-maapahkinavoin-kera/"
+  servings 2 | prep – | cook – | total 10
+  ingredients 3 in 1 section
+  steps 2 in 1 sections
+  fi, metric
+  source Arla, at the address read
+✓ "https://www.arla.fi/reseptit/juustoinen-uunilohi/"
+  servings 4 annosta | prep – | cook – | total –
+  ingredients 7 in 1 section
+  steps 2 in 1 section
+  fi, metric
+  source Arla, at the address read
+✓ "https://www.arla.fi/reseptit/kolmen-suklaan-juustokakku/"
+  servings 10 annosta | prep – | cook – | total 60
+  ingredients 12 in 1 section
+  steps 13 in 1 section
+  fi, metric
+  source Arla, at the address read
+
+## bbc.co.uk : 3 pages
+
+✓ "https://www.bbc.co.uk/food/recipes/almond_and_orange_tart_69229"
+  servings Serves 8–10 | prep 30 | cook 120 | total –
+  ingredients 11 in 1 section
+  steps 6 in 1 section
+  en, british
+  source BBC Food, at the address read
+✓ "https://www.bbc.co.uk/food/recipes/christmas_brownies_41164"
+  servings Makes 24 squares | prep 30 | cook 30 | total –
+  ingredients 10 in 1 section
+  steps 8 in 1 section
+  en, british
+  source BBC Food, at the address read
+✓ "https://www.bbc.co.uk/food/recipes/easy_onion_rings_87916"
+  servings Serves 2 | prep 30 | cook 30 | total –
+  ingredients 7 in 1 section
+  steps 6 in 1 section
+  en, british
+  source BBC Food, at the address read
+
+## bbcgoodfood.com : 3 pages
+
+✓ "https://www.bbcgoodfood.com/recipes/boulevardier"
+  servings 1 | prep 5 | cook – | total 5
+  ingredients 5 in 1 section
+  steps 2 in 1 section
+  en, british
+  source Good Food, at the address read
+✓ "https://www.bbcgoodfood.com/recipes/flavour-bomb-roast-turkey-gravy"
+  servings Serves 8-10 | prep 30 | cook 180 | total 210
+  ingredients 19 in 1 section
+  steps 5 in 1 section
+  en, british
+  source Good Food, at the address read
+✓ "https://www.bbcgoodfood.com/recipes/huevos-rancheros"
+  servings 4 | prep 10 | cook 15 | total 25
+  ingredients 15 in 1 section
+  steps 4 in 1 section
+  en, british
+  source Good Food, at the address read
+
+## kingarthurbaking.com : 3 pages
+
+✓ "https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe"
+  servings 12 doughnuts | prep 15 | cook 10 | total 25
+  ingredients 12 in 1 section
+  steps 9 in 1 section
+  en, us
+  source King Arthur Baking, at the address read
+✓ "https://www.kingarthurbaking.com/recipes/gluten-free-bacon-cheddar-chive-scones-recipe"
+  servings 8 large scones | prep 20 | cook 22 | total 42
+  ingredients 9 in 1 section
+  steps 8 in 1 section
+  en, us
+  source King Arthur Baking, at the address read
+✓ "https://www.kingarthurbaking.com/recipes/golden-chocolate-chip-muffins-recipe"
+  servings 12 muffins | prep 10 | cook 30 | total 40
+  ingredients 11 in 1 section
+  steps 7 in 1 section
+  en, us
+  source King Arthur Baking, at the address read
+
+## kotikokki.net : 3 pages
+
+✓ "https://www.kotikokki.net/kumppanit/bonne/reseptit/nayta/884419/Mangosorbetti/"
+  servings 4 annosta | prep – | cook – | total –
+  ingredients 3 in 1 section
+  steps 3 in 1 section
+  fi, metric
+  source –, at the address read
+✓ "https://www.kotikokki.net/reseptit/nayta/870540/Kana-paprika%20piiras/"
+  servings 6 annosta | prep 30 | cook 60 | total –
+  ingredients 9 in 1 section
+  steps 17 in 1 section
+  fi, metric
+  source –, at the address read
+✓ "https://www.kotikokki.net/reseptit/nayta/871867/Karhu-t%C3%B6lkki%20kakku%2017.9.2022/"
+  servings 1 annosta | prep 360 | cook 720 | total –
+  ingredients 14 in 1 section
+  steps 6 in 1 section
+  fi, metric
+  source –, at the address read
+
+## meillakotona.fi : 3 pages
+
+✗ "https://www.meillakotona.fi/reseptit/broileria-ja-kaalia-hoisinkastikkeessa-uusi-arkiruokasuosikki-valmistuu-vartissa"
+  servings 4 annosta | prep 15 | cook – | total 15
+  ingredients 12 in 1 section
+  steps 2 in 1 section
+  fi, metric
+  source Kotona, at the address read
+  want:
+  servings 4 annosta | prep 15 | cook – | total 15
+  ingredients 12 in 1 section
+  steps 6 in 1 section
+  fi, metric
+  source Kotona, at the address read
+✗ "https://www.meillakotona.fi/reseptit/mansikkavuokakakku-tassa-on-kesan-nopein-mansikkakakku"
+  servings 10 annosta | prep 20 | cook 10 | total 30
+  ingredients 9 in 1 section
+  steps 3 in 1 section
+  fi, metric
+  source Kotona, at the address read
+  want:
+  servings 10 annosta | prep 20 | cook 10 | total 30
+  ingredients 9 in 1 section
+  steps 10 in 1 section
+  fi, metric
+  source Kotona, at the address read
+✗ "https://www.meillakotona.fi/reseptit/pienet-sitruunajuustokakut-sous-vide-tekniikalla"
+  servings 6 annosta | prep 30 | cook 90 | total 120
+  ingredients 12 in 1 section
+  steps 2 in 1 section
+  fi, metric
+  source Kotona, at the address read
+  want:
+  servings 6 annosta | prep 30 | cook 90 | total 120
+  ingredients 12 in 1 section
+  steps 6 in 1 section
+  fi, metric
+  source Kotona, at the address read
+
+## recipetineats.com : 3 pages
+
+✓ "https://www.recipetineats.com/baked-pumpkin-risotto/"
+  servings 5 - 6 people | prep 15 | cook 30 | total 45
+  ingredients 13 in 1 section
+  steps 14 in 2 sections, some without a heading
+  en, australian
+  source RecipeTin Eats, at the address read
+✓ "https://www.recipetineats.com/flan-patissier-french-custard-tart/"
+  servings – | prep 20 | cook 85 | total –
+  ingredients 10 in 1 section
+  steps 24 in 4 sections
+  en, australian
+  source RecipeTin Eats, at the address read
+✓ "https://www.recipetineats.com/italian-almond-cookies-ricciarelli/"
+  servings 20 | prep 15 | cook 15 | total –
+  ingredients 10 in 1 section
+  steps 11 in 2 sections, some without a heading
+  en, australian
+  source RecipeTin Eats, at the address read
+
+## soppa365.fi : 3 pages
+
+✓ "https://www.soppa365.fi/reseptit/arjen-nopeat-kana/harissaporkkanat"
+  servings 2 | prep 30 | cook – | total 30
+  ingredients 9 in 1 section
+  steps 2 in 1 section
+  fi, metric
+  source Soppa365, at the address read
+✓ "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-juhli-ja-nauti-salaatit/kuningasperunasalaatti"
+  servings 4 | prep 25 | cook – | total 25
+  ingredients 13 in 1 section
+  steps 6 in 1 section
+  fi, metric
+  source Soppa365, at the address read
+✓ "https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat/kesakurpitsapasta-nopean-tomaattikastikken-kera"
+  servings 4 | prep 20 | cook – | total 20
+  ingredients 10 in 1 section
+  steps 0 in 0 sections
+  fi, metric
+  source Soppa365, at the address read
+
+## valio.fi : 3 pages
+
+✓ "https://www.valio.fi/reseptit/ananas-rahkajuoma/"
+  servings 1, 1 l | prep 10 | cook – | total 10
+  ingredients 5 in 1 section
+  steps 2 in 1 section
+  fi, metric
+  source Valio, at the address read
+✓ "https://www.valio.fi/reseptit/juustoinen-jauhelihakeitto-mikrossa/"
+  servings 2, 2 annosta | prep 20 | cook – | total 20
+  ingredients 9 in 1 section
+  steps 3 in 1 section
+  fi, metric
+  source Valio, at the address read
+✓ "https://www.valio.fi/reseptit/kolmen-juuston-patonki/"
+  servings 1, 1 annos | prep 10 | cook – | total 10
+  ingredients 8 in 1 section
+  steps 2 in 1 section
+  fi, metric
+  source Valio, at the address read
+
+## womensweeklyfood.com.au : 3 pages
+
+✓ "https://www.womensweeklyfood.com.au/recipe/baking/banoffee-meringue-with-honeycomb-11216/"
+  servings 12 | prep – | cook 180 | total 180
+  ingredients 13 in 1 section
+  steps 8 in 1 section
+  en, australian
+  source Women's Weekly Food, at the address read
+✓ "https://www.womensweeklyfood.com.au/recipe/baking/raspberry-and-white-chocolate-brownie-10112/"
+  servings 10 | prep – | cook 45 | total 45
+  ingredients 9 in 1 section
+  steps 5 in 1 section
+  en, australian
+  source Women's Weekly Food, at the address read
+✓ "https://www.womensweeklyfood.com.au/recipe/baking/russian-style-potato-and-fish-casserole-28589/"
+  servings 4 | prep 15 | cook 45 | total 60
+  ingredients 15 in 1 section
+  steps 4 in 1 section
+  en, australian
+  source Women's Weekly Food, at the address read
+
+## yhteishyva.fi : 3 pages
+
+✓ "https://yhteishyva.fi/reseptit/aasialainen-pihvisalaatti/9hdFCASjlhB4rSLkNosL0"
+  servings 6 portion | prep 15 | cook 45 | total 60
+  ingredients 19 in 1 section
+  steps 6 in 1 section
+  fi, metric
+  source Yhteishyvä, at the address read
+✓ "https://yhteishyva.fi/reseptit/lime-inkivaari-halsteribroileri-ja-grillattu-anana/1ZJyIyI1weMETsQIeEa3bV"
+  servings 2 portion | prep – | cook – | total 120
+  ingredients 17 in 1 section
+  steps 5 in 1 section
+  fi, metric
+  source Yhteishyvä, at the address read
+✓ "https://yhteishyva.fi/reseptit/meloni-mozzarellasalaatti/4dkQaDAPCSmplyoVDtZeCE"
+  servings 6 portion | prep – | cook 15 | total 15
+  ingredients 10 in 1 section
+  steps 4 in 1 section
+  fi, metric
+  source Yhteishyvä, at the address read

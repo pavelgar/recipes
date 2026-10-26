@@ -28,3 +28,6 @@ playwright-report
 src/paraglide
 project.inlang/*
 !project.inlang/settings.json
+
+# Real pages for the importer tests, kept out of the repo (scripts/pages.ts)
+.cache
