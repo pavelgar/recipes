@@ -78,6 +78,11 @@ const EXAMPLES: Record<Language, { ingredients: string; steps: string }> = {
   },
 }
 
+type TidyFeedback =
+  | { kind: 'error'; message: string }
+  | { kind: 'unchanged' }
+  | { kind: 'tidied'; before: string; after: string }
+
 // The fields the recipe's language is told from.
 const TEXT_FIELDS: ReadonlyArray<string> = ['title', 'ingredients', 'steps']
 
@@ -245,18 +250,22 @@ export function RecipeEditor({
   const tidying = useMutation({
     mutationFn: (steps: string) => tidySteps({ data: { steps } }),
   })
-  // The steps are replaced in place, and Undo brings back what they were.
-  // An answer that comes after the steps were changed is dropped.
+  const [tidyFeedback, setTidyFeedback] = useState<TidyFeedback | null>(null)
+
+  function changeSteps(steps: string) {
+    form.setFieldValue('steps', steps)
+    if (!finished.current) saveDraft(origin, form.state.values)
+  }
+
+  // Feedback stays beside the steps, with Undo for the last tidy result.
+  // Editing the steps clears it; a late answer cannot replace those edits.
   function tidy() {
     const before = form.getFieldValue('steps')
-    const changeSteps = (steps: string) => {
-      form.setFieldValue('steps', steps)
-      if (!finished.current) saveDraft(origin, form.state.values)
-    }
+    setTidyFeedback(null)
     if (before.trim().length > MAX_TEXT) {
-      toast.add({
-        type: 'error',
-        title: m.ai_text_too_long({ count: MAX_TEXT }),
+      setTidyFeedback({
+        kind: 'error',
+        message: m.ai_text_too_long({ count: MAX_TEXT }),
       })
       return
     }
@@ -264,9 +273,9 @@ export function RecipeEditor({
       onSuccess: (result) => {
         if (form.getFieldValue('steps') !== before) return
         if (!result.ok) {
-          toast.add({
-            type: 'error',
-            title:
+          setTidyFeedback({
+            kind: 'error',
+            message:
               result.code === 'text-too-long'
                 ? m.ai_text_too_long({ count: MAX_TEXT })
                 : result.code === 'changed-words'
@@ -276,27 +285,27 @@ export function RecipeEditor({
           return
         }
         if (result.steps === tidiedAlready(before)) {
-          toast.add({ title: m.editor_tidy_unchanged() })
+          setTidyFeedback({ kind: 'unchanged' })
           return
         }
         changeSteps(result.steps)
-        const id = toast.add({
-          title: m.editor_tidied(),
-          actionProps: {
-            children: m.editor_undo(),
-            onClick: () => {
-              toast.close(id)
-              if (form.getFieldValue('steps') === result.steps) {
-                changeSteps(before)
-              }
-            },
-          },
-        })
+        setTidyFeedback({ kind: 'tidied', before, after: result.steps })
       },
       onError: () => {
-        toast.add({ type: 'error', title: m.editor_tidy_failed() })
+        if (form.getFieldValue('steps') !== before) return
+        setTidyFeedback({ kind: 'error', message: m.editor_tidy_failed() })
       },
     })
+  }
+
+  function undoTidy() {
+    if (tidyFeedback?.kind !== 'tidied') return
+    if (form.getFieldValue('steps') !== tidyFeedback.after) return
+    changeSteps(tidyFeedback.before)
+    setTidyFeedback(null)
+    formElement.current
+      ?.querySelector<HTMLTextAreaElement>('#steps')
+      ?.focus({ preventScroll: true })
   }
 
   // Nothing asks for confirmation; Undo brings the draft back.
@@ -539,10 +548,13 @@ export function RecipeEditor({
 
       <form.Field name="steps">
         {(field) => (
-          <section className="flex flex-col gap-3">
+          <Field aria-labelledby="steps-heading">
             {/* Beside the heading, Tidy steps, where it's about them. */}
             <div className="flex min-h-9 items-center justify-between gap-3">
-              <h2 className="font-heading text-xl font-semibold">
+              <h2
+                id="steps-heading"
+                className="font-heading text-xl font-semibold"
+              >
                 <label htmlFor={field.name}>{m.recipe_steps()}</label>
               </h2>
               {canTidy && (
@@ -562,6 +574,33 @@ export function RecipeEditor({
                 </Button>
               )}
             </div>
+            {tidyFeedback?.kind === 'error' ? (
+              <FieldError id="steps-tidy-feedback">
+                {tidyFeedback.message}
+              </FieldError>
+            ) : (
+              tidyFeedback && (
+                <FieldDescription
+                  id="steps-tidy-feedback"
+                  role="status"
+                  className="flex flex-wrap items-center gap-x-2 gap-y-1"
+                >
+                  {tidyFeedback.kind === 'tidied'
+                    ? m.editor_tidied()
+                    : m.editor_tidy_unchanged()}
+                  {tidyFeedback.kind === 'tidied' && (
+                    <Button
+                      type="button"
+                      variant="link"
+                      size="sm"
+                      onClick={undoTidy}
+                    >
+                      {m.editor_undo()}
+                    </Button>
+                  )}
+                </FieldDescription>
+              )
+            )}
             <MarkedTextarea
               id={field.name}
               list="numbers"
@@ -569,13 +608,19 @@ export function RecipeEditor({
               placeholder={examples?.steps}
               marksOf={(line) => marksOf(line, 'step', opts)}
               flagged={flagged}
-              onChange={(event) => field.handleChange(event.target.value)}
+              aria-describedby={
+                tidyFeedback ? 'steps-tidy-feedback' : undefined
+              }
+              onChange={(event) => {
+                setTidyFeedback(null)
+                field.handleChange(event.target.value)
+              }}
               onBlur={field.handleBlur}
             />
             {anyFlagged(field.state.value) && (
               <FieldDescription>{m.editor_reworded()}</FieldDescription>
             )}
-          </section>
+          </Field>
         )}
       </form.Field>
 
