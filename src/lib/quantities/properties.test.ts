@@ -152,11 +152,11 @@ describe('oven temperatures', () => {
   )
 
   test.prop([fahrenheit])(
-    'are in steps of 10 °C from 250 °F, and of 1 °C below',
+    'are in steps of 10 °C from 120 °C, and of 1 °C below',
     (f) => {
       const c = toCelsius(f)
       expect(Number.isInteger(c)).toBe(true)
-      if (f >= 250) expect(isMultiple(c, 10)).toBe(true)
+      if (((f - 32) * 5) / 9 >= 120) expect(isMultiple(c, 10)).toBe(true)
     },
   )
 
@@ -165,6 +165,14 @@ describe('oven temperatures', () => {
     ([a, b]) => {
       const [low, high] = a <= b ? [a, b] : [b, a]
       expect(toFahrenheit(low)).toBeLessThanOrEqual(toFahrenheit(high))
+    },
+  )
+
+  test.prop([fc.tuple(fahrenheit, fahrenheit)])(
+    'never get colder as they get hotter, in °C',
+    ([a, b]) => {
+      const [low, high] = a <= b ? [a, b] : [b, a]
+      expect(toCelsius(low)).toBeLessThanOrEqual(toCelsius(high))
     },
   )
 })
