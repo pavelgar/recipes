@@ -97,14 +97,16 @@ export async function fetchJson(link: string): Promise<unknown> {
 
 // Fetches the photo a page gives, or undefined if it can't be read. What it
 // is, the photo store tells from the file itself: sites write image/jpg,
-// and some serve WebP from an address ending in .jpg.
+// and some serve WebP from an address ending in .jpg. AVIF isn't asked for,
+// so a site that could send either sends WebP: the store takes AVIF only
+// up to 8 megapixels, which reading it needs much more memory for.
 export async function fetchImage(
   link: string,
 ): Promise<Uint8Array | undefined> {
   try {
     const response = await request(
       link,
-      'image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8,*/*;q=0.1',
+      'image/webp,image/png,image/jpeg,image/*;q=0.8,*/*;q=0.1',
       IMAGE_TIMEOUT_MS,
       MAX_PHOTO_BYTES,
     )

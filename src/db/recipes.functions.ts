@@ -41,16 +41,17 @@ export const recipeQuery = (id: number) =>
   })
 
 // Saves a new recipe from the editor, and gives its id. Its photo must be
-// one the app stored.
+// one the app stored. A draft can outlive its photo's file, when the
+// photos folder was lost or the photo was cleared out as unused; the
+// recipe is then saved without it, as the editor already shows it.
 export const createRecipe = createServerFn({ method: 'POST' })
   .validator(recipeInputSchema)
   .handler(async ({ data }) => {
-    if (data.photo !== null && !(await photoExists(data.photo))) {
-      throw new Error('No such photo')
-    }
+    const photo =
+      data.photo !== null && (await photoExists(data.photo)) ? data.photo : null
     const [saved] = await db
       .insert(recipes)
-      .values(data)
+      .values({ ...data, photo })
       .returning({ id: recipes.id })
     return { id: saved.id }
   })

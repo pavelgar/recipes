@@ -11,9 +11,6 @@ import type { PhotoResult } from '@/lib/photos/photo'
 // and large enough for a wide screen at twice its pixel density.
 const MAX_SIDE = 1600
 const QUALITY = 80
-// A 48-megapixel phone photo fits. Larger ones would take the server's
-// memory to decode.
-const MAX_PIXELS = 100_000_000
 
 // What phones, cameras and recipe sites give. sharp reads AVIF as HEIF
 // compressed with AV1; it can't read the HEVC that iPhones' HEIC uses, and
@@ -23,6 +20,18 @@ function isReadable({ format, compression }: Metadata): boolean {
     ['jpeg', 'png', 'webp', 'gif'].includes(format) ||
     (format === 'heif' && compression === 'av1')
   )
+}
+
+// The most pixels a photo can have, so that reading it takes about 150 MB
+// at most, and a Raspberry Pi 4 with 2 GB has room for the four photos
+// sharp reads at once. How much a pixel takes depends on how the photo is
+// read: a JPEG as phones save it (baseline) is read already shrunk, and a
+// PNG or WebP a strip at a time, but a progressive JPEG, an interlaced PNG
+// and a GIF are read whole, and an AVIF takes about 19 bytes a pixel.
+function maxPixels({ format, isProgressive }: Metadata): number {
+  if (format === 'heif') return 8_000_000
+  if (format === 'gif' || isProgressive) return 25_000_000
+  return 100_000_000
 }
 
 // Stores a photo as the app keeps it: upright, fitting within 1600 × 1600
@@ -39,7 +48,7 @@ export async function storePhoto(bytes: Uint8Array): Promise<PhotoResult> {
     const image = sharp(bytes, { failOn: 'error', limitInputPixels: false })
     const metadata = await image.metadata()
     if (!isReadable(metadata)) return { ok: false, error: 'unreadable' }
-    if (metadata.width * metadata.height > MAX_PIXELS) {
+    if (metadata.width * metadata.height > maxPixels(metadata)) {
       return { ok: false, error: 'too-large' }
     }
     webp = await image

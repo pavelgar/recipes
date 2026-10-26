@@ -55,6 +55,7 @@ import { siteOf } from '@/lib/import/link'
 import { RECIPE_LANGUAGES, rulesFor, UNKNOWN_LANGUAGE } from '@/lib/languages'
 import { suggestLanguage } from '@/lib/languages.functions'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
+import { MAX_PHOTO_BYTES } from '@/lib/photos/photo'
 import { uploadPhoto } from '@/lib/photos/photos.functions'
 import { m } from '@/paraglide/messages'
 import type { LucideIcon } from 'lucide-react'
@@ -175,9 +176,12 @@ export function RecipeEditor({
         finished.current = true
         clearDraft(link)
         await queryClient.invalidateQueries({ queryKey: ['recipes'] })
+        // The recipe takes the editor's place, so Back doesn't open it again,
+        // with the import it was read from, to save a second recipe.
         await navigate({
           to: '/recipes/$recipeId',
           params: { recipeId: id },
+          replace: true,
         })
       } catch {
         // Not about any one field, so it shows at the top of the screen,
@@ -534,7 +538,7 @@ export function RecipeEditor({
 function PhotoField({ field }: { field: TextField }) {
   const input = useRef<HTMLInputElement>(null)
   // The toast that undoes removing it, which goes when the editor does or
-  // another photo is chosen.
+  // another photo takes its place.
   const removed = useRef<string>(undefined)
   useEffect(() => () => closeToast(removed.current), [])
   const upload = useMutation({
@@ -547,11 +551,19 @@ function PhotoField({ field }: { field: TextField }) {
   })
 
   function choose(file: File) {
-    closeToast(removed.current)
+    // The server would refuse it too, but only once it was sent.
+    if (file.size > MAX_PHOTO_BYTES) {
+      toast.add({ type: 'error', title: m.editor_photo_too_large() })
+      return
+    }
     upload.mutate(file, {
       onSuccess: (result) => {
-        if (result.ok) field.handleChange(result.photo)
-        else toast.add({ type: 'error', title: PHOTO_ERRORS[result.error]() })
+        if (!result.ok) {
+          toast.add({ type: 'error', title: PHOTO_ERRORS[result.error]() })
+          return
+        }
+        closeToast(removed.current)
+        field.handleChange(result.photo)
       },
       onError: () =>
         toast.add({ type: 'error', title: m.editor_photo_failed() }),

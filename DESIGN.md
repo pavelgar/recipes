@@ -16,6 +16,13 @@
 
 - The app has no logins, so it must only be reachable from a trusted
   network, never from the open internet.
+- Not everyone on that network is trusted to the full: anyone there can
+  call the server directly, not only through the app's pages. The server
+  checks what it's sent, and refuses a call larger than any the app makes
+  (a photo, up to 20 MB) before reading it.
+- The smallest server the app is built for has 2 GB of memory, as a
+  Raspberry Pi 4 can. What the server reads, such as photos, fits within
+  that. The image is for amd64 only (see Not now).
 - The container serves plain HTTP. HTTPS comes from a reverse proxy or
   Tailscale in front of it.
 - Plain HTTP access (for example by IP address on the home network) also
@@ -169,7 +176,8 @@
   width for all, so their square comes. The page's og:image isn't read: on
   BBC Food, a recipe without a photo has the site's logo there. The server
   fetches the photo while the page is read, from public addresses only,
-  and a photo it can't fetch or read leaves the recipe without one,
+  asking for WebP rather than AVIF, which takes far more memory to read. A
+  photo it can't fetch, read or store leaves the recipe without one,
   unannounced.
 - An imported recipe's language is the one its page states (the Recipe's
   own, then the page's), whichever language that is, unless its text is
@@ -189,7 +197,9 @@
   saving, with the same line-by-line recognition as typed recipes.
 - Until it's saved, the editor's draft is kept in the browser: one typed
   by hand, and one being checked after an import. Discarding a draft asks
-  nothing and can be undone.
+  nothing and can be undone. A saved recipe takes the editor's place in
+  the browser's history, so Back doesn't open the editor again to save it
+  twice.
 - The editor is laid out like the recipe it writes, each detail beside what
   it's about: the cover photo above the name, with buttons over it to change
   or remove it, or without one its frame, empty like the other fields, to
@@ -246,12 +256,18 @@
 - The app must work and look good for recipes without a photo.
 - A cover photo is kept upright, fitting within 1600 × 1600 px (never
   enlarged), as WebP, without its metadata, which can hold where it was
-  taken. JPEG, PNG, WebP, AVIF and GIF are read, up to 20 MB and 100
-  megapixels. HEIC isn't: sharp's builds can't read it, and iPhones send
-  JPEG to web pages.
+  taken. JPEG, PNG, WebP, AVIF and GIF are read, up to 20 MB, which the
+  editor checks before sending a photo. How many megapixels depends on how
+  much of the photo is read at once, so that one takes about 150 MB at
+  most: 100 for a JPEG as phones save it (baseline), a PNG or a WebP; 25
+  for a progressive JPEG, an interlaced PNG or a GIF, which are read whole;
+  8 for an AVIF, which takes about 19 bytes a pixel. HEIC isn't read:
+  sharp's builds can't read it, and iPhones send JPEG to web pages.
 - The photo is added, changed and removed in the editor, before saving.
-  Removing it asks nothing and can be undone. Changing a saved recipe's
-  photo comes with editing saved recipes.
+  Removing it asks nothing and can be undone until another photo takes its
+  place. A draft can outlive its photo's file, which the editor shows as
+  an empty frame; the recipe is then saved without it. Changing a saved
+  recipe's photo comes with editing saved recipes.
 - Servings are adjustable, and ingredient amounts follow.
 - Servings are kept as written, since recipes often give a yield instead
   ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
@@ -574,6 +590,7 @@
   the import.
 - Importing recipes from other apps or files. There are no existing recipes
   to bring in.
+- An arm64 image, for servers such as a Raspberry Pi. Maybe later.
 
 ## Build order
 

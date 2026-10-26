@@ -5,6 +5,7 @@ import sharp from 'sharp'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { photoIdSchema } from '@/lib/photos/photo'
 import { photoExists, readPhoto, storePhoto } from '@/lib/photos/store.server'
+import type { Sharp } from 'sharp'
 import type { PhotoResult } from '@/lib/photos/photo'
 
 // Photos made here, of one colour, as a camera or a site would save them.
@@ -121,6 +122,40 @@ describe('storePhoto', () => {
       ok: false,
       error: 'too-large',
     })
+  })
+
+  // A phone saves its largest photos as baseline JPEGs, which are read
+  // already shrunk.
+  it("keeps a phone's 48-megapixel photo", async () => {
+    const bytes = await photo(8000, 6000).jpeg().toBuffer()
+    expect(await stored(await storePhoto(bytes))).toMatchObject({
+      width: 1600,
+      height: 1200,
+    })
+  })
+
+  // Just over the most pixels it can have, which depends on how much of the
+  // photo is read at once: 100 megapixels, 25 for one read whole, and 8 for
+  // an AVIF.
+  it.each([
+    ['a JPEG', 10_000, 10_001, (image: Sharp) => image.jpeg()],
+    [
+      'a progressive JPEG',
+      5000,
+      5001,
+      (image: Sharp) => image.jpeg({ progressive: true }),
+    ],
+    [
+      'an interlaced PNG',
+      5000,
+      5001,
+      (image: Sharp) => image.png({ progressive: true }),
+    ],
+    ['a GIF', 5000, 5001, (image: Sharp) => image.gif()],
+    ['an AVIF', 3000, 2667, (image: Sharp) => image.avif()],
+  ])('refuses %s of %i × %i', async (_, width, height, encode) => {
+    const bytes = await encode(photo(width, height)).toBuffer()
+    expect(await storePhoto(bytes)).toEqual({ ok: false, error: 'too-large' })
   })
 })
 
