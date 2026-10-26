@@ -135,6 +135,7 @@ export function findsLedger(
       'Written by the tests; see src/test/ledger.ts for how to update it.',
     ],
     items,
+    sampled: true,
     summarise: (_, entries) => `: ${entries.length} words`,
   })
 }

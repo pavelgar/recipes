@@ -14,6 +14,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "ledger:sample": "node scripts/ledger-sample.ts",
     "lint": "eslint",
     "typecheck": "tsc --noEmit && tsc --noEmit -p src/service-worker",
     "format": "prettier --write . && eslint --fix",
