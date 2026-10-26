@@ -35,6 +35,8 @@ jobs:
       # (src/lib/import/fetch.server.ts). The image's build must leave it out.
       - run: bun run build
       - run: '! grep -rn allowIPAddressList .output/server/_ssr'
+      # Component tests run in Chromium (vitest.config.ts).
+      - run: bunx playwright install --with-deps chromium
       - run: bun run test
 
   # The app in Chromium and WebKit, on a phone and a computer, and over plain

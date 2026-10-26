@@ -135,8 +135,9 @@ http://localhost:3000.
 | `bun run lint`        | Lint with ESLint                                                     |
 | `bun run format`      | Format with Prettier and apply ESLint fixes                          |
 
-The end-to-end tests need Playwright's Chromium, downloaded once per
-machine with `bunx playwright install chromium`.
+The component tests (`*.browser.test.tsx`) and the end-to-end tests need
+Playwright's Chromium, downloaded once per machine with
+`bunx playwright install chromium`.
 
 Built with TanStack Start (React), Drizzle ORM on SQLite through libsql,
 Paraglide for translations (`messages/`), Tailwind CSS, and Workbox through
