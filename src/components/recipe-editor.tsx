@@ -1,8 +1,17 @@
+import { tidiedAlready } from '@/lib/editor/tidy'
+import { MAX_TEXT } from '@/lib/ai/limits'
 import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
-import { BookOpenIcon, CheckIcon, Trash2Icon, UsersIcon } from 'lucide-react'
+import {
+  BookOpenIcon,
+  CheckIcon,
+  Trash2Icon,
+  Undo2Icon,
+  UsersIcon,
+  WandSparklesIcon,
+} from 'lucide-react'
 import { cn } from 'cn'
 import { useEffect, useRef, useState } from 'react'
 
@@ -27,12 +36,14 @@ import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/toast'
 import { LANGUAGES, MEASURING_SYSTEMS } from '@/db/choices'
 import { createRecipe } from '@/db/recipes.functions'
+import { aiStatusQuery, tidySteps } from '@/lib/ai/ai.functions'
 import {
   namesLanguage,
   recipeLanguageName,
   SYSTEM_NAMES,
 } from '@/lib/choice-names'
 import {
+  addSearch,
   clearDraft,
   draftSchema,
   recipeFromDraft,
@@ -45,7 +56,7 @@ import { suggestLanguage } from '@/lib/languages.functions'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
 import { m } from '@/paraglide/messages'
 import type { LucideIcon } from 'lucide-react'
-import type { Draft } from '@/lib/editor/draft'
+import type { Draft, DraftOrigin } from '@/lib/editor/draft'
 import type { RecipeLanguage } from '@/lib/languages'
 import type { Language } from '@/lib/quantities'
 
@@ -68,6 +79,10 @@ const EXAMPLES: Record<Language, { ingredients: string; steps: string }> = {
   },
 }
 
+type TidyFeedback =
+  | { kind: 'error'; message: string }
+  | { kind: 'tidied'; before: string; after: string }
+
 // The fields the recipe's language is told from.
 const TEXT_FIELDS: ReadonlyArray<string> = ['title', 'ingredients', 'steps']
 
@@ -80,13 +95,13 @@ const TIMES = [
 // The recipe editor, laid out like the recipe it writes: the name as its
 // heading, and the lists as lists, each detail in view beside what it's
 // about.
-// `link` names the import it came from; the draft is kept in the browser
-// under it until it's saved or discarded.
+// `origin` says where the draft came from; it's kept in the browser under
+// it until it's saved or discarded.
 export function RecipeEditor({
-  link,
+  origin,
   initial,
 }: {
-  link: string | null
+  origin: DraftOrigin
   initial: Draft
 }) {
   const navigate = useNavigate()
@@ -125,7 +140,7 @@ export function RecipeEditor({
       // Every change is kept as it's made, so a reload, even the one when a
       // new version of the app takes over, loses nothing typed.
       onChange: ({ formApi, fieldApi }) => {
-        if (!finished.current) saveDraft(link, formApi.state.values)
+        if (!finished.current) saveDraft(origin, formApi.state.values)
         if (fieldApi.name === 'language') suggest(formApi.state.values)
       },
       // The language its text reads as is asked when the editor opens, when
@@ -141,7 +156,7 @@ export function RecipeEditor({
     // and focused.
     onSubmitInvalid: ({ formApi }) => {
       const invalid = Object.entries(formApi.state.fieldMeta)
-        .filter(([, meta]) => meta.errors.length)
+        .filter(([, meta]) => meta?.errors.length)
         .map(([name]) => name)
       const first = Array.from(formElement.current?.elements ?? []).find(
         (element) => invalid.includes(element.id),
@@ -156,7 +171,7 @@ export function RecipeEditor({
       try {
         const { id } = await createRecipe({ data: recipeFromDraft(value) })
         finished.current = true
-        clearDraft(link)
+        clearDraft(origin)
         await queryClient.invalidateQueries({ queryKey: ['recipes'] })
         await navigate({
           to: '/recipes/$recipeId',
@@ -184,7 +199,9 @@ export function RecipeEditor({
   const rules = rulesFor(values.language)
   const opts = { language: rules, system: values.measuringSystem }
   // An imported recipe's source is the page it came from, shown in the note
-  // under its name; a typed one's is whatever was typed in, a book and page.
+  // under its name; a typed one's is whatever was typed in, a book and page,
+  // as is one read from photos or pasted text.
+  const link = origin.kind === 'page' ? origin.link : null
   const source = link
     ? { url: values.sourceUrl || link, site: siteOf(values.sourceUrl || link) }
     : null
@@ -222,20 +239,89 @@ export function RecipeEditor({
     label: SYSTEM_NAMES[value](),
   }))
   const examples = rules ? EXAMPLES[rules] : null
+  // Lines AI wrote differently from what it read, until they're changed.
+  const reworded = new Set(values.reworded)
+  const flagged = (line: string) => reworded.has(line.trim())
+  const anyFlagged = (text: string) => text.split('\n').some(flagged)
+
+  // Tidying the steps needs the AI model, and steps to tidy.
+  const { data: ai } = useQuery(aiStatusQuery)
+  const canTidy = ai?.available === true && values.steps.trim() !== ''
+  const tidying = useMutation({
+    mutationFn: (steps: string) => tidySteps({ data: { steps } }),
+  })
+  const [tidyFeedback, setTidyFeedback] = useState<TidyFeedback | null>(null)
+  const hasTidied = tidyFeedback?.kind === 'tidied'
+
+  function changeSteps(steps: string) {
+    form.setFieldValue('steps', steps)
+    if (!finished.current) saveDraft(origin, form.state.values)
+  }
+
+  // The same button becomes Undo after successful tidying.
+  // Editing the steps clears it; a late answer cannot replace those edits.
+  function tidy() {
+    const before = form.getFieldValue('steps')
+    setTidyFeedback(null)
+    if (before.trim().length > MAX_TEXT) {
+      setTidyFeedback({
+        kind: 'error',
+        message: m.ai_text_too_long({ count: MAX_TEXT }),
+      })
+      return
+    }
+    tidying.mutate(before, {
+      onSuccess: (result) => {
+        if (form.getFieldValue('steps') !== before) return
+        if (!result.ok) {
+          setTidyFeedback({
+            kind: 'error',
+            message:
+              result.code === 'text-too-long'
+                ? m.ai_text_too_long({ count: MAX_TEXT })
+                : result.code === 'changed-words'
+                  ? m.editor_tidy_rejected()
+                  : m.editor_tidy_failed(),
+          })
+          return
+        }
+        if (result.steps === tidiedAlready(before)) {
+          setTidyFeedback({ kind: 'tidied', before, after: before })
+          return
+        }
+        changeSteps(result.steps)
+        setTidyFeedback({ kind: 'tidied', before, after: result.steps })
+      },
+      onError: () => {
+        if (form.getFieldValue('steps') !== before) return
+        setTidyFeedback({ kind: 'error', message: m.editor_tidy_failed() })
+      },
+    })
+  }
+
+  function undoTidy() {
+    if (tidyFeedback?.kind !== 'tidied') return
+    if (form.getFieldValue('steps') !== tidyFeedback.after) return
+    changeSteps(tidyFeedback.before)
+    setTidyFeedback(null)
+    formElement.current
+      ?.querySelector<HTMLTextAreaElement>('#steps')
+      ?.focus({ preventScroll: true })
+  }
 
   // Nothing asks for confirmation; Undo brings the draft back.
   function discard() {
     const draft = form.state.values
     finished.current = true
-    clearDraft(link)
+    clearDraft(origin)
     const id = toast.add({
       title: m.editor_discarded(),
       actionProps: {
         children: m.editor_undo(),
         onClick: () => {
           toast.close(id)
-          saveDraft(link, draft)
-          void navigate({ to: '/add', search: link ? { link } : {} })
+          saveDraft(origin, draft)
+          void navigate({ to: '/add', search: addSearch(origin) })
         },
       },
     })
@@ -295,6 +381,14 @@ export function RecipeEditor({
                     }}
                   />
                 </FieldDescription>
+              )}
+              {/* Read by AI from photos or pasted text: "Read by AI from
+                  your photos. Check it before saving." */}
+              {origin.kind === 'photos' && (
+                <FieldDescription>{m.editor_read_photos()}</FieldDescription>
+              )}
+              {origin.kind === 'text' && (
+                <FieldDescription>{m.editor_read_text()}</FieldDescription>
               )}
               <FieldError errors={field.state.meta.errors} />
             </Field>
@@ -442,29 +536,88 @@ export function RecipeEditor({
               value={field.state.value}
               placeholder={examples?.ingredients}
               marksOf={(line) => marksOf(line, 'ingredient', opts)}
+              flagged={flagged}
               onChange={(event) => field.handleChange(event.target.value)}
               onBlur={field.handleBlur}
             />
+            {anyFlagged(field.state.value) && (
+              <FieldDescription>{m.editor_reworded()}</FieldDescription>
+            )}
           </section>
         )}
       </form.Field>
 
       <form.Field name="steps">
         {(field) => (
-          <section className="flex flex-col gap-3">
-            <h2 className="font-heading text-xl font-semibold">
-              <label htmlFor={field.name}>{m.recipe_steps()}</label>
-            </h2>
+          <Field aria-labelledby="steps-heading">
+            {/* Beside the heading, Tidy steps, where it's about them. */}
+            <div className="flex min-h-9 items-center justify-between gap-3">
+              <h2
+                id="steps-heading"
+                className="shrink-0 font-heading text-xl font-semibold"
+              >
+                <label htmlFor={field.name}>{m.recipe_steps()}</label>
+              </h2>
+              <div className="flex min-w-0 items-center justify-end gap-3">
+                {tidyFeedback?.kind === 'error' && (
+                  <FieldError
+                    id="steps-tidy-feedback"
+                    className="min-w-0 break-words"
+                  >
+                    {tidyFeedback.message}
+                  </FieldError>
+                )}
+                {canTidy && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    aria-label={
+                      hasTidied ? m.editor_undo() : m.editor_tidy_label()
+                    }
+                    disabled={tidying.isPending}
+                    onClick={hasTidied ? undoTidy : tidy}
+                  >
+                    {tidying.isPending ? (
+                      <Spinner data-icon="inline-start" />
+                    ) : hasTidied ? (
+                      <Undo2Icon data-icon="inline-start" />
+                    ) : (
+                      <WandSparklesIcon data-icon="inline-start" />
+                    )}
+                    {hasTidied ? m.editor_undo() : m.editor_tidy()}
+                  </Button>
+                )}
+              </div>
+            </div>
+            <span role="status" className="sr-only">
+              {hasTidied
+                ? tidyFeedback.before === tidyFeedback.after
+                  ? m.editor_tidy_unchanged()
+                  : m.editor_tidied()
+                : null}
+            </span>
             <MarkedTextarea
               id={field.name}
               list="numbers"
               value={field.state.value}
               placeholder={examples?.steps}
               marksOf={(line) => marksOf(line, 'step', opts)}
-              onChange={(event) => field.handleChange(event.target.value)}
+              flagged={flagged}
+              aria-describedby={
+                tidyFeedback?.kind === 'error'
+                  ? 'steps-tidy-feedback'
+                  : undefined
+              }
+              onChange={(event) => {
+                setTidyFeedback(null)
+                field.handleChange(event.target.value)
+              }}
               onBlur={field.handleBlur}
             />
-          </section>
+            {anyFlagged(field.state.value) && (
+              <FieldDescription>{m.editor_reworded()}</FieldDescription>
+            )}
+          </Field>
         )}
       </form.Field>
 

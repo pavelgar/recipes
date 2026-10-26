@@ -1,3 +1,4 @@
+import { withoutStepNumber } from '@/lib/import/step-number'
 import { decodeHTML } from 'entities'
 import { DomUtils } from 'htmlparser2'
 import { siteOf } from '@/lib/import/link'
@@ -67,6 +68,18 @@ export function readRecipe(
     sourceName:
       metaContent(page, 'og:site_name') ?? publisherName(recipe, resolve),
     sourceUrl: canonicalUrl(page, pageUrl),
+  }
+}
+
+// What a page says about itself, apart from any Recipe in it: the language
+// it states, its site's name, its title and its own address. For a page
+// read with AI.
+export function pageFacts(page: Page, pageUrl: string) {
+  return {
+    lang: htmlLang(page),
+    siteName: metaContent(page, 'og:site_name'),
+    title: metaContent(page, 'og:title'),
+    url: canonicalUrl(page, pageUrl),
   }
 }
 
@@ -155,7 +168,7 @@ function readSteps(
 function numberedSteps(text: string): Array<string> {
   return lines(text)
     .flatMap((line) => line.split(/(?<=[.!?])\s*(?=\d{1,2}\.\s+\p{Lu})/u))
-    .map((line) => line.replace(/^\d{1,2}\.\s+(?=\p{Lu})/u, '').trim())
+    .map((line) => withoutStepNumber(line).trim())
     .filter((line) => line !== '')
 }
 

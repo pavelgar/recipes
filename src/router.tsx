@@ -35,6 +35,9 @@ export function getRouter() {
 }
 
 declare module '@tanstack/react-router' {
+  interface HistoryState {
+    aiRead?: string
+  }
   interface Register {
     router: ReturnType<typeof getRouter>
   }

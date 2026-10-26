@@ -109,8 +109,9 @@
   dialog, on phones too, with the link field focused. The import starts on
   the arrow button beside it (or Enter), whether the link was pasted or
   typed. The address may leave out its https://, and shared text with a
-  link in it works too. Below the field, side by side: enter it manually,
-  and scan it from a photo, disabled until an AI provider is configured.
+  link in it works too. Below the field: enter it manually, scan it from
+  photos, and paste it as text, the last two disabled until an AI provider
+  is configured (see Reading with AI).
 - The dialog stays open while the page is read and names the site
   ("Reading valio.fi…"). If the page can't be read or has no recipe, it
   says why there, reading the site's answer by the standard meaning of its
@@ -141,13 +142,16 @@
   and end, since no rule for it is reliable. Steps cut mid-sentence, run
   together ("…pastan sekaan.Kiehauta…", "2.In a bowl") or with a heading
   run onto their end come as the page publishes them, and someone fixes
-  them in the editor if they care to.
+  them in the editor if they care to, by hand or with Tidy steps (see
+  Reading with AI).
 - Not supported, and no parser is written for one site to make up for it:
   pages without Recipe data (sydanmerkki.fi, martat.fi), recipes a page
   draws with scripts after it loads (Gousto), recipes behind a login
   (Nigella's members-only recipes), and sites that block requests not made
   by a browser (see Not now). The app identifies itself, and doesn't pretend
-  to be a browser or run one to get past a block.
+  to be a browser or run one to get past a block. With an AI provider
+  configured, a page without Recipe data can still be read with AI (see
+  Reading with AI); the rest stay unsupported.
 - WP Recipe Maker, the recipe plugin most WordPress food sites use, leaves
   its ingredient groups ("For the sauce") out of its JSON-LD. For a page
   with its recipe cards, the server also asks the plugin's public REST API
@@ -168,13 +172,11 @@
   only by a clear margin. A page that states no language takes franc's
   first choice from enough text; otherwise the language is unknown until
   someone chooses it in the editor.
-- Photo import sends the photo directly to a vision-capable AI model, with no
-  separate OCR step.
 - Imported and photographed recipes open in the editor for review before
   saving, with the same line-by-line recognition as typed recipes.
 - Until it's saved, the editor's draft is kept in the browser: one typed
-  by hand, and one being checked after an import. Discarding a draft asks
-  nothing and can be undone.
+  by hand, and one being checked after an import, from a link, photos or
+  pasted text. Discarding a draft asks nothing and can be undone.
 - The editor is laid out like the recipe it writes, each detail beside
   what it's about: the name set as its heading, in a field like the
   others so it reads as editable; under it, for an import a line of small
@@ -199,19 +201,88 @@
   first such field and focuses it; a save that fails for another reason
   says so in a toast, which stays until it's closed, Save is pressed again
   or the editor is left.
-- Some kind of AI assistance is wanted. Beyond photo import, what it does is
-  not defined yet.
+
+### Reading with AI
+
+- AI reads recipes that have no data to import: photos, pages without
+  Recipe data, and text pasted in. It also tidies steps in the editor.
+  Nothing it reads is saved before someone checks it in the editor.
+- Scan from photo takes one or more photos of one recipe: a cookbook page,
+  a recipe over two pages, a handwritten card, a screenshot. Choosing them
+  starts the reading, up to 5 at a time, read as pages of one recipe in
+  the order chosen. The browser shrinks each to 2048 pixels on its long
+  side before sending it. The photos go directly to a vision-capable AI
+  model, with no separate OCR step, and aren't kept.
+- When a page has no Recipe data, the add dialog says so and, with an AI
+  provider configured, offers to read the page with AI. It asks first, so
+  no page goes to the AI provider unasked. The server fetches the page
+  again, the same way, and sends the text a reader sees, without scripts,
+  menus and footers.
+- Paste text opens a large text box for a recipe written out as text,
+  such as one sent in a message. Back during a read asks whether to stop;
+  confirming cancels the request and discards its result, keeping the
+  pasted text for returning to it. Closing the dialog stays immediate,
+  without this question.
+- Pasted text and Tidy steps take at most 60,000 characters. Longer text
+  is kept and gets a message giving the limit before anything is sent.
+- The model copies the recipe as written: the same words, numbers, units
+  and language, never translated, converted, corrected or completed. It
+  puts each ingredient and step on a line of its own, without bullets or
+  step numbers, and takes headings as sections. Servings are taken as
+  written, and times only where the source states them, never estimated
+  from the steps.
+- From a page or pasted text, each line the model returns is looked for in
+  the text it read, ignoring spacing and letter case. A line found there
+  is kept as the source writes it. One that isn't is kept as the model
+  wrote it and marked in the editor, which says the marked lines are
+  written differently in the source. Photos have nothing to check against.
+- A page read with AI gets its language and measures as any import does.
+  For photos and pasted text, the language is the one the model names,
+  unless franc overrules it by the import's rule, and the measures are
+  the ones the model finds the recipe states (an Australian book's 20 ml
+  tablespoon), otherwise the language's.
+- Tidy steps sits beside the Steps heading in the editor, whenever an AI
+  provider is configured and there are steps. It puts each step on its own
+  line: it splits steps that run together, joins a step cut in two, moves
+  a heading that runs onto a step onto its own line ending with a colon,
+  and drops step numbers. It also removes whole lines of copied page
+  clutter: step-completion controls, print/share buttons, navigation,
+  adverts and unrelated labels. The model identifies those lines, with no
+  rules for individual sites. It keeps a line that mixes recipe text with
+  clutter, or whose purpose is uncertain. The model is instructed to keep
+  every cooking instruction, quantity, time, temperature, heading and
+  serving or storage note.
+  The model explicitly lists the discarded lines; all remaining recipe
+  text is checked in order, with the same wording and spaces separating
+  words and numbers. Any other omission or change is rejected. The model
+  can misidentify a recipe line as clutter, so the result is checked in
+  the editor. After a successful run, including one that finds the steps
+  already tidy, the ghost Tidy button turns into Undo in the same place,
+  with its undo icon and text label. Undo restores the original text and
+  turns the button back into Tidy; any manual edit in the steps also turns
+  it back into Tidy. Changes to other fields leave it as Undo.
+  Success is announced to screen readers without a visible message.
+  Errors appear immediately to the left of Tidy in the same heading row,
+  wrapping as needed, and clear when the steps are edited or tidying is
+  tried again.
 
 ### AI providers
 
-- AI is optional: everything except photo import works without an AI
-  provider configured.
+- AI is optional: everything except reading with AI and Tidy steps works
+  without an AI provider configured.
 - Cloud: Claude, OpenAI and OpenRouter to start with.
 - Local: a model the user already runs (for example with llama.cpp), reached
   through a standard API.
 - In practice that is two API styles: Anthropic's API, and the
   OpenAI-compatible API offered by OpenAI, OpenRouter and llama.cpp's server.
-- Photo import needs a model that accepts images.
+- One model does everything. The container is given it with AI_PROVIDER
+  (anthropic, openai, openrouter or openai-compatible), AI_MODEL,
+  AI_API_KEY, and AI_BASE_URL, which a local server needs. A setting
+  that's missing or wrong stops the server at start, saying which.
+- The model answers with structured output, to a JSON schema, which both
+  API styles offer.
+- Scan from photo needs a model that accepts images, and says so when the
+  model refuses one.
 - Because there are no logins, anyone on the network can open the app's
   settings. AI keys and endpoints are therefore configured through the
   container's environment variables and are never shown or editable in the
@@ -537,7 +608,8 @@
 ## Not now
 
 - Groceries and pantry tracking.
-- AI features beyond photo import.
+- AI features beyond reading recipes and tidying steps (see Reading with
+  AI).
 - Translating tags or searches between languages ("dessert" finding
   "jälkiruoka").
 - Search matching later parts of compound words ("jauho" finding
@@ -571,7 +643,8 @@
 - M3, everyday use: home rows, the meal queue, cooking aids (screen kept
   awake, crossing off, timers), undo and recently deleted.
 - M4, offline: caching recipes and photos, and offline search.
-- M5: photo import with AI, and export.
+- M5: reading with AI (photos, pages without Recipe data, pasted text) and
+  Tidy steps, and export. The AI parts were built ahead of M2.
 - Early, alongside the milestones: try a few real cookbook photos against
   one cloud model and one local model.
 

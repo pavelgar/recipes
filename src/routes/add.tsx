@@ -1,5 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { Link, createFileRoute } from '@tanstack/react-router'
+import {
+  Link,
+  Navigate,
+  createFileRoute,
+  useLocation,
+} from '@tanstack/react-router'
 import { useState } from 'react'
 import { z } from 'zod'
 
@@ -14,41 +19,66 @@ import { linkSchema, siteOf } from '@/lib/import/link'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 
-// The editor: a recipe typed in, or one read from ?link= to check before
-// saving. An unsaved draft of either comes back from the browser.
+// The editor: a recipe typed in, one read from ?link= to check before
+// saving, or one AI read from photos or pasted text (?from=photos,
+// ?from=text). An unsaved draft of any comes back from the browser.
 export const Route = createFileRoute('/add')({
   // A ?link= that isn't a web page's address is left out, so the page
   // doesn't ask the server to read it.
-  validateSearch: z.object({ link: linkSchema.optional().catch(undefined) }),
+  validateSearch: z.object({
+    link: linkSchema.optional().catch(undefined),
+    from: z.enum(['photos', 'text']).optional().catch(undefined),
+  }),
   component: AddPage,
 })
 
 function AddPage() {
-  const { link } = Route.useSearch()
+  const { link, from } = Route.useSearch()
+  const read = useLocation({
+    select: (location) => location.state.aiRead ?? '',
+  })
   // As tall as the window, so the editor's actions can sit at its bottom.
   // Generous room above the name, clear of the notch in the installed app.
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-4 pt-[calc(4rem+env(safe-area-inset-top))] pb-6">
-      {link ? <Imported key={link} link={link} /> : <Typed />}
+      {link ? (
+        <Imported key={`${link}:${read}`} link={link} />
+      ) : from ? (
+        <ReadByAi key={`${from}:${read}`} from={from} />
+      ) : (
+        <Typed />
+      )}
     </main>
   )
 }
 
 function Typed() {
-  const [initial] = useState(() => loadDraft(null) ?? emptyDraft(getLocale()))
-  return <RecipeEditor link={null} initial={initial} />
+  const origin = { kind: 'typed' } as const
+  const [initial] = useState(() => loadDraft(origin) ?? emptyDraft(getLocale()))
+  return <RecipeEditor origin={origin} initial={initial} />
+}
+
+// The add dialog keeps what AI read as the draft before it comes here. The
+// photos and text aren't kept, so without the draft, saved or discarded,
+// there's nothing to check, and the page is the empty editor's.
+function ReadByAi({ from }: { from: 'photos' | 'text' }) {
+  const [origin] = useState(() => ({ kind: from }))
+  const [draft] = useState(() => loadDraft(origin))
+  if (!draft) return <Navigate to="/add" replace />
+  return <RecipeEditor origin={origin} initial={draft} />
 }
 
 // Arriving from the add dialog, the import is already read. After a reload,
 // the draft comes back instead, or the page is read again.
 function Imported({ link }: { link: string }) {
-  const [draft] = useState(() => loadDraft(link))
+  const [origin] = useState(() => ({ kind: 'page', link }) as const)
+  const [draft] = useState(() => loadDraft(origin))
   const { data, isPending } = useQuery({
     ...importQuery(link),
     enabled: draft === null,
   })
 
-  if (draft) return <RecipeEditor link={link} initial={draft} />
+  if (draft) return <RecipeEditor origin={origin} initial={draft} />
   if (isPending) {
     return (
       <p
@@ -74,5 +104,5 @@ function Imported({ link }: { link: string }) {
       </div>
     )
   }
-  return <RecipeEditor link={link} initial={draftFromImport(data.recipe)} />
+  return <RecipeEditor origin={origin} initial={draftFromImport(data.recipe)} />
 }
