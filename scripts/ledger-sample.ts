@@ -11,18 +11,16 @@
 import { globSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename } from 'node:path'
 import { countsLine, parseLedger } from '../src/test/ledger.ts'
+import { mulberry32 } from './random.ts'
 
 const count = Number(process.argv[2] ?? 20)
 const seed = Number(process.argv[3] ?? Math.floor(Math.random() * 2 ** 31))
-
-// mulberry32: small, seeded, and good enough to pick entries.
-let state = seed
-function random() {
-  state = (state + 0x6d2b79f5) | 0
-  let t = Math.imul(state ^ (state >>> 15), 1 | state)
-  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
-  return ((t ^ (t >>> 14)) >>> 0) / 2 ** 32
+if (!Number.isInteger(count) || count < 1) {
+  throw new Error('The count must be a whole number above 0')
 }
+if (!Number.isInteger(seed)) throw new Error('The seed must be a whole number')
+
+const random = mulberry32(seed)
 
 const paths = globSync('src/lib/*/__ledger__/*.txt')
   .filter((path) => !basename(path).startsWith('held-out-'))
@@ -49,7 +47,7 @@ while (left > 0 && pools.some((pool) => pool.lines.length > 0)) {
     .map((pool) => ({ pool, key: random() }))
     .sort((a, b) => a.key - b.key)
   for (const { pool } of order) {
-    if (left === 0) break
+    if (left <= 0) break
     const [line] = pool.lines.splice(
       Math.floor(random() * pool.lines.length),
       1,

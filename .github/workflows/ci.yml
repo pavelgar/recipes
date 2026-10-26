@@ -33,8 +33,16 @@ jobs:
       - run: bun run check
       # The e2e tests' build lets imports reach their pages on this machine
       # (src/lib/import/fetch.server.ts). The image's build must leave it out.
+      # The app's own chunks are those importing request-filtering-agent; the
+      # library itself, in _libs, names the option too. Finding no chunks, or
+      # grep failing to read them (status 2), fails the step as well.
       - run: bun run build
-      - run: '! grep -rn allowIPAddressList .output/server/_ssr'
+      - run: |
+          app=$(grep -rl --exclude-dir=_libs --exclude-dir=node_modules request-filtering-agent .output/server)
+          test -n "$app"
+          status=0
+          grep -n allowIPAddressList $app || status=$?
+          test "$status" = 1
       # Component tests run in Chromium (vitest.config.ts).
       - run: bunx playwright install --with-deps chromium
       - run: bun run test

@@ -18,6 +18,7 @@ import { join } from 'node:path'
 import { DomUtils, parseDocument } from 'htmlparser2'
 import { extractRecipe } from '@/lib/import/extract'
 import { fetchPage } from '@/lib/import/fetch.server'
+import { mulberry32 } from './random.ts'
 
 type CorpusFile = {
   site: string
@@ -45,15 +46,9 @@ const corpusFiles = (folder: string) =>
 
 // --- collect ---
 
-// mulberry32, seeded, so the same seed picks the same pages.
+// Seeded, so the same seed picks the same pages.
 function shuffled<T>(items: Array<T>, seed: number): Array<T> {
-  let state = seed
-  const random = () => {
-    state = (state + 0x6d2b79f5) | 0
-    let t = Math.imul(state ^ (state >>> 15), 1 | state)
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
-    return ((t ^ (t >>> 14)) >>> 0) / 2 ** 32
-  }
+  const random = mulberry32(seed)
   const out = [...items]
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1))
@@ -100,7 +95,9 @@ async function robotsOf(origin: string): Promise<Robots> {
   const rules = (group?.lines ?? []).filter(
     ([field, value]) => (field === 'allow' || field === 'disallow') && value,
   )
-  const delay = group?.lines.find(([field]) => field === 'crawl-delay')
+  const delay = Number(
+    group?.lines.find(([field]) => field === 'crawl-delay')?.[1] ?? 0,
+  )
   const pattern = (value: string) =>
     new RegExp(
       `^${value.replace(/[.+?^{}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*')}`,
@@ -118,7 +115,10 @@ async function robotsOf(origin: string): Promise<Robots> {
       }
       return best === null || best[0] === 'allow'
     },
-    delayMs: Math.max(DELAY_MS, Number(delay?.[1] ?? 0) * 1000),
+    // A delay that isn't a number, such as "10s", still waits DELAY_MS.
+    delayMs: Number.isFinite(delay)
+      ? Math.max(DELAY_MS, delay * 1000)
+      : DELAY_MS,
   }
 }
 
@@ -138,7 +138,7 @@ async function collect(seed: number, perSite: number) {
       mkdirSync(dir, { recursive: true })
       let saved = 0
       for (const url of urls) {
-        if (saved === perSite) break
+        if (saved >= perSite) break
         if (!robots.allows(new URL(url).pathname)) {
           console.log(`${file.site}: robots.txt disallows ${url}`)
           continue
@@ -424,8 +424,12 @@ function check() {
 const [command, ...args] = process.argv.slice(2)
 if (command === 'collect') {
   const seed = Number(args[0])
+  const perSite = Number(args[1] ?? 3)
   if (!Number.isInteger(seed)) throw new Error('collect needs a seed')
-  await collect(seed, Number(args[1] ?? 3))
+  if (!Number.isInteger(perSite) || perSite < 1) {
+    throw new Error('Pages per site must be a whole number above 0')
+  }
+  await collect(seed, perSite)
 } else if (command === 'skeletons') {
   skeletons()
 } else if (command === 'check') {
