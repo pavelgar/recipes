@@ -426,9 +426,33 @@ const optionsOf = (line: string): IngredientOptions =>
 
 const parse = (line: string) => parseIngredient(line, optionsOf(line))
 
+// Intended readings of the three known failures in the retired ingredient
+// ledger. These remain red-capable: fixing one makes its fails test report
+// an unexpected pass, so the known-failure marker can be removed.
+const KNOWN_FAILURES = [
+  [
+    'a product’s package size stays fixed',
+    '200 g Arla® Lempi Rahka Vanilja 200g, laktoositon',
+    'measured 200 g | more fixed 200 g  [200 g] [200g]',
+  ],
+  [
+    'an alternative can keeps its count and each size',
+    '2 scant cups (425g) or one 15-ounce can pumpkin purée',
+    'measured ~2 cup = 425 g | more 1 can | each 15 oz  [2 scant cups] [425g] [one 15-ounce can] [15-ounce]',
+  ],
+  [
+    'a Finnish size adjective can precede a package unit',
+    '1 pieni tlk ananasmurskaa',
+    'counted 1 tlk  [1 pieni tlk]',
+  ],
+] as const
+
 describe('parseIngredient', () => {
   it('only uses lines from the corpus', () => {
-    const lines = Object.values(CASES).flatMap((cases) => cases.map(([l]) => l))
+    const lines = [
+      ...Object.values(CASES).flatMap((cases) => cases.map(([l]) => l)),
+      ...KNOWN_FAILURES.map(([, line]) => line),
+    ]
     expect(lines.filter((line) => !inCorpus(ingredientLines, line))).toEqual([])
   })
 
@@ -439,6 +463,10 @@ describe('parseIngredient', () => {
       })
     })
   }
+
+  it.fails.each(KNOWN_FAILURES)('%s (known failure)', (_, text, expected) => {
+    expect(describeIngredient(parse(text))).toBe(expected)
+  })
 
   it('says where each number and unit is, and how the number was written', () => {
     const numbers = (line: string) =>

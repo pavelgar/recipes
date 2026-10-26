@@ -273,6 +273,9 @@ const CASES: Record<
 const find = (sentence: string) =>
   stepSentences.find((s) => s.text === sentence)
 
+// The intended reading of the retired step ledger's one known failure.
+const THERMOMETER = 'Itse tykkään kun mittari näyttää 70.'
+
 const scan = (sentence: string) => {
   const line = find(sentence)
   return scanStep(sentence, {
@@ -283,9 +286,10 @@ const scan = (sentence: string) => {
 
 describe('scanStep', () => {
   it('only uses sentences from the corpus', () => {
-    const sentences = Object.values(CASES).flatMap((cases) =>
-      cases.map(([s]) => s),
-    )
+    const sentences = [
+      THERMOMETER,
+      ...Object.values(CASES).flatMap((cases) => cases.map(([s]) => s)),
+    ]
     expect(sentences.filter((s) => !find(s))).toEqual([])
   })
 
@@ -296,6 +300,10 @@ describe('scanStep', () => {
       })
     })
   }
+
+  it.fails('recognises a bare thermometer reading (known failure)', () => {
+    expect(scan(THERMOMETER)).toEqual(['70 ?°C  [70]'])
+  })
 
   it('links a size given again in another unit to the first', () => {
     const sentence =

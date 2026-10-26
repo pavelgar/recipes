@@ -17,6 +17,7 @@ import {
 } from '@/lib/quantities/kitchen'
 import { US_CUP, US_TBSP } from '@/lib/quantities/measures'
 import { readNumber } from '@/lib/quantities/numbers'
+import { presentIngredient, presentStep } from '@/lib/quantities/present'
 import { scanStep } from '@/lib/quantities/steps'
 import { checkShape } from '@/test/quantities'
 import type { Measure } from '@/lib/quantities/kitchen'
@@ -212,6 +213,233 @@ describe('numbers', () => {
       const read = readNumber(text, 0, language)
       expect(read?.end, text).toBe(text.length)
       expect(read?.value, text).toBeCloseTo(Math.round(n * 10) / 10, 9)
+    },
+  )
+})
+
+// Notation properties: these are minimal quantity expressions, not sample
+// recipes. The generator supplies the values and meanings independently
+// of the parser, so dropping a recognised quantity cannot pass them.
+describe('generated quantity notation', () => {
+  const whole = fc.integer({ min: 1, max: 20 })
+  const measuringSystem = fc.constantFrom(
+    'metric' as const,
+    'us' as const,
+    'british' as const,
+    'australian' as const,
+  )
+  const written = fc.oneof(
+    whole.map((value) => ({ text: String(value), value })),
+    fc.integer({ min: 1, max: 199 }).map((tenths) => ({
+      text: `${Math.floor(tenths / 10)},${tenths % 10}`,
+      value: tenths / 10,
+    })),
+    fc
+      .tuple(
+        whole,
+        fc.constantFrom(
+          ['¼', 0.25] as const,
+          ['½', 0.5] as const,
+          ['¾', 0.75] as const,
+        ),
+      )
+      .map(([n, [glyph, part]]) => ({ text: `${n}${glyph}`, value: n + part })),
+    whole.map((n) => ({ text: `${n}-1/2`, value: n + 0.5 })),
+  )
+  const measure = fc.constantFrom(
+    { language: 'fi' as const, written: 'dl', id: 'dl' },
+    { language: 'fi' as const, written: 'rkl', id: 'tbsp' },
+    { language: 'fi' as const, written: 'tl', id: 'tsp' },
+    { language: 'en' as const, written: 'cups', id: 'cup' },
+    { language: 'en' as const, written: 'oz', id: 'oz' },
+    { language: 'en' as const, written: 'tbsp', id: 'tbsp' },
+  )
+
+  test.prop(
+    [written, measure, measuringSystem, fc.constantFrom('', ' ', ' ', ' ')],
+    {
+      numRuns: 300,
+    },
+  )(
+    'recognises the generated number and unit as the main amount',
+    (number, unit, system, space) => {
+      const text = `${number.text}${space}${unit.written}`
+      const parsed = parseIngredient(text, { language: unit.language, system })
+      expect(parsed.result).toBe('measured')
+      expect(parsed.quantities).toHaveLength(1)
+      expect(parsed.quantities[0]).toMatchObject({
+        type: 'amount',
+        value: number.value,
+        unit: { id: unit.id },
+        role: 'main',
+        of: null,
+        scales: true,
+      })
+    },
+  )
+
+  test.prop([whole, whole, fc.constantFrom('-', '–', ' to ')])(
+    'keeps both ends of a generated range',
+    (low, width, separator) => {
+      const parsed = parseIngredient(`${low}${separator}${low + width} dl`, {
+        language: 'en',
+        system: 'metric',
+      })
+      expect(parsed.quantities).toHaveLength(1)
+      expect(parsed.quantities[0]).toMatchObject({
+        type: 'amount',
+        value: { min: low, max: low + width },
+        unit: { id: 'dl' },
+        role: 'main',
+        scales: true,
+      })
+    },
+  )
+
+  test.prop([whole, whole, fc.constantFrom('+', 'plus', 'tai', 'or')])(
+    'keeps additions and alternatives as two amounts',
+    (first, second, join) => {
+      // Alternatives in the same unit can be a range ("1 or 2 dl"). Use
+      // distinct units for alternatives, as in fresh versus dried herbs.
+      const [a, b] =
+        join === 'tai'
+          ? ['rkl', 'tl']
+          : join === 'or'
+            ? ['tbsp', 'tsp']
+            : ['dl', 'dl']
+      const parsed = parseIngredient(`${first} ${a} ${join} ${second} ${b}`, {
+        language: join === 'tai' ? 'fi' : 'en',
+        system: 'metric',
+      })
+      expect(parsed.quantities).toHaveLength(2)
+      expect(parsed.quantities).toMatchObject([
+        { value: first, role: 'main', scales: true },
+        { value: second, role: 'other', scales: true },
+      ])
+    },
+  )
+
+  test.prop([
+    fc.integer({ min: 2, max: 6 }),
+    fc.integer({ min: 1, max: 10 }).map((n) => n * 5),
+    fc.integer({ min: 2, max: 3 }),
+    fc.constantFrom(...LANGUAGES),
+    fc.boolean(),
+  ])(
+    'scales package totals and leaves each package’s size fixed',
+    (count, grams, factor, language, each) => {
+      const pack = language === 'fi' ? 'pkt' : 'cans'
+      const size = (n: number) =>
+        each ? (language === 'fi' ? `à ${n} g` : `${n} g each`) : `${n} g`
+      const text = `${count} ${pack} (${size(grams)})`
+      const opts = {
+        language,
+        system: 'metric' as const,
+        display: 'metric' as const,
+        factor,
+      }
+      const parsed = parseIngredient(text, opts)
+      expect(parsed.quantities).toHaveLength(2)
+      expect(parsed.quantities).toMatchObject([
+        { value: count, role: 'main', scales: true },
+        { value: grams, role: each ? 'each' : 'total', of: 0, scales: !each },
+      ])
+      expect(presentIngredient(parsed, opts).text).toBe(
+        `${count * factor} ${pack} (${size(each ? grams : grams * factor)})`,
+      )
+    },
+  )
+
+  test.prop([whole])(
+    'reads Finnish mm by its position and kind of line',
+    (n) => {
+      const opts = { language: 'fi' as const, system: 'metric' as const }
+      expect(
+        parseIngredient(`${n} mm suolaa`, opts).quantities[0],
+      ).toMatchObject({
+        type: 'amount',
+        value: n,
+        unit: { id: 'maustemitta' },
+      })
+      expect(
+        parseIngredient(`${n} g, ${n} mm`, opts).quantities[1],
+      ).toMatchObject({
+        type: 'amount',
+        value: n,
+        unit: { id: 'mm' },
+        scales: false,
+      })
+      expect(scanStep(`${n} mm`, opts)).toMatchObject([
+        { type: 'amount', value: n, unit: { id: 'mm' }, scales: false },
+      ])
+    },
+  )
+
+  test.prop([whole, whole, fc.integer({ min: 100, max: 250 }), whole])(
+    'recognises measures and temperatures in steps, leaving times and counts alone',
+    (spoons, grams, temperature, minutes) => {
+      const text = `${spoons} tbsp, ${grams} g, ${temperature} °C, ${minutes} min, 2`
+      const opts = {
+        language: 'en' as const,
+        system: 'us' as const,
+        display: 'metric' as const,
+        factor: 3,
+      }
+      const quantities = scanStep(text, opts)
+      expect(quantities).toHaveLength(3)
+      expect(quantities).toMatchObject([
+        {
+          type: 'amount',
+          value: spoons,
+          unit: { id: 'tbsp' },
+          role: 'other',
+          scales: false,
+        },
+        {
+          type: 'amount',
+          value: grams,
+          unit: { id: 'g' },
+          role: 'other',
+          scales: false,
+        },
+        { type: 'temperature', value: temperature, scale: 'C', scales: false },
+      ])
+      expect(presentStep(text, quantities, opts).text).toBe(text)
+    },
+  )
+
+  test.prop([fc.integer({ min: 1, max: 3 }), measuringSystem])(
+    'converts cups by the recipe’s measuring system',
+    (cups, system) => {
+      const opts = {
+        language: 'en' as const,
+        system,
+        display: 'metric' as const,
+      }
+      const text = `${cups} ${cups === 1 ? 'cup' : 'cups'} water`
+      // US customary cup: 236.5882365 ml; the other recipe systems use 250 ml.
+      const ml = system === 'us' ? 236.5882365 : 250
+      const dl = Math.round((cups * ml) / 10) / 10
+      expect(presentIngredient(parseIngredient(text, opts), opts).text).toBe(
+        `${dl} dl water`,
+      )
+    },
+  )
+
+  test.prop([fc.integer({ min: 1, max: 3 }), measuringSystem])(
+    'keeps ordinary spoons one-to-one and converts Australian tablespoons',
+    (spoons, system) => {
+      const opts = {
+        language: 'en' as const,
+        system,
+        display: 'metric' as const,
+      }
+      const text = `${spoons} tbsp water`
+      const expected =
+        system === 'australian' ? `${spoons * 4} tsp water` : text
+      expect(presentIngredient(parseIngredient(text, opts), opts).text).toBe(
+        expected,
+      )
     },
   )
 })

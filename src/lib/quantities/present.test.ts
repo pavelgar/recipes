@@ -259,6 +259,11 @@ const CASES: Record<
 const corpus = [...ingredientLines, ...stepSentences]
 const isStep = (line: string) => stepSentences.some((s) => s.text === line)
 
+// The retired presentation ledger's one known failure, in both displays
+// it recorded. The gram range belongs to the whole alternative amount.
+const CHOCOLATE =
+  '3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 1/4"-1/2" pieces or [product-link]chocolate chips[/product-link]'
+
 function presentLine(line: CorpusLine, opts: PresentOptions): Presented {
   return isStep(line.text)
     ? presentStep(line.text, scanStep(line.text, line), opts)
@@ -277,7 +282,10 @@ function optionsOf(line: CorpusLine, how: string): PresentOptions {
 
 describe('presenting', () => {
   it('only uses lines from the corpus', () => {
-    const lines = Object.values(CASES).flatMap((cases) => cases.map(([l]) => l))
+    const lines = [
+      CHOCOLATE,
+      ...Object.values(CASES).flatMap((cases) => cases.map(([l]) => l)),
+    ]
     expect(lines.filter((line) => !inCorpus(corpus, line))).toEqual([])
   })
 
@@ -290,6 +298,23 @@ describe('presenting', () => {
       })
     })
   }
+
+  it.fails.each([
+    [
+      'metric',
+      '3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]',
+    ],
+    [
+      'metric ×1.5',
+      '1 cup + 2 tbsp to 1 cup + 2 tbsp plus 3 tablespoons (190g to 225g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]',
+    ],
+  ])(
+    'keeps a compound range’s restated amount, %s (known failure)',
+    (how, expected) => {
+      const line = corpus.find((l) => l.text === CHOCOLATE)!
+      expect(presentLine(line, optionsOf(line, how)).text).toBe(expected)
+    },
+  )
 
   it('marks what was converted and what scaled', () => {
     const text = '1 (14 ounce) can sweetened condensed milk'
