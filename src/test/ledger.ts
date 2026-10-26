@@ -16,8 +16,8 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 //   one.
 // - ! to check: a reading the code gave since anyone last checked, waiting
 //   for an agent to judge it. The test fails while any is left.
-// - ? unchecked: the reading is only recorded, from before every new
-//   reading was checked. bun run ledger:sample turns some into !.
+// - ? unchecked: the reading is only recorded. Held-out evaluations are
+//   judged by sample instead of checking every reading.
 //
 // The test fails when any reading differs from the ledger. To accept the
 // changes, run `UPDATE_LEDGER=1 bun run test` and review the diff:

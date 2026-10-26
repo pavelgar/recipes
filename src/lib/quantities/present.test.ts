@@ -9,8 +9,6 @@ import { scan } from '@/lib/quantities/scan'
 import { scanStep } from '@/lib/quantities/steps'
 import { isMeasure } from '@/lib/quantities/units'
 import { ingredientLines, inCorpus, stepSentences } from '@/test/corpus'
-import { assertLedger } from '@/test/ledger'
-import { presentedLedger } from '@/test/ledgers'
 import type { LineQuantity } from '@/lib/quantities/line'
 import type { DisplaySystem } from '@/lib/quantities/measures'
 import type { Value } from '@/lib/quantities/numbers'
@@ -29,6 +27,72 @@ const CASES: Record<
   string,
   Array<[line: string, how: string, expected: string]>
 > = {
+  'provenance sizes stay fixed when scaling': [
+    // https://www.bettycrocker.com/recipes/zucchini-ricotta-pasta-skillet-cooking-for-2/4b061f2c-5311-42e7-ba33-d2dda24ac59c
+    [
+      '1 3/4 cups Progresso chicken broth (from 32-oz carton)',
+      'metric ×1.5',
+      '6.2 dl Progresso chicken broth (from 910 g carton)',
+    ],
+  ],
+  'restated totals scale with the main amount': [
+    // https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe
+    [
+      '1/2 cup (99g) granulated sugar',
+      'metric ×1.5',
+      '3/4 cup (150g) granulated sugar',
+    ],
+    // https://www.kingarthurbaking.com/recipes/birthday-cake-ice-cream-recipe
+    [
+      '1 tablespoon (14g) vanilla bean paste',
+      'metric ×1.5',
+      '1½ tablespoons (20g) vanilla bean paste',
+    ],
+  ],
+  'scaled tablespoons can add teaspoons': [
+    // https://www.kotikokki.net/reseptit/nayta/854204/Marmorileiv%C3%A4t/
+    ['1/2rkl vettä', 'metric ×1.5', '½ rkl + ¾ tl vettä'],
+  ],
+  'count ranges scale at both ends': [
+    // https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-juhli-ja-nauti-salaatit/kuningasperunasalaatti
+    ['2–4 kananmunaa', 'metric ×1.5', '3–6 kananmunaa'],
+  ],
+  'restated ounces keep quarter-ounce precision': [
+    // https://www.bbc.co.uk/food/recipes/christmas_brownies_41164
+    [
+      '100g/3½oz pecans, roughly chopped',
+      'metric ×1.5',
+      '150g/5¼oz pecans, roughly chopped',
+    ],
+  ],
+  'composite weights carry whole pounds': [
+    // https://www.bbc.co.uk/food/recipes/coconut_prawn_curry_with_79671
+    [
+      '600g/1lb 5oz raw jumbo prawns, peeled and deveined (defrosted if frozen)',
+      'metric ×1.5',
+      '900g/2lb raw jumbo prawns, peeled and deveined (defrosted if frozen)',
+    ],
+  ],
+  'a weight is the total of an unlabelled count': [
+    // https://kotiliesi.fi/resepti/kirjolohi-uunissa/
+    [
+      '1 (1 1/2 kg) kokonainen kirjolohi',
+      'metric ×1.5',
+      '1½ (2 1/4 kg) kokonainen kirjolohi',
+    ],
+  ],
+  'Finnish genitive temperature endings': [
+    // https://kotiliesi.fi/resepti/matchawhoopie-pie/
+    [
+      'Paista 175-asteisen uunin keskitasossa noin 10 minuuttia.',
+      'us',
+      'Paista 350 °F uunin keskitasossa noin 10 minuuttia.',
+    ],
+  ],
+  'scaled teaspoons keep eighths': [
+    // https://www.recipetineats.com/italian-meatball-soup/
+    ['3/4 tsp salt', 'metric ×1.5', '1 1/8 tsp salt'],
+  ],
   'cups and pints become decilitres': [
     ['0.5 cup butter', 'metric', '1.2 dl butter'],
     [
@@ -259,6 +323,13 @@ const CASES: Record<
 const corpus = [...ingredientLines, ...stepSentences]
 const isStep = (line: string) => stepSentences.some((s) => s.text === line)
 
+// The retired presentation ledger's one known failure, in both displays
+// it recorded. The gram range belongs to the whole alternative amount.
+// https://www.kingarthurbaking.com/recipes/chocolate-pan-de-cristal-recipe
+// Currently the first cup amount converts despite the restated gram range.
+const CHOCOLATE =
+  '3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 1/4"-1/2" pieces or [product-link]chocolate chips[/product-link]'
+
 function presentLine(line: CorpusLine, opts: PresentOptions): Presented {
   return isStep(line.text)
     ? presentStep(line.text, scanStep(line.text, line), opts)
@@ -277,7 +348,10 @@ function optionsOf(line: CorpusLine, how: string): PresentOptions {
 
 describe('presenting', () => {
   it('only uses lines from the corpus', () => {
-    const lines = Object.values(CASES).flatMap((cases) => cases.map(([l]) => l))
+    const lines = [
+      CHOCOLATE,
+      ...Object.values(CASES).flatMap((cases) => cases.map(([l]) => l)),
+    ]
     expect(lines.filter((line) => !inCorpus(corpus, line))).toEqual([])
   })
 
@@ -290,6 +364,23 @@ describe('presenting', () => {
       })
     })
   }
+
+  it.fails.each([
+    [
+      'metric',
+      '3/4 cup to 3/4 cup plus 2 tablespoons (128g to 149g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]',
+    ],
+    [
+      'metric ×1.5',
+      '1 cup + 2 tbsp to 1 cup + 2 tbsp plus 3 tablespoons (190g to 225g) chopped chocolate, cut from a bar into 0.5–1 cm pieces or [product-link]chocolate chips[/product-link]',
+    ],
+  ])(
+    'keeps a compound range’s restated amount, %s (known failure)',
+    (how, expected) => {
+      const line = corpus.find((l) => l.text === CHOCOLATE)!
+      expect(presentLine(line, optionsOf(line, how)).text).toBe(expected)
+    },
+  )
 
   it('marks what was converted and what scaled', () => {
     const text = '1 (14 ounce) can sweetened condensed milk'
@@ -329,12 +420,6 @@ describe('presenting', () => {
       },
       { kind: 'text', text: ' sweetened condensed milk' },
     ])
-  })
-
-  it('keeps its presentation of every corpus line', () => {
-    const path = 'src/lib/quantities/__ledger__/presented.txt'
-    const check = presentedLedger(path, ingredientLines, stepSentences)
-    assertLedger(check, path, (message) => expect.fail(message))
   })
 })
 

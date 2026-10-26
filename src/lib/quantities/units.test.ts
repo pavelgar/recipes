@@ -3,6 +3,27 @@ import { readQuantity } from '@/lib/quantities/quantity'
 import { formsOf, readUnit, UNITS } from '@/lib/quantities/units'
 
 describe('readUnit', () => {
+  // Independent sourced spellings: deriving both forms and expected ids
+  // from UNITS would allow an accidentally deleted alias to go unnoticed.
+  it.each([
+    // https://www.arla.fi/reseptit/kahvi-karamellisiirapilla/
+    ['kuppi', 'fi', 'cup', 'volume'],
+    // https://www.bettycrocker.com/recipes/cake-pop-cake/c7589264-a09b-4e37-bed0-28a22fca264c
+    ['bag', 'en', 'bag', 'package'],
+    // https://www.bettycrocker.com/recipes/christmas-lights-cupcakes/3e19f67b-42f5-4b9a-a0ad-fd394cb2fd63
+    ['tub', 'en', 'tub', 'package'],
+    // https://www.soppa365.fi/reseptit/kasvis-arjen-nopeat-juhli-ja-nauti-salaatit/kuningasperunasalaatti
+    ['ruukku', 'fi', 'rku', 'package'],
+    // https://www.valio.fi/reseptit/nopea-tortillalasagne/
+    ['pussi', 'fi', 'pss', 'package'],
+    // https://www.womensweeklyfood.com.au/recipe/dinner/vietnamese-beef-pho-13636/
+    ['grams', 'en', 'g', 'weight'],
+    // https://www.recipetineats.com/italian-almond-cookies-ricciarelli/
+    ['drops', 'en', 'drop', 'pinch'],
+  ] as const)('reads the sourced spelling %s', (text, language, id, kind) => {
+    expect(readUnit(text, 0, language)?.unit).toMatchObject({ id, kind })
+  })
+
   it('reads every form in any case', () => {
     for (const { id } of UNITS) {
       for (const form of formsOf(id)) {

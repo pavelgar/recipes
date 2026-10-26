@@ -2,6 +2,8 @@
 
 Real recipe data from published pages, for tests: ingredient lines, step sentences and tags. `src/test/corpus.ts` reads it.
 
+Quantity tests keep explicit expected readings for selected regressions and apply rule checks across the corpus. They do not keep a development ledger of every reading. Real-page imports, word merges and tag pairs still have ledgers; `src/lib/AGENTS.md` describes their update workflow.
+
 ## Folders
 
 - `ingredients/`: a seeded random sample of 25 recipes per site, with all their ingredient lines.
@@ -46,7 +48,7 @@ jq -r '[.site, .country, (.recipes | length), ([.recipes[].ingredients // [] | l
 jq -r '[.site, (.recipes | length), ([.recipes[] | select(has("recipeCategory"))] | length), ([.recipes[] | select(has("recipeCuisine"))] | length), ([.recipes[] | select(has("keywords"))] | length)] | @tsv' corpus/tags/*.json
 ```
 
-How the code reads each site's lines is in the `##` headings of the ledgers: `grep '^## ' src/lib/*/__ledger__/*.txt`.
+The remaining development ledgers give their per-site or per-language summaries under `##` headings: `rg '^## ' src/lib -g '**/__ledger__/*.txt' -g '!held-out-*.txt'`.
 
 ## The held-out sample
 

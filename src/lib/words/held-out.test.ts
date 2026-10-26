@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest'
-import { heldOutRecipes } from '@/test/corpus'
 import { assertLedger } from '@/test/ledger'
 import { findsLedger } from '@/test/words'
 
@@ -14,7 +13,8 @@ import { findsLedger } from '@/test/words'
 // haven't seen. See corpus/AGENTS.md for how to use the sample without
 // spoiling it.
 describe.runIf(process.env.HELD_OUT)('the held-out sample', () => {
-  it('keeps the words each word finds', () => {
+  it('keeps the words each word finds', async () => {
+    const { heldOutRecipes } = await import('@/test/held-out')
     const path = 'src/lib/words/__ledger__/held-out-words.txt'
     const check = findsLedger(path, heldOutRecipes)
     assertLedger(check, path, (message) => expect.fail(message))

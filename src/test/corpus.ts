@@ -2,12 +2,13 @@ import { decodeHTML } from 'entities'
 import type { Language } from '@/lib/quantities/numbers'
 import type { MeasuringSystem } from '@/lib/quantities/scan'
 
-// Reads the real recipe data in corpus/ (see corpus/AGENTS.md) for tests.
+// Reads development recipe data in corpus/ (see corpus/AGENTS.md). The
+// requested held-out evaluations load their data separately in held-out.ts.
 
 type Country = 'FI' | 'US' | 'GB' | 'AU'
 
 // rare-forms recipes may have only ingredients or only sentences.
-type CorpusFile<T extends string> = {
+export type CorpusFile<T extends string> = {
   site: string
   country: Country
   language: Language
@@ -34,13 +35,6 @@ const stepFiles = import.meta.glob<CorpusFile<'sentences'>>(
   { eager: true, import: 'default' },
 )
 
-// The held-out sample (corpus/held-out/) is read only by the held-out.test.ts
-// files, which run on request. Don't use it while writing rules.
-const heldOutFiles = import.meta.glob<CorpusFile<'ingredients' | 'sentences'>>(
-  '/corpus/held-out/*.json',
-  { eager: true, import: 'default' },
-)
-
 const SYSTEMS: Record<Country, MeasuringSystem> = {
   FI: 'metric',
   US: 'us',
@@ -62,7 +56,7 @@ export type CorpusLine = {
   text: string
 }
 
-function lines<T extends string>(
+export function lines<T extends string>(
   files: Record<string, CorpusFile<T>>,
   field: T,
 ): Array<CorpusLine> {
@@ -80,8 +74,6 @@ function lines<T extends string>(
 
 export const ingredientLines = lines(ingredientFiles, 'ingredients')
 export const stepSentences = lines(stepFiles, 'sentences')
-export const heldOutIngredientLines = lines(heldOutFiles, 'ingredients')
-export const heldOutStepSentences = lines(heldOutFiles, 'sentences')
 
 export type CorpusRecipe = {
   site: string
@@ -91,7 +83,7 @@ export type CorpusRecipe = {
   ingredients: Array<string>
 }
 
-function recipes(
+export function recipes(
   files: Record<string, CorpusFile<'ingredients'>>,
 ): Array<CorpusRecipe> {
   return Object.values(files).flatMap((file) =>
@@ -108,7 +100,6 @@ function recipes(
 // Every recipe of the development corpus with its title and ingredient
 // lines, for search. rare-forms recipes may have no ingredients.
 export const corpusRecipes = recipes(ingredientFiles)
-export const heldOutRecipes = recipes(heldOutFiles)
 
 type TagFile = {
   site: string
