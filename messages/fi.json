@@ -113,7 +113,7 @@
   "editor_tidied": "Valmistusvaiheet siistitty.",
   "editor_tidy_unchanged": "Valmistusvaiheet olivat jo siistit.",
   "editor_tidy_failed": "Siistiminen epäonnistui.",
-  "editor_tidy_rejected": "Tekoäly muutti ohjeen sisältöä. Ohje säilyi ennallaan.",
+  "editor_tidy_rejected": "Tekoäly muutti ohjetta liikaa. Yritä uudelleen.",
   "not_found_title": "Sivua ei löytynyt",
   "not_found_description": "Tässä osoitteessa ei ole sivua.",
   "not_found_recipe_title": "Reseptiä ei löytynyt",
