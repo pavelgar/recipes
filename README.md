@@ -144,8 +144,9 @@ vite-plugin-pwa for offline use.
 
 ## Releasing
 
-CI (`.github/workflows/ci.yml`) runs the type check, lint, format check
-and tests on pull requests and on pushes to main, then builds the image.
+CI (`.github/workflows/ci.yml`) runs the type check, lint, format check,
+tests and end-to-end tests on pull requests and on pushes to main, then
+builds the image.
 Pushes to main publish it as `edge`. To release, tag a commit on main and
 push the tag:
 
