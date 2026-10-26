@@ -1,7 +1,11 @@
 import { MIMEType } from 'node:util'
 import { decodeBuffer } from 'encoding-sniffer'
 import fetch, { FetchError } from 'node-fetch'
-import { globalHttpAgent, globalHttpsAgent } from 'request-filtering-agent'
+import {
+  RequestFilteringHttpAgent,
+  globalHttpAgent,
+  globalHttpsAgent,
+} from 'request-filtering-agent'
 import { siteOf } from '@/lib/import/link'
 import type { ImportError } from '@/lib/import/types'
 
@@ -33,11 +37,21 @@ const USER_AGENT =
 // fetch. Only ordinary public (unicast) addresses pass: not private
 // networks, loopback, link-local, carrier-grade NAT (which Tailscale
 // uses), multicast or reserved ranges.
+//
+// The end-to-end tests' build (vite build --mode e2e) also reaches their
+// own pages, e2e/test-site.ts, over plain HTTP on this machine's loopback
+// address. Vite writes the mode into the code as it builds, so every other
+// build, the image's among them, leaves that agent out: no setting can
+// bring it back.
+const httpAgent =
+  import.meta.env.MODE === 'e2e'
+    ? new RequestFilteringHttpAgent({ allowIPAddressList: ['127.0.0.1'] })
+    : globalHttpAgent
+
 function request(link: string, accept: string, timeoutMs: number) {
   return fetch(link, {
     headers: { 'user-agent': USER_AGENT, accept },
-    agent: (url) =>
-      url.protocol === 'http:' ? globalHttpAgent : globalHttpsAgent,
+    agent: (url) => (url.protocol === 'http:' ? httpAgent : globalHttpsAgent),
     follow: MAX_REDIRECTS,
     size: MAX_BYTES,
     // Also drops a body left unread.

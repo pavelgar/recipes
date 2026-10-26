@@ -1,8 +1,10 @@
+import { expect } from 'vitest'
 import { unitOf } from '@/lib/quantities/scan'
-import { isMeasure } from '@/lib/quantities/units'
+import { canonical } from '@/lib/quantities/text'
+import { isMeasure, readUnit } from '@/lib/quantities/units'
 import type { ParsedIngredient } from '@/lib/quantities/ingredient'
 import type { LineQuantity } from '@/lib/quantities/line'
-import type { Value } from '@/lib/quantities/numbers'
+import type { Language, Value } from '@/lib/quantities/numbers'
 import type { Quantity } from '@/lib/quantities/scan'
 
 // Short descriptions of parse results, so tests and the ledger read as a
@@ -98,5 +100,35 @@ export function describeStep(
     const restated = list.filter((r) => r.of === i && isRestated(list, r))
     const spans = showSpans(text, [q.at, ...restated.map((r) => r.at)])
     return [`${withRestated(list, i)}  ${spans}`]
+  })
+}
+
+// That a line's quantities fit its text: non-empty spans inside it,
+// numbers inside their quantity, links pointing back, and each unit the one
+// written where its span says.
+export function checkShape(
+  line: { readonly text: string; readonly language: Language },
+  list: ReadonlyArray<LineQuantity>,
+) {
+  const n = line.text.length
+  list.forEach((q, i) => {
+    const where = `${JSON.stringify(line.text)} #${i}`
+    expect(q.at[0], where).toBeGreaterThanOrEqual(0)
+    expect(q.at[1], where).toBeLessThanOrEqual(n)
+    expect(q.at[0], where).toBeLessThan(q.at[1])
+    for (const number of q.numbers) {
+      expect(number.at[0], where).toBeGreaterThanOrEqual(q.at[0])
+      expect(number.at[1], where).toBeLessThanOrEqual(q.at[1])
+    }
+    // Links point back, so a list can be read in one pass.
+    if (q.of !== null) expect(q.of, where).toBeLessThan(i)
+    if (q.type !== 'temperature' && q.unitAt && q.unit) {
+      const text = canonical(line.text)
+      const written = readUnit(text, q.unitAt[0], line.language)
+      // "mm" reads as millimetres and becomes maustemitta in its line.
+      if (q.unit.id !== 'maustemitta') {
+        expect(written?.unit.id, where).toBe(q.unit.id)
+      }
+    }
   })
 }

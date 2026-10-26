@@ -143,6 +143,8 @@ describe('temperatures', () => {
   })
 
   it.each([
+    // 120.6 °C: in the table, which starts at 120 °C.
+    [249, 120],
     [250, 120],
     [300, 150],
     [325, 160],

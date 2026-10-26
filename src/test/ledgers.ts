@@ -42,6 +42,7 @@ export function ingredientLedger(
       ...SEE,
     ],
     items,
+    sampled: what === 'held-out',
     summarise: (site, entries) => {
       const counts = results.get(site) ?? new Map<string, number>()
       const total = [...counts.values()].reduce((a, b) => a + b, 0)
@@ -80,6 +81,7 @@ export function stepLedger(
       ...SEE,
     ],
     items,
+    sampled: what === 'held-out',
     summarise: (site, entries) => {
       const c = counts.get(site) ?? { sentences: 0, found: 0 }
       return `(${sites.get(site)}): ${c.sentences} sentences, ${entries.length} entries; ${c.found} with quantities`
