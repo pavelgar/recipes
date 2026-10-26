@@ -560,6 +560,18 @@ export function RecipeEditor({
               </h2>
               {canTidy && (
                 <div className="flex items-center gap-1">
+                  {hasTidied && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="icon"
+                      aria-label={m.editor_undo()}
+                      title={m.editor_undo()}
+                      onClick={undoTidy}
+                    >
+                      <Undo2Icon />
+                    </Button>
+                  )}
                   <Button
                     type="button"
                     variant="ghost"
@@ -576,18 +588,6 @@ export function RecipeEditor({
                     )}
                     {m.editor_tidy()}
                   </Button>
-                  {hasTidied && (
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      aria-label={m.editor_undo()}
-                      title={m.editor_undo()}
-                      onClick={undoTidy}
-                    >
-                      <Undo2Icon />
-                    </Button>
-                  )}
                 </div>
               )}
             </div>
