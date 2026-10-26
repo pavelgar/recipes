@@ -70,6 +70,18 @@ export function readRecipe(
   }
 }
 
+// What a page says about itself, apart from any Recipe in it: the language
+// it states, its site's name, its title and its own address. For a page
+// read with AI.
+export function pageFacts(page: Page, pageUrl: string) {
+  return {
+    lang: htmlLang(page),
+    siteName: metaContent(page, 'og:site_name'),
+    title: metaContent(page, 'og:title'),
+    url: canonicalUrl(page, pageUrl),
+  }
+}
+
 // Text as the page published it, readable: HTML entities decoded (pages
 // write "Salt &amp; pepper"), stray tags dropped and runs of spaces made
 // single.

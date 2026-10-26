@@ -20,11 +20,14 @@ const MARK_STYLES: Record<Mark['kind'], string> = {
 // each heading, and the parts the app recognised are highlighted as they're
 // typed. Behind it sits a copy of the text, wrapped the same way, invisible
 // but for those marks; editing stays the browser's own. When empty, the
-// placeholder shows as such a list.
+// placeholder shows as such a list. A line to check, such as one AI wrote
+// differently from its source, is underlined in amber, its bullet or
+// number too, over the marks in it.
 export function MarkedTextarea({
   value,
   placeholder = '',
   marksOf,
+  flagged,
   list,
   className,
   ...props
@@ -32,6 +35,7 @@ export function MarkedTextarea({
   value: string
   placeholder?: string
   marksOf: (line: string) => ReadonlyArray<Mark>
+  flagged?: (line: string) => boolean
   list: 'bullets' | 'numbers'
 }) {
   const shown = value === '' ? placeholder : value
@@ -51,11 +55,24 @@ export function MarkedTextarea({
           const marks = marksOf(line)
           const heading = marks.some((mark) => mark.kind === 'heading')
           const item = line.trim() !== '' && !heading
+          const check = value !== '' && line.trim() !== '' && flagged?.(line)
           number = heading ? 0 : item ? number + 1 : number
           return (
-            <div key={index} className="relative">
+            <div
+              key={index}
+              className={cn(
+                'relative',
+                check &&
+                  'underline decoration-warning decoration-wavy decoration-from-font underline-offset-4',
+              )}
+            >
               {item && (
-                <span className="absolute right-full mr-2.5 text-muted-foreground tabular-nums">
+                <span
+                  className={cn(
+                    'absolute right-full mr-2.5 text-muted-foreground tabular-nums',
+                    check && 'text-warning',
+                  )}
+                >
                   {list === 'numbers' ? `${number}.` : '•'}
                 </span>
               )}
