@@ -256,11 +256,13 @@
   text is checked in order, with the same wording and spaces separating
   words and numbers. Any other omission or change is rejected. The model
   can misidentify a recipe line as clutter, so the result is checked in
-  the editor. Success, unchanged and error messages appear directly under
-  the Steps heading, near Tidy even in a long recipe, with Undo as a simple
-  inline text link after a successful change to restore the complete
-  original text. Feedback clears when the steps are edited, tidying is
-  tried again or the change is undone.
+  the editor. After a successful run, including one that finds the steps
+  already tidy, Tidy shows a checkmark and stays disabled, with an Undo
+  icon button beside it. This state lasts until Undo restores the original
+  text or any manual edit in the steps clears it. Changes to other fields
+  leave it in place. Success is announced to screen readers without a
+  visible message. Errors appear directly under the Steps heading and
+  clear when the steps are edited or tidying is tried again.
 
 ### AI providers
 

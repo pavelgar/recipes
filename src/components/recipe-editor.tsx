@@ -8,6 +8,7 @@ import {
   BookOpenIcon,
   CheckIcon,
   Trash2Icon,
+  Undo2Icon,
   UsersIcon,
   WandSparklesIcon,
 } from 'lucide-react'
@@ -80,7 +81,6 @@ const EXAMPLES: Record<Language, { ingredients: string; steps: string }> = {
 
 type TidyFeedback =
   | { kind: 'error'; message: string }
-  | { kind: 'unchanged' }
   | { kind: 'tidied'; before: string; after: string }
 
 // The fields the recipe's language is told from.
@@ -251,13 +251,14 @@ export function RecipeEditor({
     mutationFn: (steps: string) => tidySteps({ data: { steps } }),
   })
   const [tidyFeedback, setTidyFeedback] = useState<TidyFeedback | null>(null)
+  const hasTidied = tidyFeedback?.kind === 'tidied'
 
   function changeSteps(steps: string) {
     form.setFieldValue('steps', steps)
     if (!finished.current) saveDraft(origin, form.state.values)
   }
 
-  // Feedback stays beside the steps, with Undo for the last tidy result.
+  // Successful tidying stays marked on its button, with Undo beside it.
   // Editing the steps clears it; a late answer cannot replace those edits.
   function tidy() {
     const before = form.getFieldValue('steps')
@@ -285,7 +286,7 @@ export function RecipeEditor({
           return
         }
         if (result.steps === tidiedAlready(before)) {
-          setTidyFeedback({ kind: 'unchanged' })
+          setTidyFeedback({ kind: 'tidied', before, after: before })
           return
         }
         changeSteps(result.steps)
@@ -558,47 +559,49 @@ export function RecipeEditor({
                 <label htmlFor={field.name}>{m.recipe_steps()}</label>
               </h2>
               {canTidy && (
-                <Button
-                  type="button"
-                  variant="ghost"
-                  aria-label={m.editor_tidy_label()}
-                  disabled={tidying.isPending}
-                  onClick={tidy}
-                >
-                  {tidying.isPending ? (
-                    <Spinner data-icon="inline-start" />
-                  ) : (
-                    <WandSparklesIcon data-icon="inline-start" />
+                <div className="flex items-center gap-1">
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    aria-label={m.editor_tidy_label()}
+                    disabled={tidying.isPending || hasTidied}
+                    onClick={tidy}
+                  >
+                    {tidying.isPending ? (
+                      <Spinner data-icon="inline-start" />
+                    ) : hasTidied ? (
+                      <CheckIcon data-icon="inline-start" />
+                    ) : (
+                      <WandSparklesIcon data-icon="inline-start" />
+                    )}
+                    {m.editor_tidy()}
+                  </Button>
+                  {hasTidied && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      aria-label={m.editor_undo()}
+                      title={m.editor_undo()}
+                      onClick={undoTidy}
+                    >
+                      <Undo2Icon />
+                    </Button>
                   )}
-                  {m.editor_tidy()}
-                </Button>
+                </div>
               )}
             </div>
-            {tidyFeedback?.kind === 'error' ? (
+            <span role="status" className="sr-only">
+              {hasTidied
+                ? tidyFeedback.before === tidyFeedback.after
+                  ? m.editor_tidy_unchanged()
+                  : m.editor_tidied()
+                : null}
+            </span>
+            {tidyFeedback?.kind === 'error' && (
               <FieldError id="steps-tidy-feedback">
                 {tidyFeedback.message}
               </FieldError>
-            ) : (
-              tidyFeedback && (
-                <FieldDescription id="steps-tidy-feedback" role="status">
-                  {tidyFeedback.kind === 'tidied'
-                    ? m.editor_tidied()
-                    : m.editor_tidy_unchanged()}
-                  {tidyFeedback.kind === 'tidied' && (
-                    <>
-                      {' '}
-                      <button
-                        type="button"
-                        onClick={undoTidy}
-                        className="underline underline-offset-4 hover:text-primary"
-                      >
-                        {m.editor_undo()}
-                      </button>
-                      .
-                    </>
-                  )}
-                </FieldDescription>
-              )
             )}
             <MarkedTextarea
               id={field.name}
@@ -608,7 +611,9 @@ export function RecipeEditor({
               marksOf={(line) => marksOf(line, 'step', opts)}
               flagged={flagged}
               aria-describedby={
-                tidyFeedback ? 'steps-tidy-feedback' : undefined
+                tidyFeedback?.kind === 'error'
+                  ? 'steps-tidy-feedback'
+                  : undefined
               }
               onChange={(event) => {
                 setTidyFeedback(null)
