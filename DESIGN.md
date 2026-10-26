@@ -257,8 +257,9 @@
   words and numbers. Any other omission or change is rejected. The model
   can misidentify a recipe line as clutter, so the result is checked in
   the editor. Success, unchanged and error messages appear directly under
-  the Steps heading, near Tidy even in a long recipe, with Undo beside a
-  successful change to restore the complete original text. Feedback clears when the steps are edited, tidying is
+  the Steps heading, near Tidy even in a long recipe, with Undo as a simple
+  inline text link after a successful change to restore the complete
+  original text. Feedback clears when the steps are edited, tidying is
   tried again or the change is undone.
 
 ### AI providers

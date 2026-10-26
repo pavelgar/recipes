@@ -580,23 +580,21 @@ export function RecipeEditor({
               </FieldError>
             ) : (
               tidyFeedback && (
-                <FieldDescription
-                  id="steps-tidy-feedback"
-                  role="status"
-                  className="flex flex-wrap items-center gap-x-2 gap-y-1"
-                >
+                <FieldDescription id="steps-tidy-feedback" role="status">
                   {tidyFeedback.kind === 'tidied'
                     ? m.editor_tidied()
                     : m.editor_tidy_unchanged()}
                   {tidyFeedback.kind === 'tidied' && (
-                    <Button
-                      type="button"
-                      variant="link"
-                      size="sm"
-                      onClick={undoTidy}
-                    >
-                      {m.editor_undo()}
-                    </Button>
+                    <>
+                      {' '}
+                      <button
+                        type="button"
+                        onClick={undoTidy}
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        {m.editor_undo()}
+                      </button>
+                    </>
                   )}
                 </FieldDescription>
               )
