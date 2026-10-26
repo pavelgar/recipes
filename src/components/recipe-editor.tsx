@@ -554,30 +554,40 @@ export function RecipeEditor({
             <div className="flex min-h-9 items-center justify-between gap-3">
               <h2
                 id="steps-heading"
-                className="font-heading text-xl font-semibold"
+                className="shrink-0 font-heading text-xl font-semibold"
               >
                 <label htmlFor={field.name}>{m.recipe_steps()}</label>
               </h2>
-              {canTidy && (
-                <Button
-                  type="button"
-                  variant="ghost"
-                  aria-label={
-                    hasTidied ? m.editor_undo() : m.editor_tidy_label()
-                  }
-                  disabled={tidying.isPending}
-                  onClick={hasTidied ? undoTidy : tidy}
-                >
-                  {tidying.isPending ? (
-                    <Spinner data-icon="inline-start" />
-                  ) : hasTidied ? (
-                    <Undo2Icon data-icon="inline-start" />
-                  ) : (
-                    <WandSparklesIcon data-icon="inline-start" />
-                  )}
-                  {hasTidied ? m.editor_undo() : m.editor_tidy()}
-                </Button>
-              )}
+              <div className="flex min-w-0 items-center justify-end gap-3">
+                {tidyFeedback?.kind === 'error' && (
+                  <FieldError
+                    id="steps-tidy-feedback"
+                    className="min-w-0 break-words"
+                  >
+                    {tidyFeedback.message}
+                  </FieldError>
+                )}
+                {canTidy && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    aria-label={
+                      hasTidied ? m.editor_undo() : m.editor_tidy_label()
+                    }
+                    disabled={tidying.isPending}
+                    onClick={hasTidied ? undoTidy : tidy}
+                  >
+                    {tidying.isPending ? (
+                      <Spinner data-icon="inline-start" />
+                    ) : hasTidied ? (
+                      <Undo2Icon data-icon="inline-start" />
+                    ) : (
+                      <WandSparklesIcon data-icon="inline-start" />
+                    )}
+                    {hasTidied ? m.editor_undo() : m.editor_tidy()}
+                  </Button>
+                )}
+              </div>
             </div>
             <span role="status" className="sr-only">
               {hasTidied
@@ -586,11 +596,6 @@ export function RecipeEditor({
                   : m.editor_tidied()
                 : null}
             </span>
-            {tidyFeedback?.kind === 'error' && (
-              <FieldError id="steps-tidy-feedback">
-                {tidyFeedback.message}
-              </FieldError>
-            )}
             <MarkedTextarea
               id={field.name}
               list="numbers"

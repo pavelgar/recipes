@@ -262,8 +262,9 @@
   turns the button back into Tidy; any manual edit in the steps also turns
   it back into Tidy. Changes to other fields leave it as Undo.
   Success is announced to screen readers without a visible message.
-  Errors appear directly under the Steps heading and clear when the steps
-  are edited or tidying is tried again.
+  Errors appear immediately to the left of Tidy in the same heading row,
+  wrapping as needed, and clear when the steps are edited or tidying is
+  tried again.
 
 ### AI providers
 
