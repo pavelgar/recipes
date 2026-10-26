@@ -1,39 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import { parseIngredient } from '@/lib/quantities/ingredient'
 import { scanStep } from '@/lib/quantities/steps'
-import { canonical } from '@/lib/quantities/text'
-import { readUnit } from '@/lib/quantities/units'
 import { ingredientLines, stepSentences } from '@/test/corpus'
-import { describeIngredient, describeStep } from '@/test/quantities'
-import type { LineQuantity } from '@/lib/quantities/line'
+import { checkShape, describeIngredient, describeStep } from '@/test/quantities'
 import type { CorpusLine } from '@/test/corpus'
 
 // Properties that hold for every corpus line, and readings that must not
 // change when the text changes in ways that don't matter.
-
-function checkShape(line: CorpusLine, list: ReadonlyArray<LineQuantity>) {
-  const n = line.text.length
-  list.forEach((q, i) => {
-    const where = `${JSON.stringify(line.text)} #${i}`
-    expect(q.at[0], where).toBeGreaterThanOrEqual(0)
-    expect(q.at[1], where).toBeLessThanOrEqual(n)
-    expect(q.at[0], where).toBeLessThan(q.at[1])
-    for (const number of q.numbers) {
-      expect(number.at[0], where).toBeGreaterThanOrEqual(q.at[0])
-      expect(number.at[1], where).toBeLessThanOrEqual(q.at[1])
-    }
-    // Links point back, so a list can be read in one pass.
-    if (q.of !== null) expect(q.of, where).toBeLessThan(i)
-    if (q.type !== 'temperature' && q.unitAt && q.unit) {
-      const text = canonical(line.text)
-      const written = readUnit(text, q.unitAt[0], line.language)
-      // "mm" reads as millimetres and becomes maustemitta in its line.
-      if (q.unit.id !== 'maustemitta') {
-        expect(written?.unit.id, where).toBe(q.unit.id)
-      }
-    }
-  })
-}
 
 describe('every corpus line', () => {
   it('has spans, numbers, units and links that fit its text', () => {

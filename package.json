@@ -83,6 +83,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
+    "@fast-check/vitest": "0.5.0",
     "@inlang/paraglide-js": "^2.13.1",
     "@playwright/cli": "^0.1.22",
     "@playwright/test": "^1.64.1",
@@ -101,6 +102,7 @@
     "dotenv": "^17.3.1",
     "eslint": "^9.20.0",
     "eslint-plugin-no-relative-import-paths": "^1.7.3",
+    "fast-check": "4.10.2",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2",
