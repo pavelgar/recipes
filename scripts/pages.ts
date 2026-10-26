@@ -19,6 +19,7 @@ import { DomUtils, parseDocument } from 'htmlparser2'
 import { extractRecipe } from '@/lib/import/extract'
 import { fetchPage } from '@/lib/import/fetch.server'
 import { mulberry32 } from './random.ts'
+import { robotsOf } from './robots.ts'
 
 type CorpusFile = {
   site: string
@@ -34,8 +35,6 @@ type CorpusFile = {
 
 const CACHE = '.cache/pages'
 const PAGES = 'corpus/pages'
-const USER_AGENT = 'Recipes'
-const DELAY_MS = 1500
 
 const readJson = <T>(path: string): T =>
   JSON.parse(readFileSync(path, 'utf8')) as T
@@ -55,71 +54,6 @@ function shuffled<T>(items: Array<T>, seed: number): Array<T> {
     ;[out[i], out[j]] = [out[j], out[i]]
   }
   return out
-}
-
-type Robots = { allows: (path: string) => boolean; delayMs: number }
-
-// The rules of the group for our user agent, or for every agent: the
-// longest matching Allow or Disallow wins, * matches anything and $ ends.
-async function robotsOf(origin: string): Promise<Robots> {
-  const response = await fetch(`${origin}/robots.txt`, {
-    headers: { 'user-agent': USER_AGENT },
-  })
-  const text = response.ok ? await response.text() : ''
-  const groups: Array<{
-    agents: Array<string>
-    lines: Array<[string, string]>
-  }> = []
-  let current: (typeof groups)[number] | null = null
-  let lastWasAgent = false
-  for (const raw of text.split(/\r?\n/)) {
-    const line = raw.replace(/#.*/, '').trim()
-    const match = /^([\w-]+)\s*:\s*(.*)$/.exec(line)
-    if (!match) continue
-    const [, field, value] = match
-    if (field.toLowerCase() === 'user-agent') {
-      if (!lastWasAgent || !current) {
-        current = { agents: [], lines: [] }
-        groups.push(current)
-      }
-      current.agents.push(value.toLowerCase())
-      lastWasAgent = true
-    } else {
-      lastWasAgent = false
-      current?.lines.push([field.toLowerCase(), value])
-    }
-  }
-  const group =
-    groups.find((g) => g.agents.includes(USER_AGENT.toLowerCase())) ??
-    groups.find((g) => g.agents.includes('*'))
-  const rules = (group?.lines ?? []).filter(
-    ([field, value]) => (field === 'allow' || field === 'disallow') && value,
-  )
-  const delay = Number(
-    group?.lines.find(([field]) => field === 'crawl-delay')?.[1] ?? 0,
-  )
-  const pattern = (value: string) =>
-    new RegExp(
-      `^${value.replace(/[.+?^{}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*')}`,
-    )
-  return {
-    allows: (path) => {
-      let best: [string, string] | null = null
-      for (const rule of rules) {
-        if (
-          pattern(rule[1]).test(path) &&
-          rule[1].length > (best?.[1].length ?? -1)
-        ) {
-          best = rule
-        }
-      }
-      return best === null || best[0] === 'allow'
-    },
-    // A delay that isn't a number, such as "10s", still waits DELAY_MS.
-    delayMs: Number.isFinite(delay)
-      ? Math.max(DELAY_MS, delay * 1000)
-      : DELAY_MS,
-  }
 }
 
 const slugOf = (url: string) =>
