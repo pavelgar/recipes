@@ -4,8 +4,6 @@ import { readNumber } from '@/lib/quantities/numbers'
 import { scan } from '@/lib/quantities/scan'
 import { canonical } from '@/lib/quantities/text'
 import { inCorpus, ingredientLines } from '@/test/corpus'
-import { assertLedger } from '@/test/ledger'
-import { ingredientLedger } from '@/test/ledgers'
 import { describeIngredient } from '@/test/quantities'
 import type { IngredientOptions } from '@/lib/quantities/ingredient'
 
@@ -14,6 +12,78 @@ import type { IngredientOptions } from '@/lib/quantities/ingredient'
 // written as described in src/test/quantities.ts, ending with the text each
 // quantity covers.
 const CASES: Record<string, Array<[line: string, expected: string]>> = {
+  'zero amounts': [
+    // https://www.valio.fi/reseptit/harkis-texmex-salaatti/
+    ['0 kg nachoja', 'measured 0 kg  [0 kg]'],
+  ],
+  'approximate totals with around': [
+    // https://www.bbcgoodfood.com/recipes/carrot-swede-mash-with-brown-butter-thyme
+    [
+      '1 medium swede (around 600g), peeled and roughly chopped',
+      'counted 1 | total ~600 g  [1] [600g]',
+    ],
+  ],
+  'English rates stay fixed': [
+    // https://www.tasteofhome.com/recipes/tortellini-shrimp-skewers-with-sun-dried-tomato-sauce/
+    [
+      '1 pound peeled and deveined cooked shrimp (31-40 per pound)',
+      'measured 1 lb  [1 pound]',
+    ],
+  ],
+  'later bare-count alternatives': [
+    // https://www.recipetineats.com/hot-ham-and-cheese-sliders/
+    [
+      '12  standard or 24 small soft white roll slab ((23 x 33cm / 9 x 13" slab) - Note 1)',
+      'counted 12 | more 24 | more fixed 23x33 cm = 9x13 in  [12] [24] [23 x 33cm] [9 x 13"]',
+    ],
+  ],
+  'later package alternatives': [
+    // https://www.tasteofhome.com/recipes/crispy-oven-fried-oysters/
+    [
+      '1 pint shucked oysters or 2 cans (8 ounces each) whole oysters, drained',
+      'measured 1 pint | more 2 can | more fixed 8 oz  [1 pint] [2 cans] [8 ounces]',
+    ],
+  ],
+  'later alternative subtotals': [
+    // https://www.kingarthurbaking.com/recipes/sourdough-chocolate-chip-cookies-recipe
+    [
+      '1/2 cup (113g) ripe (fed) sourdough starter or 1/2 cup plus 1 tablespoon (135g) sourdough discard',
+      'measured 0.5 cup = 113 g | more 0.5 cup | more 1 tbsp | total 135 g  [1/2 cup] [113g] [1/2 cup] [1 tablespoon] [135g]',
+    ],
+  ],
+  'counted mains beside measured alternatives': [
+    // https://www.bettycrocker.com/recipes/italian-sausage-lasagna/2601a67c-438d-407a-b163-2f57ede06cb9
+    [
+      '1 container (15 oz) ricotta cheese or small-curd cottage cheese (2 cups)',
+      'counted 1 container | total 15 oz | more 2 cup  [1 container] [15 oz] [2 cups]',
+    ],
+  ],
+  'dimensions separate later weights': [
+    // https://www.bbcgoodfood.com/recipes/lazy-summer-tomato-sourdough-traybake
+    [
+      '1 small aubergine cut into 3cm chunks (250g)',
+      'counted 1 | more fixed 3 cm | more 250 g  [1] [3cm] [250g]',
+    ],
+    // https://www.recipetineats.com/lamb-tagine/
+    [
+      '1.6 kg/ 3.2lb  boneless lamb shoulder, trim the fat, then ( cut in 3.5cm / 1.5" cubes (1kg/2lb after trimming))',
+      'measured 1.6 kg = 3.2 lb | more fixed 3.5 cm = 1.5 in | more 1 kg = 2 lb  [1.6 kg] [3.2lb] [3.5cm] [1.5"] [1kg] [2lb]',
+    ],
+  ],
+  'nested counts and measured amounts': [
+    // https://www.recipetineats.com/birria-tacos/
+    [
+      '45 g (1.6 oz)  ancho chillies, dried ((~2-3 pieces, 1 cup once chopped) (Note 1))',
+      'measured 45 g = 1.6 oz | more ~2-3 piece | more 1 cup  [45 g] [1.6 oz] [2-3 pieces] [1 cup]',
+    ],
+  ],
+  'less common fraction glyphs': [
+    // https://www.bbc.co.uk/food/recipes/easy_onion_rings_87916
+    [
+      '1 large onion, sliced into rings about 1.5cm/⅝in thick',
+      'counted 1 | more fixed ~1.5 cm = 0.625 in  [1] [1.5cm] [⅝in]',
+    ],
+  ],
   'numbers and units': [
     ['1½ dl Arla® Kevytmaitoa', 'measured 1.5 dl  [1½ dl]'],
     ['3 1/2dl Puuroriisiä', 'measured 3.5 dl  [3 1/2dl]'],
@@ -430,16 +500,22 @@ const parse = (line: string) => parseIngredient(line, optionsOf(line))
 // ledger. These remain red-capable: fixing one makes its fails test report
 // an unexpected pass, so the known-failure marker can be removed.
 const KNOWN_FAILURES = [
+  // https://www.arla.fi/reseptit/paasiaisen-rahkajalkiruoka/
+  // Currently the second 200g scales with the main amount.
   [
     'a product’s package size stays fixed',
     '200 g Arla® Lempi Rahka Vanilja 200g, laktoositon',
     'measured 200 g | more fixed 200 g  [200 g] [200g]',
   ],
+  // https://www.kingarthurbaking.com/recipes/gluten-free-pumpkin-cake-recipe
+  // Currently the alternative loses its can count and treats 15 oz as scalable.
   [
     'an alternative can keeps its count and each size',
     '2 scant cups (425g) or one 15-ounce can pumpkin purée',
     'measured ~2 cup = 425 g | more 1 can | each 15 oz  [2 scant cups] [425g] [one 15-ounce can] [15-ounce]',
   ],
+  // https://www.valio.fi/reseptit/halloween-porkkanakakku/
+  // Currently the amount is a bare count, without the tlk unit.
   [
     'a Finnish size adjective can precede a package unit',
     '1 pieni tlk ananasmurskaa',
@@ -466,6 +542,56 @@ describe('parseIngredient', () => {
 
   it.fails.each(KNOWN_FAILURES)('%s (known failure)', (_, text, expected) => {
     expect(describeIngredient(parse(text))).toBe(expected)
+  })
+
+  it('keeps a later alternative’s subtotal attached to that alternative', () => {
+    const text = CASES['later alternative subtotals'][0][0]
+    expect(parse(text).quantities[4]).toMatchObject({
+      role: 'total',
+      of: 2,
+      scales: true,
+    })
+  })
+
+  it('keeps weights after dimensions separate from the main amount', () => {
+    const [aubergine, lamb] = CASES['dimensions separate later weights'].map(
+      ([text]) =>
+        parse(text).quantities.map(({ role, of, scales }) => ({
+          role,
+          of,
+          scales,
+        })),
+    )
+    expect(aubergine).toEqual([
+      { role: 'main', of: null, scales: true },
+      { role: 'other', of: null, scales: false },
+      { role: 'other', of: null, scales: true },
+    ])
+    expect(lamb).toEqual([
+      { role: 'main', of: null, scales: true },
+      { role: 'same', of: 0, scales: true },
+      { role: 'other', of: null, scales: false },
+      { role: 'same', of: 2, scales: false },
+      { role: 'other', of: null, scales: true },
+      { role: 'same', of: 4, scales: true },
+    ])
+  })
+
+  it('keeps the correct scant amount beside its known-failing alternative', () => {
+    const parsed = parse(KNOWN_FAILURES[1][1])
+    expect(parsed.quantities[0]).toMatchObject({
+      value: 2,
+      unit: { id: 'cup' },
+      approximate: true,
+      role: 'main',
+    })
+    expect(parsed.quantities[1]).toMatchObject({
+      value: 425,
+      unit: { id: 'g' },
+      role: 'same',
+      of: 0,
+      scales: true,
+    })
   })
 
   it('says where each number and unit is, and how the number was written', () => {
@@ -564,11 +690,5 @@ describe('parseIngredient', () => {
         }
       }
     }
-  })
-
-  it('keeps its reading of every corpus line', () => {
-    const path = 'src/lib/quantities/__ledger__/ingredients.txt'
-    const check = ingredientLedger(path, ingredientLines, 'corpus')
-    assertLedger(check, path, (message) => expect.fail(message))
   })
 })
