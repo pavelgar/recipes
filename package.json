@@ -27,6 +27,9 @@
     "intent": "node node_modules/@tanstack/intent/dist/cli.mjs"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.88",
+    "@ai-sdk/openai": "^4.0.102",
+    "@ai-sdk/openai-compatible": "^3.0.78",
     "@base-ui/react": "^1.9.0",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
     "@fontsource-variable/bitter": "^5.3.0",
@@ -41,6 +44,7 @@
     "@tanstack/react-router-devtools": "1.167.2",
     "@tanstack/react-router-ssr-query": "1.167.3",
     "@tanstack/react-start": "1.169.3",
+    "ai": "^7.0.153",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.0",
     "countries-and-timezones": "^3.11.0",

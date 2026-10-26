@@ -6,14 +6,19 @@ import {
 import { getCookie, setCookie } from '@tanstack/react-start/server'
 
 import { DISPLAY_SYSTEM_COOKIE } from '@/lib/display-system'
+import {
+  MAX_PHOTO_BYTES as MAX_SCAN_PHOTO_BYTES,
+  MAX_PHOTOS,
+} from '@/lib/import/photos'
 import { MAX_PHOTO_BYTES } from '@/lib/photos/photo'
 import { PREFERENCE_MAX_AGE } from '@/lib/preferences'
 import { THEME_COOKIE } from '@/lib/theme'
 import { cookieName as LOCALE_COOKIE } from '@/paraglide/runtime'
 
-// The largest server function call the app makes: a photo, with the form
-// around it.
-const MAX_CALL_BYTES = MAX_PHOTO_BYTES + 1_000_000
+// The largest server function call the app makes: one cover photo, or
+// several photos to read with AI, with the form around them.
+const MAX_CALL_BYTES =
+  Math.max(MAX_PHOTO_BYTES, MAX_SCAN_PHOTO_BYTES * MAX_PHOTOS) + 1_000_000
 
 // Start reads a server function call's body whole before anything checks
 // it, and anyone on the network can make a call. So a call larger than any

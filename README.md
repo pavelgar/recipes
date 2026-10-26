@@ -68,6 +68,27 @@ The container starts as root, hands `/data` to `PUID`:`PGID` and drops to
 that user, as linuxserver.io images do. Started with `--user`, it runs as
 that user instead and leaves ownership alone.
 
+### AI
+
+An AI model is optional. With one, the app can read a recipe from photos
+(a cookbook page, a handwritten card, a screenshot), from text pasted in,
+or from a web page that has no recipe data, and tidy a recipe's steps
+onto a line each. Everything else works without it. Give the container
+the model with these settings; the app never shows them, since anyone on
+the network can open its settings.
+
+| Parameter         | What it does                                                                   |
+| ----------------- | ------------------------------------------------------------------------------ |
+| `-e AI_PROVIDER=` | `anthropic`, `openai`, `openrouter`, or `openai-compatible` for a local server |
+| `-e AI_MODEL=`    | The model's name at the provider, for example `claude-sonnet-5-5`              |
+| `-e AI_API_KEY=`  | The provider's API key; a local server may need none                           |
+| `-e AI_BASE_URL=` | The API's address, for a local server: `http://llama:8080/v1`                  |
+
+Scanning photos needs a model that reads images. For a local model, run
+llama.cpp's `llama-server` with a vision model and its `--mmproj`
+projector, and point `AI_BASE_URL` at it. A setting that's missing or
+wrong stops the container at start, saying which.
+
 Rootless Podman maps the container's users onto other ids on the host, so
 your own user can't open what the app writes to a host folder. To keep
 those files yours, run with `--userns=keep-id` instead of `PUID` and

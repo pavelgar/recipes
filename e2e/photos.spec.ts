@@ -2,6 +2,7 @@ import { rm } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { expect, test } from '@playwright/test'
 import sharp from 'sharp'
+import { MAX_PHOTO_BYTES, MAX_PHOTOS } from '@/lib/import/photos'
 import type { Page } from '@playwright/test'
 
 type Chosen = { name: string; mimeType: string; buffer: Buffer }
@@ -131,7 +132,7 @@ test('the server refuses a call larger than any the app makes', async ({
   const response = await request.post('/_serverFn/uploadPhoto', {
     // What the app's own pages send, which any other client can send too.
     headers: { 'sec-fetch-site': 'same-origin' },
-    data: Buffer.alloc(21_000_001),
+    data: Buffer.alloc(MAX_PHOTO_BYTES * MAX_PHOTOS + 1_000_001),
   })
   expect(response.status()).toBe(413)
 })

@@ -25,9 +25,20 @@ const draftShape = z.object({
   sourceUrl: z.string(),
   // The id of its stored cover photo, or empty.
   photo: z.string(),
+  // Lines AI wrote differently from the page or text it read them from,
+  // which the editor marks until they're changed.
+  reworded: z.array(z.string()),
 })
 
 export type Draft = z.infer<typeof draftShape>
+
+// Where a draft came from: typed in, imported from a page (from its Recipe
+// data or read with AI), or read with AI from photos or pasted text.
+export type DraftOrigin =
+  | { kind: 'typed' }
+  | { kind: 'page'; link: string }
+  | { kind: 'photos' }
+  | { kind: 'text' }
 
 const minutes = z
   .string()
@@ -45,6 +56,19 @@ export const draftSchema = draftShape.extend({
   totalMinutes: minutes,
 })
 
+// The add page's address for a draft, by where it came from.
+export function addSearch(origin: DraftOrigin) {
+  switch (origin.kind) {
+    case 'typed':
+      return {}
+    case 'page':
+      return { link: origin.link }
+    case 'photos':
+    case 'text':
+      return { from: origin.kind }
+  }
+}
+
 export function emptyDraft(language: RecipeLanguage): Draft {
   return {
     title: '',
@@ -59,12 +83,19 @@ export function emptyDraft(language: RecipeLanguage): Draft {
     sourceName: '',
     sourceUrl: '',
     photo: '',
+    reworded: [],
   }
 }
 
 export function draftFromImport(
   recipe: ImportedRecipe,
-  photo: string | null,
+  {
+    photo = null,
+    reworded = [],
+  }: {
+    photo?: string | null
+    reworded?: ReadonlyArray<string>
+  } = {},
 ): Draft {
   const text = (value: number | string | null) =>
     value === null ? '' : String(value)
@@ -79,8 +110,9 @@ export function draftFromImport(
     ingredients: textFromSections(recipe.ingredients),
     steps: textFromSections(recipe.steps),
     sourceName: text(recipe.sourceName),
-    sourceUrl: recipe.sourceUrl,
+    sourceUrl: text(recipe.sourceUrl),
     photo: text(photo),
+    reworded: [...reworded],
   }
 }
 
@@ -111,12 +143,18 @@ export function recipeFromDraft(draft: Draft): RecipeInput {
 
 // Unsaved drafts are kept in the browser, so a reload, a closed tab or a
 // new version of the app doesn't lose them. There are two: one typed by
-// hand, and one being checked after an import, kept with its link.
+// hand, and one being checked after an import, kept with its link, or
+// "photos" or "text" for one read from those. A new import's draft takes
+// the place of the last.
 const STORAGE_KEY = 'recipes.drafts.v1'
 
 // Stored drafts are checked for their shape only: one saved before its
-// title was typed still loads, and one kept before photos came has none.
-const storedDraft = draftShape.extend({ photo: z.string().default('') })
+// title was typed still loads. Drafts kept before cover photos or AI
+// imports came have no photo or reworded lines.
+const storedDraft = draftShape.extend({
+  photo: z.string().default(''),
+  reworded: z.array(z.string()).default([]),
+})
 
 const stored = z.object({
   manual: storedDraft.optional().catch(undefined),
@@ -125,6 +163,12 @@ const stored = z.object({
     .optional()
     .catch(undefined),
 })
+
+// What an import's draft is kept under. Links are web addresses, so they
+// can't be "photos" or "text".
+function importKey(origin: Exclude<DraftOrigin, { kind: 'typed' }>): string {
+  return origin.kind === 'page' ? origin.link : origin.kind
+}
 
 type Stored = z.infer<typeof stored>
 
@@ -146,25 +190,27 @@ function writeAll(drafts: Stored) {
   }
 }
 
-export function loadDraft(link: string | null): Draft | null {
+export function loadDraft(origin: DraftOrigin): Draft | null {
   const drafts = readAll()
-  if (link === null) return drafts.manual ?? null
-  return drafts.imported?.link === link ? drafts.imported.draft : null
+  if (origin.kind === 'typed') return drafts.manual ?? null
+  return drafts.imported?.link === importKey(origin)
+    ? drafts.imported.draft
+    : null
 }
 
-export function saveDraft(link: string | null, draft: Draft) {
+export function saveDraft(origin: DraftOrigin, draft: Draft) {
   const drafts = readAll()
   writeAll(
-    link === null
+    origin.kind === 'typed'
       ? { ...drafts, manual: draft }
-      : { ...drafts, imported: { link, draft } },
+      : { ...drafts, imported: { link: importKey(origin), draft } },
   )
 }
 
-export function clearDraft(link: string | null) {
+export function clearDraft(origin: DraftOrigin) {
   const drafts = readAll()
   writeAll(
-    link === null
+    origin.kind === 'typed'
       ? { ...drafts, manual: undefined }
       : { ...drafts, imported: undefined },
   )
