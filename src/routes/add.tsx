@@ -3,7 +3,7 @@ import {
   Link,
   Navigate,
   createFileRoute,
-  useLocation,
+  useRouterState,
 } from '@tanstack/react-router'
 import { useState } from 'react'
 import { z } from 'zod'
@@ -34,8 +34,13 @@ export const Route = createFileRoute('/add')({
 
 function AddPage() {
   const { link, from } = Route.useSearch()
-  const read = useLocation({
-    select: (location) => location.state.aiRead ?? '',
+  // Which AI read brought the editor here, so a new one starts it afresh.
+  // Taken from the location on screen, not the one being navigated to:
+  // saving navigates away, and the editor would otherwise start afresh on
+  // its way out, find its draft gone and send the page back to /add.
+  const read = useRouterState({
+    select: (state) =>
+      (state.resolvedLocation ?? state.location).state.aiRead ?? '',
   })
   // As tall as the window, so the editor's actions can sit at its bottom.
   // Generous room above the name, clear of the notch in the installed app.
