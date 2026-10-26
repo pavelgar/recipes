@@ -257,12 +257,13 @@
   words and numbers. Any other omission or change is rejected. The model
   can misidentify a recipe line as clutter, so the result is checked in
   the editor. After a successful run, including one that finds the steps
-  already tidy, Tidy shows a checkmark and stays disabled, with an outline
-  Undo icon button immediately to its left. This state lasts until Undo
-  restores the original text or any manual edit in the steps clears it.
-  Changes to other fields leave it in place. Success is announced to screen
-  readers without a visible message. Errors appear directly under the Steps heading and
-  clear when the steps are edited or tidying is tried again.
+  already tidy, Tidy shows a checkmark and stays disabled, with a ghost
+  Undo button showing an icon and text label immediately to its left.
+  This state lasts until Undo restores the original text or any manual
+  edit in the steps clears it. Changes to other fields leave it in place.
+  Success is announced to screen readers without a visible message.
+  Errors appear directly under the Steps heading and clear when the steps
+  are edited or tidying is tried again.
 
 ### AI providers
 
