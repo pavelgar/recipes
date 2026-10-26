@@ -8,6 +8,13 @@
       "when": 1792790876057,
       "tag": "0000_recipes",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792971374843,
+      "tag": "0001_recipe_photo",
+      "breakpoints": true
     }
   ]
 }

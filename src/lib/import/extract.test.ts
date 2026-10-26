@@ -62,6 +62,7 @@ describe('extractRecipe', () => {
       steps: [],
       sourceName: 'Kotiliesi',
       sourceUrl: url,
+      imageUrl: null,
     })
   })
 
@@ -561,6 +562,188 @@ describe('extractRecipe', () => {
         'https://www.olivemagazine.com/recipes/collection/best-ever-healthy-chicken-recipes/',
       ),
     ).toBeNull()
+  })
+})
+
+// As the pages published their photos in October 2026.
+describe("the recipe's photo", () => {
+  const photoOf = (url: string, data: Record<string, unknown>, head = '') =>
+    extractRecipe(
+      page(
+        jsonLd({
+          '@context': 'https://schema.org',
+          '@type': 'Recipe',
+          name: 'Ananas-rahkajuoma',
+          recipeIngredient: [
+            '250 g Valio maitorahkaa',
+            '3 dl Valio ananastäysmehua',
+          ],
+          ...data,
+        }) + head,
+      ),
+      url,
+    )?.imageUrl
+
+  it('reads an address', () => {
+    const image =
+      'https://images.arla.com/recordid/7668715D-1614-4188-AE6D780EE2280497/banaanismoothie-maapahkinavoin-kera.jpg?width=1300&height=525&mode=crop&crop=(0,97,0,-257)&format=jpg'
+    expect(
+      photoOf(
+        'https://www.arla.fi/reseptit/banaanismoothie-maapahkinavoin-kera/',
+        {
+          image,
+        },
+      ),
+    ).toBe(image)
+  })
+
+  it('reads an ImageObject', () => {
+    expect(
+      photoOf(
+        'https://www.kingarthurbaking.com/recipes/baked-doughnuts-three-ways-recipe',
+        {
+          image: {
+            '@type': 'ImageObject',
+            url: 'https://www.kingarthurbaking.com/sites/default/files/recipe_legacy/4037-3-large.jpg',
+          },
+        },
+      ),
+    ).toBe(
+      'https://www.kingarthurbaking.com/sites/default/files/recipe_legacy/4037-3-large.jpg',
+    )
+  })
+
+  // WordPress SEO plugins give the page's main image once, in the @graph.
+  it('follows a reference to an ImageObject', () => {
+    const url = 'https://kotiliesi.fi/resepti/etikkasilakat/'
+    const html = page(
+      jsonLd({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Recipe',
+            '@id': `${url}#recipe`,
+            name: 'Etikkasilakat',
+            recipeIngredient: ['8  silakkafileetä', '1  sipuli'],
+            image: { '@id': `${url}#primaryimage` },
+          },
+          {
+            '@type': 'ImageObject',
+            inLanguage: 'fi',
+            '@id': `${url}#primaryimage`,
+            url: 'https://kotiliesi.fi/wp-content/uploads/reseptit/177691-silakat.jpg',
+            contentUrl:
+              'https://kotiliesi.fi/wp-content/uploads/reseptit/177691-silakat.jpg',
+            width: 2048,
+            height: 1536,
+          },
+        ],
+      }),
+    )
+    expect(extractRecipe(html, url)?.imageUrl).toBe(
+      'https://kotiliesi.fi/wp-content/uploads/reseptit/177691-silakat.jpg',
+    )
+  })
+
+  it('takes the largest stated width', () => {
+    expect(
+      photoOf('https://www.bbcgoodfood.com/recipes/boulevardier', {
+        image: [
+          {
+            '@type': 'ImageObject',
+            url: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/02/Boulevardier-c51a559.jpg?resize=768,713',
+            width: 768,
+            height: 713,
+          },
+          {
+            '@type': 'ImageObject',
+            url: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/02/Boulevardier-c51a559.jpg?resize=900,836',
+            width: 900,
+            height: 836,
+          },
+        ],
+      }),
+    ).toBe(
+      'https://images.immediate.co.uk/production/volatile/sites/30/2021/02/Boulevardier-c51a559.jpg?resize=900,836',
+    )
+  })
+
+  // Each crop of the photo is as wide as the others.
+  it('takes the first of equal widths', () => {
+    const crop = (height: number) => ({
+      '@type': 'ImageObject',
+      url: `https://assets.meillakotona.fi/elvis/file/AFOz-kwNKFIBzJIIij6rww/*/mk0318_arki_kana5_preview_1770313432824_pM0zk.jpg?w=1066&h=${height}&fit=crop-center&q=75`,
+      width: 1066,
+      height,
+    })
+    expect(
+      photoOf(
+        'https://www.meillakotona.fi/reseptit/broileria-ja-kaalia-hoisinkastikkeessa-uusi-arkiruokasuosikki-valmistuu-vartissa',
+        { image: [crop(1066), crop(800), crop(600)] },
+      ),
+    ).toBe(crop(1066).url)
+  })
+
+  // WP Recipe Maker lists the full photo, then square, 4:3 and 16:9 crops.
+  it('takes the first listed without sizes', () => {
+    const photo =
+      'https://www.justonecookbook.com/wp-content/uploads/2021/05/Butter-Shoyu-Chicken-6001-I'
+    expect(
+      photoOf('https://www.justonecookbook.com/butter-shoyu-chicken/', {
+        image: [
+          `${photo}.jpg`,
+          `${photo}-500x500.jpg`,
+          `${photo}-500x375.jpg`,
+          `${photo}-480x270.jpg`,
+        ],
+      }),
+    ).toBe(`${photo}.jpg`)
+  })
+
+  // Its og:image is then the site's logo.
+  it("has none when the recipe's data gives none", () => {
+    expect(
+      photoOf(
+        'https://www.bbc.co.uk/food/recipes/almond_and_orange_tart_69229',
+        { image: null },
+        '<meta property="og:image" content="https://food.files.bbci.co.uk/kandl-food/images/non-spriteable-images/bbc_placeholder.png">',
+      ),
+    ).toBeNull()
+  })
+
+  it("reads an <img>'s address in microdata, against the page's", () => {
+    const html = page(
+      '',
+      `<article itemscope itemtype="https://schema.org/Recipe">
+        <h1 itemprop="name">Etikkasilakat</h1>
+        <img itemprop="image" src="/wp-content/uploads/reseptit/177691-silakat.jpg" alt="">
+        <ul>
+          <li itemprop="recipeIngredient">8  silakkafileetä</li>
+          <li itemprop="recipeIngredient">1  sipuli</li>
+        </ul>
+      </article>`,
+    )
+    expect(
+      extractRecipe(html, 'https://kotiliesi.fi/resepti/etikkasilakat/')
+        ?.imageUrl,
+    ).toBe(
+      'https://kotiliesi.fi/wp-content/uploads/reseptit/177691-silakat.jpg',
+    )
+  })
+
+  // A page that loads its images as they scroll into view can start with a
+  // placeholder in place of the address.
+  it('passes over what is no web address', () => {
+    expect(
+      photoOf('https://kotiliesi.fi/resepti/etikkasilakat/', {
+        image: [
+          'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+          'https://kotiliesi.fi/wp-content/uploads/reseptit/177691-silakat.jpg',
+        ],
+      }),
+    ).toBe(
+      'https://kotiliesi.fi/wp-content/uploads/reseptit/177691-silakat.jpg',
+    )
   })
 })
 

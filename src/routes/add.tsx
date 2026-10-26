@@ -74,5 +74,10 @@ function Imported({ link }: { link: string }) {
       </div>
     )
   }
-  return <RecipeEditor link={link} initial={draftFromImport(data.recipe)} />
+  return (
+    <RecipeEditor
+      link={link}
+      initial={draftFromImport(data.recipe, data.photo)}
+    />
+  )
 }

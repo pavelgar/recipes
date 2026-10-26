@@ -58,6 +58,9 @@
 - The database is SQLite, accessed through libsql, in WAL mode so that
   reads and saves don't block each other. WAL doesn't work on a network
   share, so /data must be on the host's own disk.
+- Cover photos are files in a photos folder beside the database
+  (PHOTOS_DIR, /data/photos in the container), each named by a random id
+  that is never reused, so the server lets browsers keep them for good.
 
 ### Backups and export
 
@@ -83,6 +86,7 @@
   recipe extractor.
 - Use es-toolkit for common utilities and pluralize to generate English
   unit plurals from singular spellings.
+- Read, turn upright, resize and re-encode cover photos with sharp.
 - Use date-fns for working with dates, and countries-and-timezones to tell
   which country a time zone belongs to.
 - Render translations that mark words for the app to draw (such as a
@@ -156,6 +160,17 @@
   JSON-LD gives them. If the API doesn't answer, the ingredients stay one
   list. Other recipe plugins, such as Tasty Recipes, keep their groups only
   in the page's HTML, which isn't read.
+- An imported recipe's cover photo is the image its Recipe data gives: the
+  one with the largest stated width, otherwise the first listed. Sites
+  often list one photo in several sizes or crops. BBC Good Food and
+  Yhteishyvä list a smaller one first; WP Recipe Maker lists the full photo
+  first, then square, 4:3 and 16:9 crops. Valio and Meillä kotona list
+  their crops square first, Valio with no sizes and Meillä kotona with one
+  width for all, so their square comes. The page's og:image isn't read: on
+  BBC Food, a recipe without a photo has the site's logo there. The server
+  fetches the photo while the page is read, from public addresses only,
+  and a photo it can't fetch or read leaves the recipe without one,
+  unannounced.
 - An imported recipe's language is the one its page states (the Recipe's
   own, then the page's), whichever language that is, unless its text is
   long enough to tell (500 characters) and franc scores the stated language
@@ -175,17 +190,19 @@
 - Until it's saved, the editor's draft is kept in the browser: one typed
   by hand, and one being checked after an import. Discarding a draft asks
   nothing and can be undone.
-- The editor is laid out like the recipe it writes, each detail beside
-  what it's about: the name set as its heading, in a field like the
-  others so it reads as editable; under it, for an import a line of small
-  text that names its source as a link, for a typed recipe a source field,
-  and then the recipe language and its measures side by side, since
-  together they decide how the amounts read (see Recipes and Units), and
-  under them the prep, cook and total times side by side, each of these
-  labelled above its box; beside the Ingredients heading, servings, in the
-  half of the width the heading leaves; and the ingredients and steps as
-  lists, with bullets and step numbers that start again after each
-  heading. Other fields without a visible label show an icon and a
+- The editor is laid out like the recipe it writes, each detail beside what
+  it's about: the cover photo above the name, with buttons over it to change
+  or remove it, or without one its frame, empty like the other fields, to
+  tap to add one; the name set as its
+  heading, in a field like the others so it reads as editable; under it, for
+  an import a line of small text that names its source as a link, for a
+  typed recipe a source field, and then the recipe language and its measures
+  side by side, since together they decide how the amounts read (see Recipes
+  and Units), and under them the prep, cook and total times side by side,
+  each of these labelled above its box; beside the Ingredients heading,
+  servings, in the half of the width the heading leaves; and the ingredients
+  and steps as lists, with bullets and step numbers that start again after
+  each heading. Other fields without a visible label show an icon and a
   placeholder instead.
   Choices are in alphabetical order. A dropdown is the system's own picker
   on touch screens and the app's styled one with a mouse or trackpad. An
@@ -227,6 +244,14 @@
   which the editor shows but doesn't let anyone change; a recipe typed by
   hand has a source field for a name, such as a book and page.
 - The app must work and look good for recipes without a photo.
+- A cover photo is kept upright, fitting within 1600 × 1600 px (never
+  enlarged), as WebP, without its metadata, which can hold where it was
+  taken. JPEG, PNG, WebP, AVIF and GIF are read, up to 20 MB and 100
+  megapixels. HEIC isn't: sharp's builds can't read it, and iPhones send
+  JPEG to web pages.
+- The photo is added, changed and removed in the editor, before saving.
+  Removing it asks nothing and can be undone. Changing a saved recipe's
+  photo comes with editing saved recipes.
 - Servings are adjustable, and ingredient amounts follow.
 - Servings are kept as written, since recipes often give a yield instead
   ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
@@ -532,7 +557,8 @@
   lost, but the page can still reload while someone is typing.
 - Until recipe caching is built (M4), data is offline only once it has been
   read online. A screen whose data was never read shows the default error
-  page offline.
+  page offline. Photos aren't kept for offline use until then; one that
+  doesn't load leaves no gap or broken image.
 
 ## Not now
 
@@ -567,7 +593,10 @@
   - A small prototype proved that TanStack Start and a service worker can
     serve the app offline, before much was built on top of it. The way
     screens render and the service worker under Offline come from it.
-- M2: cover photos, tags and the tag screen, nightly backups.
+- M2: cover photos, tags and the tag screen, nightly backups. Photos no
+  recipe uses (from an import never saved, or replaced or removed in the
+  editor) stay in the photos folder until the nightly job clears them out,
+  after long enough that an open draft keeps its photo.
 - M3, everyday use: home rows, the meal queue, cooking aids (screen kept
   awake, crossing off, timers), undo and recently deleted.
 - M4, offline: caching recipes and photos, and offline search.

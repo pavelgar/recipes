@@ -15,6 +15,7 @@ import { Route as LibraryRouteImport } from './routes/library'
 import { Route as ManifestDotwebmanifestRouteImport } from './routes/manifest[.]webmanifest'
 import { Route as QueueRouteImport } from './routes/queue'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as PhotosChar123photoIdChar125DotwebpRouteImport } from './routes/photos.{$photoId}[.]webp'
 import { Route as RecipesRecipeIdRouteImport } from './routes/recipes.$recipeId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,12 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhotosChar123photoIdChar125DotwebpRoute =
+  PhotosChar123photoIdChar125DotwebpRouteImport.update({
+    id: '/photos/{$photoId}.webp',
+    path: '/photos/{$photoId}.webp',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const RecipesRecipeIdRoute = RecipesRecipeIdRouteImport.update({
   id: '/recipes/$recipeId',
   path: '/recipes/$recipeId',
@@ -60,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
+  '/photos/{$photoId}.webp': typeof PhotosChar123photoIdChar125DotwebpRoute
   '/recipes/$recipeId': typeof RecipesRecipeIdRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +77,7 @@ export interface FileRoutesByTo {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
+  '/photos/{$photoId}.webp': typeof PhotosChar123photoIdChar125DotwebpRoute
   '/recipes/$recipeId': typeof RecipesRecipeIdRoute
 }
 export interface FileRoutesById {
@@ -79,6 +88,7 @@ export interface FileRoutesById {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/queue': typeof QueueRoute
   '/settings': typeof SettingsRoute
+  '/photos/{$photoId}.webp': typeof PhotosChar123photoIdChar125DotwebpRoute
   '/recipes/$recipeId': typeof RecipesRecipeIdRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +100,7 @@ export interface FileRouteTypes {
     | '/manifest.webmanifest'
     | '/queue'
     | '/settings'
+    | '/photos/{$photoId}.webp'
     | '/recipes/$recipeId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +110,7 @@ export interface FileRouteTypes {
     | '/manifest.webmanifest'
     | '/queue'
     | '/settings'
+    | '/photos/{$photoId}.webp'
     | '/recipes/$recipeId'
   id:
     | '__root__'
@@ -108,6 +120,7 @@ export interface FileRouteTypes {
     | '/manifest.webmanifest'
     | '/queue'
     | '/settings'
+    | '/photos/{$photoId}.webp'
     | '/recipes/$recipeId'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +131,7 @@ export interface RootRouteChildren {
   ManifestDotwebmanifestRoute: typeof ManifestDotwebmanifestRoute
   QueueRoute: typeof QueueRoute
   SettingsRoute: typeof SettingsRoute
+  PhotosChar123photoIdChar125DotwebpRoute: typeof PhotosChar123photoIdChar125DotwebpRoute
   RecipesRecipeIdRoute: typeof RecipesRecipeIdRoute
 }
 
@@ -165,6 +179,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/photos/{$photoId}.webp': {
+      id: '/photos/{$photoId}.webp'
+      path: '/photos/{$photoId}.webp'
+      fullPath: '/photos/{$photoId}.webp'
+      preLoaderRoute: typeof PhotosChar123photoIdChar125DotwebpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recipes/$recipeId': {
       id: '/recipes/$recipeId'
       path: '/recipes/$recipeId'
@@ -182,6 +203,8 @@ const rootRouteChildren: RootRouteChildren = {
   ManifestDotwebmanifestRoute: ManifestDotwebmanifestRoute,
   QueueRoute: QueueRoute,
   SettingsRoute: SettingsRoute,
+  PhotosChar123photoIdChar125DotwebpRoute:
+    PhotosChar123photoIdChar125DotwebpRoute,
   RecipesRecipeIdRoute: RecipesRecipeIdRoute,
 }
 export const routeTree = rootRouteImport

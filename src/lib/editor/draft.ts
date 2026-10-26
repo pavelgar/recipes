@@ -23,6 +23,8 @@ const draftShape = z.object({
   sourceName: z.string(),
   // An import's page, which nobody edits. A typed recipe has none.
   sourceUrl: z.string(),
+  // The id of its stored cover photo, or empty.
+  photo: z.string(),
 })
 
 export type Draft = z.infer<typeof draftShape>
@@ -56,10 +58,14 @@ export function emptyDraft(language: RecipeLanguage): Draft {
     steps: '',
     sourceName: '',
     sourceUrl: '',
+    photo: '',
   }
 }
 
-export function draftFromImport(recipe: ImportedRecipe): Draft {
+export function draftFromImport(
+  recipe: ImportedRecipe,
+  photo: string | null,
+): Draft {
   const text = (value: number | string | null) =>
     value === null ? '' : String(value)
   return {
@@ -74,6 +80,7 @@ export function draftFromImport(recipe: ImportedRecipe): Draft {
     steps: textFromSections(recipe.steps),
     sourceName: text(recipe.sourceName),
     sourceUrl: recipe.sourceUrl,
+    photo: text(photo),
   }
 }
 
@@ -98,6 +105,7 @@ export function recipeFromDraft(draft: Draft): RecipeInput {
     steps: sectionsFromText(draft.steps, 'step', opts),
     sourceName: text(draft.sourceName),
     sourceUrl: text(draft.sourceUrl),
+    photo: text(draft.photo),
   }
 }
 
@@ -107,11 +115,13 @@ export function recipeFromDraft(draft: Draft): RecipeInput {
 const STORAGE_KEY = 'recipes.drafts.v1'
 
 // Stored drafts are checked for their shape only: one saved before its
-// title was typed still loads.
+// title was typed still loads, and one kept before photos came has none.
+const storedDraft = draftShape.extend({ photo: z.string().default('') })
+
 const stored = z.object({
-  manual: draftShape.optional().catch(undefined),
+  manual: storedDraft.optional().catch(undefined),
   imported: z
-    .object({ link: z.string(), draft: draftShape })
+    .object({ link: z.string(), draft: storedDraft })
     .optional()
     .catch(undefined),
 })

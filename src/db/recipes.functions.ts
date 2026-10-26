@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { db } from '@/db/index.server'
 import { recipeInputSchema } from '@/db/recipe-input'
 import { recipes } from '@/db/schema'
+import { photoExists } from '@/lib/photos/store.server'
 
 // Every recipe that isn't deleted, whole, for the screens to show and
 // search in the browser. The service worker keeps the last answer, so they
@@ -39,10 +40,14 @@ export const recipeQuery = (id: number) =>
     queryFn: () => getRecipe({ data: { id } }),
   })
 
-// Saves a new recipe from the editor, and gives its id.
+// Saves a new recipe from the editor, and gives its id. Its photo must be
+// one the app stored.
 export const createRecipe = createServerFn({ method: 'POST' })
   .validator(recipeInputSchema)
   .handler(async ({ data }) => {
+    if (data.photo !== null && !(await photoExists(data.photo))) {
+      throw new Error('No such photo')
+    }
     const [saved] = await db
       .insert(recipes)
       .values(data)

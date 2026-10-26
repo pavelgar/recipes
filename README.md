@@ -55,7 +55,7 @@ reverse proxy or Tailscale in front of it.
 | Parameter       | What it does                                   |
 | --------------- | ---------------------------------------------- |
 | `-p 3000:3000`  | The app's HTTP port                            |
-| `-v /data`      | Everything the app keeps: the database         |
+| `-v /data`      | Everything the app keeps: database and photos  |
 | `-e PUID=1000`  | User id the app runs as and that owns `/data`  |
 | `-e PGID=1000`  | Group id the app runs as and that owns `/data` |
 | `-e TZ=Etc/UTC` | Time zone, for example `Europe/Helsinki`       |
@@ -93,8 +93,10 @@ bun run dev
 The dev server runs at http://localhost:3000.
 
 The server applies new migrations from `drizzle/` before it answers its
-first request, so it must run from this folder. The database is created
-on first use.
+first request, so it must run from this folder. The database and the
+photos folder (`PHOTOS_DIR`) are created on first use. A `.env.local`
+made before cover photos came needs the `PHOTOS_DIR` line from
+`.env.example`.
 
 The service worker that keeps the app working offline is only in the
 production build, and browsers run it only over HTTPS or on localhost. To

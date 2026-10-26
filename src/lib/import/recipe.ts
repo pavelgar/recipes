@@ -67,6 +67,7 @@ export function readRecipe(
     sourceName:
       metaContent(page, 'og:site_name') ?? publisherName(recipe, resolve),
     sourceUrl: canonicalUrl(page, pageUrl),
+    imageUrl: readImage(valuesOf(recipe, 'image'), resolve, pageUrl),
   }
 }
 
@@ -258,6 +259,62 @@ function publisherName(
     }
   }
   return null
+}
+
+// The recipe's photo: of the images its data gives, the one with the
+// largest stated width, otherwise the first listed. Sites often list one
+// photo in several sizes or crops: BBC Good Food and Yhteishyvä a smaller
+// one first, WP Recipe Maker the full photo first, then square, 4:3 and
+// 16:9 crops. Valio and Meillä kotona list their crops square first, with
+// no sizes or one width for all, so the square comes. The page's og:image
+// isn't read: for a recipe without a photo, BBC Food's is its logo.
+function readImage(
+  values: Array<unknown>,
+  resolve: (value: unknown) => unknown,
+  pageUrl: string,
+): string | null {
+  let chosen: { url: string; width: number } | null = null
+  for (const value of values) {
+    const image = imageOf(resolve(value))
+    const url = image && webAddress(image.url, pageUrl)
+    if (!url) continue
+    const width = image.width ?? 0
+    if (!chosen || width > chosen.width) chosen = { url, width }
+  }
+  return chosen?.url ?? null
+}
+
+// An image as an address, or as an ImageObject with its address and,
+// perhaps, its width. Microdata gives an <img>'s src as the address.
+function imageOf(value: unknown): { url: string; width: number | null } | null {
+  if (typeof value === 'string') return { url: value, width: null }
+  if (!isThing(value)) return null
+  const url =
+    firstString(valuesOf(value, 'url')) ??
+    firstString(valuesOf(value, 'contentUrl'))
+  return url === null ? null : { url, width: pixels(valuesOf(value, 'width')) }
+}
+
+// A width in pixels: 1200, "1200", "1200px", or a QuantitativeValue.
+function pixels(values: Array<unknown>): number | null {
+  const [value] = values
+  const width =
+    typeof value === 'number'
+      ? value
+      : typeof value === 'string'
+        ? parseInt(value, 10)
+        : isThing(value)
+          ? pixels(valuesOf(value, 'value'))
+          : null
+  return width !== null && Number.isFinite(width) && width > 0 ? width : null
+}
+
+// An address as written, made absolute against the page's, if it's a web
+// address.
+function webAddress(text: string, pageUrl: string): string | null {
+  if (!URL.canParse(text.trim(), pageUrl)) return null
+  const url = new URL(text.trim(), pageUrl)
+  return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : null
 }
 
 // The address the site gives as the page's own, which leaves out tracking

@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { MEASURING_SYSTEMS } from '@/db/choices'
 import { linkSchema } from '@/lib/import/link'
 import { isRecipeLanguage } from '@/lib/languages'
+import { photoIdSchema } from '@/lib/photos/photo'
 
 // A recipe as the editor saves it. The save server function checks what it
 // is given against this, since anyone on the network can call it.
@@ -31,6 +32,7 @@ export const recipeInputSchema = z.object({
   steps: sections,
   sourceName: z.string().trim().min(1).max(500).nullable(),
   sourceUrl: linkSchema.nullable(),
+  photo: photoIdSchema.nullable(),
 })
 
 export type RecipeInput = z.infer<typeof recipeInputSchema>

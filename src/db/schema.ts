@@ -41,6 +41,9 @@ export const recipes = sqliteTable('recipes', {
   // web address, or both.
   sourceName: text('source_name'),
   sourceUrl: text('source_url'),
+  // The id of its one cover photo, a file in the photos folder, if it has
+  // one.
+  photo: text('photo'),
   createdAt: integer('created_at', { mode: 'timestamp_ms' })
     .notNull()
     .$defaultFn(() => new Date()),

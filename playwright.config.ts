@@ -15,10 +15,16 @@ export default defineConfig({
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
   ],
   // Tests run against a production build, the app as the image ships it, on
-  // Node and with a database that starts empty on every run.
+  // Node and with a database and photos folder that start empty on every
+  // run.
   webServer: {
-    command: 'rm -f e2e.db e2e.db-* && bun run build && bun run start',
+    command:
+      'rm -rf e2e.db e2e.db-* e2e-photos && bun run build && bun run start',
     url: `http://localhost:${port}`,
-    env: { PORT: String(port), DATABASE_URL: 'file:e2e.db' },
+    env: {
+      PORT: String(port),
+      DATABASE_URL: 'file:e2e.db',
+      PHOTOS_DIR: 'e2e-photos',
+    },
   },
 })
