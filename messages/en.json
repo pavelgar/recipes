@@ -110,7 +110,7 @@
   "editor_reworded": "Marked lines are written differently in the source. Check them.",
   "editor_tidy": "Tidy",
   "editor_tidy_label": "Tidy steps",
-  "editor_tidied": "Steps tidied",
+  "editor_tidied": "Steps tidied.",
   "editor_tidy_unchanged": "The steps were already tidy.",
   "editor_tidy_failed": "Couldn't tidy the steps. Try again.",
   "editor_tidy_rejected": "Couldn't tidy the steps without changing their words.",

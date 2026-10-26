@@ -594,6 +594,7 @@ export function RecipeEditor({
                       >
                         {m.editor_undo()}
                       </button>
+                      .
                     </>
                   )}
                 </FieldDescription>

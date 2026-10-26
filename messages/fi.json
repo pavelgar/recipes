@@ -110,7 +110,7 @@
   "editor_reworded": "Merkityt rivit on kirjoitettu lähteessä eri tavalla. Tarkista ne.",
   "editor_tidy": "Siisti",
   "editor_tidy_label": "Siisti valmistusvaiheet",
-  "editor_tidied": "Valmistusvaiheet siistitty",
+  "editor_tidied": "Valmistusvaiheet siistitty.",
   "editor_tidy_unchanged": "Valmistusvaiheet olivat jo siistit.",
   "editor_tidy_failed": "Valmistusvaiheiden siistiminen ei onnistunut. Yritä uudelleen.",
   "editor_tidy_rejected": "Valmistusvaiheita ei voitu siistiä muuttamatta niiden sanoja.",
