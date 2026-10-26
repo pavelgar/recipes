@@ -258,7 +258,7 @@ export function RecipeEditor({
     if (!finished.current) saveDraft(origin, form.state.values)
   }
 
-  // Successful tidying stays marked on its button, with Undo beside it.
+  // The same button becomes Undo after successful tidying.
   // Editing the steps clears it; a late answer cannot replace those edits.
   function tidy() {
     const before = form.getFieldValue('steps')
@@ -559,30 +559,24 @@ export function RecipeEditor({
                 <label htmlFor={field.name}>{m.recipe_steps()}</label>
               </h2>
               {canTidy && (
-                <div className="flex items-center gap-1">
-                  {hasTidied && (
-                    <Button type="button" variant="ghost" onClick={undoTidy}>
-                      <Undo2Icon data-icon="inline-start" />
-                      {m.editor_undo()}
-                    </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  aria-label={
+                    hasTidied ? m.editor_undo() : m.editor_tidy_label()
+                  }
+                  disabled={tidying.isPending}
+                  onClick={hasTidied ? undoTidy : tidy}
+                >
+                  {tidying.isPending ? (
+                    <Spinner data-icon="inline-start" />
+                  ) : hasTidied ? (
+                    <Undo2Icon data-icon="inline-start" />
+                  ) : (
+                    <WandSparklesIcon data-icon="inline-start" />
                   )}
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    aria-label={m.editor_tidy_label()}
-                    disabled={tidying.isPending || hasTidied}
-                    onClick={tidy}
-                  >
-                    {tidying.isPending ? (
-                      <Spinner data-icon="inline-start" />
-                    ) : hasTidied ? (
-                      <CheckIcon data-icon="inline-start" />
-                    ) : (
-                      <WandSparklesIcon data-icon="inline-start" />
-                    )}
-                    {m.editor_tidy()}
-                  </Button>
-                </div>
+                  {hasTidied ? m.editor_undo() : m.editor_tidy()}
+                </Button>
               )}
             </div>
             <span role="status" className="sr-only">
