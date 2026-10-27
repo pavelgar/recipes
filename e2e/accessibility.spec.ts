@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 import { openAddDialog } from './app'
 import { PELTILEIPA, PELTILEIPA_PASTED } from './recipes'
-import { aiApp } from './servers'
+import { aiApp, testSite } from './servers'
 import type { Page } from '@playwright/test'
 
 // Each screen, checked by axe against the WCAG A and AA rules it can test
@@ -53,6 +53,27 @@ test('a saved recipe has no accessibility violations', async ({ page }) => {
   await page
     .getByRole('textbox', { name: 'Steps' })
     .fill(PELTILEIPA.steps.join('\n'))
+  await page.getByRole('button', { name: 'Save' }).click()
+  await expect(
+    page.getByRole('heading', { name: PELTILEIPA.title }),
+  ).toBeVisible()
+  expect(await violations(page)).toEqual([])
+})
+
+// Its buttons lie over the photo.
+test('the editor and the saved recipe have no accessibility violations with a photo', async ({
+  page,
+}) => {
+  const dialog = await openAddDialog(page)
+  const field = dialog.getByRole('textbox', { name: 'Link to a recipe' })
+  await field.fill(`${testSite}/kuvalla`)
+  await field.press('Enter')
+  await expect(page.getByRole('button', { name: 'Change photo' })).toBeVisible()
+  await page.waitForFunction(
+    () => document.querySelector<HTMLImageElement>('form img')?.complete,
+  )
+  expect(await violations(page)).toEqual([])
+
   await page.getByRole('button', { name: 'Save' }).click()
   await expect(
     page.getByRole('heading', { name: PELTILEIPA.title }),

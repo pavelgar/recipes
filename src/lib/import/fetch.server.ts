@@ -7,6 +7,7 @@ import {
   globalHttpsAgent,
 } from 'request-filtering-agent'
 import { siteOf } from '@/lib/import/link'
+import { MAX_PHOTO_BYTES } from '@/lib/photos/photo'
 import type { ImportError } from '@/lib/import/types'
 
 export type FetchedPage =
@@ -16,6 +17,8 @@ const TIMEOUT_MS = 15_000
 // What a page points to is extra: waiting long for it would only delay an
 // import that already has its recipe.
 const JSON_TIMEOUT_MS = 5_000
+// Recipe photos run to a few megabytes.
+const IMAGE_TIMEOUT_MS = 10_000
 const MAX_REDIRECTS = 5
 // Recipe pages run to a few hundred kilobytes.
 const MAX_BYTES = 5_000_000
@@ -48,12 +51,17 @@ const httpAgent =
     ? new RequestFilteringHttpAgent({ allowIPAddressList: ['127.0.0.1'] })
     : globalHttpAgent
 
-function request(link: string, accept: string, timeoutMs: number) {
+function request(
+  link: string,
+  accept: string,
+  timeoutMs: number,
+  maxBytes = MAX_BYTES,
+) {
   return fetch(link, {
     headers: { 'user-agent': USER_AGENT, accept },
     agent: (url) => (url.protocol === 'http:' ? httpAgent : globalHttpsAgent),
     follow: MAX_REDIRECTS,
-    size: MAX_BYTES,
+    size: maxBytes,
     // Also drops a body left unread.
     signal: AbortSignal.timeout(timeoutMs),
   })
@@ -96,6 +104,28 @@ export async function fetchJson(link: string): Promise<unknown> {
     const type = mimeType(response.headers.get('content-type'))
     if (!response.ok || type?.essence !== 'application/json') return undefined
     return await response.json()
+  } catch {
+    return undefined
+  }
+}
+
+// Fetches the photo a page gives, or undefined if it can't be read. What it
+// is, the photo store tells from the file itself: sites write image/jpg,
+// and some serve WebP from an address ending in .jpg. AVIF isn't asked for,
+// so a site that could send either sends WebP: the store takes AVIF only
+// up to 8 megapixels, which reading it needs much more memory for.
+export async function fetchImage(
+  link: string,
+): Promise<Uint8Array | undefined> {
+  try {
+    const response = await request(
+      link,
+      'image/webp,image/png,image/jpeg,image/*;q=0.8,*/*;q=0.1',
+      IMAGE_TIMEOUT_MS,
+      MAX_PHOTO_BYTES,
+    )
+    if (!response.ok) return undefined
+    return new Uint8Array(await response.arrayBuffer())
   } catch {
     return undefined
   }

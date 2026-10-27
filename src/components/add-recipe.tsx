@@ -141,7 +141,10 @@ function AddForm({ ai, onDone }: { ai: boolean; onDone: () => void }) {
           read.from === 'page'
             ? { kind: 'page', link: read.link }
             : { kind: read.from }
-        saveDraft(origin, draftFromImport(result.recipe, result.reworded))
+        saveDraft(
+          origin,
+          draftFromImport(result.recipe, { reworded: result.reworded }),
+        )
         onDone()
         void navigate({
           to: '/add',

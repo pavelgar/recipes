@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { db } from '@/db/index.server'
 import { recipeInputSchema } from '@/db/recipe-input'
 import { recipes } from '@/db/schema'
+import { photoExists } from '@/lib/photos/store.server'
 
 // Every recipe that isn't deleted, whole, for the screens to show and
 // search in the browser. The service worker keeps the last answer, so they
@@ -39,13 +40,18 @@ export const recipeQuery = (id: number) =>
     queryFn: () => getRecipe({ data: { id } }),
   })
 
-// Saves a new recipe from the editor, and gives its id.
+// Saves a new recipe from the editor, and gives its id. Its photo must be
+// one the app stored. A draft can outlive its photo's file, when the
+// photos folder was lost or the photo was cleared out as unused; the
+// recipe is then saved without it, as the editor already shows it.
 export const createRecipe = createServerFn({ method: 'POST' })
   .validator(recipeInputSchema)
   .handler(async ({ data }) => {
+    const photo =
+      data.photo !== null && (await photoExists(data.photo)) ? data.photo : null
     const [saved] = await db
       .insert(recipes)
-      .values(data)
+      .values({ ...data, photo })
       .returning({ id: recipes.id })
     return { id: saved.id }
   })

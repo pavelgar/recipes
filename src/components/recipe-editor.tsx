@@ -2,11 +2,18 @@ import { tidiedAlready } from '@/lib/editor/tidy'
 import { MAX_TEXT } from '@/lib/ai/limits'
 import { ParaglideMessage } from '@inlang/paraglide-js-react'
 import { useForm, useStore } from '@tanstack/react-form'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  useIsMutating,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
 import {
   BookOpenIcon,
   CheckIcon,
+  ImagePlusIcon,
+  ImageUpIcon,
   Trash2Icon,
   Undo2Icon,
   UsersIcon,
@@ -17,6 +24,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { FLOATING_BAR, useHideMenu } from '@/components/app-shell'
 import { ChoiceSelect } from '@/components/choice-select'
+import { COVER_FRAME, CoverPhoto } from '@/components/cover-photo'
 import { MarkedTextarea } from '@/components/marked-textarea'
 import { Button } from '@/components/ui/button'
 import {
@@ -54,10 +62,13 @@ import { siteOf } from '@/lib/import/link'
 import { RECIPE_LANGUAGES, rulesFor, UNKNOWN_LANGUAGE } from '@/lib/languages'
 import { suggestLanguage } from '@/lib/languages.functions'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
+import { MAX_PHOTO_BYTES } from '@/lib/photos/photo'
+import { uploadPhoto } from '@/lib/photos/photos.functions'
 import { m } from '@/paraglide/messages'
 import type { LucideIcon } from 'lucide-react'
 import type { Draft, DraftOrigin } from '@/lib/editor/draft'
 import type { RecipeLanguage } from '@/lib/languages'
+import type { PhotoResult } from '@/lib/photos/photo'
 import type { Language } from '@/lib/quantities'
 
 // What an empty list shows, in the recipe's language: part of a carrot
@@ -91,6 +102,9 @@ const TIMES = [
   ['cookMinutes', m.recipe_cook],
   ['totalMinutes', m.recipe_total],
 ] as const
+
+// Saving waits for a photo still being uploaded, so it isn't left out.
+const UPLOAD_PHOTO = ['upload-photo']
 
 // The recipe editor, laid out like the recipe it writes: the name as its
 // heading, and the lists as lists, each detail in view beside what it's
@@ -173,9 +187,12 @@ export function RecipeEditor({
         finished.current = true
         clearDraft(origin)
         await queryClient.invalidateQueries({ queryKey: ['recipes'] })
+        // The recipe takes the editor's place, so Back doesn't open it again,
+        // with the import it was read from, to save a second recipe.
         await navigate({
           to: '/recipes/$recipeId',
           params: { recipeId: id },
+          replace: true,
         })
       } catch {
         // Not about any one field, so it shows at the top of the screen,
@@ -190,6 +207,7 @@ export function RecipeEditor({
     },
   })
 
+  const uploading = useIsMutating({ mutationKey: UPLOAD_PHOTO }) > 0
   const values = useStore(form.store, (state) => state.values)
   const timesInvalid = useStore(form.store, (state) =>
     TIMES.some(([name]) => state.fieldMeta[name]?.errors.length),
@@ -339,6 +357,10 @@ export function RecipeEditor({
       className="flex flex-1 flex-col gap-8"
     >
       <header className="flex flex-col gap-4">
+        <form.Field name="photo">
+          {(field) => <PhotoField field={field} />}
+        </form.Field>
+
         <form.Field name="title">
           {(field) => (
             <Field data-invalid={!field.state.meta.isValid || undefined}>
@@ -641,7 +663,7 @@ export function RecipeEditor({
             <Button
               type="submit"
               size="lg"
-              disabled={saving}
+              disabled={saving || uploading}
               className="flex-1"
             >
               {saving ? (
@@ -656,6 +678,135 @@ export function RecipeEditor({
       </div>
     </form>
   )
+}
+
+// The cover photo, above the name as on the recipe: chosen from the
+// device, or taken with its camera on a phone. Without one, its frame
+// stays, empty like the other fields, and tapping it adds one. Removing it
+// asks nothing and can be undone.
+function PhotoField({ field }: { field: TextField }) {
+  const input = useRef<HTMLInputElement>(null)
+  // The toast that undoes removing it, which goes when the editor does or
+  // another photo takes its place.
+  const removed = useRef<string>(undefined)
+  useEffect(() => () => closeToast(removed.current), [])
+  const upload = useMutation({
+    mutationKey: UPLOAD_PHOTO,
+    mutationFn: (file: File) => {
+      const data = new FormData()
+      data.set('photo', file)
+      return uploadPhoto({ data })
+    },
+  })
+
+  function choose(file: File) {
+    // The server would refuse it too, but only once it was sent.
+    if (file.size > MAX_PHOTO_BYTES) {
+      toast.add({ type: 'error', title: m.editor_photo_too_large() })
+      return
+    }
+    upload.mutate(file, {
+      onSuccess: (result) => {
+        if (!result.ok) {
+          toast.add({ type: 'error', title: PHOTO_ERRORS[result.error]() })
+          return
+        }
+        closeToast(removed.current)
+        field.handleChange(result.photo)
+      },
+      onError: () =>
+        toast.add({ type: 'error', title: m.editor_photo_failed() }),
+    })
+  }
+
+  function remove() {
+    const photo = field.state.value
+    field.handleChange('')
+    removed.current = toast.add({
+      title: m.editor_photo_removed(),
+      actionProps: {
+        children: m.editor_undo(),
+        onClick: () => {
+          closeToast(removed.current)
+          field.handleChange(photo)
+        },
+      },
+    })
+  }
+
+  const busy = upload.isPending
+  const pick = () => input.current?.click()
+  return (
+    <>
+      <input
+        ref={input}
+        type="file"
+        accept="image/*"
+        hidden
+        onChange={(event) => {
+          const file = event.target.files?.[0]
+          // The same file can be chosen again.
+          event.target.value = ''
+          if (file) choose(file)
+        }}
+      />
+      {field.state.value ? (
+        <CoverPhoto id={field.state.value}>
+          <div className="absolute right-2 bottom-2 flex gap-2">
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              disabled={busy}
+              onClick={pick}
+            >
+              {busy ? (
+                <Spinner data-icon="inline-start" />
+              ) : (
+                <ImageUpIcon data-icon="inline-start" />
+              )}
+              {m.editor_photo_change()}
+            </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              disabled={busy}
+              onClick={remove}
+            >
+              <Trash2Icon data-icon="inline-start" />
+              {m.editor_photo_remove()}
+            </Button>
+          </div>
+        </CoverPhoto>
+      ) : (
+        <button
+          type="button"
+          disabled={busy}
+          onClick={pick}
+          className={cn(
+            COVER_FRAME,
+            'flex flex-col items-center justify-center gap-2 border border-input bg-input/30 text-sm text-muted-foreground transition-colors outline-none hover:bg-input/50 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none',
+          )}
+        >
+          {busy ? (
+            <Spinner className="size-6" />
+          ) : (
+            <ImagePlusIcon className="size-6" />
+          )}
+          {m.editor_photo_add()}
+        </button>
+      )}
+    </>
+  )
+}
+
+const PHOTO_ERRORS: Record<
+  Extract<PhotoResult, { ok: false }>['error'],
+  () => string
+> = {
+  unreadable: m.editor_photo_unreadable,
+  'too-large': m.editor_photo_too_large,
 }
 
 type TextField = {

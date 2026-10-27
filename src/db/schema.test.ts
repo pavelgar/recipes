@@ -51,6 +51,7 @@ describe('database schema', () => {
     expect(saved).toMatchObject({
       ingredients,
       servings: null,
+      photo: null,
       deletedAt: null,
     })
     expect(saved?.createdAt).toBeInstanceOf(Date)

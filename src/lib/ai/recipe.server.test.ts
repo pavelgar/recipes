@@ -90,6 +90,7 @@ describe('recipeFromAnswer', () => {
   it('takes lines found in pasted text as it writes them', () => {
     const read = recipeFromAnswer(KANAPATA_ANSWER, pasted)
     expect(read?.recipe).toEqual({
+      imageUrl: null,
       title: 'Kermainen kanapata',
       language: 'fi',
       measuringSystem: 'metric',

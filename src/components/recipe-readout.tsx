@@ -1,3 +1,4 @@
+import { CoverPhoto } from '@/components/cover-photo'
 import { recipeLanguageName, SYSTEM_NAMES } from '@/lib/choice-names'
 import { siteOf } from '@/lib/import/link'
 import { m } from '@/paraglide/messages'
@@ -17,6 +18,7 @@ type Readable = {
   steps: ReadonlyArray<Section>
   sourceName: string | null
   sourceUrl: string | null
+  photo: string | null
 }
 
 // A plain read-out of a recipe, until the recipe view is built.
@@ -36,6 +38,7 @@ export function RecipeReadout({ recipe }: { recipe: Readable }) {
 
   return (
     <article lang={recipe.language} className="flex flex-col gap-6">
+      {recipe.photo && <CoverPhoto id={recipe.photo} />}
       <header className="flex flex-col gap-2">
         <h1 className="font-heading text-2xl font-semibold text-balance">
           {recipe.title}

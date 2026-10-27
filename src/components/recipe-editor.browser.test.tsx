@@ -40,6 +40,10 @@ vi.mock('@/lib/ai/ai.functions', () => ({
 vi.mock('@/lib/languages.functions', () => ({
   suggestLanguage: server.suggestLanguage,
 }))
+// Adding a photo is covered by e2e/photos.spec.ts, against the real server.
+vi.mock('@/lib/photos/photos.functions', () => ({
+  uploadPhoto: vi.fn(),
+}))
 // The shell reads the sidebar cookie through Start's server functions.
 vi.mock('@/components/app-shell', () => ({
   FLOATING_BAR: '',

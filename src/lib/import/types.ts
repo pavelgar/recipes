@@ -23,6 +23,8 @@ export type ImportedRecipe = {
   sourceName: string | null
   // The page it was read from. Photos and pasted text have none.
   sourceUrl: string | null
+  // The address of the photo the recipe's data gives, if any.
+  imageUrl: string | null
 }
 
 // Why a page couldn't be imported. The add screen words each one.
@@ -36,8 +38,11 @@ export type ImportError =
   | { code: 'too-large'; site: string }
   | { code: 'no-recipe'; site: string }
 
+// A recipe read comes with its photo, stored for the editor, when the page
+// gives one the server could read.
 export type ImportResult =
-  { ok: true; recipe: ImportedRecipe } | { ok: false; error: ImportError }
+  | { ok: true; recipe: ImportedRecipe; photo: string | null }
+  | { ok: false; error: ImportError }
 
 // What AI read, with the lines it wrote differently from the page or
 // pasted text it read them from, which the editor marks. Headings are

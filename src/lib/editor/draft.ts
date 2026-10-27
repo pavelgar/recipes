@@ -23,6 +23,8 @@ const draftShape = z.object({
   sourceName: z.string(),
   // An import's page, which nobody edits. A typed recipe has none.
   sourceUrl: z.string(),
+  // The id of its stored cover photo, or empty.
+  photo: z.string(),
   // Lines AI wrote differently from the page or text it read them from,
   // which the editor marks until they're changed.
   reworded: z.array(z.string()),
@@ -80,13 +82,20 @@ export function emptyDraft(language: RecipeLanguage): Draft {
     steps: '',
     sourceName: '',
     sourceUrl: '',
+    photo: '',
     reworded: [],
   }
 }
 
 export function draftFromImport(
   recipe: ImportedRecipe,
-  reworded: ReadonlyArray<string> = [],
+  {
+    photo = null,
+    reworded = [],
+  }: {
+    photo?: string | null
+    reworded?: ReadonlyArray<string>
+  } = {},
 ): Draft {
   const text = (value: number | string | null) =>
     value === null ? '' : String(value)
@@ -102,6 +111,7 @@ export function draftFromImport(
     steps: textFromSections(recipe.steps),
     sourceName: text(recipe.sourceName),
     sourceUrl: text(recipe.sourceUrl),
+    photo: text(photo),
     reworded: [...reworded],
   }
 }
@@ -127,6 +137,7 @@ export function recipeFromDraft(draft: Draft): RecipeInput {
     steps: sectionsFromText(draft.steps, 'step', opts),
     sourceName: text(draft.sourceName),
     sourceUrl: text(draft.sourceUrl),
+    photo: text(draft.photo),
   }
 }
 
@@ -138,9 +149,10 @@ export function recipeFromDraft(draft: Draft): RecipeInput {
 const STORAGE_KEY = 'recipes.drafts.v1'
 
 // Stored drafts are checked for their shape only: one saved before its
-// title was typed still loads.
-// Drafts kept before AI read any have no reworded lines.
+// title was typed still loads. Drafts kept before cover photos or AI
+// imports came have no photo or reworded lines.
 const storedDraft = draftShape.extend({
+  photo: z.string().default(''),
   reworded: z.array(z.string()).default([]),
 })
 

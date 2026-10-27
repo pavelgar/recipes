@@ -18,6 +18,10 @@ todos.json
 *.db-shm
 *.db-wal
 
+# Cover photos of the dev and end-to-end test databases
+/photos
+/e2e*-photos
+
 # Playwright test output and playwright-cli snapshots
 test-results
 playwright-report

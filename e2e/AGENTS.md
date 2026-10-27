@@ -1,6 +1,6 @@
 # End-to-end tests
 
-Playwright tests of the app in a real browser. `bun run test:e2e` builds the app and runs it twice, each with an empty database: once without an AI model, and once with `fake-ai.ts` as its model, which answers with canned readings (`servers.ts` has their addresses). CI runs the same suite.
+Playwright tests of the app in a real browser. `bun run test:e2e` builds the app and runs it twice, each with an empty database and photos folder: once without an AI model, and once with `fake-ai.ts` as its model, which answers with canned readings (`servers.ts` has their addresses). CI runs the same suite.
 
 The build is `vite build --mode e2e`, which also imports from `test-site.ts` on 127.0.0.1, an address every other build refuses (`src/lib/import/fetch.server.ts`). A test of importing a kind of page adds the page there. Afterwards `.output/` holds that build; run `bun run build` before using it otherwise.
 

@@ -48,15 +48,21 @@ export default defineConfig({
     },
   ],
   // Tests run against a production build, the app as the image ships it, on
-  // Node and with databases that start empty on every run. The servers
-  // start in order, so the second app runs the build the first made.
+  // Node and with databases and photos folders that start empty on every
+  // run. The servers start in order, so the second app runs the build the
+  // first made.
   webServer: [
     {
       // The e2e build also imports from the test site.
       command:
-        'rm -f e2e*.db e2e*.db-* && bun run build --mode e2e && bun run start',
+        'rm -rf e2e*.db e2e*.db-* e2e*-photos && bun run build --mode e2e && bun run start',
       url: `http://localhost:${port}`,
-      env: { ...noAi, PORT: String(port), DATABASE_URL: 'file:e2e.db' },
+      env: {
+        ...noAi,
+        PORT: String(port),
+        DATABASE_URL: 'file:e2e.db',
+        PHOTOS_DIR: 'e2e-photos',
+      },
     },
     {
       command: 'node e2e/test-site.ts',
@@ -74,6 +80,7 @@ export default defineConfig({
       env: {
         PORT: String(aiPort),
         DATABASE_URL: 'file:e2e-ai.db',
+        PHOTOS_DIR: 'e2e-ai-photos',
         AI_PROVIDER: 'openai-compatible',
         AI_MODEL: 'fake',
         AI_API_KEY: '',

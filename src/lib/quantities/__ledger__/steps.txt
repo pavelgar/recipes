@@ -3,7 +3,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 892 entries: 196 checked, of which 1 wrong; 696 unchecked.
+# 892 entries: 202 checked, of which 1 wrong; 690 unchecked.
 
 ## arla.fi (fi, metric): 33 sentences, 33 entries; 21 with quantities
 
@@ -20,7 +20,7 @@
 ? "Aseta uuni 200 °C:een."
   200 °C  [200 °C]
 ? "Hienonna kurpitsa ja keitä sitä kevyesti suolatussa vedessä 5-8 minuuttia."
-? "Paista uunin alaosassa 40-50 minuuttia."
+✓ "Paista uunin alaosassa 40-50 minuuttia."
 ✓ "Anna keiton kiehua noin 10 min."
 ✓ "Kuumenna uuni 150-asteiseksi."
   150 °C  [150-asteiseksi]
@@ -192,7 +192,7 @@
   100 ml  [100ml]
 ? "Line 4 small pudding-shaped moulds (200ml capacity) with cling film, smoothing it over to fit snugly, leaving an overhang around the edge."
   200 ml  [200ml]
-? "Squeeze 3 tbsp of juice and put it in a pan with the rum and sugar."
+✓ "Squeeze 3 tbsp of juice and put it in a pan with the rum and sugar."
   3 tbsp  [3 tbsp]
 ? "Measure off 4 tbsp of the fruit and its syrup, and set aside in a rigid freezer container (freeze for up to a month)."
   4 tbsp  [4 tbsp]
@@ -288,7 +288,7 @@
   0.25 in  [1/4-inch]
 ? "Cut cheese into 4 slices, about 3x1x1/4 inches."
   ~3x1x0.25 in  [3x1x1/4 inches]
-? "Place 1 slice cheese on center of each chicken breast half."
+✓ "Place 1 slice cheese on center of each chicken breast half."
 ? "Bake uncovered about 30 minutes or until chicken is no longer pink in center."
 ? "On an ungreased cookie sheet, drop dough by level teaspoonfuls or #70 cookie/ice cream scoop about 2 inches apart."
   ~2 in  [2 inches]
@@ -798,7 +798,7 @@
   1 dl  [1 dl]
 ? "Grillaa kesäkurpitsoja noin 4 minuuttia leikkuupinta alaspäin, käännä ja jatka noin 3 minuuttia."
 ? "Lisää riisi ja anna kiehua noin 5 minuuttia."
-? "Alenna lieden lämpö ja hauduta puuroksi välillä sekoitellen, noin 40 minuuttia."
+✓ "Alenna lieden lämpö ja hauduta puuroksi välillä sekoitellen, noin 40 minuuttia."
 ? "Laita uuni lämpenemään 175 asteeseen."
   175 °C  [175 asteeseen]
 ? "Keitä ne kypsiksi, palojen koon mukaan 10–15 minuuttia."
@@ -1032,7 +1032,7 @@
 ? "Jos haluat tehdä tavallisen kesäkurpitsaleivän gluteenittoman sijasta, käytä gluteenittoman jauhoseoksen tilalla 5 dl vehnäjauhoja ja 2,5 dl sämpyläjauhoja."
   5 dl  [5 dl]
   2.5 dl  [2,5 dl]
-? "Paista uunin keskiosassa 150 asteessa 35 min."
+✓ "Paista uunin keskiosassa 150 asteessa 35 min."
   150 °C  [150 asteessa]
 ? "Kauli kumpikin taikinapala pyöreiksi levyiksi (Ø 35 cm)."
   35 cm  [35 cm]
@@ -1312,7 +1312,7 @@
 ? "Kaada taikinapellille ja kyp- sennä225- asteisessa uunissa noin 10 minuuttia."
 ? "Leikkaa torttulevystä kaksi pienen kakkuvuoan pohjan kokoista pyöreää levyä (halkaisija 20 cm)."
   20 cm  [20 cm]
-? "Kuori ja viipaloi 800 grammaa perunoita, neljä valkosipulinkynttä ja yksi sipuli."
+✓ "Kuori ja viipaloi 800 grammaa perunoita, neljä valkosipulinkynttä ja yksi sipuli."
   800 g  [800 grammaa]
 ? "Kiehauta kaksi desilitraa kasvislientä."
   2 dl  [kaksi desilitraa]

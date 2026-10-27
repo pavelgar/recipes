@@ -21,7 +21,8 @@ LABEL org.opencontainers.image.title="Recipes" \
       org.opencontainers.image.source="https://github.com/pavelgar/recipes" \
       org.opencontainers.image.licenses="AGPL-3.0-only"
 ENV NODE_ENV=production \
-    DATABASE_URL=file:/data/recipes.db
+    DATABASE_URL=file:/data/recipes.db \
+    PHOTOS_DIR=/data/photos
 WORKDIR /app
 COPY --from=build /app/.output .output
 # The server applies these on start, from the working directory.

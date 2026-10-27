@@ -41,6 +41,7 @@ function describePage(read: ImportedRecipe | null, url: string): Array<string> {
     `steps ${lineCount(read.steps)} in ${sectionsOf(read.steps)}`,
     `${read.language}, ${read.measuringSystem}`,
     `source ${read.sourceName ?? '–'}, ${read.sourceUrl === url ? 'at the address read' : `at ${read.sourceUrl}`}`,
+    `photo ${read.imageUrl ?? '–'}`,
   ]
 }
 
@@ -65,7 +66,8 @@ describe('every page', () => {
         "✓: it is what DESIGN.md's import rules make of the page as published",
         '(.cache/pages/ holds it, or its address): servings and times, how',
         'many ingredients and steps in how many sections, language and',
-        'measures, and whose page it is.',
+        'measures, whose page it is, and which of its images is the cover',
+        'photo.',
         '✗: want lines give the right reading.',
         'Written by the tests; see src/test/ledger.ts for how to update it.',
       ],

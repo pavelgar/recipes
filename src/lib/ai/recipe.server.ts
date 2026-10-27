@@ -180,6 +180,7 @@ export function recipeFromAnswer(
     .join('\n')
 
   const common = {
+    imageUrl: null,
     servings: found(answer.servings),
     prepMinutes: minutes(answer.prepMinutes),
     cookMinutes: minutes(answer.cookMinutes),
