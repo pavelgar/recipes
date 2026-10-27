@@ -1,3 +1,4 @@
+import { playwright } from '@vitest/browser-playwright'
 import { configDefaults, defineConfig } from 'vitest/config'
 
 // Kept separate from vite.config.ts so tests don't load the Start, Nitro,
@@ -5,12 +6,36 @@ import { configDefaults, defineConfig } from 'vitest/config'
 export default defineConfig({
   resolve: { tsconfigPaths: true },
   test: {
-    passWithNoTests: true,
-    // Corpus-wide checks loop over every line and grow with the corpus.
-    // "parses as it is typed" takes 3.5 s on a laptop and 6.4 s on GitHub's
-    // runners, past the 5 s default.
-    testTimeout: 30_000,
-    // Playwright runs these (bun run test:e2e).
-    exclude: [...configDefaults.exclude, 'e2e/**'],
+    projects: [
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          // Playwright runs these (bun run test:e2e).
+          exclude: [...configDefaults.exclude, 'e2e/**', '**/*.browser.test.*'],
+        },
+      },
+      // Components, rendered in Chromium, with the server functions they
+      // call replaced in each test.
+      {
+        extends: true,
+        // The tests replace the modules that import Start's server, which
+        // only builds inside Start's own plugin, so it's left unbundled.
+        optimizeDeps: {
+          exclude: ['@tanstack/react-start', '@tanstack/react-start/server'],
+        },
+        test: {
+          name: 'browser',
+          include: ['src/**/*.browser.test.tsx'],
+          browser: {
+            enabled: true,
+            provider: playwright(),
+            headless: true,
+            instances: [{ browser: 'chromium' }],
+            screenshotFailures: false,
+          },
+        },
+      },
+    ],
   },
 })

@@ -260,7 +260,9 @@ export function usLengths(mm: ReadonlyArray<Value>): Array<Value> {
 
 // Oven temperatures, from 120 °C (250 °F) up, follow the usual tables in
 // steps of 25 °F and 10 °C: 180 °C ↔ 350 °F, 220 °C ↔ 425 °F. Lower ones
-// are kept close: 5 °F and 1 °C steps, 165 °F → 74 °C.
+// are kept close: 5 °F and 1 °C steps, 165 °F → 74 °C. Either way the
+// table starts where the temperature reaches 120 °C, so a hotter oven never
+// reads cooler: 249 °F is 120.6 °C, and reads 120 °C like 250 °F.
 export function toFahrenheit(celsius: number): number {
   const f = (celsius * 9) / 5 + 32
   return celsius >= 120 ? roundTo(f, 25) : roundTo(f, 5)
@@ -268,5 +270,5 @@ export function toFahrenheit(celsius: number): number {
 
 export function toCelsius(fahrenheit: number): number {
   const c = ((fahrenheit - 32) * 5) / 9
-  return fahrenheit >= 250 ? roundTo(c, 10) : Math.round(c)
+  return c >= 120 ? roundTo(c, 10) : Math.round(c)
 }

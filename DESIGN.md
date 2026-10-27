@@ -446,7 +446,9 @@
     1 in ↔ 2,5 cm, 9 × 13 in ↔ 23 × 33 cm.
   - Oven temperatures, from 120 °C (250 °F) up, follow the usual tables in
     steps of 25 °F and 10 °C (180 °C ↔ 350 °F). Lower ones round to 5 °F
-    and 1 °C (165 °F → 74 °C).
+    and 1 °C (165 °F → 74 °C). Converting either way, the table starts
+    where the temperature reaches 120 °C, so a hotter oven never reads
+    cooler: 249 °F (120.6 °C) reads 120 °C, as 250 °F does.
   - Australian and metric cups are 250 ml.
   - An amount that no unit fits within 35% stays as written: "½ g
     sahramia" on a US device.

@@ -14,6 +14,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "ledger:sample": "node scripts/ledger-sample.ts",
     "lint": "eslint",
     "typecheck": "tsc --noEmit && tsc --noEmit -p src/service-worker",
     "format": "prettier --write . && eslint --fix",
@@ -83,6 +84,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@fast-check/vitest": "0.5.0",
     "@inlang/paraglide-js": "^2.13.1",
     "@playwright/cli": "^0.1.22",
     "@playwright/test": "^1.64.1",
@@ -96,16 +99,19 @@
     "@types/react-dom": "^19.2.0",
     "@vite-pwa/assets-generator": "^2.0.0",
     "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/browser-playwright": "5.0.5",
     "babel-plugin-react-compiler": "^1.0.0",
     "dotenv": "^17.3.1",
     "eslint": "^9.20.0",
     "eslint-plugin-no-relative-import-paths": "^1.7.3",
+    "fast-check": "4.10.2",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2",
     "vite": "^8.0.0",
     "vite-plugin-pwa": "^2.0.0",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "vitest-browser-react": "2.3.0"
   },
   "prettier": {
     "semi": false,

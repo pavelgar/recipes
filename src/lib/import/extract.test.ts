@@ -228,6 +228,31 @@ describe('extractRecipe', () => {
     ).toMatchObject({ title: 'Banaanismoothie maapähkinävoin kera' })
   })
 
+  it('reads steps broken by carriage returns alone', () => {
+    // https://www.meillakotona.fi/reseptit/mansikkavuokakakku-tassa-on-kesan-nopein-mansikkakakku
+    const html = page(
+      jsonLd({
+        '@type': 'Recipe',
+        name: 'Mansikkavuokakakku',
+        recipeIngredient: ['3 munaa', '1½ dl sokeria'],
+        recipeInstructions:
+          'Vatkaa munat ja sokeri paksuksi, vaaleaksi vaahdoksi. \rYhdistä kuivat aineet ja lisää vaahtoon varovasti sekoittaen.\r\nKumoa pohja sokeroidulle leivinpaperille.',
+      }),
+    )
+    expect(
+      extractRecipe(html, 'https://www.meillakotona.fi/reseptit/x')?.steps,
+    ).toEqual([
+      {
+        heading: null,
+        lines: [
+          'Vatkaa munat ja sokeri paksuksi, vaaleaksi vaahdoksi.',
+          'Yhdistä kuivat aineet ja lisää vaahtoon varovasti sekoittaen.',
+          'Kumoa pohja sokeroidulle leivinpaperille.',
+        ],
+      },
+    ])
+  })
+
   it('reads JSON-LD missing a comma at a line break', () => {
     const html = page(
       `<script type="application/ld+json">{

@@ -10,6 +10,7 @@ Real recipe data from published pages, for tests: ingredient lines, step sentenc
 - `former-held-out/`: held-out samples that were checked and fixed against, now part of the development corpus.
 - `held-out/`: the current held-out sample, see below.
 - `tags/`: the `recipeCategory`, `recipeCuisine` and `keywords` of the development corpus's pages, as published: a string or a list.
+- `pages/`: skeletons of pages of recipes in `ingredients/`, for the importer's tests (`src/lib/import/pages.test.ts`): each page's JSON-LD as the site published it, broken JSON included, with its `lang`, `og:site_name`, `og:title` and canonical link. Strings the repo already holds (ingredient lines, names, tags) stay, and so do facts: types, addresses, times, yields, dates and whose site it is. Every other string has its letters masked as `x`, keeping digits, spacing, punctuation, tags and entities, so the importer reads a skeleton as it reads the page, only the writing gone.
 
 Each file gives its `site`, `country` (FI, US, GB or AU, which sets the measuring system), `language` and the date it was `collected`. Each recipe has its `url`, and whichever of `name`, `yield`, `format`, `ingredients`, `sentences` and the tag fields it has.
 
@@ -18,6 +19,12 @@ Each file gives its `site`, `country` (FI, US, GB or AU, which sets the measurin
 - Keep every string exactly as the page's schema.org Recipe data published it, HTML entities (`&amp;`), stray spaces and missing spaces (`2dl`) included, since the importer receives the same strings. Tests that need clean input normalise it in the test. `"format": "json-ld (repaired)"` marks a page whose JSON-LD needed a missing comma put back before parsing; its strings are untouched. Some lines are cut short in the site's own data ("1 plo (0").
 - Add data only by collecting it from a real page, with its URL.
 - After adding or removing files here, run `bun run test --clearCache` once. Vitest's module cache keeps the corpus file list from an earlier run until `src/test/corpus.ts` itself changes.
+
+## Pages
+
+`bun scripts/pages.ts collect <seed> [per site]` fetches pages of `ingredients/` recipes as the importer does, into `.cache/pages/`, which stays out of the repo: only skeletons are committed. `bun scripts/pages.ts skeletons` writes `pages/` from that cache. The collecting rules below apply, apart from dropping URLs already in `corpus/`: pages are taken from `ingredients/` on purpose, so their lines are in the repo already.
+
+After changing how skeletons are made, `bun scripts/pages.ts check` lists every skeleton the importer reads differently from its cached page, apart from the masked text; make it list none.
 
 ## Collecting
 

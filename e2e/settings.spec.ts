@@ -78,7 +78,14 @@ test.describe('installing the app', () => {
     })
   })
 
-  test('Install opens the browser install dialog once', async ({ page }) => {
+  test('Install opens the browser install dialog once', async ({
+    page,
+    browserName,
+  }) => {
+    test.skip(
+      browserName === 'webkit',
+      "Only Chromium browsers let a page open their install dialog; Safari's comes from Share",
+    )
     await page.goto('/settings')
     const help = page.getByText("Open the browser's menu")
     await expect(help).toBeVisible()
@@ -98,6 +105,16 @@ test.describe('installing the app', () => {
       'opened',
     )
     await expect(help).toBeVisible()
+  })
+
+  test('an iPhone gets the steps from Share', async ({ page, browserName }) => {
+    test.skip(browserName !== 'webkit', 'Only the iPhone project is Safari')
+    await page.goto('/settings')
+    await expect(
+      page.getByText("If you don't see it, tap ⋯ first"),
+    ).toBeVisible()
+    await expect(page.getByText('Add to Home Screen')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Install' })).toBeHidden()
   })
 
   test('the installed app says it is installed', async ({ page }) => {
