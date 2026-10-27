@@ -4,7 +4,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 4635 entries: 71 checked, of which 1 wrong; 4564 unchecked.
+# 4635 entries: 79 checked, of which 2 wrong; 4556 unchecked.
 
 ## arla.fi : 312 lines and sentences, 286 entries
 
@@ -280,7 +280,7 @@
   ×1.5: 2 tl jauhettua fenkolia
 ? "½ tl hienoa suolaa"
   ×1.5: ¾ tl hienoa suolaa
-? "½ tl sokerit"
+✓ "½ tl sokerit"
   ×1.5: ¾ tl sokerit
 ? "1 rkl dijon sinappia"
   ×1.5: 1½ rkl dijon sinappia
@@ -1012,7 +1012,7 @@
   ×1.5: ¾ tsp baking powder
 ? "1 tsp vanilla extract"
   ×1.5: 1½ tsp vanilla extract
-? "275g  flour"
+✓ "275g  flour"
   us: 10 oz  flour
   ×1.5: 415g  flour
 ? "35g  ghee melted and cooled"
@@ -1809,7 +1809,7 @@
 ? "4 cod fillets (4 to 6 oz each)"
   metric: 4 cod fillets (115–170 g each)
   ×1.5: 6 cod fillets (115–170 g each)
-? "1 loaf (1 lb) French bread (about 18 inches long), cut into 24 (3/4-inch-thick) slices"
+✓ "1 loaf (1 lb) French bread (about 18 inches long), cut into 24 (3/4-inch-thick) slices"
   metric: 1 loaf (450 g) French bread (about 46 cm long), cut into 24 (2 cm-thick) slices
   ×1.5: 1½ loaf (680 g) French bread (about 46 cm long), cut into 24 (2 cm-thick) slices
 ? "1 pound boneless, skinless chicken breast halves, cut into 1-inch pieces"
@@ -4425,7 +4425,7 @@
   us: Pane uuni lämpiämään 425 °F.
 ? "step: Jaa taikina 3 osaan ja kauli jauhotetulla pöydällä pyöreiksi pohjiksi (halkaisija 25 cm)."
   us: Jaa taikina 3 osaan ja kauli jauhotetulla pöydällä pyöreiksi pohjiksi (halkaisija 10 tuumaa).
-? "step: Levitä pohjille tasainen kerros ricottaa niin, että 2 cm reunoista jää ilman juustoa."
+✓ "step: Levitä pohjille tasainen kerros ricottaa niin, että 2 cm reunoista jää ilman juustoa."
   us: Levitä pohjille tasainen kerros ricottaa niin, että ¾ tuumaa reunoista jää ilman juustoa.
 
 ## tasteofhome.com : 348 lines and sentences, 323 entries
@@ -5813,7 +5813,7 @@
   ×1.5: 3 dl Valio Keittiön kreikkalaista jogurttia
 ? "5-6  isoja vehnätortilloja"
   ×1.5: 7½-9  isoja vehnätortilloja
-? "400 g naudanjauhelihaa, rasvaa 10 %"
+✓ "400 g naudanjauhelihaa, rasvaa 10 %"
   us: 14 unssia naudanjauhelihaa, rasvaa 10 %
   ×1.5: 600 g naudanjauhelihaa, rasvaa 10 %
 ? "1 pussi (200 g) pakastesipulia"
@@ -8840,7 +8840,7 @@
   ×1.5: 1½ tsp chopped fresh chives
 ? "1 tbsp baby capers"
   ×1.5: 1½ tbsp baby capers
-? "1 tsp freshly ground pink peppercorns"
+✓ "1 tsp freshly ground pink peppercorns"
   ×1.5: 1½ tsp freshly ground pink peppercorns
 ? "1 large onion, sliced into rings about 1.5cm/⅝in thick"
   ×1.5: 1½ large onion, sliced into rings about 1.5cm/⅝in thick
@@ -10193,7 +10193,7 @@
 ? "1 prk (2 dl) vispi- tai kuohukermaa"
   us: 1 prk (¾ kuppia + 1½ rkl) vispi- tai kuohukermaa
   ×1.5: 1½ prk (3 dl) vispi- tai kuohukermaa
-? "1 prk (200 g) mango- tai persikkarahkaa"
+✓ "1 prk (200 g) mango- tai persikkarahkaa"
   us: 1 prk (7 unssia) mango- tai persikkarahkaa
   ×1.5: 1½ prk (300 g) mango- tai persikkarahkaa
 ? "1 rkl tomusokeria"
@@ -10808,8 +10808,11 @@
   ×1.5: 525g/ 18 oz   ham (, shaved or thinly sliced (up to 750g/1½lb, Note 3))
 ? "250g/ 8 oz  Swiss cheese ( or other melting cheese slices (10 - 12 slices))"
   ×1.5: 375g/ 12 oz  Swiss cheese ( or other melting cheese slices (15 - 18 slices))
-? "100 g (7 tbsp)  unsalted butter (, melted)"
+✗ "100 g (7 tbsp)  unsalted butter (, melted)"
   us: 3½ oz (28 tsp)  unsalted butter (, melted)
+  ×1.5: 150 g (10½ tbsp)  unsalted butter (, melted)
+  want:
+  us: 3½ oz (7 tbsp)  unsalted butter (, melted)
   ×1.5: 150 g (10½ tbsp)  unsalted butter (, melted)
 ? "1/4  onion (, finely chopped)"
   ×1.5: 1/3  onion (, finely chopped)

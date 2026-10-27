@@ -431,7 +431,9 @@
   written. So is an amount given again in the display's units: "2 2/3 cups
   (320g)" and "1 cup plus 2 tablespoons (134g)" on a metric device. When
   both are in units the display doesn't use ("330ml/11fl oz" on a US
-  device), only the first converts.
+  device), only the first converts. An Australian tablespoon is not a US
+  unit: "100 g (7 tbsp)" in an Australian recipe reads "3½ oz (7 tbsp)" on
+  a US device.
 - Converted amounts are rounded the way recipes write them:
   - Metric volumes are decilitres with one decimal (⅓ cup → 0,8 dl), and
     litres from 10 dl (5 cups → 1,2 l).
