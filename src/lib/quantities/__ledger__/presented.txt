@@ -4,7 +4,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 4635 entries: 79 checked, of which 2 wrong; 4556 unchecked.
+# 4635 entries: 94 checked, of which 2 wrong; 4541 unchecked.
 
 ## arla.fi : 312 lines and sentences, 286 entries
 
@@ -192,7 +192,7 @@
 ? "150 g vadelmia"
   us: 5 unssia vadelmia
   ×1.5: 225 g vadelmia
-? "1½ dl hillosokeria"
+✓ "1½ dl hillosokeria"
   us: ⅔ kuppia hillosokeria
   ×1.5: 2¼ dl hillosokeria
 ? "3 dl Arla® Kuohukerma 35% laktoositon"
@@ -1314,8 +1314,8 @@
   ×1.5: 150g soft goat’s cheese
 ? "8 pork sausages"
   ×1.5: 12 pork sausages
-? "1 medium head of cauliflower cut into small florets and leaves chopped"
-  ×1.5: 1½ medium head of cauliflower cut into small florets and leaves chopped
+✓ "1 medium head of cauliflower cut into small florets and leaves chopped"
+  ×1.5: 1½ medium heads of cauliflower cut into small florets and leaves chopped
 ? "1 head of broccoli cut into medium florets, stalk peeled and cut into chunks"
   ×1.5: 1½ heads of broccoli cut into medium florets, stalk peeled and cut into chunks
 ? "1 red onion cut into wedges"
@@ -1638,8 +1638,8 @@
   ×1.5: 1½ bags (600–680 g) orange candy melts
 ? "32 paper lollipop sticks"
   ×1.5: 48 paper lollipop sticks
-? "1 large block white plastic foam"
-  ×1.5: 1½ large block white plastic foam
+✓ "1 large block white plastic foam"
+  ×1.5: 1½ large blocks white plastic foam
 ? "1 bag (14 to 16 oz) blue candy melts"
   metric: 1 bag (400–450 g) blue candy melts
   ×1.5: 1½ bags (600–680 g) blue candy melts
@@ -2106,7 +2106,7 @@
   ×1.5: 1 cup + 2 tbsp plus 3 tablespoons (295g) water
 ? "1/2 cup (99g) vegetable oil"
   ×1.5: 3/4 cup (150g) vegetable oil
-? "1 large egg"
+✓ "1 large egg"
   ×1.5: 1½ large egg
 ? "3/4 cup (149g) granulated sugar"
   ×1.5: 1 cup + 2 tbsp (225g) granulated sugar
@@ -2148,9 +2148,9 @@
   ×1.5: 3 3/4 teaspoons instant yeast
 ? "1 1/3 cups (152g) shredded cheese: pizza blend, mozzarella, cheddar, or the cheese of your choice"
   ×1.5: 2 cups (230g) shredded cheese: pizza blend, mozzarella, cheddar, or the cheese of your choice
-? "1 large head (38g) garlic, about 6 to 7 cloves, intact"
+✓ "1 large head (38g) garlic, about 6 to 7 cloves, intact"
   us: 1 large head (1½ oz) garlic, about 6 to 7 cloves, intact
-  ×1.5: 1½ large head (55g) garlic, about 9 to 10½ cloves, intact
+  ×1.5: 1½ large heads (55g) garlic, about 9 to 10½ cloves, intact
 ? "1 generous tablespoon (15g) olive oil"
   ×1.5: 1½ generous tablespoons (25g) olive oil
 ? "3 tablespoons (43g) water"
@@ -5082,9 +5082,9 @@
 ? "1-3/4 pounds Yukon Gold potatoes (about 4 medium), peeled and cut into 1-inch cubes"
   metric: 790 g Yukon Gold potatoes (about 4 medium), peeled and cut into 2.5 cm cubes
   ×1.5: 1.2 kg Yukon Gold potatoes (about 6 medium), peeled and cut into 2.5 cm cubes
-? "1 medium head cauliflower (about 1-1/2 pounds), cut into 1-inch pieces"
+✓ "1 medium head cauliflower (about 1-1/2 pounds), cut into 1-inch pieces"
   metric: 1 medium head cauliflower (about 680 g), cut into 2.5 cm pieces
-  ×1.5: 1½ medium head cauliflower (about 1 kg), cut into 2.5 cm pieces
+  ×1.5: 1½ medium heads cauliflower (about 1 kg), cut into 2.5 cm pieces
 ? "1-1/2 teaspoons adobo seasoning"
   ×1.5: 2-1/4 teaspoons adobo seasoning
 ? "1-1/2 teaspoons onion powder"
@@ -5262,7 +5262,7 @@
   metric: Place a 6 cm round cutter on top of the dough in the center of the circle (do not press down).
 ? "step: Add 1-1/2 cups broth to pressure cooker."
   metric: Add 3.5 dl broth to pressure cooker.
-? "step: Place 1-3/4 cups pecans and salt in a food processor; pulse until pecans are finely ground."
+✓ "step: Place 1-3/4 cups pecans and salt in a food processor; pulse until pecans are finely ground."
   metric: Place 4.1 dl pecans and salt in a food processor; pulse until pecans are finely ground.
 ? "step: Spoon onto a double thickness of greased heavy-duty foil (about 18 in. square)."
   metric: Spoon onto a double thickness of greased heavy-duty foil (about 46 cm square).
@@ -5496,7 +5496,7 @@
 ? "4 dl Valio Luomu™ kevytmaitoa"
   us: 1⅔ kuppia Valio Luomu™ kevytmaitoa
   ×1.5: 6 dl Valio Luomu™ kevytmaitoa
-? "½ dl sokeria"
+✓ "½ dl sokeria"
   us: 3½ rkl sokeria
   ×1.5: ¾ dl sokeria
 ? "2 rkl perunajauhoja"
@@ -7389,7 +7389,7 @@
 ? "800 g Naudan sisäpaistia"
   us: 28 unssia Naudan sisäpaistia
   ×1.5: 1200 g Naudan sisäpaistia
-? "1 rkl Öljyä"
+✓ "1 rkl Öljyä"
   ×1.5: 1½ rkl Öljyä
 ? "1 kpl Murskattu valkosipulinkynsi"
   ×1.5: 1½ kpl Murskattu valkosipulinkynsi
@@ -8423,8 +8423,8 @@
 ? "1 (12 ounce) package farfalle (bow tie) pasta"
   metric: 1 (340 g) package farfalle (bow tie) pasta
   ×1.5: 1½ (340 g) packages farfalle (bow tie) pasta
-? "1 medium head cabbage, chopped"
-  ×1.5: 1½ medium head cabbage, chopped
+✓ "1 medium head cabbage, chopped"
+  ×1.5: 1½ medium heads cabbage, chopped
 ✓ "1 medium onion, chopped"
   ×1.5: 1½ medium onion, chopped
 ? "0.25 teaspoon pepper"
@@ -8482,7 +8482,7 @@
   ×1.5: 2.3 teaspoons Creole seasoning
 ? "1 teaspoon garlic powder, divided"
   ×1.5: 1½ teaspoons garlic powder, divided
-? "0.5 teaspoon onion powder"
+✓ "0.5 teaspoon onion powder"
   ×1.5: 0.75 teaspoon onion powder
 ? "5 cups shredded rotisserie chicken"
   metric: 1.2 l shredded rotisserie chicken
@@ -8975,8 +8975,8 @@
   ×1.5: 300ml/10½fl oz full-fat milk 
 ? "2 garlic cloves, crushed "
   ×1.5: 3 garlic cloves, crushed 
-? "1 small bunch thyme"
-  ×1.5: 1½ small bunch thyme
+✓ "1 small bunch thyme"
+  ×1.5: 1½ small bunches thyme
 ? "1 bunch spring onions, finely chopped "
   ×1.5: 1½ bunches spring onions, finely chopped 
 ? "500g/1lb 2oz mashed potato"
@@ -10116,7 +10116,7 @@
   ×1.5: 1½ tl  leivinjauhetta
 ? "2 tl nestemäistä punaista elintarvikeväriä"
   ×1.5: 3 tl nestemäistä punaista elintarvikeväriä
-? "200 g maustamatonta tuorejuustoa"
+✓ "200 g maustamatonta tuorejuustoa"
   us: 7 unssia maustamatonta tuorejuustoa
   ×1.5: 300 g maustamatonta tuorejuustoa
 ? "2 kahvikupillista vettä "
@@ -10569,8 +10569,8 @@
   ×1.5: 3  garlic cloves (, finely chopped)
 ? "1/2  onion (, finely sliced)"
   ×1.5: 3/4  onion (, finely sliced)
-? "1  large head broccoli (, broken into small florets)"
-  ×1.5: 1½  large head broccoli (, broken into small florets)
+✓ "1  large head broccoli (, broken into small florets)"
+  ×1.5: 1½  large heads broccoli (, broken into small florets)
 ? "400 - 450g / 14 - 15 oz   egg noodles ((hokkien, lo mein, singapore - from the fridge) (Note 1))"
   ×1.5: 600 - 675g / 21 - 22½ oz   egg noodles ((hokkien, lo mein, singapore - from the fridge) (Note 1))
 ? "1/2 cup / 125 ml  water"
@@ -11343,9 +11343,9 @@
   ×1.5: 4½  cucumbers ((or 2 1/4 long English/Telegraph cucumbers), cut into 1.25cm / 1/2" pieces)
 ? "1/2  red onion (, finely chopped)"
   ×1.5: 3/4  red onion (, finely chopped)
-? "1 cup parsley (, roughly chopped (1 large bunch))"
+✓ "1 cup parsley (, roughly chopped (1 large bunch))"
   metric: 2.5 dl parsley (, roughly chopped (1 large bunch))
-  ×1.5: 3.8 dl parsley (, roughly chopped (1½ large bunch))
+  ×1.5: 3.8 dl parsley (, roughly chopped (1½ large bunches))
 ? "1/3 cup mint (, roughly chopped)"
   metric: 0.8 dl mint (, roughly chopped)
   us: ⅓ cup mint (, roughly chopped)

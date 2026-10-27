@@ -3,7 +3,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 892 entries: 202 checked, of which 1 wrong; 690 unchecked.
+# 892 entries: 211 checked, of which 1 wrong; 681 unchecked.
 
 ## arla.fi (fi, metric): 33 sentences, 33 entries; 21 with quantities
 
@@ -324,7 +324,7 @@
 ? "Let stand about 30 minutes or until icing is set."
 ? "Heat oven to 450°F."
   450 °F  [450°F]
-? "Bake 12 to14 minutes, turning after 6 minutes, until no longer pink in center."
+✓ "Bake 12 to14 minutes, turning after 6 minutes, until no longer pink in center."
 ✓ "In 10-inch skillet, cook sausage, onion and garlic over medium heat, stirring occasionally, until sausage is no longer pink; drain."
   10 in  [10-inch]
 ✓ "Stir in 2 tablespoons of the parsley, the basil, sugar, tomatoes and tomato sauce."
@@ -439,7 +439,7 @@
 ? "Reheat leftover rolls, well-wrapped in foil, for about 5 minutes in a toaster oven or your oven set to 300°F before enjoying."
   300 °F  [300°F]
 ? "Cover the bowl, and let the preferment rest overnight (or for up to 20 hours or so), at room temperature; it doesn't need to be placed somewhere warm."
-? "Place the dough in a greased bowl or greased 8-cup measure, cover it, and let it rise for 60 to 90 minutes, until it's noticeably puffy though not necessarily doubled in bulk."
+✓ "Place the dough in a greased bowl or greased 8-cup measure, cover it, and let it rise for 60 to 90 minutes, until it's noticeably puffy though not necessarily doubled in bulk."
   8 cup  [8-cup]
 ? "If you have time, let the dough rest for 20 to 30 minutes; this short rest will make it easier to shape."
 ? "Shape the dough into a log, and place it into a lightly greased 8 1/2\" x 4 1/2\" loaf pan."
@@ -829,7 +829,7 @@
   200 °C  [200 asteeseen]
 ? "Kuumenna uuni 225 asteeseen."
   225 °C  [225 asteeseen]
-? "Kaada pieni kattila vajaa puolilleen öljyä ja laita öljy kuumenemaan 160 asteeseen eli niin lämpimäksi, että sipsit ruskistuvat parissa minuutissa."
+✓ "Kaada pieni kattila vajaa puolilleen öljyä ja laita öljy kuumenemaan 160 asteeseen eli niin lämpimäksi, että sipsit ruskistuvat parissa minuutissa."
   160 °C  [160 asteeseen]
 ? "Taputtele taikina voideltuun piirasvuokaan (ø 24 cm) ja pistele pohjaa haarukalla."
   24 cm  [24 cm]
@@ -1052,7 +1052,7 @@
   20x30 cm  [20 x 30 cm]
 ? "Paista 200-asteisessa uunissa 20 minuuttia."
   200 °C  [200-asteisessa]
-? "Lämmitä maito 42-asteiseksi."
+✓ "Lämmitä maito 42-asteiseksi."
   42 °C  [42-asteiseksi]
 ? "Painele taikina ohueksi (1- 1 ½ cm) levyksi leivinpaperilla vuoratulle pellille."
   1-1.5 cm  [1- 1 ½ cm]
@@ -1274,7 +1274,7 @@
   ~20 cm  [20 cm]
 ? "Paista 225-asteisessa uunissa 30 minuuttia."
   225 °C  [225-asteisessa]
-? "Pese, kuori ja leikkaa perunat noin 2 cm x 2 cm kuutioiksi."
+✓ "Pese, kuori ja leikkaa perunat noin 2 cm x 2 cm kuutioiksi."
   ~2x2 cm  [2 cm x 2 cm]
 ? "Paista 200-asteisessa uunissa noin 30 minuuttia."
   200 °C  [200-asteisessa]
@@ -1302,7 +1302,7 @@
   1 tsp  [yksi teelusikallista]
   0.5 tsp  [puoli teelusikallista]
   0.5 tsp  [puoli teelusikallista]
-? "Sekoita joukkoon yksi desilitra ranskankermaa ja puoli desiä ruohosipulia silputtuna."
+✓ "Sekoita joukkoon yksi desilitra ranskankermaa ja puoli desiä ruohosipulia silputtuna."
   1 dl  [yksi desilitra]
   0.5 dl  [puoli desiä]
 ✓ "Kypsennä uunin grillivastuksen alla noin 15 minuuttia välillä kääntäen tai 200-asteisessa uunissa noin 20 minuuttia."
@@ -1390,7 +1390,7 @@
   15x23 cm  [15 x 23 cm]
 ? "Kauli taikina 35 × 50 sentin levyksi."
   35x50 cm  [35 × 50 sentin]
-? "Paista uunissa 175 asteessa 30–40 minuuttia."
+✓ "Paista uunissa 175 asteessa 30–40 minuuttia."
   175 °C  [175 asteessa]
 ? "Kaada taikina leivinpaperin päälle pellille (noin 35 × 42 cm) ja levitä tasaiseksi."
   ~35x42 cm  [35 × 42 cm]
@@ -1450,7 +1450,7 @@
 ? "Stir in 1 cup water and 4 tablespoons cocoa powder."
   1 cup  [1 cup]
   4 tbsp  [4 tablespoons]
-? "In a medium bowl, dissolve the baking soda in 1/2 cup of buttermilk."
+✓ "In a medium bowl, dissolve the baking soda in 1/2 cup of buttermilk."
   0.5 cup  [1/2 cup]
 ? "For the icing: In a large saucepan, melt 1/2 cup butter with 4 tablespoons cocoa."
   0.5 cup  [1/2 cup]
@@ -1719,7 +1719,7 @@
   220 °C both  [220°C]
   425 °F both  [425°F]
   200 °C both  [200°C]
-? "Cut into 3cm / 1.2\" squares."
+✓ "Cut into 3cm / 1.2\" squares."
   3 cm = 1.2 in  [3cm] [1.2"]
 ? "Dressing - Shake the dressing ingredients in a jar until well combined."
 ? "Preheat oven to 150C/300F."
