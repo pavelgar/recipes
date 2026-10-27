@@ -22,4 +22,4 @@ test-results
 *.db
 *.db-*
 photos
-e2e-photos
+e2e*-photos
