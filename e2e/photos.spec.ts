@@ -125,6 +125,13 @@ test('a recipe whose photo is gone is saved without it', async ({ page }) => {
   await expect(coverOf(page)).toHaveCount(0)
 })
 
+test('an address that names no stored photo is not found', async ({
+  request,
+}) => {
+  const response = await request.get('/photos/AAAAAAAAAAAAAAAAAAAAAA.webp')
+  expect(response.status()).toBe(404)
+})
+
 // Anyone on the network can call the server, not only the app's pages.
 test('the server refuses a call larger than any the app makes', async ({
   request,

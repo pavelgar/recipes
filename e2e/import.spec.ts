@@ -50,6 +50,38 @@ test('a recipe from a link opens in the editor and saves with its source', async
   )
 })
 
+// The photo is the title's, so it has no name of its own.
+const naturalWidth = (page: Page, photo: string) =>
+  page
+    .locator(photo)
+    .evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)
+
+test('a recipe from a link comes with the largest photo its data gives', async ({
+  page,
+}) => {
+  await importLink(page, `${testSite}/kuvalla`)
+
+  // Stored at most 1600 px wide, so from the 2400 px photo, not the 800.
+  await expect(page.getByRole('button', { name: 'Change photo' })).toBeVisible()
+  await expect.poll(() => naturalWidth(page, 'form img')).toBe(1600)
+
+  await page.getByRole('button', { name: 'Save' }).click()
+  await expect(page).toHaveURL(/\/recipes\/\d+$/)
+  await expect.poll(() => naturalWidth(page, 'article img')).toBe(1600)
+})
+
+test("a photo that can't be fetched leaves the recipe without one", async ({
+  page,
+}) => {
+  await importLink(page, `${testSite}/kuva-puuttuu`)
+
+  await expect(page.getByRole('textbox', { name: 'Title' })).toHaveValue(
+    PELTILEIPA.title,
+  )
+  await expect(page.getByRole('button', { name: 'Add photo' })).toBeVisible()
+  await expect(page.locator('form img')).toHaveCount(0)
+})
+
 test('a page without recipe data has no recipe to import', async ({ page }) => {
   const dialog = await importLink(page, `${testSite}/teksti`)
   await expect(
