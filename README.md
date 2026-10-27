@@ -124,18 +124,18 @@ production build, and browsers run it only over HTTPS or on localhost. To
 try it, run `bun run build`, then `bun run start`, and open
 http://localhost:3000.
 
-| Command               | What it does                                                         |
-| --------------------- | -------------------------------------------------------------------- |
-| `bun run dev`         | Start the dev server                                                 |
-| `bun run build`       | Build for production into `.output/`                                 |
-| `bun run start`       | Run the production build (needs `DATABASE_URL`)                      |
-| `bun run db:generate` | Write a migration into `drizzle/` after changing `src/db/schema.ts`  |
-| `bun run icons`       | Write the app icons into `public/` from `public/favicon.svg`         |
-| `bun run test`        | Run the Vitest tests (`bun test` runs Bun's own test runner instead) |
-| `bun run test:e2e`    | Run the Playwright end-to-end tests against a production build       |
-| `bun run typecheck`   | Type-check (run `dev` or `build` once first to generate Paraglide)   |
-| `bun run lint`        | Lint with ESLint                                                     |
-| `bun run format`      | Format with Prettier and apply ESLint fixes                          |
+| Command               | What it does                                                                     |
+| --------------------- | -------------------------------------------------------------------------------- |
+| `bun run dev`         | Start the dev server                                                             |
+| `bun run build`       | Build for production into `.output/`                                             |
+| `bun run start`       | Run the production build (needs `DATABASE_URL`)                                  |
+| `bun run db:generate` | Write a migration into `drizzle/` after changing `src/db/schema.ts`              |
+| `bun run icons`       | Write the app icons into `public/` from `public/favicon.svg`                     |
+| `bun run test`        | Run the Vitest tests (`bun test` runs Bun's own test runner instead)             |
+| `bun run test:e2e`    | Run the Playwright end-to-end tests against a production build                   |
+| `bun run typecheck`   | Type-check (needs `src/paraglide/`, which `scripts/setup-worktree.sh` generates) |
+| `bun run lint`        | Lint with ESLint                                                                 |
+| `bun run format`      | Format with Prettier and apply ESLint fixes                                      |
 
 The component tests (`*.browser.test.tsx`) and the end-to-end tests need
 Playwright's Chromium, downloaded once per machine with

@@ -1,0 +1,4 @@
+# `bun test` would start Bun's own test runner on Vitest's tests. The
+# preload stops it and says which command runs them.
+[test]
+preload = ["./scripts/bun-test-guard.ts"]

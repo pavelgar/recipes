@@ -1,0 +1,5 @@
+# The held-out sample measures the parser on text no rule was written
+# against (AGENTS.md). Search tools that read this file, such as ripgrep,
+# skip it; tests, git and reads of a named file don't.
+corpus/held-out/
+src/lib/*/__ledger__/held-out-*.txt
