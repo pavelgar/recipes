@@ -79,6 +79,10 @@ const CASES: Record<string, Array<[line: string, expected: string]>> = {
       'measured ~0.25 tsp  [1/4 rounded teaspoon]',
     ],
     ['1 large tbsp tamarind paste', 'measured ~1 tbsp  [1 large tbsp]'],
+    // Before a package or a piece, a size word says which one, and the
+    // amount stays exact.
+    ['1 pieni tlk ananasmurskaa', 'counted 1 tlk  [1 pieni tlk]'],
+    ['1 medium head cabbage, chopped', 'counted 1 head  [1 medium head]'],
     ['1 large egg', 'counted 1  [1]'],
     ['2 Little Gem lettuces quartered', 'counted 2  [2]'],
     [
@@ -359,7 +363,7 @@ const CASES: Record<string, Array<[line: string, expected: string]>> = {
     ],
     [
       '350g/ 12 oz   white cabbage (, thinly shredded (1/4 large head, 6 - 8 big handfuls))',
-      'measured 350 g = 12 oz | more 0.25 | more ~6-8 handful  [350g] [12 oz] [1/4] [6 - 8 big handfuls]',
+      'measured 350 g = 12 oz | more 0.25 head | more ~6-8 handful  [350g] [12 oz] [1/4 large head] [6 - 8 big handfuls]',
     ],
     [
       '2  egg whites (, at room temperature (from 2 large eggs, Note 4))',

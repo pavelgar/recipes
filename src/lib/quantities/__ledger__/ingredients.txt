@@ -3,7 +3,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 4636 entries: 527 checked, of which 3 wrong; 4109 unchecked.
+# 4636 entries: 543 checked, of which 2 wrong; 4093 unchecked.
 
 ## arla.fi (fi, metric): 332 lines, 294 entries; 229 measured, 63 counted, 40 no-amount, 0 unrecognised
 
@@ -607,8 +607,8 @@
   measured 1 tbsp  [1 tbsp]
 ? "drizzle of extra virgin olive oil"
   no-amount
-? "4 large pieces tilapia or cod"
-  counted 4  [4]
+✓ "4 large pieces tilapia or cod"
+  counted 4 piece  [4 large pieces]
 ? "green salad to serve"
   no-amount
 ? "6 hot pickled peppers (I used Peppadew)"
@@ -635,8 +635,8 @@
   measured 2 tbsp  [2 tbsp]
 ? "3 tbsp chopped dill"
   measured 3 tbsp  [3 tbsp]
-? "½ small pack mint chopped"
-  counted 0.5  [½]
+✓ "½ small pack mint chopped"
+  counted 0.5 package  [½ small pack]
 ? "60g semi-dried tomatoes roughly chopped"
   measured 60 g  [60g]
 ? "2 tbsp hazelnuts toasted and crushed"
@@ -1151,8 +1151,8 @@
   no-amount
 ? "8 pork sausages"
   counted 8  [8]
-? "1 medium head of cauliflower cut into small florets and leaves chopped"
-  counted 1  [1]
+✓ "1 medium head of cauliflower cut into small florets and leaves chopped"
+  counted 1 head  [1 medium head]
 ? "1 head of broccoli cut into medium florets, stalk peeled and cut into chunks"
   counted 1 head  [1 head]
 ? "1 red onion cut into wedges"
@@ -1356,8 +1356,8 @@
   counted 1 bag | total 14-16 oz  [1 bag] [14 to 16 oz]
 ? "32 paper lollipop sticks"
   counted 32  [32]
-? "1 large block white plastic foam"
-  counted 1  [1]
+✓ "1 large block white plastic foam"
+  counted 1 block  [1 large block]
 ✓ "1 bag (14 to 16 oz) blue candy melts"
   counted 1 bag | total 14-16 oz  [1 bag] [14 to 16 oz]
 ? "6 to 8 assorted fresh flowers*"
@@ -1731,8 +1731,8 @@
   measured 1.333 cup = 152 g  [1 1/3 cups] [152g]
 ? "2 1 /2 tablespoons (35g) melted butter"
   unrecognised
-? "1 large head (38g) garlic, about 6 to 7 cloves, intact"
-  counted 1 | total 38 g | more ~6-7 clove  [1] [38g] [6 to 7 cloves]
+✓ "1 large head (38g) garlic, about 6 to 7 cloves, intact"
+  counted 1 head | total 38 g | more ~6-7 clove  [1 large head] [38g] [6 to 7 cloves]
 ? "1 generous tablespoon (15g) olive oil"
   measured ~1 tbsp = 15 g  [1 generous tablespoon] [15g]
 ? "3 tablespoons (43g) water"
@@ -3146,8 +3146,8 @@
   counted 2  [2]
 ? "2 mietoa chiliä"
   counted 2  [2]
-? "1 pieni prk (35 g) pikkukapriksia"
-  counted 1 | total 35 g  [1] [35 g]
+✓ "1 pieni prk (35 g) pikkukapriksia"
+  counted 1 prk | total 35 g  [1 pieni prk] [35 g]
 ? "¾ dl oliiviöljyä"
   measured 0.75 dl  [¾ dl]
 ? "1 ison sitruunan mehu ja kuoriraaste"
@@ -3218,7 +3218,7 @@
   measured 1.5 tbsp  [1 1/2 rkl]
 ? "ripaus merisuolaa"
   no-amount
-? "4 viipaletta (à 150 g) porsaan ulkofileetä"
+✓ "4 viipaletta (à 150 g) porsaan ulkofileetä"
   counted 4 viipale | each 150 g  [4 viipaletta] [150 g]
 ? "1 tl suolaa"
   measured 1 tsp  [1 tl]
@@ -4316,7 +4316,7 @@
 ✓ "1-3/4 pounds Yukon Gold potatoes (about 4 medium), peeled and cut into 1-inch cubes"
   measured 1.75 lb | more ~4 | more fixed 1 in  [1-3/4 pounds] [4] [1-inch]
 ✓ "1 medium head cauliflower (about 1-1/2 pounds), cut into 1-inch pieces"
-  counted 1 | total ~1.5 lb | more fixed 1 in  [1] [1-1/2 pounds] [1-inch]
+  counted 1 head | total ~1.5 lb | more fixed 1 in  [1 medium head] [1-1/2 pounds] [1-inch]
 ? "1-1/2 teaspoons adobo seasoning"
   measured 1.5 tsp  [1-1/2 teaspoons]
 ? "1-1/2 teaspoons onion powder"
@@ -4325,7 +4325,7 @@
   measured 1.5 tsp  [1-1/2 teaspoons]
 ? "1 can (15-1/2 ounces) hominy, rinsed and drained"
   counted 1 can | total 15.5 oz  [1 can] [15-1/2 ounces]
-? "1 can (14-1/2 ounces) diced tomatoes with mild green chiles, undrained"
+✓ "1 can (14-1/2 ounces) diced tomatoes with mild green chiles, undrained"
   counted 1 can | total 14.5 oz  [1 can] [14-1/2 ounces]
 ? "1-1/4 cups half-and-half cream"
   measured 1.25 cup  [1-1/4 cups]
@@ -4420,9 +4420,8 @@
   measured 0.5 dl  [½ dl]
 ? "300 g porkkanoita raasteena"
   measured 300 g  [300 g]
-✗ "1 pieni tlk ananasmurskaa"
-  counted 1  [1]
-  want: counted 1 tlk  [1 pieni tlk]
+✓ "1 pieni tlk ananasmurskaa"
+  counted 1 tlk  [1 pieni tlk]
 ? "½ dl hassel- tai saksanpähkinärouhetta"
   measured 0.5 dl  [½ dl]
 ? "1½ dl (150 g) Valio voita"
@@ -4581,8 +4580,8 @@
   measured 250 g  [250 g]
 ? "3 dl Valio ananastäysmehua"
   measured 3 dl  [3 dl]
-? "2 pieni tlk ananasmurskaa"
-  counted 2  [2]
+✓ "2 pieni tlk ananasmurskaa"
+  counted 2 tlk  [2 pieni tlk]
 ? "1 tl vaniljasokeria"
   measured 1 tsp  [1 tl]
 ? "2 rkl juoksevaa hunajaa"
@@ -5676,8 +5675,8 @@
   measured 1 tbsp  [1 tablespoon]
 ? "1 tablespoon balsamic vinegar"
   measured 1 tbsp  [1 tablespoon]
-? "6 medium stalks silver beet (swiss chard)"
-  counted 6  [6]
+✓ "6 medium stalks silver beet (swiss chard)"
+  counted 6 stalk  [6 medium stalks]
 ? "10 free-range eggs"
   counted 10  [10]
 ? "1/4 cup (60ml) milk"
@@ -6804,8 +6803,8 @@
   measured 1 tbsp  [1 tablespoon]
 ? "1 (12 ounce) package farfalle (bow tie) pasta"
   counted 1 package | each 12 oz  [1 (12 ounce) package] [12 ounce]
-? "1 medium head cabbage, chopped"
-  counted 1  [1]
+✓ "1 medium head cabbage, chopped"
+  counted 1 head  [1 medium head]
 ? "1 medium onion, chopped"
   counted 1  [1]
 ? "0.25 teaspoon pepper"
@@ -7039,7 +7038,7 @@
   counted 10  [10]
 ? "1 tbsp smoked paprika"
   measured 1 tbsp  [1 tbsp]
-? "500ml/18fl oz vegetable oil"
+✓ "500ml/18fl oz vegetable oil"
   measured 500 ml = 18 fl-oz  [500ml] [18fl oz]
 ? "vegetable or sunflower oil, for deep-frying"
   no-amount
@@ -7329,8 +7328,8 @@
   measured 200 ml = 7 fl-oz  [200ml] [7fl oz]
 ? "2 garlic cloves, crushed "
   counted 2  [2]
-? "1 small bunch thyme"
-  counted 1  [1]
+✓ "1 small bunch thyme"
+  counted 1 bunch  [1 small bunch]
 ? "1 bunch spring onions, finely chopped "
   counted 1 bunch  [1 bunch]
 ? "500g/1lb 2oz mashed potato"
@@ -8680,8 +8679,8 @@
   counted 2  [2]
 ? "1/2  onion (, finely sliced)"
   counted 0.5  [1/2]
-? "1  large head broccoli (, broken into small florets)"
-  counted 1  [1]
+✓ "1  large head broccoli (, broken into small florets)"
+  counted 1 head  [1  large head]
 ? "400 - 450g / 14 - 15 oz   egg noodles ((hokkien, lo mein, singapore - from the fridge) (Note 1))"
   measured 400-450 g = 14-15 oz  [400 - 450g] [14 - 15 oz]
 ? "1/2 cup / 125 ml  water"
@@ -8944,7 +8943,7 @@
   measured 0.25 cup  [1/4 cup]
 ? "1/4 cup Parmigiano-Reggiano ((or parmesan), freshly grated)"
   measured 0.25 cup  [1/4 cup]
-? "3/4 tsp salt"
+✓ "3/4 tsp salt"
   measured 0.75 tsp  [3/4 tsp]
 ? "1 1/2 tbsp olive oil"
   measured 1.5 tbsp  [1 1/2 tbsp]
@@ -9179,7 +9178,7 @@
 ? "1/2  onion (, thinly sliced)"
   counted 0.5  [1/2]
 ✓ "350g/ 12 oz   white cabbage (, thinly shredded (1/4 large head, 6 - 8 big handfuls))"
-  measured 350 g = 12 oz | more 0.25 | more ~6-8 handful  [350g] [12 oz] [1/4] [6 - 8 big handfuls]
+  measured 350 g = 12 oz | more 0.25 head | more ~6-8 handful  [350g] [12 oz] [1/4 large head] [6 - 8 big handfuls]
 ? "1 1/4 cups (300ml)   cider vinegar"
   measured 1.25 cup = 300 ml  [1 1/4 cups] [300ml]
 ? "1/3 cup (85 ml)   water"
@@ -9312,8 +9311,8 @@
   counted 3 | more 1.5 | more fixed 1.25 cm = 0.5 in  [3] [1 1/2] [1.25cm] [1/2"]
 ? "1/2  red onion (, finely chopped)"
   counted 0.5  [1/2]
-? "1 cup parsley (, roughly chopped (1 large bunch))"
-  measured 1 cup | more 1  [1 cup] [1]
+✓ "1 cup parsley (, roughly chopped (1 large bunch))"
+  measured 1 cup | same 1 bunch  [1 cup] [1 large bunch]
 ? "1/3 cup mint (, roughly chopped)"
   measured 0.333 cup  [1/3 cup]
 ? "4 tbsp extra virgin olive oil"

@@ -72,19 +72,33 @@ const MODIFIER = new RegExp(
   'iuy',
 )
 
+// Words for the size of a package or piece, between the number and its
+// unit: "1 pieni tlk", "1 medium head". They say which package or piece,
+// so the amount stays exact.
+const SIZE = new RegExp(
+  String.raw` +(?:small|medium|large|big|pien\p{L}*|iso\p{L}*|suur\p{L}*)(?![\p{L}])`,
+  'iuy',
+)
+
 type ModifiedUnit = UnitMatch & { readonly approximate: boolean }
 
-// Reads a unit after a word such as "heaped" at pos.
+// Reads a unit after a word such as "heaped" or "pieni" at pos.
 function readModifiedUnit(
   text: string,
   pos: number,
   opts: ReadOptions,
 ): ModifiedUnit | null {
   const m = matchAt(MODIFIER, text, pos)
-  if (!m) return null
-  const unit = readUnitAfter(text, pos + m[0].length, opts)
-  if (unit?.unit.kind !== 'volume' && unit?.unit.kind !== 'pinch') return null
-  return { ...unit, approximate: m.at(1) === undefined }
+  const unit = m ? readUnitAfter(text, pos + m[0].length, opts) : null
+  if (m && (unit?.unit.kind === 'volume' || unit?.unit.kind === 'pinch')) {
+    return { ...unit, approximate: m.at(1) === undefined }
+  }
+  const size = matchAt(SIZE, text, pos)
+  const sized = size ? readUnitAfter(text, pos + size[0].length, opts) : null
+  if (sized?.unit.kind !== 'package' && sized?.unit.kind !== 'count') {
+    return null
+  }
+  return { ...sized, approximate: false }
 }
 
 function readUnitOrModified(
