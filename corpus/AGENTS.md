@@ -18,17 +18,17 @@ Each file gives its `site`, `country` (FI, US, GB or AU, which sets the measurin
 
 - Keep every string exactly as the page's schema.org Recipe data published it, HTML entities (`&amp;`), stray spaces and missing spaces (`2dl`) included, since the importer receives the same strings. Tests that need clean input normalise it in the test. `"format": "json-ld (repaired)"` marks a page whose JSON-LD needed a missing comma put back before parsing; its strings are untouched. Some lines are cut short in the site's own data ("1 plo (0").
 - Add data only by collecting it from a real page, with its URL.
-- After adding or removing files here, run `bun run test --clearCache` once. Vitest's module cache keeps the corpus file list from an earlier run until `src/test/corpus.ts` itself changes.
+- After adding a file here, run `bun run test --clearCache` once. Vitest's module cache keeps the corpus file list from an earlier run until `src/test/corpus.ts` itself changes.
 
 ## Pages
 
-`bun scripts/pages.ts collect <seed> [per site]` fetches pages of `ingredients/` recipes as the importer does, into `.cache/pages/`, which stays out of the repo: only skeletons are committed. `bun scripts/pages.ts skeletons` writes `pages/` from that cache. The collecting rules below apply, apart from dropping URLs already in `corpus/`: pages are taken from `ingredients/` on purpose, so their lines are in the repo already.
+`scripts/pages.ts` collects the pages, writes `pages/` and checks it; its header gives the commands. Its collecting follows the rules below, apart from dropping URLs already in `corpus/`: it takes pages of `ingredients/` recipes on purpose, so their lines are in the repo already. Only skeletons are committed; the fetched pages stay in `.cache/pages/`.
 
-After changing how skeletons are made, `bun scripts/pages.ts check` lists every skeleton the importer reads differently from its cached page, apart from the masked text; make it list none.
+After changing how skeletons are made, run `bun scripts/pages.ts check` and make it list none.
 
 ## Collecting
 
-- Before fetching from a site, read its robots.txt and obey it, crawl delay included. Use an identifying user agent and wait at least 1.5 seconds between requests to a site. A `Content-signal: ai-train=no` line hasn't stopped collection so far, since test data isn't training.
+- Before fetching from a site, read its robots.txt and obey it, crawl delay included, and use an identifying user agent. A `Content-signal: ai-train=no` line hasn't stopped collection so far, since test data isn't training.
 - Take recipe URLs from the site's recipe sitemaps, drop URLs already anywhere in `corpus/`, sort the rest, shuffle them with a fixed seed, and fetch in that order.
 - Use a seed no earlier collection used, and name it as "seed N" in the commit message. Seeds used so far: `git log -p -- corpus | grep -oE 'seed [0-9]{8}' | sort -u`.
 - Cut step text into sentences at line breaks, and after `.`, `?` or `!` followed by a capital letter or a digit.
@@ -50,9 +50,10 @@ How the code reads each site's lines is in the `##` headings of the ledgers: `gr
 
 ## The held-out sample
 
-`held-out/` holds 10 recipes per site that no rule was written against, so it measures the code on text it hasn't seen. Its `sentences` keep every step sentence with a digit, a fraction character or a degree sign, times and counts included. The normal test run doesn't read it.
+`held-out/` holds 10 recipes per site, kept unseen as the root AGENTS.md says. Its `sentences` keep every step sentence with a digit, a fraction character or a degree sign, times and counts included. The normal test run doesn't read it.
 
-1. Leave its lines and ledgers unread, and run it only when asked.
-2. Run `HELD_OUT=1 UPDATE_LEDGER=1 bun run test held-out`. This writes its ledgers, `held-out-*.txt` in `src/lib/quantities/__ledger__/` and `src/lib/words/__ledger__/`.
-3. Have a fresh agent, one that hasn't worked on the rules, check a random sample of entries, marking each ✓ or ✗ as `src/test/ledger.ts` describes. The share marked ✗ is the error rate. Give the sample's seed and size, the error rate and each wrong entry in the commit message.
-4. Once the errors it found are fixed, the sample is no longer unseen. Move its files into `former-held-out/`, carry the statuses its check gave over to the development ledgers, delete its ledgers, and collect a new sample with a new seed: 10 recipes per site, from the same sites, printing only counts while collecting.
+When asked to run it:
+
+1. Run `HELD_OUT=1 UPDATE_LEDGER=1 bun run test held-out`. This writes its ledgers, `held-out-*.txt` in `src/lib/quantities/__ledger__/` and `src/lib/words/__ledger__/`.
+2. Have a fresh agent, one that hasn't worked on the rules, check a random sample of entries, marking each ✓ or ✗ as `src/test/ledger.ts` describes. The share marked ✗ is the error rate. Give the sample's seed and size, the error rate and each wrong entry in the commit message.
+3. Once the errors it found are fixed, the sample is no longer unseen. Move its files into `former-held-out/`, carry the statuses its check gave over to the development ledgers, delete its ledgers, and collect a new sample with a new seed: 10 recipes per site, from the same sites, printing only counts while collecting.

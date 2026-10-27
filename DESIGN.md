@@ -742,12 +742,8 @@
 
 ## Working rules
 
-- Don't add features, screens or settings I haven't asked for. If something
-  seems necessary, ask first.
-- When a requirement is ambiguous, ask instead of picking an interpretation.
-- Never invent data. Sample recipes must be real and marked as samples.
-  Placeholder text, such as the editor's example lines, isn't data: it is
-  written to show what's possible.
+The working rules are in [AGENTS.md](AGENTS.md), so every task reads them,
+not only those that open this brief.
 
 ## Before calling a screen done
 

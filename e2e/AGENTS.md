@@ -1,21 +1,16 @@
 # End-to-end tests
 
-Playwright tests of the app in a real browser. `bun run test:e2e` builds the app and runs it twice, each with an empty database and photos folder: once without an AI model, and once with `fake-ai.ts` as its model, which answers with canned readings (`servers.ts` has their addresses). CI runs the same suite.
+Playwright tests of the app in a real browser, against a production build. `playwright.config.ts` sets up the apps they run against and the projects, and CI runs the same suite.
 
 The build is `vite build --mode e2e`, which also imports from `test-site.ts` on 127.0.0.1, an address every other build refuses (`src/lib/import/fetch.server.ts`). A test of importing a kind of page adds the page there. Afterwards `.output/` holds that build; run `bun run build` before using it otherwise.
 
-## Projects
+The `iphone` project (WebKit) runs only on CI, since Playwright's WebKit doesn't launch on Fedora. To run it locally, use Playwright's Ubuntu image, from the repo root:
 
-- `phone` and `desktop`: Chromium, every test.
-- `iphone`: WebKit, on CI only, since Playwright's WebKit doesn't run on Fedora. Run it locally in Playwright's Ubuntu image:
-
-  ```sh
-  podman run --rm --network host --userns=keep-id -v "$PWD":/work:Z -w /work -e CI=1 -e HOME=/tmp \
-    mcr.microsoft.com/playwright:v<@playwright/test version>-noble \
-    bash -c 'npm i -g --prefix /tmp/g bun@<the Dockerfile's version> && PATH=/tmp/g/bin:$PATH bunx playwright test --project=iphone'
-  ```
-
-- `plain-http`: only `plain-http.spec.ts`. localhost counts as HTTPS to browsers, so the other projects never see the app as a home network reaches it by plain HTTP. This one opens it at a name mapped to this machine.
+```sh
+podman run --rm --network host --userns=keep-id -v "$PWD":/work:Z -w /work -e CI=1 -e HOME=/tmp \
+  mcr.microsoft.com/playwright:v<@playwright/test version>-noble \
+  bash -c 'npm i -g --prefix /tmp/g bun@<the Dockerfile's version> && PATH=/tmp/g/bin:$PATH bunx playwright test --project=iphone'
+```
 
 ## playwright-cli
 
@@ -33,9 +28,9 @@ playwright-cli is the browser for work in this folder: it attaches to a paused t
 
 ## Conventions
 
-- Find elements by role and accessible name. Tests run in English, the base locale; the names are in `messages/en.json`.
+- Find elements by role and accessible name, as the code playwright-cli prints does, so steps written by hand read like generated ones. Tests run in English, the base locale; the names are in `messages/en.json`.
 - Phone first. The menu is a bottom bar on phones and a sidebar on wider screens, both named "Main menu", so one locator serves both projects.
-- Each run starts with an empty database. A test that needs recipes adds real ones from the development corpus, which `corpus/AGENTS.md` describes; `recipes.ts` holds those in use.
+- Each run starts with an empty database and photos folder. A test that needs recipes adds real ones from the development corpus, which `corpus/AGENTS.md` describes; `recipes.ts` holds those in use.
 - A test of what needs AI sets `test.use({ baseURL: aiApp })`, and adds the reading it needs to `fake-ai.ts`.
 - `app.ts` holds steps many tests share, such as opening the add dialog.
 - A new screen or state gets an axe check in `accessibility.spec.ts`.

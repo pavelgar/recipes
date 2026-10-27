@@ -36,7 +36,7 @@ describe('the page collector’s robots.txt rules', () => {
     const robots = await robotsOf(ORIGIN)
 
     expect(robots.allows('/recipes/first')).toBe(true)
-    expect(robots.delayMs).toBe(1500)
+    expect(robots.delayMs).toBe(0)
     expect(request).toHaveBeenCalledWith(`${ORIGIN}/robots.txt`, {
       headers: { 'user-agent': 'Recipes' },
     })
@@ -104,7 +104,7 @@ Allow: /recipes/
     ['2', '7', 7000],
     ['7', '2', 7000],
     ['10s', '4', 4000],
-    ['10s', 'invalid', 1500],
+    ['10s', 'invalid', 0],
   ])(
     'respects both crawl delays, %s and %s',
     async (first, second, delayMs) => {

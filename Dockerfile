@@ -1,6 +1,6 @@
 # The app runs on Node 24 LTS. Bun, copied from the official image, only
 # installs packages and builds.
-FROM docker.io/oven/bun:1.4.3-slim AS bun
+FROM docker.io/oven/bun:1.4.4-slim AS bun
 
 FROM docker.io/library/node:24-slim AS build
 COPY --from=bun /usr/local/bin/bun /usr/local/bin/bun

@@ -1,5 +1,4 @@
 const USER_AGENT = 'Recipes'
-const DELAY_MS = 1500
 
 type Robots = { allows: (path: string) => boolean; delayMs: number }
 
@@ -52,13 +51,13 @@ export async function robotsOf(origin: string): Promise<Robots> {
   const rules = lines.filter(
     ([field, value]) => (field === 'allow' || field === 'disallow') && value,
   )
-  // Honour the longest delay across the matching groups. An invalid value,
-  // such as "10s", never lowers the minimum wait.
+  // Honour the longest delay across the matching groups, and none when
+  // they set none. An invalid value, such as "10s", is ignored.
   const delayMs = lines.reduce((wait, [field, value]) => {
     if (field !== 'crawl-delay') return wait
     const seconds = Number(value)
     return Number.isFinite(seconds) ? Math.max(wait, seconds * 1000) : wait
-  }, DELAY_MS)
+  }, 0)
   const pattern = (value: string) =>
     new RegExp(
       `^${value.replace(/[.+?^{}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*')}`,
