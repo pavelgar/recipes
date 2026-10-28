@@ -8,6 +8,29 @@
 
 Read [DESIGN.md](docs/DESIGN.md) before planning or changing features, screens, visual design, the data model, or deployment. It holds what is decided and the build order.
 
+## Code organization
+
+`src/` has one folder per layer. A layer imports only from itself and the layers its row names; `bun run lint` fails on any other import, and on a file outside every layer.
+
+| Folder               | Holds                                                                                                   | Imports from                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `src/core/`          | Pure logic: no React, TanStack, Node or server packages, browser globals or translations                | core                                        |
+| `src/server/`        | The database, the environment, server functions (`*.functions.ts`) and server-only code (`*.server.ts`) | core                                        |
+| `src/i18n/`          | Translations, and names in the interface language; Paraglide generates `src/paraglide/` from them       | core                                        |
+| `src/hooks/`         | React hooks                                                                                             | core                                        |
+| `src/components/ui/` | shadcn components, written by the shadcn CLI                                                            | hooks, i18n                                 |
+| `src/components/`    | The app's UI, with a folder per area once it has several files                                          | core, i18n, hooks, ui, and server functions |
+| `src/routes/`        | Routes and their views                                                                                  | everything above                            |
+| `src/testing/`       | Helpers for tests, which only tests import                                                              | core, server, i18n                          |
+
+Start's entry files (`router.tsx`, `start.ts`, `client.tsx`, `server.ts`), `styles.css` and the service worker sit beside the layers and may import any of them; so may tests.
+
+- Pure code goes in core, even when one screen uses it. Code that needs the browser, React or translations goes beside the component or route that uses it; beside a route, its name starts with `-`, which keeps it out of the route tree.
+- A `.server.ts` file never reaches the browser: Start's build refuses it there. Pure code that would grow the app's download is named `.server.ts` too, as `src/core/languages.server.ts` is.
+- `eslint.config.js` holds the rules, in its `layers` and `imports` lists. A change there changes this section too.
+
+Outside `src/`, `tests/` holds the end-to-end tests and the corpus, `docs/` the design brief and research, `scripts/` the scripts the package's commands run, and `public/` the files served as they are.
+
 ## Held-out sample
 
 `tests/corpus/held-out/` measures the code on text no rule was written against. Keep its files and its ledgers (`held-out-*.txt`) out of every read and search, and run `HELD_OUT=1 bun run test held-out` only when asked. `.ignore` keeps them out of ripgrep's searches; with grep, exclude them yourself (`grep --exclude-dir=held-out --exclude='held-out-*'`).

@@ -142,8 +142,12 @@ Playwright's Chromium, downloaded once per machine with
 `bunx playwright install chromium`.
 
 Built with TanStack Start (React), Drizzle ORM on SQLite through libsql,
-Paraglide for translations (`src/i18n/messages/`), Tailwind CSS, and Workbox through
-vite-plugin-pwa for offline use.
+Paraglide for translations (`src/i18n/messages/`), Tailwind CSS, and
+Workbox through vite-plugin-pwa for offline use.
+
+`src/` has a folder per layer: pure logic, server code, translations,
+hooks, components and routes. Which may import which, and the lint rules
+that hold to it, are in [AGENTS.md](AGENTS.md) under "Code organization".
 
 ## Releasing
 

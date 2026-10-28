@@ -1,4 +1,6 @@
-# Libraries
+# Core
+
+The app's pure logic, as the root AGENTS.md describes under "Code organization".
 
 ## Ledgers
 
