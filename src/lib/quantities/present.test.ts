@@ -71,9 +71,9 @@ const CASES: Record<
       'Line the base of a 23 x 33cm / 13 x 9" pan with paper (Note 5)',
     ],
   ],
-  'the same amount twice converts once': [
+  'only the first of a group converts': [
     ['330ml/11fl oz sparkling water', 'us', '1⅓ cups/11fl oz sparkling water'],
-    ['200 g (3-4 dl)  puolukoita', 'us', '7 unssia (1¼–1⅔ kuppia)  puolukoita'],
+    ['200 g (3-4 dl)  puolukoita', 'us', '7 unssia (3-4 dl)  puolukoita'],
   ],
   'decilitres become cups, with tablespoons when a fraction is off': [
     ['1 dl sokeria', 'us', '⅓ kuppia + 1½ rkl sokeria'],
@@ -111,12 +111,24 @@ const CASES: Record<
     ],
     ['5 cm:n pala inkivääriä', 'us', '2 tuuman pala inkivääriä'],
   ],
-  'Australian tablespoons become teaspoons': [
-    ['1 tablespoon lime juice', 'metric', '4 tsp lime juice'],
-    ['1 - 2 tbsp olive oil', 'metric', '4–8 tsp olive oil'],
+  'Australian tablespoons convert by volume': [
+    ['1 tablespoon lime juice', 'metric', '1 tbsp + 1 tsp lime juice'],
+    ['1 - 2 tbsp olive oil', 'metric', '1½–2½ tbsp olive oil'],
     ['1 tablespoon (20g) ghee', 'metric', '1 tablespoon (20g) ghee'],
-    ['1 tablespoon (20g) ghee', 'us', '4 tsp (¾ oz) ghee'],
-    ['1 cup (220g) caster sugar', 'us', '1 cup (8 oz) caster sugar'],
+    ['1 tablespoon (20g) ghee', 'us', '1 tbsp + 1 tsp (20g) ghee'],
+    [
+      '100 g (7 tbsp)  unsalted butter (, melted)',
+      'us',
+      '3½ oz (7 tbsp)  unsalted butter (, melted)',
+    ],
+    ['1 cup (220g) caster sugar', 'us', '1 cup (220g) caster sugar'],
+    // Above 3 tablespoons, the display's volume rule.
+    [
+      '4 tbsp olive oil (, separated)',
+      'metric',
+      '0.8 dl olive oil (, separated)',
+    ],
+    ['4 tbsp olive oil (, separated)', 'us', '⅓ cup olive oil (, separated)'],
   ],
   'amounts no unit fits stay as written': [
     ['½ g sahramia', 'us', '½ g sahramia'],

@@ -3,7 +3,7 @@
 # Written by the tests; see src/test/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 892 entries: 211 checked, of which 1 wrong; 681 unchecked.
+# 892 entries: 221 checked, of which 2 wrong; 671 unchecked.
 
 ## arla.fi (fi, metric): 33 sentences, 33 entries; 21 with quantities
 
@@ -14,7 +14,7 @@
   60 °C  [60 °C]
 ? "Anna lihan vetäytyä noin 10 minuuttia huoneenlämmössä."
 ✓ "Kypsennä parsaa noin 12 minuuttia."
-? "Painele uuninkestävään muottiin, jonka halkaisija on noin 24 cm."
+✓ "Painele uuninkestävään muottiin, jonka halkaisija on noin 24 cm."
   ~24 cm  [24 cm]
 ? "Anna levätä jääkaapissa noin 30 minuuttia."
 ? "Aseta uuni 200 °C:een."
@@ -226,7 +226,7 @@
   160 °C  [160C]
 ? "Tip the sweet potato mix into a bowl and combine with all the remaining ingredients, except the almonds and 50g of the dark chocolate."
   50 g  [50g]
-? "Heat the oven to 170C/150C fan/gas 3 and line the base of a deep 20cm cake tin with baking parchment or a reusable baking liner, then butter the sides of the tin."
+✓ "Heat the oven to 170C/150C fan/gas 3 and line the base of a deep 20cm cake tin with baking parchment or a reusable baking liner, then butter the sides of the tin."
   170 °C  [170C]
   150 °C  [150C]
   20 cm  [20cm]
@@ -348,7 +348,7 @@
   0.667 cup  [2/3 cup]
 ? "Sprinkle with remaining mozzarella cheese and 1/4 cup Parmesan cheese."
   0.25 cup  [1/4 cup]
-? "Cover; bake 30 minutes."
+✓ "Cover; bake 30 minutes."
 ? "Uncover; bake about 15 minutes longer or until hot and bubbly."
 ? "Let stand 15 minutes before cutting."
 ✓ "Grease bottom and sides of square pan, 8x8x2 or 9x9x2 inches, with shortening."
@@ -457,7 +457,7 @@
 ? "Bake the bread for about 60 to 75 minutes, until the bread feels set on the top, and a paring knife (or other thin knife) inserted into the center comes out clean, or with just a few moist crumbs (but no wet batter)."
 ? "If you have a digital thermometer, the bread's temperature at the center should register about 205°F."
   ~205 °F  [205°F]
-? "If the bread appears to be browning too quickly, tent it with aluminum foil for the final 15 to 20 minutes of baking."
+✓ "If the bread appears to be browning too quickly, tent it with aluminum foil for the final 15 to 20 minutes of baking."
 ? "Note: If baking in a glass or stoneware pan, increase the baking time by 10 to 15 minutes."
 ✓ "Cool it in the pan for 15 minutes, then loosen the edges, and turn it out of the pan onto a rack to cool completely."
 ? "Place the saucepan over medium heat and cook, stirring regularly, until the mixture is thickened, paste-like, and the spoon or spatula leaves lines on the bottom of the pan, 2 to 3 minutes."
@@ -974,7 +974,7 @@
   1 in  [1 in]
 ✓ "Place each burrito on a microwave-safe plate, then microwave on high for 2 minutes to 2 minutes and 15 seconds, or until a thermometer reads 165°F, turning the burrito once during reheating."
   165 °F  [165°F]
-? "Trim crust to 1/2 in. beyond rim of plate; flute edge."
+✓ "Trim crust to 1/2 in. beyond rim of plate; flute edge."
   0.5 in  [1/2 in]
 ? "Place pie filling in a 1-1/2-qt. slow cooker."
   1.5 quart  [1-1/2-qt]
@@ -1076,8 +1076,9 @@
 ? "Preheat oven to 160°C/325°F."
   160 °C both  [160°C]
   325 °F both  [325°F]
-? "Lightly grease 20 holes of two 12-hole (¹/³-cup/80ml) muffin pans."
+✗ "Lightly grease 20 holes of two 12-hole (¹/³-cup/80ml) muffin pans."
   80 ml  [80ml]
+  want: 0.333 cup = 80 ml  [¹/³-cup] [80ml]
 ? "Bake for about 30 minutes."
 ✓ "Stand cakes in pans for 5 minutes before turning, top-side up, onto wire rack to cool."
 ? "Bring to the boil; simmer, covered, about 8 minutes or until pears are just tender, drain."
@@ -1330,7 +1331,7 @@
   1 tsp  [teelusikallinen]
   1 tsp  [teelusikallinen]
   1 tsp  [teelusikallinen]
-? "Ota perunavuoka uunista ja laske uunin lämpötila 175 asteeseen."
+✓ "Ota perunavuoka uunista ja laske uunin lämpötila 175 asteeseen."
   175 °C  [175 asteeseen]
 ✓ "Sivele kalan pintaan kaksi ruokalusikallista oliiviöljyä."
   2 tbsp  [kaksi ruokalusikallista]
@@ -1493,7 +1494,7 @@
   165 °C both  [165 degrees C]
 ? "Mix cream cheese, Havarti cheese, Parmesan cheese, 2 tablespoons basil, lemon zest, and garlic together in a bowl."
   2 tbsp  [2 tablespoons]
-? "Cover the visible portion of the 'tree' with 1/4 cup basil and parsley."
+✓ "Cover the visible portion of the 'tree' with 1/4 cup basil and parsley."
   0.25 cup  [1/4 cup]
 ? "Cut tubers into 1-inch pieces."
   1 in  [1-inch]
@@ -1649,7 +1650,7 @@
   50 g = 0.25 cup  [50g] [1/4 cup]
 ? "Cut three 25 x 5.5cm  (2.15 x 10″) wide strips on the other sheet of puff pastry."
   25x5.5 cm = 2.15x10 in  [25 x 5.5cm] [2.15 x 10″]
-? "Line pan: Butter and line the sides of a 20cm/8\" springform pan with a 5.5cm / 2.2\" strip of baking paper."
+✓ "Line pan: Butter and line the sides of a 20cm/8\" springform pan with a 5.5cm / 2.2\" strip of baking paper."
   20 cm = 8 in  [20cm] [8"]
   5.5 cm = 2.2 in  [5.5cm] [2.2"]
 ? "Working quickly, when sides have JUST thawed enough to bend, line sides of cake pan with puff pastry, overlapping by 1cm / 0.4\", using water to seal - just press down for now (will seal properly later)."
@@ -1663,7 +1664,7 @@
   60 cm  [60cm]
 ? "Fill with baking beads 1cm / 0.4\" below rim (Note 8)."
   1 cm = 0.4 in  [1cm] [0.4"]
-? "Turn oven down to 200°C/390°F (180°C fan)."
+✓ "Turn oven down to 200°C/390°F (180°C fan)."
   200 °C both  [200°C]
   390 °F both  [390°F]
   180 °C both  [180°C]
