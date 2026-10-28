@@ -4,14 +4,13 @@ node_modules
 .nitro
 .tanstack
 src/paraglide
-project.inlang/*
-!project.inlang/settings.json
+src/i18n/project.inlang/*
+!src/i18n/project.inlang/settings.json
 
 # Not needed to build, and the corpus holds the held-out sample.
 .git
-corpus
 docs
-e2e
+tests
 test-results
 .playwright-cli
 .vscode

@@ -6,7 +6,7 @@ import type { LineKind, LineOptions } from '@/lib/editor/lines'
 
 // The list a textarea reads as: its bullets or step numbers, and what the
 // app recognised, drawn behind the text. The lines are from
-// https://kotiliesi.fi/resepti/etikkasilakat/ (corpus/).
+// https://kotiliesi.fi/resepti/etikkasilakat/ (tests/corpus/).
 
 const FINNISH: LineOptions = { language: 'fi', system: 'metric' }
 

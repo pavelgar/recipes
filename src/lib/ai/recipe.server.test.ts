@@ -5,7 +5,7 @@ import { askForRecipe, recipeFromAnswer } from '@/lib/ai/recipe.server'
 import { textOfPage } from '@/lib/import/page-text'
 import type { Answer, RecipeSource } from '@/lib/ai/recipe.server'
 
-// https://www.meillakotona.fi/reseptit/kermainen-kanapata (corpus/): its
+// https://www.meillakotona.fi/reseptit/kermainen-kanapata (tests/corpus/): its
 // yield, first ingredients and steps, as someone could paste them from a
 // message, with dashes for bullets.
 const KANAPATA = `Kermainen kanapata
@@ -63,7 +63,7 @@ const EMPTY: Answer = {
   measures: null,
 }
 
-// https://www.recipetineats.com/fondant-potatoes/ (corpus/), as if
+// https://www.recipetineats.com/fondant-potatoes/ (tests/corpus/), as if
 // photographed from an Australian book that gives its tablespoon as
 // 20 ml.
 const FONDANT: Answer = {

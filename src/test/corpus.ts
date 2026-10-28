@@ -2,7 +2,8 @@ import { decodeHTML } from 'entities'
 import type { Language } from '@/lib/quantities/numbers'
 import type { MeasuringSystem } from '@/lib/quantities/scan'
 
-// Reads the real recipe data in corpus/ (see corpus/AGENTS.md) for tests.
+// Reads the real recipe data in tests/corpus/ (see tests/corpus/AGENTS.md)
+// for tests.
 
 type Country = 'FI' | 'US' | 'GB' | 'AU'
 
@@ -18,26 +19,27 @@ type CorpusFile<T extends string> = {
 
 const ingredientFiles = import.meta.glob<CorpusFile<'ingredients'>>(
   [
-    '/corpus/ingredients/*.json',
-    '/corpus/rare-units/*.json',
-    '/corpus/rare-forms/*.json',
-    '/corpus/former-held-out/*.json',
+    '/tests/corpus/ingredients/*.json',
+    '/tests/corpus/rare-units/*.json',
+    '/tests/corpus/rare-forms/*.json',
+    '/tests/corpus/former-held-out/*.json',
   ],
   { eager: true, import: 'default' },
 )
 const stepFiles = import.meta.glob<CorpusFile<'sentences'>>(
   [
-    '/corpus/steps/*.json',
-    '/corpus/rare-forms/*.json',
-    '/corpus/former-held-out/*.json',
+    '/tests/corpus/steps/*.json',
+    '/tests/corpus/rare-forms/*.json',
+    '/tests/corpus/former-held-out/*.json',
   ],
   { eager: true, import: 'default' },
 )
 
-// The held-out sample (corpus/held-out/) is read only by the held-out.test.ts
-// files, which run on request. Don't use it while writing rules.
+// The held-out sample (tests/corpus/held-out/) is read only by the
+// held-out.test.ts files, which run on request. Don't use it while writing
+// rules.
 const heldOutFiles = import.meta.glob<CorpusFile<'ingredients' | 'sentences'>>(
-  '/corpus/held-out/*.json',
+  '/tests/corpus/held-out/*.json',
   { eager: true, import: 'default' },
 )
 
@@ -120,14 +122,14 @@ type TagFile = {
   >
 }
 
-const tagFiles = import.meta.glob<TagFile>('/corpus/tags/*.json', {
+const tagFiles = import.meta.glob<TagFile>('/tests/corpus/tags/*.json', {
   eager: true,
   import: 'default',
 })
 
 export type CorpusTag = { site: string; language: Language; text: string }
 
-// The categories, cuisines and keywords of corpus/tags/, one tag each, as
+// The categories, cuisines and keywords of tests/corpus/tags/, one tag each, as
 // the importer will split them: a list's items, and a string at commas
 // and at the ";;" kingarthurbaking.com uses. Repeats within a site are
 // left out.

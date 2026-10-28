@@ -10,4 +10,4 @@ The project owner decides the rules, in DESIGN.md, and leaves ledger entries to 
 - Then run `bun run ledger:sample` and judge the 20 old unchecked (?) entries it turns into ! the same way. Each change checks a few, so the backlog shrinks without anyone tracking it; give the sample's seed in the commit message.
 - When DESIGN.md doesn't settle an entry, ask the owner about the rule, with the line as the example, and add the answer to DESIGN.md.
 - When a rule can be checked by code, add a rule check: a test that applies it to every corpus line.
-- `corpus/AGENTS.md` describes the corpus the ledgers read.
+- `tests/corpus/AGENTS.md` describes the corpus the ledgers read.

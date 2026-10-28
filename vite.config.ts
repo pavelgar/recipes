@@ -47,7 +47,7 @@ const config = defineConfig({
   plugins: [
     devtools(),
     paraglideVitePlugin({
-      project: './project.inlang',
+      project: './src/i18n/project.inlang',
       outdir: './src/paraglide',
       strategy: ['cookie', 'baseLocale'],
     }),

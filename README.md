@@ -2,7 +2,7 @@
 
 An open-source, self-hostable recipe management app for households:
 mobile-first, installable as a PWA, with a Finnish and English interface.
-It runs as a container image. See [DESIGN.md](DESIGN.md) for the full
+It runs as a container image. See [DESIGN.md](docs/DESIGN.md) for the full
 brief.
 
 In early development.
@@ -113,36 +113,36 @@ bun run dev
 
 The dev server runs at http://localhost:3000.
 
-The server applies new migrations from `drizzle/` before it answers its
-first request, so it must run from this folder. The database and the
-photos folder (`PHOTOS_DIR`) are created on first use. A `.env.local`
-made before cover photos came needs the `PHOTOS_DIR` line from
-`.env.example`.
+The server applies new migrations from `src/server/db/migrations/`
+before it answers its first request, so it must run from this folder. The
+database and the photos folder (`PHOTOS_DIR`) are created on first use. A
+`.env.local` made before cover photos came needs the `PHOTOS_DIR` line
+from `.env.example`.
 
 The service worker that keeps the app working offline is only in the
 production build, and browsers run it only over HTTPS or on localhost. To
 try it, run `bun run build`, then `bun run start`, and open
 http://localhost:3000.
 
-| Command               | What it does                                                                     |
-| --------------------- | -------------------------------------------------------------------------------- |
-| `bun run dev`         | Start the dev server                                                             |
-| `bun run build`       | Build for production into `.output/`                                             |
-| `bun run start`       | Run the production build (needs `DATABASE_URL`)                                  |
-| `bun run db:generate` | Write a migration into `drizzle/` after changing `src/db/schema.ts`              |
-| `bun run icons`       | Write the app icons into `public/` from `public/favicon.svg`                     |
-| `bun run test`        | Run the Vitest tests (`bun test` runs Bun's own test runner instead)             |
-| `bun run test:e2e`    | Run the Playwright end-to-end tests against a production build                   |
-| `bun run typecheck`   | Type-check (needs `src/paraglide/`, which `scripts/setup-worktree.sh` generates) |
-| `bun run lint`        | Lint with ESLint                                                                 |
-| `bun run format`      | Format with Prettier and apply ESLint fixes                                      |
+| Command               | What it does                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| `bun run dev`         | Start the dev server                                                                 |
+| `bun run build`       | Build for production into `.output/`                                                 |
+| `bun run start`       | Run the production build (needs `DATABASE_URL`)                                      |
+| `bun run db:generate` | Write a migration into `src/server/db/migrations/` after changing `src/db/schema.ts` |
+| `bun run icons`       | Write the app icons into `public/` from `public/favicon.svg`                         |
+| `bun run test`        | Run the Vitest tests (`bun test` runs Bun's own test runner instead)                 |
+| `bun run test:e2e`    | Run the Playwright end-to-end tests against a production build                       |
+| `bun run typecheck`   | Type-check (needs `src/paraglide/`, which `scripts/setup-worktree.sh` generates)     |
+| `bun run lint`        | Lint with ESLint                                                                     |
+| `bun run format`      | Format with Prettier and apply ESLint fixes                                          |
 
 The component tests (`*.browser.test.tsx`) and the end-to-end tests need
 Playwright's Chromium, downloaded once per machine with
 `bunx playwright install chromium`.
 
 Built with TanStack Start (React), Drizzle ORM on SQLite through libsql,
-Paraglide for translations (`messages/`), Tailwind CSS, and Workbox through
+Paraglide for translations (`src/i18n/messages/`), Tailwind CSS, and Workbox through
 vite-plugin-pwa for offline use.
 
 ## Releasing

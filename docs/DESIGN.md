@@ -510,7 +510,7 @@
   1.7 MB (gzipped) to the 0.4 MB the app downloads for offline use, and
   takes about 0.4 s of start-up work with the CPU slowed six-fold to
   imitate a slow phone. Findings:
-  [Voikko investigation](docs/voikko-investigation.md).
+  [Voikko investigation](voikko-investigation.md).
 - Search matches as you type: the last word of a search also matches the
   start of longer words, so "porkk" finds "porkkanaa" and "kana" finds
   "kanapata" (and "kananmuna"). Once a word is complete, the exact form
@@ -742,7 +742,7 @@
 
 ## Working rules
 
-The working rules are in [AGENTS.md](AGENTS.md), so every task reads them,
+The working rules are in [AGENTS.md](../AGENTS.md), so every task reads them,
 not only those that open this brief.
 
 ## Before calling a screen done

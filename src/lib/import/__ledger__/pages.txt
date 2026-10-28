@@ -1,4 +1,4 @@
-# Every page in corpus/pages/ as extractRecipe reads it.
+# Every page in tests/corpus/pages/ as extractRecipe reads it.
 # ✓: it is what DESIGN.md's import rules make of the page as published
 # (.cache/pages/ holds it, or its address): servings and times, how
 # many ingredients and steps in how many sections, language and

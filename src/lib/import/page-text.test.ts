@@ -6,7 +6,7 @@ const text = (html: string) => textOfPage(parseDocument(html))
 
 // A page laid out the way recipe pages without Recipe data are, around the
 // name, yield, first ingredients and a step of
-// https://www.meillakotona.fi/reseptit/kermainen-kanapata (corpus/).
+// https://www.meillakotona.fi/reseptit/kermainen-kanapata (tests/corpus/).
 const PAGE = `<!doctype html>
 <html lang="fi"><head><title>Kermainen kanapata</title>
 <style>body { color: red }</style>

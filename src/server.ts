@@ -11,8 +11,8 @@ await db.run(sql`PRAGMA journal_mode = WAL`)
 
 // Brings the database up to date before the server answers its first
 // request, so a new image upgrades its own data. The folder is relative to
-// the working directory, as in drizzle.config.ts.
-await migrate(db, { migrationsFolder: 'drizzle' })
+// the working directory, as in src/server/db/drizzle.config.ts.
+await migrate(db, { migrationsFolder: 'src/server/db/migrations' })
 
 // Makes the locale cookie available to getLocale() during SSR.
 export default {

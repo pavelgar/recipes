@@ -6,11 +6,11 @@ import { corpusRecipes } from '@/test/corpus'
 import { assertLedger, checkLedger } from '@/test/ledger'
 import type { ImportedRecipe } from '@/lib/import/types'
 
-// Skeletons of real pages (corpus/AGENTS.md, "pages/"): their JSON-LD as
+// Skeletons of real pages (tests/corpus/AGENTS.md, "pages/"): their JSON-LD as
 // the sites publish it, with the writing that isn't already in the repo
 // masked. The importer reads them as it reads the pages.
 
-const files = import.meta.glob<string>('/corpus/pages/*/*.html', {
+const files = import.meta.glob<string>('/tests/corpus/pages/*/*.html', {
   query: '?raw',
   import: 'default',
   eager: true,
@@ -20,7 +20,8 @@ const pages = Object.entries(files).map(([path, html]) => {
   const url = /^<!-- (\S+) collected /.exec(html)?.[1]
   if (!url) throw new Error(`${path} doesn't start with its address`)
   const recipe = corpusRecipes.find((r) => r.url === url)
-  if (!recipe) throw new Error(`${path} is of no recipe in corpus/ingredients/`)
+  if (!recipe)
+    throw new Error(`${path} is of no recipe in tests/corpus/ingredients/`)
   return { path, url, html, recipe, read: extractRecipe(html, url) }
 })
 
@@ -62,7 +63,7 @@ describe('every page', () => {
     const check = checkLedger({
       path,
       title: [
-        'Every page in corpus/pages/ as extractRecipe reads it.',
+        'Every page in tests/corpus/pages/ as extractRecipe reads it.',
         "✓: it is what DESIGN.md's import rules make of the page as published",
         '(.cache/pages/ holds it, or its address): servings and times, how',
         'many ingredients and steps in how many sections, language and',

@@ -1,4 +1,4 @@
-// Real recipes from the development corpus (corpus/AGENTS.md), for tests
+// Real recipes from the development corpus (tests/corpus/AGENTS.md), for tests
 // that need one. The corpus keeps only the step sentences that mention an
 // amount or a temperature, so these steps are those sentences.
 

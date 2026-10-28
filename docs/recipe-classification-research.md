@@ -5,7 +5,7 @@ a recipe is: its dish type, course, diet, time, cuisine, occasion or season
 and main ingredient. It covers recipe apps, recipe sites' search filters,
 schema.org, open food data, rule-based approaches and search interfaces.
 Nothing here is decided. Measurements used the development corpus only;
-nothing under `corpus/held-out/` was read.
+nothing under `tests/corpus/held-out/` was read.
 
 ## Summary
 
@@ -61,7 +61,7 @@ nothing under `corpus/held-out/` was read.
   disallows, so only their menus were read. k-ruoka.fi answered with a
   Cloudflare challenge, which was not bypassed.
 - **Recipe pages.** 46 pages were fetched to check `suitableForDiet` and
-  times. The URLs came from `corpus/tags/*.json`, shuffled with seed
+  times. The URLs came from `tests/corpus/tags/*.json`, shuffled with seed
   20261023, taking the first five per site (womensweeklyfood.com.au's file
   has one URL). robots.txt was checked for `*` and for Claude's agents;
   none of the ten sites names Claude. Requests used an identifying user
@@ -519,7 +519,7 @@ recommends all three text fields:
 
 ### What the corpus sites publish
 
-Counted on `corpus/tags/*.json`, splitting on commas (";;" for
+Counted on `tests/corpus/tags/*.json`, splitting on commas (";;" for
 kingarthurbaking.com).
 
 - **`recipeCategory` is mostly course or meal.** tasteofhome.com: Dinner
@@ -939,7 +939,7 @@ the band each reading falls in.
 - Site terms cover only imported recipes. Typed and photographed recipes
   have none.
 
-**How to test:** each distinct site term in `corpus/tags/` (1,137 tags, 535
+**How to test:** each distinct site term in `tests/corpus/tags/` (1,137 tags, 535
 Finnish, per the Voikko investigation) with the vocabulary entry it maps to
 or "dropped", in a ledger.
 

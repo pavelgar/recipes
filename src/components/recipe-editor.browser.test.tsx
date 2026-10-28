@@ -40,7 +40,8 @@ vi.mock('@/lib/ai/ai.functions', () => ({
 vi.mock('@/lib/languages.functions', () => ({
   suggestLanguage: server.suggestLanguage,
 }))
-// Adding a photo is covered by e2e/photos.spec.ts, against the real server.
+// Adding a photo is covered by tests/e2e/photos.spec.ts, against the real
+// server.
 vi.mock('@/lib/photos/photos.functions', () => ({
   uploadPhoto: vi.fn(),
 }))
@@ -50,7 +51,7 @@ vi.mock('@/components/app-shell', () => ({
   useHideMenu: () => {},
 }))
 
-// https://www.valio.fi/reseptit/tomaattinen-peltileipa/ (corpus/), with
+// https://www.valio.fi/reseptit/tomaattinen-peltileipa/ (tests/corpus/), with
 // two of its steps run together as pages publish them.
 const STEPS = [
   'Lämmitä maito 42-asteiseksi.',

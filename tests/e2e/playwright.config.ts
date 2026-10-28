@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
-import { aiModelPort, aiPort, port, testSitePort } from './e2e/servers'
+import { aiModelPort, aiPort, port, testSitePort } from './servers'
 
 // Not an address by IP or a localhost name, which browsers treat as
 // secure. The phone resolves it to this machine.
@@ -7,8 +7,11 @@ const plainHttpHost = 'recipes.test'
 
 const noAi = { AI_PROVIDER: '', AI_MODEL: '', AI_API_KEY: '', AI_BASE_URL: '' }
 
+// The apps run from the repo root, as `bun run start` does, where the
+// server finds its migrations and the databases below are made.
+const repoRoot = '../..'
+
 export default defineConfig({
-  testDir: 'e2e',
   forbidOnly: !!process.env.CI,
   reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
   use: {
@@ -56,6 +59,7 @@ export default defineConfig({
       // The e2e build also imports from the test site.
       command:
         'rm -rf e2e*.db e2e*.db-* e2e*-photos && bun run build --mode e2e && bun run start',
+      cwd: repoRoot,
       url: `http://localhost:${port}`,
       env: {
         ...noAi,
@@ -65,17 +69,20 @@ export default defineConfig({
       },
     },
     {
-      command: 'node e2e/test-site.ts',
+      command: 'node tests/e2e/test-site.ts',
+      cwd: repoRoot,
       port: testSitePort,
       env: { PORT: String(testSitePort) },
     },
     {
-      command: 'node e2e/fake-ai.ts',
+      command: 'node tests/e2e/fake-ai.ts',
+      cwd: repoRoot,
       port: aiModelPort,
       env: { PORT: String(aiModelPort) },
     },
     {
       command: 'bun run start',
+      cwd: repoRoot,
       url: `http://localhost:${aiPort}`,
       env: {
         PORT: String(aiPort),

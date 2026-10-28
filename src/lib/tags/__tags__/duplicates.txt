@@ -1,4 +1,4 @@
-# Tags of corpus/tags/ that are one tag written differently: in letter
+# Tags of tests/corpus/tags/ that are one tag written differently: in letter
 # case, spacing, punctuation or number, or in another case form of the
 # word. One tag per group of lines below, its forms separated by " | ".
 # Spelling variants ("avocado", "avokado") and synonyms ("piiras",

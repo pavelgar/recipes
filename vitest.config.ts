@@ -12,7 +12,11 @@ export default defineConfig({
         test: {
           name: 'unit',
           // Playwright runs these (bun run test:e2e).
-          exclude: [...configDefaults.exclude, 'e2e/**', '**/*.browser.test.*'],
+          exclude: [
+            ...configDefaults.exclude,
+            'tests/e2e/**',
+            '**/*.browser.test.*',
+          ],
         },
       },
       // Components, rendered in Chromium, with the server functions they

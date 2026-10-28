@@ -6,11 +6,11 @@
 
 ## Design brief
 
-Read [DESIGN.md](DESIGN.md) before planning or changing features, screens, visual design, the data model, or deployment. It holds what is decided and the build order.
+Read [DESIGN.md](docs/DESIGN.md) before planning or changing features, screens, visual design, the data model, or deployment. It holds what is decided and the build order.
 
 ## Held-out sample
 
-`corpus/held-out/` measures the code on text no rule was written against. Keep its files and its ledgers (`held-out-*.txt`) out of every read and search, and run `HELD_OUT=1 bun run test held-out` only when asked. `.ignore` keeps them out of ripgrep's searches; with grep, exclude them yourself (`grep --exclude-dir=held-out --exclude='held-out-*'`).
+`tests/corpus/held-out/` measures the code on text no rule was written against. Keep its files and its ledgers (`held-out-*.txt`) out of every read and search, and run `HELD_OUT=1 bun run test held-out` only when asked. `.ignore` keeps them out of ripgrep's searches; with grep, exclude them yourself (`grep --exclude-dir=held-out --exclude='held-out-*'`).
 
 ## Folder guides
 
@@ -26,7 +26,7 @@ The TanStack packages here may be newer than what you know. Before changing rout
 
 ## Browser
 
-Use agent-browser to check the app in a browser, such as after a change or to reproduce a bug: it is built for exploring. End-to-end tests use playwright-cli, which prints the test code for each action, as [e2e/AGENTS.md](e2e/AGENTS.md) describes.
+Use agent-browser to check the app in a browser, such as after a change or to reproduce a bug: it is built for exploring. End-to-end tests use playwright-cli, which prints the test code for each action, as [tests/e2e/AGENTS.md](tests/e2e/AGENTS.md) describes.
 
 ## Commands
 

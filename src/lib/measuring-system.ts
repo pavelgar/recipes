@@ -3,7 +3,7 @@ import type { RecipeLanguage } from '@/lib/languages'
 import type { MeasuringSystem } from '@/lib/quantities'
 
 // Sites whose domain doesn't say their country: the corpus sites
-// (corpus/ingredients), and the British sites on .com that imported in a
+// (tests/corpus/ingredients), and the British sites on .com that imported in a
 // survey of recipe sites. None of those says en-GB in its pages, so only
 // the domain tells.
 const SITE_SYSTEMS: ReadonlyArray<readonly [string, MeasuringSystem]> = [

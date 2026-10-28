@@ -31,7 +31,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 //
 // To check an entry, change ! or ? to ✓, or to ✗ and add want lines.
 //
-// A held-out ledger is checked by sample (corpus/AGENTS.md), so its
+// A held-out ledger is checked by sample (tests/corpus/AGENTS.md), so its
 // readings stay unchecked instead of to check.
 
 export type Status = '✓' | '✗' | '!' | '?'

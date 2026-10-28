@@ -1,7 +1,7 @@
 # Written by drizzle-kit, which rewrites them in its own style on every
 # `bun run db:generate`. Prettier also reads .gitignore.
-drizzle/meta
+src/server/db/migrations/meta
 
 # JSON-LD as the sites publish it, spacing and mistakes included
-# (corpus/AGENTS.md).
-corpus/pages
+# (tests/corpus/AGENTS.md).
+tests/corpus/pages

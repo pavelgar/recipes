@@ -42,7 +42,7 @@ const USER_AGENT =
 // uses), multicast or reserved ranges.
 //
 // The end-to-end tests' build (vite build --mode e2e) also reaches their
-// own pages, e2e/test-site.ts, over plain HTTP on this machine's loopback
+// own pages, tests/e2e/test-site.ts, over plain HTTP on this machine's loopback
 // address. Vite writes the mode into the code as it builds, so every other
 // build, the image's among them, leaves that agent out: no setting can
 // bring it back.

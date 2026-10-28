@@ -22,15 +22,15 @@ Each file gives its `site`, `country` (FI, US, GB or AU, which sets the measurin
 
 ## Pages
 
-`scripts/pages.ts` collects the pages, writes `pages/` and checks it; its header gives the commands. Its collecting follows the rules below, apart from dropping URLs already in `corpus/`: it takes pages of `ingredients/` recipes on purpose, so their lines are in the repo already. Only skeletons are committed; the fetched pages stay in `.cache/pages/`.
+`scripts/pages.ts` collects the pages, writes `pages/` and checks it; its header gives the commands. Its collecting follows the rules below, apart from dropping URLs already in `tests/corpus/`: it takes pages of `ingredients/` recipes on purpose, so their lines are in the repo already. Only skeletons are committed; the fetched pages stay in `.cache/pages/`.
 
 After changing how skeletons are made, run `bun scripts/pages.ts check` and make it list none.
 
 ## Collecting
 
 - Before fetching from a site, read its robots.txt and obey it, crawl delay included, and use an identifying user agent. A `Content-signal: ai-train=no` line hasn't stopped collection so far, since test data isn't training.
-- Take recipe URLs from the site's recipe sitemaps, drop URLs already anywhere in `corpus/`, sort the rest, shuffle them with a fixed seed, and fetch in that order.
-- Use a seed no earlier collection used, and name it as "seed N" in the commit message. Seeds used so far: `git log -p -- corpus | grep -oE 'seed [0-9]{8}' | sort -u`.
+- Take recipe URLs from the site's recipe sitemaps, drop URLs already anywhere in `tests/corpus/`, sort the rest, shuffle them with a fixed seed, and fetch in that order.
+- Use a seed no earlier collection used, and name it as "seed N" in the commit message. Seeds used so far: `git log -p -- corpus tests/corpus | grep -oE 'seed [0-9]{8}' | sort -u`.
 - Cut step text into sentences at line breaks, and after `.`, `?` or `!` followed by a capital letter or a digit.
 
 Per-site notes from earlier collections: `git log -p -- corpus/README.md`.
@@ -41,9 +41,9 @@ Count with jq. These print numbers only, so they're safe on `held-out/` too:
 
 ```sh
 # site, country, recipes, ingredient lines, sentences
-jq -r '[.site, .country, (.recipes | length), ([.recipes[].ingredients // [] | length] | add), ([.recipes[].sentences // [] | length] | add)] | @tsv' corpus/ingredients/*.json
+jq -r '[.site, .country, (.recipes | length), ([.recipes[].ingredients // [] | length] | add), ([.recipes[].sentences // [] | length] | add)] | @tsv' tests/corpus/ingredients/*.json
 # site, recipes, and how many have a category, a cuisine and keywords
-jq -r '[.site, (.recipes | length), ([.recipes[] | select(has("recipeCategory"))] | length), ([.recipes[] | select(has("recipeCuisine"))] | length), ([.recipes[] | select(has("keywords"))] | length)] | @tsv' corpus/tags/*.json
+jq -r '[.site, (.recipes | length), ([.recipes[] | select(has("recipeCategory"))] | length), ([.recipes[] | select(has("recipeCuisine"))] | length), ([.recipes[] | select(has("keywords"))] | length)] | @tsv' tests/corpus/tags/*.json
 ```
 
 How the code reads each site's lines is in the `##` headings of the ledgers: `grep '^## ' src/lib/*/__ledger__/*.txt`.

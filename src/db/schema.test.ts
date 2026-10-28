@@ -11,7 +11,7 @@ describe('database schema', () => {
   // A fresh database with every migration applied, as the server does.
   beforeEach(async () => {
     db = drizzle({ connection: { url: ':memory:' }, schema })
-    await migrate(db, { migrationsFolder: 'drizzle' })
+    await migrate(db, { migrationsFolder: 'src/server/db/migrations' })
   })
 
   it('keeps ingredient lines and sections as written', async () => {
