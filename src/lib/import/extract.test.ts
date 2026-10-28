@@ -362,7 +362,8 @@ describe('extractRecipe', () => {
       extractRecipe(html, 'https://www.valio.fi/reseptit/ananas-rahkajuoma/'),
     ).toMatchObject({
       title: 'Ananas-rahkajuoma',
-      servings: '1, 1 l',
+      // Valio writes the yield's number twice, and it's read once.
+      servings: '1 l',
       ingredients: [
         {
           lines: ['250 g Valio maitorahkaa', '3 dl Valio ananastäysmehua'],

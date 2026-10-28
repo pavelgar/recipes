@@ -148,8 +148,9 @@
   marks its collection pages as a Recipe whose one ingredient is a list of
   keywords. It reads every standard form of that data and works around
   mistakes many sites make, such as a stub Recipe before the full one, JSON
-  that doesn't parse, and times written as text ("10 min", "1 hour 15
-  minutes") instead of ISO 8601, but nothing is written for one site.
+  that doesn't parse, times written as text ("10 min", "1 hour 15
+  minutes") instead of ISO 8601, and a yield that gives its number twice
+  ("4, 4 annosta" reads "4 annosta"), but nothing is written for one site.
 - Import doesn't guess where a site's steps, sentences and headings start
   and end, since no rule for it is reliable. Steps cut mid-sentence, run
   together ("…pastan sekaan.Kiehauta…", "2.In a bowl") or with a heading
