@@ -230,7 +230,10 @@ describe('scaled measures', () => {
     .tuple(fc.integer({ min: 1, max: 12 }), fc.integer({ min: 1, max: 24 }))
     .map(([from, to]) => to / from)
 
-  test.prop([written, factor, fc.constantFrom('dl', 'tl')])(
+  test.prop([written, factor, fc.constantFrom('dl', 'tl')], {
+    // CI seed 641006560: a decimal rounded at the half-step boundary.
+    examples: [[0.5, 0.3, 'dl']],
+  })(
     'read within 10% of the amount, as a fraction only when one is that close',
     (n, f, unit) => {
       const text = `${formatFraction(n)} ${unit} maitoa`
@@ -247,8 +250,11 @@ describe('scaled measures', () => {
       if (read!.form === 'fraction') {
         expect(off / exact, shown).toBeLessThanOrEqual(0.1 + 1e-9)
       } else {
-        // A decimal to one place.
-        expect(off, shown).toBeLessThanOrEqual(Math.max(0.1 * exact, 0.05))
+        // A decimal to one place, allowing floating-point noise at the
+        // half-step boundary (0.2 - 0.15 is slightly more than 0.05).
+        expect(off, shown).toBeLessThanOrEqual(
+          Math.max(0.1 * exact, 0.05) + 1e-9,
+        )
       }
     },
   )
