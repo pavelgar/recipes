@@ -112,7 +112,13 @@ for (const theme of ['light', 'dark'] as const) {
       await page.evaluate(() =>
         window.scrollTo(0, document.documentElement.scrollHeight),
       )
-      await page.getByRole('button', { name: /^Ingredients, 1 of/ }).click()
+      const ingredients = page.getByRole('button', {
+        name: 'Ingredients, 1/7 checked',
+      })
+      await expect(ingredients).toBeVisible()
+      // Check the dock before its drawer hides it from the accessibility tree.
+      expect(await violations(page)).toEqual([])
+      await ingredients.click()
       await expect(
         page.getByRole('dialog', { name: 'Ingredients' }),
       ).toBeVisible()

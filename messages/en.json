@@ -90,7 +90,7 @@
   "recipe_servings_fewer": "Fewer servings",
   "recipe_servings_more": "More servings",
   "recipe_uncheck_all": "Uncheck all",
-  "recipe_ingredients_checked": "Ingredients, {checked} of {total} checked",
+  "recipe_ingredients_checked": "Ingredients, {checked}/{total} checked",
   "recipe_start_over": "Start over",
   "recipe_step_amounts_for": "Amounts in the steps are for {servings}.",
   "recipe_step_amounts_as_written": "Amounts in the steps are for the recipe as written.",

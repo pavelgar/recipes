@@ -431,13 +431,17 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
                 <Button
                   variant="ghost"
                   onClick={() => setDrawerOpen(true)}
-                  aria-label={m.recipe_ingredients_checked({
-                    checked,
-                    total: ingredientKeys.length,
-                  })}
+                  aria-label={
+                    checked === 0
+                      ? undefined
+                      : m.recipe_ingredients_checked({
+                          checked,
+                          total: ingredientKeys.length,
+                        })
+                  }
                 >
                   <ShoppingBasketIcon data-icon="inline-start" />
-                  {m.recipe_ingredients()}
+                  {m.recipe_ingredients()}{' '}
                   <span className="text-muted-foreground tabular-nums">
                     {count(checked, ingredientKeys.length)}
                   </span>
