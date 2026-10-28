@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { UNKNOWN_LANGUAGE } from '@/core/languages'
-import { recipeLanguage, suggestedLanguage } from '@/server/languages.server'
+import { recipeLanguage, suggestedLanguage } from '@/core/languages.server'
 
 // Recipe texts as the import and the editor give them: the name, the
 // ingredient lines and the steps, one to a line.

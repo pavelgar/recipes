@@ -9,7 +9,7 @@ import { DISPLAY_SYSTEM_COOKIE } from '@/core/display-system'
 import {
   MAX_PHOTO_BYTES as MAX_SCAN_PHOTO_BYTES,
   MAX_PHOTOS,
-} from '@/components/add-recipe/photos'
+} from '@/core/ai/limits'
 import { MAX_PHOTO_BYTES } from '@/core/photo'
 import { PREFERENCE_MAX_AGE } from '@/core/preferences'
 import { THEME_COOKIE } from '@/core/theme'

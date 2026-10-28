@@ -1,5 +1,5 @@
 import { parseIngredient, scanStep } from '@/core/quantities'
-import type { Section } from '@/server/db/schema'
+import type { Section } from '@/core/recipe/section'
 import type { Language, MeasuringSystem } from '@/core/quantities'
 
 // The editor writes ingredients and steps as text, one line each. A line

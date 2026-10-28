@@ -4,7 +4,7 @@ import { extractRecipe } from '@/core/import/extract'
 import { clean } from '@/core/import/recipe'
 import { withoutStepNumber } from '@/core/import/step-number'
 import { corpusRecipes, ingredientLines, stepSentences } from '@/testing/corpus'
-import type { Section } from '@/server/db/schema'
+import type { Section } from '@/core/recipe/section'
 
 // Pages put together from every standard way schema.org lets a page publish
 // a recipe, and the mistakes DESIGN.md says sites make: a stub Recipe

@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { isRecipeLanguage } from '@/core/languages'
-import { suggestedLanguage } from '@/server/languages.server'
+import { suggestedLanguage } from '@/core/languages.server'
 
 // The language a recipe's text is in, when the one chosen in the editor
 // doesn't fit it, offered under the language. franc runs on the server, so

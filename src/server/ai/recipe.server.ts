@@ -11,10 +11,10 @@ import {
   regionOf,
   UNKNOWN_LANGUAGE,
 } from '@/core/languages'
-import { recipeLanguage } from '@/server/languages.server'
+import { recipeLanguage } from '@/core/languages.server'
 import { guessMeasuringSystem } from '@/core/measuring-system'
 import type { UserContent } from 'ai'
-import type { Section } from '@/server/db/schema'
+import type { Section } from '@/core/recipe/section'
 import type { AiModel } from '@/server/ai/model.server'
 import type { Page } from '@/core/import/schema-org'
 import type { AiImport } from '@/core/import/types'

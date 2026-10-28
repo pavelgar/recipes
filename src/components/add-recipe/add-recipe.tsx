@@ -8,7 +8,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
-import { MAX_TEXT } from '@/core/ai/limits'
+import { MAX_PHOTOS, MAX_TEXT } from '@/core/ai/limits'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import type { UseMutationResult } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
@@ -57,7 +57,7 @@ import {
 } from '@/components/editor/draft'
 import { importQuery } from '@/server/import/import.functions'
 import { findLink, siteOf } from '@/core/import/link'
-import { MAX_PHOTOS, shrinkPhoto } from '@/components/add-recipe/photos'
+import { shrinkPhoto } from '@/components/add-recipe/photos'
 import { m } from '@/paraglide/messages'
 import type { DraftOrigin } from '@/components/editor/draft'
 import type {

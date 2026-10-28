@@ -5,6 +5,7 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
+import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
@@ -12,8 +13,7 @@ import { cn } from 'cn'
 
 import { AppShell, getSidebarOpen } from '@/components/app-shell'
 import { Toaster } from '@/components/ui/toast'
-import { themeScript } from '@/core/theme'
-import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
+import { themeScript } from '@/hooks/use-theme'
 
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
@@ -136,7 +136,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               name: 'Tanstack Router',
               render: <TanStackRouterDevtoolsPanel />,
             },
-            TanStackQueryDevtools,
+            {
+              name: 'Tanstack Query',
+              render: <ReactQueryDevtoolsPanel />,
+            },
           ]}
         />
         <Scripts />

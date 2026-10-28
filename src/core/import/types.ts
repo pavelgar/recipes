@@ -1,4 +1,4 @@
-import type { Section } from '@/server/db/schema'
+import type { Section } from '@/core/recipe/section'
 import type { RecipeLanguage } from '@/core/languages'
 import type { MeasuringSystem } from '@/core/quantities'
 

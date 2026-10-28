@@ -2,7 +2,7 @@ import { CoverPhoto } from '@/components/cover-photo'
 import { recipeLanguageName, SYSTEM_NAMES } from '@/i18n/choice-names'
 import { siteOf } from '@/core/import/link'
 import { m } from '@/paraglide/messages'
-import type { Section } from '@/server/db/schema'
+import type { Section } from '@/core/recipe/section'
 import type { RecipeLanguage } from '@/core/languages'
 import type { MeasuringSystem } from '@/core/quantities'
 

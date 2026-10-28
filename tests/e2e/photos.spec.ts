@@ -2,7 +2,7 @@ import { rm } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { expect, test } from '@playwright/test'
 import sharp from 'sharp'
-import { MAX_PHOTO_BYTES, MAX_PHOTOS } from '@/components/add-recipe/photos'
+import { MAX_PHOTO_BYTES, MAX_PHOTOS } from '@/core/ai/limits'
 import type { Page } from '@playwright/test'
 
 type Chosen = { name: string; mimeType: string; buffer: Buffer }

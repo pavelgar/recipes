@@ -1,15 +1,7 @@
 import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { MEASURING_SYSTEMS } from '@/core/recipe/choices'
 import type { RecipeLanguage } from '@/core/languages'
-
-// Ingredient lines or steps under an optional heading ("For the sauce"). A
-// recipe without sections has one section, with no heading. Each line is
-// one ingredient line or one step, kept exactly as written: recognition,
-// scaling and conversion happen when the recipe is shown.
-export type Section = {
-  readonly heading: string | null
-  readonly lines: ReadonlyArray<string>
-}
+import type { Section } from '@/core/recipe/section'
 
 export const recipes = sqliteTable('recipes', {
   // Never reused, so a link or an offline copy can't come to point at

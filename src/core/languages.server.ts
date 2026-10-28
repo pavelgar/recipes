@@ -6,6 +6,10 @@ import {
 } from '@/core/languages'
 import type { RecipeLanguage } from '@/core/languages'
 
+// Pure, but named .server so that the build keeps it out of the browser:
+// franc's language data would grow the app's download (DESIGN.md,
+// "Recipes").
+
 // franc tells a text's language from the letter triples it uses. It knows
 // some 190 languages, but needs text to go on. Its scores are relative, 1
 // for its first choice.
