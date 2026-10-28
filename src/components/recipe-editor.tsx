@@ -62,6 +62,7 @@ import { siteOf } from '@/lib/import/link'
 import { RECIPE_LANGUAGES, rulesFor, UNKNOWN_LANGUAGE } from '@/lib/languages'
 import { suggestLanguage } from '@/lib/languages.functions'
 import { guessMeasuringSystem } from '@/lib/measuring-system'
+import { scrollBehavior } from '@/lib/motion'
 import { MAX_PHOTO_BYTES } from '@/lib/photos/photo'
 import { uploadPhoto } from '@/lib/photos/photos.functions'
 import { m } from '@/paraglide/messages'
@@ -875,14 +876,6 @@ function MinutesField({ field, label }: { field: TextField; label: string }) {
       </InputGroup>
     </Field>
   )
-}
-
-// The editor's own scrolling glides, unless the device asks for less
-// motion.
-function scrollBehavior(): ScrollBehavior {
-  return matchMedia('(prefers-reduced-motion: reduce)').matches
-    ? 'instant'
-    : 'smooth'
 }
 
 // Closing no toast at all would close every toast.

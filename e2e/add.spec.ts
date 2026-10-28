@@ -37,14 +37,17 @@ test('a recipe typed in is saved and shown', async ({ page }) => {
   await expect(
     page.getByRole('heading', { name: PELTILEIPA.title }),
   ).toBeVisible()
-  const [ingredients, steps] = await page
-    .getByRole('article')
-    .getByRole('list')
-    .all()
-  await expect(ingredients.getByRole('listitem')).toHaveText(
-    PELTILEIPA.ingredients,
+  // Each ingredient a line to check off, the steps a numbered list.
+  const recipe = page.getByRole('article')
+  await expect(recipe.getByRole('checkbox')).toHaveCount(
+    PELTILEIPA.ingredients.length,
   )
-  await expect(steps.getByRole('listitem')).toHaveText(PELTILEIPA.steps)
+  for (const line of PELTILEIPA.ingredients) {
+    await expect(recipe.getByRole('checkbox', { name: line })).toBeVisible()
+  }
+  await expect(recipe.getByRole('list').getByRole('paragraph')).toHaveText(
+    PELTILEIPA.steps,
+  )
 })
 
 test('Save without a title goes to the title', async ({ page }) => {

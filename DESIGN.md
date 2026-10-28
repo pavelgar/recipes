@@ -345,7 +345,11 @@
 - Servings are kept as written, since recipes often give a yield instead
   ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
   scales it, keeping the word: "24 pullaa" → "48 pullaa". Ranges scale at
-  both ends.
+  both ends. Sizes of what's made stay: "1 - 9x13 inch pan" → "2 - 9x13
+  inch pan". A number keeps the way it's written where it can ("kaksi
+  vuokaa" → "kolme vuokaa"). A tap changes the servings by one, or by a
+  half below four; servings without a number change as a multiple of the
+  recipe ("× 2").
 - Ingredients are entered as free-text lines, in one text box; steps the
   same, one step per line. As you type, the amounts and units the app
   recognised are highlighted in place; a number it couldn't place isn't.
@@ -501,7 +505,6 @@
   wedges"), what one package holds ("1 pkt (4 x 100 g)"), rates ("8-15
   rapua ruokailijaa kohti"), times, servings ("valmis 8-10hlö") and note
   references stay as written.
-- The recipe as originally written is one tap away.
 - Interpretation must handle Finnish conventions: decimal commas (1,5 dl),
   units such as dl, rkl, tl and mm (maustemitta, 1 ml), and package
   abbreviations such as prk and pss.
@@ -636,10 +639,42 @@
 
 - No separate cooking mode.
 - The screen stays awake while a recipe is open.
-- Tap to cross off ingredients and steps.
-- Tap a time mentioned in a step to start a timer.
-- To explore: the first step not yet crossed off is highlighted as the
-  current one, so the view guides cooking without a separate mode.
+- Tap to cross off ingredients and steps: an ingredient's checkbox or
+  line, a step's number or text. Ingredients and steps can each be
+  unchecked all at once; starting the steps over also stops the timers.
+- Tap a time mentioned in a step to start a timer. Several can run at
+  once; a range starts at its shorter end. Times are found in the
+  languages the app reads quantities in. A running timer shows the time
+  left after the time's words in the step, and in the dock with its step's
+  number. Tapping a running timer stops it, with Undo in a toast.
+- A timer whose time is up says Time's up and beeps like a kitchen timer,
+  in groups of four beeps every two seconds, for a minute or until it's
+  stopped. The beeps are made in the page: browsers can't play the
+  device's own alert sounds. They sound from the open recipe, also while
+  its tab is behind another on a computer; no vibration, and no
+  notifications outside the page. A timer goes 12 hours after its time is
+  up, unless it's stopped sooner.
+- A recipe opens where it was left on this device: the servings chosen,
+  the lines crossed off and the timers, which run on while it's closed.
+  Each recipe keeps its own, for any number of recipes, until it's back as
+  it started. Progress on lines since changed is dropped.
+- The first step not yet crossed off is the current one: it leads, larger,
+  with Done, and Back to the step before. So the view guides cooking
+  without a separate mode.
+- The cover photo runs edge to edge at the top and holds still while the
+  recipe scrolls up over it, title and all. A recipe without a photo gets
+  a plain cover in the same place.
+- Under the title are the source and the prep, cook and total times the
+  recipe gives, the total added up from prep and cook when it gives only
+  those.
+- The servings control sits in the ingredients' header, on phones on a row
+  of its own under the heading, with the servings as written, scaled,
+  between its buttons.
+- On wide screens the ingredients stay in a column beside the steps. On
+  narrower ones a bar at the top jumps between ingredients and steps, each
+  with how many there are, or how many are crossed off once any is. Once
+  the ingredients have scrolled away, a dock brings them back in a drawer.
+  The dock also shows running timers, on every screen size.
 
 ### Interface language
 
@@ -709,7 +744,8 @@
   editor) stay in the photos folder until the nightly job clears them out,
   after long enough that an open draft keeps its photo.
 - M3, everyday use: home rows, the meal queue, cooking aids (screen kept
-  awake, crossing off, timers), undo and recently deleted.
+  awake, crossing off, timers), undo and recently deleted. The cooking
+  aids were built with the recipe view, ahead of M3.
 - M4, offline: caching recipes and photos, and offline search.
 - M5: reading with AI (photos, pages without Recipe data, pasted text) and
   Tidy steps, and export. The AI parts were built ahead of M2.

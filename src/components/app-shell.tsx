@@ -57,6 +57,11 @@ const navItems = linkOptions([
 export const FLOATING_BAR =
   'fixed transition-[opacity,visibility] backdrop-up:invisible backdrop-up:opacity-0 right-[calc(0.75rem+env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-[calc(0.75rem+env(safe-area-inset-left))] z-10 mx-auto max-w-md rounded-full bg-sidebar text-sidebar-foreground shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_12px_32px_-8px_oklch(0.147_0.004_49.3/0.24)] ring-1 ring-sidebar-border supports-[-webkit-touch-callout:none]:[@media(display-mode:browser)]:shadow-[0_1px_3px_oklch(0.147_0.004_49.3/0.08),0_4px_12px_-4px_oklch(0.147_0.004_49.3/0.24)]'
 
+// Where a screen's own floating bar goes above the bottom bar on phones:
+// the bottom bar's height (4rem) and a gap as wide as the one below it.
+export const ABOVE_BOTTOM_BAR =
+  'bottom-[calc(4.75rem+max(0.75rem,env(safe-area-inset-bottom)))]'
+
 // The element each screen scrolls in, for the router to restore and reset.
 export const MAIN_SCROLL_AREA = '[data-scroll-restoration-id="main"]'
 

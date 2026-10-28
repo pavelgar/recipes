@@ -2,6 +2,7 @@
 
 import { tanstackConfig } from '@tanstack/eslint-config'
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 export default [
   ...tanstackConfig,
@@ -68,6 +69,16 @@ export default [
             'The Cache API exists only over HTTPS, and core features must work over plain HTTP.',
         },
       ],
+    },
+  },
+  {
+    // React's two rules of hooks: hooks called the same way on every render,
+    // and effects listing what they read. Not the React Compiler's rules.
+    files: ['src/**'],
+    plugins: { 'react-hooks': reactHooks },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
   {
