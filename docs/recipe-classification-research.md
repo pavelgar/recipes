@@ -73,7 +73,7 @@ nothing under `tests/corpus/held-out/` was read.
   `tags/`: 634 recipes with titles (223 Finnish, 411 English). 325 of them
   have full ingredient lists in `ingredients/` (175 Finnish, 150 English);
   the other folders hold selected lines only. Ingredient words were matched
-  with the app's own `splitWords` and `wordKeys` from `src/lib/words/`,
+  with the app's own `splitWords` and `wordKeys` from `src/core/words/`,
   imported read-only by a script outside the repo. That was the working
   tree of 23 October, whose English keys use wink-porter2-stemmer; the
   last commit uses @orama/stemmers. Both are Snowball's English algorithm,

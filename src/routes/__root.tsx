@@ -12,7 +12,7 @@ import { cn } from 'cn'
 
 import { AppShell, getSidebarOpen } from '@/components/app-shell'
 import { Toaster } from '@/components/ui/toast'
-import { themeScript } from '@/lib/theme'
+import { themeScript } from '@/core/theme'
 import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
 
 import { m } from '@/paraglide/messages'

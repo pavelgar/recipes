@@ -52,7 +52,7 @@ const config = defineConfig({
       strategy: ['cookie', 'baseLocale'],
     }),
     nitro({
-      plugins: ['./src/nitro/check-env.ts'],
+      plugins: ['./src/server/nitro/check-env.ts'],
       rolldownConfig: {
         onLog: dropUseClientWarnings,
         // Otherwise Rolldown can put its CommonJS helper in a chunk that runs

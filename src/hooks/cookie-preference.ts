@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react'
 
-import { PREFERENCE_MAX_AGE } from '@/lib/preferences'
+import { PREFERENCE_MAX_AGE } from '@/core/preferences'
 
 // A preference set per device, kept in a cookie: a hook that reads it, and a
 // setter that saves it and updates every component using the hook. Screens

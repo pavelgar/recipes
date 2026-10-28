@@ -1,5 +1,5 @@
 import { cookiePreference } from '@/hooks/cookie-preference'
-import { THEME_COOKIE, applyTheme, themeOf } from '@/lib/theme'
+import { THEME_COOKIE, applyTheme, themeOf } from '@/core/theme'
 
 // The theme chosen on this device. Setting it changes the page at once.
 export const [useTheme, setTheme] = cookiePreference(

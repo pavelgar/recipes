@@ -52,12 +52,12 @@ export default [
             'navigator.share exists only over HTTPS, and core features must work over plain HTTP.',
         },
         // A transaction holds SQLite's write lock across every await in its
-        // callback, and every other save fails meanwhile (src/db/AGENTS.md).
+        // callback, and every other save fails meanwhile (src/server/db/AGENTS.md).
         {
           object: 'db',
           property: 'transaction',
           message:
-            "db.transaction() makes every other save fail until it ends. Write several rows as one db.batch([...]), getting a new row's id in SQL (src/db/AGENTS.md).",
+            "db.transaction() makes every other save fail until it ends. Write several rows as one db.batch([...]), getting a new row's id in SQL (src/server/db/AGENTS.md).",
         },
       ],
       'no-restricted-globals': [

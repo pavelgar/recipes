@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import { PELTILEIPA } from './recipes.ts'
 
 // Pages to import, for the app the e2e tests run against. Only its e2e
-// build reaches this machine's address (src/lib/import/fetch.server.ts).
+// build reaches this machine's address (src/server/import/fetch.server.ts).
 // The pages are built around the real recipe, in the forms sites publish
 // it, and the answers sites give when they don't.
 

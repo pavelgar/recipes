@@ -1,6 +1,6 @@
 import { cn } from 'cn'
 import { useState } from 'react'
-import { photoUrl } from '@/lib/photos/photo'
+import { photoUrl } from '@/core/photo'
 import type { ReactNode } from 'react'
 
 // The cover photo's landscape frame, which the editor keeps in place when

@@ -5,14 +5,14 @@ import {
 } from '@tanstack/react-start'
 import { getCookie, setCookie } from '@tanstack/react-start/server'
 
-import { DISPLAY_SYSTEM_COOKIE } from '@/lib/display-system'
+import { DISPLAY_SYSTEM_COOKIE } from '@/core/display-system'
 import {
   MAX_PHOTO_BYTES as MAX_SCAN_PHOTO_BYTES,
   MAX_PHOTOS,
-} from '@/lib/import/photos'
-import { MAX_PHOTO_BYTES } from '@/lib/photos/photo'
-import { PREFERENCE_MAX_AGE } from '@/lib/preferences'
-import { THEME_COOKIE } from '@/lib/theme'
+} from '@/components/add-recipe/photos'
+import { MAX_PHOTO_BYTES } from '@/core/photo'
+import { PREFERENCE_MAX_AGE } from '@/core/preferences'
+import { THEME_COOKIE } from '@/core/theme'
 import { cookieName as LOCALE_COOKIE } from '@/paraglide/runtime'
 
 // The largest server function call the app makes: one cover photo, or
