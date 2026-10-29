@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { webManifest } from '@/lib/web-manifest'
+import { webManifest } from '@/routes/-web-manifest'
 import { baseLocale, isLocale } from '@/paraglide/runtime'
 
 // Browsers fetch the manifest without cookies, so the root route puts the

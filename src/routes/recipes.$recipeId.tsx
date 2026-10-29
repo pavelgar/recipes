@@ -4,7 +4,7 @@ import { BookXIcon } from 'lucide-react'
 
 import { NotFound } from '@/components/not-found'
 import { RecipeReadout } from '@/components/recipe-readout'
-import { recipeQuery } from '@/db/recipes.functions'
+import { recipeQuery } from '@/server/recipes.functions'
 import { m } from '@/paraglide/messages'
 
 // A saved recipe, shown plainly until the recipe view is built.

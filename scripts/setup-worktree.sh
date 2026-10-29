@@ -7,7 +7,8 @@ bun install --frozen-lockfile
 
 # Typecheck needs the generated Paraglide output. The strategy matches
 # paraglideVitePlugin in vite.config.ts, which regenerates it on dev and build.
-bunx --no-install paraglide-js compile --strategy cookie baseLocale --silent
+bunx --no-install paraglide-js compile --project ./src/i18n/project.inlang \
+  --strategy cookie baseLocale --silent
 
 # Reuse the main checkout's .env.local so worktrees get the same settings,
 # falling back to the example. Never overwrite an existing one.

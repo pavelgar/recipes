@@ -1,5 +1,5 @@
 import { cookiePreference } from '@/hooks/cookie-preference'
-import { DISPLAY_SYSTEM_COOKIE, displaySystemOf } from '@/lib/display-system'
+import { DISPLAY_SYSTEM_COOKIE, displaySystemOf } from '@/core/display-system'
 
 // The unit system this device shows recipes in.
 export const [useDisplaySystem, setDisplaySystem] = cookiePreference(

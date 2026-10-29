@@ -1,0 +1,79 @@
+# Tags of tests/corpus/tags/ that are one tag written differently: in letter
+# case, spacing, punctuation or number, or in another case form of the
+# word. One tag per group of lines below, its forms separated by " | ".
+# Spelling variants ("avocado", "avokado") and synonyms ("piiras",
+# "piirakka") are not listed.
+
+## fi
+
+#jälkiruoka | jälkiruoat | jälkiruoka | jälkiruuat
+#juhlaan | juhlat
+#kasvis | kasvikset | kasvis
+#pääruoka | pääruoat | pääruoka
+#vege | vege
+#välipala | välipala | välipalaa | välipalat
+aamu- ja iltapala | aamu- ja iltapalat
+aamupala | aamupalaksi
+alkuruoat | alkuruoka | alkuruuat
+helppo | helppoa
+iltapala | iltapalaksi
+juustokakku | juustokakut
+jäätelö | jäätelöt
+kaali | kaalit
+kasvisruokareseptejä | kasvisruokareseptit
+keitot | keitto
+kääretorttu | kääretortut
+lasagne | lasagnet
+lisuke | lisukkeet
+marja | marjat
+nopea | nopeaa | nopeat
+paprika | paprikaa
+persilja | persiljaa
+pizza | pizzat
+ruohosipuli | ruohosipulia
+salaatit | salaatti
+suola | suolaa
+suolainen leivonnainen | suolaiset leivonnaiset
+
+## en
+
+alcoholic drink | alcoholic drinks
+almond | almonds
+appetizer | appetizers
+baking potato | baking potatoes
+banana | bananas
+bean | beans
+brownie | brownies
+candies | candy
+cannellini bean | cannellini beans
+celebration | celebrations
+chestnut mushroom | chestnut mushrooms
+chile | chiles
+chopped tomato | chopped tomatoes
+cookie | cookies
+cranberries | cranberry
+dessert | desserts
+drink | drinks
+egg | eggs
+egg white | egg whites
+flatbread | flatbreads
+flavor | flavors
+garlic clove | garlic cloves
+herb | herbs
+ice cream | ice creams
+jalapeno | jalapeños
+mix | mixes
+pea | peas
+peach | peaches
+potato | potatoes
+raisin | raisins
+roll | rolls
+side dish | side dishes
+snack | snacks
+spice | spices
+student | students
+tart | tarts
+tomato | tomatoes
+tray bake | traybake
+treat | treats
+valentine’s day | valentines day

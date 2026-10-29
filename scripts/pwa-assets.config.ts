@@ -8,7 +8,7 @@ import {
 const background = '#ca3500'
 
 // Writes the app icons into public/ from public/favicon.svg, for
-// `bun run icons`. The manifest lists them (src/lib/web-manifest.ts).
+// `bun run icons`. The manifest lists them (src/routes/-web-manifest.ts).
 export default defineConfig({
   preset: {
     ...minimal2023Preset,
