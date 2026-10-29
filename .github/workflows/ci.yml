@@ -31,6 +31,7 @@ jobs:
       - run: bun run typecheck
       - run: bun run lint
       - run: bun run check
+      # The e2e tests' build lets imports reach their pages on this machine
       # (src/server/import/fetch.server.ts). The image's build must leave it
       # out. The app's own chunks are those importing request-filtering-agent;
       # the library itself, in _libs, names the option too. Finding no chunks,
