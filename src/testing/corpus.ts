@@ -51,8 +51,8 @@ const SYSTEMS: Record<Country, MeasuringSystem> = {
 }
 
 // Sites publish some text with HTML entities. The importer decodes them
-// before parsing (clean() in src/core/import/recipe.ts, which also makes
-// runs of spaces single); this stands in for the decoding.
+// before parsing (clean() in src/core/import/recipe.server.ts, which also
+// makes runs of spaces single); this stands in for the decoding.
 export function decodeEntities(text: string): string {
   return decodeHTML(text)
 }

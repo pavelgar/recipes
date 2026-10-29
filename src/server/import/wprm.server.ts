@@ -1,6 +1,6 @@
 import { DomUtils, parseDocument } from 'htmlparser2'
 import { fetchJson } from '@/server/import/fetch.server'
-import { clean } from '@/core/import/recipe'
+import { clean } from '@/core/import/recipe.server'
 import { isThing, valuesOf } from '@/core/import/schema-org'
 import type { Section } from '@/core/recipe/section'
 import type { Page, Thing } from '@/core/import/schema-org'

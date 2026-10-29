@@ -3,6 +3,7 @@
 import { tanstackConfig } from '@tanstack/eslint-config'
 import boundaries from 'eslint-plugin-boundaries'
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths'
+import globals from 'globals'
 
 // The layers of src/ (AGENTS.md, "Code organization"). Each folder is one
 // layer, and a file belongs to the first that matches.
@@ -15,12 +16,11 @@ const layers = [
   ['components', 'src/components'],
   ['routes', 'src/routes'],
   ['testing', 'src/testing'],
-  // Built on its own, and free to import any layer, like Start's entry
-  // files (boundaries/files below).
+  // Built on its own, like Start's entry files (entryFiles below).
   ['app', 'src/service-worker'],
 ]
 
-// What each layer may import, besides itself.
+// What each layer may import, besides itself. Only tests use src/testing.
 const imports = {
   core: [],
   server: ['core'],
@@ -30,8 +30,14 @@ const imports = {
   components: ['core', 'i18n', 'hooks', 'ui'],
   routes: ['core', 'server', 'i18n', 'hooks', 'ui', 'components'],
   testing: ['core', 'server', 'i18n'],
-  app: layers.map(([type]) => type),
+  app: layers.map(([type]) => type).filter((type) => type !== 'testing'),
 }
+
+// Start's entry files and the app's styles, beside the layers, which they
+// may import as the service worker does. Any other file directly in src/
+// belongs to no layer.
+const entryFiles =
+  'src/{client.tsx,router.tsx,start.ts,server.ts,routeTree.gen.ts,styles.css}'
 
 // Of src/server, components may import only its server functions, which
 // the build turns into calls to the server.
@@ -40,8 +46,50 @@ const serverFunctions = {
   file: { categories: 'functions' },
 }
 
+// The packages core may use, each the same in the browser, on the server
+// and in tests. A new pure package goes here before core imports it.
+const coreModules = [
+  'countries-and-timezones',
+  'entities',
+  'es-toolkit',
+  'franc',
+  'htmlparser2',
+  'jsonrepair',
+  'linkify-it',
+  'minisearch',
+  'pluralize',
+  'tlds',
+  'wink-porter2-stemmer',
+  'zod',
+]
+
+// The globals core can't count on: the browser's or Node's alone, the
+// shared ones that reach outside the code (storage, the network, the
+// device, randomness and timing), and globalThis, which reaches them all.
+const coreGlobals = [
+  ...new Set([...Object.keys(globals.browser), ...Object.keys(globals.node)]),
+]
+  .filter(
+    (name) =>
+      !(name in globals['shared-node-browser']) && !(name in globals.builtin),
+  )
+  .concat([
+    'fetch',
+    'localStorage',
+    'sessionStorage',
+    'navigator',
+    'crypto',
+    'performance',
+    'WebSocket',
+    'BroadcastChannel',
+    'globalThis',
+  ])
+
 const coreIsPure =
-  'src/core is pure logic, the same in the browser, on the server and in tests: no React, TanStack, Node or server packages, and no browser globals (AGENTS.md, "Code organization").'
+  'src/core is pure logic, the same in the browser, on the server and in tests: it imports only the packages in coreModules (eslint.config.js), and uses no browser or Node globals (AGENTS.md, "Code organization").'
+
+const staysOnServer =
+  'A .server.ts file stays on the server, and the build refuses it in the browser. Import it from src/server, a route or another .server.ts file (AGENTS.md, "Code organization").'
 
 export default [
   ...tanstackConfig,
@@ -123,10 +171,10 @@ export default [
         partialMatch: false,
       })),
       'boundaries/files': [
-        // Start's entry files and the app's styles, beside the layers.
-        { category: 'app', pattern: 'src/*.{ts,tsx,css}' },
+        { category: 'entry', pattern: entryFiles },
         { category: 'test', pattern: 'src/**/*.test.{ts,tsx}' },
         { category: 'functions', pattern: 'src/server/**/*.functions.ts' },
+        { category: 'server-only', pattern: 'src/**/*.server.ts' },
       ],
     },
     rules: {
@@ -137,7 +185,13 @@ export default [
         'error',
         {
           default: 'disallow',
+          // Packages and Node's modules too, and imports within a layer,
+          // which is one element: all of src/core is one.
+          checkAllOrigins: true,
+          checkInternals: true,
+          // The last policy that matches an import decides it.
           policies: [
+            { allow: { to: { module: { origin: ['external', 'core'] } } } },
             ...Object.entries(imports).map(([type, below]) => ({
               from: { element: { type } },
               allow: {
@@ -150,18 +204,59 @@ export default [
               from: { element: { type: 'components' } },
               allow: { to: serverFunctions },
             },
-            // The entry files and tests reach into any layer, and only tests
-            // use src/testing.
-            {
-              from: { file: { categories: ['app', 'test'] } },
-              allow: {
-                to: [{ element: { type: '*' } }, { file: { path: '**' } }],
-              },
-            },
             // The root route links the styles.
             {
               from: { element: { type: 'routes' } },
-              allow: { to: { file: { categories: 'app' } } },
+              allow: { to: { file: { path: 'src/styles.css' } } },
+            },
+            {
+              from: { file: { categories: 'entry' } },
+              allow: {
+                to: [
+                  { element: { types: { anyOf: imports.app } } },
+                  { file: { categories: 'entry' } },
+                ],
+              },
+            },
+            // What can reach the browser imports no .server.ts file.
+            {
+              from: {
+                element: {
+                  types: { anyOf: ['i18n', 'hooks', 'ui', 'components'] },
+                },
+              },
+              disallow: { to: { file: { categories: 'server-only' } } },
+              message: staysOnServer,
+            },
+            {
+              from: {
+                element: { type: 'core' },
+                file: { path: '!**/*.server.ts' },
+              },
+              disallow: { to: { file: { categories: 'server-only' } } },
+              message: staysOnServer,
+            },
+            {
+              from: { element: { type: 'core' } },
+              disallow: { to: { module: { origin: ['external', 'core'] } } },
+              message: coreIsPure,
+            },
+            {
+              from: { element: { type: 'core' } },
+              allow: {
+                to: { module: { origin: 'external', source: coreModules } },
+              },
+            },
+            // Tests reach anything.
+            {
+              from: { file: { categories: 'test' } },
+              allow: {
+                to: [
+                  { element: { type: '*' } },
+                  { file: { path: '**' } },
+                  { module: { origin: '*' } },
+                ],
+              },
             },
           ],
         },
@@ -169,57 +264,21 @@ export default [
     },
   },
   {
-    files: ['src/core/**/*.ts'],
-    ignores: ['src/core/**/*.test.ts'],
+    files: ['src/core/**/*.{ts,tsx}'],
+    ignores: ['src/core/**/*.test.{ts,tsx}'],
     rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          paths: [
-            'react',
-            'react-dom',
-            'drizzle-orm',
-            'sharp',
-            'ai',
-            'node-fetch',
-            'request-filtering-agent',
-            'nitro',
-          ].map((name) => ({ name, message: coreIsPure })),
-          patterns: [
-            {
-              group: [
-                'react/*',
-                'react-dom/*',
-                '@tanstack/*',
-                'node:*',
-                'drizzle-orm/*',
-                '@ai-sdk/*',
-                'nitro/*',
-              ],
-              message: coreIsPure,
-            },
-          ],
-        },
-      ],
       'no-restricted-globals': [
         'error',
-        // Repeated from above, which this list replaces for src/core.
+        ...coreGlobals.map((name) => ({ name, message: coreIsPure })),
+      ],
+      // Where the file is, which differs between the browser and Node.
+      'no-restricted-syntax': [
+        'error',
         {
-          name: 'caches',
-          message:
-            'The Cache API exists only over HTTPS, and core features must work over plain HTTP.',
+          selector:
+            "MemberExpression[object.type='MetaProperty'][property.name=/^(url|dirname|filename|resolve|glob)$/]",
+          message: coreIsPure,
         },
-        ...[
-          'window',
-          'document',
-          'navigator',
-          'location',
-          'localStorage',
-          'sessionStorage',
-          'indexedDB',
-          'fetch',
-          'process',
-        ].map((name) => ({ name, message: coreIsPure })),
       ],
     },
   },

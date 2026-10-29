@@ -16,7 +16,7 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { DomUtils, parseDocument } from 'htmlparser2'
-import { extractRecipe } from '@/core/import/extract'
+import { extractRecipe } from '@/core/import/extract.server'
 import { fetchPage } from '@/server/import/fetch.server'
 import { mulberry32 } from './random.ts'
 import { robotsOf } from './robots.ts'

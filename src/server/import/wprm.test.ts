@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { extractRecipe } from '@/core/import/extract'
+import { extractRecipe } from '@/core/import/extract.server'
 import {
   wprmIngredientSections,
   wprmRecipeLinks,

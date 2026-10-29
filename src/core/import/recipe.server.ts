@@ -10,6 +10,10 @@ import type { Section } from '@/core/recipe/section'
 import type { ImportedRecipe } from '@/core/import/types'
 import type { Page, Thing } from '@/core/import/schema-org'
 
+// Named .server, as is extract.server.ts, which reads pages with it: it
+// tells a recipe's language with franc (src/core/languages.server.ts),
+// which stays out of the browser.
+
 // Reads a schema.org Recipe, from JSON-LD or microdata, into what the app
 // keeps. A recipe needs steps or more than one ingredient; otherwise the
 // page has none worth importing. olivemagazine.com marks its collection

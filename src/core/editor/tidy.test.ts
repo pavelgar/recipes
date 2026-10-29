@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { tidiedAlready, tidiedSteps } from '@/core/editor/tidy'
 
 // Steps as the import takes them from pages that cut them in the wrong
-// places (src/core/import/extract.test.ts), each with an answer Tidy steps
-// could give.
+// places (src/core/import/extract.server.test.ts), each with an answer Tidy
+// steps could give.
 
 // https://jalotofu.fi/reseptit/rapeat-tofupalat-korean-fried-tofu-kft/
 // runs its section headings onto the ends of steps.

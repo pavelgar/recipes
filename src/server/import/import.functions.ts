@@ -1,7 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { extractRecipe } from '@/core/import/extract'
+import { extractRecipe } from '@/core/import/extract.server'
 import { fetchPage } from '@/server/import/fetch.server'
 import { linkSchema, siteOf } from '@/core/import/link'
 import { importPhoto } from '@/server/import/photo.server'

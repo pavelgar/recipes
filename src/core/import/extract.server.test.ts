@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { extractRecipe } from '@/core/import/extract'
-import { clean, readMinutes } from '@/core/import/recipe'
+import { extractRecipe } from '@/core/import/extract.server'
+import { clean, readMinutes } from '@/core/import/recipe.server'
 import { UNKNOWN_LANGUAGE } from '@/core/languages'
 
 // The pages here are built around real strings from published pages,

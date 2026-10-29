@@ -3,7 +3,7 @@ import { generateText, Output } from 'ai'
 import { z } from 'zod'
 import { MEASURING_SYSTEMS } from '@/core/recipe/choices'
 import { AI_MAX_OUTPUT_TOKENS, AI_TIMEOUT_MS } from '@/server/ai/model.server'
-import { pageFacts } from '@/core/import/recipe'
+import { pageFacts } from '@/core/import/recipe.server'
 import { sourceChecker } from '@/core/import/verbatim'
 import {
   isRecipeLanguage,

@@ -141,6 +141,10 @@ The component tests (`*.browser.test.tsx`) and the end-to-end tests need
 Playwright's Chromium, downloaded once per machine with
 `bunx playwright install chromium`.
 
+Run Playwright and drizzle-kit through these scripts: their configs are in
+`tests/e2e/` and `src/server/db/`, where the bare `playwright` and
+`drizzle-kit` commands don't look.
+
 Built with TanStack Start (React), Drizzle ORM on SQLite through libsql,
 Paraglide for translations (`src/i18n/messages/`), Tailwind CSS, and
 Workbox through vite-plugin-pwa for offline use.

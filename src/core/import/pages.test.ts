@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { extractRecipe } from '@/core/import/extract'
-import { clean } from '@/core/import/recipe'
+import { extractRecipe } from '@/core/import/extract.server'
+import { clean } from '@/core/import/recipe.server'
 import { siteOf } from '@/core/import/link'
 import { corpusRecipes } from '@/testing/corpus'
 import { assertLedger, checkLedger } from '@/testing/ledger'

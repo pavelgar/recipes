@@ -14,20 +14,21 @@ Read [DESIGN.md](docs/DESIGN.md) before planning or changing features, screens, 
 
 | Folder               | Holds                                                                                                   | Imports from                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `src/core/`          | Pure logic: no React, TanStack, Node or server packages, browser globals or translations                | core                                        |
+| `src/core/`          | Pure logic: only the packages listed for it, and no browser or Node globals or translations             | core                                        |
 | `src/server/`        | The database, the environment, server functions (`*.functions.ts`) and server-only code (`*.server.ts`) | core                                        |
 | `src/i18n/`          | Translations, and names in the interface language; Paraglide generates `src/paraglide/` from them       | core                                        |
-| `src/hooks/`         | React hooks                                                                                             | core                                        |
+| `src/hooks/`         | React hooks, and the browser code they use                                                              | core                                        |
 | `src/components/ui/` | shadcn components, written by the shadcn CLI                                                            | hooks, i18n                                 |
 | `src/components/`    | The app's UI, with a folder per area once it has several files                                          | core, i18n, hooks, ui, and server functions |
 | `src/routes/`        | Routes and their views                                                                                  | everything above                            |
-| `src/testing/`       | Helpers for tests, which only tests import                                                              | core, server, i18n                          |
+| `src/testing/`       | Helpers for tests, which in `src/` only tests import                                                    | core, server, i18n                          |
 
-Start's entry files (`router.tsx`, `start.ts`, `client.tsx`, `server.ts`), `styles.css` and the service worker sit beside the layers and may import any of them; so may tests.
+Start's entry files (`router.tsx`, `start.ts`, `client.tsx`, `server.ts`, and the generated `routeTree.gen.ts`), `styles.css` and the service worker sit beside the layers and may import any layer but `src/testing/`. Of these files, routes may import only `styles.css`. Tests may import anything. Any other file directly in `src/` belongs to no layer, so the lint fails on it.
 
 - Pure code goes in core, even when one screen uses it. Code that needs the browser, React or translations goes beside the component or route that uses it; beside a route, its name starts with `-`, which keeps it out of the route tree.
-- A `.server.ts` file never reaches the browser: Start's build refuses it there. Pure code that would grow the app's download is named `.server.ts` too, as `src/core/languages.server.ts` is.
-- `eslint.config.js` holds the rules, in its `layers` and `imports` lists. A change there changes this section too.
+- Core imports only the packages in `eslint.config.js`'s `coreModules`, each pure. A new pure package goes on that list before core imports it.
+- A `.server.ts` file never reaches the browser: Start's build refuses it there, and the lint refuses it in components (shadcn's too), hooks and translations. Pure code that would grow the app's download is named `.server.ts` too, as `src/core/languages.server.ts` is, and so is core code that imports such a file, as the page reader in `src/core/import/` does.
+- `eslint.config.js` holds the rules, in its `layers`, `imports` and `coreModules` lists. A change there changes this section too.
 
 Outside `src/`, `tests/` holds the end-to-end tests and the corpus, `docs/` the design brief and research, `scripts/` the scripts the package's commands run, and `public/` the files served as they are.
 

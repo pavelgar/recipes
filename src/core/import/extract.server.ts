@@ -1,7 +1,7 @@
 import { parseDocument } from 'htmlparser2'
 import { findJsonLdRecipes } from '@/core/import/jsonld'
 import { findMicrodataRecipes } from '@/core/import/microdata'
-import { readRecipe } from '@/core/import/recipe'
+import { readRecipe } from '@/core/import/recipe.server'
 import type { ImportedRecipe } from '@/core/import/types'
 
 // The recipe a page publishes as schema.org data, or null. JSON-LD comes
