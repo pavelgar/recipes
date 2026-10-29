@@ -17,6 +17,7 @@ import {
 } from '@/core/quantities/kitchen'
 import { US_CUP, US_TBSP } from '@/core/quantities/measures'
 import { readNumber } from '@/core/quantities/numbers'
+import { presentIngredient } from '@/core/quantities/present'
 import { scanStep } from '@/core/quantities/steps'
 import { checkShape } from '@/testing/quantities'
 import type { Measure } from '@/core/quantities/kitchen'
@@ -212,6 +213,68 @@ describe('numbers', () => {
       const read = readNumber(text, 0, language)
       expect(read?.end, text).toBe(text.length)
       expect(read?.value, text).toBeCloseTo(Math.round(n * 10) / 10, 9)
+    },
+  )
+})
+
+describe('scaled measures', () => {
+  // A measure as recipes write it, and servings changed from one count to
+  // another.
+  const written = fc
+    .tuple(
+      fc.integer({ min: 0, max: 4 }),
+      fc.constantFrom(1 / 4, 1 / 3, 1 / 2, 2 / 3, 3 / 4),
+    )
+    .map(([whole, part]) => whole + part)
+  const factor = fc
+    .tuple(fc.integer({ min: 1, max: 12 }), fc.integer({ min: 1, max: 24 }))
+    .map(([from, to]) => to / from)
+
+  test.prop([written, factor, fc.constantFrom('dl', 'tl')], {
+    // CI seed 641006560: a decimal rounded at the half-step boundary.
+    examples: [[0.5, 0.3, 'dl']],
+  })(
+    'read within 10% of the amount, as a fraction only when one is that close',
+    (n, f, unit) => {
+      const text = `${formatFraction(n)} ${unit} maitoa`
+      const opts = { language: 'fi', system: 'metric' } as const
+      const shown = presentIngredient(parseIngredient(text, opts), {
+        ...opts,
+        display: 'metric',
+        factor: f,
+      }).text
+      const read = readNumber(shown, 0, 'fi')
+      expect(read, shown).not.toBeNull()
+      const exact = n * f
+      const off = Math.abs(read!.value - exact)
+      if (read!.form === 'fraction') {
+        expect(off / exact, shown).toBeLessThanOrEqual(0.1 + 1e-9)
+      } else {
+        // A decimal to one place, allowing floating-point noise at the
+        // half-step boundary (0.2 - 0.15 is slightly more than 0.05).
+        expect(off, shown).toBeLessThanOrEqual(
+          Math.max(0.1 * exact, 0.05) + 1e-9,
+        )
+      }
+    },
+  )
+
+  test.prop([fc.integer({ min: 1, max: 12 })])(
+    'up to 3 Australian tablespoons convert exactly, into tablespoons and teaspoons',
+    (quarters) => {
+      const n = quarters / 4
+      const opts = { language: 'en', system: 'australian' } as const
+      const shown = presentIngredient(
+        parseIngredient(`${formatFraction(n)} tbsp oil`, opts),
+        { ...opts, display: 'metric' },
+      ).text
+      // "1 tbsp + 1 tsp oil", "4 tbsp oil", "2 tsp oil"
+      const parts = /^(?:(\S+) tbsp)?(?: \+ )?(?:(\S+) tsp)? oil$/.exec(shown)
+      expect(parts, shown).not.toBeNull()
+      const number = (s: string | undefined) =>
+        s === undefined ? 0 : readNumber(s, 0, 'en')!.value
+      const ml = number(parts![1]) * 15 + number(parts![2]) * 5
+      expect(ml, shown).toBeCloseTo(n * 20, 9)
     },
   )
 })

@@ -148,8 +148,9 @@
   marks its collection pages as a Recipe whose one ingredient is a list of
   keywords. It reads every standard form of that data and works around
   mistakes many sites make, such as a stub Recipe before the full one, JSON
-  that doesn't parse, and times written as text ("10 min", "1 hour 15
-  minutes") instead of ISO 8601, but nothing is written for one site.
+  that doesn't parse, times written as text ("10 min", "1 hour 15
+  minutes") instead of ISO 8601, and a yield that gives its number twice
+  ("4, 4 annosta" reads "4 annosta"), but nothing is written for one site.
 - Import doesn't guess where a site's steps, sentences and headings start
   and end, since no rule for it is reliable. Steps cut mid-sentence, run
   together ("…pastan sekaan.Kiehauta…", "2.In a bowl") or with a heading
@@ -344,7 +345,11 @@
 - Servings are kept as written, since recipes often give a yield instead
   ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
   scales it, keeping the word: "24 pullaa" → "48 pullaa". Ranges scale at
-  both ends.
+  both ends. Sizes of what's made stay: "1 - 9x13 inch pan" → "2 - 9x13
+  inch pan". A number keeps the way it's written where it can ("kaksi
+  vuokaa" → "kolme vuokaa"). A tap changes the servings by one, or by a
+  half below four; servings without a number change as a multiple of the
+  recipe ("× 2").
 - Ingredients are entered as free-text lines, in one text box; steps the
   same, one step per line. As you type, the amounts and units the app
   recognised are highlighted in place; a number it couldn't place isn't.
@@ -410,7 +415,11 @@
 - British measures: cup 250 ml, tablespoon 15 ml, pint 568 ml. Australian
   tablespoon: 20 ml.
 - Spoons map one-to-one (rkl = tbsp, tl = tsp) for US, British and metric
-  recipes. Australian tablespoons convert by volume (1 tbsp ≈ 4 tl).
+  recipes. Australian tablespoons convert by volume. Up to 3, into whole
+  tablespoons and teaspoons for the rest: 1 tbsp → 1 rkl + 1 tl, 3 tbsp →
+  4 rkl, ½ tbsp → 2 tl; a range rounds both ends to half tablespoons (1–2
+  tbsp → 1½–2½ rkl). More than 3 follow the display's volume rule: 4 tbsp
+  → 0,8 dl, ⅓ cup.
 - Volumes stay volumes and weights stay weights (cups ↔ dl, grams ↔ ounces).
   No converting between volume and weight.
 - Lengths convert too (cm ↔ inches), in ingredient lines and steps.
@@ -423,17 +432,20 @@
 - Temperatures and amounts with units inside the steps convert too, with the
   same recognition feedback as ingredient lines.
 - Amounts inside steps don't scale with servings. When servings differ from
-  the original, step amounts are subtly marked as referring to the original.
+  the original, step amounts are subtly marked as referring to the original,
+  with a note saying so. Temperatures, sizes and lengths aren't marked, and
+  a recipe whose steps give no amounts gets no note.
 - "mm" means maustemitta only as the first amount of a Finnish ingredient
   line. In step text and later in an ingredient line ("cut into 5 mm
   slices") it means millimetres.
 - Text that already gives both systems, like "425 °F (220 °C)", is left as
   written. So is an amount given again in the display's units: "2 2/3 cups
   (320g)" and "1 cup plus 2 tablespoons (134g)" on a metric device. When
-  both are in units the display doesn't use ("330ml/11fl oz" on a US
-  device), only the first converts. An Australian tablespoon is not a US
-  unit: "100 g (7 tbsp)" in an Australian recipe reads "3½ oz (7 tbsp)" on
-  a US device.
+  both are in units the display doesn't use, only the first converts,
+  whether the second gives the same measure or another: "330ml/11fl oz"
+  and "200 g (3-4 dl)" read "1⅓ cups/11fl oz" and "7 oz (3-4 dl)" on a US
+  device. An Australian tablespoon is not a US unit: "100 g (7 tbsp)" in an
+  Australian recipe reads "3½ oz (7 tbsp)" on a US device.
 - Converted amounts are rounded the way recipes write them:
   - Metric volumes are decilitres with one decimal (⅓ cup → 0,8 dl), and
     litres from 10 dl (5 cups → 1,2 l).
@@ -464,6 +476,15 @@
   paketti" → "kaksi pakettia"). Unit words agree with the new number ("1
   cup" → "2 cups", "1 purkki" → "2 purkkia"). Scaled grams and millilitres
   round to 5 from 20 up (175 g × 1,5 → 265 g).
+- A scaled measure that its nearest fraction misses by more than 10% is
+  written as a decimal instead, to one place (two below 0.1): ⅓ dl × 1,25
+  → 0,4 dl, ¼ tsp × 1,5 → 0.4 tsp, ¾ dl × 1,5 → 1,1 dl. The fractions are
+  ⅛, ¼, ½ and ¾ for teaspoons, quarters for ounces and pounds, and ¼, ⅓,
+  ½, ⅔ and ¾ for the rest. Both ends of a range follow. Cups and
+  tablespoons take spoons added instead, already from 6% off as when they
+  convert (⅓ cup × 1,2 → ⅓ cup + 1 tbsp; 1¼ cups × 1,5 → 1¾ cups + 2
+  tbsp), and counts and packages keep the nearest fraction (¼ kurkkua ×
+  1,5 → ⅓ kurkkua).
 - Package units (1 prk) are never converted, but scale with servings. A size
   given in the line, as in "1 prk (400 g)", converts. It counts as the total
   for the line and scales with it ("2 prk (800 g)"), unless the line marks
@@ -484,7 +505,6 @@
   wedges"), what one package holds ("1 pkt (4 x 100 g)"), rates ("8-15
   rapua ruokailijaa kohti"), times, servings ("valmis 8-10hlö") and note
   references stay as written.
-- The recipe as originally written is one tap away.
 - Interpretation must handle Finnish conventions: decimal commas (1,5 dl),
   units such as dl, rkl, tl and mm (maustemitta, 1 ml), and package
   abbreviations such as prk and pss.
@@ -619,10 +639,42 @@
 
 - No separate cooking mode.
 - The screen stays awake while a recipe is open.
-- Tap to cross off ingredients and steps.
-- Tap a time mentioned in a step to start a timer.
-- To explore: the first step not yet crossed off is highlighted as the
-  current one, so the view guides cooking without a separate mode.
+- Tap to cross off ingredients and steps: an ingredient's checkbox or
+  line, a step's number or text. Ingredients and steps can each be
+  unchecked all at once; starting the steps over also stops the timers.
+- Tap a time mentioned in a step to start a timer. Several can run at
+  once; a range starts at its shorter end. Times are found in the
+  languages the app reads quantities in. A running timer shows the time
+  left after the time's words in the step, and in the dock with its step's
+  number. Tapping a running timer stops it, with Undo in a toast.
+- A timer whose time is up says Time's up and beeps like a kitchen timer,
+  in groups of four beeps every two seconds, for a minute or until it's
+  stopped. The beeps are made in the page: browsers can't play the
+  device's own alert sounds. They sound from the open recipe, also while
+  its tab is behind another on a computer; no vibration, and no
+  notifications outside the page. A timer goes 12 hours after its time is
+  up, unless it's stopped sooner.
+- A recipe opens where it was left on this device: the servings chosen,
+  the lines crossed off and the timers, which run on while it's closed.
+  Each recipe keeps its own, for any number of recipes, until it's back as
+  it started. Progress on lines since changed is dropped.
+- The first step not yet crossed off is the current one: it leads, larger,
+  with Done, and Back to the step before. So the view guides cooking
+  without a separate mode.
+- The cover photo runs edge to edge at the top and holds still while the
+  recipe scrolls up over it, title and all. A recipe without a photo gets
+  a plain cover in the same place.
+- Under the title are the source and the prep, cook and total times the
+  recipe gives, the total added up from prep and cook when it gives only
+  those.
+- The servings control sits in the ingredients' header, on phones on a row
+  of its own under the heading, with the servings as written, scaled,
+  between its buttons.
+- On wide screens the ingredients stay in a column beside the steps. On
+  narrower ones a bar at the top jumps between ingredients and steps, each
+  with how many there are, or how many are crossed off once any is. Once
+  the ingredients have scrolled away, a dock brings them back in a drawer.
+  The dock also shows running timers, on every screen size.
 
 ### Interface language
 
@@ -692,7 +744,8 @@
   editor) stay in the photos folder until the nightly job clears them out,
   after long enough that an open draft keeps its photo.
 - M3, everyday use: home rows, the meal queue, cooking aids (screen kept
-  awake, crossing off, timers), undo and recently deleted.
+  awake, crossing off, timers), undo and recently deleted. The cooking
+  aids were built with the recipe view, ahead of M3.
 - M4, offline: caching recipes and photos, and offline search.
 - M5: reading with AI (photos, pages without Recipe data, pasted text) and
   Tidy steps, and export. The AI parts were built ahead of M2.

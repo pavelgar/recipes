@@ -3,7 +3,7 @@
 # Written by the tests; see src/testing/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 4636 entries: 543 checked, of which 2 wrong; 4093 unchecked.
+# 4636 entries: 560 checked, of which 2 wrong; 4076 unchecked.
 
 ## arla.fi (fi, metric): 332 lines, 294 entries; 229 measured, 63 counted, 40 no-amount, 0 unrecognised
 
@@ -256,7 +256,7 @@
   measured 1 dl  [1 dl]
 ? "50 g auringonkukansiemeniä, paahdettuna"
   measured 50 g  [50 g]
-? "1 tl sherryviinietikkaa"
+✓ "1 tl sherryviinietikkaa"
   measured 1 tsp  [1 tl]
 ? "mustapippuria, vastajauhettua"
   no-amount
@@ -468,7 +468,7 @@
   measured 400 g  [400 g]
 ? "1 suuri punasipuli hienonnettuna (n. 100 g)"
   counted 1 | total ~100 g  [1] [100 g]
-? "400 g kuorittuja tomaatteja"
+✓ "400 g kuorittuja tomaatteja"
   measured 400 g  [400 g]
 ? "1 tl karkeaa suolaa"
   measured 1 tsp  [1 tl]
@@ -1075,7 +1075,7 @@
   no-amount
 ? "1 large onion chopped"
   counted 1  [1]
-? "500g minced beef"
+✓ "500g minced beef"
   measured 500 g  [500g]
 ? "2 tomatoes chopped"
   counted 2  [2]
@@ -1512,7 +1512,7 @@
   counted 1 | more fixed 4.5 oz  [1] [4.5-oz]
 ? "1 1/2 cups apple pie filling with more fruit (from 21-oz can)"
   measured 1.5 cup | more fixed 21 oz  [1 1/2 cups] [21-oz]
-? "4 boneless skinless chicken breasts (5 oz each)"
+✓ "4 boneless skinless chicken breasts (5 oz each)"
   counted 4 | each 5 oz  [4] [5 oz]
 ? "1/4 cup plus 2 tablespoons chopped fresh basil leaves"
   measured 0.25 cup | more 2 tbsp  [1/4 cup] [2 tablespoons]
@@ -1919,7 +1919,7 @@
   measured 1.5 cup = 340 g  [1 1/2 cups] [340g]
 ? "4 large eggs"
   counted 4  [4]
-? "4 tablespoons (57g) butter, melted"
+✓ "4 tablespoons (57g) butter, melted"
   measured 4 tbsp = 57 g  [4 tablespoons] [57g]
 ? "12-ounce bag fresh cranberries, or 3 1/2 cups (347g) fresh or frozen cranberries"
   measured 12 oz | more 3.5 cup = 347 g  [12-ounce] [3 1/2 cups] [347g]
@@ -1933,7 +1933,7 @@
   measured 1 cup = 120 g  [1 cup] [120g]
 ? "3/4 cup (170g) water, lukewarm"
   measured 0.75 cup = 170 g  [3/4 cup] [170g]
-? "2 3/4 cups (330g) King Arthur Unbleached Bread Flour"
+✓ "2 3/4 cups (330g) King Arthur Unbleached Bread Flour"
   measured 2.75 cup = 330 g  [2 3/4 cups] [330g]
 ? "3 tablespoons (43g) unsalted butter, softened"
   measured 3 tbsp = 43 g  [3 tablespoons] [43g]
@@ -2693,7 +2693,7 @@
   no-amount
 ? "Valkosipuli"
   no-amount
-? "2 Sipuli"
+✓ "2 Sipuli"
   counted 2  [2]
 ? "Tomaattimurska"
   no-amount
@@ -3348,7 +3348,7 @@
   measured 1 tbsp  [1 rkl]
 ? "1/2 dl vehnäjauhoja"
   measured 0.5 dl  [1/2 dl]
-? "1/2 dl mantelijauhoa"
+✓ "1/2 dl mantelijauhoa"
   measured 0.5 dl  [1/2 dl]
 ? "1 rkl rouhittuja manteleita"
   measured 1 tbsp  [1 rkl]
@@ -4343,7 +4343,7 @@
   measured 1.5 cup  [1-1/2 cups]
 ? "4 walleye fillets (about 8 ounces each)"
   counted 4 | each ~8 oz  [4] [8 ounces]
-? "1 smoked ham hock (about 1-1/2 pounds)"
+✓ "1 smoked ham hock (about 1-1/2 pounds)"
   counted 1 | total ~1.5 lb  [1] [1-1/2 pounds]
 ? "1-1/2 cups frozen lima beans, thawed"
   measured 1.5 cup  [1-1/2 cups]
@@ -4626,7 +4626,7 @@
   measured 250 g  [250 g]
 ? "2 dl Valio Keittiön kuohukerma laktoositon"
   measured 2 dl  [2 dl]
-? "2 dl Valio Luomu™ turkkilaista jogurttia"
+✓ "2 dl Valio Luomu™ turkkilaista jogurttia"
   measured 2 dl  [2 dl]
 ? "1 dl (100 g) granolaa"
   measured 1 dl = 100 g  [1 dl] [100 g]
@@ -4686,7 +4686,7 @@
   measured 5 dl  [5 dl]
 ? "¾ dl Valio Emmental raastetta"
   measured 0.75 dl  [¾ dl]
-? "1 dl spelttihiutaleita"
+✓ "1 dl spelttihiutaleita"
   measured 1 dl  [1 dl]
 ? "1 dl vehnärouhetta"
   measured 1 dl  [1 dl]
@@ -5287,7 +5287,7 @@
   measured 1 cup = 250 ml  [1 cup] [250ml]
 ✓ "800 gram (1½ ounces) canned diced tomatoes"
   measured 800 g = 1.5 oz  [800 gram] [1½ ounces]
-? "4 fresh lasagne sheets, cut crossways into thirds"
+✓ "4 fresh lasagne sheets, cut crossways into thirds"
   counted 4  [4]
 ? "1/4 cup finely grated parmesan"
   measured 0.25 cup  [1/4 cup]
@@ -6330,7 +6330,7 @@
   measured 125 g | same 0.5 rs  [125 g] [1/2 rs]
 ? "1 kpl ruukku Kotimaista-basilikaa"
   counted 1 kpl  [1 kpl]
-? "3 rkl punaista currytahnaa"
+✓ "3 rkl punaista currytahnaa"
   measured 3 tbsp  [3 rkl]
 ? "250 g (1 pkt) kasviproteiinisuikaleita (Kanaton, Muu)"
   measured 250 g | same 1 pkt  [250 g] [1 pkt]
@@ -6775,7 +6775,7 @@
   measured 1 cup  [1 cup]
 ? "1 tablespoon white sugar"
   measured 1 tbsp  [1 tablespoon]
-? "1 teaspoon fennel seed"
+✓ "1 teaspoon fennel seed"
   measured 1 tsp  [1 teaspoon]
 ? "1 teaspoon Italian seasoning"
   measured 1 tsp  [1 teaspoon]
@@ -7184,7 +7184,7 @@
   measured 1 tsp  [1 tsp]
 ✓ "1 large onion, sliced into rings about 1.5cm/⅝in thick"
   counted 1 | more fixed ~1.5 cm = 0.625 in  [1] [1.5cm] [⅝in]
-? "4 tbsp plain flour"
+✓ "4 tbsp plain flour"
   measured 4 tbsp  [4 tbsp]
 ? "1 free-range egg"
   counted 1  [1]
@@ -7865,7 +7865,7 @@
   no-amount
 ? "1 rkl soijakastiketta"
   measured 1 tbsp  [1 rkl]
-? "1 kpl kanelitankoa"
+✓ "1 kpl kanelitankoa"
   counted 1 kpl  [1 kpl]
 ? "1 rkl inkiväärisiirappia"
   measured 1 tbsp  [1 rkl]
@@ -9045,7 +9045,7 @@
   measured 2 tbsp  [2 tbsp]
 ? "2 tsp pomegranate molasses"
   measured 2 tsp  [2 tsp]
-? "1  medium garlic clove (, finely grated or crushed using garlic crusher)"
+✓ "1  medium garlic clove (, finely grated or crushed using garlic crusher)"
   counted 1  [1]
 ? "1 tsp sumac ((still worth making without))"
   measured 1 tsp  [1 tsp]

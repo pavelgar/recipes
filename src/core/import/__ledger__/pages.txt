@@ -252,21 +252,21 @@
 ## valio.fi : 3 pages
 
 ✓ "https://www.valio.fi/reseptit/ananas-rahkajuoma/"
-  servings 1, 1 l | prep 10 | cook – | total 10
+  servings 1 l | prep 10 | cook – | total 10
   ingredients 5 in 1 section
   steps 2 in 1 section
   fi, metric
   source Valio, at the address read
   photo https://www.valio.fi/cdn-cgi/image/format=auto,width=1200,height=1200,fit=cover/https://cdn-wp.valio.fi/valio-fi/2023/04/33170-ananas-rahkajuoma.jpeg
 ✓ "https://www.valio.fi/reseptit/juustoinen-jauhelihakeitto-mikrossa/"
-  servings 2, 2 annosta | prep 20 | cook – | total 20
+  servings 2 annosta | prep 20 | cook – | total 20
   ingredients 9 in 1 section
   steps 3 in 1 section
   fi, metric
   source Valio, at the address read
   photo https://www.valio.fi/cdn-cgi/image/format=auto,width=1200,height=1200,fit=cover/https://cdn-wp.valio.fi/valio-fi/2023/04/40699-juustoinen-jauhelihakeitto-mikrossa.jpeg
 ✓ "https://www.valio.fi/reseptit/kolmen-juuston-patonki/"
-  servings 1, 1 annos | prep 10 | cook – | total 10
+  servings 1 annos | prep 10 | cook – | total 10
   ingredients 8 in 1 section
   steps 2 in 1 section
   fi, metric

@@ -5,6 +5,9 @@ import { configDefaults, defineConfig } from 'vitest/config'
 // devtools and Paraglide plugins.
 export default defineConfig({
   resolve: { tsconfigPaths: true },
+  // Vite otherwise follows imports into mocked server modules before Vitest
+  // replaces them, reaching Start's build-only virtual entries.
+  server: { preTransformRequests: false },
   test: {
     projects: [
       {

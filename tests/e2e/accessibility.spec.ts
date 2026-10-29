@@ -44,7 +44,8 @@ for (const theme of ['light', 'dark'] as const) {
   })
 }
 
-test('a saved recipe has no accessibility violations', async ({ page }) => {
+// Types in the sample recipe and saves it, which opens it.
+async function saveRecipe(page: Page) {
   await page.goto('/add')
   await page.getByRole('textbox', { name: 'Title' }).fill(PELTILEIPA.title)
   await page
@@ -57,8 +58,74 @@ test('a saved recipe has no accessibility violations', async ({ page }) => {
   await expect(
     page.getByRole('heading', { name: PELTILEIPA.title }),
   ).toBeVisible()
+}
+
+test('a saved recipe has no accessibility violations', async ({ page }) => {
+  await saveRecipe(page)
   expect(await violations(page)).toEqual([])
 })
+
+// While cooking: the servings changed, lines crossed off, the current step
+// further on, a timer running and then up, and on phones the ingredients
+// in their drawer, in both themes. A timer that's up pulses unless the
+// device asks for less motion; asking lets the check wait for the page to
+// be still.
+for (const theme of ['light', 'dark'] as const) {
+  test(`a recipe being cooked has no accessibility violations, ${theme}`, async ({
+    page,
+    isMobile,
+  }) => {
+    await page.clock.install()
+    await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
+    await saveRecipe(page)
+    await page
+      .getByRole('checkbox', { name: PELTILEIPA.ingredients[0] })
+      .check()
+    await page.getByRole('button', { name: 'More servings' }).click()
+    await page.getByRole('button', { name: 'Done', exact: true }).click()
+    await page
+      .getByRole('button', { name: 'Step 3: start a timer for 15 min' })
+      .click()
+    await expect(
+      page.getByRole('button', { name: /^Step 3: stop the timer 15 min / }),
+    ).toBeVisible()
+    await expect(
+      page.getByRole('button', { name: /^Stop the timer for step 3 / }),
+    ).toBeVisible()
+    expect(await violations(page)).toEqual([])
+
+    await page.clock.fastForward('15:01')
+    await expect(
+      page.getByRole('button', {
+        name: "Step 3: stop the timer 15 min Time's up",
+      }),
+    ).toBeVisible()
+    await expect(
+      page.getByRole('button', { name: "Stop the timer for step 3 Time's up" }),
+    ).toBeVisible()
+    expect(await violations(page)).toEqual([])
+
+    // The recipe is short, so on a screen this low its ingredients can
+    // scroll away for the dock to offer them.
+    if (isMobile) {
+      await page.setViewportSize({ width: 412, height: 400 })
+      await page.evaluate(() =>
+        window.scrollTo(0, document.documentElement.scrollHeight),
+      )
+      const ingredients = page.getByRole('button', {
+        name: 'Ingredients, 1/7 checked',
+      })
+      await expect(ingredients).toBeVisible()
+      // Check the dock before its drawer hides it from the accessibility tree.
+      expect(await violations(page)).toEqual([])
+      await ingredients.click()
+      await expect(
+        page.getByRole('dialog', { name: 'Ingredients' }),
+      ).toBeVisible()
+      expect(await violations(page)).toEqual([])
+    }
+  })
+}
 
 // Its buttons lie over the photo.
 test('the editor and the saved recipe have no accessibility violations with a photo', async ({

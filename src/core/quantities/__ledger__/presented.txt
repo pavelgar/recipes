@@ -4,9 +4,9 @@
 # Written by the tests; see src/testing/ledger.ts for what ✓, ✗ and ? mean
 # and how to update it.
 #
-# 4635 entries: 94 checked, of which 2 wrong; 4541 unchecked.
+# 4710 entries: 419 checked, of which 1 wrong; 4291 unchecked.
 
-## arla.fi : 312 lines and sentences, 286 entries
+## arla.fi : 313 lines and sentences, 287 entries
 
 ? "7½ dl keskitäyteläistä punaviiniä"
   us: 3¼ kuppia keskitäyteläistä punaviiniä
@@ -64,7 +64,7 @@
 ? "1 dl kylmää ja vahvaa kahvi"
   us: ⅓ kuppia + 1½ rkl kylmää ja vahvaa kahvi
   ×1.5: 1,5 dl kylmää ja vahvaa kahvi
-? "8 dl Arla® Kevytmaitoa"
+✓ "8 dl Arla® Kevytmaitoa"
   us: 3⅓ kuppia Arla® Kevytmaitoa
   ×1.5: 12 dl Arla® Kevytmaitoa
 ? "1 kg valkoista parsaa"
@@ -76,8 +76,8 @@
   ×1.5: ¾ sitruuna, mehuksi puristettuna
 ? "1 sitruuna, viipaloituna ja neljäsosiksi leikattuna"
   ×1.5: 1½ sitruuna, viipaloituna ja neljäsosiksi leikattuna
-? "n. 3 dl (180g) vehnäjauhoja"
-  us: n. 1¼ kuppia (6 unssia) vehnäjauhoja
+✓ "n. 3 dl (180g) vehnäjauhoja"
+  us: n. 1¼ kuppia (180g) vehnäjauhoja
   ×1.5: n. 4,5 dl (270g) vehnäjauhoja
 ? "2 rkl sokeria"
   ×1.5: 3 rkl sokeria
@@ -354,6 +354,8 @@
 ? "200 g Arla® Lempi Crème Fraîche 28 %"
   us: 7 unssia Arla® Lempi Crème Fraîche 28 %
   ×1.5: 300 g Arla® Lempi Crème Fraîche 28 %
+✓ "¼ tl jauhettua cayennepippuria"
+  ×1.5: 0,4 tl jauhettua cayennepippuria
 ? "2 rkl konjakkia"
   ×1.5: 3 rkl konjakkia
 ? "puolikas kurkkua siivutettuna"
@@ -729,7 +731,7 @@
 ? "step: Voitele ja jauhota irtopohja kakkuvuoka jonka halkaisija on noin 24 cm."
   us: Voitele ja jauhota irtopohja kakkuvuoka jonka halkaisija on noin 9½ tuumaa.
 
-## bbcgoodfood.com : 368 lines and sentences, 345 entries
+## bbcgoodfood.com : 371 lines and sentences, 348 entries
 
 ? "600g small new potatoes"
   us: 21 oz small new potatoes
@@ -1012,6 +1014,8 @@
   ×1.5: ¾ tsp baking powder
 ? "1 tsp vanilla extract"
   ×1.5: 1½ tsp vanilla extract
+✓ "¼ tsp cream of tartar"
+  ×1.5: 0.4 tsp cream of tartar
 ✓ "275g  flour"
   us: 10 oz  flour
   ×1.5: 415g  flour
@@ -1035,6 +1039,8 @@
   ×1.5: 75g raisins
 ? "½ tsp  ground cardamom"
   ×1.5: ¾ tsp  ground cardamom
+✓ "¼ tsp  grated nutmeg"
+  ×1.5: 0.4 tsp  grated nutmeg
 ? "12 eggs"
   ×1.5: 18 eggs
 ? "1-4 tbsp vinegar"
@@ -1149,6 +1155,8 @@
   ×1.5: 600g can red kidney beans drained and rinsed
 ? "1 tsp ground cumin"
   ×1.5: 1½ tsp ground cumin
+✓ "¼ tsp  chilli powder"
+  ×1.5: 0.4 tsp  chilli powder
 ? "½ tsp dried oregano"
   ×1.5: ¾ tsp dried oregano
 ? "4 small flour tortillas warmed"
@@ -1566,7 +1574,7 @@
 ? "step: Sift one third of the 115g icing sugar over the mixture, then gently fold it in with a big metal spoon or rubber spatula."
   us: Sift one third of the 4 oz icing sugar over the mixture, then gently fold it in with a big metal spoon or rubber spatula.
 
-## bettycrocker.com : 199 lines and sentences, 187 entries
+## bettycrocker.com : 202 lines and sentences, 189 entries
 
 ? "1 cup uncooked regular long-grain white rice"
   metric: 2.4 dl uncooked regular long-grain white rice
@@ -1595,11 +1603,13 @@
   ×1.5: 4½ tablespoons fresh lemon juice
 ? "1/2 teaspoon salt"
   ×1.5: 3/4 teaspoon salt
+✓ "1/4 teaspoon pepper"
+  ×1.5: 0.4 teaspoon pepper
 ? "1 clove garlic, finely chopped"
   ×1.5: 1½ cloves garlic, finely chopped
-? "2 cups shredded sharp Cheddar cheese (8 oz)"
-  metric: 4.7 dl shredded sharp Cheddar cheese (225 g)
-  ×1.5: 7.1 dl shredded sharp Cheddar cheese (340 g)
+✓ "2 cups shredded sharp Cheddar cheese (8 oz)"
+  metric: 4.7 dl shredded sharp Cheddar cheese (8 oz)
+  ×1.5: 7.1 dl shredded sharp Cheddar cheese (12 oz)
 ? "1 package (8 oz) cream cheese, softened"
   metric: 1 package (225 g) cream cheese, softened
   ×1.5: 1½ packages (340 g) cream cheese, softened
@@ -1650,6 +1660,8 @@
 ? "4 boneless skinless chicken breast halves (1 1/4 pounds)"
   metric: 4 boneless skinless chicken breast halves (570 g)
   ×1.5: 6 boneless skinless chicken breast halves (850 g)
+✓ "1/4 teaspoon salt"
+  ×1.5: 0.4 teaspoon salt
 ? "3 ounces Cheddar cheese"
   metric: 85 g Cheddar cheese
   ×1.5: 130 g Cheddar cheese
@@ -1682,9 +1694,9 @@
 ? "1 bag (12 oz) semisweet chocolate chips (2 cups)"
   metric: 1 bag (340 g) semisweet chocolate chips (4.7 dl)
   ×1.5: 1½ bags (510 g) semisweet chocolate chips (7.1 dl)
-? "2 cups M&M'S® milk chocolate candies (about 14 oz)"
-  metric: 4.7 dl M&M'S® milk chocolate candies (about 400 g)
-  ×1.5: 7.1 dl M&M'S® milk chocolate candies (about 600 g)
+✓ "2 cups M&M'S® milk chocolate candies (about 14 oz)"
+  metric: 4.7 dl M&M'S® milk chocolate candies (about 14 oz)
+  ×1.5: 7.1 dl M&M'S® milk chocolate candies (about 21 oz)
 ? "1 box Betty Crocker™ Super Moist™ Devil’s Food Cake Mix"
   ×1.5: 1½ boxes Betty Crocker™ Super Moist™ Devil’s Food Cake Mix
 ? "1 tub (16 oz) Betty Crocker™ Rich & Creamy Vanilla Frosting"
@@ -1759,9 +1771,9 @@
   ×1.5: 0.9 dl grated Parmesan cheese
 ? "1 tablespoon chopped fresh oregano leaves or 1 1/2 teaspoons dried oregano leaves"
   ×1.5: 1½ tablespoons chopped fresh oregano leaves or 2 1/4 teaspoons dried oregano leaves
-? "2 cups shredded mozzarella cheese (8 oz)"
-  metric: 4.7 dl shredded mozzarella cheese (225 g)
-  ×1.5: 7.1 dl shredded mozzarella cheese (340 g)
+✓ "2 cups shredded mozzarella cheese (8 oz)"
+  metric: 4.7 dl shredded mozzarella cheese (8 oz)
+  ×1.5: 7.1 dl shredded mozzarella cheese (12 oz)
 ? "2 1/2 cups marshmallow creme (from two 7-oz jars)"
   metric: 5.9 dl marshmallow creme (from two 200 g jars)
   ×1.5: 8.9 dl marshmallow creme (from two 200 g jars)
@@ -1876,7 +1888,7 @@
 ? "1 (8 oz.) container sour cream"
   metric: 1 (225 g) container sour cream
   ×1.5: 1½ (225 g) containers sour cream
-? "9 cups 1/2-inch cubes cornbread or soft bread"
+✓ "9 cups 1/2-inch cubes cornbread or soft bread"
   metric: 2.1 l 1 cm cubes cornbread or soft bread
   ×1.5: 3.2 l 1 cm cubes cornbread or soft bread
 ? "1 1/2 teaspoons chopped fresh or 1/2 teaspoon dried sage leaves, crumbled"
@@ -2056,7 +2068,7 @@
 ? "step: Preheat oven to 425°F (or 400°F for dark or nonstick pan)."
   metric: Preheat oven to 220°C (or 200°C for dark or nonstick pan).
 
-## kingarthurbaking.com : 561 lines and sentences, 469 entries
+## kingarthurbaking.com : 585 lines and sentences, 485 entries
 
 ? "2 cups (397g) granulated sugar"
   ×1.5: 3 cups (595g) granulated sugar
@@ -2074,6 +2086,8 @@
   ×1.5: 1½ tablespoons (20g) light brown sugar or dark brown sugar, packed
 ? "1 tablespoon (21g) boiled cider or maple syrup"
   ×1.5: 1½ tablespoons (30g) boiled cider or maple syrup
+✓ "1/4 teaspoon table salt"
+  ×1.5: 0.4 teaspoon table salt
 ? "2 cups (227g) King Arthur Unbleached Self-Rising Flour"
   ×1.5: 3 cups (340g) King Arthur Unbleached Self-Rising Flour
 ? "1/4 cup (53g) light brown sugar or dark brown sugar, packed"
@@ -2090,6 +2104,10 @@
   ×1.5: 3 tablespoons (40g) granulated sugar
 ? "1/2 teaspoon ground cinnamon"
   ×1.5: 3/4 teaspoon ground cinnamon
+✓ "1/4 teaspoon ground allspice"
+  ×1.5: 0.4 teaspoon ground allspice
+✓ "1/8 teaspoon each ginger and nutmeg"
+  ×1.5: 0.2 teaspoon each ginger and nutmeg
 ? "1 tablespoon caramel sauce, from above"
   ×1.5: 1½ tablespoons caramel sauce, from above
 ? "1 teaspoon boiled cider"
@@ -2120,6 +2138,8 @@
   ×1.5: 6 tablespoons (85g) butter or vegan butter, at room temperature
 ? "2 1/2 cups (283g) confectioners' sugar, sifted if lumpy"
   ×1.5: 3 3/4 cups (425g) confectioners' sugar, sifted if lumpy
+✓ "1/8 teaspoon table salt"
+  ×1.5: 0.2 teaspoon table salt
 ? "1/2 teaspoon King Arthur Pure Vanilla Extract"
   ×1.5: 3/4 teaspoon King Arthur Pure Vanilla Extract
 ? "2 tablespoons (28g) water"
@@ -2185,6 +2205,8 @@
   ×1.5: 1½ cups (170g) King Arthur Golden Wheat Flour
 ? "1/2 cup (113g) cool water"
   ×1.5: 3/4 cup (170g) cool water
+✓ "1/8 teaspoon instant yeast"
+  ×1.5: 0.2 teaspoon instant yeast
 ? "2 cups (240g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 3 cups (360g) King Arthur Unbleached All-Purpose Flour
 ? "3 tablespoons (32g) potato flour or 1/3 cup (32g) dried potato flakes (instant mashed potatoes)"
@@ -2199,6 +2221,8 @@
   ×1.5: 3/4 cup (170g) milk, lukewarm
 ? "1 cup (170g) golden raisins, dark raisins, or a combination; or currants"
   ×1.5: 1½ cups (255g) golden raisins, dark raisins, or a combination; or currants
+✓ "1/4 teaspoon ground cinnamon"
+  ×1.5: 0.4 teaspoon ground cinnamon
 ? "1 tablespoon (7g) confectioners' sugar"
   ×1.5: 1½ tablespoons (11g) confectioners' sugar
 ? "1 tablespoon (14g) cold water"
@@ -2267,6 +2291,8 @@
   ×1.5: 3 tablespoons (40g) heavy cream
 ? "3 large egg whites, (reserved from filling)"
   ×1.5: 4½ large egg whites, (reserved from filling)
+✓ "1/4 teaspoon cream of tartar"
+  ×1.5: 0.4 teaspoon cream of tartar
 ? "1/3 cup (74g) water"
   ×1.5: 1/2 cup (110g) water
 ? "1 tablespoon (7g) cornstarch"
@@ -2303,6 +2329,8 @@
   ×1.5: 3/4 cup (150g) granulated sugar
 ? "1/3 cup (71g) light brown sugar or dark brown sugar, packed"
   ×1.5: 1/2 cup (105g) light brown sugar or dark brown sugar, packed
+✓ "1/4 teaspoon baking soda"
+  ×1.5: 0.4 teaspoon baking soda
 ? "1/2 to 1 teaspoon ground nutmeg, to taste"
   ×1.5: 3/4 to 1 1/2 teaspoons ground nutmeg, to taste
 ? "1 cup (227g) milk"
@@ -2344,6 +2372,8 @@
   ×1.5: 3 teaspoons Mexican vanilla extract, or your favorite vanilla extract
 ? "2/3 cup (133g) granulated sugar"
   ×1.5: 1 cup (200g) granulated sugar
+✓ "1/4 rounded teaspoon table salt"
+  ×1.5: 0.4 rounded teaspoon table salt
 ? "1 1/2 teaspoons Mexican vanilla extract, or your favorite vanilla extract"
   ×1.5: 2 1/4 teaspoons Mexican vanilla extract, or your favorite vanilla extract
 ? "7 tablespoons (99g) unsalted butter, softened"
@@ -2392,6 +2422,8 @@
   ×1.5: 1/2 cup (100g) granulated sugar
 ? "2 teaspoons baking powder"
   ×1.5: 3 teaspoons baking powder
+✓ "1/4 plus 1/8 teaspoon baking soda"
+  ×1.5: 0.4 plus 0.2 teaspoon baking soda
 ? "2/3 cup (152g) heavy cream, cold, plus 1 1/2 tablespoons (21g) for brushing"
   ×1.5: 1 cup (230g) heavy cream, cold, plus 2 tbsp + ¾ tsp (30g) for brushing
 ? "1/4 cup (57g) sour cream, cold"
@@ -2436,8 +2468,8 @@
   ×1.5: 1½ large egg, at room temperature
 ? "2 1/2 cups (425g) fresh or frozen peaches (about 3 or 4 peaches)"
   ×1.5: 3 3/4 cups (640g) fresh or frozen peaches (about 4½ or 6 peaches)
-? "1/2 teaspoon cinnamon or 1/4 teaspoon nutmeg, optional"
-  ×1.5: 3/4 teaspoon cinnamon or 1/4 teaspoon nutmeg, optional
+✓ "1/2 teaspoon cinnamon or 1/4 teaspoon nutmeg, optional"
+  ×1.5: 3/4 teaspoon cinnamon or 0.4 teaspoon nutmeg, optional
 ? "3 cups (468g) King Arthur Gluten-Free All-Purpose Flour"
   ×1.5: 4½ cups (700g) King Arthur Gluten-Free All-Purpose Flour
 ✓ "3 tablespoons (35g) granulated sugar"
@@ -2450,8 +2482,8 @@
   ×1.5: 4½ large eggs
 ? "8 tablespoons (113g) unsalted butter, softened"
   ×1.5: 12 tablespoons (170g) unsalted butter, softened
-? "1/8 to 1/2 teaspoon extra-strong flavor, optional*"
-  ×1.5: 1/8 to 3/4 teaspoon extra-strong flavor, optional*
+✓ "1/8 to 1/2 teaspoon extra-strong flavor, optional*"
+  ×1.5: 0.2 to 0.8 teaspoon extra-strong flavor, optional*
 ? "1/2 cup (113g) milk"
   ×1.5: 3/4 cup (170g) milk
 ? "2 cups (227g) King Arthur Golden Wheat Flour"
@@ -2462,6 +2494,8 @@
   ×1.5: 1½ cups (340g) water
 ? "1 teaspoon table salt"
   ×1.5: 1½ teaspoons table salt
+✓ "1/8 teaspoon ground black pepper, or a couple of dashes Tabasco sauce"
+  ×1.5: 0.2 teaspoon ground black pepper, or a couple of dashes Tabasco sauce
 ? "1 cup (120g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: 1½ cups (180g) King Arthur Unbleached All-Purpose Flour
 ? "1 cup (113g) Parmesan cheese, freshly grated"
@@ -2490,10 +2524,14 @@
   ×1.5: 9 tablespoons (130g) water
 ? "3 tablespoons (39g) vegetable oil"
   ×1.5: 4½ tablespoons (60g) vegetable oil
+✓ "1/4 teaspoon natural maple flavor"
+  ×1.5: 0.4 teaspoon natural maple flavor
 ? "2 tablespoons (20g) maple sugar"
   ×1.5: 3 tablespoons (30g) maple sugar
 ? "2 tablespoons (28g) confectioners' sugar"
   ×1.5: 3 tablespoons (40g) confectioners' sugar
+✓ "1/8 teaspoon natural maple flavor, optional"
+  ×1.5: 0.2 teaspoon natural maple flavor, optional
 ? "16 tablespoons (227g) unsalted butter, softened"
   ×1.5: 24 tablespoons (340g) unsalted butter, softened
 ? "2 1/2 cups (495g) granulated sugar"
@@ -2512,6 +2550,8 @@
   ×1.5: 1½ cups (130g) Dutch-process cocoa
 ? "2 cups (232g) King Arthur ‘00’ Pizza Flour"
   ×1.5: 3 cups (350g) King Arthur ‘00’ Pizza Flour
+✓ "1/8 teaspoon instant yeast or active dry yeast"
+  ×1.5: 0.2 teaspoon instant yeast or active dry yeast
 ? "1/2 teaspoon granulated sugar"
   ×1.5: 3/4 teaspoon granulated sugar
 ? "3/4 cup (170g) water, lukewarm, (105° to 115°F)"
@@ -2670,8 +2710,8 @@
 ? "8 tablespoons (113g) unsalted butter, at room temperature, at least 65°F"
   metric: 8 tablespoons (113g) unsalted butter, at room temperature, at least 18°C
   ×1.5: 12 tablespoons (170g) unsalted butter, at room temperature, at least 18°C
-? "1/8 teaspoon orange oil or 1 teaspoon orange zest"
-  ×1.5: 1/8 teaspoon orange oil or 1½ teaspoons orange zest
+✓ "1/8 teaspoon orange oil or 1 teaspoon orange zest"
+  ×1.5: 0.2 teaspoon orange oil or 1½ teaspoons orange zest
 ? "1 cup plus 1 tablespoon (242g) water, divided"
   ×1.5: 1½ cups plus 1½ tablespoons (365g) water, divided
 ? "1/4 cup plus 2 teaspoons (60g) light brown sugar or dark brown sugar, packed"
@@ -2718,6 +2758,10 @@
   ×1.5: 1½ cups plus 3 tablespoons (385g) water
 ? "1/4 cup plus 2 tablespoons (45g) King Arthur Unbleached All-Purpose Flour"
   ×1.5: ⅓ cup + ½ tbsp plus 3 tablespoons (70g) King Arthur Unbleached All-Purpose Flour
+✓ "1/4 plus 1/8 teaspoon baking powder"
+  ×1.5: 0.4 plus 0.2 teaspoon baking powder
+✓ "1/4 plus 1/8 teaspoon ground cardamom, ground"
+  ×1.5: 0.4 plus 0.2 teaspoon ground cardamom, ground
 ? "1/2 cup plus 1 tablespoon (110g) granulated sugar"
   ×1.5: 3/4 cup plus 1½ tablespoons (165g) granulated sugar
 ? "3/4 cup plus 2 tablespoons (99g) confectioners' sugar, sifted if lumpy"
@@ -2782,8 +2826,8 @@
   ×1.5: 1½ tablespoons plus 1½ teaspoons (25g) granulated sugar
 ? "1/4 cup (43g) potato flour or 1/2 cup (43g) dried potato flakes (instant mashed potatoes)"
   ×1.5: ⅓ cup + ½ tbsp (65g) potato flour or 3/4 cup (65g) dried potato flakes (instant mashed potatoes)
-? "1 tablespoon (14g) orange zest or 1/8 teaspoon orange oil"
-  ×1.5: 1½ tablespoons (20g) orange zest or 1/8 teaspoon orange oil
+✓ "1 tablespoon (14g) orange zest or 1/8 teaspoon orange oil"
+  ×1.5: 1½ tablespoons (20g) orange zest or 0.2 teaspoon orange oil
 ? "2 cups (240g) King Arthur Unbleached All-Purpose Flour or 2 cups (227g) King Arthur Pastry Flour Blend"
   ×1.5: 3 cups (360g) King Arthur Unbleached All-Purpose Flour or 3 cups (340g) King Arthur Pastry Flour Blend
 ? "two 1/4-ounce packages unflavored gelatin"
@@ -2803,8 +2847,8 @@
   ×1.5: 1½ 225 g ball (340g) fresh mozzarella, thinly sliced or torn
 ? "one 13.75-ounce (390g) can artichoke hearts, drained and quartered"
   ×1.5: 1½ 13.75-ounce (390g) cans artichoke hearts, drained and quartered
-? "1 teaspoon King Arthur Pure Vanilla Extract or 1/4 teaspoon King Arthur Fiori di Sicilia"
-  ×1.5: 1½ teaspoons King Arthur Pure Vanilla Extract or 1/4 teaspoon King Arthur Fiori di Sicilia
+✓ "1 teaspoon King Arthur Pure Vanilla Extract or 1/4 teaspoon King Arthur Fiori di Sicilia"
+  ×1.5: 1½ teaspoons King Arthur Pure Vanilla Extract or 0.4 teaspoon King Arthur Fiori di Sicilia
 ? "1/2 cup (78g) maple sugar or 1/2 cup (106g) brown sugar, packed"
   ×1.5: 3/4 cup (115g) maple sugar or 3/4 cup (160g) brown sugar, packed
 ? "3 tablespoons plus 1/2 cup (61g) old-fashioned rolled oats, divided*"
@@ -2962,8 +3006,8 @@
   metric: To reheat, cover with aluminum foil and bake in a preheated 180°C oven for 8 to 10 minutes.
 ? "step: Preheat the oven to 325°F."
   metric: Preheat the oven to 160°C.
-? "step: Lightly grease a 10” (12-cup) tube pan or 12-cup Bundt pan."
-  metric: Lightly grease a 25 cm (2.8 l) tube pan or 2.8 l Bundt pan.
+✓ "step: Lightly grease a 10” (12-cup) tube pan or 12-cup Bundt pan."
+  metric: Lightly grease a 25 cm (12-cup) tube pan or 2.8 l Bundt pan.
 ? "step: Place a rack in the center of your oven and preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside."
   metric: Place a rack in the center of your oven and preheat the oven to 260–290°C (if your oven goes to 290°C) with a baking steel or stone inside.
 ? "step: The position of the rack is important, particularly if you're using parchment paper — too close to the broiler (you need at least 8\" clearance) and the top of your pizza (and any visible edges of parchment) will burn before the bottom has had time to bake through."
@@ -3028,7 +3072,7 @@
 ? "step: Heat a 10\" pan with heatproof handle over medium-low heat (an omelet pan or cast iron skillet works well)."
   metric: Heat a 25 cm pan with heatproof handle over medium-low heat (an omelet pan or cast iron skillet works well).
 
-## kotikokki.net : 241 lines and sentences, 230 entries
+## kotikokki.net : 242 lines and sentences, 231 entries
 
 ? "1 ½kg lampaanviulu"
   us: 3¼ paunaa lampaanviulu
@@ -3225,12 +3269,12 @@
 ? "1,5dl kuohukermaa"
   us: ⅔ kuppia kuohukermaa
   ×1.5: 2,3dl kuohukermaa
-? "3/4dl sokeria"
+✓ "3/4dl sokeria"
   us: ⅓ kuppia sokeria
-  ×1.5: 1dl sokeria
-? "3/4dl fariinisokeria"
+  ×1.5: 1,1dl sokeria
+✓ "3/4dl fariinisokeria"
   us: ⅓ kuppia fariinisokeria
-  ×1.5: 1dl fariinisokeria
+  ×1.5: 1,1dl fariinisokeria
 ? "2tl voita tai margariinia"
   ×1.5: 3tl voita tai margariinia
 ? "1tl vanilliinisokeria"
@@ -3374,6 +3418,8 @@
   ×1.5: 4½rkl Paprikajauhetta
 ? "1rkl Mustapippurirouhetta"
   ×1.5: 1½rkl Mustapippurirouhetta
+✓ "1/4tl Valkopippurijauhetta"
+  ×1.5: 0,4tl Valkopippurijauhetta
 ? "2tl Chilijauhetta."
   ×1.5: 3tl Chilijauhetta.
 ? "8kpl broilerinakkeja pitkiä"
@@ -3527,7 +3573,7 @@
   ×1.5: 300 Keittojuures pussi
 ? "3Kpl Kananmuna"
   ×1.5: 4½Kpl Kananmuna
-? "1kynsi valkosipulia tai 2 tl valkosipulirouhetta"
+✓ "1kynsi valkosipulia tai 2 tl valkosipulirouhetta"
   ×1.5: 1½kynttä valkosipulia tai 3 tl valkosipulirouhetta
 ? "150g musta leima raastettu (120 + 30)"
   us: 5 unssia musta leima raastettu (120 + 30)
@@ -3592,7 +3638,7 @@
 ? "step: Paista uunissa 70 min 200 Astetta"
   us: Paista uunissa 70 min 400 °F
 
-## soppa365.fi : 402 lines and sentences, 351 entries
+## soppa365.fi : 413 lines and sentences, 359 entries
 
 ? "2 dl (sulatettuja) marjoja (esim. mustikoita"
   us: ¾ kuppia + 1½ rkl (sulatettuja) marjoja (esim. mustikoita
@@ -3602,6 +3648,8 @@
   ×1.5: 7,5 dl (kahviin sopivaa) kaura- tai mantelimaitoa
 ? "1/2 tl jauhettua kardemummaa"
   ×1.5: 3/4 tl jauhettua kardemummaa
+✓ "1/4 tl jauhettua inkivääriä"
+  ×1.5: 0,4 tl jauhettua inkivääriä
 ? "1 tl vaniljasokeria"
   ×1.5: 1½ tl vaniljasokeria
 ? "2 tl vaahterasiirappia"
@@ -3663,9 +3711,9 @@
 ? "1 pieni prk (35 g) pikkukapriksia"
   us: 1 pieni prk (1 unssi) pikkukapriksia
   ×1.5: 1½ pieni prk (55 g) pikkukapriksia
-? "¾ dl oliiviöljyä"
+✓ "¾ dl oliiviöljyä"
   us: ⅓ kuppia oliiviöljyä
-  ×1.5: 1 dl oliiviöljyä
+  ×1.5: 1,1 dl oliiviöljyä
 ? "1 ison sitruunan mehu ja kuoriraaste"
   ×1.5: 1½ ison sitruunan mehu ja kuoriraaste
 ? "2 rkl vettä"
@@ -3716,9 +3764,11 @@
   ×1.5: 7½ rkl tummaa kaakaojauhetta
 ? "3 tl leivinjauhetta"
   ×1.5: 4½ tl leivinjauhetta
-? "3/4 dl täysmaitoa"
+✓ "1/4 tl suolaa"
+  ×1.5: 0,4 tl suolaa
+✓ "3/4 dl täysmaitoa"
   us: ⅓ kuppia täysmaitoa
-  ×1.5: 1 dl täysmaitoa
+  ×1.5: 1,1 dl täysmaitoa
 ? "5 rkl vahvaa espressoa"
   ×1.5: 7½ rkl vahvaa espressoa
 ? "50 g voita"
@@ -3755,6 +3805,8 @@
   ×1.5: 1½ valkosipulikynsi
 ? "2 rkl (suolatonta) grillimaustetta"
   ×1.5: 3 rkl (suolatonta) grillimaustetta
+✓ "noin ¼ tl suolaa"
+  ×1.5: noin 0,4 tl suolaa
 ? "15 g hiivaa"
   us: ½ unssia hiivaa
   ×1.5: 25 g hiivaa
@@ -3810,19 +3862,23 @@
 ? "2 dl hienonnettuja yrttejä"
   us: ¾ kuppia + 1½ rkl hienonnettuja yrttejä
   ×1.5: 3 dl hienonnettuja yrttejä
-? "n. 3/4 dl oliiviöljyä"
+✓ "n. 3/4 dl oliiviöljyä"
   us: n. ⅓ kuppia oliiviöljyä
-  ×1.5: n. 1 dl oliiviöljyä
+  ×1.5: n. 1,1 dl oliiviöljyä
 ? "1 rkl punaviinietikkaa"
   ×1.5: 1½ rkl punaviinietikkaa
 ? "1 tl savupaprikajauhetta"
   ×1.5: 1½ tl savupaprikajauhetta
 ? "1/2 tl juustokuminaa"
   ×1.5: 3/4 tl juustokuminaa
+✓ "1/4 tl rouhittua chiliä myllystä"
+  ×1.5: 0,4 tl rouhittua chiliä myllystä
 ? "1 tl (sormi)suolaa"
   ×1.5: 1½ tl (sormi)suolaa
 ? "1/2 tl sokeria"
   ×1.5: 3/4 tl sokeria
+✓ "1/4 tl mustapippuria myllystä"
+  ×1.5: 0,4 tl mustapippuria myllystä
 ? "250 g mascarponejuustoa"
   us: 9 unssia mascarponejuustoa
   ×1.5: 375 g mascarponejuustoa
@@ -3866,9 +3922,9 @@
   ×1.5: 1½ rkl rypsiöljyä
 ? "4 kypsää persimonia"
   ×1.5: 6 kypsää persimonia
-? "¾ dl kiehuvaa vettä"
+✓ "¾ dl kiehuvaa vettä"
   us: ⅓ kuppia kiehuvaa vettä
-  ×1.5: 1 dl kiehuvaa vettä
+  ×1.5: 1,1 dl kiehuvaa vettä
 ? "1 sitruunan mehu ja kuoriraaste"
   ×1.5: 1½ sitruunan mehu ja kuoriraaste
 ? "1 limetin mehu"
@@ -3913,8 +3969,8 @@
 ? "400 g maustamatonta broilerin sisäfileetä"
   us: 14 unssia maustamatonta broilerin sisäfileetä
   ×1.5: 600 g maustamatonta broilerin sisäfileetä
-? "1⁄4 tl mustapippuria"
-  ×1.5: 1/4 tl mustapippuria
+✓ "1⁄4 tl mustapippuria"
+  ×1.5: 0,4 tl mustapippuria
 ? "3 dl pankojauhoja"
   us: 1¼ kuppia pankojauhoja
   ×1.5: 4,5 dl pankojauhoja
@@ -3944,8 +4000,8 @@
   ×1.5: 1½ prk kermaviiliä
 ? "1–2 tl harissa-chilitahnaa"
   ×1.5: 1½–3 tl harissa-chilitahnaa
-? "1⁄4 tl suolaa"
-  ×1.5: 1/4 tl suolaa
+✓ "1⁄4 tl suolaa"
+  ×1.5: 0,4 tl suolaa
 ? "1 tl hunajaa"
   ×1.5: 1½ tl hunajaa
 ? "1⁄2 tl chilihiutaleita"
@@ -3961,9 +4017,9 @@
 ? "1 prk (285 g) kypsiä valkoisia papuja"
   us: 1 prk (10 unssia) kypsiä valkoisia papuja
   ×1.5: 1½ prk (430 g) kypsiä valkoisia papuja
-? "3/4 dl mantelijauhetta"
+✓ "3/4 dl mantelijauhetta"
   us: ⅓ kuppia mantelijauhetta
-  ×1.5: 1 dl mantelijauhetta
+  ×1.5: 1,1 dl mantelijauhetta
 ? "800 g pieniä kiinteitä perunoita (esim. siikli)"
   us: 28 unssia pieniä kiinteitä perunoita (esim. siikli)
   ×1.5: 1200 g pieniä kiinteitä perunoita (esim. siikli)
@@ -3989,6 +4045,8 @@
   ×1.5: 40 g parmesaania
 ? "1½ tl sormisuolaa"
   ×1.5: 2¼ tl sormisuolaa
+✓ "¼ tl mustapippuria"
+  ×1.5: 0,4 tl mustapippuria
 ? "400 g varhaiskaalia (puolikas isosta varhaiskaalista)"
   us: 14 unssia varhaiskaalia (puolikas isosta varhaiskaalista)
   ×1.5: 600 g varhaiskaalia (puolikas isosta varhaiskaalista)
@@ -4098,6 +4156,8 @@
   ×1.5: 1½ tl paprikajauhetta
 ? "1/2 tl suolaa"
   ×1.5: 3/4 tl suolaa
+✓ "1/4 tl mustapippuria"
+  ×1.5: 0,4 tl mustapippuria
 ? "100 g fetajuustoa"
   us: 3½ unssia fetajuustoa
   ×1.5: 150 g fetajuustoa
@@ -4224,16 +4284,16 @@
 ? "200 g tuorejuustoa"
   us: 7 unssia tuorejuustoa
   ×1.5: 300 g tuorejuustoa
-? "¾ dl limecurdia eli limettitahnaa"
+✓ "¾ dl limecurdia eli limettitahnaa"
   us: ⅓ kuppia limecurdia eli limettitahnaa
-  ×1.5: 1 dl limecurdia eli limettitahnaa
+  ×1.5: 1,1 dl limecurdia eli limettitahnaa
 ? "½ ruukkua sitruunamelissaa"
   ×1.5: ¾ ruukkua sitruunamelissaa
 ? "100 g valkosuklaata"
   us: 3½ unssia valkosuklaata
   ×1.5: 150 g valkosuklaata
-? "½ dl (40 g) hasselpähkinää jauhettuna"
-  us: 3½ rkl (1½ unssia) hasselpähkinää jauhettuna
+✓ "½ dl (40 g) hasselpähkinää jauhettuna"
+  us: 3½ rkl (40 g) hasselpähkinää jauhettuna
   ×1.5: ¾ dl (60 g) hasselpähkinää jauhettuna
 ? "100 g voita"
   us: 3½ unssia voita
@@ -4274,6 +4334,8 @@
   ×1.5: ¾ tl leivinjauhetta
 ? "½ tl jauhettua muskottipähkinää"
   ×1.5: ¾ tl jauhettua muskottipähkinää
+✓ "¼ tl suolaa"
+  ×1.5: 0,4 tl suolaa
 ? "2½ dl omenasosetta"
   us: 1 kuppi omenasosetta
   ×1.5: 3¾ dl omenasosetta
@@ -4332,9 +4394,9 @@
   ×1.5: 375 g maitorahkaa
 ? "2 rkl raastettua inkivääriä"
   ×1.5: 3 rkl raastettua inkivääriä
-? "1/4 dl ruokosokeria"
+✓ "1/4 dl ruokosokeria"
   us: 1½ rkl ruokosokeria
-  ×1.5: 1/3 dl ruokosokeria
+  ×1.5: 0,4 dl ruokosokeria
 ? "12-16 luumua"
   ×1.5: 18-24 luumua
 ? "350 g ricottajuustoa"
@@ -4428,7 +4490,7 @@
 ✓ "step: Levitä pohjille tasainen kerros ricottaa niin, että 2 cm reunoista jää ilman juustoa."
   us: Levitä pohjille tasainen kerros ricottaa niin, että ¾ tuumaa reunoista jää ilman juustoa.
 
-## tasteofhome.com : 348 lines and sentences, 323 entries
+## tasteofhome.com : 354 lines and sentences, 329 entries
 
 ? "3-1/2 cups water"
   metric: 8.3 dl water
@@ -4446,9 +4508,9 @@
   ×1.5: 1½ medium carrot, julienned
 ? "2 tablespoons soy sauce"
   ×1.5: 3 tablespoons soy sauce
-? "4 ounces sliced almonds (about 1 cup)"
-  metric: 115 g sliced almonds (about 2.4 dl)
-  ×1.5: 170 g sliced almonds (about 3.5 dl)
+✓ "4 ounces sliced almonds (about 1 cup)"
+  metric: 115 g sliced almonds (about 1 cup)
+  ×1.5: 170 g sliced almonds (about 1½ cups)
 ? "1 package (8 ounces) cream cheese, softened"
   metric: 1 package (225 g) cream cheese, softened
   ×1.5: 1½ packages (340 g) cream cheese, softened
@@ -4473,6 +4535,10 @@
   ×1.5: 3 tablespoons coconut oil, melted
 ? "1 teaspoon vanilla extract"
   ×1.5: 1½ teaspoons vanilla extract
+✓ "1/4 teaspoon ground cinnamon"
+  ×1.5: 0.4 teaspoon ground cinnamon
+✓ "1/8 teaspoon salt"
+  ×1.5: 0.2 teaspoon salt
 ? "1 carton (8 ounces) spreadable strawberry cream cheese"
   metric: 1 carton (225 g) spreadable strawberry cream cheese
   ×1.5: 1½ cartons (340 g) spreadable strawberry cream cheese
@@ -4520,8 +4586,8 @@
 ? "1 can (8 ounces) tomato sauce"
   metric: 1 can (225 g) tomato sauce
   ×1.5: 1½ cans (340 g) tomato sauce
-? "1 teaspoon minced fresh rosemary or 1/4 teaspoon dried rosemary, crushed"
-  ×1.5: 1½ teaspoons minced fresh rosemary or 1/4 teaspoon dried rosemary, crushed
+✓ "1 teaspoon minced fresh rosemary or 1/4 teaspoon dried rosemary, crushed"
+  ×1.5: 1½ teaspoons minced fresh rosemary or 0.4 teaspoon dried rosemary, crushed
 ? "2 whole wheat pita breads (6 inches), cut in half horizontally"
   metric: 2 whole wheat pita breads (15 cm), cut in half horizontally
   ×1.5: 3 whole wheat pita breads (15 cm), cut in half horizontally
@@ -4595,6 +4661,8 @@
   ×1.5: 1.1 l confectioners' sugar
 ? "2 tablespoons butter, softened"
   ×1.5: 3 tablespoons butter, softened
+✓ "1/4 teaspoon vanilla extract"
+  ×1.5: 0.4 teaspoon vanilla extract
 ? "4 to 5 tablespoons half-and-half cream"
   ×1.5: 6 to 7½ tablespoons half-and-half cream
 ? "2 cups butter, softened"
@@ -4641,6 +4709,10 @@
   ×1.5: 3 garlic cloves
 ? "1/2 teaspoon Louisiana-style hot sauce"
   ×1.5: 3/4 teaspoon Louisiana-style hot sauce
+✓ "1/4 teaspoon salt"
+  ×1.5: 0.4 teaspoon salt
+✓ "1/4 teaspoon pepper"
+  ×1.5: 0.4 teaspoon pepper
 ? "1 package (9 ounces) refrigerated spinach tortellini"
   metric: 1 package (260 g) refrigerated spinach tortellini
   ×1.5: 1½ packages (380 g) refrigerated spinach tortellini
@@ -4737,9 +4809,9 @@
 ? "5-1/4 to 6 cups all-purpose flour"
   metric: 1.2–1.4 l all-purpose flour
   ×1.5: 1.9–2.1 l all-purpose flour
-? "1-1/2 cups (12 ounces) finely chopped dried apricots"
-  metric: 3.5 dl (340 g) finely chopped dried apricots
-  ×1.5: 5.3 dl (510 g) finely chopped dried apricots
+✓ "1-1/2 cups (12 ounces) finely chopped dried apricots"
+  metric: 3.5 dl (12 ounces) finely chopped dried apricots
+  ×1.5: 5.3 dl (18 ounces) finely chopped dried apricots
 ? "1-1/2 cups finely chopped well-drained maraschino cherries"
   metric: 3.5 dl finely chopped well-drained maraschino cherries
   ×1.5: 5.3 dl finely chopped well-drained maraschino cherries
@@ -4827,6 +4899,8 @@
   ×1.5: 5.3 dl honey-roasted peanuts
 ? "1-1/4 teaspoons dried minced onion"
   ×1.5: 2 teaspoons dried minced onion
+✓ "1/4 teaspoon plus 1/8 teaspoon ground cinnamon, divided"
+  ×1.5: 0.4 teaspoon plus 0.2 teaspoon ground cinnamon, divided
 ? "1 can (14-1/2 ounces) vegetable or chicken broth"
   metric: 1 can (410 g) vegetable or chicken broth
   ×1.5: 1½ cans (620 g) vegetable or chicken broth
@@ -4864,7 +4938,7 @@
   ×1.5: 3 packages (280 g each) Italian-blend salad greens
 ? "1-1/2 teaspoons dried minced onion"
   ×1.5: 2-1/4 teaspoons dried minced onion
-? "2-1/4 cups gluten-free all-purpose baking flour (without xanthan gum)"
+✓ "2-1/4 cups gluten-free all-purpose baking flour (without xanthan gum)"
   metric: 5.3 dl gluten-free all-purpose baking flour (without xanthan gum)
   ×1.5: 8 dl gluten-free all-purpose baking flour (without xanthan gum)
 ? "1-1/2 pounds halibut or salmon steaks"
@@ -5275,7 +5349,7 @@
 ? "step: Shape into 1-1/2-in. balls."
   metric: Shape into 4 cm balls.
 
-## valio.fi : 382 lines and sentences, 328 entries
+## valio.fi : 386 lines and sentences, 330 entries
 
 ? "3 dl Valio Gefilus® Kefir juomaa maustamaton"
   us: 1¼ kuppia Valio Gefilus® Kefir juomaa maustamaton
@@ -5342,8 +5416,8 @@
 ? "½ dl hassel- tai saksanpähkinärouhetta"
   us: 3½ rkl hassel- tai saksanpähkinärouhetta
   ×1.5: ¾ dl hassel- tai saksanpähkinärouhetta
-? "1½ dl (150 g) Valio voita"
-  us: ⅔ kuppia (5 unssia) Valio voita
+✓ "1½ dl (150 g) Valio voita"
+  us: ⅔ kuppia (150 g) Valio voita
   ×1.5: 2¼ dl (225 g) Valio voita
 ? "1 rasia (200 g) Valio Viola® vanilja tuorejuustoa"
   us: 1 rasia (7 unssia) Valio Viola® vanilja tuorejuustoa
@@ -5354,9 +5428,9 @@
 ? "1½ dl tomusokeria"
   us: ⅔ kuppia tomusokeria
   ×1.5: 2¼ dl tomusokeria
-? "¼ dl Valio kevytmaitoa"
+✓ "¼ dl Valio kevytmaitoa"
   us: 1½ rkl Valio kevytmaitoa
-  ×1.5: ⅓ dl Valio kevytmaitoa
+  ×1.5: 0,4 dl Valio kevytmaitoa
 ? "12 (75 g) lakritsitoffeekaramelleja, esim. Lakritsi Alku"
   us: 12 (2½ unssia) lakritsitoffeekaramelleja, esim. Lakritsi Alku
   ×1.5: 18 (115 g) lakritsitoffeekaramelleja, esim. Lakritsi Alku
@@ -5402,8 +5476,8 @@
 ? "50 g kinkkuviipaletta"
   us: 2 unssia kinkkuviipaletta
   ×1.5: 75 g kinkkuviipaletta
-? "1 dl (50 g) kinkkusuikaleita"
-  us: ⅓ kuppia + 1½ rkl (2 unssia) kinkkusuikaleita
+✓ "1 dl (50 g) kinkkusuikaleita"
+  us: ⅓ kuppia + 1½ rkl (50 g) kinkkusuikaleita
   ×1.5: 1,5 dl (75 g) kinkkusuikaleita
 ? "2 Valio Polar® viipaletta"
   ×1.5: 3 Valio Polar® viipaletta
@@ -5481,7 +5555,7 @@
 ? "200 g kylmäsavulohta"
   us: 7 unssia kylmäsavulohta
   ×1.5: 300 g kylmäsavulohta
-? "2 suolakurkkua"
+✓ "2 suolakurkkua"
   ×1.5: 3 suolakurkkua
 ? "½ dl kapriksia tai mustia oliiveja"
   us: 3½ rkl kapriksia tai mustia oliiveja
@@ -5596,11 +5670,11 @@
 ? "2 dl Valio Luomu™ turkkilaista jogurttia"
   us: ¾ kuppia + 1½ rkl Valio Luomu™ turkkilaista jogurttia
   ×1.5: 3 dl Valio Luomu™ turkkilaista jogurttia
-? "1 dl (100 g) granolaa"
-  us: ⅓ kuppia + 1½ rkl (3½ unssia) granolaa
+✓ "1 dl (100 g) granolaa"
+  us: ⅓ kuppia + 1½ rkl (100 g) granolaa
   ×1.5: 1,5 dl (150 g) granolaa
-? "1 dl (60 g) mustikoita"
-  us: ⅓ kuppia + 1½ rkl (2 unssia) mustikoita
+✓ "1 dl (60 g) mustikoita"
+  us: ⅓ kuppia + 1½ rkl (60 g) mustikoita
   ×1.5: 1,5 dl (90 g) mustikoita
 ? "3 rasiaa (à 200 g) Valio Viola® tuorejuustoa"
   us: 3 rasiaa (à 7 unssia) Valio Viola® tuorejuustoa
@@ -5631,6 +5705,8 @@
   ×1.5: 1½ tl savupaprikajauhetta
 ? "½ tl cayennepippuria"
   ×1.5: ¾ tl cayennepippuria
+✓ "¼ tl sahramia"
+  ×1.5: 0,4 tl sahramia
 ? "3 dl tummaa riisiä"
   us: 1¼ kuppia tummaa riisiä
   ×1.5: 4,5 dl tummaa riisiä
@@ -5668,9 +5744,9 @@
 ? "5 dl gluteenitonta jauhoseosta, esim. Sunnuntai"
   us: 2 kuppia gluteenitonta jauhoseosta, esim. Sunnuntai
   ×1.5: 7,5 dl gluteenitonta jauhoseosta, esim. Sunnuntai
-? "¾ dl Valio Emmental raastetta"
+✓ "¾ dl Valio Emmental raastetta"
   us: ⅓ kuppia Valio Emmental raastetta
-  ×1.5: 1 dl Valio Emmental raastetta
+  ×1.5: 1,1 dl Valio Emmental raastetta
 ✓ "1 dl spelttihiutaleita"
   us: ⅓ kuppia + 1½ rkl spelttihiutaleita
   ×1.5: 1,5 dl spelttihiutaleita
@@ -5688,8 +5764,8 @@
   ×1.5: 1,5 dl kuivattuja marjoja, esim. mustikoita, mulperimarjoja
 ? "2 kananmunaa"
   ×1.5: 3 kananmunaa
-? "50 g (0,5 dl) Valio Oivariini® pehmeästi levittyvä rasvaa"
-  us: 2 unssia (3½ rkl) Valio Oivariini® pehmeästi levittyvä rasvaa
+✓ "50 g (0,5 dl) Valio Oivariini® pehmeästi levittyvä rasvaa"
+  us: 2 unssia (0,5 dl) Valio Oivariini® pehmeästi levittyvä rasvaa
   ×1.5: 75 g (0,75 dl) Valio Oivariini® pehmeästi levittyvä rasvaa
 ? "0 kg Valio Oivariini® pehmeästi levittyvä rasvaa"
   us: 0 unssia Valio Oivariini® pehmeästi levittyvä rasvaa
@@ -5716,6 +5792,8 @@
   ×1.5: 1½ punainen chili tai chilikastiketta maun mukaan
 ? "1 pala (1 rkl) tuoretta inkivääriä"
   ×1.5: 1½ palaa (1½ rkl) tuoretta inkivääriä
+✓ "¼ tl suolaa"
+  ×1.5: 0,4 tl suolaa
 ? "8 dl lihalientä"
   us: 3⅓ kuppia lihalientä
   ×1.5: 12 dl lihalientä
@@ -5761,9 +5839,9 @@
 ? "200 g nakkeja"
   us: 7 unssia nakkeja
   ×1.5: 300 g nakkeja
-? "¾ dl sinappista kurkkusalaattia"
+✓ "¾ dl sinappista kurkkusalaattia"
   us: ⅓ kuppia sinappista kurkkusalaattia
-  ×1.5: 1 dl sinappista kurkkusalaattia
+  ×1.5: 1,1 dl sinappista kurkkusalaattia
 ? "0 kg Valio Eila® maitojuomaa 3%"
   us: 0 unssia Valio Eila® maitojuomaa 3%
 ? "0 kg Valio mozzarella raastetta tai seesaminsiemeniä"
@@ -5864,8 +5942,8 @@
 ? "3 prk (à 200 g) Valio Keittiön maustettua rahkaa kirsikka"
   us: 3 prk (à 7 unssia) Valio Keittiön maustettua rahkaa kirsikka
   ×1.5: 4½ prk (à 200 g) Valio Keittiön maustettua rahkaa kirsikka
-? "100 g (2 dl) kivettömiä kirsikoita"
-  us: 3½ unssia (¾ kuppia + 1½ rkl) kivettömiä kirsikoita
+✓ "100 g (2 dl) kivettömiä kirsikoita"
+  us: 3½ unssia (2 dl) kivettömiä kirsikoita
   ×1.5: 150 g (3 dl) kivettömiä kirsikoita
 ? "250 g suklaa-pähkinälevitettä, esim. Nutella"
   us: 9 unssia suklaa-pähkinälevitettä, esim. Nutella
@@ -6109,19 +6187,18 @@
 ? "step: Paista uunin keskiosassa 225 asteessa 20 - 25 min."
   us: Paista uunin keskiosassa 425 °F 20 - 25 min.
 
-## womensweeklyfood.com.au : 442 lines and sentences, 404 entries
+## womensweeklyfood.com.au : 445 lines and sentences, 407 entries
 
-? "1 cup (150g) self-raising flour"
-  us: 1 cup (5 oz) self-raising flour
+✓ "1 cup (150g) self-raising flour"
   ×1.5: 1½ cups (225g) self-raising flour
-? "1/2 cup (75g) plain flour"
-  us: ½ cup (2½ oz) plain flour
+✓ "1/2 cup (75g) plain flour"
+  us: ½ cup (75g) plain flour
   ×1.5: 3/4 cup (115g) plain flour
-? "1/3 cup (35g) cocoa powder"
-  us: ⅓ cup (1 oz) cocoa powder
+✓ "1/3 cup (35g) cocoa powder"
+  us: ⅓ cup (35g) cocoa powder
   ×1.5: 1/2 cup (55g) cocoa powder
-? "3/4 cup (165g) caster sugar"
-  us: ¾ cup (6 oz) caster sugar
+✓ "3/4 cup (165g) caster sugar"
+  us: ¾ cup (165g) caster sugar
   ×1.5: 1 cup + 2 tbsp (250g) caster sugar
 ? "185 gram softened butter"
   us: 7 oz softened butter
@@ -6134,38 +6211,34 @@
 ? "125 gram butter, softened"
   us: 4 oz butter, softened
   ×1.5: 190 grams butter, softened
-? "1 1/2 cup (240g) icing sugar"
-  us: 1⅔ cups (8 oz) icing sugar
+✓ "1 1/2 cup (240g) icing sugar"
+  us: 1⅔ cups (240g) icing sugar
   ×1.5: 2 1/4 cups (360g) icing sugar
-? "2 tablespoon milk"
-  metric: 8 tsp milk
-  us: 8 tsp milk
-  ×1.5: 12 tsp milk
+✓ "2 tablespoon milk"
+  metric: 2 tbsp + 2 tsp milk
+  us: 2 tbsp + 2 tsp milk
+  ×1.5: 4 tbsp milk
 ? "1 flake bar"
   ×1.5: 1½ flake bar
 ? "100 gram milk chocolate melts, melted"
   us: 3½ oz milk chocolate melts, melted
   ×1.5: 150 grams milk chocolate melts, melted
-? "1 cup (150g) raisins"
-  us: 1 cup (5 oz) raisins
+✓ "1 cup (150g) raisins"
   ×1.5: 1½ cups (225g) raisins
-? "1 cup (140g) seeded dates"
-  us: 1 cup (5 oz) seeded dates
+✓ "1 cup (140g) seeded dates"
   ×1.5: 1½ cups (210g) seeded dates
-? "1 cup (200g) dried figs"
-  us: 1 cup (7 oz) dried figs
+✓ "1 cup (200g) dried figs"
   ×1.5: 1½ cups (300g) dried figs
-? "1/4 cup (50g) red glacé cherries"
-  us: ¼ cup (2 oz) red glacé cherries
+✓ "1/4 cup (50g) red glacé cherries"
+  us: ¼ cup (50g) red glacé cherries
   ×1.5: ⅓ cup + ½ tbsp (75g) red glacé cherries
-? "1/2 cup (125g) chopped glacé fruit (such as pineapple, apricot, peach)"
-  us: ½ cup (4 oz) chopped glacé fruit (such as pineapple, apricot, peach)
+✓ "1/2 cup (125g) chopped glacé fruit (such as pineapple, apricot, peach)"
+  us: ½ cup (125g) chopped glacé fruit (such as pineapple, apricot, peach)
   ×1.5: 3/4 cup (190g) chopped glacé fruit (such as pineapple, apricot, peach)
-? "2 cup (320g) sultanas"
-  us: 2 cups (11 oz) sultanas
+✓ "2 cup (320g) sultanas"
+  us: 2 cups (320g) sultanas
   ×1.5: 3 cups (480g) sultanas
-? "1 cup (160g) dried currants"
-  us: 1 cup (6 oz) dried currants
+✓ "1 cup (160g) dried currants"
   ×1.5: 1½ cups (240g) dried currants
 ? "3/4 cup (180ml) brandy"
   us: ¾ cup (180ml) brandy
@@ -6175,29 +6248,28 @@
   ×1.5: 375 grams butter
 ? "4 eggs"
   ×1.5: 6 eggs
-? "1 cup (220g) firmly packed dark brown sugar"
-  us: 1 cup (8 oz) firmly packed dark brown sugar
+✓ "1 cup (220g) firmly packed dark brown sugar"
   ×1.5: 1½ cups (330g) firmly packed dark brown sugar
-? "1/4 cup (85g) orange marmalade"
-  us: ¼ cup (3 oz) orange marmalade
+✓ "1/4 cup (85g) orange marmalade"
+  us: ¼ cup (85g) orange marmalade
   ×1.5: ⅓ cup + ½ tbsp (130g) orange marmalade
-? "1 3/4 cup (260g) plain (all-purpose) flour"
-  us: 1¾ cups (9 oz) plain (all-purpose) flour
+✓ "1 3/4 cup (260g) plain (all-purpose) flour"
+  us: 1¾ cups (260g) plain (all-purpose) flour
   ×1.5: 2 2/3 cups (390g) plain (all-purpose) flour
-? "1/2 cup (75g) self-raising flour"
-  us: ½ cup (2½ oz) self-raising flour
+✓ "1/2 cup (75g) self-raising flour"
+  us: ½ cup (75g) self-raising flour
   ×1.5: 3/4 cup (115g) self-raising flour
 ? "1 1/2 teaspoon ground cinnamon"
   ×1.5: 2 1/4 teaspoons ground cinnamon
 ? "1 teaspoon mixed spice red glacé cherries, to decorate"
   ×1.5: 1½ teaspoons mixed spice red glacé cherries, to decorate
-? "3 cup (480g) pure icing (confectioners') sugar"
-  us: 3¼ cups (17 oz) pure icing (confectioners') sugar
+✓ "3 cup (480g) pure icing (confectioners') sugar"
+  us: 3¼ cups (480g) pure icing (confectioners') sugar
   ×1.5: 4½ cups (720g) pure icing (confectioners') sugar
-? "1 tablespoon lemon juice"
-  metric: 4 tsp lemon juice
-  us: 4 tsp lemon juice
-  ×1.5: 6 tsp lemon juice
+✓ "1 tablespoon lemon juice"
+  metric: 1 tbsp + 1 tsp lemon juice
+  us: 1 tbsp + 1 tsp lemon juice
+  ×1.5: 2 tbsp lemon juice
 ? "1/4 cup (60ml) water (approximate)"
   us: ¼ cup (60ml) water (approximate)
   ×1.5: ⅓ cup + ½ tbsp (90ml) water (approximate)
@@ -6211,8 +6283,8 @@
   ×1.5: 1½ cinnamon stick
 ? "1 vanilla bean, halved lengthways"
   ×1.5: 1½ vanilla bean, halved lengthways
-? "1/2 cup (110g) white sugar"
-  us: ½ cup (4 oz) white sugar
+✓ "1/2 cup (110g) white sugar"
+  us: ½ cup (110g) white sugar
   ×1.5: 3/4 cup (165g) white sugar
 ? "200 gram dark eating chocolate, chopped coarsely"
   us: 7 oz dark eating chocolate, chopped coarsely
@@ -6220,11 +6292,11 @@
 ? "1/2 cup (125ml) cream"
   us: ½ cup (125ml) cream
   ×1.5: 3/4 cup (190ml) cream
-? "3/4 cup (150g) brown long-grain rice"
-  us: ¾ cup (5 oz) brown long-grain rice
+✓ "3/4 cup (150g) brown long-grain rice"
+  us: ¾ cup (150g) brown long-grain rice
   ×1.5: 1 cup + 2 tbsp (225g) brown long-grain rice
-? "3/4 cup (150g) green split peas"
-  us: ¾ cup (5 oz) green split peas
+✓ "3/4 cup (150g) green split peas"
+  us: ¾ cup (150g) green split peas
   ×1.5: 1 cup + 2 tbsp (225g) green split peas
 ? "150 gram (4½ ounces) snow peas, sliced thinly"
   ×1.5: 225 grams (6¾ ounces) snow peas, sliced thinly
@@ -6243,27 +6315,25 @@
   ×1.5: 1½ small_piece clove garlic, crushed
 ? "2 teaspoon sesame oil"
   ×1.5: 3 teaspoons sesame oil
-? "1 cup (200g) freekah"
-  us: 1 cup (7 oz) freekah
+✓ "1 cup (200g) freekah"
   ×1.5: 1½ cups (300g) freekah
 ? "2 ½ cups (625ml) water"
   us: 2⅔ cups (625ml) water
   ×1.5: 3 ¾ cups (940ml) water
 ? "¼ cup (60ml) extra virgin olive oil"
   ×1.5: ⅓ cup + ½ tbsp (90ml) extra virgin olive oil
-? "2 tablespoons lemon juice"
-  metric: 8 tsp lemon juice
-  us: 8 tsp lemon juice
-  ×1.5: 12 tsp lemon juice
+✓ "2 tablespoons lemon juice"
+  metric: 2 tbsp + 2 tsp lemon juice
+  us: 2 tbsp + 2 tsp lemon juice
+  ×1.5: 4 tbsp lemon juice
 ? "¼ cup chopped parsley"
   metric: 0.6 dl chopped parsley
   ×1.5: 0.9 dl chopped parsley
-? "2 tablespoons honey"
-  metric: 8 tsp honey
-  us: 8 tsp honey
-  ×1.5: 12 tsp honey
-? "1 cup (100g) toasted walnuts"
-  us: 1 cup (3½ oz) toasted walnuts
+✓ "2 tablespoons honey"
+  metric: 2 tbsp + 2 tsp honey
+  us: 2 tbsp + 2 tsp honey
+  ×1.5: 4 tbsp honey
+✓ "1 cup (100g) toasted walnuts"
   ×1.5: 1½ cups (150g) toasted walnuts
 ? "1.5kg Kent pumpkin, cut into 7cm chunks"
   us: 3¼ lb Kent pumpkin, cut into 3 in chunks
@@ -6274,10 +6344,10 @@
 ? "1 large red onion (300g), cut into wedges"
   us: 1 large red onion (11 oz), cut into wedges
   ×1.5: 1½ large red onion (450g), cut into wedges
-? "2 tablespoons extra virgin olive oil"
-  metric: 8 tsp extra virgin olive oil
-  us: 8 tsp extra virgin olive oil
-  ×1.5: 12 tsp extra virgin olive oil
+✓ "2 tablespoons extra virgin olive oil"
+  metric: 2 tbsp + 2 tsp extra virgin olive oil
+  us: 2 tbsp + 2 tsp extra virgin olive oil
+  ×1.5: 4 tbsp extra virgin olive oil
 ? "1 teaspoon sweet paprika"
   ×1.5: 1½ teaspoons sweet paprika
 ? "1 teaspoon ground cumin"
@@ -6293,10 +6363,10 @@
 ? "500 gram uncooked medium king prawns (shrimp)"
   us: 18 oz uncooked medium king prawns (shrimp)
   ×1.5: 750 grams uncooked medium king prawns (shrimp)
-? "2 tablespoon olive oil"
-  metric: 8 tsp olive oil
-  us: 8 tsp olive oil
-  ×1.5: 12 tsp olive oil
+✓ "2 tablespoon olive oil"
+  metric: 2 tbsp + 2 tsp olive oil
+  us: 2 tbsp + 2 tsp olive oil
+  ×1.5: 4 tbsp olive oil
 ? "600 gram chicken thigh fillets, chopped coarsely"
   us: 21 oz chicken thigh fillets, chopped coarsely
   ×1.5: 900 grams chicken thigh fillets, chopped coarsely
@@ -6309,8 +6379,8 @@
   ×1.5: 3/4 teaspoon dried chilli flakes
 ? "1 teaspoon smoked paprika"
   ×1.5: 1½ teaspoons smoked paprika
-? "1 1/2 cup (300g) white medium-grain rice"
-  us: 1⅔ cups (11 oz) white medium-grain rice
+✓ "1 1/2 cup (300g) white medium-grain rice"
+  us: 1⅔ cups (300g) white medium-grain rice
   ×1.5: 2 1/4 cups (450g) white medium-grain rice
 ? "800 gram canned diced tomatoes"
   us: 28 oz canned diced tomatoes
@@ -6341,10 +6411,10 @@
 ? "420 gram can cannellini beans, rinsed, drained"
   us: 15 oz can cannellini beans, rinsed, drained
   ×1.5: 630 grams can cannellini beans, rinsed, drained
-? "2 tablespoon baby capers, rinsed, drained"
-  metric: 8 tsp baby capers, rinsed, drained
-  us: 8 tsp baby capers, rinsed, drained
-  ×1.5: 12 tsp baby capers, rinsed, drained
+✓ "2 tablespoon baby capers, rinsed, drained"
+  metric: 2 tbsp + 2 tsp baby capers, rinsed, drained
+  us: 2 tbsp + 2 tsp baby capers, rinsed, drained
+  ×1.5: 4 tbsp baby capers, rinsed, drained
 ? "2 (200g) medium tomatoes, seeded, finely chopped"
   us: 2 (7 oz) medium tomatoes, seeded, finely chopped
   ×1.5: 3 (300g) medium tomatoes, seeded, finely chopped
@@ -6358,10 +6428,10 @@
 ? "250 gram ricciolini pasta (or other short pasta)"
   us: 9 oz ricciolini pasta (or other short pasta)
   ×1.5: 375 grams ricciolini pasta (or other short pasta)
-? "1 tablespoon olive oil"
-  metric: 4 tsp olive oil
-  us: 4 tsp olive oil
-  ×1.5: 6 tsp olive oil
+✓ "1 tablespoon olive oil"
+  metric: 1 tbsp + 1 tsp olive oil
+  us: 1 tbsp + 1 tsp olive oil
+  ×1.5: 2 tbsp olive oil
 ? "1 small brown onion (80g), sliced thinly"
   us: 1 small brown onion (3 oz), sliced thinly
   ×1.5: 1½ small brown onion (120g), sliced thinly
@@ -6381,22 +6451,22 @@
 ? "1/4 cup (60ml) red wine"
   us: ¼ cup (60ml) red wine
   ×1.5: ⅓ cup + ½ tbsp (90ml) red wine
-? "1 tablespoon tomato paste"
-  metric: 4 tsp tomato paste
-  us: 4 tsp tomato paste
-  ×1.5: 6 tsp tomato paste
-? "1/2 cup (120g) sour cream"
-  us: ½ cup (4 oz) sour cream
+✓ "1 tablespoon tomato paste"
+  metric: 1 tbsp + 1 tsp tomato paste
+  us: 1 tbsp + 1 tsp tomato paste
+  ×1.5: 2 tbsp tomato paste
+✓ "1/2 cup (120g) sour cream"
+  us: ½ cup (120g) sour cream
   ×1.5: 3/4 cup (180g) sour cream
 ? "1/2 cup (125ml) beef stock"
   us: ½ cup (125ml) beef stock
   ×1.5: 3/4 cup (190ml) beef stock
 ? "2 teaspoon cornflour"
   ×1.5: 3 teaspoons cornflour
-? "1 tablespoon chopped fresh sage"
-  metric: 4 tsp chopped fresh sage
-  us: 4 tsp chopped fresh sage
-  ×1.5: 6 tsp chopped fresh sage
+✓ "1 tablespoon chopped fresh sage"
+  metric: 1 tbsp + 1 tsp chopped fresh sage
+  us: 1 tbsp + 1 tsp chopped fresh sage
+  ×1.5: 2 tbsp chopped fresh sage
 ? "30 gram butter"
   us: 1 oz butter
   ×1.5: 45 grams butter
@@ -6423,8 +6493,8 @@
 ? "200 gram bean thread noodles"
   us: 7 oz bean thread noodles
   ×1.5: 300 grams bean thread noodles
-? "1 1/2 cup (120 grams) bean sprouts"
-  us: 1⅔ cups (4 oz) bean sprouts
+✓ "1 1/2 cup (120 grams) bean sprouts"
+  us: 1⅔ cups (120 grams) bean sprouts
   ×1.5: 2 1/4 cups (180 grams) bean sprouts
 ? "1/3 cup loosely packed fresh mint leaves"
   metric: 0.8 dl loosely packed fresh mint leaves
@@ -6451,28 +6521,32 @@
 ? "1/3 cup (80ml) lemon juice"
   us: ⅓ cup (80ml) lemon juice
   ×1.5: 1/2 cup (120ml) lemon juice
-? "3 cups (660g) white (granulated) sugar (approx)"
-  us: 3¼ cups (23 oz) white (granulated) sugar (approx)
+✓ "3 cups (660g) white (granulated) sugar (approx)"
+  us: 3¼ cups (660g) white (granulated) sugar (approx)
   ×1.5: 4½ cups (990g) white (granulated) sugar (approx)
 ? "4 egg whites"
   ×1.5: 6 egg whites
-? "1/4 cup (55g) caster (superfine) sugar"
-  us: ¼ cup (2 oz) caster (superfine) sugar
+✓ "1/4 teaspoon cream of tartar"
+  ×1.5: 0.4 teaspoon cream of tartar
+✓ "1/4 cup (55g) caster (superfine) sugar"
+  us: ¼ cup (55g) caster (superfine) sugar
   ×1.5: ⅓ cup + ½ tbsp (85g) caster (superfine) sugar
-? "3/4 cup (165g) firmly packed brown sugar"
-  us: ¾ cup (6 oz) firmly packed brown sugar
+✓ "3/4 cup (165g) firmly packed brown sugar"
+  us: ¾ cup (165g) firmly packed brown sugar
   ×1.5: 1 cup + 2 tbsp (250g) firmly packed brown sugar
 ? "2 teaspoons cornflour (cornstarch)"
   ×1.5: 3 teaspoons cornflour (cornstarch)
 ? "1 teaspoon white vinegar"
   ×1.5: 1½ teaspoons white vinegar
+✓ "1/4 teaspoon vanilla extract"
+  ×1.5: 0.4 teaspoon vanilla extract
 ? "2 medium bananas (400g), sliced"
   us: 2 medium bananas (14 oz), sliced
   ×1.5: 3 medium bananas (600g), sliced
-? "1 tablespoon caster (superfine) sugar, extra"
-  metric: 4 tsp caster (superfine) sugar, extra
-  us: 4 tsp caster (superfine) sugar, extra
-  ×1.5: 6 tsp caster (superfine) sugar, extra
+✓ "1 tablespoon caster (superfine) sugar, extra"
+  metric: 1 tbsp + 1 tsp caster (superfine) sugar, extra
+  us: 1 tbsp + 1 tsp caster (superfine) sugar, extra
+  ×1.5: 2 tbsp caster (superfine) sugar, extra
 ? "300 millilitres thick (double) cream"
   us: 1¼ cups thick (double) cream
   ×1.5: 450 millilitres thick (double) cream
@@ -6510,15 +6584,15 @@
   metric: 0.8 dl finely chopped fresh flat-leaf parsley
   us: ⅓ cup finely chopped fresh flat-leaf parsley
   ×1.5: 1.3 dl finely chopped fresh flat-leaf parsley
-? "2 tablespoon cornflour (cornstarch)"
-  metric: 8 tsp cornflour (cornstarch)
-  us: 8 tsp cornflour (cornstarch)
-  ×1.5: 12 tsp cornflour (cornstarch)
+✓ "2 tablespoon cornflour (cornstarch)"
+  metric: 2 tbsp + 2 tsp cornflour (cornstarch)
+  us: 2 tbsp + 2 tsp cornflour (cornstarch)
+  ×1.5: 4 tbsp cornflour (cornstarch)
 ? "1 1/3 cup (330ml) skim milk"
   us: 1⅓ cups (330ml) skim milk
   ×1.5: 2 cups (495ml) skim milk
-? "1/2 cup (40g) parmesan cheese, finely grated"
-  us: ½ cup (1½ oz) parmesan cheese, finely grated
+✓ "1/2 cup (40g) parmesan cheese, finely grated"
+  us: ½ cup (40g) parmesan cheese, finely grated
   ×1.5: 3/4 cup (60g) parmesan cheese, finely grated
 ? "250 gram packet frozen spinach, chopped, thawed"
   us: 9 oz packet frozen spinach, chopped, thawed
@@ -6547,10 +6621,10 @@
   ×1.5: 3/4 cup (190ml) sweetened condensed milk
 ? "400 gram (12½ ounces) milk eating chocolate, chopped coarsely"
   ×1.5: 600 grams (18¾ ounces) milk eating chocolate, chopped coarsely
-? "1 tablespoon vegetable oil"
-  metric: 4 tsp vegetable oil
-  us: 4 tsp vegetable oil
-  ×1.5: 6 tsp vegetable oil
+✓ "1 tablespoon vegetable oil"
+  metric: 1 tbsp + 1 tsp vegetable oil
+  us: 1 tbsp + 1 tsp vegetable oil
+  ×1.5: 2 tbsp vegetable oil
 ? "1 cup caster sugar"
   metric: 2.5 dl caster sugar
   ×1.5: 3.8 dl caster sugar
@@ -6576,13 +6650,13 @@
 ? "65 gram butter, softened"
   us: 2½ oz butter, softened
   ×1.5: 100 grams butter, softened
-? "3/4 cup (120 grams) icing sugar"
-  us: ¾ cup (4 oz) icing sugar
+✓ "3/4 cup (120 grams) icing sugar"
+  us: ¾ cup (120 grams) icing sugar
   ×1.5: 1 cup + 2 tbsp (180 grams) icing sugar
-? "1 tablespoon milk"
-  metric: 4 tsp milk
-  us: 4 tsp milk
-  ×1.5: 6 tsp milk
+✓ "1 tablespoon milk"
+  metric: 1 tbsp + 1 tsp milk
+  us: 1 tbsp + 1 tsp milk
+  ×1.5: 2 tbsp milk
 ? "2 pink doughnuts lollies"
   ×1.5: 3 pink doughnuts lollies
 ? "2 small yellow jelly beans"
@@ -6626,10 +6700,10 @@
   ×1.5: 3 candy orange wedges
 ? "30 gram (1 ounce) butter"
   ×1.5: 45 grams (1½ ounces) butter
-? "2 tablespoon finely chopped fresh sage"
-  metric: 8 tsp finely chopped fresh sage
-  us: 8 tsp finely chopped fresh sage
-  ×1.5: 12 tsp finely chopped fresh sage
+✓ "2 tablespoon finely chopped fresh sage"
+  metric: 2 tbsp + 2 tsp finely chopped fresh sage
+  us: 2 tbsp + 2 tsp finely chopped fresh sage
+  ×1.5: 4 tbsp finely chopped fresh sage
 ? "8 large swiss brown or portobello mushrooms (400g)"
   us: 8 large swiss brown or portobello mushrooms (14 oz)
   ×1.5: 12 large swiss brown or portobello mushrooms (600g)
@@ -6646,23 +6720,22 @@
   ×1.5: 18 fresh sage leaves
 ? "3 egg whites"
   ×1.5: 4½ egg whites
-? "1/4 cup (55g) caster sugar"
-  us: ¼ cup (2 oz) caster sugar
+✓ "1/4 cup (55g) caster sugar"
+  us: ¼ cup (55g) caster sugar
   ×1.5: ⅓ cup + ½ tbsp (85g) caster sugar
-? "1 1/4 cup (200g) icing (confectioners') sugar"
-  us: 1⅓ cups (7 oz) icing (confectioners') sugar
+✓ "1 1/4 cup (200g) icing (confectioners') sugar"
+  us: 1⅓ cups (200g) icing (confectioners') sugar
   ×1.5: 1¾ cups + 2 tbsp (300g) icing (confectioners') sugar
-? "1 cup (120g) ground almonds"
-  us: 1 cup (4 oz) ground almonds
+✓ "1 cup (120g) ground almonds"
   ×1.5: 1½ cups (180g) ground almonds
 ? "1 teaspoon finely grated orange rind"
   ×1.5: 1½ teaspoons finely grated orange rind
-? "2 tablespoon flaked almonds"
-  metric: 8 tsp flaked almonds
-  us: 8 tsp flaked almonds
-  ×1.5: 12 tsp flaked almonds
-? "1/3 cup (115g) orange marmalade"
-  us: ⅓ cup (4 oz) orange marmalade
+✓ "2 tablespoon flaked almonds"
+  metric: 2 tbsp + 2 tsp flaked almonds
+  us: 2 tbsp + 2 tsp flaked almonds
+  ×1.5: 4 tbsp flaked almonds
+✓ "1/3 cup (115g) orange marmalade"
+  us: ⅓ cup (115g) orange marmalade
   ×1.5: 1/2 cup (175g) orange marmalade
 ? "150 gram butter, chopped"
   us: 5 oz butter, chopped
@@ -6670,8 +6743,7 @@
 ? "200 gram dark eating chocolate, chopped"
   us: 7 oz dark eating chocolate, chopped
   ×1.5: 300 grams dark eating chocolate, chopped
-? "1 cup (220g) caster sugar"
-  us: 1 cup (8 oz) caster sugar
+✓ "1 cup (220g) caster sugar"
   ×1.5: 1½ cups (330g) caster sugar
 ? "2 teaspoon vanilla extract"
   ×1.5: 3 teaspoons vanilla extract
@@ -6699,7 +6771,7 @@
   ×1.5: 3 teaspoons cumin seeds
 ? "1 teaspoon coriander seeds olive oil spray"
   ×1.5: 1½ teaspoons coriander seeds olive oil spray
-? "3 cup (750ml) vegetable stock"
+✓ "3 cup (750ml) vegetable stock"
   us: 3¼ cups (750ml) vegetable stock
   ×1.5: 4½ cups (1125ml) vegetable stock
 ? "1/3 cup fresh coriander leaves"
@@ -6711,21 +6783,21 @@
   ×1.5: 1350 grams agria potatoes
 ? "1/2 teaspoon sweet paprika"
   ×1.5: 3/4 teaspoon sweet paprika
-? "2 tablespoon chopped dill"
-  metric: 8 tsp chopped dill
-  us: 8 tsp chopped dill
-  ×1.5: 12 tsp chopped dill
+✓ "2 tablespoon chopped dill"
+  metric: 2 tbsp + 2 tsp chopped dill
+  us: 2 tbsp + 2 tsp chopped dill
+  ×1.5: 4 tbsp chopped dill
 ? "500 gram skinned and boned thick white fish fillets, rinsed, patted dry, cut innto several chunks"
   us: 18 oz skinned and boned thick white fish fillets, rinsed, patted dry, cut innto several chunks
   ×1.5: 750 grams skinned and boned thick white fish fillets, rinsed, patted dry, cut innto several chunks
-? "2 tablespoon plain flour mixed with 1/4 teaspoon salt"
-  metric: 8 tsp plain flour mixed with 1/4 teaspoon salt
-  us: 8 tsp plain flour mixed with 1/4 teaspoon salt
-  ×1.5: 12 tsp plain flour mixed with 1/4 teaspoon salt
-? "2 tablespoon butter"
-  metric: 8 tsp butter
-  us: 8 tsp butter
-  ×1.5: 12 tsp butter
+✓ "2 tablespoon plain flour mixed with 1/4 teaspoon salt"
+  metric: 2 tbsp + 2 tsp plain flour mixed with 1/4 teaspoon salt
+  us: 2 tbsp + 2 tsp plain flour mixed with 1/4 teaspoon salt
+  ×1.5: 4 tbsp plain flour mixed with 0.4 teaspoon salt
+✓ "2 tablespoon butter"
+  metric: 2 tbsp + 2 tsp butter
+  us: 2 tbsp + 2 tsp butter
+  ×1.5: 4 tbsp butter
 ? "250 gram baby brown button mushrooms, halved"
   us: 9 oz baby brown button mushrooms, halved
   ×1.5: 375 grams baby brown button mushrooms, halved
@@ -6744,21 +6816,20 @@
   metric: 0.6 dl freshly grated parmesan
   us: ¼ cup freshly grated parmesan
   ×1.5: 0.9 dl freshly grated parmesan
-? "2 tablespoon panko crumbs"
-  metric: 8 tsp panko crumbs
-  us: 8 tsp panko crumbs
-  ×1.5: 12 tsp panko crumbs
+✓ "2 tablespoon panko crumbs"
+  metric: 2 tbsp + 2 tsp panko crumbs
+  us: 2 tbsp + 2 tsp panko crumbs
+  ×1.5: 4 tbsp panko crumbs
 ? "1/2 teaspoon dry yeast"
   ×1.5: 3/4 teaspoon dry yeast
 ? "1/4 cup (60ml) warm water"
   us: ¼ cup (60ml) warm water
   ×1.5: ⅓ cup + ½ tbsp (90ml) warm water
-? "2 tablespoon warm milk"
-  metric: 8 tsp warm milk
-  us: 8 tsp warm milk
-  ×1.5: 12 tsp warm milk
-? "1 cup (150g) plain flour"
-  us: 1 cup (5 oz) plain flour
+✓ "2 tablespoon warm milk"
+  metric: 2 tbsp + 2 tsp warm milk
+  us: 2 tbsp + 2 tsp warm milk
+  ×1.5: 4 tbsp warm milk
+✓ "1 cup (150g) plain flour"
   ×1.5: 1½ cups (225g) plain flour
 ? "1 teaspoon dried yeast"
   ×1.5: 1½ teaspoons dried yeast
@@ -6767,8 +6838,8 @@
   ×1.5: 2 1/4 cups (565ml) warm water
 ? "1 teaspoon sugar"
   ×1.5: 1½ teaspoons sugar
-? "3 cup (450g) plain flour"
-  us: 3¼ cups (16 oz) plain flour
+✓ "3 cup (450g) plain flour"
+  us: 3¼ cups (450g) plain flour
   ×1.5: 4½ cups (675g) plain flour
 ? "1 1/2 teaspoon salt"
   ×1.5: 2 1/4 teaspoons salt
@@ -6777,17 +6848,17 @@
 ? "450 gram ruby lou potatoes, peeled, chopped coarsely"
   us: 16 oz ruby lou potatoes, peeled, chopped coarsely
   ×1.5: 675 grams ruby lou potatoes, peeled, chopped coarsely
-? "1 tablespoon (20g) ghee"
-  us: 4 tsp (¾ oz) ghee
+✓ "1 tablespoon (20g) ghee"
+  us: 1 tbsp + 1 tsp (20g) ghee
   ×1.5: 1½ tablespoons (30g) ghee
-? "1 tablespoon black mustard seeds"
-  metric: 4 tsp black mustard seeds
-  us: 4 tsp black mustard seeds
-  ×1.5: 6 tsp black mustard seeds
-? "1 tablespoon cumin seeds"
-  metric: 4 tsp cumin seeds
-  us: 4 tsp cumin seeds
-  ×1.5: 6 tsp cumin seeds
+✓ "1 tablespoon black mustard seeds"
+  metric: 1 tbsp + 1 tsp black mustard seeds
+  us: 1 tbsp + 1 tsp black mustard seeds
+  ×1.5: 2 tbsp black mustard seeds
+✓ "1 tablespoon cumin seeds"
+  metric: 1 tbsp + 1 tsp cumin seeds
+  us: 1 tbsp + 1 tsp cumin seeds
+  ×1.5: 2 tbsp cumin seeds
 ? "3 clove garlic, crushed"
   ×1.5: 4½ cloves garlic, crushed
 ? "1/2 teaspoon ground turmeric"
@@ -6803,19 +6874,19 @@
 ? "1 kilogram cauliflower, chopped coarsely"
   us: 2¼ lb cauliflower, chopped coarsely
   ×1.5: 1.5 kilograms cauliflower, chopped coarsely
-? "1 tablespoon sesame oil"
-  metric: 4 tsp sesame oil
-  us: 4 tsp sesame oil
-  ×1.5: 6 tsp sesame oil
+✓ "1 tablespoon sesame oil"
+  metric: 1 tbsp + 1 tsp sesame oil
+  us: 1 tbsp + 1 tsp sesame oil
+  ×1.5: 2 tbsp sesame oil
 ? "1/4 cup (60ml) rice wine vinegar"
   us: ¼ cup (60ml) rice wine vinegar
   ×1.5: ⅓ cup + ½ tbsp (90ml) rice wine vinegar
 ? "1 clove garlic, crushed"
   ×1.5: 1½ cloves garlic, crushed
-? "1 tablespoon soy sauce"
-  metric: 4 tsp soy sauce
-  us: 4 tsp soy sauce
-  ×1.5: 6 tsp soy sauce
+✓ "1 tablespoon soy sauce"
+  metric: 1 tbsp + 1 tsp soy sauce
+  us: 1 tbsp + 1 tsp soy sauce
+  ×1.5: 2 tbsp soy sauce
 ? "600 gram (1¼ pounds) broccoli florets"
   ×1.5: 900 grams (2 pounds) broccoli florets
 ? "1/3 cup (80ml) olive oil"
@@ -6825,30 +6896,30 @@
   ×1.5: 525 grams (18 ounces) brussels sprouts, halved
 ? "3 green onions (scallions), sliced thinly"
   ×1.5: 4½ green onions (scallions), sliced thinly
-? "1/2 cup (75g) dry-roasted cashews, chopped coarsely"
-  us: ½ cup (2½ oz) dry-roasted cashews, chopped coarsely
+✓ "1/2 cup (75g) dry-roasted cashews, chopped coarsely"
+  us: ½ cup (75g) dry-roasted cashews, chopped coarsely
   ×1.5: 3/4 cup (115g) dry-roasted cashews, chopped coarsely
-? "1 tablespoon sesame seeds, toasted"
-  metric: 4 tsp sesame seeds, toasted
-  us: 4 tsp sesame seeds, toasted
-  ×1.5: 6 tsp sesame seeds, toasted
+✓ "1 tablespoon sesame seeds, toasted"
+  metric: 1 tbsp + 1 tsp sesame seeds, toasted
+  us: 1 tbsp + 1 tsp sesame seeds, toasted
+  ×1.5: 2 tbsp sesame seeds, toasted
 ? "1 medium nashi pear (200g), cored, sliced thinly"
   us: 1 medium nashi pear (7 oz), cored, sliced thinly
   ×1.5: 1½ medium nashi pear (300g), cored, sliced thinly
 ? "200 gram (7-ounce) skinless, boneless ocean trout or salmon fillet"
   ×1.5: 300 grams (10½-ounces) skinless, boneless ocean trout or salmon fillet
-? "2 tablespoon rice flour or cornflour (cornstarch)"
-  metric: 8 tsp rice flour or cornflour (cornstarch)
-  us: 8 tsp rice flour or cornflour (cornstarch)
-  ×1.5: 12 tsp rice flour or cornflour (cornstarch)
+✓ "2 tablespoon rice flour or cornflour (cornstarch)"
+  metric: 2 tbsp + 2 tsp rice flour or cornflour (cornstarch)
+  us: 2 tbsp + 2 tsp rice flour or cornflour (cornstarch)
+  ×1.5: 4 tbsp rice flour or cornflour (cornstarch)
 ? "1 kilogram mashing potatoes, chopped coarsely"
   us: 2¼ lb mashing potatoes, chopped coarsely
   ×1.5: 1.5 kilograms mashing potatoes, chopped coarsely
 ? "50 gram butter, chopped"
   us: 2 oz butter, chopped
   ×1.5: 75 grams butter, chopped
-? "1/4 cup (40g) seeded black olives, chopped coarsely"
-  us: ¼ cup (1½ oz) seeded black olives, chopped coarsely
+✓ "1/4 cup (40g) seeded black olives, chopped coarsely"
+  us: ¼ cup (40g) seeded black olives, chopped coarsely
   ×1.5: ⅓ cup + ½ tbsp (60g) seeded black olives, chopped coarsely
 ? "1 large (350g) red capsicum, quartered"
   us: 1 large (12 oz) red capsicum, quartered
@@ -6884,11 +6955,11 @@
   metric: 0.6 dl loosely packed fresh basil leaves
   us: ¼ cup loosely packed fresh basil leaves
   ×1.5: 0.9 dl loosely packed fresh basil leaves
-? "1/4 cup (20g) finely grated parmesan cheese"
-  us: ¼ cup (¾ oz) finely grated parmesan cheese
+✓ "1/4 cup (20g) finely grated parmesan cheese"
+  us: ¼ cup (20g) finely grated parmesan cheese
   ×1.5: ⅓ cup + ½ tbsp (30g) finely grated parmesan cheese
-? "1/4 cup (30g) coarsely grated cheddar cheese"
-  us: ¼ cup (1 oz) coarsely grated cheddar cheese
+✓ "1/4 cup (30g) coarsely grated cheddar cheese"
+  us: ¼ cup (30g) coarsely grated cheddar cheese
   ×1.5: ⅓ cup + ½ tbsp (45g) coarsely grated cheddar cheese
 ? "2 teaspoon ground cumin"
   ×1.5: 3 teaspoons ground cumin
@@ -6922,10 +6993,10 @@
   ×1.5: 1½ mango (645g), chopped finely
 ? "1 fresh red thai chilli, chopped finely"
   ×1.5: 1½ fresh red thai chilli, chopped finely
-? "1 tablespoon finely chopped fresh mint"
-  metric: 4 tsp finely chopped fresh mint
-  us: 4 tsp finely chopped fresh mint
-  ×1.5: 6 tsp finely chopped fresh mint
+✓ "1 tablespoon finely chopped fresh mint"
+  metric: 1 tbsp + 1 tsp finely chopped fresh mint
+  us: 1 tbsp + 1 tsp finely chopped fresh mint
+  ×1.5: 2 tbsp finely chopped fresh mint
 ? "2/3 cup (70) stale breadcrumbs"
   metric: 1.7 dl (70) stale breadcrumbs
   us: ⅔ cup (70) stale breadcrumbs
@@ -6936,11 +7007,11 @@
 ? "2 medium tomatoes (300g), seeded, chopped finely"
   us: 2 medium tomatoes (11 oz), seeded, chopped finely
   ×1.5: 3 medium tomatoes (450g), seeded, chopped finely
-? "1/2 cup (75g) raisins"
-  us: ½ cup (2½ oz) raisins
+✓ "1/2 cup (75g) raisins"
+  us: ½ cup (75g) raisins
   ×1.5: 3/4 cup (115g) raisins
-? "1/2 cup (80g) blanched almonds, chopped finely"
-  us: ½ cup (3 oz) blanched almonds, chopped finely
+✓ "1/2 cup (80g) blanched almonds, chopped finely"
+  us: ½ cup (80g) blanched almonds, chopped finely
   ×1.5: 3/4 cup (120g) blanched almonds, chopped finely
 ? "150 gram pork mince"
   us: 5 oz pork mince
@@ -6961,33 +7032,33 @@
   ×1.5: 4½ cloves garlic, unpeeled
 ? "2 chipotle chillies"
   ×1.5: 3 chipotle chillies
-? "1/3 cup (55g) blanched almonds"
-  us: ⅓ cup (2 oz) blanched almonds
+✓ "1/3 cup (55g) blanched almonds"
+  us: ⅓ cup (55g) blanched almonds
   ×1.5: 1/2 cup (85g) blanched almonds
-? "3/4 cup (125g) seeded prunes"
-  us: ¾ cup (4 oz) seeded prunes
+✓ "3/4 cup (125g) seeded prunes"
+  us: ¾ cup (125g) seeded prunes
   ×1.5: 1 cup + 2 tbsp (190g) seeded prunes
 ? "4 whole cloves"
   ×1.5: 6 whole cloves
 ? "1 teaspoon ground cinnamon"
   ×1.5: 1½ teaspoons ground cinnamon
-? "2 tablespoon cider vinegar"
-  metric: 8 tsp cider vinegar
-  us: 8 tsp cider vinegar
-  ×1.5: 12 tsp cider vinegar
+✓ "2 tablespoon cider vinegar"
+  metric: 2 tbsp + 2 tsp cider vinegar
+  us: 2 tbsp + 2 tsp cider vinegar
+  ×1.5: 4 tbsp cider vinegar
 ? "1 cup (250ml) chicken stock"
   ×1.5: 1½ cups (375ml) chicken stock
 ? "260 gram chargrilled red capsicum (bell pepper), drained, sliced thickly"
   us: 9 oz chargrilled red capsicum (bell pepper), drained, sliced thickly
   ×1.5: 390 grams chargrilled red capsicum (bell pepper), drained, sliced thickly
-? "1 tablespoon fresh thyme leaves"
-  metric: 4 tsp fresh thyme leaves
-  us: 4 tsp fresh thyme leaves
-  ×1.5: 6 tsp fresh thyme leaves
-? "1 tablespoon balsamic vinegar"
-  metric: 4 tsp balsamic vinegar
-  us: 4 tsp balsamic vinegar
-  ×1.5: 6 tsp balsamic vinegar
+✓ "1 tablespoon fresh thyme leaves"
+  metric: 1 tbsp + 1 tsp fresh thyme leaves
+  us: 1 tbsp + 1 tsp fresh thyme leaves
+  ×1.5: 2 tbsp fresh thyme leaves
+✓ "1 tablespoon balsamic vinegar"
+  metric: 1 tbsp + 1 tsp balsamic vinegar
+  us: 1 tbsp + 1 tsp balsamic vinegar
+  ×1.5: 2 tbsp balsamic vinegar
 ? "6 medium stalks silver beet (swiss chard)"
   ×1.5: 9 medium stalks silver beet (swiss chard)
 ? "10 free-range eggs"
@@ -6997,11 +7068,11 @@
   ×1.5: ⅓ cup + ½ tbsp (90ml) milk
 ? "2 clove garlic, extra, crushed"
   ×1.5: 3 cloves garlic, extra, crushed
-? "3 cup (350g) firmly packed snow pea tendrils"
-  us: 3¼ cups (12 oz) firmly packed snow pea tendrils
+✓ "3 cup (350g) firmly packed snow pea tendrils"
+  us: 3¼ cups (350g) firmly packed snow pea tendrils
   ×1.5: 4½ cups (525g) firmly packed snow pea tendrils
-? "1/2 cup (40g) shaved pecorino cheese"
-  us: ½ cup (1½ oz) shaved pecorino cheese
+✓ "1/2 cup (40g) shaved pecorino cheese"
+  us: ½ cup (40g) shaved pecorino cheese
   ×1.5: 3/4 cup (60g) shaved pecorino cheese
 ? "1 lime, quartered"
   ×1.5: 1½ lime, quartered
@@ -7024,34 +7095,33 @@
 ? "100g pancetta"
   us: 3½ oz pancetta
   ×1.5: 150g pancetta
-? "1 tablespoon extra virgin olive oil"
-  metric: 4 tsp extra virgin olive oil
-  us: 4 tsp extra virgin olive oil
-  ×1.5: 6 tsp extra virgin olive oil
+✓ "1 tablespoon extra virgin olive oil"
+  metric: 1 tbsp + 1 tsp extra virgin olive oil
+  us: 1 tbsp + 1 tsp extra virgin olive oil
+  ×1.5: 2 tbsp extra virgin olive oil
 ? "2 stalks celery (300g), trimmed, leaves reserved, sliced"
   us: 2 stalks celery (11 oz), trimmed, leaves reserved, sliced
   ×1.5: 3 stalks celery (450g), trimmed, leaves reserved, sliced
 ? "600g leftover cooked fish (salmon, ocean trout or snapper)"
   us: 21 oz leftover cooked fish (salmon, ocean trout or snapper)
   ×1.5: 900g leftover cooked fish (salmon, ocean trout or snapper)
-? "½ cup (140g) Greek yoghurt"
-  us: ½ cup (5 oz) Greek yoghurt
+✓ "½ cup (140g) Greek yoghurt"
   ×1.5: ¾ cup (210g) Greek yoghurt
 ? "½ bunch chives, chopped finely, plus extra to serve"
   ×1.5: ¾ bunch chives, chopped finely, plus extra to serve
 ? "1 teaspoon finely grated lemon rind, plus extra to serve"
   ×1.5: 1½ teaspoons finely grated lemon rind, plus extra to serve
-? "1 tablespoon Dijon mustard"
-  metric: 4 tsp Dijon mustard
-  us: 4 tsp Dijon mustard
-  ×1.5: 6 tsp Dijon mustard
+✓ "1 tablespoon Dijon mustard"
+  metric: 1 tbsp + 1 tsp Dijon mustard
+  us: 1 tbsp + 1 tsp Dijon mustard
+  ×1.5: 2 tbsp Dijon mustard
 ? "4 (800g) chicken breast fillets"
   us: 4 (28 oz) chicken breast fillets
   ×1.5: 6 (1200g) chicken breast fillets
-? "2 tablespoon coarsely chopped fresh oregano"
-  metric: 8 tsp coarsely chopped fresh oregano
-  us: 8 tsp coarsely chopped fresh oregano
-  ×1.5: 12 tsp coarsely chopped fresh oregano
+✓ "2 tablespoon coarsely chopped fresh oregano"
+  metric: 2 tbsp + 2 tsp coarsely chopped fresh oregano
+  us: 2 tbsp + 2 tsp coarsely chopped fresh oregano
+  ×1.5: 4 tbsp coarsely chopped fresh oregano
 ? "4 thin slices galangal, finely chopped"
   ×1.5: 6 thin slices galangal, finely chopped
 ✓ "1 long red chilli, seeds removed, roughly chopped"
@@ -7064,32 +7134,32 @@
   ×1.5: 1½ cups (375ml) coconut milk
 ? "1 stick lemongrass, bruised"
   ×1.5: 1½ sticks lemongrass, bruised
-? "1 tablespoon fish sauce"
-  metric: 4 tsp fish sauce
-  us: 4 tsp fish sauce
-  ×1.5: 6 tsp fish sauce
-? "1 tablespoon grated palm sugar"
-  metric: 4 tsp grated palm sugar
-  us: 4 tsp grated palm sugar
-  ×1.5: 6 tsp grated palm sugar
+✓ "1 tablespoon fish sauce"
+  metric: 1 tbsp + 1 tsp fish sauce
+  us: 1 tbsp + 1 tsp fish sauce
+  ×1.5: 2 tbsp fish sauce
+✓ "1 tablespoon grated palm sugar"
+  metric: 1 tbsp + 1 tsp grated palm sugar
+  us: 1 tbsp + 1 tsp grated palm sugar
+  ×1.5: 2 tbsp grated palm sugar
 ? "1 kilogram black mussels, cleaned, debearded"
   us: 2¼ lb black mussels, cleaned, debearded
   ×1.5: 1.5 kilograms black mussels, cleaned, debearded
-? "1 tablespoon lime juice"
-  metric: 4 tsp lime juice
-  us: 4 tsp lime juice
-  ×1.5: 6 tsp lime juice
+✓ "1 tablespoon lime juice"
+  metric: 1 tbsp + 1 tsp lime juice
+  us: 1 tbsp + 1 tsp lime juice
+  ×1.5: 2 tbsp lime juice
 ? "1/4 cup coriander sprigs"
   metric: 0.6 dl coriander sprigs
   us: ¼ cup coriander sprigs
   ×1.5: 0.9 dl coriander sprigs
-? "1/3 cup (95g) natural yoghurt"
-  us: ⅓ cup (3½ oz) natural yoghurt
+✓ "1/3 cup (95g) natural yoghurt"
+  us: ⅓ cup (95g) natural yoghurt
   ×1.5: 1/2 cup (145g) natural yoghurt
-? "1 tablespoon ground coriander"
-  metric: 4 tsp ground coriander
-  us: 4 tsp ground coriander
-  ×1.5: 6 tsp ground coriander
+✓ "1 tablespoon ground coriander"
+  metric: 1 tbsp + 1 tsp ground coriander
+  us: 1 tbsp + 1 tsp ground coriander
+  ×1.5: 2 tbsp ground coriander
 ? "1 teaspoon ground turmeric"
   ×1.5: 1½ teaspoons ground turmeric
 ? "1.2 kilogram chicken thigh fillets, cut into 2.5cm cubes"
@@ -7103,13 +7173,13 @@
   ×1.5: 7.5 centimetres piece fresh ginger, peeled, sliced thickly
 ? "3 clove garlic, peeled"
   ×1.5: 4½ cloves garlic, peeled
-? "1/2 cup (60g) almond meal"
-  us: ½ cup (2 oz) almond meal
+✓ "1/2 cup (60g) almond meal"
+  us: ½ cup (60g) almond meal
   ×1.5: 3/4 cup (90g) almond meal
-? "2 tablespoon vegetable oil"
-  metric: 8 tsp vegetable oil
-  us: 8 tsp vegetable oil
-  ×1.5: 12 tsp vegetable oil
+✓ "2 tablespoon vegetable oil"
+  metric: 2 tbsp + 2 tsp vegetable oil
+  us: 2 tbsp + 2 tsp vegetable oil
+  ×1.5: 4 tbsp vegetable oil
 ? "5 whole cloves"
   ×1.5: 7½ whole cloves
 ? "400 millilitre can coconut cream"
@@ -7117,10 +7187,10 @@
   ×1.5: 600 millilitres can coconut cream
 ? "1 x 470g (15-ounce) packet butter cake mix"
   ×1.5: 1½ x 470g (15-ounce) packets butter cake mix
-? "1/4 cup (40g) icing sugar, plus 1 tablespoon extra, for dusting"
-  metric: 1/4 cup (40g) icing sugar, plus 4 tsp extra, for dusting
-  us: ¼ cup (1½ oz) icing sugar, plus 4 tsp extra, for dusting
-  ×1.5: ⅓ cup + ½ tbsp (60g) icing sugar, plus 6 tsp extra, for dusting
+✓ "1/4 cup (40g) icing sugar, plus 1 tablespoon extra, for dusting"
+  metric: 1/4 cup (40g) icing sugar, plus 1 tbsp + 1 tsp extra, for dusting
+  us: ¼ cup (40g) icing sugar, plus 1 tbsp + 1 tsp extra, for dusting
+  ×1.5: ⅓ cup + ½ tbsp (60g) icing sugar, plus 2 tbsp extra, for dusting
 ? "4 120 gram chicken breast supremes"
   us: 4 4 oz chicken breast supremes
   ×1.5: 6 120 gram chicken breast supremes
@@ -7145,6 +7215,8 @@
 ? "4 100g pieces baby squid"
   us: 4 3½ oz pieces baby squid
   ×1.5: 6 100g pieces baby squid
+✓ "1/4 teaspoon each coriander seeds and cumin seeds"
+  ×1.5: 0.4 teaspoon each coriander seeds and cumin seeds
 ? "step: Preheat oven to 180°C/160°C fan-forced."
   us: Preheat oven to 350°F/325°F fan-forced.
 ? "step: Drop ¼ cup of mixture into cases."
@@ -7155,12 +7227,12 @@
   us: Lightly grease 20 holes of two 12-hole (¹/³-cup/⅓ cup) muffin pans.
 ? "step: Meanwhile, preheat oven to 200°C (180°C fan-forced)."
   us: Meanwhile, preheat oven to 400°F (350°F fan-forced).
-? "step: Drizzle with 2 tablespoons oil and remaining Lebanese Spice Mix; toss to coat."
-  metric: Drizzle with 8 tsp oil and remaining Lebanese Spice Mix; toss to coat.
-  us: Drizzle with 8 tsp oil and remaining Lebanese Spice Mix; toss to coat.
-? "step: Meanwhile, drain tuna over small bowl; reserve 2 tablespoons of the oil."
-  metric: Meanwhile, drain tuna over small bowl; reserve 8 tsp of the oil.
-  us: Meanwhile, drain tuna over small bowl; reserve 8 tsp of the oil.
+✓ "step: Drizzle with 2 tablespoons oil and remaining Lebanese Spice Mix; toss to coat."
+  metric: Drizzle with 2 tbsp + 2 tsp oil and remaining Lebanese Spice Mix; toss to coat.
+  us: Drizzle with 2 tbsp + 2 tsp oil and remaining Lebanese Spice Mix; toss to coat.
+✓ "step: Meanwhile, drain tuna over small bowl; reserve 2 tablespoons of the oil."
+  metric: Meanwhile, drain tuna over small bowl; reserve 2 tbsp + 2 tsp of the oil.
+  us: Meanwhile, drain tuna over small bowl; reserve 2 tbsp + 2 tsp of the oil.
 ? "step: Measure flesh mixture, allow 1 cup of sugar for each cup of flesh mixture."
   metric: Measure flesh mixture, allow 2.5 dl of sugar for each cup of flesh mixture.
 ? "step: Make **dulce de leche**: Preheat oven to 220°C."
@@ -7183,9 +7255,9 @@
   metric: Reserve 40 whole choc-malt balls, coarsely chop 2.5 dl of the remaining balls.
 ? "step: Preheat oven to slow, 150ºC."
   us: Preheat oven to slow, 300°F.
-? "step: Gradually add sugar, one tablespoon at a time, beating until sugar dissolves and foam is stiff, thick and glossy."
-  metric: Gradually add sugar, 4 tsp at a time, beating until sugar dissolves and foam is stiff, thick and glossy.
-  us: Gradually add sugar, 4 tsp at a time, beating until sugar dissolves and foam is stiff, thick and glossy.
+✓ "step: Gradually add sugar, one tablespoon at a time, beating until sugar dissolves and foam is stiff, thick and glossy."
+  metric: Gradually add sugar, 1 tbsp + 1 tsp at a time, beating until sugar dissolves and foam is stiff, thick and glossy.
+  us: Gradually add sugar, 1 tbsp + 1 tsp at a time, beating until sugar dissolves and foam is stiff, thick and glossy.
 ? "step: Spoon mixture onto tray to form a 20cm round, with a slight recess in the middle."
   us: Spoon mixture onto tray to form an 8 in round, with a slight recess in the middle.
 ? "step: Reduce oven to very slow, 120ºC, and bake a further 45 minutes."
@@ -7204,25 +7276,25 @@
   us: Put half the potato cubes in a heavy-based, buttered, 2 quarts casserole dish.
 ? "step: Preheat oven to 180°C fan forced."
   us: Preheat oven to 350°F fan forced.
-? "step: Heat oil in a large frying pan over a medium-high heat, then drop in 1 tablespoon butter."
-  metric: Heat oil in a large frying pan over a medium-high heat, then drop in 4 tsp butter.
-  us: Heat oil in a large frying pan over a medium-high heat, then drop in 4 tsp butter.
+✓ "step: Heat oil in a large frying pan over a medium-high heat, then drop in 1 tablespoon butter."
+  metric: Heat oil in a large frying pan over a medium-high heat, then drop in 1 tbsp + 1 tsp butter.
+  us: Heat oil in a large frying pan over a medium-high heat, then drop in 1 tbsp + 1 tsp butter.
 ? "step: Cut into 2cm pieces."
   us: Cut into ¾ in pieces.
 ? "step: Roll each half of dough into an oval about 35cm long."
   us: Roll each half of dough into an oval about 14 in long.
-? "step: Heat 1 tablespoon of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden."
-  metric: Heat 4 tsp of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden.
-  us: Heat 4 tsp of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden.
-? "step: Heat 1 tablespoon of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through."
-  metric: Heat 4 tsp of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through.
-  us: Heat 4 tsp of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through.
+✓ "step: Heat 1 tablespoon of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden."
+  metric: Heat 1 tbsp + 1 tsp of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden.
+  us: Heat 1 tbsp + 1 tsp of oil in a large frying pan over medium-high heat; cook sprouts, cut-side down, 2 minutes or until golden.
+✓ "step: Heat 1 tablespoon of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through."
+  metric: Heat 1 tbsp + 1 tsp of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through.
+  us: Heat 1 tbsp + 1 tsp of the oil in same frying pan; cook broccoli 3 minutes or until browned lightly and warmed through.
 ? "step: Transfer into a 1.5 litre ovenproof dish."
   us: Transfer into a 6⅓ cups ovenproof dish.
 ? "step: Tie pork with kitchen string at 2cm intervals; place pork on a wire rack in a large shallow baking dish."
   us: Tie pork with kitchen string at ¾ in intervals; place pork on a wire rack in a large shallow baking dish.
 
-## yhteishyva.fi : 364 lines and sentences, 316 entries
+## yhteishyva.fi : 375 lines and sentences, 325 entries
 
 ? "400 g Broilerinleikkeitä"
   us: 14 unssia Broilerinleikkeitä
@@ -7289,9 +7361,9 @@
 ? "1 ¾ dl vehnäjauhoja"
   us: ¾ kuppia vehnäjauhoja
   ×1.5: 2 ⅔ dl vehnäjauhoja
-? "¾ dl tummaa kaakaojauhetta"
+✓ "¾ dl tummaa kaakaojauhetta"
   us: ⅓ kuppia tummaa kaakaojauhetta
-  ×1.5: 1 dl tummaa kaakaojauhetta
+  ×1.5: 1,1 dl tummaa kaakaojauhetta
 ? "1 tl piparimaustetta"
   ×1.5: 1½ tl piparimaustetta
 ? "600 g silakkafileitä"
@@ -7354,6 +7426,10 @@
   ×1.5: 1½ rkl viinietikkaa
 ? "1 tl sinappia"
   ×1.5: 1½ tl sinappia
+✓ "1/4 tl rouhittua mustapippuria"
+  ×1.5: 0,4 tl rouhittua mustapippuria
+✓ "1/4 tl sokeria"
+  ×1.5: 0,4 tl sokeria
 ? "2 dl Vettä"
   us: ¾ kuppia + 1½ rkl Vettä
   ×1.5: 3 dl Vettä
@@ -7531,6 +7607,10 @@
   ×1.5: 6 kpl anjovisfileetä
 ? "2 rkl sitruunanmehua"
   ×1.5: 3 rkl sitruunanmehua
+✓ "1/4 tl mustapippuria rouhittuna"
+  ×1.5: 0,4 tl mustapippuria rouhittuna
+✓ "1/4 tl suolaa"
+  ×1.5: 0,4 tl suolaa
 ? "1 tl hunajaa"
   ×1.5: 1½ tl hunajaa
 ? "1 dl rypsiöljyä"
@@ -7564,9 +7644,9 @@
 ? "1 dl soijakastiketta"
   us: ⅓ kuppia + 1½ rkl soijakastiketta
   ×1.5: 1,5 dl soijakastiketta
-? "3/4 dl seesamiöljyä"
+✓ "3/4 dl seesamiöljyä"
   us: ⅓ kuppia seesamiöljyä
-  ×1.5: 1 dl seesamiöljyä
+  ×1.5: 1,1 dl seesamiöljyä
 ? "2 tl inkivääritahnaa (Spice Up!)"
   ×1.5: 3 tl inkivääritahnaa (Spice Up!)
 ? "1 - 2 tl sriracha-chilikastiketta"
@@ -7665,6 +7745,8 @@
 ? "2 dl (1 prk) vispikermaa"
   us: ¾ kuppia + 1½ rkl (1 prk) vispikermaa
   ×1.5: 3 dl (1½ prk) vispikermaa
+✓ "1/4 tl kanelia"
+  ×1.5: 0,4 tl kanelia
 ? "500 g (2 rs) minitomaatteja"
   us: 18 unssia (2 rs) minitomaatteja
   ×1.5: 750 g (3 rs) minitomaatteja
@@ -7677,7 +7759,7 @@
   ×1.5: 1½ tl punaviinietikkaa
 ? "1/2 kpl hunajamelonia"
   ×1.5: 3/4 kpl hunajamelonia
-? "125 g (1 ps) mozzarellajuustoa"
+✓ "125 g (1 ps) mozzarellajuustoa"
   us: 4 unssia (1 ps) mozzarellajuustoa
   ×1.5: 190 g (1½ ps) mozzarellajuustoa
 ? "100 g (1 ps) jääsalaattia"
@@ -7688,9 +7770,9 @@
 ? "75 g (½ pkt) ilmakuivattua kinkkua (esim. serranon kinkkua)"
   us: 2½ unssia (½ pkt) ilmakuivattua kinkkua (esim. serranon kinkkua)
   ×1.5: 115 g (¾ pkt) ilmakuivattua kinkkua (esim. serranon kinkkua)
-? "3/4 dl oliiviöljyä"
+✓ "3/4 dl oliiviöljyä"
   us: ⅓ kuppia oliiviöljyä
-  ×1.5: 1 dl oliiviöljyä
+  ×1.5: 1,1 dl oliiviöljyä
 ? "1 rkl hunajaa"
   ×1.5: 1½ rkl hunajaa
 ? "2 1/2 dl (1 prk) Kotimaista -vaahtoutuvaa vaniljakastiketta"
@@ -7715,11 +7797,19 @@
 ? "1 kg punajuuria"
   us: 2¼ paunaa punajuuria
   ×1.5: 1,5 kg punajuuria
-? "3/4 dl rypsiöljyä"
+✓ "1/4 tl ruukkua tilliä"
+  ×1.5: 0,4 tl ruukkua tilliä
+✓ "3/4 dl rypsiöljyä"
   us: ⅓ kuppia rypsiöljyä
-  ×1.5: 1 dl rypsiöljyä
+  ×1.5: 1,1 dl rypsiöljyä
 ? "6 kpl luumua neljään osaan leikattuna"
   ×1.5: 9 kpl luumua neljään osaan leikattuna
+✓ "1/4 tl kanelia jauhettuna"
+  ×1.5: 0,4 tl kanelia jauhettuna
+✓ "1/4 tl kardemummaa jauhettuna"
+  ×1.5: 0,4 tl kardemummaa jauhettuna
+✓ "1/4 tl inkivääriä jauhettuna"
+  ×1.5: 0,4 tl inkivääriä jauhettuna
 ? "1 rkl ruokosokeria"
   ×1.5: 1½ rkl ruokosokeria
 ? "3 rkl voita"
@@ -7970,7 +8060,7 @@
   us: Paahda luumuja 350 °F uunissa noin 25 minuuttia.
 ? "step: Lämmitä grilli 180°C."
   us: Lämmitä grilli 350 °F.
-? "step: Voitele noin 20 cm halkaisijaltaan oleva uunivuoka huolellisesti ja kaada taikina vuokaan."
+✓ "step: Voitele noin 20 cm halkaisijaltaan oleva uunivuoka huolellisesti ja kaada taikina vuokaan."
   us: Voitele noin 8 tuumaa halkaisijaltaan oleva uunivuoka huolellisesti ja kaada taikina vuokaan.
 ? "step: Paista 225-asteisessa uunissa 30 minuuttia."
   us: Paista 425 °F uunissa 30 minuuttia.
@@ -8489,7 +8579,7 @@
   ×1.5: 1.8 l shredded rotisserie chicken
 ? "1 tablespoon chopped fresh parsley"
   ×1.5: 1½ tablespoons chopped fresh parsley
-? "30 buttery round crackers (such as Ritz®), crushed"
+✓ "30 buttery round crackers (such as Ritz®), crushed"
   ×1.5: 45 buttery round crackers (such as Ritz®), crushed
 ? "4 tablespoons unsalted butter, melted"
   ×1.5: 6 tablespoons unsalted butter, melted
@@ -8547,7 +8637,7 @@
 ? "step: Spoon chicken mixture evenly into an 11x7-inch or 9-inch square baking dish."
   metric: Spoon chicken mixture evenly into a 28 × 18 cm or 23 cm square baking dish.
 
-## bbc.co.uk : 346 lines and sentences, 331 entries
+## bbc.co.uk : 351 lines and sentences, 336 entries
 
 ? "4 free-range eggs"
   ×1.5: 6 free-range eggs
@@ -8738,7 +8828,7 @@
   ×1.5: 45ml/1½fl oz brandy
 ? "100g/3½oz dried cranberries"
   ×1.5: 150g/5¼oz dried cranberries
-? "300g/10½oz dark chocolate, broken into chunks"
+✓ "300g/10½oz dark chocolate, broken into chunks"
   ×1.5: 450g/15¾oz dark chocolate, broken into chunks
 ? "200g/7oz butter"
   ×1.5: 300g/10½oz butter
@@ -8890,6 +8980,14 @@
   ×1.5: ¾ shatkora (available in Asian grocery stores), halved lengthways and thinly sliced
 ? "1 large cinnamon stick"
   ×1.5: 1½ large cinnamon stick
+✓ "¼ tsp ground turmeric"
+  ×1.5: 0.4 tsp ground turmeric
+✓ "¼ tsp chilli powder"
+  ×1.5: 0.4 tsp chilli powder
+✓ "¼ tsp ground cumin "
+  ×1.5: 0.4 tsp ground cumin 
+✓ "¼ tsp curry powder"
+  ×1.5: 0.4 tsp curry powder
 ? "200ml/7fl oz plain yoghurt"
   us: ¾ cup + 1½ tbsp/7fl oz plain yoghurt
   ×1.5: 300ml/10½fl oz plain yoghurt
@@ -9011,6 +9109,8 @@
   ×1.5: 1½ red pepper, diced
 ? "1 tsp soft thyme leaves"
   ×1.5: 1½ tsp soft thyme leaves
+✓ "¼ tsp dried red chilli flakes"
+  ×1.5: 0.4 tsp dried red chilli flakes
 ? "570ml/1pint calasparra (Spanish short-grain) rice"
   us: 2⅓ cups/1pint calasparra (Spanish short-grain) rice
   ×1.5: 855ml/1½pints calasparra (Spanish short-grain) rice
@@ -9019,9 +9119,9 @@
 ? "125ml/4fl oz dry white wine"
   us: ½ cup/4fl oz dry white wine
   ×1.5: 190ml/6fl oz dry white wine
-? "1.2 litres/2 pints chicken stock, heated with ¼ tsp saffron strands"
+✓ "1.2 litres/2 pints chicken stock, heated with ¼ tsp saffron strands"
   us: 5 cups/2 pints chicken stock, heated with ¼ tsp saffron strands
-  ×1.5: 1.8 litres/3 pints chicken stock, heated with ¼ tsp saffron strands
+  ×1.5: 1.8 litres/3 pints chicken stock, heated with 0.4 tsp saffron strands
 ? "8 chicken thighs, each chopped in half and browned"
   ×1.5: 12 chicken thighs, each chopped in half and browned
 ? "18 small clams, cleaned"
@@ -9247,7 +9347,7 @@
 ? "step: Add the chopped tomatoes, chipotle paste, beans and 600ml/20fl oz cold water to the saucepan."
   us: Add the chopped tomatoes, chipotle paste, beans and 2½ cups/20fl oz cold water to the saucepan.
 
-## kotiliesi.fi : 232 lines and sentences, 216 entries
+## kotiliesi.fi : 235 lines and sentences, 219 entries
 
 ? "8  silakkafileetä"
   ×1.5: 12  silakkafileetä
@@ -9295,7 +9395,7 @@
   ×1.5: 6 dl kookosjogurttia
 ? "2  banaania"
   ×1.5: 3  banaania
-? "1 dl gluteenitonta mysliä"
+✓ "1 dl gluteenitonta mysliä"
   us: ⅓ kuppia + 1½ rkl gluteenitonta mysliä
   ×1.5: 1,5 dl gluteenitonta mysliä
 ? "4 rkl kookoslastuja"
@@ -9592,6 +9692,10 @@
 ? "1 pkt (4 x 100 g) seitiä annospaloina"
   us: 1 pkt (4 x 3½ unssia) seitiä annospaloina
   ×1.5: 1½ pkt (4 x 100 g) seitiä annospaloina
+✓ "1/4 tl suolaa"
+  ×1.5: 0,4 tl suolaa
+✓ "1/4 tl rouhittua roseepippuria"
+  ×1.5: 0,4 tl rouhittua roseepippuria
 ? "1 prk (200 g) ranskankermaa"
   us: 1 prk (7 unssia) ranskankermaa
   ×1.5: 1½ prk (300 g) ranskankermaa
@@ -9599,6 +9703,8 @@
   ×1.5: 6 rkl sweet chili -kastiketta
 ? "2 rkl tomaattisosetta"
   ×1.5: 3 rkl tomaattisosetta
+✓ "1/4 tl chilijauhetta"
+  ×1.5: 0,4 tl chilijauhetta
 ? "1  kalaliemikuutio"
   ×1.5: 1½  kalaliemikuutio
 ? "1 dl hienonnettua tuoretta tilliä"
@@ -9607,8 +9713,8 @@
 ? "1 kg porkkanoita (uusia)"
   us: 2¼ paunaa porkkanoita (uusia)
   ×1.5: 1,5 kg porkkanoita (uusia)
-? "200 g (3-4 dl)  puolukoita"
-  us: 7 unssia (1¼–1⅔ kuppia)  puolukoita
+✓ "200 g (3-4 dl)  puolukoita"
+  us: 7 unssia (3-4 dl)  puolukoita
   ×1.5: 300 g (4,5-6 dl)  puolukoita
 ? "2 tl sitruunan kuorta"
   ×1.5: 3 tl sitruunan kuorta
@@ -9712,9 +9818,9 @@
 ? "1 dl kauraleseitä tai 1,5 dl kaurahiutaleita"
   us: ⅓ kuppia + 1½ rkl kauraleseitä tai ⅔ kuppia kaurahiutaleita
   ×1.5: 1,5 dl kauraleseitä tai 2,3 dl kaurahiutaleita
-? "noin 3/4 l tuoreita tai n. 200 g pakastettuja, osittain sulaneita mansikoita"
+✓ "noin 3/4 l tuoreita tai n. 200 g pakastettuja, osittain sulaneita mansikoita"
   us: noin 3¼ kuppia tuoreita tai n. 7 unssia pakastettuja, osittain sulaneita mansikoita
-  ×1.5: noin 1 l tuoreita tai n. 300 g pakastettuja, osittain sulaneita mansikoita
+  ×1.5: noin 1,1 l tuoreita tai n. 300 g pakastettuja, osittain sulaneita mansikoita
 ? "1/2 dl seljankukkamehua tai 2 tl seljankukkamehutiivistettä"
   us: 3½ rkl seljankukkamehua tai 2 tl seljankukkamehutiivistettä
   ×1.5: 3/4 dl seljankukkamehua tai 3 tl seljankukkamehutiivistettä
@@ -9770,7 +9876,7 @@
 ? "step: Paista 175 asteessa uunin keskitasolla noin 25 minuuttia."
   us: Paista 350 °F uunin keskitasolla noin 25 minuuttia.
 
-## meillakotona.fi : 336 lines and sentences, 282 entries
+## meillakotona.fi : 339 lines and sentences, 285 entries
 
 ? "3-4 kypsää broilerin koipireisipalaa"
   ×1.5: 4½-6 kypsää broilerin koipireisipalaa
@@ -9831,6 +9937,8 @@
   ×1.5: 3 rkl maitorahkaa
 ? "1 prk karamellisoitua kondensoitua maitoa"
   ×1.5: 1½ prk karamellisoitua kondensoitua maitoa
+✓ "¼ tl  hienoa merisuolaa"
+  ×1.5: 0,4 tl  hienoa merisuolaa
 ? "12 donitsin donitsipelti"
   ×1.5: 18 donitsin donitsipelti
 ? "1 limen kuori"
@@ -9860,6 +9968,8 @@
   ×1.5: 3 rkl  rypsiöljyä
 ? "½ tl  suolaa"
   ×1.5: ¾ tl  suolaa
+✓ "¼ tl  mustapippuria"
+  ×1.5: 0,4 tl  mustapippuria
 ? "1 avokado"
   ×1.5: 1½ avokado
 ? "125 g miniluumutomaatteja"
@@ -9930,6 +10040,8 @@
   ×1.5: 1½ pkt (190 g) sinihomejuustoa
 ? "4 rkl tuoretta tai 2 tl kuivattua timjamia"
   ×1.5: 6 rkl tuoretta tai 3 tl kuivattua timjamia
+✓ "¼ tl mustapippuria"
+  ×1.5: 0,4 tl mustapippuria
 ? "4 rkl hunajaa"
   ×1.5: 6 rkl hunajaa
 ? "2 dl kvinoaa"
@@ -9988,9 +10100,9 @@
 ? "1 dl mantelijauhetta"
   us: ⅓ kuppia + 1½ rkl mantelijauhetta
   ×1.5: 1,5 dl mantelijauhetta
-? " ¾ dl  perunajauhoja"
+✓ " ¾ dl  perunajauhoja"
   us:  ⅓ kuppia  perunajauhoja
-  ×1.5:  1 dl  perunajauhoja
+  ×1.5:  1,1 dl  perunajauhoja
 ? "1 rkl sokeria"
   ×1.5: 1½ rkl sokeria
 ? "2 dl  vispikermaa"
@@ -10187,9 +10299,9 @@
   ×1.5: 3 tl  espressopikakahvijauhetta 
 ? "1  muna"
   ×1.5: 1½  muna
-? "¾ dl vehnäjauhoja"
+✓ "¾ dl vehnäjauhoja"
   us: ⅓ kuppia vehnäjauhoja
-  ×1.5: 1 dl vehnäjauhoja
+  ×1.5: 1,1 dl vehnäjauhoja
 ? "1 prk (2 dl) vispi- tai kuohukermaa"
   us: 1 prk (¾ kuppia + 1½ rkl) vispi- tai kuohukermaa
   ×1.5: 1½ prk (3 dl) vispi- tai kuohukermaa
@@ -10274,9 +10386,9 @@
 ? "30 g valkosuklaata"
   us: 1 unssi valkosuklaata
   ×1.5: 45 g valkosuklaata
-? "¾ dl kaakaojauhetta"
+✓ "¾ dl kaakaojauhetta"
   us: ⅓ kuppia kaakaojauhetta
-  ×1.5: 1 dl kaakaojauhetta
+  ×1.5: 1,1 dl kaakaojauhetta
 ? "1 dl tomusokeria"
   us: ⅓ kuppia + 1½ rkl tomusokeria
   ×1.5: 1,5 dl tomusokeria
@@ -10461,10 +10573,10 @@
 ? "step: Paahda uunissa 200 asteessa noin 15 minuuttia."
   us: Paahda uunissa 400 °F noin 15 minuuttia.
 
-## recipetineats.com : 352 lines and sentences, 341 entries
+## recipetineats.com : 367 lines and sentences, 354 entries
 
-? "3 tbsp / 50 g  unsalted butter (, divided)"
-  us: 12 tsp / 2 oz  unsalted butter (, divided)
+✓ "3 tbsp / 50 g  unsalted butter (, divided)"
+  us: 4 tbsp / 50 g  unsalted butter (, divided)
   ×1.5: 4½ tbsp / 75 g  unsalted butter (, divided)
 ? "1 1/2 cups arborio rice ((risotto rice) (Note 1))"
   metric: 3.8 dl arborio rice ((risotto rice) (Note 1))
@@ -10486,16 +10598,16 @@
   metric: 8.8 dl vegetable or chicken stock/broth
   us: 3⅔ cups vegetable or chicken stock/broth
   ×1.5: 1.3 l vegetable or chicken stock/broth
-? "2 tbsp sage leaves, roughly chopped ((Note 3))"
-  metric: 8 tsp sage leaves, roughly chopped ((Note 3))
-  us: 8 tsp sage leaves, roughly chopped ((Note 3))
-  ×1.5: 12 tsp sage leaves, roughly chopped ((Note 3))
+✓ "2 tbsp sage leaves, roughly chopped ((Note 3))"
+  metric: 2 tbsp + 2 tsp sage leaves, roughly chopped ((Note 3))
+  us: 2 tbsp + 2 tsp sage leaves, roughly chopped ((Note 3))
+  ×1.5: 4 tbsp sage leaves, roughly chopped ((Note 3))
 ? "1/2 cup parmesan cheese (, finely grated)"
   metric: 1.3 dl parmesan cheese (, finely grated)
   us: ½ cup parmesan cheese (, finely grated)
   ×1.5: 1.9 dl parmesan cheese (, finely grated)
-? "50 g / 3 tbsp  butter (, salted)"
-  us: 2 oz / 12 tsp  butter (, salted)
+✓ "50 g / 3 tbsp  butter (, salted)"
+  us: 2 oz / 3 tbsp  butter (, salted)
   ×1.5: 75 g / 4½ tbsp  butter (, salted)
 ? "12 - 20  sage leaves"
   ×1.5: 18 - 30  sage leaves
@@ -10506,10 +10618,10 @@
 ? "45 g (1.6 oz)  ancho chillies, dried ((~2-3 pieces, 1 cup once chopped) (Note 1))"
   metric: 45 g (1.6 oz)  ancho chillies, dried ((~2-3 pieces, 2.5 dl once chopped) (Note 1))
   ×1.5: 70 g (2.4 oz)  ancho chillies, dried ((~3-4½ pieces, 3.8 dl once chopped) (Note 1))
-? "6 g (0.2 oz)  chillies de arbol, dried ((~6 pieces, 2 tbsp once chopped) (Note 1))"
-  metric: 6 g (0.2 oz)  chillies de arbol, dried ((~6 pieces, 8 tsp once chopped) (Note 1))
-  us: 6 g (0.2 oz)  chillies de arbol, dried ((~6 pieces, 8 tsp once chopped) (Note 1))
-  ×1.5: 9 g (0.3 oz)  chillies de arbol, dried ((~9 pieces, 12 tsp once chopped) (Note 1))
+✓ "6 g (0.2 oz)  chillies de arbol, dried ((~6 pieces, 2 tbsp once chopped) (Note 1))"
+  metric: 6 g (0.2 oz)  chillies de arbol, dried ((~6 pieces, 2 tbsp + 2 tsp once chopped) (Note 1))
+  us: 6 g (0.2 oz)  chillies de arbol, dried ((~6 pieces, 2 tbsp + 2 tsp once chopped) (Note 1))
+  ×1.5: 9 g (0.3 oz)  chillies de arbol, dried ((~9 pieces, 4 tbsp once chopped) (Note 1))
 ? "1/2 cup chilli soaking water ((reserve after simmering))"
   metric: 1.3 dl chilli soaking water ((reserve after simmering))
   us: ½ cup chilli soaking water ((reserve after simmering))
@@ -10525,25 +10637,27 @@
   ×1.5: 3 tsp dried oregano
 ? "1 tsp ground cumin"
   ×1.5: 1½ tsp ground cumin
-? "5 tbsp vegetable oil ((or canola oil) (Note 2))"
-  metric: 20 tsp vegetable oil ((or canola oil) (Note 2))
-  us: 20 tsp vegetable oil ((or canola oil) (Note 2))
-  ×1.5: 30 tsp vegetable oil ((or canola oil) (Note 2))
+✓ "1/8 tsp black pepper"
+  ×1.5: 0.2 tsp black pepper
+✓ "5 tbsp vegetable oil ((or canola oil) (Note 2))"
+  metric: 1 dl vegetable oil ((or canola oil) (Note 2))
+  us: ⅓ cup + 1½ tbsp vegetable oil ((or canola oil) (Note 2))
+  ×1.5: 1.5 dl vegetable oil ((or canola oil) (Note 2))
 ? "1.3 kg/2.6 lb   chuck beef (, cut into 6 large pieces (or boneless beef short ribs - 1.8kg/3.6 lb bone-in) (Note 3))"
   ×1.5: 2 kg/3.9 lb   chuck beef (, cut into 6 large pieces (or boneless beef short ribs - 2.7kg/5.4 lb bone-in) (Note 3))
 ? "2 cups beef stock / broth (, low sodium)"
   metric: 5 dl beef stock / broth (, low sodium)
   ×1.5: 7.5 dl beef stock / broth (, low sodium)
-? "10  cloves ((or 1/4 tsp ground cloves))"
-  ×1.5: 15  cloves ((or 1/4 tsp ground cloves))
-? "1  cinnamon stick ((substitute 1/4 tsp powder, but it's not quite the same))"
-  ×1.5: 1½  cinnamon stick ((substitute 1/4 tsp powder, but it's not quite the same))
+✓ "10  cloves ((or 1/4 tsp ground cloves))"
+  ×1.5: 15  cloves ((or 0.4 tsp ground cloves))
+✓ "1  cinnamon stick ((substitute 1/4 tsp powder, but it's not quite the same))"
+  ×1.5: 1½  cinnamon stick ((substitute 0.4 tsp powder, but it's not quite the same))
 ? "3  bay leaves (, preferably fresh else dried)"
   ×1.5: 4½  bay leaves (, preferably fresh else dried)
-? "2 tbsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))"
-  metric: 8 tsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))
-  us: 8 tsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))
-  ×1.5: 12 tsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))
+✓ "2 tbsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))"
+  metric: 2 tbsp + 2 tsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))
+  us: 2 tbsp + 2 tsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))
+  ×1.5: 4 tbsp apple cider vinegar ((or regular white vinegar, red or white wine vinegar))
 ? "2 1/2 tsp cooking salt / kosher salt ((halve for table salt, +30% for flakes))"
   ×1.5: 3 3/4 tsp cooking salt / kosher salt ((halve for table salt, +30% for flakes))
 ? "1/2 tsp cooking salt / kosher salt"
@@ -10556,15 +10670,15 @@
   metric: 1.3 dl finely chopped coriander / cilantro leaves
   us: ½ cup finely chopped coriander / cilantro leaves
   ×1.5: 1.9 dl finely chopped coriander / cilantro leaves
-? "3 1/2 cups (350g)  shredded Colby, Monterey Jack or (Oaxaca cheese (if you can get it) (Note 6))"
-  us: 3⅔ cups (12 oz)  shredded Colby, Monterey Jack or (Oaxaca cheese (if you can get it) (Note 6))
+✓ "3 1/2 cups (350g)  shredded Colby, Monterey Jack or (Oaxaca cheese (if you can get it) (Note 6))"
+  us: 3⅔ cups (350g)  shredded Colby, Monterey Jack or (Oaxaca cheese (if you can get it) (Note 6))
   ×1.5: 5 1/4 cups (525g)  shredded Colby, Monterey Jack or (Oaxaca cheese (if you can get it) (Note 6))
 ? "350 - 400 g / 12 - 14 oz   beef rump or fillet (, thinly sliced (or other quick cooking cut of beef))"
   ×1.5: 525 - 600 g / 18 - 21 oz   beef rump or fillet (, thinly sliced (or other quick cooking cut of beef))
-? "1 1/2 tbsp peanut or vegetable oil"
-  metric: 6 tsp peanut or vegetable oil
-  us: 6 tsp peanut or vegetable oil
-  ×1.5: 9 tsp peanut or vegetable oil
+✓ "1 1/2 tbsp peanut or vegetable oil"
+  metric: 2 tbsp peanut or vegetable oil
+  us: 2 tbsp peanut or vegetable oil
+  ×1.5: 3 tbsp peanut or vegetable oil
 ? "2  garlic cloves (, finely chopped)"
   ×1.5: 3  garlic cloves (, finely chopped)
 ? "1/2  onion (, finely sliced)"
@@ -10576,44 +10690,48 @@
 ? "1/2 cup / 125 ml  water"
   us: ½ cup / 125 ml  water
   ×1.5: 3/4 cup / 190 ml  water
-? "1 tbsp cornflour / cornstarch"
-  metric: 4 tsp cornflour / cornstarch
-  us: 4 tsp cornflour / cornstarch
-  ×1.5: 6 tsp cornflour / cornstarch
-? "2 tbsp dark soy sauce ((Note 2))"
-  metric: 8 tsp dark soy sauce ((Note 2))
-  us: 8 tsp dark soy sauce ((Note 2))
-  ×1.5: 12 tsp dark soy sauce ((Note 2))
-? "1 1/2 tbsp light soy sauce ((Note 2))"
-  metric: 6 tsp light soy sauce ((Note 2))
-  us: 6 tsp light soy sauce ((Note 2))
-  ×1.5: 9 tsp light soy sauce ((Note 2))
-? "1 1/2 tbsp Chinese cooking wine/Shoasing wine ((Note 3))"
-  metric: 6 tsp Chinese cooking wine/Shoasing wine ((Note 3))
-  us: 6 tsp Chinese cooking wine/Shoasing wine ((Note 3))
-  ×1.5: 9 tsp Chinese cooking wine/Shoasing wine ((Note 3))
+✓ "1 tbsp cornflour / cornstarch"
+  metric: 1 tbsp + 1 tsp cornflour / cornstarch
+  us: 1 tbsp + 1 tsp cornflour / cornstarch
+  ×1.5: 2 tbsp cornflour / cornstarch
+✓ "2 tbsp dark soy sauce ((Note 2))"
+  metric: 2 tbsp + 2 tsp dark soy sauce ((Note 2))
+  us: 2 tbsp + 2 tsp dark soy sauce ((Note 2))
+  ×1.5: 4 tbsp dark soy sauce ((Note 2))
+✓ "1 1/2 tbsp light soy sauce ((Note 2))"
+  metric: 2 tbsp light soy sauce ((Note 2))
+  us: 2 tbsp light soy sauce ((Note 2))
+  ×1.5: 3 tbsp light soy sauce ((Note 2))
+✓ "1 1/2 tbsp Chinese cooking wine/Shoasing wine ((Note 3))"
+  metric: 2 tbsp Chinese cooking wine/Shoasing wine ((Note 3))
+  us: 2 tbsp Chinese cooking wine/Shoasing wine ((Note 3))
+  ×1.5: 3 tbsp Chinese cooking wine/Shoasing wine ((Note 3))
 ? "1 tsp white sugar ((omit if using Mirin))"
   ×1.5: 1½ tsp white sugar ((omit if using Mirin))
+✓ "1/8 tsp Chinese five spice powder ((not critical))"
+  ×1.5: 0.2 tsp Chinese five spice powder ((not critical))
 ? "1/2 tsp sesame oil (not critical)"
   ×1.5: 3/4 tsp sesame oil (not critical)
+✓ "1/4 tsp pepper (white or black)"
+  ×1.5: 0.4 tsp pepper (white or black)
 ? "2 x 350 - 400g / 12 - 13 oz  bream or snapper fish (, gutted, scaled and cleaned (Note 1))"
   ×1.5: 3 x 350 - 400g / 12 - 13 oz  bream or snapper fish (, gutted, scaled and cleaned (Note 1))
 ? "2  stems of shallots ((scallions / green onions), diagonally julienned to 5cm/2\" length)"
   ×1.5: 3  stems of shallots ((scallions / green onions), diagonally julienned to 5cm/2" length)
-? "2 tbsp Japanese cooking sake ((Note 2))"
-  metric: 8 tsp Japanese cooking sake ((Note 2))
-  us: 8 tsp Japanese cooking sake ((Note 2))
-  ×1.5: 12 tsp Japanese cooking sake ((Note 2))
+✓ "2 tbsp Japanese cooking sake ((Note 2))"
+  metric: 2 tbsp + 2 tsp Japanese cooking sake ((Note 2))
+  us: 2 tbsp + 2 tsp Japanese cooking sake ((Note 2))
+  ×1.5: 4 tbsp Japanese cooking sake ((Note 2))
 ? "2 pinches of  salt"
   ×1.5: 3 pinches of  salt
 ? "3 tsp soy sauce ((Note 3))"
   ×1.5: 4½ tsp soy sauce ((Note 3))
 ? "2 tsp sesame oil"
   ×1.5: 3 tsp sesame oil
-? "4 tbsp oil ((vegetable, canola or peanut oil))"
-  metric: 16 tsp oil ((vegetable, canola or peanut oil))
-  us: 16 tsp oil ((vegetable, canola or peanut oil))
-  ×1.5: 24 tsp oil ((vegetable, canola or peanut oil))
+✓ "4 tbsp oil ((vegetable, canola or peanut oil))"
+  metric: 0.8 dl oil ((vegetable, canola or peanut oil))
+  us: ⅓ cup oil ((vegetable, canola or peanut oil))
+  ×1.5: 1.2 dl oil ((vegetable, canola or peanut oil))
 ? "1 3/4 cups flour (, plain / all purpose)"
   metric: 4.4 dl flour (, plain / all purpose)
   us: 1¾ cups flour (, plain / all purpose)
@@ -10636,7 +10754,7 @@
 ? "1 cup milk ((low or full fat))"
   metric: 2.5 dl milk ((low or full fat))
   ×1.5: 3.8 dl milk ((low or full fat))
-? "1/2 cup vegetable oil (, or other plain flavoured oil like canola, grapeseed, rapeseed, sunflower)"
+✓ "1/2 cup vegetable oil (, or other plain flavoured oil like canola, grapeseed, rapeseed, sunflower)"
   metric: 1.3 dl vegetable oil (, or other plain flavoured oil like canola, grapeseed, rapeseed, sunflower)
   us: ½ cup vegetable oil (, or other plain flavoured oil like canola, grapeseed, rapeseed, sunflower)
   ×1.5: 1.9 dl vegetable oil (, or other plain flavoured oil like canola, grapeseed, rapeseed, sunflower)
@@ -10650,28 +10768,30 @@
 ? "250g / 2 sticks  unsalted butter (, softened)"
   us: 9 oz / 2 sticks  unsalted butter (, softened)
   ×1.5: 375g / 3 sticks  unsalted butter (, softened)
-? "4 cups (500 g)  soft icing sugar / powdered sugar (, sifted (Note 4))"
-  us: 4¼ cups (18 oz)  soft icing sugar / powdered sugar (, sifted (Note 4))
+✓ "4 cups (500 g)  soft icing sugar / powdered sugar (, sifted (Note 4))"
+  us: 4¼ cups (500 g)  soft icing sugar / powdered sugar (, sifted (Note 4))
   ×1.5: 6 cups (750 g)  soft icing sugar / powdered sugar (, sifted (Note 4))
-? "1/2 cup (120 g)  smooth peanut butter ((spread, not pure) (Note 5))"
-  us: ½ cup (4 oz)  smooth peanut butter ((spread, not pure) (Note 5))
+✓ "1/2 cup (120 g)  smooth peanut butter ((spread, not pure) (Note 5))"
+  us: ½ cup (120 g)  smooth peanut butter ((spread, not pure) (Note 5))
   ×1.5: 3/4 cup (180 g)  smooth peanut butter ((spread, not pure) (Note 5))
-? "1 tbsp milk"
-  metric: 4 tsp milk
-  us: 4 tsp milk
-  ×1.5: 6 tsp milk
+✓ "1/4 tsp cooking/kosher salt"
+  ×1.5: 0.4 tsp cooking/kosher salt
+✓ "1 tbsp milk"
+  metric: 1 tbsp + 1 tsp milk
+  us: 1 tbsp + 1 tsp milk
+  ×1.5: 2 tbsp milk
 ? "1/2 cup chocolate chips or melts ((US: semi sweet chips))"
   metric: 1.3 dl chocolate chips or melts ((US: semi sweet chips))
   us: ½ cup chocolate chips or melts ((US: semi sweet chips))
   ×1.5: 1.9 dl chocolate chips or melts ((US: semi sweet chips))
-? "2 tbsp cream ((thickened/heavy or pure, not low fat))"
-  metric: 8 tsp cream ((thickened/heavy or pure, not low fat))
-  us: 8 tsp cream ((thickened/heavy or pure, not low fat))
-  ×1.5: 12 tsp cream ((thickened/heavy or pure, not low fat))
-? "3 tbsp peanut butter (, warmed in microwave to make it runny)"
-  metric: 12 tsp peanut butter (, warmed in microwave to make it runny)
-  us: 12 tsp peanut butter (, warmed in microwave to make it runny)
-  ×1.5: 18 tsp peanut butter (, warmed in microwave to make it runny)
+✓ "2 tbsp cream ((thickened/heavy or pure, not low fat))"
+  metric: 2 tbsp + 2 tsp cream ((thickened/heavy or pure, not low fat))
+  us: 2 tbsp + 2 tsp cream ((thickened/heavy or pure, not low fat))
+  ×1.5: 4 tbsp cream ((thickened/heavy or pure, not low fat))
+✓ "3 tbsp peanut butter (, warmed in microwave to make it runny)"
+  metric: 4 tbsp peanut butter (, warmed in microwave to make it runny)
+  us: 4 tbsp peanut butter (, warmed in microwave to make it runny)
+  ×1.5: 0.9 dl peanut butter (, warmed in microwave to make it runny)
 ? "120g / 4 oz   mini Reece's Peanut Butter Cups"
   ×1.5: 180g / 6 oz   mini Reece's Peanut Butter Cups
 ? "10+  miniature Reece's Peanut Butter Cups (, halved)"
@@ -10682,10 +10802,10 @@
   ×1.5: 0.9 dl salted peanuts (, finely chopped)
 ? "6 1/2 oz / 200g   chorizo ((Note 1))"
   ×1.5: 9 3/4 oz / 300g   chorizo ((Note 1))
-? "1 tbsp olive oil"
-  metric: 4 tsp olive oil
-  us: 4 tsp olive oil
-  ×1.5: 6 tsp olive oil
+✓ "1 tbsp olive oil"
+  metric: 1 tbsp + 1 tsp olive oil
+  us: 1 tbsp + 1 tsp olive oil
+  ×1.5: 2 tbsp olive oil
 ? "2  garlic cloves (, minced)"
   ×1.5: 3  garlic cloves (, minced)
 ? "1/2  onion (, diced (white, brown or yellow))"
@@ -10698,10 +10818,10 @@
   metric: 1.3 dl water
   us: ½ cup water
   ×1.5: 1.9 dl water
-? "1 tbsp sugar ((brown, white or raw - or even honey))"
-  metric: 4 tsp sugar ((brown, white or raw - or even honey))
-  us: 4 tsp sugar ((brown, white or raw - or even honey))
-  ×1.5: 6 tsp sugar ((brown, white or raw - or even honey))
+✓ "1 tbsp sugar ((brown, white or raw - or even honey))"
+  metric: 1 tbsp + 1 tsp sugar ((brown, white or raw - or even honey))
+  us: 1 tbsp + 1 tsp sugar ((brown, white or raw - or even honey))
+  ×1.5: 2 tbsp sugar ((brown, white or raw - or even honey))
 ? "1 tsp paprika"
   ×1.5: 1½ tsp paprika
 ? "1 1/2 tsp cumin powder"
@@ -10716,24 +10836,26 @@
   metric: 125g/ 4 oz  cream cheese (at room temp) or 1.9 dl yogurt ((Note 2))
   us: 125g/ 4 oz  cream cheese (at room temp) or ¾ cup yogurt ((Note 2))
   ×1.5: 190g/ 6 oz  cream cheese (at room temp) or 2.8 dl yogurt ((Note 2))
+✓ "1/4 tsp garlic (, crushed using garlic press (Note 3))"
+  ×1.5: 0.4 tsp garlic (, crushed using garlic press (Note 3))
 ? "1 1/2 tsp lemon zest (, optional)"
   ×1.5: 2 1/4 tsp lemon zest (, optional)
-? "3 tbsp extra virgin olive oil"
-  metric: 12 tsp extra virgin olive oil
-  us: 12 tsp extra virgin olive oil
-  ×1.5: 18 tsp extra virgin olive oil
-? "3 tbsp honey"
-  metric: 12 tsp honey
-  us: 12 tsp honey
-  ×1.5: 18 tsp honey
-? "1 tbsp extra virgin olive oil"
-  metric: 4 tsp extra virgin olive oil
-  us: 4 tsp extra virgin olive oil
-  ×1.5: 6 tsp extra virgin olive oil
-? "2 tbsp pistachios (, roughly chopped)"
-  metric: 8 tsp pistachios (, roughly chopped)
-  us: 8 tsp pistachios (, roughly chopped)
-  ×1.5: 12 tsp pistachios (, roughly chopped)
+✓ "3 tbsp extra virgin olive oil"
+  metric: 4 tbsp extra virgin olive oil
+  us: 4 tbsp extra virgin olive oil
+  ×1.5: 0.9 dl extra virgin olive oil
+✓ "3 tbsp honey"
+  metric: 4 tbsp honey
+  us: 4 tbsp honey
+  ×1.5: 0.9 dl honey
+✓ "1 tbsp extra virgin olive oil"
+  metric: 1 tbsp + 1 tsp extra virgin olive oil
+  us: 1 tbsp + 1 tsp extra virgin olive oil
+  ×1.5: 2 tbsp extra virgin olive oil
+✓ "2 tbsp pistachios (, roughly chopped)"
+  metric: 2 tbsp + 2 tsp pistachios (, roughly chopped)
+  us: 2 tbsp + 2 tsp pistachios (, roughly chopped)
+  ×1.5: 4 tbsp pistachios (, roughly chopped)
 ? "1/2 tsp parsley (, finely minced)"
   ×1.5: 3/4 tsp parsley (, finely minced)
 ? "500 g/1 lb   zucchini ((2 medium ~ 23cm/9\" long))"
@@ -10748,15 +10870,15 @@
   ×1.5: 0.9 dl parmesan (, grated (fresh or store bought))
 ? "1  garlic clove (, large, minced)"
   ×1.5: 1½  garlic clove (, large, minced)
-? "1/2 cup / 75 g  flour"
-  us: ½ cup / 2½ oz  flour
+✓ "1/2 cup / 75 g  flour"
+  us: ½ cup / 75 g  flour
   ×1.5: 3/4 cup / 115 g  flour
 ? "1/2 tsp baking powder"
   ×1.5: 3/4 tsp baking powder
-? "4 tbsp olive oil (, separated)"
-  metric: 16 tsp olive oil (, separated)
-  us: 16 tsp olive oil (, separated)
-  ×1.5: 24 tsp olive oil (, separated)
+✓ "4 tbsp olive oil (, separated)"
+  metric: 0.8 dl olive oil (, separated)
+  us: ⅓ cup olive oil (, separated)
+  ×1.5: 1.2 dl olive oil (, separated)
 ? "1 litre / 1 quart  milk (, full fat)"
   us: 4¼ cups / 1 quart  milk (, full fat)
   ×1.5: 1.5 litres / 1½ quarts  milk (, full fat)
@@ -10770,11 +10892,11 @@
   ×1.5: 180g / 6.3 oz  egg yolks ((~9 to 10½ large eggs, 150 ml, Note 2))
 ? "1  large egg ((55 - 60g / 2 oz))"
   ×1.5: 1½  large egg ((85 - 90g / 3 oz))
-? "7 tbsp (70g)  cornflour/cornstarch ((scoop and level, Note 3))"
-  us: 28 tsp (2½ oz)  cornflour/cornstarch ((scoop and level, Note 3))
+✓ "7 tbsp (70g)  cornflour/cornstarch ((scoop and level, Note 3))"
+  us: ½ cup + 1½ tbsp (70g)  cornflour/cornstarch ((scoop and level, Note 3))
   ×1.5: 10½ tbsp (105g)  cornflour/cornstarch ((scoop and level, Note 3))
-? "50g (5 tbsp)  unsalted butter (, cut into 1cm cubes (cold))"
-  us: 2 oz (20 tsp)  unsalted butter (, cut into ½ in cubes (cold))
+✓ "50g (5 tbsp)  unsalted butter (, cut into 1cm cubes (cold))"
+  us: 2 oz (5 tbsp)  unsalted butter (, cut into ½ in cubes (cold))
   ×1.5: 75g (7½ tbsp)  unsalted butter (, cut into 1cm cubes (cold))
 ? "2 sheets butter puff pastry, FROZEN ((25cm / 10\" squares, 185g/6oz each) (Note 4))"
   ×1.5: 3 sheets butter puff pastry, FROZEN ((25cm / 10" squares, 185g/6oz each) (Note 4))
@@ -10786,12 +10908,12 @@
   ×1.5: 1 1/8 tsp cooking salt / kosher salt
 ? "1/2 tsp black pepper"
   ×1.5: 3/4 tsp black pepper
-? "2 tbsp extra virgin olive oil"
-  metric: 8 tsp extra virgin olive oil
-  us: 8 tsp extra virgin olive oil
-  ×1.5: 12 tsp extra virgin olive oil
-? "3 tbsp / 50g  unsalted butter (, cut into 1cm / 1/2\" cubes)"
-  us: 12 tsp / 2 oz  unsalted butter (, cut into 1cm / 1/2" cubes)
+✓ "2 tbsp extra virgin olive oil"
+  metric: 2 tbsp + 2 tsp extra virgin olive oil
+  us: 2 tbsp + 2 tsp extra virgin olive oil
+  ×1.5: 4 tbsp extra virgin olive oil
+✓ "3 tbsp / 50g  unsalted butter (, cut into 1cm / 1/2\" cubes)"
+  us: 4 tbsp / 50g  unsalted butter (, cut into 1cm / 1/2" cubes)
   ×1.5: 4½ tbsp / 75g  unsalted butter (, cut into 1cm / 1/2" cubes)
 ? "6  thyme sprigs ((sub 1/2 tsp dried thyme))"
   ×1.5: 9  thyme sprigs ((sub 3/4 tsp dried thyme))
@@ -10808,30 +10930,29 @@
   ×1.5: 525g/ 18 oz   ham (, shaved or thinly sliced (up to 750g/1½lb, Note 3))
 ? "250g/ 8 oz  Swiss cheese ( or other melting cheese slices (10 - 12 slices))"
   ×1.5: 375g/ 12 oz  Swiss cheese ( or other melting cheese slices (15 - 18 slices))
-✗ "100 g (7 tbsp)  unsalted butter (, melted)"
-  us: 3½ oz (28 tsp)  unsalted butter (, melted)
-  ×1.5: 150 g (10½ tbsp)  unsalted butter (, melted)
-  want:
+✓ "100 g (7 tbsp)  unsalted butter (, melted)"
   us: 3½ oz (7 tbsp)  unsalted butter (, melted)
   ×1.5: 150 g (10½ tbsp)  unsalted butter (, melted)
 ? "1/4  onion (, finely chopped)"
   ×1.5: 1/3  onion (, finely chopped)
-? "2 tbsp American mustard ((Note 2))"
-  metric: 8 tsp American mustard ((Note 2))
-  us: 8 tsp American mustard ((Note 2))
-  ×1.5: 12 tsp American mustard ((Note 2))
-? "1 tbsp poppyseeds ((Note 4))"
-  metric: 4 tsp poppyseeds ((Note 4))
-  us: 4 tsp poppyseeds ((Note 4))
-  ×1.5: 6 tsp poppyseeds ((Note 4))
-? "1 tbsp Worcestershire sauce"
-  metric: 4 tsp Worcestershire sauce
-  us: 4 tsp Worcestershire sauce
-  ×1.5: 6 tsp Worcestershire sauce
+✓ "2 tbsp American mustard ((Note 2))"
+  metric: 2 tbsp + 2 tsp American mustard ((Note 2))
+  us: 2 tbsp + 2 tsp American mustard ((Note 2))
+  ×1.5: 4 tbsp American mustard ((Note 2))
+✓ "1 tbsp poppyseeds ((Note 4))"
+  metric: 1 tbsp + 1 tsp poppyseeds ((Note 4))
+  us: 1 tbsp + 1 tsp poppyseeds ((Note 4))
+  ×1.5: 2 tbsp poppyseeds ((Note 4))
+✓ "1 tbsp Worcestershire sauce"
+  metric: 1 tbsp + 1 tsp Worcestershire sauce
+  us: 1 tbsp + 1 tsp Worcestershire sauce
+  ×1.5: 2 tbsp Worcestershire sauce
 ? "1 tsp garlic powder ((sub fresh garlic, finely minced))"
   ×1.5: 1½ tsp garlic powder ((sub fresh garlic, finely minced))
 ? "1/2 tsp cooking / kosher salt"
   ×1.5: 3/4 tsp cooking / kosher salt
+✓ "1/4 tsp black pepper"
+  ×1.5: 0.4 tsp black pepper
 ? "2 cups  almond meal or blanched ground almonds ((Note 1))"
   metric: 5 dl  almond meal or blanched ground almonds ((Note 1))
   ×1.5: 7.5 dl  almond meal or blanched ground almonds ((Note 1))
@@ -10843,6 +10964,8 @@
   ×1.5: 3 tsp lemon zest ((1½ lemon))
 ? "3 drops natural almond extract"
   ×1.5: 4½ drops natural almond extract
+✓ "1/8 tsp salt"
+  ×1.5: 0.2 tsp salt
 ? "1/2 cup dried cherries (, chopped (Note 3))"
   metric: 1.3 dl dried cherries (, chopped (Note 3))
   us: ½ cup dried cherries (, chopped (Note 3))
@@ -10879,10 +11002,10 @@
   ×1.5: 0.9 dl Parmigiano-Reggiano ((or parmesan), freshly grated)
 ✓ "3/4 tsp salt"
   ×1.5: 1 1/8 tsp salt
-? "1 1/2 tbsp olive oil"
-  metric: 6 tsp olive oil
-  us: 6 tsp olive oil
-  ×1.5: 9 tsp olive oil
+✓ "1 1/2 tbsp olive oil"
+  metric: 2 tbsp olive oil
+  us: 2 tbsp olive oil
+  ×1.5: 3 tbsp olive oil
 ? "1 cup onion (, finely chopped (white, brown or yellow))"
   metric: 2.5 dl onion (, finely chopped (white, brown or yellow))
   ×1.5: 3.8 dl onion (, finely chopped (white, brown or yellow))
@@ -10896,10 +11019,10 @@
   ×1.5: 36 oz / 1050g   passata ((pureed tomato) (Note 4))
 ? "28 oz / 800g   canned tomato"
   ×1.5: 42 oz / 1200g   canned tomato
-? "1 tbsp Italian mixed herbs ((Note 5))"
-  metric: 4 tsp Italian mixed herbs ((Note 5))
-  us: 4 tsp Italian mixed herbs ((Note 5))
-  ×1.5: 6 tsp Italian mixed herbs ((Note 5))
+✓ "1 tbsp Italian mixed herbs ((Note 5))"
+  metric: 1 tbsp + 1 tsp Italian mixed herbs ((Note 5))
+  us: 1 tbsp + 1 tsp Italian mixed herbs ((Note 5))
+  ×1.5: 2 tbsp Italian mixed herbs ((Note 5))
 ? "2 tsp garlic powder ((or onion powder))"
   ×1.5: 3 tsp garlic powder ((or onion powder))
 ? "1 - 2 tsp red pepper / chilli flakes ((optional))"
@@ -10920,18 +11043,18 @@
   ×1.5: 1.5 kg / 3 lb  lamb stewing meat or shoulder, already trimmed of fat (cut in 3.5cm / 1.5" cubes)
 ? "1 tsp cooking/kosher salt"
   ×1.5: 1½ tsp cooking/kosher salt
-? "3 tbsp canola oil"
-  metric: 12 tsp canola oil
-  us: 12 tsp canola oil
-  ×1.5: 18 tsp canola oil
+✓ "3 tbsp canola oil"
+  metric: 4 tbsp canola oil
+  us: 4 tbsp canola oil
+  ×1.5: 0.9 dl canola oil
 ? "3  garlic cloves (, finely minced)"
   ×1.5: 4½  garlic cloves (, finely minced)
 ? "2  brown onions (, diced (1cm / 0.3\" cubes))"
   ×1.5: 3  brown onions (, diced (1cm / 0.3" cubes))
-? "1 1/2 tbsp tomato paste"
-  metric: 6 tsp tomato paste
-  us: 6 tsp tomato paste
-  ×1.5: 9 tsp tomato paste
+✓ "1 1/2 tbsp tomato paste"
+  metric: 2 tbsp tomato paste
+  us: 2 tbsp tomato paste
+  ×1.5: 3 tbsp tomato paste
 ? "2 tsp grated ginger"
   ×1.5: 3 tsp grated ginger
 ? "2  cinnamon sticks"
@@ -10945,14 +11068,14 @@
   ×1.5: 3.8 dl dried apricots (, whole (Note 2 for olives option))
 ? "2 - 3 tsp lemon zest ((just use 1 whole lemon, Note 3 for preserved lemon))"
   ×1.5: 3 - 4½ tsp lemon zest ((just use 1½ whole lemon, Note 3 for preserved lemon))
-? "1 tbsp ground coriander"
-  metric: 4 tsp ground coriander
-  us: 4 tsp ground coriander
-  ×1.5: 6 tsp ground coriander
-? "1 tbsp ground cumin"
-  metric: 4 tsp ground cumin
-  us: 4 tsp ground cumin
-  ×1.5: 6 tsp ground cumin
+✓ "1 tbsp ground coriander"
+  metric: 1 tbsp + 1 tsp ground coriander
+  us: 1 tbsp + 1 tsp ground coriander
+  ×1.5: 2 tbsp ground coriander
+✓ "1 tbsp ground cumin"
+  metric: 1 tbsp + 1 tsp ground cumin
+  us: 1 tbsp + 1 tsp ground cumin
+  ×1.5: 2 tbsp ground cumin
 ? "2 tsp ground cardamom"
   ×1.5: 3 tsp ground cardamom
 ? "2 tsp turmeric powder"
@@ -10961,6 +11084,10 @@
   ×1.5: 2 1/4 tsp fennel powder
 ? "1 tsp cayenne pepper ((can reduce for less spicy - Note 4))"
   ×1.5: 1½ tsp cayenne pepper ((can reduce for less spicy - Note 4))
+✓ "1/4 tsp ground cloves"
+  ×1.5: 0.4 tsp ground cloves
+✓ "1/4 tsp ground ginger"
+  ×1.5: 0.4 tsp ground ginger
 ? "1/2 tsp cooking/kosher salt"
   ×1.5: 3/4 tsp cooking/kosher salt
 ✓ "1/2 cup slivered almonds (, toasted (Note 5))"
@@ -10975,10 +11102,12 @@
   ×1.5: 2 1/4 batches couscous ((I just use plain, but you can add the fruit and nuts if you want))
 ? "2  pita bread or 1 lebanese bread"
   ×1.5: 3  pita bread or 1½ lebanese bread
-? "2 tbsp olive oil"
-  metric: 8 tsp olive oil
-  us: 8 tsp olive oil
-  ×1.5: 12 tsp olive oil
+✓ "2 tbsp olive oil"
+  metric: 2 tbsp + 2 tsp olive oil
+  us: 2 tbsp + 2 tsp olive oil
+  ×1.5: 4 tbsp olive oil
+✓ "1/4 tsp cooking salt / kosher salt"
+  ×1.5: 0.4 tsp cooking salt / kosher salt
 ? "5 cups cos/romaine lettuce (, cut into large bite size pieces)"
   metric: 1.3 l cos/romaine lettuce (, cut into large bite size pieces)
   us: 5¼ cups cos/romaine lettuce (, cut into large bite size pieces)
@@ -10986,8 +11115,7 @@
 ? "2  Lebanese cucumbers (, thinly sliced into 3mm rounds)"
   us: 2  Lebanese cucumbers (, thinly sliced into ⅛ in rounds)
   ×1.5: 3  Lebanese cucumbers (, thinly sliced into 3mm rounds)
-? "1 cup cherry tomatoes (, halved (~200g), or 1 1/2 regular tomatoes cut into large chunks)"
-  us: 1 cup cherry tomatoes (, halved (~7 oz), or 1 1/2 regular tomatoes cut into large chunks)
+✓ "1 cup cherry tomatoes (, halved (~200g), or 1 1/2 regular tomatoes cut into large chunks)"
   ×1.5: 1½ cups cherry tomatoes (, halved (~300g), or 2 1/4 regular tomatoes cut into large chunks)
 ? "1/2  small red onion (, thinly sliced)"
   ×1.5: 3/4  small red onion (, thinly sliced)
@@ -10997,46 +11125,46 @@
   metric: 1.3 dl mint leaves (, lightly packed (large ones torn in half))
   us: ½ cup mint leaves (, lightly packed (large ones torn in half))
   ×1.5: 1.9 dl mint leaves (, lightly packed (large ones torn in half))
-? "1 tbsp roughly chopped parsley"
-  metric: 4 tsp roughly chopped parsley
-  us: 4 tsp roughly chopped parsley
-  ×1.5: 6 tsp roughly chopped parsley
+✓ "1 tbsp roughly chopped parsley"
+  metric: 1 tbsp + 1 tsp roughly chopped parsley
+  us: 1 tbsp + 1 tsp roughly chopped parsley
+  ×1.5: 2 tbsp roughly chopped parsley
 ? "1/4 cup extra virgin olive oil"
   metric: 0.6 dl extra virgin olive oil
   us: ¼ cup extra virgin olive oil
   ×1.5: 0.9 dl extra virgin olive oil
-? "2 tbsp lemon juice"
-  metric: 8 tsp lemon juice
-  us: 8 tsp lemon juice
-  ×1.5: 12 tsp lemon juice
+✓ "2 tbsp lemon juice"
+  metric: 2 tbsp + 2 tsp lemon juice
+  us: 2 tbsp + 2 tsp lemon juice
+  ×1.5: 4 tbsp lemon juice
 ? "2 tsp pomegranate molasses"
   ×1.5: 3 tsp pomegranate molasses
 ? "1  medium garlic clove (, finely grated or crushed using garlic crusher)"
   ×1.5: 1½  medium garlic clove (, finely grated or crushed using garlic crusher)
 ? "1 tsp sumac ((still worth making without))"
   ×1.5: 1½ tsp sumac ((still worth making without))
-? "1 1/2 tbsp ground cumin"
-  metric: 6 tsp ground cumin
-  us: 6 tsp ground cumin
-  ×1.5: 9 tsp ground cumin
-? "1 1/2 tbsp ground coriander"
-  metric: 6 tsp ground coriander
-  us: 6 tsp ground coriander
-  ×1.5: 9 tsp ground coriander
-? "1 1/2 tbsp paprika"
-  metric: 6 tsp paprika
-  us: 6 tsp paprika
-  ×1.5: 9 tsp paprika
+✓ "1 1/2 tbsp ground cumin"
+  metric: 2 tbsp ground cumin
+  us: 2 tbsp ground cumin
+  ×1.5: 3 tbsp ground cumin
+✓ "1 1/2 tbsp ground coriander"
+  metric: 2 tbsp ground coriander
+  us: 2 tbsp ground coriander
+  ×1.5: 3 tbsp ground coriander
+✓ "1 1/2 tbsp paprika"
+  metric: 2 tbsp paprika
+  us: 2 tbsp paprika
+  ×1.5: 3 tbsp paprika
 ? "2 tsp ground cardamon (or sub with ginger)"
   ×1.5: 3 tsp ground cardamon (or sub with ginger)
-? "1 tbsp salt"
-  metric: 4 tsp salt
-  us: 4 tsp salt
-  ×1.5: 6 tsp salt
-? "3 tbsp olive oil"
-  metric: 12 tsp olive oil
-  us: 12 tsp olive oil
-  ×1.5: 18 tsp olive oil
+✓ "1 tbsp salt"
+  metric: 1 tbsp + 1 tsp salt
+  us: 1 tbsp + 1 tsp salt
+  ×1.5: 2 tbsp salt
+✓ "3 tbsp olive oil"
+  metric: 4 tbsp olive oil
+  us: 4 tbsp olive oil
+  ×1.5: 0.9 dl olive oil
 ? "3  garlic cloves (minced)"
   ×1.5: 4½  garlic cloves (minced)
 ? "1.5 - 2 kg / 3 - 4 lb  lamb shoulder (bone in, trimmed of excess fat)"
@@ -11045,24 +11173,24 @@
   metric: 1.9 dl water
   us: ¾ cup water
   ×1.5: 2.8 dl water
-? "1 - 2 tbsp olive oil"
-  metric: 4–8 tsp olive oil
-  us: 4–8 tsp olive oil
-  ×1.5: 6–12 tsp olive oil
+✓ "1 - 2 tbsp olive oil"
+  metric: 1½–2½ tbsp olive oil
+  us: 1½–2½ tbsp olive oil
+  ×1.5: 2–4 tbsp olive oil
 ? "350g / 12 oz  lamb meat (backstrap/fillet, mid loin chops,  shoulder - or any cut in Note 1)"
   ×1.5: 525g / 18 oz  lamb meat (backstrap/fillet, mid loin chops,  shoulder - or any cut in Note 1)
 ? "1/2 tsp baking soda ((bicarb soda) (tenderiser, Note 2))"
   ×1.5: 3/4 tsp baking soda ((bicarb soda) (tenderiser, Note 2))
 ? "1 tsp cornflour / cornstarch"
   ×1.5: 1½ tsp cornflour / cornstarch
-? "1 tbsp light soy sauce ((or all purpose, Note 3))"
-  metric: 4 tsp light soy sauce ((or all purpose, Note 3))
-  us: 4 tsp light soy sauce ((or all purpose, Note 3))
-  ×1.5: 6 tsp light soy sauce ((or all purpose, Note 3))
-? "1 tbsp Chinese cooking wine ((Note 4 subs))"
-  metric: 4 tsp Chinese cooking wine ((Note 4 subs))
-  us: 4 tsp Chinese cooking wine ((Note 4 subs))
-  ×1.5: 6 tsp Chinese cooking wine ((Note 4 subs))
+✓ "1 tbsp light soy sauce ((or all purpose, Note 3))"
+  metric: 1 tbsp + 1 tsp light soy sauce ((or all purpose, Note 3))
+  us: 1 tbsp + 1 tsp light soy sauce ((or all purpose, Note 3))
+  ×1.5: 2 tbsp light soy sauce ((or all purpose, Note 3))
+✓ "1 tbsp Chinese cooking wine ((Note 4 subs))"
+  metric: 1 tbsp + 1 tsp Chinese cooking wine ((Note 4 subs))
+  us: 1 tbsp + 1 tsp Chinese cooking wine ((Note 4 subs))
+  ×1.5: 2 tbsp Chinese cooking wine ((Note 4 subs))
 ? "3 tsp cornflour / cornstarch"
   ×1.5: 4½ tsp cornflour / cornstarch
 ? "2 tsp dark soy sauce ((Note 3))"
@@ -11071,34 +11199,36 @@
   ×1.5: 1½ tsp light soy sauce ((or all purpose, Note 3))
 ? "1 1/2 tsp Sambal Oelak or other chilli paste ((or omit for no spice))"
   ×1.5: 2 1/4 tsp Sambal Oelak or other chilli paste ((or omit for no spice))
-? "3 tbsp hoisin sauce ((I used Lee Kum Kee brand))"
-  metric: 12 tsp hoisin sauce ((I used Lee Kum Kee brand))
-  us: 12 tsp hoisin sauce ((I used Lee Kum Kee brand))
-  ×1.5: 18 tsp hoisin sauce ((I used Lee Kum Kee brand))
-? "2 tbsp Chinese cooking wine ((Note 4 subs))"
-  metric: 8 tsp Chinese cooking wine ((Note 4 subs))
-  us: 8 tsp Chinese cooking wine ((Note 4 subs))
-  ×1.5: 12 tsp Chinese cooking wine ((Note 4 subs))
+✓ "3 tbsp hoisin sauce ((I used Lee Kum Kee brand))"
+  metric: 4 tbsp hoisin sauce ((I used Lee Kum Kee brand))
+  us: 4 tbsp hoisin sauce ((I used Lee Kum Kee brand))
+  ×1.5: 0.9 dl hoisin sauce ((I used Lee Kum Kee brand))
+✓ "2 tbsp Chinese cooking wine ((Note 4 subs))"
+  metric: 2 tbsp + 2 tsp Chinese cooking wine ((Note 4 subs))
+  us: 2 tbsp + 2 tsp Chinese cooking wine ((Note 4 subs))
+  ×1.5: 4 tbsp Chinese cooking wine ((Note 4 subs))
+✓ "1/4 tsp Chinese five spice powder ((Note 5))"
+  ×1.5: 0.4 tsp Chinese five spice powder ((Note 5))
 ? "1 tsp sesame oil (, toasted (Note 6))"
   ×1.5: 1½ tsp sesame oil (, toasted (Note 6))
-? "2 tbsp vegetable oil ((or canola or peanut))"
-  metric: 8 tsp vegetable oil ((or canola or peanut))
-  us: 8 tsp vegetable oil ((or canola or peanut))
-  ×1.5: 12 tsp vegetable oil ((or canola or peanut))
+✓ "2 tbsp vegetable oil ((or canola or peanut))"
+  metric: 2 tbsp + 2 tsp vegetable oil ((or canola or peanut))
+  us: 2 tbsp + 2 tsp vegetable oil ((or canola or peanut))
+  ×1.5: 4 tbsp vegetable oil ((or canola or peanut))
 ? "1  large onion (, cut into large 2.5cm / 1\" squares)"
   ×1.5: 1½  large onion (, cut into large 2.5cm / 1" squares)
 ? "2 cloves garlic (, finely chopped)"
   ×1.5: 3 cloves garlic (, finely chopped)
-? "4  green onions (, cut into 5cm/2\" lengths)"
+✓ "4  green onions (, cut into 5cm/2\" lengths)"
   ×1.5: 6  green onions (, cut into 5cm/2" lengths)
-? "2 tbsp unsalted butter"
-  metric: 8 tsp unsalted butter
-  us: 8 tsp unsalted butter
-  ×1.5: 12 tsp unsalted butter
-? "1/2 tbsp olive oil"
+✓ "2 tbsp unsalted butter"
+  metric: 2 tbsp + 2 tsp unsalted butter
+  us: 2 tbsp + 2 tsp unsalted butter
+  ×1.5: 4 tbsp unsalted butter
+✓ "1/2 tbsp olive oil"
   metric: 2 tsp olive oil
   us: 2 tsp olive oil
-  ×1.5: 3 tsp olive oil
+  ×1.5: 1 tbsp olive oil
 ? "300g / 10 oz   mushrooms (, sliced (Note 1))"
   ×1.5: 450g / 15 oz   mushrooms (, sliced (Note 1))
 ? "1/4 cup (65 ml)  white wine or rose (, dry (Note 2 subs))"
@@ -11111,16 +11241,16 @@
   ×1.5: 1½ cups (375 ml)  heavy / thickened cream ((Note 3))
 ? "1/2 cup parmesan (,finely grated (30g / 1 oz) (Note 4))"
   ×1.5: 3/4 cup parmesan (,finely grated (45g / 1½ oz) (Note 4))
-? "2 tsp fresh thyme leaves ((or 1/4 - 1/2 tsp dried))"
-  ×1.5: 3 tsp fresh thyme leaves ((or 1/4 - 3/4 tsp dried))
+✓ "2 tsp fresh thyme leaves ((or 1/4 - 1/2 tsp dried))"
+  ×1.5: 3 tsp fresh thyme leaves ((or 0.4 - 0.8 tsp dried))
 ? "1 2/3 cups plain flour / all-purpose flour (, sifted)"
   metric: 4.2 dl plain flour / all-purpose flour (, sifted)
   us: 1¾ cups plain flour / all-purpose flour (, sifted)
   ×1.5: 6.3 dl plain flour / all-purpose flour (, sifted)
-? "3 tbsp caster sugar / superfine sugar (, regular white sugar is fine too)"
-  metric: 12 tsp caster sugar / superfine sugar (, regular white sugar is fine too)
-  us: 12 tsp caster sugar / superfine sugar (, regular white sugar is fine too)
-  ×1.5: 18 tsp caster sugar / superfine sugar (, regular white sugar is fine too)
+✓ "3 tbsp caster sugar / superfine sugar (, regular white sugar is fine too)"
+  metric: 4 tbsp caster sugar / superfine sugar (, regular white sugar is fine too)
+  us: 4 tbsp caster sugar / superfine sugar (, regular white sugar is fine too)
+  ×1.5: 0.9 dl caster sugar / superfine sugar (, regular white sugar is fine too)
 ? "3  large eggs (, (55g/2oz each in shell) - fridge cold is fine)"
   ×1.5: 4½  large eggs (, (55g/2oz each in shell) - fridge cold is fine)
 ? "2 cups full fat milk (, but works with lite milk too)"
@@ -11130,37 +11260,37 @@
   metric: 0.8 dl water ((Note 1))
   us: ⅓ cup water ((Note 1))
   ×1.5: 1.3 dl water ((Note 1))
-? "2 tbsp vegetable oil or other neutral flavoured oil ((Note 1))"
-  metric: 8 tsp vegetable oil or other neutral flavoured oil ((Note 1))
-  us: 8 tsp vegetable oil or other neutral flavoured oil ((Note 1))
-  ×1.5: 12 tsp vegetable oil or other neutral flavoured oil ((Note 1))
-? "45 g (3 tbsp)   unsalted butter (, cut into small cubes (for cooking))"
-  us: 1½ oz (12 tsp)   unsalted butter (, cut into small cubes (for cooking))
+✓ "2 tbsp vegetable oil or other neutral flavoured oil ((Note 1))"
+  metric: 2 tbsp + 2 tsp vegetable oil or other neutral flavoured oil ((Note 1))
+  us: 2 tbsp + 2 tsp vegetable oil or other neutral flavoured oil ((Note 1))
+  ×1.5: 4 tbsp vegetable oil or other neutral flavoured oil ((Note 1))
+✓ "45 g (3 tbsp)   unsalted butter (, cut into small cubes (for cooking))"
+  us: 1½ oz (3 tbsp)   unsalted butter (, cut into small cubes (for cooking))
   ×1.5: 70 g (4½ tbsp)   unsalted butter (, cut into small cubes (for cooking))
-? "1 - 2 tbsp Nutella (, homemade or store-bought)"
-  metric: 4–8 tsp Nutella (, homemade or store-bought)
-  us: 4–8 tsp Nutella (, homemade or store-bought)
-  ×1.5: 6–12 tsp Nutella (, homemade or store-bought)
+✓ "1 - 2 tbsp Nutella (, homemade or store-bought)"
+  metric: 1½–2½ tbsp Nutella (, homemade or store-bought)
+  us: 1½–2½ tbsp Nutella (, homemade or store-bought)
+  ×1.5: 2–4 tbsp Nutella (, homemade or store-bought)
 ? "2  strawberries (, sliced)"
   ×1.5: 3  strawberries (, sliced)
 ? "1 tsp Worcestershire Sauce"
   ×1.5: 1½ tsp Worcestershire Sauce
-? "2 tbsp ketchup ((Note 1))"
-  metric: 8 tsp ketchup ((Note 1))
-  us: 8 tsp ketchup ((Note 1))
-  ×1.5: 12 tsp ketchup ((Note 1))
-? "1 tbsp soy sauce ((Note 2))"
-  metric: 4 tsp soy sauce ((Note 2))
-  us: 4 tsp soy sauce ((Note 2))
-  ×1.5: 6 tsp soy sauce ((Note 2))
-? "2 tbsp brown sugar ((or white))"
-  metric: 8 tsp brown sugar ((or white))
-  us: 8 tsp brown sugar ((or white))
-  ×1.5: 12 tsp brown sugar ((or white))
-? "1 tbsp olive oil ((or vegetable or canola oil))"
-  metric: 4 tsp olive oil ((or vegetable or canola oil))
-  us: 4 tsp olive oil ((or vegetable or canola oil))
-  ×1.5: 6 tsp olive oil ((or vegetable or canola oil))
+✓ "2 tbsp ketchup ((Note 1))"
+  metric: 2 tbsp + 2 tsp ketchup ((Note 1))
+  us: 2 tbsp + 2 tsp ketchup ((Note 1))
+  ×1.5: 4 tbsp ketchup ((Note 1))
+✓ "1 tbsp soy sauce ((Note 2))"
+  metric: 1 tbsp + 1 tsp soy sauce ((Note 2))
+  us: 1 tbsp + 1 tsp soy sauce ((Note 2))
+  ×1.5: 2 tbsp soy sauce ((Note 2))
+✓ "2 tbsp brown sugar ((or white))"
+  metric: 2 tbsp + 2 tsp brown sugar ((or white))
+  us: 2 tbsp + 2 tsp brown sugar ((or white))
+  ×1.5: 4 tbsp brown sugar ((or white))
+✓ "1 tbsp olive oil ((or vegetable or canola oil))"
+  metric: 1 tbsp + 1 tsp olive oil ((or vegetable or canola oil))
+  us: 1 tbsp + 1 tsp olive oil ((or vegetable or canola oil))
+  ×1.5: 2 tbsp olive oil ((or vegetable or canola oil))
 ? "1 clove garlic, (minced)"
   ×1.5: 1½ cloves garlic, (minced)
 ? "2 tsp apple cider vinegar ((Note 3))"
@@ -11175,10 +11305,10 @@
   ×1.5: 15 slices light rye bread
 ? "10 slices Swiss cheese"
   ×1.5: 15 slices Swiss cheese
-? "1 tbsp grapeseed oil"
-  metric: 4 tsp grapeseed oil
-  us: 4 tsp grapeseed oil
-  ×1.5: 6 tsp grapeseed oil
+✓ "1 tbsp grapeseed oil"
+  metric: 1 tbsp + 1 tsp grapeseed oil
+  us: 1 tbsp + 1 tsp grapeseed oil
+  ×1.5: 2 tbsp grapeseed oil
 ? "1/2  onion (, thinly sliced)"
   ×1.5: 3/4  onion (, thinly sliced)
 ? "350g/ 12 oz   white cabbage (, thinly shredded (1/4 large head, 6 - 8 big handfuls))"
@@ -11195,14 +11325,14 @@
   ×1.5: 3 tsp sugar
 ✓ "1 tsp caraway seeds (, optional (Note 2))"
   ×1.5: 1½ tsp caraway seeds (, optional (Note 2))
-? "1 tbsp onion (, finely minced)"
-  metric: 4 tsp onion (, finely minced)
-  us: 4 tsp onion (, finely minced)
-  ×1.5: 6 tsp onion (, finely minced)
-? "1 tbsp dill pickle/gherkin (, finely minced)"
-  metric: 4 tsp dill pickle/gherkin (, finely minced)
-  us: 4 tsp dill pickle/gherkin (, finely minced)
-  ×1.5: 6 tsp dill pickle/gherkin (, finely minced)
+✓ "1 tbsp onion (, finely minced)"
+  metric: 1 tbsp + 1 tsp onion (, finely minced)
+  us: 1 tbsp + 1 tsp onion (, finely minced)
+  ×1.5: 2 tbsp onion (, finely minced)
+✓ "1 tbsp dill pickle/gherkin (, finely minced)"
+  metric: 1 tbsp + 1 tsp dill pickle/gherkin (, finely minced)
+  us: 1 tbsp + 1 tsp dill pickle/gherkin (, finely minced)
+  ×1.5: 2 tbsp dill pickle/gherkin (, finely minced)
 ? "3/4 cup mayonnaise"
   metric: 1.9 dl mayonnaise
   us: ¾ cup mayonnaise
@@ -11211,35 +11341,39 @@
   metric: 0.6 dl sour cream ((can sub more mayo))
   us: ¼ cup sour cream ((can sub more mayo))
   ×1.5: 0.9 dl sour cream ((can sub more mayo))
-? "2.5 tbsp sriracha, spicy ketchup or Chili Sauce ((or 1/4 cup ketchup + 2 tsp tabasco) (Note 3))"
-  metric: 10 tsp sriracha, spicy ketchup or Chili Sauce ((or 0.6 dl ketchup + 2 tsp tabasco) (Note 3))
-  us: 10 tsp sriracha, spicy ketchup or Chili Sauce ((or ¼ cup ketchup + 2 tsp tabasco) (Note 3))
-  ×1.5: 15 tsp sriracha, spicy ketchup or Chili Sauce ((or 0.9 dl ketchup + 3 tsp tabasco) (Note 3))
+✓ "2.5 tbsp sriracha, spicy ketchup or Chili Sauce ((or 1/4 cup ketchup + 2 tsp tabasco) (Note 3))"
+  metric: 3 tbsp + 1 tsp sriracha, spicy ketchup or Chili Sauce ((or 0.6 dl ketchup + 2 tsp tabasco) (Note 3))
+  us: 3 tbsp + 1 tsp sriracha, spicy ketchup or Chili Sauce ((or ¼ cup ketchup + 2 tsp tabasco) (Note 3))
+  ×1.5: 0.8 dl sriracha, spicy ketchup or Chili Sauce ((or 0.9 dl ketchup + 3 tsp tabasco) (Note 3))
 ? "3 tsp horseradish ((jar), to taste (spicy/tang))"
   ×1.5: 4½ tsp horseradish ((jar), to taste (spicy/tang))
 ? "1 tsp Worcestershire sauce"
   ×1.5: 1½ tsp Worcestershire sauce
+✓ "1/4 tsp sweet paprika"
+  ×1.5: 0.4 tsp sweet paprika
 ? "1 cup Greek yoghurt, preferably full fat"
   metric: 2.5 dl Greek yoghurt, preferably full fat
   ×1.5: 3.8 dl Greek yoghurt, preferably full fat
-? "1/2 - 1 tbsp olive oil"
-  metric: 2–4 tsp olive oil
-  us: 2–4 tsp olive oil
-  ×1.5: 3–6 tsp olive oil
+✓ "1/2 - 1 tbsp olive oil"
+  metric: ½–1½ tbsp olive oil
+  us: ½–1½ tbsp olive oil
+  ×1.5: 1–2 tbsp olive oil
 ? "1  small garlic clove, minced"
   ×1.5: 1½  small garlic clove, minced
+✓ "1/4 tsp EACH dried dill, parsley, chives, onion powder, garlic powder, salt, black pepper (Note 1)"
+  ×1.5: 0.4 tsp EACH dried dill, parsley, chives, onion powder, garlic powder, salt, black pepper (Note 1)
 ? "1/2 tsp white sugar"
   ×1.5: 3/4 tsp white sugar
 ? "200 - 250 g / 7 - 8 oz   chicken breast, halved horizontally"
   ×1.5: 300 - 375 g / 10½ - 12 oz   chicken breast, halved horizontally
-? "1 tbsp lemon juice"
-  metric: 4 tsp lemon juice
-  us: 4 tsp lemon juice
-  ×1.5: 6 tsp lemon juice
-? "1/2 - 1 tbsp oil, for cooking"
-  metric: 2–4 tsp oil, for cooking
-  us: 2–4 tsp oil, for cooking
-  ×1.5: 3–6 tsp oil, for cooking
+✓ "1 tbsp lemon juice"
+  metric: 1 tbsp + 1 tsp lemon juice
+  us: 1 tbsp + 1 tsp lemon juice
+  ×1.5: 2 tbsp lemon juice
+✓ "1/2 - 1 tbsp oil, for cooking"
+  metric: ½–1½ tbsp oil, for cooking
+  us: ½–1½ tbsp oil, for cooking
+  ×1.5: 1–2 tbsp oil, for cooking
 ? "1/2  red onion, halved then finely sliced"
   ×1.5: 3/4  red onion, halved then finely sliced
 ? "1/2 tsp salt"
@@ -11270,10 +11404,10 @@
   ×1.5: 0.9 dl shredded parmesan
 ? "500 g / 1 lb   pork mince ((ground pork, or chicken))"
   ×1.5: 750 g / 1½ lb   pork mince ((ground pork, or chicken))
-? "1 tbsp lemongrass paste (or finely chopped fresh) (Note 1)"
-  metric: 4 tsp lemongrass paste (or finely chopped fresh) (Note 1)
-  us: 4 tsp lemongrass paste (or finely chopped fresh) (Note 1)
-  ×1.5: 6 tsp lemongrass paste (or finely chopped fresh) (Note 1)
+✓ "1 tbsp lemongrass paste (or finely chopped fresh) (Note 1)"
+  metric: 1 tbsp + 1 tsp lemongrass paste (or finely chopped fresh) (Note 1)
+  us: 1 tbsp + 1 tsp lemongrass paste (or finely chopped fresh) (Note 1)
+  ×1.5: 2 tbsp lemongrass paste (or finely chopped fresh) (Note 1)
 ? "1 tsp grated ginger"
   ×1.5: 1½ tsp grated ginger
 ? "3 cloves garlic (, minced)"
@@ -11288,10 +11422,10 @@
   ×1.5: 0.9 dl coriander/cilantro (, leaves and stem finely chopped (Note 4))
 ? "1 tsp sugar (any)"
   ×1.5: 1½ tsp sugar (any)
-? "1 tbsp fish sauce (can sub with soy sauce if required)"
-  metric: 4 tsp fish sauce (can sub with soy sauce if required)
-  us: 4 tsp fish sauce (can sub with soy sauce if required)
-  ×1.5: 6 tsp fish sauce (can sub with soy sauce if required)
+✓ "1 tbsp fish sauce (can sub with soy sauce if required)"
+  metric: 1 tbsp + 1 tsp fish sauce (can sub with soy sauce if required)
+  us: 1 tbsp + 1 tsp fish sauce (can sub with soy sauce if required)
+  ×1.5: 2 tbsp fish sauce (can sub with soy sauce if required)
 ? "3/4 cup panko breadcrumbs ((+ extra 1/4 cup if needed))"
   metric: 1.9 dl panko breadcrumbs ((+ extra 0.6 dl if needed))
   us: ¾ cup panko breadcrumbs ((+ extra ¼ cup if needed))
@@ -11303,10 +11437,10 @@
   ×1.5: 3/4 cup / 190 ml  sweet chilli sauce (, store bought (Note 5))
 ✓ "1  garlic clove (, minced)"
   ×1.5: 1½  garlic clove (, minced)
-? "2 tbsp lime juice (, plus more to taste)"
-  metric: 8 tsp lime juice (, plus more to taste)
-  us: 8 tsp lime juice (, plus more to taste)
-  ×1.5: 12 tsp lime juice (, plus more to taste)
+✓ "2 tbsp lime juice (, plus more to taste)"
+  metric: 2 tbsp + 2 tsp lime juice (, plus more to taste)
+  us: 2 tbsp + 2 tsp lime juice (, plus more to taste)
+  ×1.5: 4 tbsp lime juice (, plus more to taste)
 ? "2 lb / 1 kg   chicken wings"
   ×1.5: 3 lb / 1.5 kg   chicken wings
 ? "4 cloves minced garlic"
@@ -11319,18 +11453,18 @@
   metric: 0.6 dl fish sauce
   us: ¼ cup fish sauce
   ×1.5: 0.9 dl fish sauce
-? "2 tbsp soy sauce"
-  metric: 8 tsp soy sauce
-  us: 8 tsp soy sauce
-  ×1.5: 12 tsp soy sauce
-? "3 tbsp brown sugar"
-  metric: 12 tsp brown sugar
-  us: 12 tsp brown sugar
-  ×1.5: 18 tsp brown sugar
-? "2 tbsp vegetable oil"
-  metric: 8 tsp vegetable oil
-  us: 8 tsp vegetable oil
-  ×1.5: 12 tsp vegetable oil
+✓ "2 tbsp soy sauce"
+  metric: 2 tbsp + 2 tsp soy sauce
+  us: 2 tbsp + 2 tsp soy sauce
+  ×1.5: 4 tbsp soy sauce
+✓ "3 tbsp brown sugar"
+  metric: 4 tbsp brown sugar
+  us: 4 tbsp brown sugar
+  ×1.5: 0.9 dl brown sugar
+✓ "2 tbsp vegetable oil"
+  metric: 2 tbsp + 2 tsp vegetable oil
+  us: 2 tbsp + 2 tsp vegetable oil
+  ×1.5: 4 tbsp vegetable oil
 ? "2  stalks lemongrass"
   ×1.5: 3  stalks lemongrass
 ? "1  birds eye chilli (, finely chopped)"
@@ -11350,18 +11484,18 @@
   metric: 0.8 dl mint (, roughly chopped)
   us: ⅓ cup mint (, roughly chopped)
   ×1.5: 1.3 dl mint (, roughly chopped)
-? "4 tbsp extra virgin olive oil"
-  metric: 16 tsp extra virgin olive oil
-  us: 16 tsp extra virgin olive oil
-  ×1.5: 24 tsp extra virgin olive oil
+✓ "4 tbsp extra virgin olive oil"
+  metric: 0.8 dl extra virgin olive oil
+  us: ⅓ cup extra virgin olive oil
+  ×1.5: 1.2 dl extra virgin olive oil
 ? "1  garlic clove (, small, minced using garlic press)"
   ×1.5: 1½  garlic clove (, small, minced using garlic press)
 ? "1/2 tsp Dijon mustard ((Note 2))"
   ×1.5: 3/4 tsp Dijon mustard ((Note 2))
-? "1/2 tsp salt (, kosher/cooking salt (1/4 tsp table salt))"
-  ×1.5: 3/4 tsp salt (, kosher/cooking salt (1/4 tsp table salt))
-? "step: Melt 1 tbsp / 20g butter in ovenproof pot (preferably with a lid) over medium high heat."
-  us: Melt 4 tsp / ¾ oz butter in ovenproof pot (preferably with a lid) over medium high heat.
+✓ "1/2 tsp salt (, kosher/cooking salt (1/4 tsp table salt))"
+  ×1.5: 3/4 tsp salt (, kosher/cooking salt (0.4 tsp table salt))
+✓ "step: Melt 1 tbsp / 20g butter in ovenproof pot (preferably with a lid) over medium high heat."
+  us: Melt 1 tbsp + 1 tsp / 20g butter in ovenproof pot (preferably with a lid) over medium high heat.
 ? "step: Toss beef in skillet with 1 cup braising liquid (aka Consomme)."
   metric: Toss beef in skillet with 2.5 dl braising liquid (aka Consomme).
 ? "step: Reserve 1/2 cup of chilli-simmering water."
@@ -11370,62 +11504,62 @@
 ? "step: Birria Adobo (paste) - Place cooked chillies, reserved 1/2 cup chilli water and remaining Adobo ingredients in a tall jug large enough to fit the head of a stick blender."
   metric: Birria Adobo (paste) - Place cooked chillies, reserved 1.3 dl chilli water and remaining Adobo ingredients in a tall jug large enough to fit the head of a stick blender.
   us: Birria Adobo (paste) - Place cooked chillies, reserved ½ cup chilli water and remaining Adobo ingredients in a tall jug large enough to fit the head of a stick blender.
-? "step: Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally 6 tbsp+) and place in a separate bowl (this is the \"Birria Oil\")."
-  metric: Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally 24 tsp+) and place in a separate bowl (this is the "Birria Oil").
-  us: Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally 24 tsp+) and place in a separate bowl (this is the "Birria Oil").
+✓ "step: Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally 6 tbsp+) and place in a separate bowl (this is the \"Birria Oil\")."
+  metric: Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally 1.2 dl+) and place in a separate bowl (this is the "Birria Oil").
+  us: Birria oil - Skim off as much of the red oil floating on braising liquid surface as possible (ideally ½ cup+) and place in a separate bowl (this is the "Birria Oil").
 ? "step: Soak beef - Pour 1 cup of the braising liquid (\"Birria Consommé\") into a large non-stick pan over medium-high heat."
   metric: Soak beef - Pour 2.5 dl of the braising liquid ("Birria Consommé") into a large non-stick pan over medium-high heat.
-? "step: Beef: Place in a bowl and add 1 1/2 tbsp Sauce."
-  metric: Beef: Place in a bowl and add 6 tsp Sauce.
-  us: Beef: Place in a bowl and add 6 tsp Sauce.
-? "step: Drizzle 1 tbsp of sake onto each fish."
-  metric: Drizzle 4 tsp of sake onto each fish.
-  us: Drizzle 4 tsp of sake onto each fish.
+✓ "step: Beef: Place in a bowl and add 1 1/2 tbsp Sauce."
+  metric: Beef: Place in a bowl and add 2 tbsp Sauce.
+  us: Beef: Place in a bowl and add 2 tbsp Sauce.
+✓ "step: Drizzle 1 tbsp of sake onto each fish."
+  metric: Drizzle 1 tbsp + 1 tsp of sake onto each fish.
+  us: Drizzle 1 tbsp + 1 tsp of sake onto each fish.
 ? "step: Preheat oven to 180C°/350°F (160°C fan)."
   us: Preheat oven to 350°F°/350°F (160°C fan).
-? "step: Heat 2 tbsp oil in a non stick pan over medium high heat (or medium if stove is strong)."
-  metric: Heat 8 tsp oil in a non stick pan over medium high heat (or medium if stove is strong).
-  us: Heat 8 tsp oil in a non stick pan over medium high heat (or medium if stove is strong).
+✓ "step: Heat 2 tbsp oil in a non stick pan over medium high heat (or medium if stove is strong)."
+  metric: Heat 2 tbsp + 2 tsp oil in a non stick pan over medium high heat (or medium if stove is strong).
+  us: Heat 2 tbsp + 2 tsp oil in a non stick pan over medium high heat (or medium if stove is strong).
 ? "step: Drop 1/4 cup batter in the pan (ice cream scoop is perfect)."
   metric: Drop 0.6 dl batter in the pan (ice cream scoop is perfect).
   us: Drop ¼ cup batter in the pan (ice cream scoop is perfect).
-? "step: Infuse milk: Place milk, vanilla seeds, used beans and 50g (1/4 cup) sugar in a large saucepan over medium high heat."
-  us: Infuse milk: Place milk, vanilla seeds, used beans and 2 oz (¼ cup) sugar in a large saucepan over medium high heat.
+✓ "step: Infuse milk: Place milk, vanilla seeds, used beans and 50g (1/4 cup) sugar in a large saucepan over medium high heat."
+  us: Infuse milk: Place milk, vanilla seeds, used beans and 2 oz (1/4 cup) sugar in a large saucepan over medium high heat.
 ? "step: Crumple 2 x 60cm / 2 feet long sheets of baking paper (Note 7) then fit into crust arranged in X."
   us: Crumple 2 x 23½ in / 2 feet long sheets of baking paper (Note 7) then fit into crust arranged in X.
 ? "step: Carve / cut each potato into cylinders ~ 6cm/ 2\" diameter, 7 cm height."
   us: Carve / cut each potato into cylinders ~ 6cm/ 2" diameter, 3 in height.
-? "step: Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 1 tbsp oil over medium high heat."
-  metric: Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 4 tsp oil over medium high heat.
-  us: Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 4 tsp oil over medium high heat.
+✓ "step: Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 1 tbsp oil over medium high heat."
+  metric: Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 1 tbsp + 1 tsp oil over medium high heat.
+  us: Sear - In an ovenproof heavy based skillet (Note 2), heat the remaining 1 tbsp + 1 tsp oil over medium high heat.
 ? "step: Spread base and lid with the 1/3 cup mustard."
   metric: Spread base and lid with the 0.8 dl mustard.
   us: Spread base and lid with the ⅓ cup mustard.
-? "step: Form 2.5cm/1\" balls: Scoop up about 1 tablespoon of the mixture and shape into a rough ball (2.5cm/1\" ball)."
-  metric: Form 2.5cm/1" balls: Scoop up about 4 tsp of the mixture and shape into a rough ball (2.5cm/1" ball).
-  us: Form 2.5cm/1" balls: Scoop up about 4 tsp of the mixture and shape into a rough ball (2.5cm/1" ball).
-? "step: Heat 1 1/2 tbsp olive oil in a large pot over medium high heat."
-  metric: Heat 6 tsp olive oil in a large pot over medium high heat.
-  us: Heat 6 tsp olive oil in a large pot over medium high heat.
+✓ "step: Form 2.5cm/1\" balls: Scoop up about 1 tablespoon of the mixture and shape into a rough ball (2.5cm/1\" ball)."
+  metric: Form 2.5cm/1" balls: Scoop up about 1 tbsp + 1 tsp of the mixture and shape into a rough ball (2.5cm/1" ball).
+  us: Form 2.5cm/1" balls: Scoop up about 1 tbsp + 1 tsp of the mixture and shape into a rough ball (2.5cm/1" ball).
+✓ "step: Heat 1 1/2 tbsp olive oil in a large pot over medium high heat."
+  metric: Heat 2 tbsp olive oil in a large pot over medium high heat.
+  us: Heat 2 tbsp olive oil in a large pot over medium high heat.
 ? "step: Add apricots, put the lid back on and cook for another 1 hour, checking halfway to ensure the sauce hasn't reduced all the way (if you're concerned, add 1/2 cup water)."
   metric: Add apricots, put the lid back on and cook for another 1 hour, checking halfway to ensure the sauce hasn't reduced all the way (if you're concerned, add 1.3 dl water).
   us: Add apricots, put the lid back on and cook for another 1 hour, checking halfway to ensure the sauce hasn't reduced all the way (if you're concerned, add ½ cup water).
-? "step: Set aside 1 1/2 tbsp of the Spice Mix for later (to pan fry the lamb)."
-  metric: Set aside 6 tsp of the Spice Mix for later (to pan fry the lamb).
-  us: Set aside 6 tsp of the Spice Mix for later (to pan fry the lamb).
-? "step: Heat 1 tbsp of oil in a heavy based pan over high heat."
-  metric: Heat 4 tsp of oil in a heavy based pan over high heat.
-  us: Heat 4 tsp of oil in a heavy based pan over high heat.
-? "step: Add some lamb (don't crowd the pan) and drizzle over about 3 tbsp of the pan juices."
-  metric: Add some lamb (don't crowd the pan) and drizzle over about 12 tsp of the pan juices.
-  us: Add some lamb (don't crowd the pan) and drizzle over about 12 tsp of the pan juices.
+✓ "step: Set aside 1 1/2 tbsp of the Spice Mix for later (to pan fry the lamb)."
+  metric: Set aside 2 tbsp of the Spice Mix for later (to pan fry the lamb).
+  us: Set aside 2 tbsp of the Spice Mix for later (to pan fry the lamb).
+✓ "step: Heat 1 tbsp of oil in a heavy based pan over high heat."
+  metric: Heat 1 tbsp + 1 tsp of oil in a heavy based pan over high heat.
+  us: Heat 1 tbsp + 1 tsp of oil in a heavy based pan over high heat.
+✓ "step: Add some lamb (don't crowd the pan) and drizzle over about 3 tbsp of the pan juices."
+  metric: Add some lamb (don't crowd the pan) and drizzle over about 4 tbsp of the pan juices.
+  us: Add some lamb (don't crowd the pan) and drizzle over about 4 tbsp of the pan juices.
 ? "step: Cook in a lightly buttered non-stick pan, swirling ¼ cup batter to cover the surface."
   metric: Cook in a lightly buttered non-stick pan, swirling 0.6 dl batter to cover the surface.
 ? "step: Pour the batter - Using a ladle, scoop up ¼ cup of batter, lift the pan off the heat, ladle most of the batter into the centre, and immediately swirl the pan so the batter coats the surface in a thin, even layer."
   metric: Pour the batter - Using a ladle, scoop up 0.6 dl of batter, lift the pan off the heat, ladle most of the batter into the centre, and immediately swirl the pan so the batter coats the surface in a thin, even layer.
-? "step: Spread with butter, then 1 tbsp Russian Dressing on each piece."
-  metric: Spread with butter, then 4 tsp Russian Dressing on each piece.
-  us: Spread with butter, then 4 tsp Russian Dressing on each piece.
+✓ "step: Spread with butter, then 1 tbsp Russian Dressing on each piece."
+  metric: Spread with butter, then 1 tbsp + 1 tsp Russian Dressing on each piece.
+  us: Spread with butter, then 1 tbsp + 1 tsp Russian Dressing on each piece.
 ? "step: Chicken Marinade: Transfer 1/4 cup of Yoghurt Ranch Dressing into a bowl with the chicken."
   metric: Chicken Marinade: Transfer 0.6 dl of Yoghurt Ranch Dressing into a bowl with the chicken.
   us: Chicken Marinade: Transfer ¼ cup of Yoghurt Ranch Dressing into a bowl with the chicken.

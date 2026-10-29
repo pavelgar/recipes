@@ -54,4 +54,5 @@ Use agent-browser to check the app in a browser, such as after a change or to re
 
 ## Commands
 
+- In browser tests (`*.browser.test.tsx`), `toHaveTextContent` matches an element's whole text exactly, even when given a regular expression; match part of it or a pattern with `toMatchTextContent`.
 - `bun run typecheck` needs the generated `src/paraglide/`. `scripts/setup-worktree.sh` generates it, and T3 runs that for every worktree; on a checkout that skipped it, run `sh scripts/setup-worktree.sh`.
