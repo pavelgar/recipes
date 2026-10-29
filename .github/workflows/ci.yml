@@ -31,11 +31,10 @@ jobs:
       - run: bun run typecheck
       - run: bun run lint
       - run: bun run check
-      # The e2e tests' build lets imports reach their pages on this machine
-      # (src/lib/import/fetch.server.ts). The image's build must leave it out.
-      # The app's own chunks are those importing request-filtering-agent; the
-      # library itself, in _libs, names the option too. Finding no chunks, or
-      # grep failing to read them (status 2), fails the step as well.
+      # (src/server/import/fetch.server.ts). The image's build must leave it
+      # out. The app's own chunks are those importing request-filtering-agent;
+      # the library itself, in _libs, names the option too. Finding no chunks,
+      # or grep failing to read them (status 2), fails the step as well.
       - run: bun run build
       - run: |
           app=$(grep -rl --exclude-dir=_libs --exclude-dir=node_modules request-filtering-agent .output/server)
@@ -48,7 +47,7 @@ jobs:
       - run: bun run test
 
   # The app in Chromium and WebKit, on a phone and a computer, and over plain
-  # HTTP (playwright.config.ts).
+  # HTTP (tests/e2e/playwright.config.ts).
   e2e:
     runs-on: ubuntu-24.04
     # Playwright's image comes with Node 24, the browsers and the libraries
