@@ -1,13 +1,13 @@
-// Real pages for the importer's tests, as skeletons (corpus/AGENTS.md,
+// Real pages for the importer's tests, as skeletons (tests/corpus/AGENTS.md,
 // "pages/"). Run with Bun, which resolves the app's @/ imports:
 //
 //   bun scripts/pages.ts collect <seed> [per site]
 //   bun scripts/pages.ts skeletons
 //   bun scripts/pages.ts check
 //
-// collect fetches pages of recipes already in corpus/ingredients/, as the
+// collect fetches pages of recipes already in tests/corpus/ingredients/, as the
 // importer fetches them, into .cache/pages/, which stays out of the repo.
-// skeletons writes corpus/pages/ from that cache: each page's JSON-LD and
+// skeletons writes tests/corpus/pages/ from that cache: each page's JSON-LD and
 // the facts its head gives, with every string the repo doesn't already
 // hold masked. check reads every skeleton and its cached page with the
 // importer, and lists those that read differently, apart from the masked
@@ -16,8 +16,8 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { DomUtils, parseDocument } from 'htmlparser2'
-import { extractRecipe } from '@/lib/import/extract'
-import { fetchPage } from '@/lib/import/fetch.server'
+import { extractRecipe } from '@/core/import/extract.server'
+import { fetchPage } from '@/server/import/fetch.server'
 import { mulberry32 } from './random.ts'
 import { robotsOf } from './robots.ts'
 
@@ -34,7 +34,7 @@ type CorpusFile = {
 }
 
 const CACHE = '.cache/pages'
-const PAGES = 'corpus/pages'
+const PAGES = 'tests/corpus/pages'
 
 const readJson = <T>(path: string): T =>
   JSON.parse(readFileSync(path, 'utf8')) as T
@@ -63,7 +63,7 @@ const slugOf = (url: string) =>
     .slice(-80) || 'index'
 
 async function collect(seed: number, perSite: number) {
-  const files = corpusFiles('corpus/ingredients')
+  const files = corpusFiles('tests/corpus/ingredients')
   await Promise.all(
     files.map(async (file) => {
       const urls = shuffled(file.recipes.map((r) => r.url).sort(), seed)
@@ -240,7 +240,7 @@ function skeletons() {
     if (typeof value === 'string') known.add(value)
     if (Array.isArray(value)) value.forEach(add)
   }
-  for (const folder of ['corpus/ingredients', 'corpus/tags']) {
+  for (const folder of ['tests/corpus/ingredients', 'tests/corpus/tags']) {
     for (const file of corpusFiles(folder)) {
       known.add(file.site)
       for (const r of file.recipes) {

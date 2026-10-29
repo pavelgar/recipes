@@ -1,7 +1,7 @@
 // Turns a random sample of unchecked ledger entries (?) into entries to
 // check (!), spread over the development ledgers and their sites, so the
 // next test run asks for them to be judged like any changed reading.
-// src/test/ledger.ts describes the statuses; held-out ledgers are left
+// src/testing/ledger.ts describes the statuses; held-out ledgers are left
 // alone.
 //
 //   bun run ledger:sample [count] [seed]
@@ -10,7 +10,7 @@
 
 import { globSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename } from 'node:path'
-import { countsLine, parseLedger } from '../src/test/ledger.ts'
+import { countsLine, parseLedger } from '../src/testing/ledger.ts'
 import { mulberry32 } from './random.ts'
 
 const count = Number(process.argv[2] ?? 20)
@@ -22,7 +22,7 @@ if (!Number.isInteger(seed)) throw new Error('The seed must be a whole number')
 
 const random = mulberry32(seed)
 
-const paths = globSync('src/lib/*/__ledger__/*.txt')
+const paths = globSync('src/core/*/__ledger__/*.txt')
   .filter((path) => !basename(path).startsWith('held-out-'))
   .sort()
 const sources = new Map(paths.map((path) => [path, readFileSync(path, 'utf8')]))

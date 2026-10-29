@@ -6,18 +6,18 @@ import {
   isRinging,
   playAlarm,
   unlockAlarm,
-} from '@/lib/alarm'
-import { FINISHED_TIMER_KEPT_MS } from '@/lib/recipe-progress'
+} from '@/components/recipe-view/alarm'
+import { FINISHED_TIMER_KEPT_MS } from '@/components/recipe-view/recipe-progress'
 import {
   formatCount,
   scaleServings,
   servingsCount,
   servingsStep,
-} from '@/lib/servings'
+} from '@/core/servings'
 import { m } from '@/paraglide/messages'
 import type { ReadSection, TimePiece } from '@/components/recipe-view/lines'
-import type { Language } from '@/lib/quantities'
-import type { KeptTimer } from '@/lib/recipe-progress'
+import type { Language } from '@/core/quantities'
+import type { KeptTimer } from '@/components/recipe-view/recipe-progress'
 
 // --- Servings ---
 

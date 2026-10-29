@@ -12,7 +12,10 @@ import {
 
 import { createContext, use, useEffect, useState } from 'react'
 
-import { AddRecipeProvider, useOpenAddRecipe } from '@/components/add-recipe'
+import {
+  AddRecipeProvider,
+  useOpenAddRecipe,
+} from '@/components/add-recipe/add-recipe'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   SIDEBAR_COOKIE_NAME,

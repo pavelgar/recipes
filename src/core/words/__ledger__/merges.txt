@@ -1,0 +1,214 @@
+# Different words of the development corpus that share a key, so a
+# search for one finds the other. A word is a line of
+# src/core/words/__words__/, or a form not in it.
+# ✓: finding one from the other is fine, as for "salt" and "salted".
+# ✗ (want: apart): they should stay apart.
+# Written by the tests; see src/testing/ledger.ts for how to update it.
+#
+# 95 entries: 95 checked, of which 10 wrong; 0 unchecked.
+
+## fi : 13 pairs
+
+✓ "appelsiini appelsiinin ~ appelsiininen"
+  shared appelsiininE
+✓ "kesäiset kesäistä ~ kesän"
+  shared kesÄ
+✗ "kukkia ~ kukkoa"
+  shared kukA
+  want: apart
+✗ "kumaa ~ kumina"
+  shared kumA
+  want: apart
+✓ "lisäksi ~ lisää"
+  shared lisÄ
+✓ "mustikkat ~ mustikoita"
+  shared mustikA
+✓ "puna ~ punainen punaista"
+  shared punA
+✓ "rintafileetä ~ rintafilettä"
+  shared rintafilE
+✓ "sinappia ~ sinappinen sinappista"
+  shared sinap sinapA sinapE
+✓ "tomaattikastiketta ~ tomaattikastikken"
+  shared tomaattikastikE
+✓ "tomaattipyreetä ~ tomaattipyrettä"
+  shared tomaattipyrE
+✓ "vadelmaa vadelmat vadelmia ~ vadelmaista"
+  shared vadelmA
+✓ "valko ~ valkoisia valkoista valkoinen"
+  shared valkA
+
+## en : 82 pairs
+
+✓ "approximate ~ approximately"
+  shared approxim
+✓ "bone ~ boned"
+  shared bone
+✓ "bread breads ~ breaded"
+  shared bread
+✓ "butter ~ buttered"
+  shared butter
+✓ "can cans ~ canned"
+  shared can
+✗ "chopped ~ chops"
+  shared chop
+  want: apart
+✓ "coarse ~ coarsely"
+  shared coars
+✓ "colouring ~ colours"
+  shared colour
+✓ "cool ~ cooled"
+  shared cool
+✓ "cream ~ creamed"
+  shared cream
+✓ "crumble ~ crumbled"
+  shared crumbl
+✓ "crumble ~ crumbly"
+  shared crumbl
+✓ "crumbled ~ crumbly"
+  shared crumbl
+✓ "crust crusts ~ crusted"
+  shared crust
+✓ "curried ~ curry"
+  shared curry
+✓ "devilled ~ devils"
+  shared devil
+✓ "dill ~ dilled"
+  shared dill
+✓ "dressed ~ dressing"
+  shared dress
+✓ "dust ~ dusting"
+  shared dust
+✓ "eye ~ eyed"
+  shared eye
+✓ "filled ~ filling"
+  shared fill
+✓ "fine ~ finely"
+  shared fine
+✓ "firm ~ firmly"
+  shared firm
+✓ "fresh ~ freshly"
+  shared fresh
+✓ "frosted ~ frosting"
+  shared frost
+✓ "glaze ~ glazed"
+  shared glaze
+✓ "granulated ~ granules"
+  shared granul
+✓ "grated ~ grating"
+  shared grate
+✓ "herb herbs ~ herbed"
+  shared herb
+✓ "high ~ highly"
+  shared high
+✓ "ice ~ iced"
+  shared ice
+✗ "ice ~ icing icings"
+  shared ice
+  want: apart
+✓ "iced ~ icing icings"
+  shared ice
+✓ "included ~ including"
+  shared includ
+✓ "it ~ its"
+  shared it
+✓ "juice juices ~ juiced"
+  shared juic
+✓ "knots ~ knotted"
+  shared knot
+✓ "light ~ lightly"
+  shared light
+✗ "light ~ lights"
+  shared light
+  want: apart
+✗ "lightly ~ lights"
+  shared light
+  want: apart
+✓ "like ~ liking"
+  shared like
+✓ "malt ~ malted"
+  shared malt
+✓ "natural ~ naturals"
+  shared natur
+✓ "oil ~ oiling"
+  shared oil
+✓ "option ~ optional"
+  shared option
+✓ "pats ~ patted"
+  shared pat
+✓ "pepper peppers ~ peppered"
+  shared pepper
+✓ "powder ~ powdered"
+  shared powder
+✓ "prefer ~ preferably"
+  shared prefer
+✗ "prefer ~ preferment"
+  shared prefer
+  want: apart
+✓ "prefer ~ preferred"
+  shared prefer
+✗ "preferably ~ preferment"
+  shared prefer
+  want: apart
+✓ "preferably ~ preferred"
+  shared prefer
+✗ "preferment ~ preferred"
+  shared prefer
+  want: apart
+✓ "preserved ~ preserves"
+  shared preserv
+✓ "press ~ pressed"
+  shared press
+✓ "pudding ~ puds"
+  shared pud
+✗ "pure ~ puree pureed"
+  shared pure
+  want: apart
+✓ "reduce ~ reduced"
+  shared reduc
+✓ "rise ~ rising"
+  shared rise
+✓ "round rounds ~ rounded"
+  shared round
+✓ "salt ~ salted"
+  shared salt
+✓ "season ~ seasoning"
+  shared season
+✓ "seed seeds ~ seeded"
+  shared seed
+✓ "size sizes ~ sized"
+  shared size
+✓ "skin skins ~ skinned"
+  shared skin
+✓ "sour ~ soured"
+  shared sour
+✓ "spice ~ spiced"
+  shared spice
+✓ "sprouting ~ sprouts"
+  shared sprout
+✓ "squeeze ~ squeezed"
+  shared squeez
+✓ "stone ~ stoned"
+  shared stone
+✓ "stuffed ~ stuffing"
+  shared stuf
+✓ "sub ~ subs"
+  shared sub
+✓ "sugar ~ sugared"
+  shared sugar
+✓ "sweet ~ sweets"
+  shared sweet
+✓ "thick ~ thickly"
+  shared thick
+✓ "thick ~ thickness"
+  shared thick
+✓ "thickened ~ thickening"
+  shared thicken
+✓ "thickly ~ thickness"
+  shared thick
+✓ "thin thinned ~ thinly"
+  shared thin
+✓ "top topped tops ~ topping toppings"
+  shared top
+✓ "up ~ ups"
+  shared up

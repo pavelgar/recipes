@@ -8,14 +8,18 @@ import {
 import { useState } from 'react'
 import { z } from 'zod'
 
-import { importProblemMessage } from '@/components/add-recipe'
-import { RecipeEditor } from '@/components/recipe-editor'
+import { importProblemMessage } from '@/components/add-recipe/add-recipe'
+import { RecipeEditor } from '@/components/editor/recipe-editor'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { buttonVariants } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
-import { draftFromImport, emptyDraft, loadDraft } from '@/lib/editor/draft'
-import { importQuery } from '@/lib/import/import.functions'
-import { linkSchema, siteOf } from '@/lib/import/link'
+import {
+  draftFromImport,
+  emptyDraft,
+  loadDraft,
+} from '@/components/editor/draft'
+import { importQuery } from '@/server/import/import.functions'
+import { linkSchema, siteOf } from '@/core/import/link'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 

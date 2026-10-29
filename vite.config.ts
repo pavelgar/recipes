@@ -47,12 +47,12 @@ const config = defineConfig({
   plugins: [
     devtools(),
     paraglideVitePlugin({
-      project: './project.inlang',
+      project: './src/i18n/project.inlang',
       outdir: './src/paraglide',
       strategy: ['cookie', 'baseLocale'],
     }),
     nitro({
-      plugins: ['./src/nitro/check-env.ts'],
+      plugins: ['./src/server/nitro/check-env.ts'],
       rolldownConfig: {
         onLog: dropUseClientWarnings,
         // Otherwise Rolldown can put its CommonJS helper in a chunk that runs

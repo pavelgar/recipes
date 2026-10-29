@@ -26,7 +26,7 @@ ENV NODE_ENV=production \
 WORKDIR /app
 COPY --from=build /app/.output .output
 # The server applies these on start, from the working directory.
-COPY drizzle drizzle
+COPY src/server/db/migrations src/server/db/migrations
 COPY --chmod=755 scripts/container-entrypoint.sh /usr/local/bin/
 RUN mkdir /data
 VOLUME /data

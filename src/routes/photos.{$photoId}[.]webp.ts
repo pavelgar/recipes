@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { photoIdSchema } from '@/lib/photos/photo'
-import { readPhoto } from '@/lib/photos/store.server'
+import { photoIdSchema } from '@/core/photo'
+import { readPhoto } from '@/server/photos/store.server'
 
 // A stored cover photo. Its id is never reused, so browsers keep it for
 // good.

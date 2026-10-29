@@ -218,8 +218,8 @@ prototype are in `/tmp/recipes-voikko-investigation/` for this session.
 - [Published package](https://www.npmjs.com/package/@yongsk0066/voikko)
 - [Expanded dictionary snapshot](https://www.puimula.org/htp/testing/voikko-snapshot-v5/)
 
-The benchmark reads JSON from `corpus/ingredients/`, `corpus/rare-units/`,
-`corpus/rare-forms/` and `corpus/tags/`, and uses the current word and tag
+The benchmark reads JSON from `tests/corpus/ingredients/`, `tests/corpus/rare-units/`,
+`tests/corpus/rare-forms/` and `tests/corpus/tags/`, and uses the current word and tag
 answer keys. It reproduces the production tag comparator's baseline
 results before comparing alternative keys. The native comparison uses the
 same input list and dictionary as the WASM run.

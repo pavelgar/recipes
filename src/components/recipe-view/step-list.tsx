@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { StepText } from '@/components/recipe-view/step-text'
 import { Button } from '@/components/ui/button'
 import { Item, ItemContent, ItemFooter, ItemMedia } from '@/components/ui/item'
-import { scrollBehavior } from '@/lib/motion'
+import { scrollBehavior } from '@/components/motion'
 import { m } from '@/paraglide/messages'
 import type { ReadSection } from '@/components/recipe-view/lines'
 import type {
@@ -12,7 +12,7 @@ import type {
   StepOrder,
   Timers,
 } from '@/components/recipe-view/state'
-import type { RecipeLanguage } from '@/lib/languages'
+import type { RecipeLanguage } from '@/core/languages'
 import type { Ref } from 'react'
 
 // A tap on a step's text, unless it ended a text selection.

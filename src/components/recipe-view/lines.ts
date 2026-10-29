@@ -1,17 +1,17 @@
 import { useMemo } from 'react'
 import { useDisplaySystem } from '@/hooks/use-display-system'
-import { rulesFor } from '@/lib/languages'
+import { rulesFor } from '@/core/languages'
 import {
   parseIngredient,
   presentIngredient,
   presentStep,
   scanStep,
-} from '@/lib/quantities'
-import { lineKeys } from '@/lib/recipe-progress'
-import { splitTimes } from '@/lib/step-times'
-import type { Section } from '@/db/schema'
-import type { RecipeLanguage } from '@/lib/languages'
-import type { Language, MeasuringSystem, Segment } from '@/lib/quantities'
+} from '@/core/quantities'
+import { lineKeys } from '@/components/recipe-view/recipe-progress'
+import { splitTimes } from '@/core/step-times'
+import type { Section } from '@/core/recipe/section'
+import type { RecipeLanguage } from '@/core/languages'
+import type { Language, MeasuringSystem, Segment } from '@/core/quantities'
 
 // A time a step mentions, for starting a timer from it: which of the
 // step's times it is, counting from 0, as it's written and how long.
@@ -25,7 +25,7 @@ export type TimePiece = {
 export type Piece = Segment | TimePiece
 
 export type Line = {
-  // Its text's, for crossing the line off (src/lib/recipe-progress.ts).
+  // Its text's, for crossing the line off (recipe-progress.ts).
   key: string
   // The line as shown: converted to the device's units, ingredients scaled
   // to the servings, and steps with the times they mention.
