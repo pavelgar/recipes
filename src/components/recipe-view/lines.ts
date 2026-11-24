@@ -1,0 +1,108 @@
+import { useMemo } from 'react'
+import { useDisplaySystem } from '@/hooks/use-display-system'
+import { rulesFor } from '@/core/languages'
+import { parseIngredient, presentIngredient } from '@/core/quantities'
+import { lineKeys } from '@/core/recipe/line-keys'
+import { readStep } from '@/core/recipe/read-step'
+import type { Section } from '@/core/recipe/section'
+import type { RecipeLanguage } from '@/core/languages'
+import type { MeasuringSystem } from '@/core/quantities'
+import type { Piece } from '@/core/recipe/read-step'
+
+export type Line = {
+  // Its text's, for crossing the line off (recipe-progress.ts).
+  key: string
+  // The line as shown: converted to the device's units, ingredients scaled
+  // to the servings, and steps with the times they mention.
+  pieces: ReadonlyArray<Piece>
+  // Which of a step's quantities are amounts, by index, as opposed to
+  // temperatures, sizes and lengths, which servings don't touch.
+  amounts: ReadonlySet<number>
+}
+
+export type ReadSection = {
+  key: string
+  heading: string | null
+  lines: ReadonlyArray<Line>
+}
+
+type Readable = {
+  language: RecipeLanguage
+  measuringSystem: MeasuringSystem
+  ingredients: ReadonlyArray<Section>
+  steps: ReadonlyArray<Section>
+}
+
+const NO_AMOUNTS: ReadonlySet<number> = new Set()
+
+// Each section's lines, read by `read`, with their keys.
+function readSections<T extends object>(
+  sections: ReadonlyArray<Section>,
+  kind: 'ingredient' | 'step',
+  read: (written: string) => T,
+) {
+  const keys = lineKeys(sections, kind)
+  return sections.map((section, s) => ({
+    key: `${kind}-${s}`,
+    heading: section.heading,
+    lines: section.lines.map((written, l) => ({
+      key: keys[s][l],
+      ...read(written),
+    })),
+  }))
+}
+
+const asWritten = (written: string): ReadonlyArray<Piece> => [
+  { kind: 'text', text: written },
+]
+
+// A recipe's lines as this device shows them. A recipe in a language the
+// app doesn't read quantities in is shown as written. Lines are read once
+// for the recipe; servings only change how its ingredients are shown.
+export function useRecipeIngredients(recipe: Readable, factor: number) {
+  const display = useDisplaySystem()
+  const language = rulesFor(recipe.language)
+  const system = recipe.measuringSystem
+
+  const parsed = useMemo(
+    () =>
+      readSections(recipe.ingredients, 'ingredient', (written) => ({
+        written,
+        parsed:
+          language === null
+            ? null
+            : parseIngredient(written, { language, system }),
+      })),
+    [recipe.ingredients, language, system],
+  )
+  const ingredients = useMemo(
+    (): ReadonlyArray<ReadSection> =>
+      parsed.map((section) => ({
+        ...section,
+        lines: section.lines.map(({ key, written, parsed: line }) => ({
+          key,
+          pieces:
+            language === null || line === null
+              ? asWritten(written)
+              : presentIngredient(line, { language, system, display, factor })
+                  .segments,
+          amounts: NO_AMOUNTS,
+        })),
+      })),
+    [parsed, language, system, display, factor],
+  )
+  return ingredients
+}
+
+export function useRecipeSteps(recipe: Readable): ReadonlyArray<ReadSection> {
+  const display = useDisplaySystem()
+  const language = rulesFor(recipe.language)
+  const system = recipe.measuringSystem
+  return useMemo(
+    () =>
+      readSections(recipe.steps, 'step', (written) =>
+        readStep(written, language, system, display),
+      ),
+    [recipe.steps, language, system, display],
+  )
+}

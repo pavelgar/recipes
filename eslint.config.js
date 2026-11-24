@@ -3,6 +3,7 @@
 import { tanstackConfig } from '@tanstack/eslint-config'
 import boundaries from 'eslint-plugin-boundaries'
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths'
+import reactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
 
 // The layers of src/ (AGENTS.md, "Code organization"). Each folder is one
@@ -280,6 +281,16 @@ export default [
           message: coreIsPure,
         },
       ],
+    },
+  },
+  {
+    // React's two rules of hooks: hooks called the same way on every render,
+    // and effects listing what they read. Not the React Compiler's rules.
+    files: ['src/**'],
+    plugins: { 'react-hooks': reactHooks },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
   {

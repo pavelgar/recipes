@@ -3,11 +3,11 @@ import { createFileRoute, notFound } from '@tanstack/react-router'
 import { BookXIcon } from 'lucide-react'
 
 import { NotFound } from '@/components/not-found'
-import { RecipeReadout } from '@/components/recipe-readout'
+import { RecipeView } from '@/components/recipe-view/recipe-view'
 import { recipeQuery } from '@/server/recipes.functions'
 import { m } from '@/paraglide/messages'
 
-// A saved recipe, shown plainly until the recipe view is built.
+// A saved recipe, for reading and cooking from.
 export const Route = createFileRoute('/recipes/$recipeId')({
   // Ids are written as saved, so /recipes/1e3 or /recipes/012 is no
   // recipe's address.
@@ -38,8 +38,10 @@ function RecipePage() {
   const { recipeId } = Route.useParams()
   const { data: recipe } = useSuspenseQuery(recipeQuery(recipeId))
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-6">
-      <RecipeReadout recipe={recipe} />
+    <main className="flex w-full flex-1 flex-col">
+      {/* A view of its own for each recipe, so one recipe's servings and
+          lines crossed off don't carry over to the next. */}
+      <RecipeView key={recipe.id} recipe={recipe} />
     </main>
   )
 }

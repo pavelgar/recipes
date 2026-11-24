@@ -147,15 +147,6 @@ function rootOf(list: ReadonlyArray<LineQuantity>, i: number): number {
   }
 }
 
-// What a quantity measures, for telling whether two in a group are the same
-// amount twice ("330ml/11fl oz") or two different things ("200 g (3-4
-// dl)").
-function measuredOf(q: Quantity): string | null {
-  if (q.type === 'temperature') return 'temperature'
-  if (q.type === 'dimensions') return 'dimensions'
-  return q.unit ? dimensionOf(q.unit) : null
-}
-
 // Text that already gives the display system stays as written: in
 // "2 2/3 cups (320g)" the grams serve a metric reader, so the cups stay.
 function convertingRoots(
@@ -177,6 +168,33 @@ function convertingRoots(
 
 // --- Converting ---
 
+// Up to 3 Australian tablespoons by volume, in 15 ml tablespoons and
+// teaspoons: whole tablespoons, and teaspoons for the rest. 1 tbsp → 1 rkl
+// + 1 tl, 2 tbsp → 2 rkl + 2 tl, 3 tbsp → 4 rkl, ½ tbsp → 2 tl. A range
+// rounds both ends to half tablespoons.
+function australianTablespoons(value: Value): Measure {
+  const inTeaspoons = (n: number) => n * AUSTRALIAN_TABLESPOON_IN_TEASPOONS
+  if (typeof value !== 'number') {
+    const tbsp = mapValue(value, (n) =>
+      nearestFraction(inTeaspoons(n) / 3, HALVES),
+    )
+    return [{ unit: 'tbsp', value: tbsp }]
+  }
+  const tsp = inTeaspoons(value)
+  let tbsp = Math.floor(tsp / 3 + 1e-9)
+  let rest = nearestFraction(tsp - tbsp * 3, TEASPOON)
+  if (rest >= 3) {
+    tbsp++
+    rest -= 3
+  }
+  if (tbsp === 0) return [{ unit: 'tsp', value: rest }]
+  if (rest === 0) return [{ unit: 'tbsp', value: tbsp }]
+  return [
+    { unit: 'tbsp', value: tbsp },
+    { unit: 'tsp', value: rest },
+  ]
+}
+
 // The amount in the display system, written in the recipe's language.
 function convertAmount(
   value: Value,
@@ -184,11 +202,10 @@ function convertAmount(
   opts: PresentOptions,
   form: Case | null,
 ): string | null {
-  if (isAustralianTablespoon(unit, opts.system)) {
-    const tsp = mapValue(value, (n) =>
-      nearestFraction(n * AUSTRALIAN_TABLESPOON_IN_TEASPOONS, TEASPOON),
-    )
-    return formatMeasure([{ unit: 'tsp', value: tsp }], opts.language, form)
+  // Up to 3 Australian tablespoons read in spoons; more follow the
+  // display's volume rule below, like any other volume.
+  if (isAustralianTablespoon(unit, opts.system) && maxOf(value) <= 3) {
+    return formatMeasure(australianTablespoons(value), opts.language, form)
   }
   const size = sizeOf(unit, opts.system)
   const dimension = dimensionOf(unit)
@@ -307,8 +324,45 @@ function fractionStyleOf(written: string) {
   return { slash, joiner }
 }
 
+// The fractions a scaled number in this unit is written with.
+const scaledFractions = (unit: Unit | null) =>
+  DECIMAL_UNITS.has(unit?.id ?? '') || WHOLE_UNITS.has(unit?.id ?? '')
+    ? SIMPLE
+    : fractionsFor(unit)
+
+// How far the nearest fraction may miss a scaled measure before the amount
+// is written as a decimal instead: 1/3 dl × 1,25 is 0,42 dl, which 1/3
+// misses by 20%, so it reads 0,4 dl. Cups and tablespoons take spoons added
+// instead (spoonFallback), and counts and packages keep the nearest
+// fraction: nobody cuts 0,4 of an onion.
+const FRACTION_TOLERANCE = 0.1
+
+function fractionFarOff(n: number, unit: Unit | null): boolean {
+  if (!unit || !isMeasure(unit) || n <= 0) return false
+  if (unit.id === 'cup' || unit.id === 'tbsp') return false
+  return (
+    Math.abs(nearestFraction(n, scaledFractions(unit)) - n) / n >
+    FRACTION_TOLERANCE
+  )
+}
+
+// Keep the usual precision unless it would turn a positive amount into
+// zero. A smaller amount gets the first significant digit in its own unit.
+function formatScaledDecimal(
+  n: number,
+  language: Language,
+  decimals = 1,
+  separator = language === 'fi' ? ',' : '.',
+): string {
+  const rounded = formatDecimal(n, language, decimals, separator)
+  if (n <= 0 || rounded !== '0') return rounded
+  const [digit, exponent] = n.toExponential(0).split('e-')
+  return `0${separator}${'0'.repeat(Number(exponent) - 1)}${digit}`
+}
+
 // A scaled number written the way the original was: decimals stay
-// decimals, fractions fractions, words words.
+// decimals, fractions fractions, words words. With `decimal`, a number
+// that would be a fraction is a decimal instead.
 function formatLike(
   n: number,
   written: WrittenNumber,
@@ -316,10 +370,11 @@ function formatLike(
   unit: Unit | null,
   language: Language,
   styleFrom = original,
+  decimal = false,
 ): string {
   if (written.form === 'decimal') {
     const separator = original.includes(',') ? ',' : '.'
-    return formatDecimal(n, language, n < 1 ? 2 : 1, separator)
+    return formatScaledDecimal(n, language, n < 1 ? 2 : 1, separator)
   }
   if (written.form === 'word') {
     const word = numberWord(n, original, language)
@@ -330,17 +385,17 @@ function formatLike(
     // Grams and millilitres round to 5 from 20 up, whole or not: 175 g × 1,5
     // → 265 g, 142 ml × 1,5 → 215 ml.
     if (WHOLE_UNITS.has(id) && n >= 20) return String(Math.round(n / 5) * 5)
-    if (Number.isInteger(Math.round(n * 1e6) / 1e6))
+    if (n === 0 || (n >= 0.5 && Number.isInteger(Math.round(n * 1e6) / 1e6)))
       return String(Math.round(n))
-    if (DECIMAL_UNITS.has(id)) return formatDecimal(n, language, n < 1 ? 2 : 1)
+    if (DECIMAL_UNITS.has(id))
+      return formatScaledDecimal(n, language, n < 1 ? 2 : 1)
     if (WHOLE_UNITS.has(id)) {
-      return n < 10 ? formatDecimal(n, language) : String(Math.round(n))
+      return n < 10 ? formatScaledDecimal(n, language) : String(Math.round(n))
     }
   }
-  const fractions =
-    DECIMAL_UNITS.has(id) || WHOLE_UNITS.has(id) ? SIMPLE : fractionsFor(unit)
+  if (decimal) return formatScaledDecimal(n, language, n < 0.1 ? 2 : 1)
   return formatFraction(
-    nearestFraction(n, fractions),
+    nearestFraction(n, scaledFractions(unit)),
     fractionStyleOf(styleFrom),
   )
 }
@@ -348,14 +403,18 @@ function formatLike(
 // Cups and tablespoons that no simple fraction fits within 6% take spoons
 // added instead: ⅓ cup × 1,2 → ⅓ cup + 1 tbsp.
 function spoonFallback(n: number, unit: Unit | null): Measure | null {
-  if (unit?.id !== 'cup' && unit?.id !== 'tbsp') return null
+  if (n <= 0 || (unit?.id !== 'cup' && unit?.id !== 'tbsp')) return null
   const near = nearestFraction(n, fractionsFor(unit))
   if (Math.abs(near - n) / n <= 0.06) return null
   return unit.id === 'cup' ? cupsWithSpoons(n, 16) : tablespoonsWithTeaspoons(n)
 }
 
 // "2 lb 10 oz" for a scaled "1lb 5oz", in the writer's spacing.
-function poundsAndOunces(lb: number, original: string): string {
+function poundsAndOunces(
+  lb: number,
+  original: string,
+  language: Language,
+): string {
   let pounds = Math.floor(lb)
   let ounces = Math.round((lb - pounds) * 16)
   if (ounces === 16) {
@@ -363,6 +422,9 @@ function poundsAndOunces(lb: number, original: string): string {
     ounces = 0
   }
   const space = /\d\s+lb/i.test(original) ? ' ' : ''
+  if (lb > 0 && pounds === 0 && ounces === 0) {
+    return `${formatScaledDecimal(lb, language, 2)}${space}lb`
+  }
   return ounces
     ? `${pounds}${space}lb ${ounces}${space}oz`
     : `${pounds}${space}lb`
@@ -391,13 +453,15 @@ function scaleInPlace(
     /\d/.test(unitText) &&
     typeof value === 'number'
   ) {
-    return [edit(q.at, poundsAndOunces(value, original))]
+    return [edit(q.at, poundsAndOunces(value, original, opts.language))]
   }
   if (typeof value === 'number') {
     const fallback = spoonFallback(value, q.unit)
     if (fallback) return [edit(q.at, formatMeasure(fallback, opts.language))]
   }
   const ends = typeof value === 'number' ? [value] : [value.min, value.max]
+  // Both ends of a range are decimals when either is.
+  const decimal = ends.some((end) => fractionFarOff(end, q.unit))
   // "teelusikallinen": the word is both the number and the unit.
   const [first] = q.numbers
   if (
@@ -432,6 +496,7 @@ function scaleInPlace(
         q.unit,
         opts.language,
         numbersText,
+        decimal,
       ),
     ),
   )
@@ -515,17 +580,16 @@ function present(
           ? mapValue(q.value, (n) => n * factor)
           : q.value
     const nested = list.some((other, j) => j !== i && within(other.at, q.at))
-    // In "330ml/11fl oz" both are millilitres to a US reader: the first
-    // converts, and the second stays as written rather than repeat it.
+    // Of a group in units the display doesn't use, only the first converts,
+    // and the rest stay as written rather than repeat it: "330ml/11fl oz",
+    // "200 g (3-4 dl)" and an Australian recipe's "100 g (7 tbsp)" on a US
+    // device.
     const root = rootOf(list, i)
     const repeat =
       root !== i &&
       list.some(
         (other, j) =>
-          j < i &&
-          rootOf(list, j) === root &&
-          needsConversion(other, opts) &&
-          measuredOf(other) === measuredOf(q),
+          j < i && rootOf(list, j) === root && needsConversion(other, opts),
       )
     if (roots.has(root) && needsConversion(q, opts) && !nested && !repeat) {
       const written = writtenCase(text, q, opts.language)
