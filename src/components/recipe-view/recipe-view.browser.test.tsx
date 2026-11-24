@@ -1,3 +1,4 @@
+import { lineKeys } from '@/core/recipe/line-keys'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { render } from 'vitest-browser-react'
 import { RecipeView } from '@/components/recipe-view/recipe-view'
@@ -5,7 +6,6 @@ import { Toaster } from '@/components/ui/toast'
 import { ALARM_FOR_MS, playAlarm } from '@/components/recipe-view/alarm'
 import {
   FINISHED_TIMER_KEPT_MS,
-  lineKeys,
   saveProgress,
 } from '@/components/recipe-view/recipe-progress'
 import type { ViewedRecipe } from '@/components/recipe-view/recipe-view'

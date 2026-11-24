@@ -7,7 +7,7 @@ import {
   presentStep,
   scanStep,
 } from '@/core/quantities'
-import { lineKeys } from '@/components/recipe-view/recipe-progress'
+import { lineKeys } from '@/core/recipe/line-keys'
 import { splitTimes } from '@/core/step-times'
 import type { Section } from '@/core/recipe/section'
 import type { RecipeLanguage } from '@/core/languages'

@@ -1,7 +1,7 @@
+import { lineKeys } from '@/core/recipe/line-keys'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   FINISHED_TIMER_KEPT_MS,
-  lineKeys,
   loadProgress,
   saveProgress,
 } from '@/components/recipe-view/recipe-progress'
@@ -37,19 +37,6 @@ const PROGRESS: Progress = {
     },
   ],
 }
-
-describe('lineKeys', () => {
-  it('tells apart lines written the same', () => {
-    const keys = lineKeys(
-      [
-        { heading: 'Taikina', lines: ['1 tl suolaa'] },
-        { heading: 'Täyte', lines: ['1 tl suolaa'] },
-      ],
-      'ingredient',
-    ).flat()
-    expect(new Set(keys).size).toBe(2)
-  })
-})
 
 describe('progress kept in the browser', () => {
   let kept: Map<string, string>
