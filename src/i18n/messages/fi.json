@@ -103,6 +103,7 @@
   "recipe_timer_running_up": "{#hidden}Vaihe {number}: pysäytä ajastin{/hidden} {#time}{time}{/time} {#left}Aika loppui{/left}",
   "recipe_dock_timer": "{#hidden}Pysäytä ajastin, vaihe{/hidden} {number}{#dot} ·{/dot} {#left}{left}{/left}{#hidden} jäljellä{/hidden}",
   "recipe_dock_timer_up": "{#hidden}Pysäytä ajastin, vaihe{/hidden} {number}{#dot} ·{/dot} {#left}Aika loppui{/left}",
+  "recipe_timer_expired": "Vaihe {number}: Aika loppui ({time}).",
   "recipe_timer_stopped": "Ajastin pysäytetty: {time}",
   "language_unknown": "Ei tiedossa",
   "measures_us": "Yhdysvallat",

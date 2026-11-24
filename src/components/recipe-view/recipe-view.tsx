@@ -186,7 +186,7 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
   // Timers show with the number of their step, while the recipe has it.
   const stepNumbers = new Map(order.flat.map((s) => [s.line.key, s.number]))
   const shownTimers = timers.timers.filter((t) => stepNumbers.has(t.stepKey))
-  useAlarm(shownTimers.map((t) => t.endsAt))
+  const ringing = useAlarm(shownTimers.map((t) => t.endsAt))
   // Tailwind's lg, where the ingredients get their own column.
   const wide = useMediaQuery('(min-width: 64rem)')
   const scrollsInside = useScrollsInside()
@@ -283,6 +283,18 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
           : '[--cover:min(42svh,19rem)] md:[--cover:min(36svh,18rem)]',
       )}
     >
+      <div role="status" aria-atomic="false" className="sr-only">
+        {shownTimers
+          .filter((timer) => ringing.has(timer.endsAt))
+          .map((timer) => (
+            <p key={timer.id}>
+              {m.recipe_timer_expired({
+                number: stepNumbers.get(timer.stepKey)!,
+                time: timer.label,
+              })}
+            </p>
+          ))}
+      </div>
       {/* The photo holds still while the recipe slides over it: fixed to
           the window where the page itself scrolls, sticky where the screen
           scrolls inside the app. */}

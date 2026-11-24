@@ -289,7 +289,7 @@ export function useSecondsLeft(endsAt: number): number {
 // has been touched. A touch unlocks it as it ends: browsers let a page make
 // sound from a tap's end, not its start.
 export function useAlarm(endsAt: ReadonlyArray<number>) {
-  const [ringing, setRinging] = useState(false)
+  const [ringing, setRinging] = useState<ReadonlySet<number>>(() => new Set())
   // The times by value, so the check below starts again only when they
   // change, not with each new array of them.
   const key = endsAt.join()
@@ -299,7 +299,7 @@ export function useAlarm(endsAt: ReadonlyArray<number>) {
     // Checked again whenever a timer starts or stops ringing.
     const check = () => {
       const now = Date.now()
-      setRinging(ends.some((end) => isRinging(end, now)))
+      setRinging(new Set(ends.filter((end) => isRinging(end, now))))
       const next = Math.min(
         ...ends
           .flatMap((end) => [end, end + ALARM_FOR_MS])
@@ -320,10 +320,12 @@ export function useAlarm(endsAt: ReadonlyArray<number>) {
       document.removeEventListener('keydown', unlockAlarm, options)
     }
   }, [])
+  const sounding = ringing.size > 0
   useEffect(() => {
-    if (!ringing) return
+    if (!sounding) return
     playAlarm()
     const id = window.setInterval(playAlarm, ALARM_EVERY_MS)
     return () => window.clearInterval(id)
-  }, [ringing])
+  }, [sounding])
+  return ringing
 }

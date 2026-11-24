@@ -471,6 +471,21 @@ describe('a timer whose time is up', () => {
     screen.getByRole('button', { name: DOCKED })
   const UP = "Stop the timer for step 2 Time's up"
 
+  it('announces expiry while focus is elsewhere', async () => {
+    keepTimer(Date.now() + 1500)
+    const screen = await renderView(PICCATA)
+    const status = screen.getByRole('article').getByRole('status')
+    const more = screen.getByRole('button', { name: 'More servings' })
+    const button = more.element() as HTMLElement
+    button.focus()
+
+    await expect.element(status).toBeEmptyDOMElement()
+    await expect
+      .element(status)
+      .toHaveTextContent("Step 2: Time's up for 5 to 8 minutes.")
+    await expect.element(more).toHaveFocus()
+  })
+
   it('beeps', async () => {
     keepTimer(Date.now() - 1000)
     const screen = await renderView(PICCATA)

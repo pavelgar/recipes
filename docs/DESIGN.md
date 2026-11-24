@@ -651,8 +651,8 @@
   languages the app reads quantities in. A running timer shows the time
   left after the time's words in the step, and in the dock with its step's
   number. Tapping a running timer stops it, with Undo in a toast.
-- A timer whose time is up says Time's up and beeps like a kitchen timer,
-  in groups of four beeps every two seconds, for a minute or until it's
+- A timer whose time is up says Time's up, announces it to screen readers,
+  and beeps like a kitchen timer in groups of four beeps every two seconds, for a minute or until it's
   stopped. The beeps are made in the page: browsers can't play the
   device's own alert sounds. They sound from the open recipe, also while
   its tab is behind another on a computer; no vibration, and no

@@ -103,6 +103,7 @@
   "recipe_timer_running_up": "{#hidden}Step {number}: stop the timer{/hidden} {#time}{time}{/time} {#left}Time's up{/left}",
   "recipe_dock_timer": "{#hidden}Stop the timer for step{/hidden} {number}{#dot} ·{/dot} {#left}{left}{/left}{#hidden} left{/hidden}",
   "recipe_dock_timer_up": "{#hidden}Stop the timer for step{/hidden} {number}{#dot} ·{/dot} {#left}Time's up{/left}",
+  "recipe_timer_expired": "Step {number}: Time's up for {time}.",
   "recipe_timer_stopped": "Timer stopped: {time}",
   "language_unknown": "Unknown",
   "measures_us": "US",
