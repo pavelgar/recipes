@@ -339,6 +339,66 @@ describe('ingredients', () => {
 })
 
 describe('progress', () => {
+  const key = 'recipes.progress.v1.1'
+  const bake = lineKeys(PICCATA.steps, 'step')[0][1]
+  const timer = () => ({
+    stepKey: bake,
+    time: 0,
+    label: '5 to 8 minutes',
+    seconds: 300,
+    endsAt: Date.now() + 300_000,
+  })
+
+  it('keeps a timer saved by another tab before this tab hears about it', async () => {
+    const first = await renderView(PICCATA)
+    saveProgress(PICCATA.id, { servings: null, crossed: [], timers: [timer()] })
+    await first.getByRole('button', { name: 'More servings' }).click()
+    await first.unmount()
+
+    const again = await renderView(PICCATA)
+    await expect
+      .element(again.getByRole('group', { name: 'Servings' }))
+      .toHaveTextContent('5')
+    await expect
+      .element(
+        again.getByRole('list').getByRole('button', { name: STOP_TIMER }),
+      )
+      .toBeVisible()
+  })
+
+  it('shows progress changed or cleared in another tab', async () => {
+    const screen = await renderView(PICCATA)
+    const notify = () =>
+      window.dispatchEvent(
+        new StorageEvent('storage', { key, storageArea: localStorage }),
+      )
+    saveProgress(PICCATA.id, {
+      servings: null,
+      crossed: [bake],
+      timers: [timer()],
+    })
+    notify()
+    await expect
+      .element(
+        screen.getByRole('button', { name: 'Step 2, done. Mark not done' }),
+      )
+      .toBeVisible()
+    await expect
+      .element(
+        screen.getByRole('list').getByRole('button', { name: STOP_TIMER }),
+      )
+      .toBeVisible()
+
+    localStorage.removeItem(key)
+    notify()
+    await expect
+      .element(screen.getByRole('button', { name: 'Step 2, mark done' }))
+      .toBeVisible()
+    await expect
+      .element(screen.getByRole('button', { name: START_TIMER }))
+      .toBeVisible()
+  })
+
   it('opens where it was left, on this device', async () => {
     const first = await renderView(PICCATA)
     await first.getByRole('button', { name: 'More servings' }).click()

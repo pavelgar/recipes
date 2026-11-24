@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { toast } from '@/components/ui/toast'
 import {
   ALARM_EVERY_MS,
@@ -18,7 +18,10 @@ import { m } from '@/paraglide/messages'
 import type { ReadSection } from '@/components/recipe-view/lines'
 import type { TimePiece } from '@/core/recipe/read-step'
 import type { Language } from '@/core/quantities'
-import type { KeptTimer } from '@/components/recipe-view/recipe-progress'
+import type {
+  KeptTimer,
+  UpdateProgress,
+} from '@/components/recipe-view/recipe-progress'
 
 // --- Servings ---
 
@@ -30,9 +33,11 @@ export function useServings(
   written: string | null,
   language: Language | null,
   kept: number | null,
+  update: UpdateProgress,
 ) {
   const base = servingsCount(written, language)
-  const [count, setCount] = useState(kept ?? base ?? 1)
+  const original = base ?? 1
+  const count = kept ?? original
   const canScale = base === null || (Number.isFinite(base) && base > 0)
   const factor = !canScale ? 1 : base === null ? count : count / base
   const step = servingsStep(base)
@@ -49,14 +54,27 @@ export function useServings(
             : `${written} ${times}`
           : scaleServings(written, factor, language)
 
+  const move = useCallback(
+    (by: number) => {
+      if (!canScale) return
+      update((progress) => {
+        const previous = progress.servings?.count ?? original
+        const next = Math.max(step, previous + by)
+        return {
+          ...progress,
+          servings: next === original ? null : { written, count: next },
+        }
+      })
+    },
+    [canScale, update, original, step, written],
+  )
+
   return {
     label,
     factor,
     changed: factor !== 1,
-    // What to keep: null while the servings are the recipe's own.
-    kept: factor === 1 ? null : count,
-    less: () => setCount((c) => Math.max(step, c - step)),
-    more: () => setCount((c) => c + step),
+    less: () => move(-step),
+    more: () => move(step),
     canLess: canScale && count > step,
     canMore: canScale,
   }
@@ -68,28 +86,28 @@ export type Servings = ReturnType<typeof useServings>
 
 // Which lines are crossed off, ingredients and steps alike, by line key,
 // starting from those kept.
-export function useCrossOff(kept: ReadonlyArray<string>) {
-  const [done, setDone] = useState<ReadonlySet<string>>(() => new Set(kept))
-  const toggle = useCallback(
-    (key: string) =>
-      setDone((d) => {
-        const next = new Set(d)
-        if (next.has(key)) next.delete(key)
-        else next.add(key)
-        return next
-      }),
-    [],
-  )
-  const clear = useCallback(
-    (keys: ReadonlyArray<string>) =>
-      setDone((d) => {
-        const next = new Set(d)
-        for (const key of keys) next.delete(key)
-        return next
-      }),
-    [],
-  )
-  const has = useCallback((key: string) => done.has(key), [done])
+export function useCrossOff(
+  kept: ReadonlyArray<string>,
+  update: UpdateProgress,
+) {
+  const done = useMemo(() => new Set(kept), [kept])
+  const has = (key: string) => done.has(key)
+  const toggle = (key: string) => {
+    const checking = !has(key)
+    update((progress) => ({
+      ...progress,
+      crossed: checking
+        ? [...new Set([...progress.crossed, key])]
+        : progress.crossed.filter((line) => line !== key),
+    }))
+  }
+  const clear = (keys: ReadonlyArray<string>) => {
+    const cleared = new Set(keys)
+    update((progress) => ({
+      ...progress,
+      crossed: progress.crossed.filter((line) => !cleared.has(line)),
+    }))
+  }
   return { done, toggle, clear, has }
 }
 
@@ -118,7 +136,7 @@ export type StepOrder = ReturnType<typeof useStepOrder>
 
 // --- Timers ---
 
-export type Timer = KeptTimer & { id: number }
+export type Timer = KeptTimer & { id: string }
 
 function closeUndos(ids: Set<string>) {
   const open = [...ids]
@@ -129,11 +147,18 @@ function closeUndos(ids: Set<string>) {
 // Timers started from times in steps, starting from those kept, which ran
 // on while the page was closed. Several can run at once. A timer goes once
 // its time has long been up, unless it's stopped sooner.
-export function useTimers(kept: ReadonlyArray<KeptTimer>) {
-  const [timers, setTimers] = useState<ReadonlyArray<Timer>>(() =>
-    kept.map((timer, id) => ({ ...timer, id })),
+export function useTimers(
+  kept: ReadonlyArray<KeptTimer>,
+  update: UpdateProgress,
+) {
+  const timers = useMemo(
+    () =>
+      kept.map((timer) => ({
+        ...timer,
+        id: `${timer.stepKey}:${timer.time}:${timer.endsAt}`,
+      })),
+    [kept],
   )
-  const nextId = useRef(kept.length)
 
   useEffect(() => {
     if (timers.length === 0) return
@@ -141,25 +166,39 @@ export function useTimers(kept: ReadonlyArray<KeptTimer>) {
       Math.min(...timers.map((t) => t.endsAt)) + FINISHED_TIMER_KEPT_MS
     const id = window.setTimeout(
       () =>
-        setTimers((ts) =>
-          ts.filter((t) => t.endsAt + FINISHED_TIMER_KEPT_MS > Date.now()),
-        ),
+        update((progress) => {
+          const now = Date.now()
+          return {
+            ...progress,
+            timers: progress.timers.filter(
+              (t) => t.endsAt + FINISHED_TIMER_KEPT_MS > now,
+            ),
+          }
+        }),
       Math.max(0, first - Date.now()),
     )
     return () => window.clearTimeout(id)
-  }, [timers])
+  }, [timers, update])
 
-  const start = useCallback((stepKey: string, time: TimePiece) => {
-    const timer = {
-      id: nextId.current++,
-      stepKey,
-      time: time.time,
-      label: time.text,
-      seconds: time.seconds,
-      endsAt: Date.now() + time.seconds * 1000,
-    }
-    setTimers((ts) => [...ts, timer])
-  }, [])
+  const start = useCallback(
+    (stepKey: string, time: TimePiece) => {
+      const timer: KeptTimer = {
+        stepKey,
+        time: time.time,
+        label: time.text,
+        seconds: time.seconds,
+        endsAt: Date.now() + time.seconds * 1000,
+      }
+      update((progress) =>
+        progress.timers.some(
+          (t) => t.stepKey === stepKey && t.time === time.time,
+        )
+          ? progress
+          : { ...progress, timers: [...progress.timers, timer] },
+      )
+    },
+    [update],
+  )
 
   // Stopping a timer can be undone, since a tap with wet hands can miss.
   // Leaving the recipe takes the Undo with it.
@@ -168,34 +207,59 @@ export function useTimers(kept: ReadonlyArray<KeptTimer>) {
     const open = undos.current
     return () => closeUndos(open)
   }, [])
-  const stop = useCallback((timer: Timer) => {
-    setTimers((ts) => ts.filter((t) => t.id !== timer.id))
-    const id: string = toast.add({
-      title: m.recipe_timer_stopped({ time: timer.label }),
-      actionProps: {
-        children: m.editor_undo(),
-        onClick: () => {
-          if (!undos.current.delete(id)) return
-          toast.close(id)
-          setTimers((ts) =>
-            ts.some((t) => t.stepKey === timer.stepKey && t.time === timer.time)
-              ? ts
-              : [...ts, timer],
-          )
+  const stop = useCallback(
+    (timer: Timer) => {
+      const removed = update((progress) => {
+        const remaining = progress.timers.filter(
+          (t) =>
+            t.stepKey !== timer.stepKey ||
+            t.time !== timer.time ||
+            t.endsAt !== timer.endsAt,
+        )
+        return remaining.length === progress.timers.length
+          ? progress
+          : { ...progress, timers: remaining }
+      })
+      if (!removed) return
+      const id: string = toast.add({
+        title: m.recipe_timer_stopped({ time: timer.label }),
+        actionProps: {
+          children: m.editor_undo(),
+          onClick: () => {
+            if (!undos.current.delete(id)) return
+            toast.close(id)
+            const { id: _, ...keptTimer } = timer
+            update((progress) =>
+              progress.timers.some(
+                (t) => t.stepKey === timer.stepKey && t.time === timer.time,
+              )
+                ? progress
+                : { ...progress, timers: [...progress.timers, keptTimer] },
+            )
+          },
         },
-      },
-      onClose: () => undos.current.delete(id),
-    })
-    undos.current.add(id)
-  }, [])
+        onClose: () => undos.current.delete(id),
+      })
+      undos.current.add(id)
+    },
+    [update],
+  )
 
-  const stopAll = useCallback(() => {
-    closeUndos(undos.current)
-    setTimers([])
-  }, [])
+  const startOver = useCallback(
+    (stepKeys: ReadonlyArray<string>) => {
+      closeUndos(undos.current)
+      const steps = new Set(stepKeys)
+      update((progress) => ({
+        ...progress,
+        crossed: progress.crossed.filter((line) => !steps.has(line)),
+        timers: [],
+      }))
+    },
+    [update],
+  )
   const find = (stepKey: string, time: number) =>
     timers.find((t) => t.stepKey === stepKey && t.time === time)
-  return { timers, start, stop, stopAll, find }
+  return { timers, start, stop, startOver, find }
 }
 
 export type Timers = ReturnType<typeof useTimers>

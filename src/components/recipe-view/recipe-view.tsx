@@ -39,10 +39,7 @@ import { siteOf } from '@/core/import/link'
 import { rulesFor } from '@/core/languages'
 import { scrollBehavior } from '@/components/motion'
 import { photoUrl } from '@/core/photo'
-import {
-  loadProgress,
-  saveProgress,
-} from '@/components/recipe-view/recipe-progress'
+import { useRecipeProgress } from '@/components/recipe-view/recipe-progress'
 import { singleServingCount } from '@/core/servings'
 import { formatClock } from '@/core/step-times'
 import { m } from '@/paraglide/messages'
@@ -168,29 +165,23 @@ function DockTimer({
 
 export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
   const rules = rulesFor(recipe.language)
-  // Progress kept on this device, read before the first paint, so the
-  // recipe opens where it was left.
   const steps = useRecipeSteps(recipe)
-  const [kept] = useState(() => loadProgress(recipe.id, { ...recipe, steps }))
+  const { progress, update } = useRecipeProgress(
+    recipe.id,
+    recipe.servings,
+    recipe.ingredients,
+    steps,
+  )
   const servings = useServings(
     recipe.servings,
     rules,
-    kept?.servings?.count ?? null,
+    progress.servings?.count ?? null,
+    update,
   )
   const ingredients = useRecipeIngredients(recipe, servings.factor)
-  const cross = useCrossOff(kept?.crossed ?? [])
-  const timers = useTimers(kept?.timers ?? [])
+  const cross = useCrossOff(progress.crossed, update)
+  const timers = useTimers(progress.timers, update)
   const order = useStepOrder(steps, cross)
-  useEffect(() => {
-    saveProgress(recipe.id, {
-      servings:
-        servings.kept === null
-          ? null
-          : { written: recipe.servings, count: servings.kept },
-      crossed: [...cross.done],
-      timers: timers.timers.map(({ id: _, ...timer }) => timer),
-    })
-  }, [recipe.id, recipe.servings, servings.kept, cross.done, timers.timers])
   useWakeLock()
   // Timers show with the number of their step, while the recipe has it.
   const stepNumbers = new Map(order.flat.map((s) => [s.line.key, s.number]))

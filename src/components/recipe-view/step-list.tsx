@@ -79,10 +79,7 @@ export function StepList({
   // Starting over uncrosses every step and stops every timer.
   const started =
     flat.some((s) => cross.has(s.line.key)) || timers.timers.length > 0
-  const startOver = () => {
-    cross.clear(flat.map((s) => s.line.key))
-    timers.stopAll()
-  }
+  const startOver = () => timers.startOver(flat.map((s) => s.line.key))
 
   return (
     <section

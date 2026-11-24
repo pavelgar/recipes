@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { lineKeys } from '@/core/recipe/line-keys'
 import { z } from 'zod'
 import type { ReadSection } from '@/components/recipe-view/lines'
@@ -60,14 +61,19 @@ const isEmpty = (progress: Progress) =>
 
 // The progress kept for the recipe as it is now: on lines it still has,
 // for the servings it still gives, and with timers not long up.
-export function loadProgress(
+function readProgress(
   recipeId: number,
   lines: Lines,
   now = Date.now(),
-): Progress | null {
+): Progress | null | undefined {
+  let raw: string | null
   try {
-    const raw = localStorage.getItem(KEY_PREFIX + recipeId)
-    if (raw === null) return null
+    raw = localStorage.getItem(KEY_PREFIX + recipeId)
+  } catch {
+    return undefined
+  }
+  if (raw === null) return null
+  try {
     const parsed = progressShape.safeParse(JSON.parse(raw))
     if (!parsed.success) return null
     const { servings, crossed, timers } = parsed.data
@@ -107,11 +113,75 @@ export function loadProgress(
   }
 }
 
-export function saveProgress(recipeId: number, progress: Progress) {
+export function loadProgress(recipeId: number, lines: Lines, now = Date.now()) {
+  return readProgress(recipeId, lines, now) ?? null
+}
+
+export function saveProgress(recipeId: number, progress: Progress): boolean {
   try {
     if (isEmpty(progress)) localStorage.removeItem(KEY_PREFIX + recipeId)
     else localStorage.setItem(KEY_PREFIX + recipeId, JSON.stringify(progress))
+    return true
   } catch {
     // Storage full or blocked: progress lives only in the open page.
+    return false
   }
+}
+
+const EMPTY: Progress = { servings: null, crossed: [], timers: [] }
+
+export type UpdateProgress = (
+  change: (previous: Progress) => Progress,
+) => boolean
+
+// Read before the first paint so the recipe opens where it was left. Each
+// action applies only its own change, to the latest progress from any tab.
+export function useRecipeProgress(
+  recipeId: number,
+  servings: Lines['servings'],
+  ingredients: Lines['ingredients'],
+  steps: Lines['steps'],
+) {
+  const lines = useMemo(
+    () => ({ servings, ingredients, steps }),
+    [servings, ingredients, steps],
+  )
+  const [progress, setProgress] = useState(
+    () => loadProgress(recipeId, lines) ?? EMPTY,
+  )
+  const current = useRef(progress)
+  const keepInStorage = useRef(true)
+  const update = useCallback<UpdateProgress>(
+    (change) => {
+      const saved = keepInStorage.current
+        ? readProgress(recipeId, lines)
+        : undefined
+      const previous = saved === undefined ? current.current : (saved ?? EMPTY)
+      const next = change(previous)
+      if (saved === undefined) keepInStorage.current = false
+      else if (next !== previous)
+        keepInStorage.current = saveProgress(recipeId, next)
+      current.current = next
+      setProgress(next)
+      return next !== previous
+    },
+    [recipeId, lines],
+  )
+
+  useEffect(() => {
+    const receive = (event: StorageEvent) => {
+      if (
+        !keepInStorage.current ||
+        (event.key !== null && event.key !== KEY_PREFIX + recipeId)
+      )
+        return
+      const saved = readProgress(recipeId, lines)
+      if (saved === undefined || event.storageArea !== localStorage) return
+      current.current = saved ?? EMPTY
+      setProgress(current.current)
+    }
+    window.addEventListener('storage', receive)
+    return () => window.removeEventListener('storage', receive)
+  }, [recipeId, lines])
+  return { progress, update }
 }
