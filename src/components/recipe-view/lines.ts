@@ -1,28 +1,13 @@
 import { useMemo } from 'react'
 import { useDisplaySystem } from '@/hooks/use-display-system'
 import { rulesFor } from '@/core/languages'
-import {
-  parseIngredient,
-  presentIngredient,
-  presentStep,
-  scanStep,
-} from '@/core/quantities'
+import { parseIngredient, presentIngredient } from '@/core/quantities'
 import { lineKeys } from '@/core/recipe/line-keys'
-import { splitTimes } from '@/core/step-times'
+import { readStep } from '@/core/recipe/read-step'
 import type { Section } from '@/core/recipe/section'
 import type { RecipeLanguage } from '@/core/languages'
-import type { Language, MeasuringSystem, Segment } from '@/core/quantities'
-
-// A time a step mentions, for starting a timer from it: which of the
-// step's times it is, counting from 0, as it's written and how long.
-export type TimePiece = {
-  readonly kind: 'time'
-  readonly time: number
-  readonly text: string
-  readonly seconds: number
-}
-
-export type Piece = Segment | TimePiece
+import type { MeasuringSystem } from '@/core/quantities'
+import type { Piece } from '@/core/recipe/read-step'
 
 export type Line = {
   // Its text's, for crossing the line off (recipe-progress.ts).
@@ -67,22 +52,6 @@ function readSections<T extends object>(
   }))
 }
 
-// A step's text split at the times it mentions, numbered through the step.
-function withTimes(
-  segments: ReadonlyArray<Segment>,
-  language: Language,
-): Array<Piece> {
-  let time = 0
-  return segments.flatMap((segment): Array<Piece> => {
-    if (segment.kind !== 'text') return [segment]
-    return splitTimes(segment.text, language).map((part) =>
-      typeof part === 'string'
-        ? { kind: 'text', text: part }
-        : { kind: 'time', time: time++, ...part },
-    )
-  })
-}
-
 const asWritten = (written: string): ReadonlyArray<Piece> => [
   { kind: 'text', text: written },
 ]
@@ -90,7 +59,7 @@ const asWritten = (written: string): ReadonlyArray<Piece> => [
 // A recipe's lines as this device shows them. A recipe in a language the
 // app doesn't read quantities in is shown as written. Lines are read once
 // for the recipe; servings only change how its ingredients are shown.
-export function useRecipeLines(recipe: Readable, factor: number) {
+export function useRecipeIngredients(recipe: Readable, factor: number) {
   const display = useDisplaySystem()
   const language = rulesFor(recipe.language)
   const system = recipe.measuringSystem
@@ -122,26 +91,18 @@ export function useRecipeLines(recipe: Readable, factor: number) {
       })),
     [parsed, language, system, display, factor],
   )
-  const steps = useMemo(
-    (): ReadonlyArray<ReadSection> =>
-      readSections(recipe.steps, 'step', (written) => {
-        if (language === null) {
-          return { pieces: asWritten(written), amounts: NO_AMOUNTS }
-        }
-        const quantities = scanStep(written, { language, system })
-        const { segments } = presentStep(written, quantities, {
-          language,
-          system,
-          display,
-        })
-        const amounts = new Set(
-          quantities.flatMap((q, i) =>
-            q.type === 'amount' && q.unit?.kind !== 'length' ? [i] : [],
-          ),
-        )
-        return { pieces: withTimes(segments, language), amounts }
-      }),
+  return ingredients
+}
+
+export function useRecipeSteps(recipe: Readable): ReadonlyArray<ReadSection> {
+  const display = useDisplaySystem()
+  const language = rulesFor(recipe.language)
+  const system = recipe.measuringSystem
+  return useMemo(
+    () =>
+      readSections(recipe.steps, 'step', (written) =>
+        readStep(written, language, system, display),
+      ),
     [recipe.steps, language, system, display],
   )
-  return { ingredients, steps }
 }

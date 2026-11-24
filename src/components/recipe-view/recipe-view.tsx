@@ -13,7 +13,10 @@ import {
   IngredientCard,
   IngredientDrawer,
 } from '@/components/recipe-view/ingredient-list'
-import { useRecipeLines } from '@/components/recipe-view/lines'
+import {
+  useRecipeIngredients,
+  useRecipeSteps,
+} from '@/components/recipe-view/lines'
 import {
   useAlarm,
   useCrossOff,
@@ -167,16 +170,17 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
   const rules = rulesFor(recipe.language)
   // Progress kept on this device, read before the first paint, so the
   // recipe opens where it was left.
-  const [kept] = useState(() => loadProgress(recipe.id, recipe))
+  const steps = useRecipeSteps(recipe)
+  const [kept] = useState(() => loadProgress(recipe.id, { ...recipe, steps }))
   const servings = useServings(
     recipe.servings,
     rules,
     kept?.servings?.count ?? null,
   )
-  const lines = useRecipeLines(recipe, servings.factor)
+  const ingredients = useRecipeIngredients(recipe, servings.factor)
   const cross = useCrossOff(kept?.crossed ?? [])
   const timers = useTimers(kept?.timers ?? [])
-  const order = useStepOrder(lines.steps, cross)
+  const order = useStepOrder(steps, cross)
   useEffect(() => {
     saveProgress(recipe.id, {
       servings:
@@ -263,17 +267,15 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
   if (wide && drawerOpen) setDrawerOpen(false)
   const offerIngredients = !cardInView && !wide
 
-  const ingredientKeys = lines.ingredients.flatMap((s) =>
-    s.lines.map((l) => l.key),
-  )
+  const ingredientKeys = ingredients.flatMap((s) => s.lines.map((l) => l.key))
   const checked = ingredientKeys.filter(cross.has).length
   const times = timesOf(recipe)
   // The note on step amounts only matters where a step has one.
   const forOriginal =
     servings.changed &&
-    lines.steps.some((s) => s.lines.some((l) => l.amounts.size > 0))
+    steps.some((s) => s.lines.some((l) => l.amounts.size > 0))
   const ingredientProps = {
-    sections: lines.ingredients,
+    sections: ingredients,
     language: recipe.language,
     cross,
     servings,
@@ -412,7 +414,7 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
           <StepList
             ref={stepsRef}
             titleId="recipe-steps"
-            sections={lines.steps}
+            sections={steps}
             order={order}
             language={recipe.language}
             servingsWritten={

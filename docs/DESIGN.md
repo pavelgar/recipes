@@ -661,7 +661,8 @@
 - A recipe opens where it was left on this device: the servings chosen,
   the lines crossed off and the timers, which run on while it's closed.
   Each recipe keeps its own, for any number of recipes, until it's back as
-  it started. Progress on lines since changed is dropped.
+  it started. Progress on lines since changed and timers whose duration is
+  no longer shown in the step are dropped.
 - The first step not yet crossed off is the current one: it leads, larger,
   with Done, and Back to the step before. So the view guides cooking
   without a separate mode.

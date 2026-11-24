@@ -15,7 +15,8 @@ import {
   servingsStep,
 } from '@/core/servings'
 import { m } from '@/paraglide/messages'
-import type { ReadSection, TimePiece } from '@/components/recipe-view/lines'
+import type { ReadSection } from '@/components/recipe-view/lines'
+import type { TimePiece } from '@/core/recipe/read-step'
 import type { Language } from '@/core/quantities'
 import type { KeptTimer } from '@/components/recipe-view/recipe-progress'
 

@@ -4,7 +4,7 @@ import { TimerIcon } from 'lucide-react'
 import { useSecondsLeft } from '@/components/recipe-view/state'
 import { formatClock } from '@/core/step-times'
 import { m } from '@/paraglide/messages'
-import type { Piece, TimePiece } from '@/components/recipe-view/lines'
+import type { Piece, TimePiece } from '@/core/recipe/read-step'
 import type { Timer, Timers } from '@/components/recipe-view/state'
 import type { ReactNode } from 'react'
 

@@ -1,5 +1,6 @@
 import { lineKeys } from '@/core/recipe/line-keys'
 import { z } from 'zod'
+import type { ReadSection } from '@/components/recipe-view/lines'
 import type { Section } from '@/core/recipe/section'
 
 // How far someone has got with a recipe on this device: the servings they
@@ -17,33 +18,39 @@ const timerShape = z.object({
   // The step it was started from, by its line's key, and which of the
   // times in the step, counting from 0.
   stepKey: z.string(),
-  time: z.number(),
+  time: z.int().nonnegative(),
   // The time as the step writes it, and how long it was, in seconds.
   label: z.string(),
-  seconds: z.number(),
+  seconds: z.int().positive(),
   // When it's up, in milliseconds since the epoch, so a timer keeps running
   // while the page is closed.
-  endsAt: z.number(),
+  endsAt: z.int().positive(),
+})
+
+// The count shown, or the multiplier for a yield without a count, and the
+// original yield it was chosen for.
+const servingsShape = z.object({
+  written: z.string().nullable(),
+  count: z.number().positive(),
 })
 
 const progressShape = z.object({
-  // The servings chosen: the count shown, or the multiple of a recipe whose
-  // servings give no number, and the servings as written it was chosen
-  // for. Null for the recipe's own.
-  servings: z
-    .object({ written: z.string().nullable(), count: z.number() })
-    .nullable(),
-  crossed: z.array(z.string()),
-  timers: z.array(timerShape),
+  servings: servingsShape.nullable().catch(null),
+  crossed: z.array(z.string().nullable().catch(null)).catch([]),
+  timers: z.array(timerShape.nullable().catch(null)).catch([]),
 })
 
 export type KeptTimer = z.infer<typeof timerShape>
-export type Progress = z.infer<typeof progressShape>
+export type Progress = {
+  servings: z.infer<typeof servingsShape> | null
+  crossed: Array<string>
+  timers: Array<KeptTimer>
+}
 
 type Lines = {
   servings: string | null
   ingredients: ReadonlyArray<Section>
-  steps: ReadonlyArray<Section>
+  steps: ReadonlyArray<Pick<ReadSection, 'lines'>>
 }
 
 const isEmpty = (progress: Progress) =>
@@ -64,19 +71,36 @@ export function loadProgress(
     const parsed = progressShape.safeParse(JSON.parse(raw))
     if (!parsed.success) return null
     const { servings, crossed, timers } = parsed.data
-    const steps = new Set(lineKeys(lines.steps, 'step').flat())
+    const steps = new Map(
+      lines.steps.flatMap((section) =>
+        section.lines.map((line) => [line.key, line]),
+      ),
+    )
     const keys = new Set([
       ...lineKeys(lines.ingredients, 'ingredient').flat(),
-      ...steps,
+      ...steps.keys(),
     ])
+    const active = new Map<string, KeptTimer>()
+    for (const timer of timers) {
+      if (!timer || timer.endsAt + FINISHED_TIMER_KEPT_MS <= now) continue
+      const times = steps.get(timer.stepKey)?.pieces
+      const time = times?.find(
+        (piece) => piece.kind === 'time' && piece.time === timer.time,
+      )
+      if (
+        time?.kind !== 'time' ||
+        time.text !== timer.label ||
+        time.seconds !== timer.seconds
+      )
+        continue
+      active.set(`${timer.stepKey}:${timer.time}`, timer)
+    }
     return {
       servings: servings?.written === lines.servings ? servings : null,
-      crossed: crossed.filter((key) => keys.has(key)),
-      timers: timers.filter(
-        (timer) =>
-          steps.has(timer.stepKey) &&
-          timer.endsAt + FINISHED_TIMER_KEPT_MS > now,
+      crossed: crossed.filter(
+        (key): key is string => key !== null && keys.has(key),
       ),
+      timers: [...active.values()],
     }
   } catch {
     return null
