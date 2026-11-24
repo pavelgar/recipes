@@ -24,26 +24,17 @@ const WORDS = {
   },
 } satisfies Record<Language, Record<string, string>>
 
-// The number, or the shorter end of a range, its unit, and minutes added
-// after hours ("1 hr 45 min", "1 tunti ja 15 minuuttia").
+// Each part of a duration has a number or range and its unit.
 const PATTERNS = Object.fromEntries(
   Object.entries(WORDS).map(([language, w]) => [
     language,
     new RegExp(
       String.raw`(?<![\d.,/])(?:(${NUMBER})\s*(?:${w.range})\s*)?(${NUMBER})\s*` +
-        String.raw`(${w.hours}|${w.minutes}|${w.seconds})(?![\p{L}\d])` +
-        String.raw`(?:\s*(?:${w.and}\s+)?(\d+)\s*(?:${w.minutes})(?![\p{L}\d]))?`,
+        String.raw`(?:(?<hours>${w.hours})|(?<minutes>${w.minutes})|(?<seconds>${w.seconds}))(?![\p{L}\d])`,
       'giu',
     ),
   ]),
 ) as Record<Language, RegExp>
-
-function unitSeconds(unit: string, language: Language): number {
-  const u = unit.toLowerCase()
-  if (new RegExp(`^(?:${WORDS[language].hours})$`, 'u').test(u)) return 3600
-  if (new RegExp(`^(?:${WORDS[language].seconds})$`, 'u').test(u)) return 1
-  return 60
-}
 
 // "1 1/2" → 1.5, "1½" → 1.5, "½" → 0.5, "1,5" → 1.5.
 function toNumber(written: string): number {
@@ -75,21 +66,41 @@ export function splitTimes(
 ): Array<string | StepTime> {
   const out: Array<string | StepTime> = []
   let last = 0
-  for (const match of text.matchAll(PATTERNS[language])) {
-    const [whole, low, high, unit, extra] = match as unknown as [
-      string,
-      string | undefined,
-      string,
-      string,
-      string | undefined,
-    ]
-    let seconds = toNumber(low ?? high) * unitSeconds(unit, language)
-    if (extra) seconds += Number(extra) * 60
-    if (!seconds) continue
-    if (match.index > last) out.push(text.slice(last, match.index))
-    out.push({ text: whole, seconds: Math.round(seconds) })
-    last = match.index + whole.length
+  let duration:
+    { start: number; end: number; seconds: number; unit: number } | undefined
+  const emit = () => {
+    if (!duration) return
+    const seconds = Math.round(duration.seconds)
+    if (!Number.isSafeInteger(seconds) || seconds <= 0) return
+    if (duration.start > last) out.push(text.slice(last, duration.start))
+    out.push({ text: text.slice(duration.start, duration.end), seconds })
+    last = duration.end
   }
+  const join = new RegExp(String.raw`^\s*(?:${WORDS[language].and}\s+)?$`, 'iu')
+  for (const match of text.matchAll(PATTERNS[language])) {
+    const [whole, low, high] = match
+    const unit = match.groups?.hours ? 3600 : match.groups?.minutes ? 60 : 1
+    const count = low ? Math.min(toNumber(low), toNumber(high)) : toNumber(high)
+    const start = match.index
+    const end = start + whole.length
+    const seconds = count * unit
+    if (
+      duration &&
+      unit < duration.unit &&
+      join.test(text.slice(duration.end, start))
+    ) {
+      duration = {
+        start: duration.start,
+        end,
+        seconds: duration.seconds + seconds,
+        unit,
+      }
+    } else {
+      emit()
+      duration = { start, end, seconds, unit }
+    }
+  }
+  emit()
   if (last < text.length) out.push(text.slice(last))
   return out
 }

@@ -66,9 +66,47 @@ describe('splitTimes', () => {
     expect(times(text, language)).toEqual(found)
   })
 
-  // Notation tests: hours and minutes together, and fractions.
+  // Notation tests: compound durations, ranges, and fractions.
   it.each<[string, Language, Array<[string, number]>]>([
     ['Slow cook 1 hr 45 min', 'en', [['1 hr 45 min', 6300]]],
+    ['Roast for 1 hr 20–30 min.', 'en', [['1 hr 20–30 min', 4800]]],
+    [
+      'Cook for 1 minute and 30 seconds.',
+      'en',
+      [['1 minute and 30 seconds', 90]],
+    ],
+    [
+      'Cook for 1–2 hours 5 to 10 minutes 20 sec.',
+      'en',
+      [['1–2 hours 5 to 10 minutes 20 sec', 3920]],
+    ],
+    [
+      'Kypsennä 1 tunti 20–30 min ja 15 sekuntia.',
+      'fi',
+      [['1 tunti 20–30 min ja 15 sekuntia', 4815]],
+    ],
+    [
+      'Keitä 1 minuutti ja 30 sekuntia.',
+      'fi',
+      [['1 minuutti ja 30 sekuntia', 90]],
+    ],
+    [
+      'Blend for 30 seconds, then cook for 2 minutes.',
+      'en',
+      [
+        ['30 seconds', 30],
+        ['2 minutes', 120],
+      ],
+    ],
+    [
+      'Cook for 3 minutes or 5 minutes.',
+      'en',
+      [
+        ['3 minutes', 180],
+        ['5 minutes', 300],
+      ],
+    ],
+    ['Cook for 0 min 30 sec.', 'en', [['0 min 30 sec', 30]]],
     ['Cook for 1 1/2 minutes.', 'en', [['1 1/2 minutes', 90]]],
     ['Hauduta 1 ½ tuntia.', 'fi', [['1 ½ tuntia', 5400]]],
     [

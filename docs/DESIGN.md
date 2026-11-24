@@ -643,7 +643,8 @@
   line, a step's number or text. Ingredients and steps can each be
   unchecked all at once; starting the steps over also stops the timers.
 - Tap a time mentioned in a step to start a timer. Several can run at
-  once; a range starts at its shorter end. Times are found in the
+  once. A duration with hours, minutes or seconds together starts one
+  timer, using the shorter end of any range. Times are found in the
   languages the app reads quantities in. A running timer shows the time
   left after the time's words in the step, and in the dock with its step's
   number. Tapping a running timer stops it, with Undo in a toast.
