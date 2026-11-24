@@ -36,6 +36,9 @@ describe('servingsCount', () => {
 describe('scaleServings', () => {
   it.each<[string, Language, number, string]>([
     ['12 annosta', 'fi', 2, '24 annosta'],
+    ['2, 2 annosta', 'fi', 1, '2 annosta'],
+    ['2, 2 annosta', 'fi', 1.5, '3 annosta'],
+    ['2,5, 2,5 dl', 'fi', 2, '5 dl'],
     ['Serves 8-10', 'en', 1.5, 'Serves 12-15'],
     ['8–10 annosta', 'fi', 0.5, '4–5 annosta'],
     ['Makes about 650ml/21fl oz', 'en', 2, 'Makes about 1300ml/42fl oz'],

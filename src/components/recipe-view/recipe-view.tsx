@@ -40,6 +40,7 @@ import {
   loadProgress,
   saveProgress,
 } from '@/components/recipe-view/recipe-progress'
+import { singleServingCount } from '@/core/servings'
 import { formatClock } from '@/core/step-times'
 import { m } from '@/paraglide/messages'
 import type { Timer, Timers } from '@/components/recipe-view/state'
@@ -414,7 +415,11 @@ export function RecipeView({ recipe }: { recipe: ViewedRecipe }) {
             sections={lines.steps}
             order={order}
             language={recipe.language}
-            servingsWritten={recipe.servings}
+            servingsWritten={
+              recipe.servings === null
+                ? null
+                : singleServingCount(recipe.servings)
+            }
             forOriginal={forOriginal}
             cross={cross}
             timers={timers}

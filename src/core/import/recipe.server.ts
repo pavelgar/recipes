@@ -6,6 +6,7 @@ import { recipeLanguageOf, regionOf } from '@/core/languages'
 import { recipeLanguage } from '@/core/languages.server'
 import { isOfType, isThing, valuesOf } from '@/core/import/schema-org'
 import { guessMeasuringSystem } from '@/core/measuring-system'
+import { singleServingCount } from '@/core/servings'
 import type { Section } from '@/core/recipe/section'
 import type { ImportedRecipe } from '@/core/import/types'
 import type { Page, Thing } from '@/core/import/schema-org'
@@ -193,8 +194,6 @@ function withoutTitle(
 // Pages often give servings and yield together: ["12", "12 doughnuts"].
 // The one with words says more, and keeps them: "24 pullaa". Some join
 // the two in one ("4, 4 annosta"), and the number is read once.
-const REPEATED_NUMBER = /^(\d[\d.,]*), (?=\1 )/
-
 function readServings(values: Array<unknown>): string | null {
   const texts = values
     .filter((value) => typeof value === 'string' || typeof value === 'number')
@@ -202,7 +201,7 @@ function readServings(values: Array<unknown>): string | null {
     .filter((text) => text !== '')
   const servings =
     texts.find((text) => /\p{L}/u.test(text)) ?? texts.at(0) ?? null
-  return servings?.replace(REPEATED_NUMBER, '') ?? null
+  return servings === null ? null : singleServingCount(servings)
 }
 
 // ISO 8601 durations, as schema.org asks: "PT1H30M" is 90 minutes. Some

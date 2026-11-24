@@ -344,7 +344,8 @@
 - Servings are adjustable, and ingredient amounts follow.
 - Servings are kept as written, since recipes often give a yield instead
   ("24 pullaa", "1 vuoka", "4–6 annosta"). The app reads the number and
-  scales it, keeping the word: "24 pullaa" → "48 pullaa". Ranges scale at
+  scales it, keeping the word: "24 pullaa" → "48 pullaa". A repeated count in a saved
+  yield ("4, 4 annosta") is shown once. Ranges scale at
   both ends. Sizes of what's made stay: "1 - 9x13 inch pan" → "2 - 9x13
   inch pan". A number keeps the way it's written where it can ("kaksi
   vuokaa" → "kolme vuokaa"). A tap changes the servings by one, or by a

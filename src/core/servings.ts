@@ -41,6 +41,12 @@ function readAt(
   return word && !word.article ? word : null
 }
 
+// Imported yields can give the count twice ("4, 4 annosta"). Older saves
+// still contain both, so the recipe view reads them the same as import.
+export function singleServingCount(written: string): string {
+  return written.replace(/^(\d[\d.,]*), (?=\1 )/, '')
+}
+
 // The numbers in the servings that count what the recipe makes, and so
 // scale: every number but sizes.
 function countsIn(
@@ -113,6 +119,7 @@ export function scaleServings(
   factor: number,
   language: Language | null,
 ): string {
+  written = singleServingCount(written)
   let out = ''
   let last = 0
   // The canonical copy has the same positions as what's written.
