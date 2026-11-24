@@ -644,7 +644,7 @@
 - The screen stays awake while a recipe is open.
 - Tap to cross off ingredients and steps: an ingredient's checkbox or
   line, a step's number or text. Ingredients and steps can each be
-  unchecked all at once; starting the steps over also stops the timers.
+  unchecked all at once; starting the steps over also stops the timers and dismisses earlier timer\n Undo actions.
 - Tap a time mentioned in a step to start a timer. Several can run at
   once. A duration with hours, minutes or seconds together starts one
   timer, using the shorter end of any range. Times are found in the

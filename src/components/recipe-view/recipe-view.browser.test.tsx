@@ -279,6 +279,27 @@ describe('timers', () => {
       .toBeVisible()
   })
 
+  it('dismisses a timer Undo when the steps start over', async () => {
+    const screen = await renderView(PICCATA)
+    await screen.getByRole('button', { name: 'Done', exact: true }).click()
+    await screen.getByRole('button', { name: START_TIMER }).click()
+    await screen
+      .getByRole('list')
+      .getByRole('button', { name: STOP_TIMER })
+      .click()
+    const undo = screen.getByRole('button', { name: 'Undo' })
+    await expect.element(undo).toBeVisible()
+
+    await screen.getByRole('button', { name: 'Start over' }).click()
+    await expect.element(undo).not.toBeInTheDocument()
+    await expect
+      .element(screen.getByRole('button', { name: START_TIMER }))
+      .toBeVisible()
+    await expect
+      .element(screen.getByRole('button', { name: DOCKED }))
+      .not.toBeInTheDocument()
+  })
+
   it('stop when the steps start over', async () => {
     const screen = await renderView(PICCATA)
     await screen.getByRole('button', { name: START_TIMER }).click()

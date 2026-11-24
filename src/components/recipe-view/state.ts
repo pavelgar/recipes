@@ -120,6 +120,12 @@ export type StepOrder = ReturnType<typeof useStepOrder>
 
 export type Timer = KeptTimer & { id: number }
 
+function closeUndos(ids: Set<string>) {
+  const open = [...ids]
+  ids.clear()
+  for (const id of open) toast.close(id)
+}
+
 // Timers started from times in steps, starting from those kept, which ran
 // on while the page was closed. Several can run at once. A timer goes once
 // its time has long been up, unless it's stopped sooner.
@@ -160,9 +166,7 @@ export function useTimers(kept: ReadonlyArray<KeptTimer>) {
   const undos = useRef(new Set<string>())
   useEffect(() => {
     const open = undos.current
-    return () => {
-      for (const id of open) toast.close(id)
-    }
+    return () => closeUndos(open)
   }, [])
   const stop = useCallback((timer: Timer) => {
     setTimers((ts) => ts.filter((t) => t.id !== timer.id))
@@ -171,6 +175,7 @@ export function useTimers(kept: ReadonlyArray<KeptTimer>) {
       actionProps: {
         children: m.editor_undo(),
         onClick: () => {
+          if (!undos.current.delete(id)) return
           toast.close(id)
           setTimers((ts) =>
             ts.some((t) => t.stepKey === timer.stepKey && t.time === timer.time)
@@ -184,7 +189,10 @@ export function useTimers(kept: ReadonlyArray<KeptTimer>) {
     undos.current.add(id)
   }, [])
 
-  const stopAll = useCallback(() => setTimers([]), [])
+  const stopAll = useCallback(() => {
+    closeUndos(undos.current)
+    setTimers([])
+  }, [])
   const find = (stepKey: string, time: number) =>
     timers.find((t) => t.stepKey === stepKey && t.time === time)
   return { timers, start, stop, stopAll, find }
