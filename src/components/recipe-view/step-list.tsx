@@ -49,24 +49,36 @@ export function StepList({
 }) {
   const { flat, current, currentIndex } = order
 
-  // Done and Back bring the step that's now current into view.
+  // Done and Back bring the step that's now current into view. When Done
+  // removes the focused control, move focus to its replacement.
   const stepRefs = useRef(new Map<string, HTMLElement>())
-  const reveal = (key: string | undefined) => {
-    if (!key) return
-    requestAnimationFrame(() =>
-      stepRefs.current.get(key)?.scrollIntoView({
-        block: 'center',
-        behavior: scrollBehavior(),
-      }),
-    )
+  const doneButton = useRef<HTMLButtonElement>(null)
+  const finishedBack = useRef<HTMLButtonElement>(null)
+  const reveal = (key: string | undefined, moveFocus = false) => {
+    if (!key && !moveFocus) return
+    requestAnimationFrame(() => {
+      if (moveFocus) {
+        if (key) doneButton.current?.focus({ preventScroll: true })
+        else finishedBack.current?.focus()
+      }
+      if (key) {
+        stepRefs.current.get(key)?.scrollIntoView({
+          block: 'center',
+          behavior: scrollBehavior(),
+        })
+      }
+    })
   }
   const finish = () => {
     if (current === null) return
+    const moveFocus = stepRefs.current
+      .get(current)
+      ?.contains(document.activeElement)
+    const next = flat
+      .slice(currentIndex + 1)
+      .find((s) => !cross.has(s.line.key))
     cross.toggle(current)
-    reveal(
-      flat.slice(currentIndex + 1).find((s) => !cross.has(s.line.key))?.line
-        .key,
-    )
+    reveal(next?.line.key, moveFocus)
   }
   const back = () => {
     const previous = flat.at(
@@ -170,7 +182,12 @@ export function StepList({
                             <ArrowLeftIcon />
                           </Button>
                         )}
-                        <Button size="lg" className="ml-auto" onClick={finish}>
+                        <Button
+                          ref={doneButton}
+                          size="lg"
+                          className="ml-auto"
+                          onClick={finish}
+                        >
                           <CheckIcon data-icon="inline-start" />
                           {m.recipe_step_done()}
                         </Button>
@@ -209,7 +226,12 @@ export function StepList({
         </div>
       ))}
       {current === null && flat.length > 0 && (
-        <Button variant="outline" onClick={back} className="mt-4">
+        <Button
+          ref={finishedBack}
+          variant="outline"
+          onClick={back}
+          className="mt-4"
+        >
           <ArrowLeftIcon data-icon="inline-start" />
           {m.recipe_step_back({ number: flat[flat.length - 1].number })}
         </Button>

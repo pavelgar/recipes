@@ -78,8 +78,53 @@ function TimeWords({ children }: { children?: ReactNode }) {
   )
 }
 
-// A time in a step, which starts a timer, or, with the timer running,
-// shows the time left after it and stops it.
+// The running timer's label and countdown. A new deadline starts its own clock.
+function RunningTime({
+  piece,
+  stepNumber,
+  running,
+}: {
+  piece: TimePiece
+  stepNumber: number
+  running: Timer
+}) {
+  const left = useSecondsLeft(running.endsAt)
+  // The time left, or that it's up, after the time's words.
+  const clock = ({ children }: { children?: ReactNode }) => (
+    <span
+      className={cn(
+        'rounded-md bg-primary px-1 whitespace-nowrap text-primary-foreground',
+        left === 0 && 'motion-safe:animate-pulse',
+      )}
+    >
+      {left > 0 ? (
+        <TimerClock seconds={running.seconds} left={left} />
+      ) : (
+        children
+      )}
+    </span>
+  )
+  const markup = { hidden: screenReaderOnly, time: TimeWords, left: clock }
+  return left === 0 ? (
+    <ParaglideMessage
+      message={m.recipe_timer_running_up}
+      inputs={{ number: stepNumber, time: piece.text }}
+      markup={markup}
+    />
+  ) : (
+    <ParaglideMessage
+      message={m.recipe_timer_running}
+      inputs={{
+        number: stepNumber,
+        time: piece.text,
+        left: formatClock(left),
+      }}
+      markup={markup}
+    />
+  )
+}
+
+// Keep the same button as the timer starts and stops so it keeps focus.
 function TimeButton({
   piece,
   stepKey,
@@ -93,23 +138,6 @@ function TimeButton({
   running: Timer | undefined
   timers: Timers
 }) {
-  const left = useSecondsLeft(running?.endsAt ?? 0)
-  // The time left, or that it's up, after the time's words.
-  const clock = ({ children }: { children?: ReactNode }) => (
-    <span
-      className={cn(
-        'rounded-md bg-primary px-1 whitespace-nowrap text-primary-foreground',
-        left === 0 && 'motion-safe:animate-pulse',
-      )}
-    >
-      {running && left > 0 ? (
-        <TimerClock seconds={running.seconds} left={left} />
-      ) : (
-        children
-      )}
-    </span>
-  )
-  const markup = { hidden: screenReaderOnly, time: TimeWords, left: clock }
   return (
     <button
       type="button"
@@ -128,24 +156,15 @@ function TimeButton({
       // there the words take the text's colour, underlined in orange.
       className="inline rounded-md px-0.5 font-semibold text-primary decoration-primary/40 decoration-2 underline-offset-4 outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:text-foreground dark:underline dark:decoration-primary"
     >
-      {!running ? (
-        <TimeWords>{piece.text}</TimeWords>
-      ) : left === 0 ? (
-        <ParaglideMessage
-          message={m.recipe_timer_running_up}
-          inputs={{ number: stepNumber, time: piece.text }}
-          markup={markup}
+      {running ? (
+        <RunningTime
+          key={running.id}
+          piece={piece}
+          stepNumber={stepNumber}
+          running={running}
         />
       ) : (
-        <ParaglideMessage
-          message={m.recipe_timer_running}
-          inputs={{
-            number: stepNumber,
-            time: piece.text,
-            left: formatClock(left),
-          }}
-          markup={markup}
-        />
+        <TimeWords>{piece.text}</TimeWords>
       )}
     </button>
   )
@@ -188,9 +207,8 @@ export function StepText({
     }
     const running = timers.find(stepKey, piece.time)
     const button = (
-      // A timer started anew counts down from its own start.
       <TimeButton
-        key={`${i}-${running?.id ?? 'idle'}`}
+        key={i}
         piece={piece}
         stepKey={stepKey}
         stepNumber={stepNumber}

@@ -189,6 +189,7 @@ describe('steps', () => {
     const done = screen.getByRole('button', { name: 'Done', exact: true })
 
     await done.click()
+    await expect.element(done).toHaveFocus()
     await expect
       .element(
         screen.getByRole('button', { name: 'Step 1, done. Mark not done' }),
@@ -202,6 +203,17 @@ describe('steps', () => {
     await expect
       .element(screen.getByRole('button', { name: 'Back to step 1' }))
       .not.toBeInTheDocument()
+  })
+
+  it('focuses Back when the last step is completed', async () => {
+    const screen = await renderView(PICCATA)
+    const done = screen.getByRole('button', { name: 'Done', exact: true })
+    await done.click()
+    await expect.element(done).toHaveFocus()
+    await done.click()
+    await expect
+      .element(screen.getByRole('button', { name: 'Back to step 2' }))
+      .toHaveFocus()
   })
 
   it('cross off with a tap on their text, and start over', async () => {
@@ -250,6 +262,7 @@ describe('timers', () => {
       name: /^Step 2: stop the timer 5 to 8 minutes [45]:\d\d left$/,
     })
     await expect.element(inStep).toBeVisible()
+    await expect.element(inStep).toHaveFocus()
     // In the dock, with its step's number.
     const docked = screen.getByRole('button', {
       name: /^Stop the timer for step 2 [45]:\d\d left$/,
