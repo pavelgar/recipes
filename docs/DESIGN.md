@@ -479,7 +479,8 @@
   cup" → "2 cups", "1 purkki" → "2 purkkia"). Scaled grams and millilitres
   round to 5 from 20 up (175 g × 1,5 → 265 g).
 - A scaled measure that its nearest fraction misses by more than 10% is
-  written as a decimal instead, to one place (two below 0.1): ⅓ dl × 1,25
+  written as a decimal instead, to one place (two below 0.1, or more to
+  keep a positive amount from rounding to zero): ⅓ dl × 1,25
   → 0,4 dl, ¼ tsp × 1,5 → 0.4 tsp, ¾ dl × 1,5 → 1,1 dl. The fractions are
   ⅛, ¼, ½ and ¾ for teaspoons, quarters for ounces and pounds, and ¼, ⅓,
   ½, ⅔ and ¾ for the rest. Both ends of a range follow. Cups and

@@ -346,6 +346,20 @@ function fractionFarOff(n: number, unit: Unit | null): boolean {
   )
 }
 
+// Keep the usual precision unless it would turn a positive amount into
+// zero. A smaller amount gets the first significant digit in its own unit.
+function formatScaledDecimal(
+  n: number,
+  language: Language,
+  decimals = 1,
+  separator = language === 'fi' ? ',' : '.',
+): string {
+  const rounded = formatDecimal(n, language, decimals, separator)
+  if (n <= 0 || rounded !== '0') return rounded
+  const [digit, exponent] = n.toExponential(0).split('e-')
+  return `0${separator}${'0'.repeat(Number(exponent) - 1)}${digit}`
+}
+
 // A scaled number written the way the original was: decimals stay
 // decimals, fractions fractions, words words. With `decimal`, a number
 // that would be a fraction is a decimal instead.
@@ -360,7 +374,7 @@ function formatLike(
 ): string {
   if (written.form === 'decimal') {
     const separator = original.includes(',') ? ',' : '.'
-    return formatDecimal(n, language, n < 1 ? 2 : 1, separator)
+    return formatScaledDecimal(n, language, n < 1 ? 2 : 1, separator)
   }
   if (written.form === 'word') {
     const word = numberWord(n, original, language)
@@ -371,14 +385,15 @@ function formatLike(
     // Grams and millilitres round to 5 from 20 up, whole or not: 175 g × 1,5
     // → 265 g, 142 ml × 1,5 → 215 ml.
     if (WHOLE_UNITS.has(id) && n >= 20) return String(Math.round(n / 5) * 5)
-    if (Number.isInteger(Math.round(n * 1e6) / 1e6))
+    if (n === 0 || (n >= 0.5 && Number.isInteger(Math.round(n * 1e6) / 1e6)))
       return String(Math.round(n))
-    if (DECIMAL_UNITS.has(id)) return formatDecimal(n, language, n < 1 ? 2 : 1)
+    if (DECIMAL_UNITS.has(id))
+      return formatScaledDecimal(n, language, n < 1 ? 2 : 1)
     if (WHOLE_UNITS.has(id)) {
-      return n < 10 ? formatDecimal(n, language) : String(Math.round(n))
+      return n < 10 ? formatScaledDecimal(n, language) : String(Math.round(n))
     }
   }
-  if (decimal) return formatDecimal(n, language, n < 0.1 ? 2 : 1)
+  if (decimal) return formatScaledDecimal(n, language, n < 0.1 ? 2 : 1)
   return formatFraction(
     nearestFraction(n, scaledFractions(unit)),
     fractionStyleOf(styleFrom),
@@ -388,14 +403,18 @@ function formatLike(
 // Cups and tablespoons that no simple fraction fits within 6% take spoons
 // added instead: ⅓ cup × 1,2 → ⅓ cup + 1 tbsp.
 function spoonFallback(n: number, unit: Unit | null): Measure | null {
-  if (unit?.id !== 'cup' && unit?.id !== 'tbsp') return null
+  if (n <= 0 || (unit?.id !== 'cup' && unit?.id !== 'tbsp')) return null
   const near = nearestFraction(n, fractionsFor(unit))
   if (Math.abs(near - n) / n <= 0.06) return null
   return unit.id === 'cup' ? cupsWithSpoons(n, 16) : tablespoonsWithTeaspoons(n)
 }
 
 // "2 lb 10 oz" for a scaled "1lb 5oz", in the writer's spacing.
-function poundsAndOunces(lb: number, original: string): string {
+function poundsAndOunces(
+  lb: number,
+  original: string,
+  language: Language,
+): string {
   let pounds = Math.floor(lb)
   let ounces = Math.round((lb - pounds) * 16)
   if (ounces === 16) {
@@ -403,6 +422,9 @@ function poundsAndOunces(lb: number, original: string): string {
     ounces = 0
   }
   const space = /\d\s+lb/i.test(original) ? ' ' : ''
+  if (lb > 0 && pounds === 0 && ounces === 0) {
+    return `${formatScaledDecimal(lb, language, 2)}${space}lb`
+  }
   return ounces
     ? `${pounds}${space}lb ${ounces}${space}oz`
     : `${pounds}${space}lb`
@@ -431,7 +453,7 @@ function scaleInPlace(
     /\d/.test(unitText) &&
     typeof value === 'number'
   ) {
-    return [edit(q.at, poundsAndOunces(value, original))]
+    return [edit(q.at, poundsAndOunces(value, original, opts.language))]
   }
   if (typeof value === 'number') {
     const fallback = spoonFallback(value, q.unit)

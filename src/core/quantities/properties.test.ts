@@ -227,12 +227,17 @@ describe('scaled measures', () => {
     )
     .map(([whole, part]) => whole + part)
   const factor = fc
-    .tuple(fc.integer({ min: 1, max: 12 }), fc.integer({ min: 1, max: 24 }))
+    .tuple(fc.integer({ min: 1, max: 240 }), fc.integer({ min: 1, max: 24 }))
     .map(([from, to]) => to / from)
 
   test.prop([written, factor, fc.constantFrom('dl', 'tl')], {
-    // CI seed 641006560: a decimal rounded at the half-step boundary.
-    examples: [[0.5, 0.3, 'dl']],
+    seed: 641006560,
+    numRuns: 500,
+    examples: [
+      // CI seed 641006560: a decimal at the half-step boundary.
+      [0.5, 0.3, 'dl'],
+      [0.25, 1 / 60, 'tl'],
+    ],
   })(
     'read within 10% of the amount, as a fraction only when one is that close',
     (n, f, unit) => {
@@ -245,17 +250,43 @@ describe('scaled measures', () => {
       }).text
       const read = readNumber(shown, 0, 'fi')
       expect(read, shown).not.toBeNull()
+      expect(read!.value, shown).toBeGreaterThan(0)
       const exact = n * f
       const off = Math.abs(read!.value - exact)
       if (read!.form === 'fraction') {
         expect(off / exact, shown).toBeLessThanOrEqual(0.1 + 1e-9)
       } else {
-        // A decimal to one place, allowing floating-point noise at the
-        // half-step boundary (0.2 - 0.15 is slightly more than 0.05).
+        // Below a tenth the decimal has at least two places, and it
+        // keeps more if two would have rounded the amount to zero.
+        const rounding =
+          exact < 0.005
+            ? 10 ** Math.floor(Math.log10(exact)) / 2
+            : exact < 0.1
+              ? 0.005
+              : 0.05
         expect(off, shown).toBeLessThanOrEqual(
-          Math.max(0.1 * exact, 0.05) + 1e-9,
+          Math.max(0.1 * exact, rounding) + 1e-9,
         )
       }
+    },
+  )
+
+  test.each([
+    ['¼ tl suolaa', 1 / 60, '0,004 tl suolaa'],
+    ['0,1 dl maitoa', 1 / 240, '0,0004 dl maitoa'],
+    ['1 g sahramia', 1 / 240, '0,004 g sahramia'],
+    ['¼–½ tl suolaa', 1 / 60, '0,004–0,01 tl suolaa'],
+  ] as const)(
+    'keeps small scaled amounts positive in %s',
+    (text, scale, shown) => {
+      const opts = { language: 'fi', system: 'metric' } as const
+      expect(
+        presentIngredient(parseIngredient(text, opts), {
+          ...opts,
+          display: 'metric',
+          factor: scale,
+        }).text,
+      ).toBe(shown)
     },
   )
 
