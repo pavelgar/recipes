@@ -32,17 +32,21 @@ export function useServings(
 ) {
   const base = servingsCount(written, language)
   const [count, setCount] = useState(kept ?? base ?? 1)
-  const factor = base === null ? count : count / base
+  const canScale = base === null || (Number.isFinite(base) && base > 0)
+  const factor = !canScale ? 1 : base === null ? count : count / base
   const step = servingsStep(base)
 
   const times = `× ${formatCount(count, language)}`
-  const label = !written
-    ? times
-    : base === null
-      ? count === 1
-        ? written
-        : `${written} ${times}`
-      : scaleServings(written, factor, language)
+  const label =
+    !canScale && written
+      ? written
+      : !written
+        ? times
+        : base === null
+          ? count === 1
+            ? written
+            : `${written} ${times}`
+          : scaleServings(written, factor, language)
 
   return {
     label,
@@ -52,7 +56,8 @@ export function useServings(
     kept: factor === 1 ? null : count,
     less: () => setCount((c) => Math.max(step, c - step)),
     more: () => setCount((c) => c + step),
-    canLess: count > step,
+    canLess: canScale && count > step,
+    canMore: canScale,
   }
 }
 

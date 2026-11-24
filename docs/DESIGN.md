@@ -350,7 +350,8 @@
   inch pan". A number keeps the way it's written where it can ("kaksi
   vuokaa" → "kolme vuokaa"). A tap changes the servings by one, or by a
   half below four; servings without a number change as a multiple of the
-  recipe ("× 2").
+  recipe ("× 2"). A yield with a count of zero or less is shown as written
+  and cannot be adjusted.
 - Ingredients are entered as free-text lines, in one text box; steps the
   same, one step per line. As you type, the amounts and units the app
   recognised are highlighted in place; a number it couldn't place isn't.

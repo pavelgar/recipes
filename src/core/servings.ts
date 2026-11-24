@@ -78,7 +78,10 @@ export function servingsCount(
   language: Language | null,
 ): number | null {
   if (!written) return null
-  return countsIn(written, language).at(0)?.value ?? null
+  const count = countsIn(written, language).at(0)
+  if (!count) return null
+  const negative = /(?:^|\s)-$/u.test(canonical(written.slice(0, count.start)))
+  return negative ? -count.value : count.value
 }
 
 // A count as the recipe's language writes it, to one decimal: "2,5" in

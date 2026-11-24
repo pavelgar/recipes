@@ -76,6 +76,7 @@ function ServingsStepper({
         variant="outline"
         size="icon"
         onClick={servings.more}
+        disabled={!servings.canMore}
         aria-label={m.recipe_servings_more()}
         className="h-auto min-h-9"
       >

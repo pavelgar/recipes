@@ -1,4 +1,5 @@
 import { lineKeys } from '@/core/recipe/line-keys'
+import { setDisplaySystem } from '@/hooks/use-display-system'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { render } from 'vitest-browser-react'
 import { RecipeView } from '@/components/recipe-view/recipe-view'
@@ -127,6 +128,34 @@ describe('the header', () => {
 })
 
 describe('servings', () => {
+  it.each(['0 servings', 'Serves -2'])(
+    'keeps ingredient quantities when the yield is %s',
+    async (servings) => {
+      setDisplaySystem('us')
+      try {
+        const screen = await renderView({
+          ...PICCATA,
+          servings,
+          ingredients: [{ heading: null, lines: ['2 cups flour'] }],
+        })
+        await expect
+          .element(screen.getByRole('checkbox', { name: '2 cups flour' }))
+          .toBeInTheDocument()
+        await expect
+          .element(screen.getByRole('group', { name: 'Servings' }))
+          .toHaveTextContent(servings)
+        await expect
+          .element(screen.getByRole('button', { name: 'Fewer servings' }))
+          .toBeDisabled()
+        await expect
+          .element(screen.getByRole('button', { name: 'More servings' }))
+          .toBeDisabled()
+      } finally {
+        document.cookie = 'units=; path=/; max-age=0'
+      }
+    },
+  )
+
   it('scale the servings as written, and mark the amounts in the steps', async () => {
     const screen = await renderView(PICCATA)
     const servings = screen.getByRole('group', { name: 'Servings' })
